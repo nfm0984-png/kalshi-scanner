@@ -1,0 +1,67 @@
+name: Scanner
+run-name: "${{ github.event_name == 'schedule' && 'scheduled scan' || github.event_name == 'workflow_dispatch' && 'manual scan' || 'deploy site' }}"
+on:
+  schedule:
+    # Times are PT-intended (UTC-8). During PDT they run one hour later on the clock.
+    - cron: "20 * * * *"   # hourly refresh at :20
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: kalshi-scanner
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install esbuild
+        run: npm install --no-save esbuild@0.25.1 react@18 react-dom@18
+      - name: Scan Kalshi public books
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          echo "Running Kalshi public scan"
+          python3 -u scanner/scan.py
+      - name: Build app
+        run: |
+          set -euo pipefail
+          NM=./node_modules bash build.sh
+      - name: Commit new data
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          git config user.name "kalshi-scanner-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 scanner/validate_json.py pre-commit data.json
+          git add data.json app.js index.html
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "scan $(TZ=America/Los_Angeles date '+%a %b %-d %-I:%M %p PT')"
+            git pull --rebase origin main || true
+            git push origin HEAD:main
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Stage Pages files
+        run: |
+          mkdir -p _site
+          cp -f index.html app.js data.json _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

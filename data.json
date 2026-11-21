@@ -1,0 +1,410 @@
+{
+  "scannedAt": "Fri Nov 20 \u00b7 6:29 PM PT",
+  "ts": 1795228193,
+  "source": {
+    "note": "Kalshi Sports leaderboard (projected PnL). Kalshi has no 30-day period; monthly is the closest stand-in. Primary pool is all-time top 50 \u2229/\u222a monthly top 50. Most top traders hide their book; visible traders from all-time/monthly top 100 and weekly top 50 are included so the board is not empty. Positions and W-L come only from public profiles and the public trade tape.",
+    "periodUsed": "monthly (no 30-day board exists)",
+    "coverage": {
+      "leaderboardNames": 206,
+      "boards": {
+        "monthly": 100,
+        "weekly": 100,
+        "all_time": 100
+      },
+      "intersection50": 24,
+      "union50": 76,
+      "pool": 174,
+      "visible": 14,
+      "hidden": 160,
+      "mmDropped": 2,
+      "negativePnl": 1,
+      "noBook": 9,
+      "shown": 2,
+      "picks": 3,
+      "games": 3,
+      "finishedDropped": 0,
+      "finishedNames": [],
+      "calls": 857,
+      "retries429": 0,
+      "secs": 465.6
+    }
+  },
+  "cappers": [
+    {
+      "nickname": "WorkerTrader",
+      "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
+      "joinedAt": "2026-03-11",
+      "followers": 492,
+      "tier": "Core",
+      "heavy": false,
+      "ranks": {
+        "monthly": 38,
+        "all_time": 18
+      },
+      "pnl": 1390906.5,
+      "weeklyPnl": null,
+      "monthlyPnl": 100633.35,
+      "ageDays": 254,
+      "graded": {
+        "n": 2,
+        "w": 0,
+        "l": 2,
+        "roi": -5.4,
+        "profit": -220.0,
+        "sample": "small"
+      },
+      "recordLine": "WorkerTrader \u00b7 0-2 \u00b7 -5% \u00b7 +$1.39M all \u00b7 Core",
+      "pickCount": 0
+    },
+    {
+      "nickname": "BWmarkets",
+      "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
+      "joinedAt": "2025-02-03",
+      "followers": 23180,
+      "tier": "Top 50",
+      "heavy": false,
+      "ranks": {
+        "weekly": 14,
+        "all_time": 14
+      },
+      "pnl": 907585.53,
+      "weeklyPnl": 90431.59,
+      "monthlyPnl": null,
+      "ageDays": 655,
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -36.8,
+        "profit": -5182.62,
+        "sample": "small"
+      },
+      "recordLine": "BWmarkets \u00b7 0-1 \u00b7 -37% \u00b7 +$907.6k all \u00b7 Top 50",
+      "pickCount": 1
+    },
+    {
+      "nickname": "reluctant.fox5394",
+      "profileUrl": "https://kalshi.com/ideas/profiles/reluctant.fox5394",
+      "joinedAt": "2026-10-07",
+      "followers": 361,
+      "tier": "Top 50",
+      "heavy": true,
+      "ranks": {
+        "monthly": 29,
+        "weekly": 56,
+        "all_time": 98
+      },
+      "pnl": 383215.94,
+      "weeklyPnl": 25186.023,
+      "monthlyPnl": 119302.64,
+      "ageDays": 44,
+      "graded": null,
+      "recordLine": "reluctant.fox5394 \u00b7 +$383.2k all \u00b7 Top 50",
+      "pickCount": 0
+    },
+    {
+      "nickname": "iluminado",
+      "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
+      "joinedAt": "2026-07-08",
+      "followers": 68,
+      "tier": "Top 50",
+      "heavy": false,
+      "ranks": {
+        "monthly": 48
+      },
+      "pnl": 140349.7,
+      "weeklyPnl": null,
+      "monthlyPnl": 89852.99,
+      "ageDays": 135,
+      "graded": null,
+      "recordLine": "iluminado \u00b7 +$140.3k all \u00b7 Top 50",
+      "pickCount": 0
+    },
+    {
+      "nickname": "past.grass",
+      "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
+      "joinedAt": "2026-04-18",
+      "followers": 111,
+      "tier": "Top 50",
+      "heavy": false,
+      "ranks": {
+        "monthly": 40,
+        "weekly": 16
+      },
+      "pnl": 117905.16,
+      "weeklyPnl": 75865.89,
+      "monthlyPnl": 95440.445,
+      "ageDays": 216,
+      "graded": null,
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 50",
+      "pickCount": 0
+    },
+    {
+      "nickname": "autofade",
+      "profileUrl": "https://kalshi.com/ideas/profiles/autofade",
+      "joinedAt": "2025-06-10",
+      "followers": 759,
+      "tier": "Board",
+      "heavy": true,
+      "ranks": {
+        "all_time": 72
+      },
+      "pnl": 516758.37,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 528,
+      "graded": {
+        "n": 2,
+        "w": 1,
+        "l": 0,
+        "roi": 9.9,
+        "profit": 219.59,
+        "sample": "small"
+      },
+      "recordLine": "autofade \u00b7 1-0 \u00b7 +10% \u00b7 +$516.8k all \u00b7 Board",
+      "pickCount": 0
+    },
+    {
+      "nickname": "breezy.panther",
+      "profileUrl": "https://kalshi.com/ideas/profiles/breezy.panther",
+      "joinedAt": "2025-12-19",
+      "followers": 135,
+      "tier": "Board",
+      "heavy": false,
+      "ranks": {
+        "monthly": 64,
+        "weekly": 70
+      },
+      "pnl": 262227.07,
+      "weeklyPnl": 20943.393,
+      "monthlyPnl": 74378.17,
+      "ageDays": 336,
+      "graded": {
+        "n": 2,
+        "w": 0,
+        "l": 2,
+        "roi": -18.0,
+        "profit": -1575.97,
+        "sample": "small"
+      },
+      "recordLine": "breezy.panther \u00b7 0-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
+      "pickCount": 0
+    },
+    {
+      "nickname": "norrisfan",
+      "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
+      "joinedAt": "2025-12-08",
+      "followers": 3165,
+      "tier": "Board",
+      "heavy": true,
+      "ranks": {
+        "all_time": 76
+      },
+      "pnl": 484317.11,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 347,
+      "graded": null,
+      "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
+      "pickCount": 0
+    },
+    {
+      "nickname": "devex",
+      "profileUrl": "https://kalshi.com/ideas/profiles/devex",
+      "joinedAt": "2026-06-12",
+      "followers": 499,
+      "tier": "Board",
+      "heavy": false,
+      "ranks": {
+        "all_time": 91
+      },
+      "pnl": 413273.5,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 161,
+      "graded": null,
+      "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
+      "pickCount": 0
+    },
+    {
+      "nickname": "bama0037",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bama0037",
+      "joinedAt": "2024-10-11",
+      "followers": 93,
+      "tier": "Board",
+      "heavy": true,
+      "ranks": {
+        "monthly": 77
+      },
+      "pnl": 134208.54,
+      "weeklyPnl": null,
+      "monthlyPnl": 58466.598,
+      "ageDays": 770,
+      "graded": null,
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Board",
+      "pickCount": 0
+    },
+    {
+      "nickname": "regine",
+      "profileUrl": "https://kalshi.com/ideas/profiles/regine",
+      "joinedAt": "2025-12-20",
+      "followers": 46,
+      "tier": "Board",
+      "heavy": false,
+      "ranks": {
+        "monthly": 79
+      },
+      "pnl": 61933.78,
+      "weeklyPnl": null,
+      "monthlyPnl": 55814.168,
+      "ageDays": 335,
+      "graded": null,
+      "recordLine": "regine \u00b7 +$61.9k all \u00b7 Board",
+      "pickCount": 2
+    }
+  ],
+  "games": [
+    {
+      "id": "KXNBAGAME-26NOV20ORLBKN",
+      "game": "Orlando vs Brooklyn",
+      "league": "NBA",
+      "startTs": 1795231800,
+      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
+      "live": false,
+      "state": "upcoming",
+      "picks": [
+        {
+          "key": "KXNBAGAME-26NOV20ORLBKN-BKN|Yes",
+          "ticker": "KXNBAGAME-26NOV20ORLBKN-BKN",
+          "eventTicker": "KXNBAGAME-26NOV20ORLBKN",
+          "mid": "KXNBAGAME-26NOV20ORLBKN-BKN",
+          "bt": "Moneyline",
+          "big": "Brooklyn",
+          "sub": "Orlando vs Brooklyn",
+          "view": {
+            "backing": "Brooklyn",
+            "marketTitle": "Orlando vs Brooklyn",
+            "outcome": "Brooklyn",
+            "yesNo": "Yes",
+            "price": 0.29,
+            "ticker": "KXNBAGAME-26NOV20ORLBKN-BKN"
+          },
+          "backers": [
+            {
+              "name": "regine",
+              "cost": 2367.4,
+              "avg": 0.3481,
+              "line": "regine \u00b7 +$61.9k all \u00b7 Board",
+              "rec": null,
+              "lastTs": 1795228249,
+              "tier": "Board"
+            }
+          ],
+          "total": 2367.4,
+          "tags": [
+            "Board"
+          ],
+          "slip": -5.8,
+          "startTs": 1795231800,
+          "state": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "KXNBAGAME-26NOV20TORDET",
+      "game": "Toronto vs Detroit",
+      "league": "NBA",
+      "startTs": 1795231800,
+      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
+      "live": false,
+      "state": "upcoming",
+      "picks": [
+        {
+          "key": "KXNBAGAME-26NOV20TORDET-TOR|Yes",
+          "ticker": "KXNBAGAME-26NOV20TORDET-TOR",
+          "eventTicker": "KXNBAGAME-26NOV20TORDET",
+          "mid": "KXNBAGAME-26NOV20TORDET-TOR",
+          "bt": "Moneyline",
+          "big": "Toronto",
+          "sub": "Toronto vs Detroit",
+          "view": {
+            "backing": "Toronto",
+            "marketTitle": "Toronto vs Detroit",
+            "outcome": "Toronto",
+            "yesNo": "Yes",
+            "price": 0.6,
+            "ticker": "KXNBAGAME-26NOV20TORDET-TOR"
+          },
+          "backers": [
+            {
+              "name": "regine",
+              "cost": 589.33,
+              "avg": 0.5197,
+              "line": "regine \u00b7 +$61.9k all \u00b7 Board",
+              "rec": null,
+              "lastTs": 1795228586,
+              "tier": "Board"
+            }
+          ],
+          "total": 589.33,
+          "tags": [
+            "Board"
+          ],
+          "slip": 8.0,
+          "startTs": 1795231800,
+          "state": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "KXNCAAFTOTAL-26NOV20UTEPAFA",
+      "game": "UTEP vs Air Force: Total Points",
+      "league": "NCAAF",
+      "startTs": 1795233600,
+      "start": "Fri Nov 20 \u00b7 8:00 PM PT",
+      "live": false,
+      "state": "upcoming",
+      "picks": [
+        {
+          "key": "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
+          "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
+          "eventTicker": "KXNCAAFTOTAL-26NOV20UTEPAFA",
+          "mid": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
+          "bt": "Totals",
+          "big": "Over 49.5 points",
+          "sub": "UTEP vs Air Force: Total Points",
+          "view": {
+            "backing": "Over 49.5 points",
+            "marketTitle": "UTEP vs Air Force: Total Points",
+            "outcome": "Over 49.5 points",
+            "yesNo": "Yes",
+            "price": 0.68,
+            "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50"
+          },
+          "backers": [
+            {
+              "name": "BWmarkets",
+              "cost": 62733.79,
+              "avg": 0.4829,
+              "line": "BWmarkets \u00b7 0-1 \u00b7 -37% \u00b7 +$907.6k all \u00b7 Top 50",
+              "rec": {
+                "w": 0,
+                "l": 1,
+                "n": 1
+              },
+              "lastTs": 1795224231,
+              "tier": "Top 50"
+            }
+          ],
+          "total": 62733.79,
+          "tags": [
+            "Top 50"
+          ],
+          "slip": 19.7,
+          "startTs": 1795233600,
+          "state": "upcoming"
+        }
+      ]
+    }
+  ]
+}
