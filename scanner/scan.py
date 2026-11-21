@@ -97,12 +97,14 @@ def game_finished(info, now, league):
     return False, ""
 
 
-def rec_line(nick, graded, pnl, age, extra=""):
+def rec_line(nick, graded, pnl, age, extra="", best_at=None):
     parts = [nick]
     if graded and graded.get("n"):
         parts.append("%d-%d" % (graded.get("w") or 0, graded.get("l") or 0))
         if graded.get("roi") is not None:
             parts.append("%s%.0f%%" % ("+" if graded["roi"] >= 0 else "", graded["roi"]))
+    if best_at:
+        parts.append("Best at " + str(best_at))
     if pnl is not None:
         parts.append(signed_k(pnl) + " all")
     if extra:
@@ -145,11 +147,12 @@ def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
 TARGET_FOLLOW = 40  # keep discovering every hour even at 40; swap if a pin goes losing
-# Graded winners need official all-time profit of at least $10,000.
-# Leaderboard names with no public W-L can still follow at $100,000 official profit.
+# My 40 is top-leaderboard cappers whose public trades are visible and trackable.
+# Official all-time profit must be positive; a losing reconstructed record is out.
+# Names with no public trades (picks cannot be tracked) go to Watching, not My 40.
 MIN_FOLLOW_SAMPLE = 1
-MIN_FOLLOW_PNL = 10000.0
-MIN_FOLLOW_PNL_EARNER = 100000.0
+MIN_FOLLOW_PNL = 0.01  # any official profit > 0
+MIN_FOLLOW_PNL_EARNER = 100000.0  # unused for follows; no-trade earners are Watching
 FOLLOW_HORIZON_DAYS = 30  # My 40 keeps near-term sports only, not months-out futures
 FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
 NEW_PER_SCAN_DEFAULT = 30  # hourly cron; stay under Actions time with 0 429s
@@ -312,12 +315,13 @@ def save_pinned_file(payload, now=None):
     payload["target"] = TARGET_FOLLOW
     payload["note"] = (
         "Followed cappers for My 40, taken from official Kalshi projected-PnL "
-        "leaderboards. A name is followed if (graded W > L and official all-time "
-        "profit of at least $10,000) or (no public graded record and official "
-        "all-time profit of at least $100,000). A losing reconstructed record is "
-        "out. doNotPin names, including 80Mill, never re-enter, including via the "
-        "never-shrink guard. Up to %d. A scan will not shrink the follow list "
-        "unless each dropped name actually failed a gate or is on doNotPin."
+        "leaderboards. A name is followed only if their public trades or open "
+        "sports picks can be found and tracked, official all-time profit is "
+        "positive, and they have no losing reconstructed record. Leaderboard "
+        "earners with no public trades go to Watching. doNotPin names, including "
+        "80Mill, never re-enter, including via the never-shrink guard. Up to %d, "
+        "preferring the longest track records. A scan will not shrink the follow "
+        "list unless each dropped name actually failed a gate or is on doNotPin."
         % TARGET_FOLLOW
     )
     if now:
@@ -550,7 +554,8 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
             g = follow_record(cap) or {}
             w, l, n = graded_wl(g)
             pnl = official_pnl(cap) or 0
-            cands.append((-(w - l), -w, -(w / n if n else 0), -pnl, cap))
+            # Prefer the longest public track record, then record quality, then profit.
+            cands.append((-n, -(w - l), -w, -pnl, cap))
     cands.sort(key=lambda x: (x[0], x[1], x[2], x[3], nick_key(x[4].get("nickname")).lower()))
     added = []
     for _s, _w, _r, _p, cap in cands:
@@ -899,12 +904,12 @@ def follow_fail_reason(cap):
 
     Gates: must appear on an official Kalshi projected-PnL leaderboard
     (weekly, monthly, yearly, or all-time, including sport-specific boards).
-    A name passes if (graded W > L and official all-time profit of at least
-    $10,000) or (no public graded record and official all-time profit of at
-    least $100,000). A reconstructed losing record is a fail. doNotPin is
-    handled by the caller and never re-enters (the never-shrink guard also
-    honors it). W-L is graded from settled public trades across every
-    category when available.
+    A name passes if they are on an official profit leaderboard, official
+    all-time profit is positive, they have no losing reconstructed record,
+    and their public trades or open sports picks can be found and tracked.
+    Leaderboard earners with no public trades go to Watching — their picks
+    cannot be copied. doNotPin is handled by the caller and never re-enters
+    (the never-shrink guard also honors it).
     """
     if not on_profit_leaderboard(cap):
         return "not on official profit leaderboard"
@@ -913,16 +918,28 @@ def follow_fail_reason(cap):
         return "negative profit %s" % signed_k(pnl)
     if pnl is None:
         return "no official all-time profit"
+    if pnl <= 0:
+        return "profit %s is not positive" % signed_k(pnl)
     w, l, n = graded_wl(follow_record(cap))
+    if n > 0 and w <= l:
+        return "%d-%d" % (w, l)
+    if not is_trackable(cap):
+        return "no public trades to track"
+    return None
+
+
+def is_trackable(cap):
+    """True when we can actually see this capper's public sports tape or open picks."""
+    if not cap:
+        return False
+    w, l, n = graded_wl(follow_record(cap) or cap.get("graded") or cap.get("gradedAll"))
     if n > 0:
-        if w <= l:
-            return "%d-%d" % (w, l)
-        if pnl < MIN_FOLLOW_PNL:
-            return "profit %s below $10,000" % signed_k(pnl)
-        return None
-    if pnl >= MIN_FOLLOW_PNL_EARNER:
-        return None
-    return "no graded W-L (need $100,000 official profit)"
+        return True
+    if cap.get("picks") or cap.get("followingPicks"):
+        return True
+    if (cap.get("pickCount") or 0) > 0 or (cap.get("followCount") or 0) > 0:
+        return True
+    return False
 
 
 def can_follow(cap):
@@ -1004,6 +1021,7 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
             pnl_source = "sports_leaderboard_projected"
     use = grade_from_trades(trades, nick, sports_only=True)
     use_all = grade_from_trades(trades, nick, sports_only=False)
+    sports_map, best_at = lib.grade_sports(lib.closed_cycles(trades, nick, sports_only=True))
     tier = capper_tier(nick, people)
     pin = is_pinned(nick)
     if pin:
@@ -1050,13 +1068,15 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
             "profit": round(use_all.get("profit") or 0, 2),
             "sample": "full" if (use_all.get("n") or 0) >= 10 else "small",
         } if use_all else None,
-        "recordLine": rec_line(nick, use, all_time_pnl, age, tier),
+        "sports": sports_map or {},
+        "bestAt": best_at,
+        "recordLine": rec_line(nick, use, all_time_pnl, age, tier, best_at),
         "picks": picks,
         "addedAt": today_pt(now),
     }
 
 
-def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20):
+def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=80):
     """Return ('active', row) or ('rejected', reason, detail) for a visible-or-unknown nick."""
     vis, _ = lib.holdings_visible(http, nick, limit=5)
     if vis == "hidden":
@@ -1085,8 +1105,11 @@ def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=2
         log("heavy trader kept %s: %s trades=%d open=%d" % (nick, ", ".join(mm_why), len(trades), hold_n))
     inv_map = lib.build_inventory(trades, nick)
     picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
+    # Collect copyable (no $100 floor, 30-day) sports picks for any leaderboard or followed
+    # name so we can tell whether their book is actually trackable before pinning.
+    boardish = pin or on_profit_leaderboard({"nickname": nick, "profitRanks": (people.get(nick) or {}).get("profitRanks"), "pnl": (people.get(nick) or {}).get("pnl")})
     follow = []
-    if pin:
+    if boardish or pin:
         follow = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=0, window_secs=FOLLOW_HORIZON_SECS, max_entry=None)
         follow = [p for p in follow if is_near_term_pick(p, now)]
     row = build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=heavy)
@@ -1260,10 +1283,12 @@ def remove_nick(lst, nick):
 def enqueue_new(queue, people, known, n, now, log=print):
     """Add up to n unseen leaderboard names to the queue. Prefer Sports, then better ranks."""
     def sort_key(nick):
+        rec = people.get(nick) or {}
+        profit = 0 if (rec.get("profitRanks") or rec.get("pnl")) else 1
         r = sports_ranks(people, nick)
         sports = 0 if r else 1
         best = min([r.get(p) or 9999 for p in BOARD_PERIODS] or [9999])
-        return (sports, best, nick.lower())
+        return (profit, sports, best, nick.lower())
     added = []
     for nick in sorted(people.keys(), key=sort_key):
         if len(added) >= n:
@@ -1280,6 +1305,28 @@ def enqueue_new(queue, people, known, n, now, log=print):
         added.append(nick)
     log("queued %d new cappers: %s" % (len(added), ", ".join(added) if added else "(none)"))
     return added
+
+
+def picks_for_slate(c, now=None):
+    """My 40 public slate uses copyable followed picks (no $100 floor) when present.
+
+    Undated and months-out futures are left off — only near-term sports.
+    """
+    fol = list(c.get("followingPicks") or [])
+    use = fol if fol else list(c.get("picks") or [])
+    ts = now if now is not None else time.time()
+    return [p for p in use if is_near_term_pick(p, ts)]
+
+
+def followed_slate_cappers(cappers, pinned, now=None):
+    pinset = {nick_key(n).lower() for n in pinned_names(pinned)}
+    rows = []
+    for c in cappers or []:
+        nick = nick_key(c.get("nickname"))
+        if not nick or nick.lower() not in pinset:
+            continue
+        rows.append(dict(c, picks=picks_for_slate(c, now=now)))
+    return rows
 
 
 def group_games(cappers, now, log=print):
@@ -1315,10 +1362,17 @@ def group_games(cappers, now, log=print):
                 "result": p.get("result"), "closeTs": p.get("closeTs") or 0,
                 "yesAsk": p.get("yesAsk"), "noAsk": p.get("noAsk"),
             })
+            sports = c.get("sports") or {}
+            fam = lib.sport_family(p.get("league") or g.get("league") or "")
+            srec = sports.get(fam) if fam else None
             slot["backers"].append({
                 "name": c["nickname"], "cost": p["cost"], "avg": p.get("entry"),
-                "line": rec_line(c["nickname"], rec, c.get("pnl"), None, c["tier"]),
+                "line": rec_line(c["nickname"], rec, c.get("pnl"), None, c["tier"], c.get("bestAt")),
                 "rec": {"w": rec["w"], "l": rec["l"], "n": rec["n"]} if rec else None,
+                "sportRec": {"w": srec["w"], "l": srec["l"], "n": srec["n"]} if srec else None,
+                "bestAt": c.get("bestAt"),
+                "pnl": c.get("pnl"),
+                "pinned": bool(c.get("pinned") or is_pin_tag(c.get("tier")) or is_pin_tag(c.get("tag"))),
                 "lastTs": p.get("lastTs"), "tier": c["tier"],
             })
             slot["total"] = round(sum(b["cost"] for b in slot["backers"]), 2)
@@ -1371,7 +1425,7 @@ def review_queue(http, queue, active, rejected, live_cappers, people, now, mcach
             reviewed += 1
             continue
         try:
-            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
+            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=80)
         except Exception as e:
             log("queue review failed %s: %s — leaving in queue" % (nick, e))
             leftover.append(item)
@@ -1482,12 +1536,14 @@ def _flatten_game_positions(games):
     return out
 
 
-def carry_forward_games(new_games, prev, now, http, mcache, ecache, log=print):
+def carry_forward_games(new_games, prev, now, http, mcache, ecache, log=print, pinned=None):
     """Keep still-open picks from the previous (or recovered) data.json.
 
     Fresh rows from this scan win. Positions no longer visible stay, marked
     Last seen <time> PT, until the usual finished-game rules drop them.
+    When pinned is provided, only My 40 backers are carried — tape-only names stay off the slate.
     """
+    pinset = {nick_key(n).lower() for n in pinned_names(pinned)} if pinned is not None else None
     seen = set()
     for g, p, b, key in _flatten_game_positions(new_games):
         seen.add(key)
@@ -1497,6 +1553,8 @@ def carry_forward_games(new_games, prev, now, http, mcache, ecache, log=print):
     order = [g.get("id") for g in new_games]
     prev_at = prev.get("scannedAt") or ""
     for g, p, b, key in _flatten_game_positions(prev.get("games") or []):
+        if pinset is not None and nick_key(b.get("name") or "").lower() not in pinset:
+            continue
         if key in seen:
             continue
         league = g.get("league") or p.get("league") or ""
@@ -1723,7 +1781,7 @@ def build(now=None, log=print):
         if nick in rejected_set(rejected) and not is_pinned(nick):
             continue
         try:
-            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
+            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=80)
         except Exception as e:
             log("active refresh failed %s: %s — keeping in active" % (nick, e))
             if is_pinned(nick):
@@ -1806,16 +1864,8 @@ def build(now=None, log=print):
             byn[n] = dict(row, picks=[])
     cappers = list(byn.values())
 
-    games, dropped = group_games(cappers, now, log)
-    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log)
-    dropped = list(dropped) + list(carried_dropped)
-    cov["carriedPicks"] = carried_n
-    cov["carriedDropped"] = len(carried_dropped)
-    cov["finishedDropped"] = len(dropped)
-    cov["finishedNames"] = dropped
-    cov["shown"] = sum(1 for c in cappers if c.get("picks"))
-    cov["picks"] = sum(len(g["picks"]) for g in games)
-    cov["games"] = len(games)
+    # Ranked / Coming Up are built after reconcile so they only include My 40 picks.
+    games, dropped = [], []
     cov["calls"] = http.calls
     cov["retries429"] = http.retries_429
     cov["secs"] = round(time.time() - t0, 1)
@@ -1837,6 +1887,16 @@ def build(now=None, log=print):
     # Discovery (queue + NEW_PER_SCAN new) already ran above and never stops at TARGET_FOLLOW.
     pinned = reconcile_follow_list(active, pinned, cappers, people, now, log)
     save_dbs(active, queue, rejected, now)
+    games, dropped = group_games(followed_slate_cappers(cappers, pinned), now, log)
+    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log, pinned=pinned)
+    dropped = list(dropped) + list(carried_dropped)
+    cov["carriedPicks"] = carried_n
+    cov["carriedDropped"] = len(carried_dropped)
+    cov["finishedDropped"] = len(dropped)
+    cov["finishedNames"] = dropped
+    cov["shown"] = sum(1 for c in followed_slate_cappers(cappers, pinned) if c.get("picks"))
+    cov["picks"] = sum(len(g["picks"]) for g in games)
+    cov["games"] = len(games)
     following_open = []
     for c in cappers:
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
@@ -1987,7 +2047,7 @@ def build_follow_check(now=None, log=print):
     prev_caps = {nick_key(c.get("nickname")): c for c in (prev.get("cappers") or [])}
     for nick in names:
         try:
-            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=20)
+            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=80)
         except Exception as e:
             log("follow-check failed %s: %s — keeping previous picks" % (nick, e))
             cov["namesChecked"] += 1
@@ -2003,7 +2063,7 @@ def build_follow_check(now=None, log=print):
                 "rejectNote": "%s: %s" % (reason, detail), "picks": [], "followingPicks": [],
             }
             old = prev_caps.get(nick_key(nick)) or {}
-            for k in ("profileUrl", "ranks", "profitRanks", "onProfitBoard", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "gradedAll", "recordLine", "ageDays"):
+            for k in ("profileUrl", "ranks", "profitRanks", "onProfitBoard", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "gradedAll", "sports", "bestAt", "recordLine", "ageDays"):
                 if old.get(k) is not None and not kept.get(k):
                     kept[k] = old[k]
             live_cappers.append(kept)
@@ -2033,6 +2093,12 @@ def build_follow_check(now=None, log=print):
                 row["followCount"] = len(cap.get("followingPicks") or [])
                 if cap.get("graded") is not None:
                     row["graded"] = cap.get("graded")
+                if cap.get("gradedAll") is not None:
+                    row["gradedAll"] = cap.get("gradedAll")
+                if cap.get("sports") is not None:
+                    row["sports"] = cap.get("sports")
+                if cap.get("bestAt") is not None:
+                    row["bestAt"] = cap.get("bestAt")
                 if cap.get("pnl") is not None:
                     row["pnl"] = cap.get("pnl")
                 break
@@ -2051,8 +2117,8 @@ def build_follow_check(now=None, log=print):
     ]
     save_dbs(active, queue, rejected, now)
 
-    games, dropped = group_games(live_cappers, now, log)
-    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log)
+    games, dropped = group_games(followed_slate_cappers(live_cappers, pinned), now, log)
+    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log, pinned=pinned)
     dropped = list(dropped) + list(carried_dropped)
     cov["carriedPicks"] = carried_n
     cov["carriedDropped"] = len(carried_dropped)

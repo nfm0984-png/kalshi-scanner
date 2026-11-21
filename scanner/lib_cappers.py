@@ -26,7 +26,7 @@ UA = "kalshi-scanner/1.0"
 MIN_INTERVAL = 0.15
 TRADE_DAYS = 30  # open-pick recency still prefers recent fills
 RECORD_DAYS = 400  # paginate as far as the public tape goes for the record
-MAX_TRADE_PAGES = 20
+MAX_TRADE_PAGES = 80  # pull a longer public tape so veteran W-L can actually form
 MIN_BIG = 500
 MAX_ENTRY = 0.90
 STALE_SEC = 3600
@@ -186,6 +186,58 @@ def league_of(ticker, category=None):
     if category and str(category).lower() == "sports":
         return "Sports"
     return None
+
+
+SPORT_FAMILY = {
+    "CFB": "NCAAF", "NCAAF": "NCAAF", "NCAAFB": "NCAAF",
+    "CBB": "NCAAB", "NCAAB": "NCAAB", "NCAAMB": "NCAAB",
+    "ATP": "Tennis", "WTA": "Tennis", "ITF": "Tennis", "TENNIS": "Tennis",
+    "UFC": "MMA", "MMA": "MMA", "BOXING": "MMA",
+}
+def sport_family(league):
+    if not league:
+        return ""
+    u = str(league).upper()
+    if u in SPORT_FAMILY:
+        return SPORT_FAMILY[u]
+    if u in ("EPL", "UCL", "UEL", "MLS", "LAL", "SOCCER"):
+        return "Soccer"
+    return str(league)
+
+
+def grade_sports(cycles):
+    """Per-sport W-L from settled sports cycles. 'Best at' is the strongest 5+ sample."""
+    by = {}
+    for c in cycles or []:
+        fam = sport_family(league_of(c.get("ticker") or "") or "")
+        if not fam or fam in ("Sports", "Esports"):
+            continue
+        by.setdefault(fam, []).append(c)
+    out = {}
+    for fam, rows in by.items():
+        g = grade_big_bets(rows, 0)
+        if not g or not (g.get("n") or 0):
+            continue
+        out[fam] = {
+            "n": g.get("n") or 0,
+            "w": g.get("w") or 0,
+            "l": g.get("l") or 0,
+            "roi": None if g.get("roi") is None else round(g["roi"], 1),
+            "profit": round(g.get("profit") or 0, 2),
+        }
+    best = None
+    best_key = None
+    # Prefer a 5+ sample; then win rate, then sample size.
+    for fam, rec in out.items():
+        n = rec.get("n") or 0
+        if n <= 0:
+            continue
+        wr = (rec.get("w") or 0) / n
+        key = (1 if n >= 5 else 0, wr, n)
+        if best_key is None or key > best_key:
+            best_key = key
+            best = fam
+    return out, best
 
 
 def is_non_sport_ticker(ticker):

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 1:52 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -715,7 +715,7 @@
       "recordedTs": 1795274994,
       "status": "win",
       "result": "yes",
-      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
+      "settledAt": "Sat Nov 21 \u00b7 1:45 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV21LSUTENN-TENN|Yes",
@@ -862,7 +862,7 @@
       "recordedTs": 1795274994,
       "status": "win",
       "result": "yes",
-      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
+      "settledAt": "Sat Nov 21 \u00b7 1:45 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
@@ -1366,7 +1366,7 @@
       "recordedTs": 1795290980,
       "status": "loss",
       "result": "no",
-      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
+      "settledAt": "Sat Nov 21 \u00b7 1:45 PM PT"
     },
     {
       "id": "emilianotijerina|KXATPMATCH-26NOV21ZVEMED-ZVE|Yes",
@@ -1387,7 +1387,7 @@
       "recordedTs": 1795293416,
       "status": "win",
       "result": "yes",
-      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
+      "settledAt": "Sat Nov 21 \u00b7 1:45 PM PT"
     },
     {
       "id": "iluminado|KXATPCHALLENGERMATCH-26NOV21MOLSEY-SEY|Yes",
@@ -1408,7 +1408,70 @@
       "recordedTs": 1795293416,
       "status": "win",
       "result": "yes",
-      "settledAt": "Sat Nov 21 \u00b7 1:52 PM PT"
+      "settledAt": "Sat Nov 21 \u00b7 1:45 PM PT"
+    },
+    {
+      "id": "ambitious.dandelion1189|KXNCAAFGAME-26NOV21UCLAMICH-MICH|Yes",
+      "nickname": "ambitious.dandelion1189",
+      "ticker": "KXNCAAFGAME-26NOV21UCLAMICH-MICH",
+      "eventTicker": "KXNCAAFGAME-26NOV21UCLAMICH",
+      "game": "UCLA vs Michigan",
+      "backing": "Michigan",
+      "yesNo": "Yes",
+      "entry": 0.68,
+      "price": 0.46,
+      "cost": 190.4,
+      "contracts": 280.0,
+      "startTs": 1795302000,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
+      "recordedTs": 1795298285.7379346,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "double.boar6452|KXNCAAFSPREAD-26NOV21UCLAMICH-UCLA4|Yes",
+      "nickname": "double.boar6452",
+      "ticker": "KXNCAAFSPREAD-26NOV21UCLAMICH-UCLA4",
+      "eventTicker": "KXNCAAFSPREAD-26NOV21UCLAMICH",
+      "game": "UCLA vs Michigan: Spread",
+      "backing": "UCLA wins by over 3.5 points",
+      "yesNo": "Yes",
+      "entry": 0.49,
+      "price": 0.33,
+      "cost": 7241.22,
+      "contracts": 14778.0,
+      "startTs": 1795303800,
+      "league": "NCAAF",
+      "bt": "Spread",
+      "recordedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
+      "recordedTs": 1795298285.7379346,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "playful.hornet0945|KXNBAGAME-26NOV21MEMMIN-MEM|Yes",
+      "nickname": "playful.hornet0945",
+      "ticker": "KXNBAGAME-26NOV21MEMMIN-MEM",
+      "eventTicker": "KXNBAGAME-26NOV21MEMMIN",
+      "game": "Memphis vs Minnesota",
+      "backing": "Memphis",
+      "yesNo": "Yes",
+      "entry": 0.3373,
+      "price": 0.34,
+      "cost": 3583.56,
+      "contracts": 10625.0,
+      "startTs": 1795320000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
+      "recordedTs": 1795298285.7379346,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

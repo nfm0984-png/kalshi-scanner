@@ -24,10 +24,11 @@ const BT_ORDER = ["Moneyline", "Spread", "Totals", "Both teams to score", "Playe
 
 interface WL { w: number; l: number; n?: number }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null }
-interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
+interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
+interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
-interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
@@ -314,8 +315,9 @@ function BackerRow(props: { b: Backer; now: number }) {
       <Face name={b.name} size={28} />
       <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
-          {g ? <RecordPill w={g.w} l={g.l} roi={g.roi} /> : <RecordPill w={0} l={0} />}
+          {g ? <RecordPill w={g.w} l={g.l} roi={g.roi} /> : (cap && isLeaderboardEarner(cap) ? <RecordPill w={0} l={0} label="Leaderboard earner" /> : <RecordPill w={0} l={0} />)}
           {b.tier ? <TierChip tier={b.tier} /> : null}
+          {cap && cap.bestAt ? <Chip bg="#EFF6FF" color={BLUE_INK}>{"Best at " + cap.bestAt}</Chip> : null}
         </div>
         <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 750, color: NAVY, marginTop: 3, overflowWrap: "anywhere" }}>
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
@@ -398,8 +400,33 @@ function gameOver(g: Game, now: number): boolean {
   }
   return false;
 }
+function ptDateParts(ts: number): { y: number; m: number; d: number; h: number; key: string } {
+  const parts: Record<string, string> = {};
+  new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date(ts * 1000)).forEach((p) => { if (p.type !== "literal") parts[p.type] = p.value; });
+  return { y: +parts.year, m: +parts.month, d: +parts.day, h: +parts.hour, key: parts.year + "-" + parts.month + "-" + parts.day };
+}
+function ptDayOffset(startTs: number, now: number): number {
+  const a = ptDateParts(startTs), b = ptDateParts(now);
+  return Math.round((Date.UTC(a.y, a.m - 1, a.d) - Date.UTC(b.y, b.m - 1, b.d)) / 86400000);
+}
+// Client-side PT window: before 7pm, today's games (live included). From 7pm PT, today plus tomorrow.
+function inSlateWindow(startTs: number, now: number, live?: boolean): boolean {
+  if (live || (startTs > 0 && startTs <= now)) return true;
+  if (!startTs) return false;
+  const off = ptDayOffset(startTs, now);
+  if (off === 0) return true;
+  return off === 1 && ptDateParts(now).h >= 19;
+}
+function isRankedTodayGame(g: Game, now: number): boolean {
+  if (gameOver(g, now)) return false;
+  return inSlateWindow(g.startTs || 0, now, g.live);
+}
+function todayGames(games: Game[], now: number): Game[] {
+  return games.filter((g: Game) => isRankedTodayGame(g, now));
+}
 function openGames(now: number): Game[] {
-  return (DATA.games || []).filter((g: Game) => !gameOver(g, now) && (!g.startTs || g.startTs <= now + 24 * 3600));
+  const horizon = now + 30 * 24 * 3600;
+  return (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
 }
 function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   const seen: Record<string, boolean> = {};
@@ -412,14 +439,97 @@ function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   });
   return { rec: { w, l }, n };
 }
-/** Laplace / add-one shrink toward 50%: (W+1)/(W+L+2). Weight grows with settled bets. */
-const sideStrength = (rec: WL): number => (rec.w + 1) / ((rec.w + rec.l) + 2);
-const NET_CLOSE = 0.08; // 8 percentage points — "small net margin"
-const netPts = (net: number): number => Math.round(net * 100);
-const netText = (net: number): string => {
-  const pts = netPts(net);
-  return "Net " + (pts > 0 ? "+" + pts : String(pts));
-};
+// Ranked scoring, modeled on the whale scanner: Wilson lower bound + experience,
+// per-sport records, thin-sample cap, heavy better-record opposition penalty,
+// capper-count boost, official profit for leaderboard earners only (cannot outrank proven).
+const PROVEN_MIN_N = 10;
+const THIN_SCORE_CAP = 0.05;
+const EARNER_SCORE_CAP = 0.05;
+const NET_CLOSE = 10;
+const NET_OPP_WR = 0.60;
+function wilsonLower(w: number, n: number, z = 1.96): number {
+  if (n <= 0) return 0;
+  const z2 = z * z, p = w / n, denom = 1 + z2 / n;
+  const center = p + z2 / (2 * n);
+  const margin = z * Math.sqrt((p * (1 - p) + z2 / (4 * n)) / n);
+  return (center - margin) / denom;
+}
+function sportFamilyOf(league?: string | null): string {
+  const u = (league || "").toUpperCase();
+  if (u === "CFB" || u === "NCAAF" || u === "NCAAFB") return "NCAAF";
+  if (u === "CBB" || u === "NCAAB" || u === "NCAAMB") return "NCAAB";
+  if (u === "ATP" || u === "WTA" || u === "ITF" || u === "TENNIS") return "Tennis";
+  if (u === "UFC" || u === "MMA" || u === "BOXING") return "MMA";
+  if (u === "EPL" || u === "UCL" || u === "UEL" || u === "MLS" || u === "LAL" || u === "SOCCER") return "Soccer";
+  return league || "";
+}
+function capperOverall(c?: Capper | null): { w: number; l: number; n: number; pnl: number } {
+  const g = c && c.graded;
+  const w = (g && g.w) || 0, l = (g && g.l) || 0;
+  const n = (g && g.n) || (w + l);
+  const pnl = c && c.pnl != null ? c.pnl : 0;
+  return { w, l, n, pnl };
+}
+function capperSportRec(c?: Capper | null, league?: string | null): SportRec | null {
+  if (!c || !league) return null;
+  const rec = (c.sports || {})[sportFamilyOf(league)];
+  return rec && rec.n > 0 ? rec : null;
+}
+function isFollowedBacker(b: Backer): boolean {
+  if (b.pinned || b.tier === "My 40" || b.tier === "Top 10" || b.tier === "Following") return true;
+  const c = capperOf(b.name);
+  return !!(c && isFollowedCapper(c));
+}
+function isThinCapper(c?: Capper | null, league?: string | null): boolean {
+  return capperOverall(c).n < PROVEN_MIN_N;
+}
+function isProvenCapper(c?: Capper | null, league?: string | null): boolean {
+  const ov = capperOverall(c);
+  return !!c && ov.n >= PROVEN_MIN_N && ov.w > ov.l;
+}
+function capperRankScore(c?: Capper | null, league?: string | null): number {
+  if (!c) return 0;
+  const ov = capperOverall(c);
+  if (ov.n <= 0) {
+    // Leaderboard earner: official profit only, capped so it cannot outrank a proven record.
+    if (isLeaderboardEarner(c) || (isLeaderboardCapper(c) && ov.pnl >= 100000)) {
+      return Math.min(EARNER_SCORE_CAP, Math.log10(1 + Math.max(0, ov.pnl) / 100000) / 6);
+    }
+    return 0;
+  }
+  const oRate = wilsonLower(ov.w, ov.n);
+  let sRate = oRate, sN = 0;
+  const sr = capperSportRec(c, league);
+  if (sr && sr.n > 0) { sRate = wilsonLower(sr.w, sr.n); sN = sr.n; }
+  const sportW = sN / (sN + 8);
+  const rate = sportW * sRate + (1 - sportW) * oRate;
+  const thin = isThinCapper(c, league);
+  const expF = ov.n / (ov.n + 40);
+  const volF = thin ? 0 : Math.min(1, Math.log(1 + Math.max(0, ov.pnl)) / Math.log(10) / 5);
+  const conf = thin ? 0.50 * expF : (0.75 * expF + 0.25 * volF);
+  const score = rate * (thin ? 0.15 * conf : (0.30 + 0.70 * conf));
+  return thin ? Math.min(score, THIN_SCORE_CAP) : score;
+}
+function recForCapper(c?: Capper | null, league?: string | null, fallback?: WL | null): WL | null {
+  const sr = capperSportRec(c, league);
+  if (sr && sr.n >= 5) return { w: sr.w, l: sr.l, n: sr.n };
+  const ov = capperOverall(c);
+  if (ov.n > 0) return { w: ov.w, l: ov.l, n: ov.n };
+  return fallback && (fallback.w + fallback.l) > 0 ? fallback : null;
+}
+function pickPrice(p: Pick): number | null {
+  return p.view && p.view.price != null && p.view.price > 0 ? p.view.price : null;
+}
+function isPaddedPrice(p: Pick): boolean {
+  const px = pickPrice(p);
+  return px != null && px >= 0.90;
+}
+function isLongshotPrice(p: Pick): boolean {
+  const px = pickPrice(p);
+  return px != null && px < 0.40;
+}
+const netPts = (net: number): number => Math.round(net);
+const netText = (net: number): string => "Net " + (net > 0 ? "+" + net : String(net));
 function oppositionPicks(p: Pick, game: Game): Pick[] {
   const out: Pick[] = [];
   const seen: Record<string, boolean> = {};
@@ -434,35 +544,97 @@ function oppositionPicks(p: Pick, game: Game): Pick[] {
 function oppositeOf(p: Pick, game: Game): Pick[] {
   return oppositionPicks(p, game);
 }
-interface NetInfo { net: number; own: number; opp: number; ownRec: WL; oppRec: WL; ownN: number; oppN: number; contested: boolean }
-function netOf(p: Pick, game: Game): NetInfo {
-  const own = uniqueSide(p.backers);
+interface NetInfo { net: number; raw: number; own: number; opp: number; ownRec: WL; oppRec: WL; ownN: number; oppN: number; my40: number; contested: boolean; proven: boolean; padded: boolean; longshot: boolean; tier: number; bestN: number }
+function recOfBackers(backers: Backer[], league?: string | null): { rec: WL; n: number; score: number; proven: boolean; earner: boolean; my40: number; bestN: number } {
   const seen: Record<string, boolean> = {};
-  const oppBackers: Backer[] = [];
-  oppositionPicks(p, game).forEach((q: Pick) => q.backers.forEach((b: Backer) => {
+  let w = 0, l = 0, n = 0, score = 0, my40 = 0, proven = false, earner = false, bestN = 0;
+  backers.forEach((b: Backer) => {
     if (seen[b.name]) return;
     seen[b.name] = true;
-    oppBackers.push(b);
-  }));
-  const opp = uniqueSide(oppBackers);
-  const ownS = sideStrength(own.rec);
-  const oppS = opp.n ? sideStrength(opp.rec) : 0;
-  const net = ownS - oppS;
+    n += 1;
+    const c = capperOf(b.name);
+    const r = recForCapper(c, league, b.sportRec || b.rec || null);
+    if (r) { w += r.w; l += r.l; }
+    score += capperRankScore(c, league);
+    const ov = capperOverall(c);
+    if (ov.n > bestN) bestN = ov.n;
+    if (isFollowedBacker(b)) my40 += 1;
+    if (isProvenCapper(c, league)) proven = true;
+    if (isLeaderboardEarner(c)) earner = true;
+  });
+  return { rec: { w, l }, n, score, proven, earner, my40, bestN };
+}
+function netOf(p: Pick, game: Game): NetInfo {
+  const oppPicks = oppositionPicks(p, game);
+  const oppW: Record<string, boolean> = {};
+  oppPicks.forEach((q: Pick) => q.backers.forEach((b: Backer) => { oppW[b.name] = true; }));
+  const mineW: Record<string, boolean> = {};
+  p.backers.forEach((b: Backer) => { mineW[b.name] = true; });
+  const lg = game.league;
+  // Score from every tracked backer (hedges dropped). Followed My 40 cappers add a count boost.
+  const ownAll = p.backers.filter((b: Backer) => !oppW[b.name]);
+  const own = recOfBackers(ownAll, lg);
+  const oppB: Backer[] = [];
+  const seen: Record<string, boolean> = {};
+  oppPicks.forEach((q: Pick) => q.backers.forEach((b: Backer) => { if (seen[b.name] || mineW[b.name]) return; seen[b.name] = true; oppB.push(b); }));
+  const opp = recOfBackers(oppB, lg);
+  const ownScore = own.score;
+  // Veteran (best capper 10+ settled) > leaderboard earner > thin sample.
+  // Price, stake, and capper-count cannot lift a thin side above those tiers.
+  const tier = own.proven ? 2 : (own.earner ? 1 : 0);
+  let raw = 100 * (ownScore - opp.score);
+  if (tier >= 1 && own.my40) raw += Math.min(16, own.my40 * 6);
+  const stake = ownAll.reduce((a: number, b: Backer) => a + (b.cost || 0), 0);
+  if (own.proven && stake > 0) raw += Math.min(8, Math.log10(1 + stake) * 3);
+  const px = pickPrice(p);
+  const padded = isPaddedPrice(p);
+  const longshot = isLongshotPrice(p);
+  if (padded) raw -= 80;
+  else if (longshot) raw -= 40;
+  else if (tier >= 1 && px != null && px >= 0.55 && px <= 0.82) raw += 8;
+  if (opp.proven && opp.score > ownScore + 1e-6) raw -= 100;
+  if (!own.proven && opp.proven) raw -= 50;
+  const net = Math.round(raw);
   const oppNBets = opp.rec.w + opp.rec.l;
-  const oppRate = oppNBets ? opp.rec.w / oppNBets : 0;
-  const strongOpp = oppRate >= 0.60 && oppNBets >= ELITE_MIN_BETS;
-  const close = opp.n > 0 && Math.abs(net) < NET_CLOSE;
-  return { net, own: ownS, opp: oppS, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, contested: !!(strongOpp || close) };
+  const contested = oppNBets >= ELITE_MIN_BETS && (wlRate(opp.rec) >= NET_OPP_WR || net < NET_CLOSE || (opp.proven && opp.score > ownScore + 1e-6));
+  return { net, raw, own: ownScore, opp: opp.score, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, my40: own.my40, contested, proven: own.proven, padded, longshot, tier, bestN: own.bestN };
+}
+function hasMy40Backer(p: Pick): boolean {
+  return (p.backers || []).some(isFollowedBacker);
 }
 function weakerSide(p: Pick, game: Game): boolean {
   const mine = netOf(p, game).net;
   return oppositionPicks(p, game).some((q: Pick) => netOf(q, game).net > mine + 1e-12);
 }
+function rankCmpNet(a: NetInfo, b: NetInfo): number {
+  // Experience first: veterans, then big leaderboard earners, then thin samples.
+  // Within a tier, longshots and 90c+ padding sort down; then net, then sample size.
+  return (b.tier - a.tier) || (Number(a.longshot) - Number(b.longshot)) || (Number(a.padded) - Number(b.padded)) || (b.net - a.net) || (b.bestN - a.bestN) || (b.raw - a.raw) || (b.my40 - a.my40);
+}
 function bestPickFirst(picks: Pick[], game: Game): Pick[] {
-  return picks.slice().sort((a: Pick, b: Pick) => {
-    const na = netOf(a, game), nb = netOf(b, game);
-    return (nb.net - na.net) || (nb.ownRec.w - na.ownRec.w) || (nb.ownN - na.ownN) || ((b.total || 0) - (a.total || 0));
-  });
+  return picks.slice().sort((a: Pick, b: Pick) => rankCmpNet(netOf(a, game), netOf(b, game)) || ((b.total || 0) - (a.total || 0)));
+}
+function pickRankWhy(p: Pick, game: Game, n: NetInfo): string {
+  const lg = sportFamilyOf(game.league);
+  const names = (p.backers || []).filter(isFollowedBacker).map((b: Backer) => {
+    const c = capperOf(b.name);
+    const r = recForCapper(c, game.league, b.sportRec || b.rec || null);
+    const rec = r && (r.w + r.l) ? wlText(r) : (c && isLeaderboardEarner(c) ? "earner" : "n/a");
+    return b.name + " " + rec;
+  }).slice(0, 2).join(", ");
+  const bits = [names || (n.tier === 2 ? "veteran" : n.tier === 1 ? "earner" : "thin")];
+  if (n.tier === 2) bits.push("veteran");
+  else if (n.tier === 1) bits.push("earner");
+  else bits.push("new");
+  if (n.ownRec.w + n.ownRec.l) bits.push(wlText(n.ownRec) + (lg ? " " + lg : ""));
+  if (n.my40 > 1) bits.push(n.my40 + " followed");
+  if (n.contested) bits.push("contested " + wlText(n.oppRec));
+  if (n.longshot) bits.push("longshot");
+  if (n.padded) bits.push("90c+");
+  const px = pickPrice(p);
+  if (px != null && !n.padded) bits.push(cents(px));
+  bits.push(netText(n.net));
+  return bits.join(" · ");
 }
 function pickRec(p: Pick): WL {
   return uniqueSide(p.backers).rec;
@@ -475,15 +647,25 @@ function allPicks(games: Game[]): { p: Pick; game: Game }[] {
 function sideCompare(p: Pick, game: Game): SideCmp | null {
   const opp = oppositeOf(p, game);
   if (!opp.length) return null;
-  const mine: { r: WL; name: string }[] = [];
-  const theirs: { r: WL; name: string }[] = [];
+  const mine: { r: WL; name: string; sc: number }[] = [];
+  const theirs: { r: WL; name: string; sc: number }[] = [];
   const seen: Record<string, boolean> = {};
-  p.backers.forEach((b: Backer) => { if (b.rec) mine.push({ r: b.rec, name: b.name }); });
-  opp.forEach((q: Pick) => q.backers.forEach((b: Backer) => { if (seen[b.name]) return; seen[b.name] = true; if (b.rec) theirs.push({ r: b.rec, name: b.name }); }));
+  p.backers.forEach((b: Backer) => {
+    const c = capperOf(b.name);
+    const r = recForCapper(c, game.league, b.sportRec || b.rec || null);
+    if (r) mine.push({ r, name: b.name, sc: capperRankScore(c, game.league) });
+  });
+  opp.forEach((q: Pick) => q.backers.forEach((b: Backer) => {
+    if (seen[b.name]) return;
+    seen[b.name] = true;
+    const c = capperOf(b.name);
+    const r = recForCapper(c, game.league, b.sportRec || b.rec || null);
+    if (r) theirs.push({ r, name: b.name, sc: capperRankScore(c, game.league) });
+  }));
   if (!mine.length || !theirs.length) return null;
-  const best = (list: { r: WL; name: string }[]) => list.slice().sort((x, y) => (wlBetter(x.r, y.r) ? -1 : wlBetter(y.r, x.r) ? 1 : 0))[0];
+  const best = (list: { r: WL; name: string; sc: number }[]) => list.slice().sort((x, y) => (y.sc - x.sc) || (wlBetter(x.r, y.r) ? -1 : wlBetter(y.r, x.r) ? 1 : 0))[0];
   const tb = best(mine), ob = best(theirs);
-  const verdict = wlBetter(ob.r, tb.r) ? "other" : wlBetter(tb.r, ob.r) ? "this" : null;
+  const verdict = ob.sc - tb.sc > 1e-6 ? "other" : tb.sc - ob.sc > 1e-6 ? "this" : null;
   return { verdict, thisBest: tb.r, oppBest: ob.r, thisName: tb.name, oppName: ob.name };
 }
 function freshOf(p: Pick, now: number): { tag: "fresh" | "hold" | null; ts: number | null } {
@@ -558,31 +740,33 @@ function OtherSide(props: { p: Pick; opp: Pick[] }) {
 }
 function RecordFlag(props: { cmp: SideCmp }) {
   const c = props.cmp;
-  const other = c.verdict === "other";
-  const col = other ? AMBER : GREEN;
-  return (
-    <div data-record-flag={c.verdict} style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "2px solid " + col, background: other ? "#FEF3C7" : "#F0FDF4" }}>
-      <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 900, color: col, overflowWrap: "anywhere" }}>{other ? "⚠ Other side: " + c.oppName + " (" + wlText(c.oppBest) + ") is betting against this" : "Better record than other side (" + wlText(c.thisBest) + " vs " + wlText(c.oppBest) + ")"}</div>
-      <div style={{ fontSize: 12, fontWeight: 700, color: "#52525B", marginTop: 3 }}>{other ? "Best on this side: " + c.thisName + " (" + wlText(c.thisBest) + ") · " + (wlRate(c.thisBest) * 100).toFixed(1) + "% vs " + (wlRate(c.oppBest) * 100).toFixed(1) + "%" : "Best on this side: " + c.thisName + " (" + wlText(c.thisBest) + "), best on other side: " + c.oppName + " (" + wlText(c.oppBest) + ")"}</div>
-    </div>
-  );
+  if (c.verdict !== "other") return null;
+  return <div data-record-flag={c.verdict} style={{ marginTop: 8 }}><Chip bg="#FEF3C7" color={AMBER}>{"Opp " + c.oppName + " " + wlText(c.oppBest)}</Chip></div>;
 }
 function FreshPricePills(props: { p: Pick; now: number }) {
   const fresh = freshOf(props.p, props.now);
-  const slip = slipTierOf(props.p);
-  if (!fresh.tag && !slip) return null;
-  const pill = (bg: string, fg: string, text: string, sub: string | null, attr: string) => (
-    <span data-pill={attr} style={{ display: "inline-flex", alignItems: "baseline", gap: 5, padding: "3px 10px", borderRadius: 999, background: bg, color: fg, border: "1.5px solid " + fg, fontSize: 13, fontWeight: 850 }}>{text}{sub ? <span style={{ fontSize: 11, fontWeight: 700, opacity: 0.85 }}>{sub}</span> : null}</span>
-  );
+  if (fresh.tag !== "fresh") return null;
   return (
     <div data-pills="1" style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
-      {fresh.tag === "fresh" ? pill("#DCFCE7", "#15803D", "Fresh", fresh.ts ? "bought " + ago(fresh.ts, props.now) : null, "fresh") : null}
-      {fresh.tag === "hold" ? pill("#F3F4F6", "#4B5563", "Hold", "no buys in 24h", "hold") : null}
-      {slip === "good" ? pill("#DCFCE7", "#15803D", "Good price", null, "price-good") : null}
-      {slip === "slight" ? pill("#FEF3C7", "#92400E", "Slightly worse", null, "price-slight") : null}
-      {slip === "much" ? pill("#FEE2E2", "#B91C1C", "Much worse", null, "price-much") : null}
+      <Chip bg="#DCFCE7" color={GREEN}>{"Fresh" + (fresh.ts ? " " + ago(fresh.ts, props.now) : "")}</Chip>
     </div>
   );
+}
+function PickRankChips(props: { p: Pick; game: Game; now: number }) {
+  const n = netOf(props.p, props.game);
+  const fresh = freshOf(props.p, props.now);
+  const cmp = sideCompare(props.p, props.game);
+  const chips: ReactNode[] = [];
+  if (n.contested) chips.push(<Chip key="c" bg="#FFEDD5" color="#9A3412">{"Contested · " + wlText(n.oppRec)}</Chip>);
+  if (n.tier === 2) chips.push(<Chip key="v" bg="#DCFCE7" color={GREEN}>Veteran</Chip>);
+  else if (n.tier === 1) chips.push(<Chip key="e" bg="#DCFCE7" color={GREEN}>Leaderboard earner</Chip>);
+  else chips.push(<Chip key="t" bg="#FEF3C7" color={AMBER}>New</Chip>);
+  if (n.longshot) chips.push(<Chip key="ls" bg="#F1F5F9" color="#475569">Longshot</Chip>);
+  if (n.padded) chips.push(<Chip key="p" bg="#F1F5F9" color="#475569">90c+</Chip>);
+  if (fresh.tag === "fresh") chips.push(<Chip key="f" bg="#DCFCE7" color={GREEN}>Fresh</Chip>);
+  if (cmp && cmp.verdict === "other") chips.push(<Chip key="o" bg="#FEF3C7" color={AMBER}>{"Opp " + cmp.oppName + " " + wlText(cmp.oppBest)}</Chip>);
+  if (!chips.length) return null;
+  return <div data-rank-chips="1" style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>{chips}</div>;
 }
 function MoreBetsRow(props: { n: number; open: boolean; onToggle: () => void; noun?: string }) {
   if (props.n <= 0) return null;
@@ -619,7 +803,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           <span data-net-pill="1" style={{ display: "inline-block", padding: "3px 9px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 13, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
           {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "3px 9px", borderRadius: 999, background: colorOf(x)[0], color: colorOf(x)[1], fontSize: 13, fontWeight: 850, border: "1.5px solid " + colorOf(x)[1] }}>{x}</span>)}
         </div>
-        <FreshPricePills p={p} now={props.now} />
+        <PickRankChips p={p} game={props.game} now={props.now} />
         {props.moreRow}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
           <div style={{ flex: 1 }}><KalshiBuyButton view={v} /></div>
@@ -628,8 +812,6 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         {props.stakeLine ? <div data-stake-line="1" style={{ marginTop: 6, fontSize: 14, fontWeight: 850, color: GREEN, fontVariantNumeric: "tabular-nums" }}>{props.stakeLine}</div> : null}
         <OnKalshiBox view={v} />
         {top.map((b: Backer) => <BackerRow key={b.name} b={b} now={props.now} />)}
-        {net.contested ? <div data-contested-badge="1" style={{ marginTop: 10, padding: "8px 12px", borderRadius: 14, border: "1.5px solid #F59E0B", background: "#FFF7ED", color: "#9A3412", fontSize: 14, fontWeight: 800 }}>{"Contested: " + net.oppN + " capper" + (net.oppN === 1 ? "" : "s") + " " + wlText(net.oppRec) + " against"}</div> : null}
-        {cmp && cmp.verdict && opp.length ? <RecordFlag cmp={cmp} /> : null}
         <OtherSide p={p} opp={opp} />
         {rest.length ? (
           <details data-ucard-more="1" style={{ marginTop: 8 }}>
@@ -658,12 +840,10 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         <span data-net-pill="1" style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
         {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "1px 8px", borderRadius: 999, background: "#F1F5F9", color: "#334155", fontSize: 12, fontWeight: 800, border: "1px solid #94A3B8" }}>{x}</span>)}
       </div>
-      <FreshPricePills p={p} now={props.now} />
+      <PickRankChips p={p} game={props.game} now={props.now} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
       <OnKalshiBox view={p.view} />
       {p.backers.map((b: Backer) => <BackerRow key={b.name} b={b} now={props.now} />)}
-      {net.contested ? <div data-contested-badge="1" style={{ marginTop: 8, padding: "7px 10px", borderRadius: 12, border: "1.5px solid #F59E0B", background: "#FFF7ED", color: "#9A3412", fontSize: 13, fontWeight: 800 }}>{"Contested: " + net.oppN + " capper" + (net.oppN === 1 ? "" : "s") + " " + wlText(net.oppRec) + " against"}</div> : null}
-      {cmp && cmp.verdict && opp.length ? <RecordFlag cmp={cmp} /> : null}
     </div>
   );
 }
@@ -705,32 +885,38 @@ function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boo
   );
 }
 
-interface RankedCard { game: Game; rec: WL; cappers: number; net: number; contested: boolean }
-function gameRec(g: Game): { rec: WL; cappers: number; net: number; contested: boolean } {
-  const main = bestPickFirst(g.picks || [], g)[0];
-  if (!main) return { rec: { w: 0, l: 0 }, cappers: 0, net: -1, contested: false };
-  const n = netOf(main, g);
-  return { rec: n.ownRec, cappers: n.ownN, net: n.net, contested: n.contested };
+interface RankedCard { p: Pick; game: Game; rec: WL; cappers: number; net: number; raw: number; contested: boolean; proven: boolean; padded: boolean; my40: number; tier: number; bestN: number }
+function rankedPicks(games: Game[]): RankedCard[] {
+  const cards: RankedCard[] = [];
+  games.forEach((game: Game) => {
+    (game.picks || []).forEach((p: Pick) => {
+      if (!hasMy40Backer(p)) return;
+      const n = netOf(p, game);
+      cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
+    });
+  });
+  return cards.sort((a: RankedCard, b: RankedCard) => rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
-function rankedLists(games: Game[]): { top: RankedCard[]; others: RankedCard[]; small: RankedCard[]; contested: RankedCard[] } {
-  const cards = games.map((game: Game) => ({ game, ...gameRec(game) }));
-  const cmp = (a: RankedCard, b: RankedCard) => (b.net - a.net) || (b.rec.w - a.rec.w) || (b.cappers - a.cappers) || ((a.game.startTs || 1e12) - (b.game.startTs || 1e12));
-  const un = cards.filter((c: RankedCard) => !c.contested);
-  const contested = cards.filter((c: RankedCard) => c.contested).sort(cmp);
-  const big = un.filter((c: RankedCard) => c.rec.w + c.rec.l >= ELITE_MIN_BETS).sort(cmp);
-  const small = un.filter((c: RankedCard) => c.rec.w + c.rec.l < ELITE_MIN_BETS).sort(cmp);
-  return { top: big.slice(0, 15), others: big.slice(15), small, contested };
+function pickRankMap(games: Game[]): Record<string, number> {
+  const m: Record<string, number> = {};
+  rankedPicks(games).forEach((c: RankedCard, i: number) => { m[c.p.key] = i + 1; });
+  return m;
+}
+function rankedLists(games: Game[]): { list: RankedCard[]; top: RankedCard[]; others: RankedCard[]; small: RankedCard[]; contested: RankedCard[]; total: number } {
+  const list = rankedPicks(games);
+  return { list, top: list, others: [], small: [], contested: list.filter((c: RankedCard) => c.contested), total: list.length };
 }
 interface CardPick { p: Pick; game: Game; n: number; stake: number }
 function todayCard(games: Game[], now: number): { picks: CardPick[]; total: number } {
-  const L = rankedLists(games);
-  const order = L.top.concat(L.others, L.small, L.contested);
-  const eligible = (p: Pick, g: Game) => !g.live && g.startTs > now && p.view.price != null && !!p.view.yesNo && payoutOf(p) < 3 && !netOf(p, g).contested && !weakerSide(p, g);
+  const order = rankedPicks(games);
+  const eligible = (p: Pick, g: Game) => !g.live && g.startTs > now && p.view.price != null && !!p.view.yesNo && payoutOf(p) < 3 && !netOf(p, g).contested && !netOf(p, g).padded && !weakerSide(p, g);
   const warned = (p: Pick, g: Game) => { const c = sideCompare(p, g); return !!(c && c.verdict === "other"); };
   const rows: { p: Pick; game: Game; n: number }[] = [];
+  const seenG: Record<string, boolean> = {};
   order.forEach((c: RankedCard) => {
-    const pick = bestPickFirst(c.game.picks, c.game).filter((p: Pick) => eligible(p, c.game))[0];
-    if (pick) rows.push({ p: pick, game: c.game, n: pick.backers.length });
+    if (seenG[c.game.id] || !eligible(c.p, c.game)) return;
+    seenG[c.game.id] = true;
+    rows.push({ p: c.p, game: c.game, n: c.my40 || c.p.backers.length });
   });
   const chosen: { p: Pick; game: Game; n: number }[] = [];
   const take = (r: { p: Pick; game: Game; n: number }) => { chosen.push(r); };
@@ -756,7 +942,7 @@ function TodayCard(props: { games: Game[]; now: number }) {
       <div style={{ borderRadius: 18, background: NAVY, color: "#FFFFFF", padding: "14px 16px", marginBottom: 12 }}>
         <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.01em" }}>{"Today's $" + CARD_BUDGET + " card"}</div>
         <div data-card-total="1" style={{ fontSize: 16, fontWeight: 800, marginTop: 4, fontVariantNumeric: "tabular-nums" }}>{card.picks.length + " picks · $2–4 each · total $" + card.total + " of $" + CARD_BUDGET}</div>
-        <div style={{ fontSize: 13, fontWeight: 650, opacity: 0.9, marginTop: 4 }}>{"One pick per game, taken from the Ranked list below (highest net score first). Safer payouts (1.8x or less) first, nothing paying 3x or more, contested picks left off, picks with the amber other-side warning last." + (freshN ? " " + freshN + " fresh." : "")}</div>
+        <div style={{ fontSize: 13, fontWeight: 650, opacity: 0.9, marginTop: 4 }}>{"Best ranked picks, $2–4 each. Nothing is placed for you." + (freshN ? " " + freshN + " fresh." : "")}</div>
       </div>
       {card.picks.length === 0 ? <EmptyState title="No picks fit the card right now" body={"Nothing upcoming pays under 3x with a public Kalshi capper on the same side. The Ranked games are below."} /> : card.picks.map((c: CardPick, i: number) => (
         <UCard key={"card-" + c.p.key} p={c.p} game={c.game} now={props.now} stake={"$" + c.stake} stakeLine={"$" + c.stake + " · total $" + card.total + " of $" + CARD_BUDGET} rankNo={i + 1} />
@@ -773,37 +959,37 @@ function gameMatchesQuery(g: Game, q: string): boolean {
 }
 function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
+  const ranks = pickRankMap(props.games);
   const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const live = games.filter((g: Game) => g.live).sort((a, b) => (a.startTs || 0) - (b.startTs || 0) || (a.id < b.id ? -1 : 1));
   const up = games.filter((g: Game) => !g.live).sort((a, b) => (a.startTs || 1e12) - (b.startTs || 1e12) || (a.id < b.id ? -1 : 1));
+  const rankOf = (g: Game) => {
+    const main = bestPickFirst(g.picks || [], g)[0];
+    return main && ranks[main.key] ? ranks[main.key] : undefined;
+  };
   return (
     <div>
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours. Most top traders hide their book." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours." : "Try another search or clear the filter."} /> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
-      {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart />)}
+      {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
       {up.length ? <div data-all-today="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
-      {up.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart />)}
+      {up.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
     </div>
   );
 }
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
-  const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
-  const L = rankedLists(games);
-  const total = L.top.length + L.others.length + L.small.length + L.contested.length;
-  const render = (c: RankedCard, i: number) => <GameBlock key={c.game.id} g={c.game} now={props.now} stake="$2–4" rankNo={i + 1} rec={c.rec} cappers={c.cappers} />;
+  const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
+  const list = rankedPicks(games);
   return (
     <div>
-      {total > 0 ? <TodayCard games={games} now={props.now} /> : null}
-      {total === 0 ? <EmptyState title={props.games.length === 0 ? "No ranked games right now" : "No games match that filter"} body={props.games.length === 0 ? "No visible Kalshi capper has a $100+ sports pick starting within 24 hours." : "Try another search or clear the filter."} /> : null}
-      {L.top.length ? <div data-elite-top="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 4px", color: NAVY }}>{"Top " + L.top.length}</div> : null}
-      {L.top.map((c: RankedCard, i: number) => render(c, i))}
-      {L.others.length ? <div style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Others (" + L.others.length + ")"}</div> : null}
-      {L.others.map((c: RankedCard, i: number) => render(c, L.top.length + i))}
-      {L.small.length ? <div style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Smaller books (" + L.small.length + ")"}</div> : null}
-      {L.small.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + i))}
-      {L.contested.length ? <div data-contested-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Contested (" + L.contested.length + ")"}</div> : null}
-      {L.contested.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + L.small.length + i))}
+      <Section heading={"Ranked · " + list.length} caption="Best picks first">
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No ranked picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No My 40 capper has a trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+        {list.map((c: RankedCard, i: number) => (
+          <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
+        ))}
+      </Section>
+      {list.length ? <TodayCard games={games} now={props.now} /> : null}
     </div>
   );
 }
@@ -965,7 +1151,7 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: graded winners with at least +$10,000 official all-time profit, or leaderboard earners with no public record and at least +$100,000. Ranked by record, then profit.", followed)}
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official leaderboard names whose public trades we can track, with positive profit and no losing record. Longest records first.", followed)}
         {section("Watching · " + watching.length, "Official profit-leaderboard names that are not followed. Tape-only books stay off this list. Ranked by record first and profit second.", watching)}
       </div>
     );
@@ -1020,10 +1206,14 @@ export default function App() {
       const t = new URLSearchParams(window.location.search).get("tab");
       if (t === "coming" || t === "following" || t === "ranked" || t === "cappers") return t;
     } catch (e) {}
-    return "coming";
+    return "ranked";
   });
   const [tick, setTick] = useState(0);
   const [now, setNow] = useState(() => Math.round(Date.now() / 1000));
+  useEffect(() => {
+    const id = setInterval(() => setNow(Math.round(Date.now() / 1000)), 15000);
+    return () => clearInterval(id);
+  }, []);
   const [refreshing, setRefreshing] = useState(false);
   const [updatedAt, setUpdatedAt] = useState<string | null>(null);
   const [refreshErr, setRefreshErr] = useState<string | null>(null);
@@ -1166,10 +1356,11 @@ export default function App() {
   const db = (DATA.source && DATA.source.db) || {};
   const dbActive = db.active != null ? db.active : (DATA.cappers || []).length;
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
+  const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
-    { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Graded winners at +$10,000, or no-record leaderboard earners at +$100,000. Near-term sports picks only; long-dated futures stay off this tab." },
+    { value: "ranked", label: "Ranked", count: rankedN, icon: <IconTrophy />, title: "Ranked", caption: "Today in PT · after 7pm, + tomorrow" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "My 40 picks, soonest first" },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Top-leaderboard cappers whose public picks we can track. Positive profit, no losing record." },
     { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Followed vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
