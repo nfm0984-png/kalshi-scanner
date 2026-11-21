@@ -76,5 +76,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # Give GitHub a moment to register the artifact; deploy-pages can otherwise
+      # see 0 artifacts and fail even after a successful upload.
+      - name: Wait for Pages artifact
+        run: sleep 20
       - id: deploy
         uses: actions/deploy-pages@v4
