@@ -1,8 +1,8 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 11:27 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 11:35 AM PT",
   "target": 40,
-  "note": "Followed cappers for My 40, taken from official Kalshi projected-PnL leaderboards (weekly, monthly, yearly, all-time, plus sport-specific boards). Auto-pin when official all-time profit is at least $1,000 and the capper is on a profit leaderboard. W-L is graded from settled public trades across every category; a reconstructed losing record is unpinned. If no public W-L can be rebuilt, leaderboard membership plus official profit is enough. Up to 40. doNotPin names never re-enter. A scan will not shrink the follow list unless each dropped name actually failed a gate.",
+  "note": "Followed cappers for My 40, taken from official Kalshi projected-PnL leaderboards. Must have a graded winning public record (W > L) and official all-time profit of at least $10,000. Names with no settled W-L, or weak all-time profit, go to Watching. 80Mill and other doNotPin names never re-enter, including via the never-shrink guard. Up to 40. A scan will not shrink the follow list unless each dropped name actually failed a gate or is on doNotPin.",
   "doNotPin": [
     {
       "nickname": "WorkerTrader",
@@ -53,15 +53,14 @@
       "nickname": "brick.one",
       "reason": "negative profit",
       "at": "Sat Nov 21 \u00b7 7:23 AM PT"
+    },
+    {
+      "nickname": "80Mill",
+      "reason": "reviewed",
+      "at": "Sat Nov 21 \u00b7 11:35 AM PT"
     }
   ],
   "cappers": [
-    {
-      "nickname": "Billy.Hoyle",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
     {
       "nickname": "iluminado",
       "tag": "My 40",
@@ -91,140 +90,13 @@
       "tag": "My 40",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "BWmarkets",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "bullishkirby",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "CJJ307",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "ColeBartiromoDOLLARSCHOLAR",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "bama0037",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "past.grass",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "regine",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "Dimesy",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "playful.hornet0945",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "dear.bet",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "big.energy",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "d.palombo",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "discountelf",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "dependent.snail8369",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "Muffat00",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "majebettor123",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "double.boar6452",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "80Mill",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
     }
   ],
   "lastGoodFollows": [
-    "Billy.Hoyle",
     "iluminado",
     "nettinyahoo",
     "degen.4.life112422",
     "Ryqeux",
-    "emilianotijerina",
-    "BWmarkets",
-    "bullishkirby",
-    "CJJ307",
-    "ColeBartiromoDOLLARSCHOLAR",
-    "bama0037",
-    "past.grass",
-    "regine",
-    "Dimesy",
-    "playful.hornet0945",
-    "dear.bet",
-    "big.energy",
-    "d.palombo",
-    "discountelf",
-    "dependent.snail8369",
-    "Muffat00",
-    "majebettor123",
-    "double.boar6452",
-    "80Mill"
+    "emilianotijerina"
   ]
 }

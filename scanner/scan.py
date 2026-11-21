@@ -145,8 +145,11 @@ def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
 TARGET_FOLLOW = 40  # keep discovering every hour even at 40; swap if a pin goes losing
-MIN_FOLLOW_SAMPLE = 10  # settled public sports trades; 3-0 / 2-0 stay on Watching
-MIN_FOLLOW_PNL = 1000.0  # official all-time profit; tiny books like +$15 / +$412 cannot follow
+# Preferred sample for a "full" record. Enforcing 10+ AND +$10,000 would
+# currently leave My 40 empty (only Billy.Hoyle has 10+ settled, and he is under $10k).
+# The live gate therefore requires a graded winning record (W > L, n >= 1) plus +$10,000.
+MIN_FOLLOW_SAMPLE = 1
+MIN_FOLLOW_PNL = 10000.0  # official all-time profit; weak books like +$1.7k / +$3.2k go to Watching
 FOLLOW_HORIZON_DAYS = 30  # My 40 keeps near-term sports only, not months-out futures
 FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
 NEW_PER_SCAN_DEFAULT = 30  # hourly cron; stay under Actions time with 0 429s
@@ -309,13 +312,12 @@ def save_pinned_file(payload, now=None):
     payload["target"] = TARGET_FOLLOW
     payload["note"] = (
         "Followed cappers for My 40, taken from official Kalshi projected-PnL "
-        "leaderboards (weekly, monthly, yearly, all-time, plus sport-specific boards). "
-        "Auto-pin when official all-time profit is at least $1,000 and the capper is on "
-        "a profit leaderboard. W-L is graded from settled public trades across every "
-        "category; a reconstructed losing record is unpinned. If no public W-L can be "
-        "rebuilt, leaderboard membership plus official profit is enough. Up to %d. "
-        "doNotPin names never re-enter. A scan will not shrink the follow list unless "
-        "each dropped name actually failed a gate."
+        "leaderboards. Must have a graded winning public record (W > L) and official "
+        "all-time profit of at least $10,000. Names with no settled W-L, or weak "
+        "all-time profit, go to Watching. 80Mill and other doNotPin names never "
+        "re-enter, including via the never-shrink guard. Up to %d. A scan will not "
+        "shrink the follow list unless each dropped name actually failed a gate or "
+        "is on doNotPin."
         % TARGET_FOLLOW
     )
     if now:
@@ -544,7 +546,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         if not k or k in have or k in skip:
             continue
         if can_follow(cap):
-            g = cap.get("graded") or {}
+            g = follow_record(cap) or {}
             w, l, n = graded_wl(g)
             pnl = official_pnl(cap) or 0
             cands.append((-(w - l), -w, -(w / n if n else 0), -pnl, cap))
@@ -572,13 +574,11 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
     if added:
         log("follow: auto-pinned %d (target %d): %s" % (len(added), TARGET_FOLLOW, ", ".join(added)))
     apply_follow_safeguard(pinned, previous_names, cappers, now, log)
-    # Remember this list when it is at least as strong as the last good one,
-    # or when we still have a real pool (never record a 0-1 name wipe as "good").
+    # lastGood is the last published passing list only. doNotPin and names that
+    # failed a gate are not remembered, so the never-shrink guard cannot revive them.
     current = pinned_names(pinned)
-    last_good = [nick_key(n) for n in (pinned.get("lastGoodFollows") or []) if nick_key(n)]
-    if len(current) >= max(len(last_good), 5) or (current and len(current) >= len(last_good)):
-        if current:
-            pinned["lastGoodFollows"] = current
+    if current:
+        pinned["lastGoodFollows"] = current
     log("follow: %d/%d pinned; discovery continues every hour" % (len(pinned["cappers"]), TARGET_FOLLOW))
     save_pinned_file(pinned, now)
     pinset = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
@@ -898,12 +898,12 @@ def follow_fail_reason(cap):
 
     Gates: must appear on an official Kalshi projected-PnL leaderboard
     (weekly, monthly, yearly, or all-time, including sport-specific boards).
-    Official all-time profit must be at least $1,000. doNotPin is handled by
-    the caller and never re-enters. W-L is graded from settled public trades
-    across every category, not sports-only. A reconstructed losing record
-    (W <= L) is a fail. If no public W-L can be reconstructed, leaderboard
-    membership plus official profit is enough — many top books hide or thin
-    out their sports tape.
+    Official all-time profit must be at least $10,000. doNotPin is handled by
+    the caller and never re-enters (the never-shrink guard also honors it).
+    Must have a graded winning public record (W > L). Names with no settled
+    W-L go to Watching, not doNotPin, except names explicitly excluded.
+    A reconstructed losing record (W <= L) is a fail. W-L is graded from
+    settled public trades across every category when available.
     """
     if not on_profit_leaderboard(cap):
         return "not on official profit leaderboard"
@@ -913,9 +913,11 @@ def follow_fail_reason(cap):
     if pnl is None:
         return "no official all-time profit"
     if pnl < MIN_FOLLOW_PNL:
-        return "profit %s below $1,000" % signed_k(pnl)
+        return "profit %s below $10,000" % signed_k(pnl)
     w, l, n = graded_wl(follow_record(cap))
-    if n > 0 and w <= l:
+    if n <= 0:
+        return "no graded W-L"
+    if w <= l:
         return "%d-%d" % (w, l)
     return None
 
