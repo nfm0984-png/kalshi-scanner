@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 12:58 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 1:58 AM PT",
   "scans": [
+    {
+      "ts": 1795255103,
+      "at": "Sat Nov 21 \u00b7 1:58 AM PT",
+      "names": 46,
+      "newFollows": [
+        "answermbs"
+      ],
+      "followed": 10,
+      "target": 40,
+      "openPicks": 1,
+      "ids": [
+        "KXSB-27-MIN|Yes",
+        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
+        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
+      ]
+    },
     {
       "ts": 1795251515,
       "at": "Sat Nov 21 \u00b7 12:58 AM PT",
