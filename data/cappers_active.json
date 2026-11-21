@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 6:10 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 6:35 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -105,7 +105,8 @@
           "closeTs": 1795437000
         }
       ],
-      "pickCount": 2
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -156,11 +157,11 @@
       "monthlyPnl": 90486.9,
       "ageDays": 136,
       "graded": {
-        "n": 6,
-        "w": 5,
-        "l": 1,
-        "roi": 7.6,
-        "profit": 55.78,
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 8.5,
+        "profit": 32.89,
         "sample": "small"
       },
       "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
@@ -192,7 +193,8 @@
           "closeTs": 1796468400
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 1
     },
     {
       "nickname": "past.grass",
@@ -215,7 +217,8 @@
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "autofade",
@@ -345,7 +348,8 @@
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "regine",
@@ -398,7 +402,8 @@
       "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$155.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jspana99",
@@ -440,17 +445,18 @@
       "monthlyPnl": null,
       "ageDays": 60,
       "graded": {
-        "n": 10,
-        "w": 10,
+        "n": 2,
+        "w": 2,
         "l": 0,
-        "roi": 16.7,
-        "profit": 38074.99,
-        "sample": "full"
+        "roi": 29.2,
+        "profit": 5644.94,
+        "sample": "small"
       },
       "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$184.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "nettinyahoo",
@@ -479,7 +485,8 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -640,7 +647,8 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$32.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -803,7 +811,8 @@
           "closeTs": 1800889200
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 3
     },
     {
       "nickname": "answermbs",
@@ -820,17 +829,18 @@
       "monthlyPnl": null,
       "ageDays": 248,
       "graded": {
-        "n": 64,
-        "w": 56,
-        "l": 8,
-        "roi": 84.3,
-        "profit": 599.1,
+        "n": 40,
+        "w": 37,
+        "l": 3,
+        "roi": 95.5,
+        "profit": 291.99,
         "sample": "full"
       },
       "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$646 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "arrogant.partridge5038",
@@ -974,12 +984,12 @@
       "monthlyPnl": null,
       "ageDays": 425,
       "graded": {
-        "n": 12,
-        "w": 7,
-        "l": 2,
-        "roi": 113.4,
-        "profit": 987.0,
-        "sample": "full"
+        "n": 2,
+        "w": 1,
+        "l": 0,
+        "roi": 12.3,
+        "profit": 40.0,
+        "sample": "small"
       },
       "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.11k all \u00b7 My 40",
       "addedAt": "2026-11-21",
@@ -1010,7 +1020,8 @@
           "closeTs": 1865719800
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 1
     },
     {
       "nickname": "black.catt",
@@ -1338,7 +1349,8 @@
           "closeTs": 1795543200
         }
       ],
-      "pickCount": 7
+      "pickCount": 7,
+      "followCount": 12
     },
     {
       "nickname": "king.45",
@@ -1427,7 +1439,7 @@
       "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$19.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "pickCount": 2,
-      "followCount": 0
+      "followCount": 2
     }
   ]
 }
