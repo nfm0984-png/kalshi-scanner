@@ -1,8 +1,8 @@
 {
-  "scannedAt": "Fri Nov 20 \u00b7 6:58 PM PT",
-  "ts": 1795229927,
+  "scannedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
+  "ts": 1795231577,
   "source": {
-    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Hidden books, market makers, and traders with no sports activity are rejected and never rechecked. Visible sports traders stay in the active db even with no open pick today. W-L is reconstructed from the public sports tape and is never invented. Minimum open pick is $100. Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Pinned Top 10 cappers stay in the active db and are never rejected. My 10 copies every open traditional-sports pick from pinned cappers with no dollar minimum and grades them from official Kalshi results after settlement.",
+    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 20) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 20; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
     "coverage": {
       "boards": {
@@ -47,7 +47,7 @@
         "Mentions:yearly:projected_pnl": 100,
         "Mentions:yearly:volume": 100
       },
-      "leaderboardNames": 1486,
+      "leaderboardNames": 1484,
       "activeRefreshed": 11,
       "queueReviewed": 10,
       "queueToActive": 0,
@@ -56,37 +56,144 @@
       "mmDropped": 0,
       "hiddenRejected": 10,
       "noSportsRejected": 0,
-      "shown": 2,
-      "picks": 23,
-      "games": 12,
+      "shown": 1,
+      "picks": 2,
+      "games": 2,
       "finishedDropped": 0,
       "finishedNames": [],
-      "calls": 368,
+      "calls": 328,
       "retries429": 0,
-      "secs": 193.3,
+      "secs": 175.2,
       "minBet": 100,
       "dbActive": 11,
       "dbQueue": 10,
-      "dbRejected": 12
+      "dbRejected": 22,
+      "dbPinned": 4,
+      "followingOpen": 2,
+      "followingCappers": 4,
+      "trialRecorded": 2,
+      "trialGraded": 0
     },
     "db": {
       "active": 11,
       "queue": 10,
-      "rejected": 12,
-      "pinned": 0
+      "rejected": 22,
+      "pinned": 4
     }
   },
   "cappers": [
+    {
+      "nickname": "iluminado",
+      "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
+      "joinedAt": "2026-07-08",
+      "followers": 68,
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
+      "heavy": true,
+      "ranks": {
+        "monthly": 49
+      },
+      "pnl": 140357.43,
+      "weeklyPnl": null,
+      "monthlyPnl": 89860.72,
+      "ageDays": 135,
+      "graded": {
+        "n": 6,
+        "w": 5,
+        "l": 1,
+        "roi": 7.6,
+        "profit": 55.78,
+        "sample": "small"
+      },
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$140.4k all \u00b7 Top 10",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "BWmarkets",
+      "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
+      "joinedAt": "2025-02-03",
+      "followers": 23220,
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
+      "heavy": false,
+      "ranks": {
+        "all_time": 14,
+        "weekly": 14,
+        "yearly": 13
+      },
+      "pnl": 907037.98,
+      "weeklyPnl": 95330.61,
+      "monthlyPnl": null,
+      "ageDays": 655,
+      "graded": null,
+      "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+      "addedAt": "2026-11-20",
+      "pickCount": 2,
+      "followCount": 2
+    },
+    {
+      "nickname": "bama0037",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bama0037",
+      "joinedAt": "2024-10-11",
+      "followers": 93,
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
+      "heavy": true,
+      "ranks": {
+        "all_time": 58,
+        "monthly": 77,
+        "yearly": 53
+      },
+      "pnl": 134208.54,
+      "weeklyPnl": null,
+      "monthlyPnl": 58466.598,
+      "ageDays": 770,
+      "graded": null,
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Top 10",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "past.grass",
+      "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
+      "joinedAt": "2026-04-18",
+      "followers": 111,
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
+      "heavy": false,
+      "ranks": {
+        "monthly": 43,
+        "weekly": 17
+      },
+      "pnl": 117905.16,
+      "weeklyPnl": 75865.89,
+      "monthlyPnl": 95440.445,
+      "ageDays": 216,
+      "graded": null,
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 10",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
     {
       "nickname": "WorkerTrader",
       "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
       "joinedAt": "2026-03-11",
       "followers": 492,
       "tier": "Core",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 38,
+        "monthly": 39,
         "yearly": 16
       },
       "pnl": 1390906.5,
@@ -94,42 +201,17 @@
       "monthlyPnl": 100633.35,
       "ageDays": 254,
       "graded": {
-        "n": 1,
-        "w": 0,
-        "l": 1,
-        "roi": -32.0,
-        "profit": -36.95,
-        "sample": "small"
-      },
-      "recordLine": "WorkerTrader \u00b7 0-1 \u00b7 -32% \u00b7 +$1.39M all \u00b7 Core",
-      "addedAt": "2026-11-20",
-      "pickCount": 0
-    },
-    {
-      "nickname": "iluminado",
-      "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
-      "joinedAt": "2026-07-08",
-      "followers": 68,
-      "tier": "Top 50",
-      "heavy": true,
-      "ranks": {
-        "monthly": 48
-      },
-      "pnl": 140349.7,
-      "weeklyPnl": null,
-      "monthlyPnl": 89852.99,
-      "ageDays": 135,
-      "graded": {
         "n": 3,
-        "w": 3,
-        "l": 0,
-        "roi": 7.3,
-        "profit": 39.31,
+        "w": 2,
+        "l": 1,
+        "roi": -12.8,
+        "profit": -21.84,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 3-0 \u00b7 +7% \u00b7 +$140.3k all \u00b7 Top 50",
+      "recordLine": "WorkerTrader \u00b7 2-1 \u00b7 -13% \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "autofade",
@@ -137,25 +219,28 @@
       "joinedAt": "2025-06-10",
       "followers": 759,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 72
+        "all_time": 71
       },
-      "pnl": 516758.37,
+      "pnl": 516954.95,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
       "graded": {
-        "n": 3,
-        "w": 2,
+        "n": 8,
+        "w": 6,
         "l": 0,
-        "roi": 60.1,
-        "profit": 835.95,
+        "roi": 55.0,
+        "profit": 875.93,
         "sample": "small"
       },
-      "recordLine": "autofade \u00b7 2-0 \u00b7 +60% \u00b7 +$516.8k all \u00b7 Board",
+      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.0k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "breezy.panther",
@@ -163,47 +248,29 @@
       "joinedAt": "2025-12-19",
       "followers": 135,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "monthly": 62,
-        "weekly": 71
+        "weekly": 72
       },
       "pnl": 262227.07,
       "weeklyPnl": 20943.393,
       "monthlyPnl": 74378.17,
       "ageDays": 336,
       "graded": {
-        "n": 2,
-        "w": 0,
+        "n": 4,
+        "w": 2,
         "l": 2,
-        "roi": -18.4,
-        "profit": -1513.43,
+        "roi": -18.3,
+        "profit": -1502.38,
         "sample": "small"
       },
-      "recordLine": "breezy.panther \u00b7 0-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
+      "recordLine": "breezy.panther \u00b7 2-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 0
-    },
-    {
-      "nickname": "BWmarkets",
-      "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
-      "joinedAt": "2025-02-03",
-      "followers": 23199,
-      "tier": "Top 50",
-      "heavy": false,
-      "ranks": {
-        "all_time": 13,
-        "weekly": 8,
-        "yearly": 12
-      },
-      "pnl": 925773.37,
-      "weeklyPnl": 108619.43,
-      "monthlyPnl": null,
-      "ageDays": 655,
-      "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$925.8k all \u00b7 Top 50",
-      "addedAt": "2026-11-20",
-      "pickCount": 2
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -211,6 +278,8 @@
       "joinedAt": "2026-10-07",
       "followers": 361,
       "tier": "Top 50",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
         "all_time": 98,
@@ -222,30 +291,18 @@
       "weeklyPnl": 25583.432,
       "monthlyPnl": 119700.055,
       "ageDays": 44,
-      "graded": null,
-      "recordLine": "reluctant.fox5394 \u00b7 +$383.6k all \u00b7 Top 50",
-      "addedAt": "2026-11-20",
-      "pickCount": 0
-    },
-    {
-      "nickname": "past.grass",
-      "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
-      "joinedAt": "2026-04-18",
-      "followers": 111,
-      "tier": "Top 50",
-      "heavy": false,
-      "ranks": {
-        "monthly": 42,
-        "weekly": 18
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 0,
+        "roi": 0.0,
+        "profit": 0,
+        "sample": "small"
       },
-      "pnl": 117905.16,
-      "weeklyPnl": 75865.89,
-      "monthlyPnl": 95440.445,
-      "ageDays": 216,
-      "graded": null,
-      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 50",
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$383.6k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "norrisfan",
@@ -253,10 +310,12 @@
       "joinedAt": "2025-12-08",
       "followers": 3165,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
         "all_time": 76,
-        "yearly": 63
+        "yearly": 64
       },
       "pnl": 484317.11,
       "weeklyPnl": null,
@@ -265,7 +324,8 @@
       "graded": null,
       "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "devex",
@@ -273,6 +333,8 @@
       "joinedAt": "2026-06-12",
       "followers": 499,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "all_time": 91,
@@ -285,895 +347,33 @@
       "graded": null,
       "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 0
-    },
-    {
-      "nickname": "bama0037",
-      "profileUrl": "https://kalshi.com/ideas/profiles/bama0037",
-      "joinedAt": "2024-10-11",
-      "followers": 93,
-      "tier": "Board",
-      "heavy": true,
-      "ranks": {
-        "all_time": 58,
-        "monthly": 75,
-        "yearly": 53
-      },
-      "pnl": 134208.54,
-      "weeklyPnl": null,
-      "monthlyPnl": 58466.598,
-      "ageDays": 770,
-      "graded": null,
-      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Board",
-      "addedAt": "2026-11-20",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "regine",
       "profileUrl": "https://kalshi.com/ideas/profiles/regine",
       "joinedAt": "2025-12-20",
-      "followers": 47,
+      "followers": 49,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 80
+        "monthly": 78
       },
-      "pnl": 62049.43,
+      "pnl": 64160.39,
       "weeklyPnl": null,
-      "monthlyPnl": 55929.824,
+      "monthlyPnl": 58040.78,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$62.0k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$64.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 21
+      "pickCount": 0,
+      "followCount": 0
     }
   ],
   "games": [
-    {
-      "id": "KXNBAGAME-26NOV20ORLBKN",
-      "game": "Orlando vs Brooklyn",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBAGAME-26NOV20ORLBKN-BKN|Yes",
-          "ticker": "KXNBAGAME-26NOV20ORLBKN-BKN",
-          "eventTicker": "KXNBAGAME-26NOV20ORLBKN",
-          "mid": "KXNBAGAME-26NOV20ORLBKN-BKN",
-          "bt": "Moneyline",
-          "big": "Brooklyn",
-          "sub": "Orlando vs Brooklyn",
-          "view": {
-            "backing": "Brooklyn",
-            "marketTitle": "Orlando vs Brooklyn",
-            "outcome": "Brooklyn",
-            "yesNo": "Yes",
-            "price": 0.75,
-            "ticker": "KXNBAGAME-26NOV20ORLBKN-BKN"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 2367.8,
-              "avg": 0.37,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229932,
-              "tier": "Board"
-            }
-          ],
-          "total": 2367.8,
-          "tags": [
-            "Board"
-          ],
-          "slip": 38.0,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBAGAME-26NOV20ORLBKN-ORL|Yes",
-          "ticker": "KXNBAGAME-26NOV20ORLBKN-ORL",
-          "eventTicker": "KXNBAGAME-26NOV20ORLBKN",
-          "mid": "KXNBAGAME-26NOV20ORLBKN-ORL",
-          "bt": "Moneyline",
-          "big": "Orlando",
-          "sub": "Orlando vs Brooklyn",
-          "view": {
-            "backing": "Orlando",
-            "marketTitle": "Orlando vs Brooklyn",
-            "outcome": "Orlando",
-            "yesNo": "Yes",
-            "price": 0.21,
-            "ticker": "KXNBAGAME-26NOV20ORLBKN-ORL"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 867.94,
-              "avg": 0.5219,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229952,
-              "tier": "Board"
-            }
-          ],
-          "total": 867.94,
-          "tags": [
-            "Board"
-          ],
-          "slip": -31.2,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBAGAME-26NOV20TORDET",
-      "game": "Toronto vs Detroit",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBAGAME-26NOV20TORDET-TOR|Yes",
-          "ticker": "KXNBAGAME-26NOV20TORDET-TOR",
-          "eventTicker": "KXNBAGAME-26NOV20TORDET",
-          "mid": "KXNBAGAME-26NOV20TORDET-TOR",
-          "bt": "Moneyline",
-          "big": "Toronto",
-          "sub": "Toronto vs Detroit",
-          "view": {
-            "backing": "Toronto",
-            "marketTitle": "Toronto vs Detroit",
-            "outcome": "Toronto",
-            "yesNo": "Yes",
-            "price": 0.5,
-            "ticker": "KXNBAGAME-26NOV20TORDET-TOR"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 3895.19,
-              "avg": 0.4571,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229947,
-              "tier": "Board"
-            }
-          ],
-          "total": 3895.19,
-          "tags": [
-            "Board"
-          ],
-          "slip": 4.3,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBAGAME-26NOV20TORDET-DET|Yes",
-          "ticker": "KXNBAGAME-26NOV20TORDET-DET",
-          "eventTicker": "KXNBAGAME-26NOV20TORDET",
-          "mid": "KXNBAGAME-26NOV20TORDET-DET",
-          "bt": "Moneyline",
-          "big": "Detroit",
-          "sub": "Toronto vs Detroit",
-          "view": {
-            "backing": "Detroit",
-            "marketTitle": "Toronto vs Detroit",
-            "outcome": "Detroit",
-            "yesNo": "Yes",
-            "price": 0.51,
-            "ticker": "KXNBAGAME-26NOV20TORDET-DET"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 1405.3,
-              "avg": 0.4705,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229947,
-              "tier": "Board"
-            }
-          ],
-          "total": 1405.3,
-          "tags": [
-            "Board"
-          ],
-          "slip": 4.0,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBASPREAD-26NOV20ORLBKN",
-      "game": "Orlando vs Brooklyn: Spread",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBASPREAD-26NOV20ORLBKN-ORL5|No",
-          "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL5",
-          "eventTicker": "KXNBASPREAD-26NOV20ORLBKN",
-          "mid": "KXNBASPREAD-26NOV20ORLBKN-ORL5",
-          "bt": "Spread",
-          "big": "Orlando wins by over 4.5 points",
-          "sub": "Orlando vs Brooklyn: Spread",
-          "view": {
-            "backing": "Orlando wins by over 4.5 points",
-            "marketTitle": "Orlando vs Brooklyn: Spread",
-            "outcome": "Orlando wins by over 4.5 points",
-            "yesNo": "No",
-            "price": 0.95,
-            "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL5"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 428.1,
-              "avg": 0.2975,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229658,
-              "tier": "Board"
-            }
-          ],
-          "total": 428.1,
-          "tags": [
-            "Board"
-          ],
-          "slip": 65.3,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20ORLBKN-ORL4|No",
-          "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL4",
-          "eventTicker": "KXNBASPREAD-26NOV20ORLBKN",
-          "mid": "KXNBASPREAD-26NOV20ORLBKN-ORL4",
-          "bt": "Spread",
-          "big": "Orlando wins by over 3.5 points",
-          "sub": "Orlando vs Brooklyn: Spread",
-          "view": {
-            "backing": "Orlando wins by over 3.5 points",
-            "marketTitle": "Orlando vs Brooklyn: Spread",
-            "outcome": "Orlando wins by over 3.5 points",
-            "yesNo": "No",
-            "price": 0.92,
-            "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL4"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 412.77,
-              "avg": 0.398,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229658,
-              "tier": "Board"
-            }
-          ],
-          "total": 412.77,
-          "tags": [
-            "Board"
-          ],
-          "slip": 52.2,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20ORLBKN-ORL2|Yes",
-          "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL2",
-          "eventTicker": "KXNBASPREAD-26NOV20ORLBKN",
-          "mid": "KXNBASPREAD-26NOV20ORLBKN-ORL2",
-          "bt": "Spread",
-          "big": "Orlando wins by over 1.5 points",
-          "sub": "Orlando vs Brooklyn: Spread",
-          "view": {
-            "backing": "Orlando wins by over 1.5 points",
-            "marketTitle": "Orlando vs Brooklyn: Spread",
-            "outcome": "Orlando wins by over 1.5 points",
-            "yesNo": "Yes",
-            "price": 0.16,
-            "ticker": "KXNBASPREAD-26NOV20ORLBKN-ORL2"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 132.34,
-              "avg": 0.5013,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229952,
-              "tier": "Board"
-            }
-          ],
-          "total": 132.34,
-          "tags": [
-            "Board"
-          ],
-          "slip": -34.1,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBASPREAD-26NOV20TORDET",
-      "game": "Toronto vs Detroit: Spread",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBASPREAD-26NOV20TORDET-TOR2|No",
-          "ticker": "KXNBASPREAD-26NOV20TORDET-TOR2",
-          "eventTicker": "KXNBASPREAD-26NOV20TORDET",
-          "mid": "KXNBASPREAD-26NOV20TORDET-TOR2",
-          "bt": "Spread",
-          "big": "Toronto wins by over 1.5 points",
-          "sub": "Toronto vs Detroit: Spread",
-          "view": {
-            "backing": "Toronto wins by over 1.5 points",
-            "marketTitle": "Toronto vs Detroit: Spread",
-            "outcome": "Toronto wins by over 1.5 points",
-            "yesNo": "No",
-            "price": 0.59,
-            "ticker": "KXNBASPREAD-26NOV20TORDET-TOR2"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 418.4,
-              "avg": 0.4628,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229413,
-              "tier": "Board"
-            }
-          ],
-          "total": 418.4,
-          "tags": [
-            "Board"
-          ],
-          "slip": 12.7,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20TORDET-DET4|No",
-          "ticker": "KXNBASPREAD-26NOV20TORDET-DET4",
-          "eventTicker": "KXNBASPREAD-26NOV20TORDET",
-          "mid": "KXNBASPREAD-26NOV20TORDET-DET4",
-          "bt": "Spread",
-          "big": "Detroit wins by over 3.5 points",
-          "sub": "Toronto vs Detroit: Spread",
-          "view": {
-            "backing": "Detroit wins by over 3.5 points",
-            "marketTitle": "Toronto vs Detroit: Spread",
-            "outcome": "Detroit wins by over 3.5 points",
-            "yesNo": "No",
-            "price": 0.81,
-            "ticker": "KXNBASPREAD-26NOV20TORDET-DET4"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 203.68,
-              "avg": 0.4506,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229947,
-              "tier": "Board"
-            }
-          ],
-          "total": 203.68,
-          "tags": [
-            "Board"
-          ],
-          "slip": 35.9,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATOTAL-26NOV20ORLBKN",
-      "game": "Orlando vs Brooklyn: Total Points",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATOTAL-26NOV20ORLBKN-224|Yes",
-          "ticker": "KXNBATOTAL-26NOV20ORLBKN-224",
-          "eventTicker": "KXNBATOTAL-26NOV20ORLBKN",
-          "mid": "KXNBATOTAL-26NOV20ORLBKN-224",
-          "bt": "Totals",
-          "big": "Over 223.5 points",
-          "sub": "Orlando vs Brooklyn: Total Points",
-          "view": {
-            "backing": "Over 223.5 points",
-            "marketTitle": "Orlando vs Brooklyn: Total Points",
-            "outcome": "Over 223.5 points",
-            "yesNo": "Yes",
-            "price": 0.86,
-            "ticker": "KXNBATOTAL-26NOV20ORLBKN-224"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 126.43,
-              "avg": 0.6654,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229932,
-              "tier": "Board"
-            }
-          ],
-          "total": 126.43,
-          "tags": [
-            "Board"
-          ],
-          "slip": 19.5,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATOTAL-26NOV20ORLBKN-222|Yes",
-          "ticker": "KXNBATOTAL-26NOV20ORLBKN-222",
-          "eventTicker": "KXNBATOTAL-26NOV20ORLBKN",
-          "mid": "KXNBATOTAL-26NOV20ORLBKN-222",
-          "bt": "Totals",
-          "big": "Over 221.5 points",
-          "sub": "Orlando vs Brooklyn: Total Points",
-          "view": {
-            "backing": "Over 221.5 points",
-            "marketTitle": "Orlando vs Brooklyn: Total Points",
-            "outcome": "Over 221.5 points",
-            "yesNo": "Yes",
-            "price": 0.98,
-            "ticker": "KXNBATOTAL-26NOV20ORLBKN-222"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 104.51,
-              "avg": 0.711,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229559,
-              "tier": "Board"
-            }
-          ],
-          "total": 104.51,
-          "tags": [
-            "Board"
-          ],
-          "slip": 26.9,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATOTAL-26NOV20TORDET",
-      "game": "Toronto vs Detroit: Total Points",
-      "league": "NBA",
-      "startTs": 1795231800,
-      "start": "Fri Nov 20 \u00b7 7:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATOTAL-26NOV20TORDET-200|Yes",
-          "ticker": "KXNBATOTAL-26NOV20TORDET-200",
-          "eventTicker": "KXNBATOTAL-26NOV20TORDET",
-          "mid": "KXNBATOTAL-26NOV20TORDET-200",
-          "bt": "Totals",
-          "big": "Over 199.5 points",
-          "sub": "Toronto vs Detroit: Total Points",
-          "view": {
-            "backing": "Over 199.5 points",
-            "marketTitle": "Toronto vs Detroit: Total Points",
-            "outcome": "Over 199.5 points",
-            "yesNo": "Yes",
-            "price": 0.98,
-            "ticker": "KXNBATOTAL-26NOV20TORDET-200"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 1259.61,
-              "avg": 0.4513,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229644,
-              "tier": "Board"
-            }
-          ],
-          "total": 1259.61,
-          "tags": [
-            "Board"
-          ],
-          "slip": 52.9,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATOTAL-26NOV20TORDET-198|Yes",
-          "ticker": "KXNBATOTAL-26NOV20TORDET-198",
-          "eventTicker": "KXNBATOTAL-26NOV20TORDET",
-          "mid": "KXNBATOTAL-26NOV20TORDET-198",
-          "bt": "Totals",
-          "big": "Over 197.5 points",
-          "sub": "Toronto vs Detroit: Total Points",
-          "view": {
-            "backing": "Over 197.5 points",
-            "marketTitle": "Toronto vs Detroit: Total Points",
-            "outcome": "Over 197.5 points",
-            "yesNo": "Yes",
-            "price": 1.0,
-            "ticker": "KXNBATOTAL-26NOV20TORDET-198"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 856.12,
-              "avg": 0.68,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229413,
-              "tier": "Board"
-            }
-          ],
-          "total": 856.12,
-          "tags": [
-            "Board"
-          ],
-          "slip": 32.0,
-          "startTs": 1795231800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBAGAME-26NOV20WASCHI",
-      "game": "Washington vs Chicago",
-      "league": "NBA",
-      "startTs": 1795233600,
-      "start": "Fri Nov 20 \u00b7 8:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBAGAME-26NOV20WASCHI-WAS|Yes",
-          "ticker": "KXNBAGAME-26NOV20WASCHI-WAS",
-          "eventTicker": "KXNBAGAME-26NOV20WASCHI",
-          "mid": "KXNBAGAME-26NOV20WASCHI-WAS",
-          "bt": "Moneyline",
-          "big": "Washington",
-          "sub": "Washington vs Chicago",
-          "view": {
-            "backing": "Washington",
-            "marketTitle": "Washington vs Chicago",
-            "outcome": "Washington",
-            "yesNo": "Yes",
-            "price": 0.85,
-            "ticker": "KXNBAGAME-26NOV20WASCHI-WAS"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 1825.13,
-              "avg": 0.4602,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795230018,
-              "tier": "Board"
-            }
-          ],
-          "total": 1825.13,
-          "tags": [
-            "Board"
-          ],
-          "slip": 39.0,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBAGAME-26NOV20WASCHI-CHI|Yes",
-          "ticker": "KXNBAGAME-26NOV20WASCHI-CHI",
-          "eventTicker": "KXNBAGAME-26NOV20WASCHI",
-          "mid": "KXNBAGAME-26NOV20WASCHI-CHI",
-          "bt": "Moneyline",
-          "big": "Chicago",
-          "sub": "Washington vs Chicago",
-          "view": {
-            "backing": "Chicago",
-            "marketTitle": "Washington vs Chicago",
-            "outcome": "Chicago",
-            "yesNo": "Yes",
-            "price": 0.15,
-            "ticker": "KXNBAGAME-26NOV20WASCHI-CHI"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 1573.38,
-              "avg": 0.4107,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795230018,
-              "tier": "Board"
-            }
-          ],
-          "total": 1573.38,
-          "tags": [
-            "Board"
-          ],
-          "slip": -26.1,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBASPREAD-26NOV20WASCHI",
-      "game": "Washington vs Chicago: Spread",
-      "league": "NBA",
-      "startTs": 1795233600,
-      "start": "Fri Nov 20 \u00b7 8:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBASPREAD-26NOV20WASCHI-WAS7|No",
-          "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS7",
-          "eventTicker": "KXNBASPREAD-26NOV20WASCHI",
-          "mid": "KXNBASPREAD-26NOV20WASCHI-WAS7",
-          "bt": "Spread",
-          "big": "Washington wins by over 6.5 points",
-          "sub": "Washington vs Chicago: Spread",
-          "view": {
-            "backing": "Washington wins by over 6.5 points",
-            "marketTitle": "Washington vs Chicago: Spread",
-            "outcome": "Washington wins by over 6.5 points",
-            "yesNo": "No",
-            "price": 0.53,
-            "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS7"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 455.39,
-              "avg": 0.6154,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229871,
-              "tier": "Board"
-            }
-          ],
-          "total": 455.39,
-          "tags": [
-            "Board"
-          ],
-          "slip": -8.5,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20WASCHI-WAS9|No",
-          "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS9",
-          "eventTicker": "KXNBASPREAD-26NOV20WASCHI",
-          "mid": "KXNBASPREAD-26NOV20WASCHI-WAS9",
-          "bt": "Spread",
-          "big": "Washington wins by over 8.5 points",
-          "sub": "Washington vs Chicago: Spread",
-          "view": {
-            "backing": "Washington wins by over 8.5 points",
-            "marketTitle": "Washington vs Chicago: Spread",
-            "outcome": "Washington wins by over 8.5 points",
-            "yesNo": "No",
-            "price": 0.68,
-            "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS9"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 178.51,
-              "avg": 0.5,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795230010,
-              "tier": "Board"
-            }
-          ],
-          "total": 178.51,
-          "tags": [
-            "Board"
-          ],
-          "slip": 18.0,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20WASCHI-WAS2|No",
-          "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS2",
-          "eventTicker": "KXNBASPREAD-26NOV20WASCHI",
-          "mid": "KXNBASPREAD-26NOV20WASCHI-WAS2",
-          "bt": "Spread",
-          "big": "Washington wins by over 1.5 points",
-          "sub": "Washington vs Chicago: Spread",
-          "view": {
-            "backing": "Washington wins by over 1.5 points",
-            "marketTitle": "Washington vs Chicago: Spread",
-            "outcome": "Washington wins by over 1.5 points",
-            "yesNo": "No",
-            "price": 0.19,
-            "ticker": "KXNBASPREAD-26NOV20WASCHI-WAS2"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 185.23,
-              "avg": 0.5664,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229572,
-              "tier": "Board"
-            }
-          ],
-          "total": 185.23,
-          "tags": [
-            "Board"
-          ],
-          "slip": -37.6,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20WASCHI-CHI2|No",
-          "ticker": "KXNBASPREAD-26NOV20WASCHI-CHI2",
-          "eventTicker": "KXNBASPREAD-26NOV20WASCHI",
-          "mid": "KXNBASPREAD-26NOV20WASCHI-CHI2",
-          "bt": "Spread",
-          "big": "Chicago wins by over 1.5 points",
-          "sub": "Washington vs Chicago: Spread",
-          "view": {
-            "backing": "Chicago wins by over 1.5 points",
-            "marketTitle": "Washington vs Chicago: Spread",
-            "outcome": "Chicago wins by over 1.5 points",
-            "yesNo": "No",
-            "price": 0.88,
-            "ticker": "KXNBASPREAD-26NOV20WASCHI-CHI2"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 124.38,
-              "avg": 0.4174,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229338,
-              "tier": "Board"
-            }
-          ],
-          "total": 124.38,
-          "tags": [
-            "Board"
-          ],
-          "slip": 46.3,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATEAMTOTAL-26NOV20WASCHI",
-      "game": "Washington vs Chicago: Team Total",
-      "league": "NBA",
-      "startTs": 1795233600,
-      "start": "Fri Nov 20 \u00b7 8:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATEAMTOTAL-26NOV20WASCHI-WAS102|Yes",
-          "ticker": "KXNBATEAMTOTAL-26NOV20WASCHI-WAS102",
-          "eventTicker": "KXNBATEAMTOTAL-26NOV20WASCHI",
-          "mid": "KXNBATEAMTOTAL-26NOV20WASCHI-WAS102",
-          "bt": "Totals",
-          "big": "Washington over 101.5 points",
-          "sub": "Washington vs Chicago: Team Total",
-          "view": {
-            "backing": "Washington over 101.5 points",
-            "marketTitle": "Washington vs Chicago: Team Total",
-            "outcome": "Washington over 101.5 points",
-            "yesNo": "Yes",
-            "price": 0.83,
-            "ticker": "KXNBATEAMTOTAL-26NOV20WASCHI-WAS102"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 131.1,
-              "avg": 0.46,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229338,
-              "tier": "Board"
-            }
-          ],
-          "total": 131.1,
-          "tags": [
-            "Board"
-          ],
-          "slip": 37.0,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATOTAL-26NOV20WASCHI",
-      "game": "Washington vs Chicago: Total Points",
-      "league": "NBA",
-      "startTs": 1795233600,
-      "start": "Fri Nov 20 \u00b7 8:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATOTAL-26NOV20WASCHI-203|Yes",
-          "ticker": "KXNBATOTAL-26NOV20WASCHI-203",
-          "eventTicker": "KXNBATOTAL-26NOV20WASCHI",
-          "mid": "KXNBATOTAL-26NOV20WASCHI-203",
-          "bt": "Totals",
-          "big": "Over 202.5 points",
-          "sub": "Washington vs Chicago: Total Points",
-          "view": {
-            "backing": "Over 202.5 points",
-            "marketTitle": "Washington vs Chicago: Total Points",
-            "outcome": "Over 202.5 points",
-            "yesNo": "Yes",
-            "price": 0.63,
-            "ticker": "KXNBATOTAL-26NOV20WASCHI-203"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 174.13,
-              "avg": 0.5766,
-              "line": "regine \u00b7 +$62.0k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795229871,
-              "tier": "Board"
-            }
-          ],
-          "total": 174.13,
-          "tags": [
-            "Board"
-          ],
-          "slip": 5.3,
-          "startTs": 1795233600,
-          "state": "upcoming"
-        }
-      ]
-    },
     {
       "id": "KXNCAAFTOTAL-26NOV20UTEPAFA",
       "game": "UTEP vs Air Force: Total Points",
@@ -1196,7 +396,7 @@
             "marketTitle": "UTEP vs Air Force: Total Points",
             "outcome": "Over 49.5 points",
             "yesNo": "Yes",
-            "price": 0.87,
+            "price": 0.91,
             "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50"
           },
           "backers": [
@@ -1204,17 +404,17 @@
               "name": "BWmarkets",
               "cost": 62733.79,
               "avg": 0.4829,
-              "line": "BWmarkets \u00b7 +$925.8k all \u00b7 Top 50",
+              "line": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
               "rec": null,
               "lastTs": 1795224231,
-              "tier": "Top 50"
+              "tier": "Top 10"
             }
           ],
           "total": 62733.79,
           "tags": [
-            "Top 50"
+            "Top 10"
           ],
-          "slip": 38.7,
+          "slip": 42.7,
           "startTs": 1795233600,
           "state": "upcoming"
         }
@@ -1242,7 +442,7 @@
             "marketTitle": "NC St. vs Seton Hall: Spread",
             "outcome": "NC St. wins by over 4.5 points",
             "yesNo": "Yes",
-            "price": 0.54,
+            "price": 0.48,
             "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5"
           },
           "backers": [
@@ -1250,17 +450,17 @@
               "name": "BWmarkets",
               "cost": 24165.0,
               "avg": 0.5062,
-              "line": "BWmarkets \u00b7 +$925.8k all \u00b7 Top 50",
+              "line": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
               "rec": null,
               "lastTs": 1795228124,
-              "tier": "Top 50"
+              "tier": "Top 10"
             }
           ],
           "total": 24165.0,
           "tags": [
-            "Top 50"
+            "Top 10"
           ],
-          "slip": 3.4,
+          "slip": -2.6,
           "startTs": 1795239000,
           "state": "upcoming"
         }
@@ -1268,11 +468,109 @@
     }
   ],
   "following": {
-    "startedAt": "",
-    "startedTs": 0,
-    "cappers": [],
-    "picks": [],
-    "recorded": 0,
+    "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
+    "startedTs": 1795231577,
+    "cappers": [
+      {
+        "nickname": "bama0037",
+        "w": 0,
+        "l": 0,
+        "p": 0,
+        "n": 0,
+        "hitPct": null,
+        "open": 0,
+        "hidden": false
+      },
+      {
+        "nickname": "BWmarkets",
+        "w": 0,
+        "l": 0,
+        "p": 0,
+        "n": 0,
+        "hitPct": null,
+        "open": 2,
+        "hidden": false
+      },
+      {
+        "nickname": "iluminado",
+        "w": 0,
+        "l": 0,
+        "p": 0,
+        "n": 0,
+        "hitPct": null,
+        "open": 0,
+        "hidden": false
+      },
+      {
+        "nickname": "past.grass",
+        "w": 0,
+        "l": 0,
+        "p": 0,
+        "n": 0,
+        "hitPct": null,
+        "open": 0,
+        "hidden": false
+      }
+    ],
+    "picks": [
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
+        "eventTicker": "KXNCAAFTOTAL-26NOV20UTEPAFA",
+        "marketTitle": "UTEP vs Air Force: Total Points",
+        "contractTitle": "Full Game: Over 49.5 points scored",
+        "backing": "Over 49.5 points",
+        "yesNo": "Yes",
+        "label": "Over 49.5 points",
+        "entry": 0.4829,
+        "price": 0.91,
+        "yesAsk": 0.91,
+        "noAsk": 0.24,
+        "cost": 62733.79,
+        "contracts": 129913.0,
+        "lastTs": 1795224231,
+        "startTs": 1795233600,
+        "state": "upcoming",
+        "league": "NCAAF",
+        "game": "UTEP vs Air Force: Total Points",
+        "bt": "Totals",
+        "slip": 42.7,
+        "status": "active",
+        "result": "",
+        "closeTs": 1795395600,
+        "nickname": "BWmarkets",
+        "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+        "tier": "Top 10"
+      },
+      {
+        "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
+        "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
+        "marketTitle": "NC St. vs Seton Hall: Spread",
+        "contractTitle": "NC St. wins by over 4.5 points",
+        "backing": "NC St. wins by over 4.5 points",
+        "yesNo": "Yes",
+        "label": "NC St. wins by over 4.5 points",
+        "entry": 0.5062,
+        "price": 0.48,
+        "yesAsk": 0.48,
+        "noAsk": 0.56,
+        "cost": 24165.0,
+        "contracts": 47735.0,
+        "lastTs": 1795228124,
+        "startTs": 1795239000,
+        "state": "upcoming",
+        "league": "NCAAB",
+        "game": "NC St. vs Seton Hall: Spread",
+        "bt": "Spread",
+        "slip": -2.6,
+        "status": "active",
+        "result": "",
+        "closeTs": 1795401000,
+        "nickname": "BWmarkets",
+        "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+        "tier": "Top 10"
+      }
+    ],
+    "recorded": 2,
     "graded": 0
   }
 }

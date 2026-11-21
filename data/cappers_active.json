@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Fri Nov 20 \u00b7 6:58 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -7,10 +7,12 @@
       "joinedAt": "2026-03-11",
       "followers": 492,
       "tier": "Core",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 38,
+        "monthly": 39,
         "yearly": 16
       },
       "pnl": 1390906.5,
@@ -18,36 +20,91 @@
       "monthlyPnl": 100633.35,
       "ageDays": 254,
       "graded": {
-        "n": 1,
-        "w": 0,
+        "n": 3,
+        "w": 2,
         "l": 1,
-        "roi": -32.0,
-        "profit": -36.95,
+        "roi": -12.8,
+        "profit": -21.84,
         "sample": "small"
       },
-      "recordLine": "WorkerTrader \u00b7 0-1 \u00b7 -32% \u00b7 +$1.39M all \u00b7 Core",
+      "recordLine": "WorkerTrader \u00b7 2-1 \u00b7 -13% \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23199,
-      "tier": "Top 50",
+      "followers": 23220,
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "all_time": 13,
-        "weekly": 8,
-        "yearly": 12
+        "all_time": 14,
+        "weekly": 14,
+        "yearly": 13
       },
-      "pnl": 925773.37,
-      "weeklyPnl": 108619.43,
+      "pnl": 907037.98,
+      "weeklyPnl": 95330.61,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$925.8k all \u00b7 Top 50",
+      "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
+          "eventTicker": "KXNCAAFTOTAL-26NOV20UTEPAFA",
+          "marketTitle": "UTEP vs Air Force: Total Points",
+          "contractTitle": "Full Game: Over 49.5 points scored",
+          "backing": "Over 49.5 points",
+          "yesNo": "Yes",
+          "label": "Over 49.5 points",
+          "entry": 0.4829,
+          "price": 0.91,
+          "yesAsk": 0.91,
+          "noAsk": 0.24,
+          "cost": 62733.79,
+          "contracts": 129913.0,
+          "lastTs": 1795224231,
+          "startTs": 1795233600,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "UTEP vs Air Force: Total Points",
+          "bt": "Totals",
+          "slip": 42.7,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795395600
+        },
+        {
+          "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
+          "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
+          "marketTitle": "NC St. vs Seton Hall: Spread",
+          "contractTitle": "NC St. wins by over 4.5 points",
+          "backing": "NC St. wins by over 4.5 points",
+          "yesNo": "Yes",
+          "label": "NC St. wins by over 4.5 points",
+          "entry": 0.5062,
+          "price": 0.48,
+          "yesAsk": 0.48,
+          "noAsk": 0.56,
+          "cost": 24165.0,
+          "contracts": 47735.0,
+          "lastTs": 1795228124,
+          "startTs": 1795239000,
+          "state": "upcoming",
+          "league": "NCAAB",
+          "game": "NC St. vs Seton Hall: Spread",
+          "bt": "Spread",
+          "slip": -2.6,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795401000
+        }
+      ],
       "pickCount": 2
     },
     {
@@ -56,6 +113,8 @@
       "joinedAt": "2026-10-07",
       "followers": 361,
       "tier": "Top 50",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
         "all_time": 98,
@@ -67,9 +126,17 @@
       "weeklyPnl": 25583.432,
       "monthlyPnl": 119700.055,
       "ageDays": 44,
-      "graded": null,
-      "recordLine": "reluctant.fox5394 \u00b7 +$383.6k all \u00b7 Top 50",
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 0,
+        "roi": 0.0,
+        "profit": 0,
+        "sample": "small"
+      },
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$383.6k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -77,25 +144,28 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
       "joinedAt": "2026-07-08",
       "followers": 68,
-      "tier": "Top 50",
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
       "heavy": true,
       "ranks": {
-        "monthly": 48
+        "monthly": 49
       },
-      "pnl": 140349.7,
+      "pnl": 140357.43,
       "weeklyPnl": null,
-      "monthlyPnl": 89852.99,
+      "monthlyPnl": 89860.72,
       "ageDays": 135,
       "graded": {
-        "n": 3,
-        "w": 3,
-        "l": 0,
-        "roi": 7.3,
-        "profit": 39.31,
+        "n": 6,
+        "w": 5,
+        "l": 1,
+        "roi": 7.6,
+        "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 3-0 \u00b7 +7% \u00b7 +$140.3k all \u00b7 Top 50",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$140.4k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -103,19 +173,22 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
       "followers": 111,
-      "tier": "Top 50",
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "monthly": 42,
-        "weekly": 18
+        "monthly": 43,
+        "weekly": 17
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
       "monthlyPnl": 95440.445,
       "ageDays": 216,
       "graded": null,
-      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 50",
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -124,24 +197,27 @@
       "joinedAt": "2025-06-10",
       "followers": 759,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 72
+        "all_time": 71
       },
-      "pnl": 516758.37,
+      "pnl": 516954.95,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
       "graded": {
-        "n": 3,
-        "w": 2,
+        "n": 8,
+        "w": 6,
         "l": 0,
-        "roi": 60.1,
-        "profit": 835.95,
+        "roi": 55.0,
+        "profit": 875.93,
         "sample": "small"
       },
-      "recordLine": "autofade \u00b7 2-0 \u00b7 +60% \u00b7 +$516.8k all \u00b7 Board",
+      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.0k all \u00b7 Board",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -150,25 +226,28 @@
       "joinedAt": "2025-12-19",
       "followers": 135,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "monthly": 62,
-        "weekly": 71
+        "weekly": 72
       },
       "pnl": 262227.07,
       "weeklyPnl": 20943.393,
       "monthlyPnl": 74378.17,
       "ageDays": 336,
       "graded": {
-        "n": 2,
-        "w": 0,
+        "n": 4,
+        "w": 2,
         "l": 2,
-        "roi": -18.4,
-        "profit": -1513.43,
+        "roi": -18.3,
+        "profit": -1502.38,
         "sample": "small"
       },
-      "recordLine": "breezy.panther \u00b7 0-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
+      "recordLine": "breezy.panther \u00b7 2-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -177,10 +256,12 @@
       "joinedAt": "2025-12-08",
       "followers": 3165,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
         "all_time": 76,
-        "yearly": 63
+        "yearly": 64
       },
       "pnl": 484317.11,
       "weeklyPnl": null,
@@ -189,6 +270,7 @@
       "graded": null,
       "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -197,6 +279,8 @@
       "joinedAt": "2026-06-12",
       "followers": 499,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "all_time": 91,
@@ -209,6 +293,7 @@
       "graded": null,
       "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
@@ -216,11 +301,13 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/bama0037",
       "joinedAt": "2024-10-11",
       "followers": 93,
-      "tier": "Board",
+      "tier": "Top 10",
+      "pinned": true,
+      "tag": "Top 10",
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 75,
+        "monthly": 77,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -228,28 +315,32 @@
       "monthlyPnl": 58466.598,
       "ageDays": 770,
       "graded": null,
-      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Board",
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
+      "followingPicks": [],
       "pickCount": 0
     },
     {
       "nickname": "regine",
       "profileUrl": "https://kalshi.com/ideas/profiles/regine",
       "joinedAt": "2025-12-20",
-      "followers": 47,
+      "followers": 49,
       "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 80
+        "monthly": 78
       },
-      "pnl": 62049.43,
+      "pnl": 64160.39,
       "weeklyPnl": null,
-      "monthlyPnl": 55929.824,
+      "monthlyPnl": 58040.78,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$62.0k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$64.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 21
+      "followingPicks": [],
+      "pickCount": 0
     }
   ]
 }

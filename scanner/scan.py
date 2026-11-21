@@ -135,6 +135,7 @@ PINNED_DROPINS = [
     os.path.join(DATA_DIR, "kalshi-top10-cappers.json"),
 ]
 PINNED_TAG = "Top 10"
+TARGET_FOLLOW = 20  # keep discovering every hour even at 20; swap if a pin goes losing
 NEW_PER_SCAN = 10
 
 # Already reviewed in the first live scan (visible sports traders stay active
@@ -275,9 +276,22 @@ def save_pinned_file(payload, now=None):
     save_json(PINNED_PATH, payload)
 
 
+def do_not_pin_set(pinned=None):
+    pinned = pinned if pinned is not None else load_pinned_file()
+    return {nick_key(n).lower() for n in (pinned.get("doNotPin") or []) if nick_key(n)}
+
+
 def merge_dropin_pins(pinned, log=print):
-    """If a worker dropped kalshi-top10-cappers.json, merge those nicks into the pinned list."""
+    """If a worker dropped kalshi-top10-cappers.json, merge those nicks into the pinned list.
+    Names on doNotPin (reviewed, no winning record) are never re-seeded."""
     added = []
+    have = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
+    skip = do_not_pin_set(pinned)
+    # Drop any excluded names already sitting on the pinned list
+    pinned["cappers"] = [
+        r for r in (pinned.get("cappers") or [])
+        if nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() not in skip
+    ]
     have = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
     for path in PINNED_DROPINS:
         if not os.path.exists(path):
@@ -290,6 +304,9 @@ def merge_dropin_pins(pinned, log=print):
         for nick in parse_capper_names(raw):
             k = nick.lower()
             if k in have:
+                continue
+            if k in skip:
+                log("pinned: not re-seeding doNotPin %s from %s" % (nick, path))
                 continue
             have.add(k)
             pinned.setdefault("cappers", []).append({
@@ -342,7 +359,96 @@ def apply_pins(active, queue, rejected, pinned, now, log=print):
         moved.append(nick)
     if moved:
         log("pinned: seeded %d into active: %s" % (len(moved), ", ".join(moved)))
+    # Clear follow flags on anyone not on the pinned list (they stay in the active db).
+    pinset = {n.lower() for n in pinned_names(pinned)}
+    skip = do_not_pin_set(pinned)
+    for row in active.get("cappers") or []:
+        k = nick_key(row.get("nickname")).lower()
+        if k in pinset and k not in skip:
+            row["pinned"] = True
+            row["tag"] = PINNED_TAG
+        else:
+            if row.get("pinned") or row.get("tag") == PINNED_TAG or row.get("tier") == PINNED_TAG:
+                row["pinned"] = False
+                row["tag"] = ""
     return moved
+
+
+def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
+    """Keep My 10 as winning records only, up to TARGET_FOLLOW.
+    Discovery of new cappers continues every hour even when the list is full.
+    If a followed capper's graded record falls to W <= L, unpin them (they stay
+    in the active db for Coming Up / Ranked) and swap in a new winner if one is available.
+    A capper with no graded record yet is not auto-added and is not dropped for being 'losing'."""
+    skip = do_not_pin_set(pinned)
+    by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
+    still, dropped = [], []
+    for row in list(pinned.get("cappers") or []):
+        nick = nick_key(row.get("nickname") if isinstance(row, dict) else row)
+        k = nick.lower()
+        cap = by.get(k)
+        g = (cap or {}).get("graded")
+        if k in skip or is_losing_grade(g):
+            why = "doNotPin" if k in skip else "%d-%d" % (g.get("w") or 0, g.get("l") or 0)
+            dropped.append("%s (%s)" % (nick, why))
+            if cap:
+                cap["pinned"] = False
+                cap["tag"] = ""
+                if cap.get("tier") == PINNED_TAG:
+                    cap["tier"] = capper_tier(nick, people)
+            continue
+        still.append(row if isinstance(row, dict) else {"nickname": nick, "tag": PINNED_TAG, "addedAt": today_pt(now)})
+        if cap:
+            cap["pinned"] = True
+            cap["tag"] = PINNED_TAG
+            cap["tier"] = PINNED_TAG
+    pinned["cappers"] = still
+    have = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in still}
+    cands = []
+    for cap in cappers:
+        k = nick_key(cap.get("nickname")).lower()
+        if not k or k in have or k in skip:
+            continue
+        if is_winning_grade(cap.get("graded")):
+            g = cap["graded"]
+            w, l = g.get("w") or 0, g.get("l") or 0
+            n = w + l
+            cands.append((-(w - l), -w, -(w / n if n else 0), cap))
+    cands.sort(key=lambda x: (x[0], x[1], x[2], nick_key(x[3].get("nickname")).lower()))
+    added = []
+    for _s, _w, _r, cap in cands:
+        if len(pinned["cappers"]) >= TARGET_FOLLOW:
+            break
+        nick = cap["nickname"]
+        g = cap["graded"]
+        pinned["cappers"].append({
+            "nickname": nick,
+            "tag": PINNED_TAG,
+            "source": "auto-winning",
+            "addedAt": today_pt(now),
+        })
+        cap["pinned"] = True
+        cap["tag"] = PINNED_TAG
+        cap["tier"] = PINNED_TAG
+        have.add(nick.lower())
+        added.append("%s %d-%d" % (nick, g.get("w") or 0, g.get("l") or 0))
+    if dropped:
+        log("follow: unpinned (losing or excluded): " + ", ".join(dropped))
+    if added:
+        log("follow: auto-pinned %d (target %d): %s" % (len(added), TARGET_FOLLOW, ", ".join(added)))
+    log("follow: %d/%d pinned; discovery continues every hour" % (len(pinned["cappers"]), TARGET_FOLLOW))
+    save_pinned_file(pinned, now)
+    pinset = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
+    for row in active.get("cappers") or []:
+        k = nick_key(row.get("nickname")).lower()
+        if k in pinset:
+            row["pinned"] = True
+            row["tag"] = PINNED_TAG
+        else:
+            row["pinned"] = False
+            if row.get("tag") == PINNED_TAG:
+                row["tag"] = ""
+    return pinned
 
 
 def fetch_all_boards(http, log=print):
@@ -485,14 +591,29 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
 
 
 def grade_from_trades(trades, nick):
+    """Full traditional-sports W-L from every settled cycle (no dollar floor).
+    Used for display and for the My 10 winning-record gate (W > L). A high
+    size floor would hide a losing overall book behind a few big wins."""
     cycles = lib.closed_cycles(trades, nick)
-    risked = [c["risked"] for c in cycles if c.get("risked")]
-    med = lib.median(risked) if risked else None
-    floor = MIN_BET if (med is None or len(risked) < 3) else max(MIN_BET, 1.5 * med)
-    graded = lib.grade_big_bets(cycles, floor)
-    graded100 = lib.grade_big_bets(cycles, MIN_BET)
-    use = graded if (graded.get("n") or 0) >= 10 else (graded100 if graded100.get("n") else graded)
+    use = lib.grade_big_bets(cycles, 0)
     return use if use and use.get("n") else None
+
+
+def is_winning_grade(g):
+    if not g:
+        return False
+    w, l = g.get("w") or 0, g.get("l") or 0
+    n = g.get("n") or (w + l)
+    return n > 0 and w > l
+
+
+def is_losing_grade(g):
+    """True only when a graded record exists and is not winning (W <= L). No record is not losing."""
+    if not g:
+        return False
+    w, l = g.get("w") or 0, g.get("l") or 0
+    n = g.get("n") or (w + l)
+    return n > 0 and w <= l
 
 
 def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=False):
@@ -998,9 +1119,13 @@ def build(now=None, log=print):
         sample = 0 if n >= 10 else 1
         ungraded = 0 if n else 1
         return (pin_n, ungraded, tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
+    # Refresh the follow list from this scan's full W-L, then copy their open picks.
+    # Discovery (queue + 10 new) already ran above and never stops at TARGET_FOLLOW.
+    pinned = reconcile_follow_list(active, pinned, cappers, people, now, log)
+    save_dbs(active, queue, rejected, now)
     following_open = []
     for c in cappers:
-        if not (c.get("pinned") or is_pinned(c.get("nickname"))):
+        if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
@@ -1019,7 +1144,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from pinned cappers with no dollar minimum and grades them from official Kalshi results after settlement. W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 20) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 20; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {

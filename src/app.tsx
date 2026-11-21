@@ -535,8 +535,8 @@ function FollowingTab(props: { now: number }) {
   const tn = tw + tl;
   const hit = tn ? Math.round((1000 * tw) / tn) / 10 : null;
   return (
-    <Section heading={"My 10 · " + picks.length} caption={"Every open traditional-sports pick from your followed Top 10 · no dollar minimum · soonest start first"}>
-      <Text>{"If you like a capper, every open sports pick from their book lands here — singles and sports combos, no $ minimum and no record gate. Esports and finished games are left off. Each pick is recorded once in a copy trial and graded from Kalshi’s official market result after it settles."}</Text>
+    <Section heading={"My 10 · " + picks.length} caption={"Every open traditional-sports pick from followed winning cappers (up to 20) · no dollar minimum · soonest start first"}>
+      <Text>{"If you like a capper, every open sports pick from their book lands here — singles and sports combos, no $ minimum and no record gate. Only cappers with a winning graded record (W > L) are followed, up to 20. Discovery keeps running every hour; a followed capper who falls to a losing record is swapped out and stays in Coming Up / Ranked. Esports and finished games are left off. Each pick is recorded once in a copy trial and graded from Kalshi’s official market result after it settles."}</Text>
       <div data-trial-box="1" style={{ borderRadius: 16, border: "1.5px solid #FDE68A", background: "#FFFBEB", padding: "12px 14px", marginBottom: 12 }}>
         <div style={{ fontSize: 13, fontWeight: 850, letterSpacing: "0.06em", textTransform: "uppercase", color: "#92400E" }}>Copy trial</div>
         <div style={{ fontSize: 16, fontWeight: 850, color: NAVY, marginTop: 2 }}>
