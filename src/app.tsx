@@ -958,7 +958,7 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official profit leaderboard only, plus 10+ settled public sports trades, W > L, and at least +$1,000 official all-time profit. Ranked by record, then profit.", followed)}
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official profit-leaderboard names with at least +$1,000 official all-time profit. W–L is from settled public trades in every category. Ranked by record, then profit.", followed)}
         {section("Watching · " + watching.length, "Official profit-leaderboard names that are not followed. Tape-only books stay off this list. Ranked by record first and profit second.", watching)}
       </div>
     );
@@ -1162,7 +1162,7 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
     { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Official profit-leaderboard follows only (10+ settled trades, W > L, +$1,000 all-time). Long-dated futures stay off this tab." },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Official profit-leaderboard follows with at least +$1,000 all-time profit. Near-term sports picks only; long-dated futures stay off this tab." },
     { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Followed vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];

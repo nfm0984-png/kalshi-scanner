@@ -576,12 +576,16 @@ def age_days(joined_at, now):
         return None
 
 
-def closed_cycles(trades, nick):
-    """Replay sports fills and emit one cycle each time a market position flattens."""
+def closed_cycles(trades, nick, sports_only=True):
+    """Replay fills and emit one cycle each time a market position flattens.
+
+    sports_only=True keeps the display sports tape. Follow gates can pass
+    sports_only=False to grade settled public trades across every category.
+    """
     by_tk = defaultdict(list)
     for tr in trades:
         tk = tr.get("ticker") or ""
-        if not is_sports_ticker(tk):
+        if sports_only and not is_sports_ticker(tk):
             continue
         if not parse_trade_role(tr, nick):
             continue

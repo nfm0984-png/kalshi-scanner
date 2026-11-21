@@ -178,8 +178,15 @@ BOOTSTRAP_REJECTED = [
 ]
 
 BOARD_CATS = ["Sports", "Politics", "Economics", "Crypto", "Mentions"]
+# Extra sport-specific board names; empty API results are ignored.
+SPORT_BOARD_CATS = [
+    "NFL", "NBA", "MLB", "NHL", "NCAAF", "NCAAB", "CFB", "CBB", "WNBA",
+    "Soccer", "Football", "Basketball", "Tennis", "MMA", "UFC", "Golf",
+    "MLS", "EPL", "NCAAMB", "College Football", "College Basketball",
+]
 BOARD_PERIODS = ["all_time", "monthly", "weekly", "yearly"]
 BOARD_METRICS = ["projected_pnl", "volume"]
+ALL_BOARD_CATS = BOARD_CATS + [c for c in SPORT_BOARD_CATS if c not in BOARD_CATS]
 
 
 def today_pt(now=None):
@@ -301,13 +308,15 @@ def save_pinned_file(payload, now=None):
     payload["tag"] = payload.get("tag") or PINNED_TAG
     payload["target"] = TARGET_FOLLOW
     payload["note"] = (
-        "Followed cappers for My 40, taken only from official Kalshi projected-PnL "
-        "leaderboards (weekly, monthly, yearly, all-time). Auto-pin only when official "
-        "all-time profit is at least $1,000, the public sports record is W > L, and there "
-        "are at least %d settled public sports trades. Up to %d. Tape-discovered names are "
-        "never followed. A followed capper who fails a gate is unpinned. Leaderboard names "
-        "stay in Watching; negative official profit is added to doNotPin and never re-enters."
-        % (MIN_FOLLOW_SAMPLE, TARGET_FOLLOW)
+        "Followed cappers for My 40, taken from official Kalshi projected-PnL "
+        "leaderboards (weekly, monthly, yearly, all-time, plus sport-specific boards). "
+        "Auto-pin when official all-time profit is at least $1,000 and the capper is on "
+        "a profit leaderboard. W-L is graded from settled public trades across every "
+        "category; a reconstructed losing record is unpinned. If no public W-L can be "
+        "rebuilt, leaderboard membership plus official profit is enough. Up to %d. "
+        "doNotPin names never re-enter. A scan will not shrink the follow list unless "
+        "each dropped name actually failed a gate."
+        % TARGET_FOLLOW
     )
     if now:
         payload["updatedAt"] = pt(now)
@@ -447,6 +456,43 @@ def apply_pins(active, queue, rejected, pinned, now, log=print):
     return moved
 
 
+def apply_follow_safeguard(pinned, previous_names, cappers, now, log=print):
+    """Do not shrink My 40 versus the last good list unless a name failed a real gate.
+
+    If this run did not re-evaluate a previously followed capper, keep them.
+    """
+    skip = do_not_pin_set(pinned)
+    have = {n.lower() for n in pinned_names(pinned)}
+    by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
+    restored = []
+    for nick in previous_names or []:
+        k = nick_key(nick).lower()
+        if not k or k in have or k in skip:
+            continue
+        cap = by.get(k)
+        why = follow_fail_reason(cap) if cap else None
+        if cap and why:
+            log("safeguard: not restoring %s (%s)" % (nick, why))
+            continue
+        if not cap:
+            log("safeguard: keeping %s (not re-evaluated this run)" % nick)
+        pinned.setdefault("cappers", []).append({
+            "nickname": nick_key(nick),
+            "tag": PINNED_TAG,
+            "source": "safeguard",
+            "addedAt": today_pt(now),
+        })
+        have.add(k)
+        if cap:
+            cap["pinned"] = True
+            cap["tag"] = PINNED_TAG
+            cap["tier"] = PINNED_TAG
+        restored.append(nick_key(nick))
+    if restored:
+        log("safeguard: restored %d previously followed: %s" % (len(restored), ", ".join(restored)))
+    return restored
+
+
 def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
     """Keep My 40 as pinned follows that pass every gate, up to TARGET_FOLLOW.
 
@@ -460,6 +506,9 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
     doNotPin names are never auto-followed. New auto-follows must pass the
     same gates and come from the leaderboard. Rank by record first, profit second.
     """
+    previous_names = list(dict.fromkeys(
+        pinned_names(pinned) + [nick_key(n) for n in (pinned.get("lastGoodFollows") or []) if nick_key(n)]
+    ))
     skip = do_not_pin_set(pinned)
     by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
     still, dropped = [], []
@@ -522,6 +571,14 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         log("follow: unpinned (failed My 40 gates or excluded): " + ", ".join(dropped))
     if added:
         log("follow: auto-pinned %d (target %d): %s" % (len(added), TARGET_FOLLOW, ", ".join(added)))
+    apply_follow_safeguard(pinned, previous_names, cappers, now, log)
+    # Remember this list when it is at least as strong as the last good one,
+    # or when we still have a real pool (never record a 0-1 name wipe as "good").
+    current = pinned_names(pinned)
+    last_good = [nick_key(n) for n in (pinned.get("lastGoodFollows") or []) if nick_key(n)]
+    if len(current) >= max(len(last_good), 5) or (current and len(current) >= len(last_good)):
+        if current:
+            pinned["lastGoodFollows"] = current
     log("follow: %d/%d pinned; discovery continues every hour" % (len(pinned["cappers"]), TARGET_FOLLOW))
     save_pinned_file(pinned, now)
     pinset = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
@@ -537,22 +594,40 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
 
 
 def fetch_all_boards(http, log=print):
-    """Sports + other category boards, all periods, pnl and volume. Limit 100 (200 is rejected)."""
+    """Every official profit/volume board window, plus sport-specific categories.
+
+    Kalshi rejects limit 200, so we use 100 and follow cursors until a list is
+    exhausted so the follow pool is not just the first page.
+    """
     people = {}
     coverage = {}
-    for cat in BOARD_CATS:
+    for cat in ALL_BOARD_CATS:
         for period in BOARD_PERIODS:
             for metric in BOARD_METRICS:
                 key = "%s:%s:%s" % (cat, period, metric)
-                data = http.get(f"{lib.SOCIAL}/leaderboard", {
-                    "metric_name": metric,
-                    "category": cat,
-                    "time_period": period,
-                    "limit": 100,
-                }) or {}
-                rows = data.get("rank_list") or []
-                coverage[key] = len(rows)
-                for row in rows:
+                cursor = None
+                rows_all = []
+                for _page in range(10):
+                    params = {
+                        "metric_name": metric,
+                        "category": cat,
+                        "time_period": period,
+                        "limit": 100,
+                    }
+                    if cursor:
+                        params["cursor"] = cursor
+                    data = http.get(f"{lib.SOCIAL}/leaderboard", params) or {}
+                    rows = data.get("rank_list") or []
+                    if not rows:
+                        break
+                    rows_all.extend(rows)
+                    cursor = data.get("cursor")
+                    if not cursor:
+                        break
+                coverage[key] = len(rows_all)
+                if not rows_all and cat not in BOARD_CATS:
+                    continue
+                for row in rows_all:
                     nick = nick_key(row.get("nickname") or "")
                     if not nick:
                         continue
@@ -569,7 +644,8 @@ def fetch_all_boards(http, log=print):
                             rec["pnl"][period] = row.get("value")
                     rec["sources"].append("%s %s #%s" % (cat, period, row.get("rank")))
                     rec["is_anonymous"] = bool(row.get("is_anonymous"))
-    log("boards: %d unique names across %d lists" % (len(people), len(coverage)))
+    nonempty = sum(1 for n in coverage.values() if n)
+    log("boards: %d unique names across %d lists (%d nonempty)" % (len(people), len(coverage), nonempty))
     return people, coverage
 
 
@@ -728,11 +804,13 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
     return picks
 
 
-def grade_from_trades(trades, nick):
-    """Full traditional-sports W-L from every settled cycle (no dollar floor).
-    Used for display and for the My 40 winning-record gate (W > L). A high
-    size floor would hide a losing overall book behind a few big wins."""
-    cycles = lib.closed_cycles(trades, nick)
+def grade_from_trades(trades, nick, sports_only=True):
+    """W-L from every settled public cycle (no dollar floor).
+
+    sports_only=True is the display sports tape. Follow gates use sports_only=False
+    so leaderboard names are graded across every category, not sports trades only.
+    """
+    cycles = lib.closed_cycles(trades, nick, sports_only=sports_only)
     use = lib.grade_big_bets(cycles, 0)
     return use if use and use.get("n") else None
 
@@ -805,25 +883,30 @@ def on_profit_leaderboard(cap, people=None):
                     return True
             elif v:
                 return True
-    if rec.get("pnl"):
+    if isinstance(rec.get("pnl"), dict) and any(v is not None for v in rec.get("pnl").values()):
         return True
     return False
+
+
+def follow_record(cap):
+    """Prefer all-category public W-L for follow gates; fall back to the sports tape."""
+    return (cap or {}).get("gradedAll") or (cap or {}).get("graded")
 
 
 def follow_fail_reason(cap):
     """Why this capper must not be (or stay) in My 40. None means every gate passed.
 
     Gates: must appear on an official Kalshi projected-PnL leaderboard
-    (weekly, monthly, yearly, or all-time; any category). Tape-discovered
-    names are never followed. Then official all-time profit of at least
-    $1,000, a winning public sports record (W > L), and at least
-    MIN_FOLLOW_SAMPLE settled public sports trades. Missing profit or a
-    tiny sample is not enough to follow. Negative official profit is also
-    a permanent doNotPin reason, handled by the caller.
+    (weekly, monthly, yearly, or all-time, including sport-specific boards).
+    Official all-time profit must be at least $1,000. doNotPin is handled by
+    the caller and never re-enters. W-L is graded from settled public trades
+    across every category, not sports-only. A reconstructed losing record
+    (W <= L) is a fail. If no public W-L can be reconstructed, leaderboard
+    membership plus official profit is enough — many top books hide or thin
+    out their sports tape.
     """
     if not on_profit_leaderboard(cap):
         return "not on official profit leaderboard"
-    w, l, n = graded_wl((cap or {}).get("graded"))
     pnl = official_pnl(cap)
     if is_negative_profit(pnl):
         return "negative profit %s" % signed_k(pnl)
@@ -831,9 +914,8 @@ def follow_fail_reason(cap):
         return "no official all-time profit"
     if pnl < MIN_FOLLOW_PNL:
         return "profit %s below $1,000" % signed_k(pnl)
-    if n < MIN_FOLLOW_SAMPLE:
-        return "small sample %d-%d (%d settled, need %d)" % (w, l, n, MIN_FOLLOW_SAMPLE)
-    if w <= l:
+    w, l, n = graded_wl(follow_record(cap))
+    if n > 0 and w <= l:
         return "%d-%d" % (w, l)
     return None
 
@@ -915,7 +997,8 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
         all_time_pnl = _board_pnl_dollars(rec, "all_time")
         if all_time_pnl is not None:
             pnl_source = "sports_leaderboard_projected"
-    use = grade_from_trades(trades, nick)
+    use = grade_from_trades(trades, nick, sports_only=True)
+    use_all = grade_from_trades(trades, nick, sports_only=False)
     tier = capper_tier(nick, people)
     pin = is_pinned(nick)
     if pin:
@@ -954,6 +1037,14 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
             "profit": round(use.get("profit") or 0, 2),
             "sample": "full" if (use.get("n") or 0) >= 10 else "small",
         } if use else None,
+        "gradedAll": {
+            "n": use_all.get("n") or 0,
+            "w": use_all.get("w") or 0,
+            "l": use_all.get("l") or 0,
+            "roi": None if use_all.get("roi") is None else round(use_all["roi"], 1),
+            "profit": round(use_all.get("profit") or 0, 2),
+            "sample": "full" if (use_all.get("n") or 0) >= 10 else "small",
+        } if use_all else None,
         "recordLine": rec_line(nick, use, all_time_pnl, age, tier),
         "picks": picks,
         "addedAt": today_pt(now),
@@ -1907,7 +1998,7 @@ def build_follow_check(now=None, log=print):
                 "rejectNote": "%s: %s" % (reason, detail), "picks": [], "followingPicks": [],
             }
             old = prev_caps.get(nick_key(nick)) or {}
-            for k in ("profileUrl", "ranks", "profitRanks", "onProfitBoard", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "recordLine", "ageDays"):
+            for k in ("profileUrl", "ranks", "profitRanks", "onProfitBoard", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "gradedAll", "recordLine", "ageDays"):
                 if old.get(k) is not None and not kept.get(k):
                     kept[k] = old[k]
             live_cappers.append(kept)
