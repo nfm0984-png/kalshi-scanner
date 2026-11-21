@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Fri Nov 20 \u00b7 10:51 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 11:24 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -36,7 +36,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23393,
+      "followers": 23417,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -153,7 +153,7 @@
         "all_time": 71,
         "yearly": 100
       },
-      "pnl": 517571.11,
+      "pnl": 517639.15,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -211,7 +211,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 75,
-        "yearly": 64
+        "yearly": 63
       },
       "pnl": 484317.11,
       "weeklyPnl": null,
@@ -280,8 +280,8 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 64,
-        "weekly": 76
+        "monthly": 63,
+        "weekly": 75
       },
       "pnl": 81615.97,
       "weeklyPnl": 23890.395,
@@ -297,7 +297,7 @@
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1632,
+      "followers": 1643,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -306,9 +306,9 @@
         "monthly": 45,
         "weekly": 20
       },
-      "pnl": 133444.29,
-      "weeklyPnl": 67264.5,
-      "monthlyPnl": 92966.125,
+      "pnl": 133137.83,
+      "weeklyPnl": 66908.04,
+      "monthlyPnl": 92609.67,
       "ageDays": 889,
       "graded": {
         "n": 1,
@@ -318,36 +318,10 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.4k all \u00b7 My 40",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.1k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [
-        {
-          "ticker": "KXWTAMATCH-26NOV20SAKURR-URR",
-          "eventTicker": "KXWTAMATCH-26NOV20SAKURR",
-          "marketTitle": "Sakatsume vs Urrutia",
-          "contractTitle": "Maria Florencia Urrutia wins",
-          "backing": "Maria Florencia Urrutia",
-          "yesNo": "Yes",
-          "label": "Maria Florencia Urrutia",
-          "entry": 0.0377,
-          "price": 0.04,
-          "yesAsk": 0.04,
-          "noAsk": 0.97,
-          "cost": 485.29,
-          "contracts": 12885.0,
-          "lastTs": 1795242380,
-          "startTs": 1795245300,
-          "state": "upcoming",
-          "league": "Tennis",
-          "game": "Sakatsume vs Urrutia",
-          "bt": "Moneyline",
-          "slip": 0.2,
-          "status": "active",
-          "result": "",
-          "closeTs": 1796444100
-        }
-      ],
-      "pickCount": 1
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "jspana99",
@@ -359,7 +333,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 38
+        "weekly": 36
       },
       "pnl": -4893.48,
       "weeklyPnl": 37316.145,
@@ -384,7 +358,7 @@
         "monthly": 44,
         "weekly": 41
       },
-      "pnl": -184210.65,
+      "pnl": -184213.13,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 59,
@@ -406,12 +380,12 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/nettinyahoo",
       "joinedAt": "2026-02-10",
       "followers": 47,
-      "tier": "Board",
+      "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 46
+        "weekly": 45
       },
       "pnl": 91556.97,
       "weeklyPnl": 32543.012,
@@ -425,10 +399,10 @@
         "profit": 257.35,
         "sample": "small"
       },
-      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 Board",
+      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -440,7 +414,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 54
+        "weekly": 53
       },
       "pnl": 7335.79,
       "weeklyPnl": 28670.021,
@@ -449,8 +423,8 @@
       "graded": null,
       "recordLine": "majebettor123 \u00b7 +$7.34k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "Wiseandstrong",
@@ -464,15 +438,15 @@
       "ranks": {
         "monthly": 65
       },
-      "pnl": -109432.91,
+      "pnl": -113390.15,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 268,
       "graded": null,
-      "recordLine": "Wiseandstrong \u00b7 -$109.4k all \u00b7 Board",
+      "recordLine": "Wiseandstrong \u00b7 -$113.4k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 1,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "playful.hornet0945",
@@ -484,7 +458,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 68
+        "weekly": 69
       },
       "pnl": 43151.68,
       "weeklyPnl": 24821.557,
@@ -492,6 +466,28 @@
       "ageDays": 189,
       "graded": null,
       "recordLine": "playful.hornet0945 \u00b7 +$43.2k all \u00b7 Board",
+      "addedAt": "2026-11-20",
+      "followingPicks": [],
+      "pickCount": 0
+    },
+    {
+      "nickname": "double.boar6452",
+      "profileUrl": "https://kalshi.com/ideas/profiles/double.boar6452",
+      "joinedAt": "2026-05-20",
+      "followers": 6,
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {
+        "weekly": 72
+      },
+      "pnl": 5486.02,
+      "weeklyPnl": 24330.297,
+      "monthlyPnl": null,
+      "ageDays": 184,
+      "graded": null,
+      "recordLine": "double.boar6452 \u00b7 +$5.49k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0

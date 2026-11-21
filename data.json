@@ -1,6 +1,6 @@
 {
-  "scannedAt": "Fri Nov 20 \u00b7 10:51 PM PT",
-  "ts": 1795243891,
+  "scannedAt": "Fri Nov 20 \u00b7 11:24 PM PT",
+  "ts": 1795245840,
   "source": {
     "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
@@ -47,42 +47,41 @@
         "Mentions:yearly:projected_pnl": 100,
         "Mentions:yearly:volume": 100
       },
-      "leaderboardNames": 1489,
-      "activeRefreshed": 14,
-      "queueReviewed": 40,
-      "queueToActive": 4,
-      "queueRejected": 36,
+      "leaderboardNames": 1487,
+      "activeRefreshed": 18,
+      "queueReviewed": 20,
+      "queueToActive": 1,
+      "queueRejected": 19,
       "queuedNew": 20,
       "mmDropped": 0,
-      "hiddenRejected": 36,
+      "hiddenRejected": 19,
       "noSportsRejected": 0,
-      "shown": 2,
-      "picks": 2,
-      "games": 2,
+      "shown": 0,
+      "picks": 0,
+      "games": 0,
       "finishedDropped": 0,
       "finishedNames": [],
       "calls": 479,
       "retries429": 0,
-      "secs": 72.7,
+      "secs": 71.8,
       "minBet": 100,
-      "queuedNextHour": 20,
-      "namesChecked": 54,
+      "namesChecked": 38,
       "newPerScan": 20,
-      "reviewNew": true,
-      "dbActive": 18,
+      "reviewNew": false,
+      "dbActive": 19,
       "dbQueue": 20,
-      "dbRejected": 215,
-      "dbPinned": 6,
-      "followingOpen": 1,
+      "dbRejected": 234,
+      "dbPinned": 7,
+      "followingOpen": 0,
       "followingCappers": 7,
       "trialRecorded": 6,
-      "trialGraded": 5
+      "trialGraded": 6
     },
     "db": {
-      "active": 18,
+      "active": 19,
       "queue": 20,
-      "rejected": 215,
-      "pinned": 6
+      "rejected": 234,
+      "pinned": 7
     }
   },
   "cappers": [
@@ -99,7 +98,7 @@
         "monthly": 44,
         "weekly": 41
       },
-      "pnl": -184210.65,
+      "pnl": -184213.13,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 59,
@@ -120,7 +119,7 @@
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1632,
+      "followers": 1643,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -129,9 +128,9 @@
         "monthly": 45,
         "weekly": 20
       },
-      "pnl": 133444.29,
-      "weeklyPnl": 67264.5,
-      "monthlyPnl": 92966.125,
+      "pnl": 133137.83,
+      "weeklyPnl": 66908.04,
+      "monthlyPnl": 92609.67,
       "ageDays": 889,
       "graded": {
         "n": 1,
@@ -141,10 +140,10 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.4k all \u00b7 My 40",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.1k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "iluminado",
@@ -185,7 +184,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 46
+        "weekly": 45
       },
       "pnl": 91556.97,
       "weeklyPnl": 32543.012,
@@ -199,7 +198,7 @@
         "profit": 257.35,
         "sample": "small"
       },
-      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 Board",
+      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -208,7 +207,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23393,
+      "followers": 23417,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -319,7 +318,7 @@
         "all_time": 71,
         "yearly": 100
       },
-      "pnl": 517571.11,
+      "pnl": 517639.15,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -409,7 +408,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 75,
-        "yearly": 64
+        "yearly": 63
       },
       "pnl": 484317.11,
       "weeklyPnl": null,
@@ -454,8 +453,8 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 64,
-        "weekly": 76
+        "monthly": 63,
+        "weekly": 75
       },
       "pnl": 81615.97,
       "weeklyPnl": 23890.395,
@@ -477,7 +476,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 68
+        "weekly": 69
       },
       "pnl": 43151.68,
       "weeklyPnl": 24821.557,
@@ -499,7 +498,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 54
+        "weekly": 53
       },
       "pnl": 7335.79,
       "weeklyPnl": 28670.021,
@@ -507,6 +506,28 @@
       "ageDays": 656,
       "graded": null,
       "recordLine": "majebettor123 \u00b7 +$7.34k all \u00b7 Board",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "double.boar6452",
+      "profileUrl": "https://kalshi.com/ideas/profiles/double.boar6452",
+      "joinedAt": "2026-05-20",
+      "followers": 6,
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {
+        "weekly": 72
+      },
+      "pnl": 5486.02,
+      "weeklyPnl": 24330.297,
+      "monthlyPnl": null,
+      "ageDays": 184,
+      "graded": null,
+      "recordLine": "double.boar6452 \u00b7 +$5.49k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -521,7 +542,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 38
+        "weekly": 36
       },
       "pnl": -4893.48,
       "weeklyPnl": 37316.145,
@@ -545,115 +566,18 @@
       "ranks": {
         "monthly": 65
       },
-      "pnl": -109432.91,
+      "pnl": -113390.15,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 268,
       "graded": null,
-      "recordLine": "Wiseandstrong \u00b7 -$109.4k all \u00b7 Board",
+      "recordLine": "Wiseandstrong \u00b7 -$113.4k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 1,
+      "pickCount": 0,
       "followCount": 0
     }
   ],
-  "games": [
-    {
-      "id": "KXWTAMATCH-26NOV20SAKURR",
-      "game": "Sakatsume vs Urrutia",
-      "league": "Tennis",
-      "startTs": 1795245300,
-      "start": "Fri Nov 20 \u00b7 11:15 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXWTAMATCH-26NOV20SAKURR-URR|Yes",
-          "ticker": "KXWTAMATCH-26NOV20SAKURR-URR",
-          "eventTicker": "KXWTAMATCH-26NOV20SAKURR",
-          "mid": "KXWTAMATCH-26NOV20SAKURR-URR",
-          "bt": "Moneyline",
-          "big": "Maria Florencia Urrutia",
-          "sub": "Sakatsume vs Urrutia",
-          "view": {
-            "backing": "Maria Florencia Urrutia",
-            "marketTitle": "Sakatsume vs Urrutia",
-            "outcome": "Maria Florencia Urrutia",
-            "yesNo": "Yes",
-            "price": 0.04,
-            "ticker": "KXWTAMATCH-26NOV20SAKURR-URR"
-          },
-          "backers": [
-            {
-              "name": "Ryqeux",
-              "cost": 485.29,
-              "avg": 0.0377,
-              "line": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.4k all \u00b7 My 40",
-              "rec": {
-                "w": 1,
-                "l": 0,
-                "n": 1
-              },
-              "lastTs": 1795242380,
-              "tier": "My 40"
-            }
-          ],
-          "total": 485.29,
-          "tags": [
-            "My 40"
-          ],
-          "slip": 0.2,
-          "startTs": 1795245300,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXALEAGUETOTAL-26NOV21CCMPER",
-      "game": "Central Coast vs Perth: Total Goals",
-      "league": "Sports",
-      "startTs": 1795255200,
-      "start": "Sat Nov 21 \u00b7 2:00 AM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXALEAGUETOTAL-26NOV21CCMPER-2|Yes",
-          "ticker": "KXALEAGUETOTAL-26NOV21CCMPER-2",
-          "eventTicker": "KXALEAGUETOTAL-26NOV21CCMPER",
-          "mid": "KXALEAGUETOTAL-26NOV21CCMPER-2",
-          "bt": "Totals",
-          "big": "Over 1.5 goals scored",
-          "sub": "Central Coast vs Perth: Total Goals",
-          "view": {
-            "backing": "Over 1.5 goals scored",
-            "marketTitle": "Central Coast vs Perth: Total Goals",
-            "outcome": "Over 1.5 goals scored",
-            "yesNo": "Yes",
-            "price": 0.51,
-            "ticker": "KXALEAGUETOTAL-26NOV21CCMPER-2"
-          },
-          "backers": [
-            {
-              "name": "Wiseandstrong",
-              "cost": 24789.82,
-              "avg": 0.877,
-              "line": "Wiseandstrong \u00b7 -$109.4k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795225196,
-              "tier": "Board"
-            }
-          ],
-          "total": 24789.82,
-          "tags": [
-            "Board"
-          ],
-          "slip": -36.7,
-          "startTs": 1795255200,
-          "state": "upcoming"
-        }
-      ]
-    }
-  ],
+  "games": [],
   "following": {
     "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
     "startedTs": 1795231577,
@@ -680,6 +604,16 @@
       },
       {
         "nickname": "iluminado",
+        "w": 0,
+        "l": 1,
+        "p": 0,
+        "n": 1,
+        "hitPct": 0.0,
+        "open": 0,
+        "hidden": false
+      },
+      {
+        "nickname": "Ryqeux",
         "w": 0,
         "l": 1,
         "p": 0,
@@ -717,49 +651,10 @@
         "hitPct": null,
         "open": 0,
         "hidden": false
-      },
-      {
-        "nickname": "Ryqeux",
-        "w": 0,
-        "l": 0,
-        "p": 0,
-        "n": 0,
-        "hitPct": null,
-        "open": 1,
-        "hidden": false
       }
     ],
-    "picks": [
-      {
-        "ticker": "KXWTAMATCH-26NOV20SAKURR-URR",
-        "eventTicker": "KXWTAMATCH-26NOV20SAKURR",
-        "marketTitle": "Sakatsume vs Urrutia",
-        "contractTitle": "Maria Florencia Urrutia wins",
-        "backing": "Maria Florencia Urrutia",
-        "yesNo": "Yes",
-        "label": "Maria Florencia Urrutia",
-        "entry": 0.0377,
-        "price": 0.04,
-        "yesAsk": 0.04,
-        "noAsk": 0.97,
-        "cost": 485.29,
-        "contracts": 12885.0,
-        "lastTs": 1795242380,
-        "startTs": 1795245300,
-        "state": "upcoming",
-        "league": "Tennis",
-        "game": "Sakatsume vs Urrutia",
-        "bt": "Moneyline",
-        "slip": 0.2,
-        "status": "active",
-        "result": "",
-        "closeTs": 1796444100,
-        "nickname": "Ryqeux",
-        "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$133.4k all \u00b7 My 40",
-        "tier": "My 40"
-      }
-    ],
+    "picks": [],
     "recorded": 6,
-    "graded": 5
+    "graded": 6
   }
 }
