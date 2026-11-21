@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 6:35 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:00 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -15,19 +15,19 @@
         "monthly": 41,
         "yearly": 16
       },
-      "pnl": 1386166.8,
+      "pnl": 1386157.6,
       "weeklyPnl": null,
-      "monthlyPnl": 95893.695,
+      "monthlyPnl": 95884.51,
       "ageDays": 255,
       "graded": {
-        "n": 2,
-        "w": 2,
+        "n": 3,
+        "w": 3,
         "l": 0,
-        "roi": 27.5,
-        "profit": 15.11,
+        "roi": 17.1,
+        "profit": 33.15,
         "sample": "small"
       },
-      "recordLine": "WorkerTrader \u00b7 2-0 \u00b7 +27% \u00b7 +$1.39M all \u00b7 Core",
+      "recordLine": "WorkerTrader \u00b7 3-0 \u00b7 +17% \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -36,7 +36,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23601,
+      "followers": 23643,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -46,73 +46,21 @@
         "weekly": 8,
         "yearly": 12
       },
-      "pnl": 887762.93,
-      "weeklyPnl": 122743.96,
+      "pnl": 885963.87,
+      "weeklyPnl": 120944.91,
       "monthlyPnl": null,
       "ageDays": 656,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$887.8k all \u00b7 My 40",
+      "recordLine": "BWmarkets \u00b7 +$886.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [
-        {
-          "ticker": "KXEPLGAME-26NOV21MCIFUL-FUL",
-          "eventTicker": "KXEPLGAME-26NOV21MCIFUL",
-          "marketTitle": "Manchester City vs Fulham",
-          "contractTitle": "Fulham wins",
-          "backing": "Fulham",
-          "yesNo": "Yes",
-          "label": "Fulham",
-          "entry": 0.2321,
-          "price": 0.09,
-          "yesAsk": 0.09,
-          "noAsk": 0.92,
-          "cost": 28534.56,
-          "contracts": 122948.0,
-          "lastTs": 1795268931,
-          "startTs": 1795275000,
-          "state": "upcoming",
-          "league": "Soccer",
-          "game": "Manchester City vs Fulham",
-          "bt": "Moneyline",
-          "slip": -14.2,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795437000
-        },
-        {
-          "ticker": "KXEPLTOTAL-26NOV21MCIFUL-3",
-          "eventTicker": "KXEPLTOTAL-26NOV21MCIFUL",
-          "marketTitle": "Manchester City vs Fulham: Total Goals",
-          "contractTitle": "Will over 2.5 goals be scored?",
-          "backing": "Over 2.5 goals scored",
-          "yesNo": "No",
-          "label": "Over 2.5 goals scored",
-          "entry": 0.654,
-          "price": 0.59,
-          "yesAsk": 0.42,
-          "noAsk": 0.59,
-          "cost": 71981.43,
-          "contracts": 110068.0,
-          "lastTs": 1795269027,
-          "startTs": 1795278600,
-          "state": "upcoming",
-          "league": "Soccer",
-          "game": "Manchester City vs Fulham: Total Goals",
-          "bt": "Totals",
-          "slip": -6.4,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795437000
-        }
-      ],
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
       "profileUrl": "https://kalshi.com/ideas/profiles/reluctant.fox5394",
       "joinedAt": "2026-10-07",
-      "followers": 361,
+      "followers": 362,
       "tier": "Top 50",
       "pinned": false,
       "tag": "",
@@ -144,7 +92,7 @@
       "nickname": "iluminado",
       "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
       "joinedAt": "2026-07-08",
-      "followers": 70,
+      "followers": 71,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -152,49 +100,73 @@
       "ranks": {
         "monthly": 48
       },
-      "pnl": 140983.61,
+      "pnl": 140972.38,
       "weeklyPnl": null,
-      "monthlyPnl": 90486.9,
+      "monthlyPnl": 90475.664,
       "ageDays": 136,
       "graded": {
-        "n": 2,
-        "w": 2,
-        "l": 0,
-        "roi": 8.5,
-        "profit": 32.89,
+        "n": 7,
+        "w": 5,
+        "l": 2,
+        "roi": 4.1,
+        "profit": 50.63,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
+      "recordLine": "iluminado \u00b7 5-2 \u00b7 +4% \u00b7 +$141.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [
         {
-          "ticker": "KXITFWMATCH-26NOV21STOMIN-STO",
-          "eventTicker": "KXITFWMATCH-26NOV21STOMIN",
-          "marketTitle": "Stojsavljevic vs Minnen",
-          "contractTitle": "Mika Stojsavljevic wins",
-          "backing": "Mika Stojsavljevic",
+          "ticker": "KXITFWMATCH-26NOV21RUSBOS-RUS",
+          "eventTicker": "KXITFWMATCH-26NOV21RUSBOS",
+          "marketTitle": "Rus vs Boskovic",
+          "contractTitle": "Arantxa Rus wins",
+          "backing": "Arantxa Rus",
           "yesNo": "Yes",
-          "label": "Mika Stojsavljevic",
-          "entry": 0.41,
-          "price": 0.56,
-          "yesAsk": 0.56,
-          "noAsk": 0.45,
-          "cost": 51.25,
-          "contracts": 125.0,
-          "lastTs": 1795269622,
+          "label": "Arantxa Rus",
+          "entry": 0.9546,
+          "price": 1.0,
+          "yesAsk": 1.0,
+          "noAsk": 0.01,
+          "cost": 799.96,
+          "contracts": 838.0,
+          "lastTs": 1795271931,
           "startTs": 1795280400,
           "state": "upcoming",
           "league": "Tennis",
-          "game": "Stojsavljevic vs Minnen",
+          "game": "Rus vs Boskovic",
           "bt": "Moneyline",
-          "slip": 15.0,
+          "slip": 4.5,
           "status": "active",
           "result": "",
           "closeTs": 1796468400
+        },
+        {
+          "ticker": "KXITFWMATCH-26NOV21JORDEF-JOR",
+          "eventTicker": "KXITFWMATCH-26NOV21JORDEF",
+          "marketTitle": "Jorge vs DeFalco",
+          "contractTitle": "Matilde Jorge wins",
+          "backing": "Matilde Jorge",
+          "yesNo": "Yes",
+          "label": "Matilde Jorge",
+          "entry": 0.81,
+          "price": 0.83,
+          "yesAsk": 0.83,
+          "noAsk": 0.18,
+          "cost": 99.63,
+          "contracts": 123.0,
+          "lastTs": 1795272308,
+          "startTs": 1795289400,
+          "state": "upcoming",
+          "league": "Tennis",
+          "game": "Jorge vs DeFalco",
+          "bt": "Moneyline",
+          "slip": 2.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1796477400
         }
       ],
-      "pickCount": 0,
-      "followCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "past.grass",
@@ -207,7 +179,7 @@
       "heavy": false,
       "ranks": {
         "monthly": 42,
-        "weekly": 15
+        "weekly": 16
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -217,8 +189,7 @@
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "autofade",
@@ -263,9 +234,9 @@
         "monthly": 62,
         "weekly": 82
       },
-      "pnl": 263735.9,
-      "weeklyPnl": 22452.225,
-      "monthlyPnl": 75887,
+      "pnl": 263724.94,
+      "weeklyPnl": 22441.256,
+      "monthlyPnl": 75876.04,
       "ageDays": 337,
       "graded": {
         "n": 4,
@@ -348,8 +319,7 @@
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "regine",
@@ -362,7 +332,7 @@
       "heavy": false,
       "ranks": {
         "monthly": 63,
-        "weekly": 74
+        "weekly": 73
       },
       "pnl": 81880.49,
       "weeklyPnl": 24154.92,
@@ -378,16 +348,16 @@
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1773,
+      "followers": 1788,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 45,
-        "weekly": 20
+        "weekly": 21
       },
-      "pnl": 155154.3,
+      "pnl": 153687.03,
       "weeklyPnl": 66746.51,
       "monthlyPnl": 92448.13,
       "ageDays": 890,
@@ -399,11 +369,10 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$155.2k all \u00b7 My 40",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$153.7k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "jspana99",
@@ -431,7 +400,7 @@
       "nickname": "TheGrinder",
       "profileUrl": "https://kalshi.com/ideas/profiles/TheGrinder",
       "joinedAt": "2026-09-22",
-      "followers": 1966,
+      "followers": 1967,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -440,23 +409,48 @@
         "monthly": 44,
         "weekly": 41
       },
-      "pnl": -184211.49,
+      "pnl": -184215.19,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 60,
       "graded": {
-        "n": 2,
-        "w": 2,
+        "n": 10,
+        "w": 10,
         "l": 0,
-        "roi": 29.2,
-        "profit": 5644.94,
-        "sample": "small"
+        "roi": 16.7,
+        "profit": 38074.99,
+        "sample": "full"
       },
       "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$184.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [],
-      "pickCount": 1,
-      "followCount": 1
+      "followingPicks": [
+        {
+          "ticker": "KXNBAGAME-26NOV21MILPHI-MIL",
+          "eventTicker": "KXNBAGAME-26NOV21MILPHI",
+          "marketTitle": "Milwaukee vs Philadelphia",
+          "contractTitle": "Milwaukee wins",
+          "backing": "Milwaukee",
+          "yesNo": "Yes",
+          "label": "Milwaukee",
+          "entry": 0.1797,
+          "price": 0.19,
+          "yesAsk": 0.19,
+          "noAsk": 0.82,
+          "cost": 18913.86,
+          "contracts": 105271.0,
+          "lastTs": 1795271112,
+          "startTs": 1795294800,
+          "state": "upcoming",
+          "league": "NBA",
+          "game": "Milwaukee vs Philadelphia",
+          "bt": "Moneyline",
+          "slip": 1.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795456800
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "nettinyahoo",
@@ -485,8 +479,7 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -522,15 +515,15 @@
       "ranks": {
         "monthly": 66
       },
-      "pnl": -119533.48,
+      "pnl": -118319.07,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 269,
       "graded": null,
-      "recordLine": "Wiseandstrong \u00b7 -$119.5k all \u00b7 Board",
+      "recordLine": "Wiseandstrong \u00b7 -$118.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "playful.hornet0945",
@@ -624,7 +617,7 @@
       "nickname": "emilianotijerina",
       "profileUrl": "https://kalshi.com/ideas/profiles/emilianotijerina",
       "joinedAt": "2026-09-23",
-      "followers": 50,
+      "followers": 53,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -632,7 +625,7 @@
       "ranks": {
         "weekly": 94
       },
-      "pnl": 32569.2,
+      "pnl": 30901.95,
       "weeklyPnl": 20156.662,
       "monthlyPnl": null,
       "ageDays": 59,
@@ -644,11 +637,10 @@
         "profit": 855.86,
         "sample": "small"
       },
-      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$32.6k all \u00b7 My 40",
+      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$30.9k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -720,7 +712,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": 412.94,
+      "pnl": 414.94,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 655,
@@ -732,7 +724,7 @@
         "profit": 180.48,
         "sample": "small"
       },
-      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 +$413 all \u00b7 My 40",
+      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 +$415 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -811,8 +803,7 @@
           "closeTs": 1800889200
         }
       ],
-      "pickCount": 1,
-      "followCount": 3
+      "pickCount": 1
     },
     {
       "nickname": "answermbs",
@@ -829,18 +820,17 @@
       "monthlyPnl": null,
       "ageDays": 248,
       "graded": {
-        "n": 40,
-        "w": 37,
-        "l": 3,
-        "roi": 95.5,
-        "profit": 291.99,
+        "n": 64,
+        "w": 56,
+        "l": 8,
+        "roi": 84.3,
+        "profit": 599.1,
         "sample": "full"
       },
       "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$646 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "arrogant.partridge5038",
@@ -912,7 +902,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "pnl": -82426.29,
+      "pnl": -82440.13,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 372,
@@ -932,7 +922,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "pnl": 1989.61,
+      "pnl": 1934.84,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 117,
@@ -944,7 +934,7 @@
         "profit": -325.54,
         "sample": "full"
       },
-      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.99k all \u00b7 Other",
+      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.93k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -984,12 +974,12 @@
       "monthlyPnl": null,
       "ageDays": 425,
       "graded": {
-        "n": 2,
-        "w": 1,
-        "l": 0,
-        "roi": 12.3,
-        "profit": 40.0,
-        "sample": "small"
+        "n": 12,
+        "w": 7,
+        "l": 2,
+        "roi": 113.4,
+        "profit": 987.0,
+        "sample": "full"
       },
       "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.11k all \u00b7 My 40",
       "addedAt": "2026-11-21",
@@ -1020,8 +1010,7 @@
           "closeTs": 1865719800
         }
       ],
-      "pickCount": 0,
-      "followCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "black.catt",
@@ -1033,7 +1022,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": -31037.67,
+      "pnl": -31080.89,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 323,
@@ -1045,7 +1034,7 @@
         "profit": 5544.54,
         "sample": "small"
       },
-      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$31.0k all \u00b7 My 40",
+      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$31.1k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -1349,8 +1338,7 @@
           "closeTs": 1795543200
         }
       ],
-      "pickCount": 7,
-      "followCount": 12
+      "pickCount": 7
     },
     {
       "nickname": "king.45",
@@ -1362,7 +1350,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 95
+        "weekly": 96
       },
       "pnl": 114472.43,
       "weeklyPnl": 19452.836,
@@ -1371,28 +1359,28 @@
       "graded": null,
       "recordLine": "king.45 \u00b7 +$114.5k all \u00b7 Board",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "bospredicts",
       "profileUrl": "https://kalshi.com/ideas/profiles/bospredicts",
       "joinedAt": "2026-04-15",
-      "followers": 1319,
+      "followers": 1321,
       "tier": "Other",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "pnl": -11687.85,
+      "pnl": -19222.35,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 220,
       "graded": null,
-      "recordLine": "bospredicts \u00b7 -$11.7k all \u00b7 Other",
+      "recordLine": "bospredicts \u00b7 -$19.2k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "BradleyD",
@@ -1404,22 +1392,22 @@
       "tag": "",
       "heavy": true,
       "ranks": {},
-      "pnl": -398316.39,
+      "pnl": -398426.49,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 360,
       "graded": null,
-      "recordLine": "BradleyD \u00b7 -$398.3k all \u00b7 Other",
+      "recordLine": "BradleyD \u00b7 -$398.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "brick.one",
       "profileUrl": "https://kalshi.com/ideas/profiles/brick.one",
       "joinedAt": "2025-12-20",
       "followers": 2,
-      "tier": "Other",
+      "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
@@ -1436,10 +1424,101 @@
         "profit": 1375.12,
         "sample": "small"
       },
-      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$19.9k all \u00b7 Other",
+      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$19.9k all \u00b7 My 40",
       "addedAt": "2026-11-21",
-      "pickCount": 2,
-      "followCount": 2
+      "followingPicks": [
+        {
+          "ticker": "KXNFLNFCNORTH-27-GB",
+          "eventTicker": "KXNFLNFCNORTH-27",
+          "marketTitle": "NFC North Division Winner",
+          "contractTitle": "Will Green Bay win the Pro Football NFC North Division?",
+          "backing": "Green Bay",
+          "yesNo": "Yes",
+          "label": "Green Bay",
+          "entry": 0.1451,
+          "price": 0.03,
+          "yesAsk": 0.03,
+          "noAsk": 0.98,
+          "cost": 424.51,
+          "contracts": 2925.0,
+          "lastTs": 1794762937,
+          "startTs": 0,
+          "state": "upcoming",
+          "league": "NFL",
+          "game": "NFC North Division Winner",
+          "bt": "Other",
+          "slip": -11.5,
+          "status": "active",
+          "result": "",
+          "closeTs": 1800889200
+        },
+        {
+          "ticker": "KXNFLNFCCHAMP-27-GB",
+          "eventTicker": "KXNFLNFCCHAMP-27",
+          "marketTitle": "NFC Championship Winner",
+          "contractTitle": "Will Green Bay win the Pro Football NFC Championship?",
+          "backing": "Green Bay",
+          "yesNo": "Yes",
+          "label": "Green Bay",
+          "entry": 0.0898,
+          "price": 0.05,
+          "yesAsk": 0.05,
+          "noAsk": 0.96,
+          "cost": 187.96,
+          "contracts": 2094.0,
+          "lastTs": 1794762954,
+          "startTs": 0,
+          "state": "upcoming",
+          "league": "NFL",
+          "game": "NFC Championship Winner",
+          "bt": "Other",
+          "slip": -4.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1803308400
+        }
+      ],
+      "pickCount": 2
+    },
+    {
+      "nickname": "toy.room",
+      "profileUrl": "https://kalshi.com/ideas/profiles/toy.room",
+      "joinedAt": "2025-12-06",
+      "followers": 1,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "pnl": -65248.3,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 350,
+      "graded": null,
+      "recordLine": "toy.room \u00b7 -$65.2k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 1,
+      "followCount": 0
+    },
+    {
+      "nickname": "bullishkirby",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bullishkirby",
+      "joinedAt": "2026-01-03",
+      "followers": 1714,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": true,
+      "ranks": {},
+      "pnl": 356112.45,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 322,
+      "graded": null,
+      "recordLine": "bullishkirby \u00b7 +$356.1k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
     }
   ]
 }

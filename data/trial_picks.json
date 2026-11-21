@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 6:35 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:00 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -608,6 +608,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 6:35 AM PT",
       "recordedTs": 1795271757,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXITFWMATCH-26NOV21JORDEF-JOR|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXITFWMATCH-26NOV21JORDEF-JOR",
+      "eventTicker": "KXITFWMATCH-26NOV21JORDEF",
+      "game": "Jorge vs DeFalco",
+      "backing": "Matilde Jorge",
+      "yesNo": "Yes",
+      "entry": 0.81,
+      "price": 0.83,
+      "cost": 99.63,
+      "contracts": 123.0,
+      "startTs": 1795289400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 7:00 AM PT",
+      "recordedTs": 1795273204,
       "status": "open",
       "result": null,
       "settledAt": null
