@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 2:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1469,6 +1469,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
       "recordedTs": 1795298285.7379346,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXITFMATCH-26NOV21TORBAR-TOR|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXITFMATCH-26NOV21TORBAR-TOR",
+      "eventTicker": "KXITFMATCH-26NOV21TORBAR",
+      "game": "Torres vs Barranco Cosano",
+      "backing": "Juan Bautista Torres",
+      "yesNo": "Yes",
+      "entry": 0.71,
+      "price": 0.89,
+      "cost": 74.55,
+      "contracts": 105.0,
+      "startTs": 1795313700,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 2:16 PM PT",
+      "recordedTs": 1795299396,
       "status": "open",
       "result": null,
       "settledAt": null
