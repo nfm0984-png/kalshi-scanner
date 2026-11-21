@@ -128,6 +128,10 @@ QUEUE_PATH = os.path.join(DATA_DIR, "cappers_queue.json")
 REJECTED_PATH = os.path.join(DATA_DIR, "cappers_rejected.json")
 PINNED_PATH = os.path.join(DATA_DIR, "cappers_pinned.json")
 TRIAL_PATH = os.path.join(DATA_DIR, "trial_picks.json")
+HISTORY_PATH = os.path.join(DATA_DIR, "scan_history.json")
+CARRY_SEED_PATH = os.path.join(DATA_DIR, "carry_seed.json")
+DATA_JSON_PATH = os.path.join(ROOT, "data.json")
+HISTORY_KEEP = 48
 # Drop-in from another worker: if this appears, names are merged into the pinned list.
 PINNED_DROPINS = [
     "/workspace/kalshi-top10-cappers.json",
@@ -1008,9 +1012,265 @@ def review_queue(http, queue, active, rejected, live_cappers, people, now, mcach
     return reviewed
 
 
+
+def load_previous_payload():
+    prev = load_json(DATA_JSON_PATH, {})
+    games = prev.get("games") or []
+    used_seed = False
+    if not games and os.path.exists(CARRY_SEED_PATH):
+        seed = load_json(CARRY_SEED_PATH, {})
+        # Recover picks wiped by a later empty scan. Only if published data is newer than the seed snapshot.
+        if (prev.get("ts") or 0) >= (seed.get("ts") or 0) and (seed.get("games") or seed.get("followingPicks")):
+            prev = {
+                "scannedAt": seed.get("scannedAt") or prev.get("scannedAt") or "",
+                "ts": seed.get("ts") or prev.get("ts") or 0,
+                "games": seed.get("games") or [],
+                "following": {"picks": seed.get("followingPicks") or [], "cappers": (prev.get("following") or {}).get("cappers") or []},
+            }
+            used_seed = True
+    return prev, used_seed
+
+
+def finish_info_for_pick(p, http=None, mcache=None, ecache=None):
+    view = p.get("view") or {}
+    ticker = p.get("ticker") or view.get("ticker")
+    yes_no = view.get("yesNo") or p.get("yesNo")
+    info = {
+        "status": p.get("status") or "",
+        "result": p.get("result") or "",
+        "start_ts": p.get("startTs") or 0,
+        "close_ts": p.get("closeTs") or 0,
+        "yes_ask": p.get("yesAsk"),
+        "no_ask": p.get("noAsk"),
+        "ticker": ticker,
+        "title": p.get("big") or p.get("backing") or p.get("label") or p.get("game") or view.get("backing") or "",
+    }
+    if info["yes_ask"] is None and yes_no == "Yes" and view.get("price") is not None:
+        info["yes_ask"] = view.get("price")
+    if info["no_ask"] is None and yes_no == "No" and view.get("price") is not None:
+        info["no_ask"] = view.get("price")
+    if http and ticker:
+        try:
+            fresh = lib.hydrate_market(http, ticker, mcache if mcache is not None else {}, ecache if ecache is not None else {})
+        except Exception:
+            fresh = None
+        if fresh:
+            info["status"] = fresh.get("status") or info["status"]
+            info["result"] = fresh.get("result") if fresh.get("result") not in (None, "") else info["result"]
+            info["start_ts"] = fresh.get("start_ts") or info["start_ts"]
+            info["close_ts"] = fresh.get("close_ts") or info["close_ts"]
+            if fresh.get("yes_ask") is not None:
+                info["yes_ask"] = fresh.get("yes_ask")
+            if fresh.get("no_ask") is not None:
+                info["no_ask"] = fresh.get("no_ask")
+            info["title"] = fresh.get("title") or info["title"]
+            info["_fresh"] = fresh
+    return info
+
+
+def pick_is_finished(p, now, league, http=None, mcache=None, ecache=None):
+    info = finish_info_for_pick(p, http, mcache, ecache)
+    done, why = game_finished(info, now, league or p.get("league") or "")
+    return done, why, info
+
+
+def _backer_key(name, ticker, yes_no):
+    return ((name or "").lower(), ticker or "", yes_no or "")
+
+
+def _flatten_game_positions(games):
+    out = []
+    for g in games or []:
+        for p in g.get("picks") or []:
+            yes_no = (p.get("view") or {}).get("yesNo") or p.get("yesNo") or ""
+            ticker = p.get("ticker") or (p.get("view") or {}).get("ticker") or ""
+            for b in p.get("backers") or []:
+                out.append((g, p, b, _backer_key(b.get("name"), ticker, yes_no)))
+    return out
+
+
+def carry_forward_games(new_games, prev, now, http, mcache, ecache, log=print):
+    """Keep still-open picks from the previous (or recovered) data.json.
+
+    Fresh rows from this scan win. Positions no longer visible stay, marked
+    Last seen <time> PT, until the usual finished-game rules drop them.
+    """
+    seen = set()
+    for g, p, b, key in _flatten_game_positions(new_games):
+        seen.add(key)
+    carried = 0
+    dropped = []
+    by_id = {g.get("id"): g for g in new_games}
+    order = [g.get("id") for g in new_games]
+    prev_at = prev.get("scannedAt") or ""
+    for g, p, b, key in _flatten_game_positions(prev.get("games") or []):
+        if key in seen:
+            continue
+        league = g.get("league") or p.get("league") or ""
+        start_ts = p.get("startTs") or g.get("startTs") or 0
+        if start_ts and start_ts > now + WINDOW_SECS:
+            continue
+        done, why, info = pick_is_finished(p, now, league, http, mcache, ecache)
+        if done:
+            dropped.append("%s / %s (%s)" % (g.get("game") or p.get("ticker"), b.get("name") or "", why))
+            continue
+        bb = dict(b)
+        if not bb.get("lastSeen"):
+            bb["lastSeen"] = prev_at or pt(prev.get("ts") or now)
+            if prev.get("ts"):
+                bb["lastSeenTs"] = prev.get("ts")
+        # refresh start/live/price on the pick slot from hydrate when we have it
+        pp = dict(p)
+        if info.get("start_ts"):
+            pp["startTs"] = info["start_ts"]
+        if info.get("_fresh") and (pp.get("view") or {}).get("yesNo") == "Yes" and info.get("yes_ask") is not None:
+            view = dict(pp.get("view") or {})
+            view["price"] = info["yes_ask"]
+            pp["view"] = view
+        elif info.get("_fresh") and (pp.get("view") or {}).get("yesNo") == "No" and info.get("no_ask") is not None:
+            view = dict(pp.get("view") or {})
+            view["price"] = info["no_ask"]
+            pp["view"] = view
+        if start_ts and start_ts <= now:
+            pp["state"] = "live"
+        gid = g.get("id") or (pp.get("eventTicker") or (g.get("game") + "|" + str(start_ts or 0)))
+        if gid not in by_id:
+            ng = {
+                "id": gid,
+                "game": g.get("game") or pp.get("game") or gid,
+                "league": league or "Sports",
+                "startTs": start_ts or 0,
+                "start": g.get("start") or (pt(start_ts) if start_ts else ""),
+                "live": bool(start_ts and start_ts <= now),
+                "state": "live" if (start_ts and start_ts <= now) else (g.get("state") or "upcoming"),
+                "picks": [],
+            }
+            by_id[gid] = ng
+            order.append(gid)
+        host = by_id[gid]
+        if start_ts and start_ts <= now:
+            host["live"] = True
+            host["state"] = "live"
+        pkey = pp.get("key") or ("%s|%s" % (pp.get("ticker") or "", (pp.get("view") or {}).get("yesNo") or ""))
+        slot = None
+        for existing in host["picks"]:
+            if existing.get("key") == pkey:
+                slot = existing
+                break
+        if slot is None:
+            slot = {k: v for k, v in pp.items() if k != "backers"}
+            slot["backers"] = []
+            slot["key"] = pkey
+            host["picks"].append(slot)
+        slot["backers"].append(bb)
+        slot["total"] = round(sum((x.get("cost") or 0) for x in slot["backers"]), 2)
+        tags = []
+        for x in slot["backers"]:
+            if x.get("tier") and x["tier"] not in tags:
+                tags.append(x["tier"])
+        slot["tags"] = tags
+        seen.add(key)
+        carried += 1
+    games = [by_id[i] for i in order if i in by_id and (by_id[i].get("picks") or [])]
+    games.sort(key=lambda g: (0 if g.get("live") else 1, g.get("startTs") or 10**12, g.get("id") or ""))
+    if carried or dropped:
+        log("carry-forward: kept %d hidden/prior positions, dropped %d finished%s" % (
+            carried, len(dropped), (": " + "; ".join(dropped[:8])) if dropped else ""))
+    return games, carried, dropped
+
+
+def carry_forward_following(new_picks, prev, now, http, mcache, ecache, log=print):
+    """Same carry rules for My 40 display picks. Does not write the trial ledger."""
+    def fid(p):
+        return _backer_key(p.get("nickname"), p.get("ticker"), p.get("yesNo"))
+    seen = {fid(p) for p in (new_picks or [])}
+    out = list(new_picks or [])
+    carried = 0
+    dropped = 0
+    prev_at = prev.get("scannedAt") or ""
+    for p in (prev.get("following") or {}).get("picks") or []:
+        if fid(p) in seen:
+            continue
+        start_ts = p.get("startTs") or 0
+        done, why, info = pick_is_finished(p, now, p.get("league") or "", http, mcache, ecache)
+        if done:
+            dropped += 1
+            continue
+        pp = dict(p)
+        if not pp.get("lastSeen"):
+            pp["lastSeen"] = prev_at or pt(prev.get("ts") or now)
+            if prev.get("ts"):
+                pp["lastSeenTs"] = prev.get("ts")
+        if info.get("start_ts"):
+            pp["startTs"] = info["start_ts"]
+        if info.get("_fresh"):
+            if pp.get("yesNo") == "Yes" and info.get("yes_ask") is not None:
+                pp["price"] = info["yes_ask"]
+                pp["yesAsk"] = info["yes_ask"]
+            if pp.get("yesNo") == "No" and info.get("no_ask") is not None:
+                pp["price"] = info["no_ask"]
+                pp["noAsk"] = info["no_ask"]
+        if (pp.get("startTs") or 0) and pp["startTs"] <= now:
+            pp["state"] = "live"
+        out.append(pp)
+        seen.add(fid(pp))
+        carried += 1
+    out.sort(key=lambda p: (0 if (p.get("startTs") and p["startTs"] <= now) else 1, p.get("startTs") or 10**12, p.get("nickname") or "", p.get("ticker") or ""))
+    if carried or dropped:
+        log("carry-forward following: kept %d, dropped %d finished" % (carried, dropped))
+    return out, carried, dropped
+
+
+def collect_pick_ids(games, following_picks=None):
+    ids, seen = [], set()
+    for g in games or []:
+        for p in g.get("picks") or []:
+            pid = p.get("key") or "%s|%s" % (p.get("ticker") or "", (p.get("view") or {}).get("yesNo") or "")
+            if pid and pid not in seen:
+                seen.add(pid)
+                ids.append(pid)
+    for p in following_picks or []:
+        gpid = "%s|%s" % (p.get("ticker") or "", p.get("yesNo") or "")
+        pid = "%s|%s|%s" % (p.get("nickname") or "", p.get("ticker") or "", p.get("yesNo") or "")
+        if gpid in seen or pid in seen:
+            continue
+        if pid.strip("|"):
+            seen.add(pid)
+            ids.append(pid)
+    return ids
+
+
+def record_scan_history(now, cov, games, following, prev):
+    history = load_json(HISTORY_PATH, {"updatedAt": "", "scans": []})
+    scans = list(history.get("scans") or [])
+    prev_fol = [c.get("nickname") for c in ((prev.get("following") or {}).get("cappers") or []) if c.get("nickname")]
+    # Prefer this scan's follow list (after reconcile), not the carried-display-only names.
+    fol = [c.get("nickname") for c in (following.get("cappers") or []) if c.get("nickname")]
+    new_follows = [n for n in fol if n not in prev_fol]
+    open_picks = sum(len(g.get("picks") or []) for g in (games or []))
+    entry = {
+        "ts": now,
+        "at": pt(now),
+        "names": cov.get("namesChecked") or 0,
+        "newFollows": new_follows,
+        "followed": len(fol),
+        "target": TARGET_FOLLOW,
+        "openPicks": open_picks,
+        "ids": collect_pick_ids(games, following.get("picks") or []),
+    }
+    # Replace an entry with the same ts if the job retried; otherwise prepend.
+    scans = [x for x in scans if (x.get("ts") or 0) != now]
+    scans.insert(0, entry)
+    scans = scans[:HISTORY_KEEP]
+    history = {"updatedAt": entry["at"], "scans": scans}
+    save_json(HISTORY_PATH, history)
+    return scans
+
+
 def build(now=None, log=print):
     now = int(now or time.time())
     t0 = time.time()
+    prev, used_carry_seed = load_previous_payload()
     http = lib.Http()
     active, queue, rejected = load_dbs()
     pinned = load_pinned_file()
@@ -1137,6 +1397,10 @@ def build(now=None, log=print):
     cappers = list(byn.values())
 
     games, dropped = group_games(cappers, now, log)
+    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log)
+    dropped = list(dropped) + list(carried_dropped)
+    cov["carriedPicks"] = carried_n
+    cov["carriedDropped"] = len(carried_dropped)
     cov["finishedDropped"] = len(dropped)
     cov["finishedNames"] = dropped
     cov["shown"] = sum(1 for c in cappers if c.get("picks"))
@@ -1170,6 +1434,12 @@ def build(now=None, log=print):
         for p in c.get("followingPicks") or []:
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
+    # Carry previous My 40 *display* picks only. The trial ledger is already persisted and was
+    # updated solely from this scan's visible followed positions.
+    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log)
+    following["picks"] = follow_picks
+    cov["carriedFollowPicks"] = carried_follow
+    cov["carriedFollowDropped"] = dropped_follow
     cov["followingOpen"] = len(following.get("picks") or [])
     cov["followingCappers"] = len(following.get("cappers") or [])
     cov["trialRecorded"] = following.get("recorded") or 0
@@ -1197,7 +1467,14 @@ def build(now=None, log=print):
         "cappers": pub_cappers,
         "games": games,
         "following": following,
+        "scanHistory": record_scan_history(now, cov, games, following, prev),
     }
+    if used_carry_seed and os.path.exists(CARRY_SEED_PATH):
+        try:
+            os.remove(CARRY_SEED_PATH)
+            log("removed one-shot carry_seed.json after recovery")
+        except OSError as e:
+            log("could not remove carry_seed.json: %s" % e)
     log(
         "scan active {dbActive} queue {dbQueue} rejected {dbRejected} shown {shown} "
         "picks {picks} games {games} follow {followingOpen} trial {trialRecorded} "

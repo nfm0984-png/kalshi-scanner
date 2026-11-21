@@ -24,15 +24,16 @@ const BT_ORDER = ["Moneyline", "Spread", "Totals", "Both teams to score", "Playe
 
 interface WL { w: number; l: number; n?: number }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null }
-interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; tier?: string }
+interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; pnl?: number | null; weeklyPnl?: number | null; monthlyPnl?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null }
+interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
-interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following }
+interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
+interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[] }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -292,6 +293,7 @@ function BackerRow(props: { b: Backer; now: number }) {
         <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 750, color: NAVY, marginTop: 3, overflowWrap: "anywhere" }}>
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
         </div>
+        {b.lastSeen ? <div data-last-seen="1" style={{ marginTop: 4 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + b.lastSeen}</Chip></div> : null}
       </div>
     </div>
   );
@@ -320,6 +322,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
       <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{game.game}</div>
       <div style={{ fontSize: 15, fontWeight: 800, color: BLUE_INK, marginTop: 2, overflowWrap: "anywhere" }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
       {mine ? <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}><span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{money(mine.cost)}</span><span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (mine.avg != null ? " · entry " + cents(mine.avg) : "")}</span></div> : null}
+      {mine && mine.lastSeen ? <div data-last-seen="1" style={{ marginTop: 6 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + mine.lastSeen}</Chip></div> : null}
       <FreshPricePills p={p} now={now} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
     </div>
@@ -347,10 +350,11 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         {p.cost != null && p.cost > 0 ? <span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.cost)}</span> : null}
         <span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (p.price != null ? " · pays " + cents(p.price) : "") + (p.entry != null ? " · entry " + cents(p.entry) : "")}</span>
       </div>
-      {fresh === "fresh" || fresh === "hold" ? (
+      {fresh === "fresh" || fresh === "hold" || p.lastSeen ? (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
           {fresh === "fresh" ? pill("#DCFCE7", "#15803D", "Fresh", p.lastTs ? "bought " + ago(p.lastTs as number, props.now) : null) : null}
-          {fresh === "hold" ? pill("#F3F4F6", "#4B5563", "Hold", "no buys in 24h") : null}
+          {fresh === "hold" && !p.lastSeen ? pill("#F3F4F6", "#4B5563", "Hold", "no buys in 24h") : null}
+          {p.lastSeen ? <Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + p.lastSeen}</Chip> : null}
         </div>
       ) : null}
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={view} /></div>
@@ -1255,6 +1259,24 @@ export default function App() {
               <StatusRow label="Auto-follow" status={followedN + "/" + TARGET_FOLLOW} tone={followedN ? "ok" : "muted"} />
               <div data-capper-db="1" style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#94A3B8" }}>
                 {"Capper db: " + (dbActive) + " active" + (db.queue != null ? " · " + db.queue + " to check" : "") + (db.rejected != null ? " · " + db.rejected + " rejected" : "")}
+              </div>
+            </div>
+            <div className="ks-side-card" data-scan-history="1">
+              <div style={{ fontSize: 14, fontWeight: 850, marginBottom: 4 }}>Scan history</div>
+              <div style={{ fontSize: 12, fontWeight: 650, color: "#94A3B8", marginBottom: 6 }}>Last {(DATA.scanHistory || []).length} scans · kept about 48 (~two days of hourly runs)</div>
+              <div style={{ maxHeight: 280, overflowY: "auto" }}>
+                {(DATA.scanHistory || []).length === 0 ? <div style={{ fontSize: 13, color: "#94A3B8" }}>No history yet.</div> : (DATA.scanHistory || []).map((h: ScanHist) => (
+                  <div key={h.ts} data-scan-hist={h.ts} style={{ padding: "8px 0", borderBottom: "1px solid rgba(148,163,184,0.16)" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "baseline" }}>
+                      <span style={{ fontSize: 13, fontWeight: 800, color: "#E2E8F0" }}>{h.at || "—"}</span>
+                      <span style={{ fontSize: 13, fontWeight: 800, color: "#7DD3FC" }}>{(h.openPicks || 0) + " open"}</span>
+                    </div>
+                    <div style={{ fontSize: 12, fontWeight: 650, color: "#94A3B8", marginTop: 2 }}>
+                      {(h.followed != null ? h.followed + "/" + (h.target || 40) + " followed" : "") + (h.names ? " · " + h.names + " names" : "")}
+                    </div>
+                    {h.newFollows && h.newFollows.length ? <div style={{ fontSize: 12, fontWeight: 700, color: "#4ADE80", marginTop: 2 }}>{"+" + h.newFollows.join(", ")}</div> : null}
+                  </div>
+                ))}
               </div>
             </div>
           </aside>
