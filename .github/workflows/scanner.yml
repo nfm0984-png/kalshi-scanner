@@ -11,8 +11,13 @@ on:
       new_names:
         description: "How many new names to inspect (full scans only; 0 = review the queue only)"
         required: false
-        default: "20"
+        default: "30"
         type: string
+      review_new:
+        description: "Also inspect the newly queued names in this same full scan"
+        required: false
+        default: false
+        type: boolean
       mode:
         description: "scan (full) or follow-check (pinned books only)"
         required: false
@@ -54,7 +59,9 @@ jobs:
       - name: Scan or followed-check
         if: github.event_name != 'push'
         env:
-          NEW_NAMES: ${{ github.event.inputs.new_names || '20' }}
+          NEW_NAMES: ${{ github.event.inputs.new_names || '30' }}
+          NEW_PER_SCAN: ${{ github.event.inputs.new_names || '30' }}
+          REVIEW_NEW: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode != 'follow-check' && github.event.inputs.review_new) && '1' || '' }}
           KALSHI_SCAN_MODE: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '5,35,50 * * * *') && 'follow' || 'scan' }}
         run: |
           set -euo pipefail

@@ -27,7 +27,7 @@ interface KalshiView { backing?: string; marketTitle?: string; outcome?: string;
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
-interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; pnl?: number | null; weeklyPnl?: number | null; monthlyPnl?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
@@ -268,10 +268,18 @@ function CapperStatRow(props: { c: Capper }) {
     <StatTile key="wr" label="Win rate" value={settled ? pctText(g!.w / (g!.w + g!.l)) : "—"} color={tone.fg} bg={tone.bg} />,
   ];
   if (g && g.profit != null) tiles.push(<StatTile key="prof" label="Graded profit" value={(g.profit >= 0 ? "+" : "") + kMoney(g.profit)} color={g.profit >= 0 ? GREEN : RED} bg={g.profit >= 0 ? "#DCFCE7" : "#FEE2E2"} sub={g.roi != null ? ((g.roi >= 0 ? "+" : "") + Math.round(g.roi) + "% ROI") : undefined} />);
-  if (props.c.pnl != null) tiles.push(<StatTile key="pnl" label="All-time P&L" value={(props.c.pnl >= 0 ? "+" : "") + kMoney(props.c.pnl)} color={props.c.pnl >= 0 ? GREEN : RED} bg={props.c.pnl >= 0 ? "#DCFCE7" : "#FEE2E2"} />);
-  if (props.c.monthlyPnl != null) tiles.push(<StatTile key="mo" label="Monthly P&L" value={(props.c.monthlyPnl >= 0 ? "+" : "") + kMoney(props.c.monthlyPnl)} color={props.c.monthlyPnl >= 0 ? GREEN : RED} />);
-  if (props.c.weeklyPnl != null) tiles.push(<StatTile key="wk" label="Weekly P&L" value={(props.c.weeklyPnl >= 0 ? "+" : "") + kMoney(props.c.weeklyPnl)} color={props.c.weeklyPnl >= 0 ? GREEN : RED} />);
-  return <div data-record-strip="1" style={{ display: "flex", gap: 8, margin: "10px 0 0", flexWrap: "wrap" }}>{tiles}</div>;
+  if (props.c.pnl != null) tiles.push(<StatTile key="pnl" label="All-time P&L" value={(props.c.pnl >= 0 ? "+" : "") + kMoney(props.c.pnl)} color={props.c.pnl >= 0 ? GREEN : RED} bg={props.c.pnl >= 0 ? "#DCFCE7" : "#FEE2E2"} sub={props.c.pnlSource === "kalshi_profile_metrics" ? "Kalshi profile" : (props.c.pnlSource === "sports_leaderboard_projected" ? "Sports board" : undefined)} />);
+  if (props.c.yearlyPnl != null) tiles.push(<StatTile key="yr" label="Yearly P&L" value={(props.c.yearlyPnl >= 0 ? "+" : "") + kMoney(props.c.yearlyPnl)} color={props.c.yearlyPnl >= 0 ? GREEN : RED} sub="Sports board" />);
+  if (props.c.monthlyPnl != null) tiles.push(<StatTile key="mo" label="Monthly P&L" value={(props.c.monthlyPnl >= 0 ? "+" : "") + kMoney(props.c.monthlyPnl)} color={props.c.monthlyPnl >= 0 ? GREEN : RED} sub="Sports board · no 30d" />);
+  if (props.c.weeklyPnl != null) tiles.push(<StatTile key="wk" label="Weekly P&L" value={(props.c.weeklyPnl >= 0 ? "+" : "") + kMoney(props.c.weeklyPnl)} color={props.c.weeklyPnl >= 0 ? GREEN : RED} sub="Sports board" />);
+  if (props.c.tape30d != null) tiles.push(<StatTile key="t30" label="Sports tape 30d" value={(props.c.tape30d >= 0 ? "+" : "") + kMoney(props.c.tape30d)} color={props.c.tape30d >= 0 ? GREEN : RED} sub="Settled public trades" />);
+  if (props.c.tape7d != null) tiles.push(<StatTile key="t7" label="Sports tape 7d" value={(props.c.tape7d >= 0 ? "+" : "") + kMoney(props.c.tape7d)} color={props.c.tape7d >= 0 ? GREEN : RED} sub="Settled public trades" />);
+  return (
+    <div>
+      <div data-record-strip="1" style={{ display: "flex", gap: 8, margin: "10px 0 0", flexWrap: "wrap" }}>{tiles}</div>
+      <div style={{ fontSize: 11, fontWeight: 650, color: "#64748B", marginTop: 6, lineHeight: "15px" }}>Kalshi does not publish a profit time series. All-time is official profile PnL. Weekly/monthly/yearly are Sports leaderboard projected P&L when the capper ranks in the top 100. 7d and 30d sports-tape figures are reconstructed from settled public sports trades only.</div>
+    </div>
+  );
 }
 function sportsHeadline(c?: Capper | null): { text: string; color: string } {
   const g = gradedWL(c);
@@ -868,50 +876,90 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
     </div>
   );
 }
+function capRankTuple(c: Capper): number[] {
+  const g = gradedWL(c);
+  const w = g ? g.w : 0, l = g ? g.l : 0, n = w + l;
+  const wr = n ? w / n : -1;
+  const pnl = c.pnl == null ? -1e15 : c.pnl;
+  return [n ? 0 : 1, -(w - l), -w, -wr, -pnl];
+}
+function sortCappers(caps: Capper[]): Capper[] {
+  return caps.slice().sort((a: Capper, b: Capper) => {
+    const ka = capRankTuple(a), kb = capRankTuple(b);
+    for (let i = 0; i < ka.length; i++) if (ka[i] !== kb[i]) return ka[i] < kb[i] ? -1 : 1;
+    return (a.nickname || "").localeCompare(b.nickname || "");
+  });
+}
+function CapperCard(props: { c: Capper; now: number; rank: number }) {
+  const c = props.c;
+  const g = gradedWL(c);
+  const settled = !!(g && (g.w + g.l) > 0);
+  const head = sportsHeadline(c);
+  const picks = openPicksFor(c.nickname, props.now);
+  const hasLive = picks.some((x) => !!x.game.live || !!(x.p.startTs && x.p.startTs <= props.now));
+  const wr = settled ? Math.round(100 * g!.w / (g!.w + g!.l)) : null;
+  const followed = isFollowedCapper(c);
+  return (
+    <CapperShell live={hasLive} followed={followed}>
+      <div data-capper={c.nickname} style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div style={{ fontSize: 18, fontWeight: 850, color: BLUE, minWidth: 28 }}>{"#" + props.rank}</div>
+        <Face name={c.nickname} size={44} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          {c.profileUrl ? (
+            <a href={c.profileUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 18, fontWeight: 850, color: NAVY, textDecoration: "none", overflowWrap: "anywhere" }}>{c.nickname} ↗</a>
+          ) : (
+            <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
+          )}
+          <div style={{ fontSize: 13, fontWeight: 800, color: head.color, marginTop: 2, fontVariantNumeric: "tabular-nums" }}>{head.text}</div>
+        </div>
+        {wr != null ? <WinRing pct={wr} /> : null}
+        <Chip bg={followed ? "#FEF3C7" : "#F1F5F9"} color={followed ? "#92400E" : "#475569"}>{followed ? "Followed" : "Watching"}</Chip>
+        <Chip bg={picks.length ? GREEN : "#F1F5F9"} color={picks.length ? "#FFFFFF" : "#475569"}>{picks.length === 1 ? "1 pick" : picks.length + " picks"}</Chip>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 8 }}>
+        {c.tier ? <TierChip tier={c.tier} /> : null}
+        {g && g.sample === "small" ? <Chip bg="#FEF3C7" color={AMBER}>Small sample</Chip> : (settled ? <Chip bg={GREEN} color="#FFFFFF">{g!.n}+ graded</Chip> : <Chip bg="#F1F5F9" color="#475569">No sports W-L yet</Chip>)}
+        {c.pnl != null && c.pnl < 0 ? <Chip bg="#FEE2E2" color={RED}>Negative profit</Chip> : null}
+        <RankChips ranks={c.ranks} />
+        {c.ageDays != null ? <Chip bg="#F8FAFC" color="#334155">{c.ageDays + "d on Kalshi"}</Chip> : null}
+        {c.volumeUsd != null ? <Chip bg="#F8FAFC" color="#334155">{"Vol " + kMoney(c.volumeUsd)}</Chip> : null}
+      </div>
+      <CapperStatRow c={c} />
+      {picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $100 Coming Up window, or already started and dropped from this list." : "No open $100+ pick in the window."}</div>}
+    </CapperShell>
+  );
+}
 function CappersTab(props: { now: number; query?: string; filter?: string }) {
   const caps = (DATA.cappers || []).slice();
   const q = (props.query || "").trim().toLowerCase();
   let shown = caps.filter((c: Capper) => !q || (c.nickname || "").toLowerCase().includes(q));
   if (props.filter === "followed") shown = shown.filter(isFollowedCapper);
+  if (props.filter === "watching") shown = shown.filter((c: Capper) => !isFollowedCapper(c));
   if (props.filter === "wl") shown = shown.filter((c: Capper) => { const g = gradedWL(c); return !!(g && (g.w + g.l) > 0); });
-  return (
-    <div>
-      {shown.length === 0 ? <EmptyState title={caps.length === 0 ? "No visible cappers right now" : "No cappers match that filter"} body={caps.length === 0 ? "Almost every name on Kalshi's Sports leaderboard hides their book." : "Try another search or clear the filter."} /> : shown.map((c: Capper, i: number) => {
-        const g = gradedWL(c);
-        const settled = !!(g && (g.w + g.l) > 0);
-        const head = sportsHeadline(c);
-        const picks = openPicksFor(c.nickname, props.now);
-        const hasLive = picks.some((x) => !!x.game.live || !!(x.p.startTs && x.p.startTs <= props.now));
-        const wr = settled ? Math.round(100 * g!.w / (g!.w + g!.l)) : null;
-        return (
-          <CapperShell key={c.nickname} live={hasLive} followed={isFollowedCapper(c)}>
-            <div data-capper={c.nickname} style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <div style={{ fontSize: 18, fontWeight: 850, color: BLUE, minWidth: 28 }}>{"#" + (i + 1)}</div>
-              <Face name={c.nickname} size={44} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                {c.profileUrl ? (
-                  <a href={c.profileUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 18, fontWeight: 850, color: NAVY, textDecoration: "none", overflowWrap: "anywhere" }}>{c.nickname} ↗</a>
-                ) : (
-                  <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
-                )}
-                <div style={{ fontSize: 13, fontWeight: 800, color: head.color, marginTop: 2, fontVariantNumeric: "tabular-nums" }}>{head.text}</div>
-              </div>
-              {wr != null ? <WinRing pct={wr} /> : null}
-              <Chip bg={picks.length ? GREEN : "#F1F5F9"} color={picks.length ? "#FFFFFF" : "#475569"}>{picks.length === 1 ? "1 pick" : picks.length + " picks"}</Chip>
-            </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 8 }}>
-              {c.tier ? <TierChip tier={c.tier} /> : null}
-              {g && g.sample === "small" ? <Chip bg="#FEF3C7" color={AMBER}>Small sample</Chip> : (settled ? <Chip bg={GREEN} color="#FFFFFF">{g!.n}+ graded</Chip> : <Chip bg="#F1F5F9" color="#475569">No sports W-L yet</Chip>)}
-              <RankChips ranks={c.ranks} />
-              {c.ageDays != null ? <Chip bg="#F8FAFC" color="#334155">{c.ageDays + "d on Kalshi"}</Chip> : null}
-            </div>
-            <CapperStatRow c={c} />
-            {picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $100 Coming Up window, or already started and dropped from this list." : "No open $100+ pick in the window."}</div>}
-          </CapperShell>
-        );
-      })}
+  const followed = sortCappers(shown.filter(isFollowedCapper));
+  const watching = sortCappers(shown.filter((c: Capper) => !isFollowedCapper(c)));
+  const split = !props.filter || props.filter === "all";
+  const section = (title: string, body: string, list: Capper[]) => (
+    <div style={{ marginTop: 8 }}>
+      <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{title}</div>
+      <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", margin: "0 0 12px", lineHeight: "18px" }}>{body}</div>
+      {list.length ? list.map((c: Capper, i: number) => <CapperCard key={c.nickname} c={c} now={props.now} rank={i + 1} />) : <EmptyState title="No cappers in this group" body="Try another filter or wait for the next scan." />}
     </div>
   );
+  if (shown.length === 0) {
+    return <EmptyState title={caps.length === 0 ? "No visible cappers right now" : "No cappers match that filter"} body={caps.length === 0 ? "Almost every name on Kalshi's Sports leaderboard hides their book." : "Try another search or clear the filter."} />;
+  }
+  if (split) {
+    return (
+      <div>
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: winning public sports record and positive official all-time profit. Ranked by record, then profit.", followed)}
+        {section("Watching · " + watching.length, "Every other evaluated public book, ranked by record first and profit second. Not auto-followed.", watching)}
+      </div>
+    );
+  }
+  const list = props.filter === "followed" ? followed : props.filter === "watching" ? watching : sortCappers(shown);
+  const label = props.filter === "followed" ? "Followed" : props.filter === "watching" ? "Watching" : "Cappers";
+  return <div>{section(label + " · " + list.length, "Ranked by record first, profit second.", list)}</div>;
 }
 
 
@@ -1109,14 +1157,14 @@ export default function App() {
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
     { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
     { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Every open traditional-sports pick from followed winning cappers, no dollar minimum." },
-    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Visible books plus followed My 40 names · W–L from the public sports tape only." },
+    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "All evaluated books, split Followed vs Watching · record first, profit second · W–L from the public sports tape." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
     ? [{ id: "all", label: "All" }, { id: "live", label: "Live" }, { id: "upcoming", label: "Upcoming" }]
     : tab === "following"
     ? [{ id: "all", label: "All" }, { id: "graded", label: "Graded" }, { id: "open", label: "Open picks" }]
-    : [{ id: "all", label: "All" }, { id: "followed", label: "My 40" }, { id: "wl", label: "With a W–L" }];
+    : [{ id: "all", label: "All" }, { id: "followed", label: "Followed" }, { id: "watching", label: "Watching" }, { id: "wl", label: "With a W–L" }];
   const compactBtn: React.CSSProperties = { minHeight: 36, padding: "0 14px", borderRadius: 10, fontWeight: 800, fontSize: 13, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, textDecoration: "none", boxSizing: "border-box", touchAction: "manipulation", whiteSpace: "nowrap" };
   const iconBtn: React.CSSProperties = { ...compactBtn, width: 36, padding: 0, flex: "0 0 36px" };
   return (
@@ -1246,7 +1294,7 @@ export default function App() {
             <details data-how-it-works="1" style={{ marginTop: 16, padding: "8px 0", fontSize: 13, color: "#475569" }}>
               <summary style={{ cursor: "pointer", fontWeight: 800, color: BLUE, listStyle: "none" }}>How it works</summary>
               <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>Public Kalshi leaderboards, profiles, and the sports trade tape. Records are never invented.</p>
-              <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>{(DATA.source && DATA.source.note) || "Kalshi Sports leaderboard, public profiles, and the public trade tape."}</p>
+              <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>{(DATA.source && DATA.source.note) || "Kalshi public profiles, leaderboards, and the public sports trade tape. Records and tape profit are never invented."}</p>
               <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>{"Refreshed " + (cov.activeRefreshed || 0) + " active · reviewed " + (cov.queueReviewed || 0) + " in queue · new " + (cov.queuedNew || 0) + " · rejected hidden " + (cov.hiddenRejected || 0) + " · MM " + (cov.mmDropped || 0) + " · no sports " + (cov.noSportsRejected || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
             </details>
           </div>
