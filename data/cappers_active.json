@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 4:21 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 5:10 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -30,20 +30,20 @@
       "recordLine": "WorkerTrader \u00b7 2-1 \u00b7 -13% \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23509,
+      "followers": 23549,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "all_time": 13,
-        "weekly": 11,
+        "weekly": 9,
         "yearly": 13
       },
       "pnl": 877551.52,
@@ -53,9 +53,34 @@
       "graded": null,
       "recordLine": "BWmarkets \u00b7 +$877.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [
+        {
+          "ticker": "KXEPLGAME-26NOV21MCIFUL-FUL",
+          "eventTicker": "KXEPLGAME-26NOV21MCIFUL",
+          "marketTitle": "Manchester City vs Fulham",
+          "contractTitle": "Fulham wins",
+          "backing": "Fulham",
+          "yesNo": "Yes",
+          "label": "Fulham",
+          "entry": 0.29,
+          "price": 0.29,
+          "yesAsk": 0.29,
+          "noAsk": 0.73,
+          "cost": 23246.11,
+          "contracts": 80159.0,
+          "lastTs": null,
+          "startTs": 1795275000,
+          "state": "upcoming",
+          "league": "Soccer",
+          "game": "Manchester City vs Fulham",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795437000
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "reluctant.fox5394",
@@ -69,7 +94,7 @@
       "ranks": {
         "all_time": 97,
         "monthly": 31,
-        "weekly": 54,
+        "weekly": 55,
         "yearly": 89
       },
       "pnl": 385736.85,
@@ -106,31 +131,30 @@
       "monthlyPnl": 90486.9,
       "ageDays": 136,
       "graded": {
-        "n": 2,
-        "w": 2,
-        "l": 0,
-        "roi": 8.5,
-        "profit": 32.89,
+        "n": 6,
+        "w": 5,
+        "l": 1,
+        "roi": 7.6,
+        "profit": 55.78,
         "sample": "small"
       },
       "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "past.grass",
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
-      "followers": 113,
+      "followers": 114,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 42,
-        "weekly": 17
+        "weekly": 15
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -140,8 +164,7 @@
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "autofade",
@@ -184,7 +207,7 @@
       "heavy": false,
       "ranks": {
         "monthly": 65,
-        "weekly": 88
+        "weekly": 90
       },
       "pnl": 262238.26,
       "weeklyPnl": 20954.574,
@@ -230,7 +253,7 @@
       "nickname": "devex",
       "profileUrl": "https://kalshi.com/ideas/profiles/devex",
       "joinedAt": "2026-06-12",
-      "followers": 500,
+      "followers": 501,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -260,7 +283,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 82,
+        "monthly": 81,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -271,8 +294,7 @@
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "regine",
@@ -285,7 +307,7 @@
       "heavy": false,
       "ranks": {
         "monthly": 63,
-        "weekly": 75
+        "weekly": 74
       },
       "pnl": 81880.49,
       "weeklyPnl": 24154.92,
@@ -301,16 +323,16 @@
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1707,
+      "followers": 1739,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 45,
-        "weekly": 22
+        "weekly": 20
       },
-      "pnl": 132826.3,
+      "pnl": 134535.29,
       "weeklyPnl": 66746.51,
       "monthlyPnl": 92448.13,
       "ageDays": 890,
@@ -322,11 +344,10 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$132.8k all \u00b7 My 40",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$134.5k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "jspana99",
@@ -363,35 +384,34 @@
         "monthly": 44,
         "weekly": 41
       },
-      "pnl": -184209.51,
+      "pnl": -184209.5,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 60,
       "graded": {
-        "n": 2,
-        "w": 2,
+        "n": 10,
+        "w": 10,
         "l": 0,
-        "roi": 29.2,
-        "profit": 5644.94,
-        "sample": "small"
+        "roi": 16.7,
+        "profit": 38074.99,
+        "sample": "full"
       },
       "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$184.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "nettinyahoo",
       "profileUrl": "https://kalshi.com/ideas/profiles/nettinyahoo",
       "joinedAt": "2026-02-10",
-      "followers": 47,
+      "followers": 48,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 47
+        "weekly": 48
       },
       "pnl": 91556.97,
       "weeklyPnl": 32543.012,
@@ -408,8 +428,7 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -445,12 +464,12 @@
       "ranks": {
         "monthly": 64
       },
-      "pnl": -119803.35,
+      "pnl": -120478.02,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 269,
       "graded": null,
-      "recordLine": "Wiseandstrong \u00b7 -$119.8k all \u00b7 Board",
+      "recordLine": "Wiseandstrong \u00b7 -$120.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 1
@@ -465,7 +484,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 70
+        "weekly": 68
       },
       "pnl": 43151.68,
       "weeklyPnl": 24821.557,
@@ -487,7 +506,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 74
+        "weekly": 73
       },
       "pnl": 5486.02,
       "weeklyPnl": 24330.297,
@@ -547,13 +566,13 @@
       "nickname": "emilianotijerina",
       "profileUrl": "https://kalshi.com/ideas/profiles/emilianotijerina",
       "joinedAt": "2026-09-23",
-      "followers": 48,
+      "followers": 50,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 92
+        "weekly": 94
       },
       "pnl": 32569.2,
       "weeklyPnl": 20156.662,
@@ -570,8 +589,7 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$32.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -734,8 +752,7 @@
           "closeTs": 1800889200
         }
       ],
-      "pickCount": 1,
-      "followCount": 3
+      "pickCount": 1
     },
     {
       "nickname": "answermbs",
@@ -747,23 +764,22 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": -645.58,
+      "pnl": -645.41,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 248,
       "graded": {
-        "n": 40,
-        "w": 37,
-        "l": 3,
-        "roi": 95.5,
-        "profit": 291.99,
+        "n": 64,
+        "w": 56,
+        "l": 8,
+        "roi": 84.3,
+        "profit": 599.1,
         "sample": "full"
       },
-      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$646 all \u00b7 My 40",
+      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$645 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "arrogant.partridge5038",
@@ -795,15 +811,15 @@
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "pnl": -57568.44,
+      "pnl": -57568.47,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 366,
       "graded": null,
       "recordLine": "balla23 \u00b7 -$57.6k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "big.energy",
@@ -822,8 +838,8 @@
       "graded": null,
       "recordLine": "big.energy \u00b7 +$18.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "bigbobbyp",
@@ -842,8 +858,8 @@
       "graded": null,
       "recordLine": "bigbobbyp \u00b7 -$82.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "BigHusky",
@@ -855,7 +871,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "pnl": 1241.57,
+      "pnl": 1487.87,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 117,
@@ -867,9 +883,83 @@
         "profit": -325.54,
         "sample": "full"
       },
-      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.24k all \u00b7 Other",
+      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.49k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 1,
+      "followingPicks": [],
+      "pickCount": 1
+    },
+    {
+      "nickname": "billtuller",
+      "profileUrl": "https://kalshi.com/ideas/profiles/billtuller",
+      "joinedAt": "2025-10-18",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "pnl": 80.49,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 399,
+      "graded": null,
+      "recordLine": "billtuller \u00b7 +$80 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "Billy.Hoyle",
+      "profileUrl": "https://kalshi.com/ideas/profiles/Billy.Hoyle",
+      "joinedAt": "2025-09-22",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": false,
+      "ranks": {},
+      "pnl": 3112.13,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 425,
+      "graded": {
+        "n": 12,
+        "w": 7,
+        "l": 2,
+        "roi": 113.4,
+        "profit": 987.0,
+        "sample": "full"
+      },
+      "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.11k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "black.catt",
+      "profileUrl": "https://kalshi.com/ideas/profiles/black.catt",
+      "joinedAt": "2026-01-02",
+      "followers": 152,
+      "tier": "Other",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": false,
+      "ranks": {},
+      "pnl": -30794.93,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 323,
+      "graded": {
+        "n": 7,
+        "w": 6,
+        "l": 1,
+        "roi": 35.5,
+        "profit": 5544.54,
+        "sample": "small"
+      },
+      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$30.8k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 7,
       "followCount": 0
     }
   ]

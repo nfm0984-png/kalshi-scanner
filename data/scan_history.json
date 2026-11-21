@@ -1,6 +1,34 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 3:55 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 5:10 AM PT",
   "scans": [
+    {
+      "ts": 1795266622,
+      "at": "Sat Nov 21 \u00b7 5:10 AM PT",
+      "names": 52,
+      "newFollows": [
+        "Billy.Hoyle",
+        "black.catt"
+      ],
+      "followed": 12,
+      "target": 40,
+      "openPicks": 12,
+      "ids": [
+        "KXBUNDESLIGA2GAME-26NOV21WOBHOK-WOB|Yes",
+        "KXEPLGAME-26NOV21MCIFUL-FUL|Yes",
+        "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
+        "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
+        "KXNFLPLAYOFF-27-LAR|No",
+        "KXSB-27-MIN|Yes",
+        "KXSB-27-SF|Yes",
+        "KXSB-27-CIN|Yes",
+        "KXSB-27-JAC|Yes",
+        "KXSB-27-KC|Yes",
+        "KXSB-27-BUF|Yes",
+        "KXSB-27-LAR|Yes",
+        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
+        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
+      ]
+    },
     {
       "ts": 1795262143,
       "at": "Sat Nov 21 \u00b7 3:55 AM PT",
