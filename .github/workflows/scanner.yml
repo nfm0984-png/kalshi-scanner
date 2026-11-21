@@ -1,84 +1,136 @@
-name: Scanner
-run-name: "${{ github.event_name == 'schedule' && 'scheduled scan' || github.event_name == 'workflow_dispatch' && 'manual scan' || 'deploy site' }}"
+name: Kalshi scanner
+# :20 = full hourly scan. 5,35,50 = light followed-check of pinned books only.
+# workflow_dispatch: leave mode blank (or "scan") for a full scan; "follow-check" for a light run.
+# push to main deploys the already-built site and does not run a scan.
 on:
   schedule:
-    # Times are PT-intended (UTC-8). During PDT they run one hour later on the clock.
-    - cron: "20 * * * *"   # hourly refresh at :20
+    - cron: "20 * * * *"
+    - cron: "5,35,50 * * * *"
   workflow_dispatch:
     inputs:
       new_names:
-        description: "New leaderboard names to add this run. Hourly cron always uses 20."
+        description: "How many new names to inspect (full scans only; 0 = review the queue only)"
         required: false
         default: "20"
         type: string
+      mode:
+        description: "scan (full) or follow-check (pinned books only)"
+        required: false
+        default: "scan"
+        type: choice
+        options:
+          - scan
+          - follow-check
   push:
     branches: [main]
+    paths-ignore:
+      - "README.md"
+
+# Keep a running scan; a new one waits. Never cancel mid-Kalshi-crawl.
+concurrency:
+  group: kalshi-scanner
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
   id-token: write
-concurrency:
-  group: kalshi-scanner
-  cancel-in-progress: false
+
 jobs:
-  run:
+  scan-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.pages.outputs.page_url }}
+    env:
+      KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install esbuild
-        run: npm install --no-save esbuild@0.25.1 react@18 react-dom@18
-      - name: Scan Kalshi public books
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+
+      - name: Scan or followed-check
+        if: github.event_name != 'push'
+        env:
+          NEW_NAMES: ${{ github.event.inputs.new_names || '20' }}
+          KALSHI_SCAN_MODE: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '5,35,50 * * * *') && 'follow' || 'scan' }}
         run: |
           set -euo pipefail
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            export NEW_PER_SCAN="${{ github.event.inputs.new_names }}"
-            export REVIEW_NEW=1
+          pip install -q cryptography
+          python scanner/scan.py
+          if [ "${KALSHI_SCAN_MODE}" = "follow" ]; then
+            echo "follow-check finished"
           else
-            export NEW_PER_SCAN=20
-            export REVIEW_NEW=0
+            python scanner/validate_json.py data.json
           fi
-          echo "Running Kalshi public scan NEW_PER_SCAN=${NEW_PER_SCAN} REVIEW_NEW=${REVIEW_NEW}"
-          python3 -u scanner/scan.py
-      - name: Build app
+
+      - name: Read follow-check change flag
+        if: github.event_name != 'push'
+        id: changed
         run: |
           set -euo pipefail
-          NM=./node_modules bash build.sh
-      - name: Commit new data
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+          if [ -f scanner/.follow_changed ]; then
+            VAL=$(tr -d '[:space:]' < scanner/.follow_changed)
+            echo "value=${VAL:-1}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Encrypt published data
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
         run: |
           set -euo pipefail
-          git config user.name "kalshi-scanner-bot"
+          pip install -q cryptography
+          python scanner/gate_crypto.py encrypt
+          # Full scans already validated plaintext. Follow-check changes and push deploys
+          # must not send a wrapping-less file. gate_crypto leaves already-wrapped files alone
+          # (push) and wraps plaintext written by this run.
+
+      - name: Commit scan results
+        if: github.event_name != 'push' && steps.changed.outputs.value == '1'
+        run: |
+          set -euo pipefail
+          git config user.name "kalshi-scanner"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python3 scanner/validate_json.py pre-commit data.json data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json data/trial_picks.json data/scan_history.json
-          git add data.json app.js index.html data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json data/trial_picks.json data/scan_history.json data/carry_seed.json
+          git add data.json data/*.json data/*.txt index.html app.js
           if git diff --cached --quiet; then
-            echo "no changes to commit"
+            echo "No data changes to commit."
           else
-            git commit -m "scan $(TZ=America/Los_Angeles date '+%a %b %-d %-I:%M %p PT')"
-            git pull --rebase origin main || true
-            git push origin HEAD:main
+            MSG="scan"
+            if [ "${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '5,35,50 * * * *') && 'follow' || 'scan' }}" = "follow" ]; then
+              MSG="followed check"
+            fi
+            git commit -m "$MSG"
+            git push
           fi
-      - uses: actions/configure-pages@v5
-      - name: Stage Pages files
+
+      - name: Stage Pages
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
         run: |
+          set -euo pipefail
           mkdir -p _site
-          cp -f index.html app.js data.json config.js _site/
-      - uses: actions/upload-pages-artifact@v3
+          cp index.html app.js data.json robots.txt gate.json _site/
+          if [ -f config.js ]; then cp config.js _site/; fi
+          echo "nfm0984-png.github.io" > _site/CNAME
+
+      - name: Setup Pages
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      # Give GitHub a moment to register the artifact; deploy-pages can otherwise
-      # see 0 artifacts and fail even after a successful upload.
+
+      # deploy-pages@v4 can miss the artifact if it starts immediately after the upload.
       - name: Wait for Pages artifact
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
         run: sleep 20
-      - id: deploy
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
+        id: pages
         uses: actions/deploy-pages@v4

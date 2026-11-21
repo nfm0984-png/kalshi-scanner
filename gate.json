@@ -1,0 +1,8 @@
+{
+  "v": 1,
+  "salt": "485fd2b36fb80af3738ab6b44962ec94",
+  "hash": "8091e5bba553f24ea4840b5e0a4bd118d3889c789c54e78514979afa1fe45ca4",
+  "iters": 100000,
+  "kdf": "pbkdf2-sha256",
+  "wrap": "aes-256-gcm"
+}

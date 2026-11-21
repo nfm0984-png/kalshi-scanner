@@ -160,6 +160,7 @@ def _env_int(name, default, lo=1, hi=200):
 
 NEW_PER_SCAN = _env_int("NEW_PER_SCAN", NEW_PER_SCAN_DEFAULT)
 REVIEW_NEW = os.environ.get("REVIEW_NEW", "").strip().lower() in ("1", "true", "yes")
+SCAN_MODE = os.environ.get("KALSHI_SCAN_MODE", "scan").strip().lower()  # "scan" | "follow"
 
 # Already reviewed in the first live scan (visible sports traders stay active
 # even with no open pick today). Market-makers go to rejected and are never rechecked.
@@ -1483,13 +1484,238 @@ def build(now=None, log=print):
     return payload
 
 
+
+def significant_state(data, trial_text=""):
+    """Compare picks, lastTs, follows, and the trial ledger — ignore live prices and clock fields."""
+    rows = []
+    for g in data.get("games") or []:
+        for p in g.get("picks") or []:
+            backs = tuple(sorted(
+                (
+                    (b.get("name") or ""),
+                    b.get("lastTs"),
+                    b.get("lastSeen") or "",
+                    round(float(b.get("cost") or 0), 2),
+                    None if b.get("avg") is None else round(float(b["avg"]), 4),
+                )
+                for b in (p.get("backers") or [])
+            ))
+            rows.append((p.get("key") or "", p.get("startTs") or 0, p.get("state") or "", backs))
+    fol = tuple(sorted(
+        (
+            (p.get("nickname") or ""),
+            p.get("ticker") or "",
+            p.get("yesNo") or "",
+            p.get("lastTs"),
+            p.get("lastSeen") or "",
+            p.get("startTs") or 0,
+        )
+        for p in ((data.get("following") or {}).get("picks") or [])
+    ))
+    followed = tuple(sorted((c.get("nickname") or "") for c in ((data.get("following") or {}).get("cappers") or [])))
+    rec = ((data.get("following") or {}).get("recorded") or 0, (data.get("following") or {}).get("graded") or 0)
+    return (tuple(sorted(rows)), fol, followed, rec, trial_text)
+
+
+def build_follow_check(now=None, log=print):
+    """Refresh only followed (pinned) cappers' public books. No board crawl, queue, or new names."""
+    now = int(now or time.time())
+    t0 = time.time()
+    prev, _used_seed = load_previous_payload()
+    # Previous payload may be AES-wrapped on disk; load_previous_payload reads data.json.
+    # If encrypted, games would be missing — decrypt is a workflow concern. When this
+    # function runs in Actions, data.json has just been checked out; after the first
+    # encrypted commit the runner must decrypt before scan.py. We handle that in main().
+    http = lib.Http()
+    active, queue, rejected = load_dbs()
+    pinned = load_pinned_file()
+    mcache, ecache = {}, {}
+    cov = {
+        "followCheck": True,
+        "boards": {},
+        "leaderboardNames": 0,
+        "activeRefreshed": 0,
+        "queueReviewed": 0,
+        "queueToActive": 0,
+        "queueRejected": 0,
+        "queuedNew": 0,
+        "mmDropped": 0,
+        "hiddenRejected": 0,
+        "noSportsRejected": 0,
+        "shown": 0,
+        "picks": 0,
+        "games": 0,
+        "finishedDropped": 0,
+        "finishedNames": [],
+        "calls": 0,
+        "retries429": 0,
+        "secs": 0,
+        "minBet": MIN_BET,
+        "namesChecked": 0,
+    }
+    live_cappers = []
+    pinned_hidden = set()
+    names = pinned_names(pinned)
+    log("follow-check: refreshing %d pinned cappers" % len(names))
+    prev_caps = {nick_key(c.get("nickname")): c for c in (prev.get("cappers") or [])}
+    for nick in names:
+        try:
+            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=10)
+        except Exception as e:
+            log("follow-check failed %s: %s — keeping previous picks" % (nick, e))
+            cov["namesChecked"] += 1
+            continue
+        cov["namesChecked"] += 1
+        if verdict[0] == "rejected":
+            _v, reason, detail = verdict
+            log("follow-check pinned kept despite %s (%s): %s" % (reason, nick, detail))
+            if reason == "hidden book":
+                pinned_hidden.add(nick.lower())
+            kept = {
+                "nickname": nick, "pinned": True, "tag": PINNED_TAG, "tier": PINNED_TAG,
+                "rejectNote": "%s: %s" % (reason, detail), "picks": [], "followingPicks": [],
+            }
+            old = prev_caps.get(nick_key(nick)) or {}
+            for k in ("profileUrl", "ranks", "pnl", "weeklyPnl", "monthlyPnl", "graded", "recordLine", "ageDays"):
+                if old.get(k) is not None and not kept.get(k):
+                    kept[k] = old[k]
+            live_cappers.append(kept)
+            continue
+        _v, cap, _ = verdict
+        old = prev_caps.get(nick_key(nick)) or {}
+        if not cap.get("ranks") and old.get("ranks"):
+            cap["ranks"] = old.get("ranks")
+        if cap.get("weeklyPnl") is None and old.get("weeklyPnl") is not None:
+            cap["weeklyPnl"] = old.get("weeklyPnl")
+        if cap.get("monthlyPnl") is None and old.get("monthlyPnl") is not None:
+            cap["monthlyPnl"] = old.get("monthlyPnl")
+        cap["addedAt"] = old.get("addedAt") or cap.get("addedAt")
+        live_cappers.append(cap)
+        cov["activeRefreshed"] += 1
+        # Update pick counts on the active db row without dropping other actives.
+        for row in (active.get("cappers") or []):
+            if nick_key(row.get("nickname")) == nick_key(nick):
+                row["pickCount"] = len(cap.get("picks") or [])
+                row["followCount"] = len(cap.get("followingPicks") or [])
+                if cap.get("graded") is not None:
+                    row["graded"] = cap.get("graded")
+                break
+    save_dbs(active, queue, rejected, now)
+
+    games, dropped = group_games(live_cappers, now, log)
+    games, carried_n, carried_dropped = carry_forward_games(games, prev, now, http, mcache, ecache, log)
+    dropped = list(dropped) + list(carried_dropped)
+    cov["carriedPicks"] = carried_n
+    cov["carriedDropped"] = len(carried_dropped)
+    cov["finishedDropped"] = len(dropped)
+    cov["finishedNames"] = dropped
+    cov["shown"] = sum(1 for c in live_cappers if c.get("picks"))
+    cov["picks"] = sum(len(g["picks"]) for g in games)
+    cov["games"] = len(games)
+
+    following_open = []
+    for c in live_cappers:
+        if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
+            continue
+        for p in c.get("followingPicks") or []:
+            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
+    following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
+    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log)
+    following["picks"] = follow_picks
+    cov["carriedFollowPicks"] = carried_follow
+    cov["carriedFollowDropped"] = dropped_follow
+    cov["followingOpen"] = len(following.get("picks") or [])
+    cov["followingCappers"] = len(following.get("cappers") or [])
+    cov["trialRecorded"] = following.get("recorded") or 0
+    cov["trialGraded"] = following.get("graded") or 0
+    cov["calls"] = http.calls
+    cov["retries429"] = http.retries_429
+    cov["secs"] = round(time.time() - t0, 1)
+    cov["dbActive"] = len(active.get("cappers") or [])
+    cov["dbQueue"] = len(queue.get("cappers") or [])
+    cov["dbRejected"] = len(rejected.get("cappers") or [])
+    cov["dbPinned"] = sum(1 for r in (active.get("cappers") or []) if r.get("pinned") or is_pin_tag(r.get("tag")) or is_pin_tag(r.get("tier")))
+
+    refreshed = {nick_key(c.get("nickname")): c for c in live_cappers}
+    pub_cappers = []
+    seen = set()
+    for c in live_cappers:
+        k = nick_key(c.get("nickname"))
+        pub_cappers.append({k2: v for k2, v in c.items() if k2 not in ("picks", "followingPicks")} | {"pickCount": len(c.get("picks") or []), "followCount": len(c.get("followingPicks") or [])})
+        seen.add(k)
+    for c in (prev.get("cappers") or []):
+        k = nick_key(c.get("nickname"))
+        if k and k not in seen:
+            pub_cappers.append(c)
+            seen.add(k)
+
+    payload = {
+        "scannedAt": prev.get("scannedAt") or pt(now),
+        "ts": prev.get("ts") or now,
+        "followCheckedAt": pt(now),
+        "source": (prev.get("source") or {}) | {
+            "coverage": {**((prev.get("source") or {}).get("coverage") or {}), **cov},
+            "db": {
+                "active": cov["dbActive"],
+                "queue": cov["dbQueue"],
+                "rejected": cov["dbRejected"],
+                "pinned": cov["dbPinned"],
+            },
+        },
+        "cappers": pub_cappers,
+        "games": games,
+        "following": following,
+        "scanHistory": prev.get("scanHistory") or load_json(HISTORY_PATH, {"scans": []}).get("scans") or [],
+    }
+    log(
+        "follow-check refreshed {activeRefreshed}/{namesChecked} carried {carriedPicks} "
+        "picks {picks} games {games} follow {followingOpen} trial {trialRecorded} "
+        "finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov)
+    )
+    return payload
+
+
+def _maybe_decrypt_data_json(log=print):
+    """If data.json is AES-wrapped (after the passcode gate landed), unwrap for this process."""
+    path = os.path.join(ROOT, "data.json")
+    if not os.path.exists(path):
+        return
+    try:
+        obj = json.load(open(path))
+    except Exception:
+        return
+    if not (isinstance(obj, dict) and obj.get("enc") == 1):
+        return
+    try:
+        from gate_crypto import decrypt_obj
+        plain = decrypt_obj(obj)
+    except Exception as e:
+        log("data.json is encrypted but could not be unwrapped: %s" % e)
+        raise
+    json.dump(plain, open(path, "w"), indent=2)
+    open(path, "a").write(chr(10))
+    log("unwrapped encrypted data.json for this scan")
+
+
 def main():
-    data = build()
+    _maybe_decrypt_data_json()
+    follow = SCAN_MODE in ("follow", "follow-check", "follow_check")
+    trial_before = open(TRIAL_PATH).read() if os.path.exists(TRIAL_PATH) else ""
+    prev, _ = load_previous_payload()
+    data = build_follow_check() if follow else build()
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
+    open(out, "a").write(chr(10))
     print("wrote", out, "games", len(data["games"]), "cappers", len(data["cappers"]),
           "following", len((data.get("following") or {}).get("picks") or []),
           "db", data["source"]["db"])
+    if follow:
+        trial_after = open(TRIAL_PATH).read() if os.path.exists(TRIAL_PATH) else ""
+        changed = significant_state(data, trial_after) != significant_state(prev, trial_before)
+        print("FOLLOW_CHECK_CHANGED=%s" % ("1" if changed else "0"))
+        flag = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".follow_changed")
+        with open(flag, "w", encoding="utf-8") as f:
+            f.write(("1" if changed else "0") + chr(10))
 
 
 if __name__ == "__main__":

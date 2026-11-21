@@ -33,7 +33,7 @@ interface FollowPick { ticker: string; eventTicker?: string; game: string; backi
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
-interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[] }
+interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[] }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -83,9 +83,15 @@ function nextScheduledPt(ms = Date.now()): string {
   return h12 + ":20 " + ampm + " PT";
 }
 async function fetchLatestData(): Promise<Data> {
+  const loader = (window as any).__loadScannerData as undefined | (() => Promise<Data>);
+  if (loader) return await loader();
   const r = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
   if (!r.ok) throw new Error("HTTP " + r.status);
-  return await r.json();
+  const raw = await r.json();
+  const unlock = (window as any).__unlockData as undefined | ((raw: any) => Promise<Data>);
+  if (unlock) return await unlock(raw);
+  if (raw && raw.enc) throw new Error("Unlock this device to refresh.");
+  return raw as Data;
 }
 
 const money = (n: number): string => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
@@ -1255,6 +1261,7 @@ export default function App() {
             <div className="ks-side-card" data-scan-status="1">
               <div style={{ fontSize: 14, fontWeight: 850, marginBottom: 4 }}>Scan status</div>
               <StatusRow label="Last scan" status={DATA.scannedAt || "—"} tone="ok" />
+              {DATA.followCheckedAt ? <StatusRow label="Followed books" status={DATA.followCheckedAt} tone="public" /> : null}
               <StatusRow label="Next hourly scan" status={nextScheduledPt()} tone="public" />
               <StatusRow label="Auto-follow" status={followedN + "/" + TARGET_FOLLOW} tone={followedN ? "ok" : "muted"} />
               <div data-capper-db="1" style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#94A3B8" }}>
