@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 7:23 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -65,7 +65,8 @@
       "recordLine": "BWmarkets \u00b7 +$917.8k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -126,11 +127,11 @@
       "tape30d": 50.63,
       "ageDays": 136,
       "graded": {
-        "n": 7,
-        "w": 5,
-        "l": 2,
-        "roi": 4.1,
-        "profit": 50.63,
+        "n": 3,
+        "w": 2,
+        "l": 1,
+        "roi": 3.1,
+        "profit": 27.73,
         "sample": "small"
       },
       "recordLine": "iluminado \u00b7 5-2 \u00b7 +4% \u00b7 +$141.0k all \u00b7 My 40",
@@ -162,7 +163,8 @@
           "closeTs": 1796477400
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 1
     },
     {
       "nickname": "past.grass",
@@ -190,7 +192,8 @@
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "autofade",
@@ -345,7 +348,8 @@
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "regine",
@@ -408,7 +412,8 @@
       "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$153.7k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jspana99",
@@ -530,7 +535,8 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -726,7 +732,8 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$30.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -909,7 +916,8 @@
           "closeTs": 1800889200
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 3
     },
     {
       "nickname": "answermbs",
@@ -1120,12 +1128,12 @@
       "tape30d": null,
       "ageDays": 425,
       "graded": {
-        "n": 12,
-        "w": 7,
-        "l": 2,
-        "roi": 113.4,
-        "profit": 987.0,
-        "sample": "full"
+        "n": 2,
+        "w": 1,
+        "l": 0,
+        "roi": 12.3,
+        "profit": 40.0,
+        "sample": "small"
       },
       "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.21k all \u00b7 My 40",
       "addedAt": "2026-11-21",
@@ -1156,7 +1164,8 @@
           "closeTs": 1865719800
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 1
     },
     {
       "nickname": "black.catt",
@@ -2118,7 +2127,7 @@
       "recordLine": "coachlord66 \u00b7 8-1 \u00b7 +65% \u00b7 +$15 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 29
     },
     {
       "nickname": "coastal.raindrop4530",
