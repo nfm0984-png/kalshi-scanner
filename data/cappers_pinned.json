@@ -1,8 +1,8 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 10:58 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 11:08 AM PT",
   "target": 40,
-  "note": "Followed cappers for My 40. Auto-pin only when official all-time profit is at least $1,000, the public sports record is W > L, and there are at least 10 settled public sports trades. Up to 40. Discovery keeps running every hour. A followed capper who fails a gate is unpinned (stays in the active/Watching db). Negative official profit is added to doNotPin and is never re-seeded. doNotPin names never re-enter.",
+  "note": "Followed cappers for My 40, taken only from official Kalshi projected-PnL leaderboards (weekly, monthly, yearly, all-time). Auto-pin only when official all-time profit is at least $1,000, the public sports record is W > L, and there are at least 10 settled public sports trades. Up to 40. Tape-discovered names are never followed. A followed capper who fails a gate is unpinned. Leaderboard names stay in Watching; negative official profit is added to doNotPin and never re-enters.",
   "doNotPin": [
     {
       "nickname": "WorkerTrader",
@@ -55,12 +55,5 @@
       "at": "Sat Nov 21 \u00b7 7:23 AM PT"
     }
   ],
-  "cappers": [
-    {
-      "nickname": "Billy.Hoyle",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    }
-  ]
+  "cappers": []
 }

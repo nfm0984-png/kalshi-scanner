@@ -301,11 +301,12 @@ def save_pinned_file(payload, now=None):
     payload["tag"] = payload.get("tag") or PINNED_TAG
     payload["target"] = TARGET_FOLLOW
     payload["note"] = (
-        "Followed cappers for My 40. Auto-pin only when official all-time profit is at least "
-        "$1,000, the public sports record is W > L, and there are at least %d settled public "
-        "sports trades. Up to %d. Discovery keeps running every hour. A followed capper who "
-        "fails a gate is unpinned (stays in the active/Watching db). Negative official profit "
-        "is added to doNotPin and is never re-seeded. doNotPin names never re-enter."
+        "Followed cappers for My 40, taken only from official Kalshi projected-PnL "
+        "leaderboards (weekly, monthly, yearly, all-time). Auto-pin only when official "
+        "all-time profit is at least $1,000, the public sports record is W > L, and there "
+        "are at least %d settled public sports trades. Up to %d. Tape-discovered names are "
+        "never followed. A followed capper who fails a gate is unpinned. Leaderboard names "
+        "stay in Watching; negative official profit is added to doNotPin and never re-enters."
         % (MIN_FOLLOW_SAMPLE, TARGET_FOLLOW)
     )
     if now:
@@ -449,13 +450,15 @@ def apply_pins(active, queue, rejected, pinned, now, log=print):
 def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
     """Keep My 40 as pinned follows that pass every gate, up to TARGET_FOLLOW.
 
-    Every currently followed capper is re-checked each scan (leaderboard and
-    tape-discovered names, same rules). Must have official all-time profit of
-    at least $1,000, W > L, and at least MIN_FOLLOW_SAMPLE settled public
-    sports trades. Failures are unpinned and stay in the active/Watching pool.
-    Negative official all-time profit is also added to doNotPin and can never
-    re-enter. doNotPin names are never auto-followed. New auto-follows must
-    pass the same gates. Rank by record first, profit second.
+    My 40 is sourced only from official projected-PnL leaderboards (weekly,
+    monthly, yearly, all-time). Tape-discovered names are never auto-followed.
+    Every currently followed capper is re-checked each scan. Must be on a
+    profit leaderboard, have official all-time profit of at least $1,000,
+    W > L, and at least MIN_FOLLOW_SAMPLE settled public sports trades.
+    Failures are unpinned; leaderboard names stay in Watching. Negative
+    official all-time profit is also added to doNotPin and can never re-enter.
+    doNotPin names are never auto-followed. New auto-follows must pass the
+    same gates and come from the leaderboard. Rank by record first, profit second.
     """
     skip = do_not_pin_set(pinned)
     by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
@@ -553,12 +556,17 @@ def fetch_all_boards(http, log=print):
                     nick = nick_key(row.get("nickname") or "")
                     if not nick:
                         continue
-                    rec = people.setdefault(nick, {"nickname": nick, "ranks": {}, "pnl": {}, "sources": []})
+                    rec = people.setdefault(nick, {"nickname": nick, "ranks": {}, "pnl": {}, "profitRanks": {}, "sources": []})
                     rec["ranks"].setdefault(cat, {})
                     if rec["ranks"][cat].get(period) is None or (row.get("rank") or 9999) < rec["ranks"][cat][period]:
                         rec["ranks"][cat][period] = row.get("rank")
-                    if metric == "projected_pnl" and cat == "Sports":
-                        rec["pnl"][period] = row.get("value")
+                    if metric == "projected_pnl":
+                        pr = rec.setdefault("profitRanks", {})
+                        pr.setdefault(cat, {})
+                        if pr[cat].get(period) is None or (row.get("rank") or 9999) < pr[cat][period]:
+                            pr[cat][period] = row.get("rank")
+                        if cat == "Sports":
+                            rec["pnl"][period] = row.get("value")
                     rec["sources"].append("%s %s #%s" % (cat, period, row.get("rank")))
                     rec["is_anonymous"] = bool(row.get("is_anonymous"))
     log("boards: %d unique names across %d lists" % (len(people), len(coverage)))
@@ -775,15 +783,46 @@ def graded_wl(g):
     return w, l, n
 
 
+def on_profit_leaderboard(cap, people=None):
+    """True when this nickname is on an official projected-PnL leaderboard."""
+    if not cap and not people:
+        return False
+    nick = nick_key((cap or {}).get("nickname") if isinstance(cap, dict) else cap)
+    rec = (people or {}).get(nick) or {}
+    raw = {}
+    if isinstance(cap, dict):
+        if cap.get("onProfitBoard"):
+            return True
+        raw = cap.get("profitRanks") or {}
+        if any(cap.get(k) is not None for k in ("weeklyPnl", "monthlyPnl", "yearlyPnl")):
+            return True
+    raw = raw or rec.get("profitRanks") or {}
+    if raw:
+        # {category: {period: rank}} or a flat {period: rank}
+        for v in raw.values():
+            if isinstance(v, dict):
+                if any(rank for rank in v.values() if rank):
+                    return True
+            elif v:
+                return True
+    if rec.get("pnl"):
+        return True
+    return False
+
+
 def follow_fail_reason(cap):
     """Why this capper must not be (or stay) in My 40. None means every gate passed.
 
-    Gates, applied to tape-discovered and leaderboard names alike: official
-    all-time profit of at least $1,000, a winning public sports record (W > L),
-    and at least MIN_FOLLOW_SAMPLE settled public sports trades. Missing profit
-    or a tiny sample is not enough to follow. Negative official profit is also
+    Gates: must appear on an official Kalshi projected-PnL leaderboard
+    (weekly, monthly, yearly, or all-time; any category). Tape-discovered
+    names are never followed. Then official all-time profit of at least
+    $1,000, a winning public sports record (W > L), and at least
+    MIN_FOLLOW_SAMPLE settled public sports trades. Missing profit or a
+    tiny sample is not enough to follow. Negative official profit is also
     a permanent doNotPin reason, handled by the caller.
     """
+    if not on_profit_leaderboard(cap):
+        return "not on official profit leaderboard"
     w, l, n = graded_wl((cap or {}).get("graded"))
     pnl = official_pnl(cap)
     if is_negative_profit(pnl):
@@ -883,6 +922,8 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
         tier = PINNED_TAG  # show as My 40; board rank still lives in ranks{}
     age = lib.age_days((prof or {}).get("joined_at"), now)
     sports_ranks_flat = sports_ranks(people, nick)
+    profit_ranks = (rec.get("profitRanks") or {})
+    on_board = on_profit_leaderboard({"nickname": nick, "profitRanks": profit_ranks, "weeklyPnl": _board_pnl_dollars(rec, "weekly"), "monthlyPnl": _board_pnl_dollars(rec, "monthly"), "yearlyPnl": _board_pnl_dollars(rec, "yearly")}, people)
     volume_usd = lib.usd_units(metrics.get("dollars_traded"))
     return {
         "nickname": nick,
@@ -894,6 +935,8 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
         "tag": PINNED_TAG if pin else "",
         "heavy": bool(heavy),
         "ranks": sports_ranks_flat,
+        "profitRanks": profit_ranks,
+        "onProfitBoard": bool(on_board),
         "pnl": None if all_time_pnl is None else round(all_time_pnl, 2),
         "pnlSource": pnl_source,
         "weeklyPnl": _board_pnl_dollars(rec, "weekly"),
@@ -1727,7 +1770,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) from followed cappers only. A followed capper must have a winning public sports record (W > L), at least 10 settled public sports trades, and official all-time profit of at least $1,000. No dollar minimum on those trial picks; they are graded from official Kalshi results after settlement. New cappers are still discovered every hour at 40. A followed capper who fails any gate is unpinned and stays on Watching; negative official profit is added to doNotPin and can never re-enter. W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 is sourced only from official projected-PnL leaderboards (weekly, monthly, yearly, all-time) and copies near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded). A followed capper must be on that leaderboard, have a winning public sports record (W > L), at least 10 settled public sports trades, and official all-time profit of at least $1,000. Tape-discovered names are never followed. No dollar minimum on those trial picks; they are graded from official Kalshi results after settlement. New cappers are still discovered every hour at 40. A followed capper who fails any gate is unpinned and stays on Watching; negative official profit is added to doNotPin and can never re-enter. W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -1864,7 +1907,7 @@ def build_follow_check(now=None, log=print):
                 "rejectNote": "%s: %s" % (reason, detail), "picks": [], "followingPicks": [],
             }
             old = prev_caps.get(nick_key(nick)) or {}
-            for k in ("profileUrl", "ranks", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "recordLine", "ageDays"):
+            for k in ("profileUrl", "ranks", "profitRanks", "onProfitBoard", "pnl", "weeklyPnl", "monthlyPnl", "yearlyPnl", "tape7d", "tape30d", "volumeUsd", "graded", "recordLine", "ageDays"):
                 if old.get(k) is not None and not kept.get(k):
                     kept[k] = old[k]
             live_cappers.append(kept)
@@ -1873,12 +1916,17 @@ def build_follow_check(now=None, log=print):
         old = prev_caps.get(nick_key(nick)) or {}
         if not cap.get("ranks") and old.get("ranks"):
             cap["ranks"] = old.get("ranks")
+        if not cap.get("profitRanks") and old.get("profitRanks"):
+            cap["profitRanks"] = old.get("profitRanks")
+        if cap.get("onProfitBoard") is None and old.get("onProfitBoard") is not None:
+            cap["onProfitBoard"] = old.get("onProfitBoard")
         if cap.get("weeklyPnl") is None and old.get("weeklyPnl") is not None:
             cap["weeklyPnl"] = old.get("weeklyPnl")
         if cap.get("monthlyPnl") is None and old.get("monthlyPnl") is not None:
             cap["monthlyPnl"] = old.get("monthlyPnl")
         if cap.get("yearlyPnl") is None and old.get("yearlyPnl") is not None:
             cap["yearlyPnl"] = old.get("yearlyPnl")
+        cap["onProfitBoard"] = on_profit_leaderboard(cap)
         cap["addedAt"] = old.get("addedAt") or cap.get("addedAt")
         live_cappers.append(cap)
         cov["activeRefreshed"] += 1

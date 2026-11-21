@@ -27,7 +27,7 @@ interface KalshiView { backing?: string; marketTitle?: string; outcome?: string;
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
-interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
@@ -238,6 +238,11 @@ function CapperShell(props: { live?: boolean; followed?: boolean; children: Reac
 function isFollowedCapper(c: Capper): boolean {
   // Only the live pinned flag. Stale "My 40" tier/tag leftover after an unfollow must not count.
   return !!c.pinned;
+}
+function isLeaderboardCapper(c: Capper): boolean {
+  if (c.onProfitBoard) return true;
+  if (c.weeklyPnl != null || c.monthlyPnl != null || c.yearlyPnl != null) return true;
+  return false;
 }
 function tierColors(tier: string): { bg: string; fg: string } {
   if (tier === "My 40" || tier === "Top 10" || tier === "Following") return { bg: "#FEF3C7", fg: "#92400E" };
@@ -935,10 +940,10 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   let shown = caps.filter((c: Capper) => !q || (c.nickname || "").toLowerCase().includes(q));
   if (props.filter === "followed") shown = shown.filter(isFollowedCapper);
-  if (props.filter === "watching") shown = shown.filter((c: Capper) => !isFollowedCapper(c));
+  if (props.filter === "watching") shown = shown.filter((c: Capper) => !isFollowedCapper(c) && isLeaderboardCapper(c));
   if (props.filter === "wl") shown = shown.filter((c: Capper) => { const g = gradedWL(c); return !!(g && (g.w + g.l) > 0); });
   const followed = sortCappers(shown.filter(isFollowedCapper));
-  const watching = sortCappers(shown.filter((c: Capper) => !isFollowedCapper(c)));
+  const watching = sortCappers(shown.filter((c: Capper) => !isFollowedCapper(c) && isLeaderboardCapper(c)));
   const split = !props.filter || props.filter === "all";
   const section = (title: string, body: string, list: Capper[]) => (
     <div style={{ marginTop: 8 }}>
@@ -953,8 +958,8 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: 10+ settled public sports trades, W > L, and at least +$1,000 official all-time profit. Ranked by record, then profit.", followed)}
-        {section("Watching · " + watching.length, "Evaluated candidates that are not followed, including small samples. Ranked by record first and profit second.", watching)}
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official profit leaderboard only, plus 10+ settled public sports trades, W > L, and at least +$1,000 official all-time profit. Ranked by record, then profit.", followed)}
+        {section("Watching · " + watching.length, "Official profit-leaderboard names that are not followed. Tape-only books stay off this list. Ranked by record first and profit second.", watching)}
       </div>
     );
   }
@@ -1157,8 +1162,8 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
     { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Near-term sports picks from pinned follows only (10+ settled trades, W > L, +$1,000 all-time). Long-dated futures stay off this tab." },
-    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "All evaluated books, split Followed vs Watching · record first, profit second · W–L from the public sports tape." },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Official profit-leaderboard follows only (10+ settled trades, W > L, +$1,000 all-time). Long-dated futures stay off this tab." },
+    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Followed vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
