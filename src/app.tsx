@@ -1,4 +1,4 @@
-import React, { useMemo, useState, type ReactNode } from "react";
+import React, { useEffect, useMemo, useState, type ReactNode } from "react";
 
 const NAVY = "#0B1F33";
 const NAVY_DEEP = "#071422";
@@ -35,6 +35,26 @@ interface Data { scannedAt: string; ts: number; source?: { note?: string; period
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
+const GH_OWNER = "nfm0984-png";
+const GH_REPO = "kalshi-scanner";
+const GH_WORKFLOW = "scanner.yml";
+// Device-local only. Never baked into the public site, config.js, or the repo.
+const KEY_LS = "kalshi-scanner-gh-key";
+const SCAN_EXPECT_SECS = 150;
+function accessKey(): string {
+  try { const v = window.localStorage.getItem(KEY_LS); if (v) return v.trim(); } catch (e) { /* ignore */ }
+  return "";
+}
+function ghApi(path: string, init?: { method?: string; body?: string }): Promise<Response> {
+  const key = accessKey();
+  const h: Record<string, string> = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
+  if (key) h.Authorization = "Bearer " + key;
+  if (init && init.body) h["Content-Type"] = "application/json";
+  return fetch("https://api.github.com/repos/" + GH_OWNER + "/" + GH_REPO + path, { method: (init && init.method) || "GET", body: init && init.body, headers: h, cache: "no-store" });
+}
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const mmss = (sec: number): string => Math.floor(sec / 60) + ":" + String(Math.floor(sec % 60)).padStart(2, "0");
+interface Job { mode: "scan" | "refresh"; phase: string; msg: string; t0: number; url?: string }
 
 function formatNowPt(ms = Date.now()): string {
   return new Date(ms).toLocaleString("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" }) + " PT";
@@ -640,6 +660,11 @@ export default function App() {
   const [refreshing, setRefreshing] = useState(false);
   const [updatedAt, setUpdatedAt] = useState<string | null>(null);
   const [refreshErr, setRefreshErr] = useState<string | null>(null);
+  const [job, setJob] = useState<Job | null>(null);
+  const [clock, setClock] = useState(0);
+  const [sheet, setSheet] = useState<"" | "scan">("");
+  const [hasKey, setHasKey] = useState<boolean>(() => !!accessKey());
+  const [keyText, setKeyText] = useState("");
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
@@ -650,20 +675,123 @@ export default function App() {
     { value: "ranked" as const, label: "Ranked", count: games.length },
     { value: "cappers" as const, label: "Cappers", count: (DATA.cappers || []).length },
   ];
+  const applyData = (data: Data) => {
+    DATA = data;
+    (window as any).__DATA = data;
+    setNow(Math.round(Date.now() / 1000));
+    setTick((n) => n + 1);
+    setUpdatedAt(formatNowPt());
+  };
   const onRefresh = () => {
     if (refreshing) return;
     setRefreshing(true);
     setRefreshErr(null);
+    const t0 = Date.now();
+    setJob({ mode: "refresh", phase: "loading", msg: "Fetching the latest scan data…", t0 });
     fetchLatestData().then((data) => {
-      DATA = data;
-      (window as any).__DATA = data;
-      setNow(Math.round(Date.now() / 1000));
-      setTick((n) => n + 1);
-      setUpdatedAt(formatNowPt());
+      applyData(data);
+      setJob({ mode: "refresh", phase: "done", msg: "Updated " + formatNowPt(), t0 });
     }).catch(() => {
       setRefreshErr("Couldn't refresh. Try again.");
+      setJob({ mode: "refresh", phase: "error", msg: "Couldn't refresh. Try again.", t0 });
     }).finally(() => setRefreshing(false));
   };
+  const scanBusy = !!job && job.mode === "scan" && (job.phase === "starting" || job.phase === "queued" || job.phase === "in_progress" || job.phase === "loading");
+  const busy = refreshing || scanBusy;
+  useEffect(() => { if (!scanBusy) return; const id = setInterval(() => setClock((x) => x + 1), 1000); return () => clearInterval(id); }, [scanBusy]);
+  void clock;
+  const followScan = async (runId: number, t0: number) => {
+    const before = DATA.ts || 0;
+    for (let i = 0; i < 80; i++) {
+      await sleep(i === 0 ? 3000 : 8000);
+      let r: Response;
+      try { r = await ghApi("/actions/runs/" + runId); } catch (e) { continue; }
+      if (!r.ok) continue;
+      const run = await r.json();
+      if (run.status !== "completed") {
+        setJob({ mode: "scan", phase: run.status === "in_progress" ? "in_progress" : "queued", msg: run.status === "in_progress" ? "Scanning Kalshi books…" : "Waiting for a GitHub server to pick it up…", t0, url: run.html_url });
+        continue;
+      }
+      if (run.conclusion !== "success") { setJob({ mode: "scan", phase: "error", msg: "Scan failed on GitHub (" + run.conclusion + "). Your current data is unchanged.", t0, url: run.html_url }); return; }
+      setJob({ mode: "scan", phase: "loading", msg: "Done. Loading the new data…", t0, url: run.html_url });
+      for (let k = 0; k < 24; k++) {
+        try {
+          const data = await fetchLatestData();
+          if ((data.ts || 0) !== before) { applyData(data); setJob({ mode: "scan", phase: "done", msg: "Updated " + formatNowPt(), t0, url: run.html_url }); return; }
+        } catch (e) { /* retry */ }
+        await sleep(5000);
+      }
+      setJob({ mode: "scan", phase: "done", msg: "Scan finished. Tap Refresh if the new data isn’t here yet.", t0, url: run.html_url });
+      return;
+    }
+    setJob({ mode: "scan", phase: "error", msg: "Started, but the run is taking longer than expected. Open GitHub or tap Refresh later.", t0 });
+  };
+  const findRun = async (t0: number): Promise<number | null> => {
+    for (let i = 0; i < 12; i++) {
+      await sleep(4000);
+      try {
+        const r = await ghApi("/actions/runs?event=workflow_dispatch&per_page=5");
+        if (r.ok) {
+          const j = await r.json();
+          const run = (j.workflow_runs || []).find((x: { created_at?: string; id?: number }) => Date.parse(x.created_at || "") >= t0 - 90000);
+          if (run && run.id) return run.id;
+        }
+      } catch (e) { /* retry */ }
+    }
+    return null;
+  };
+  const startScan = async () => {
+    if (busy || !accessKey()) return;
+    const t0 = Date.now();
+    setSheet("");
+    setJob({ mode: "scan", phase: "starting", msg: "Starting a scan (20 new names)…", t0 });
+    try {
+      const r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
+      if (r.status === 401 || r.status === 403 || r.status === 404) { setJob({ mode: "scan", phase: "error", msg: "GitHub rejected the access key (" + r.status + "). It may be expired or missing Actions access. You can still start a scan on GitHub.", t0 }); return; }
+      if (!r.ok && r.status !== 204) { setJob({ mode: "scan", phase: "error", msg: "GitHub returned " + r.status + ". Try again in a minute, or start the scan on GitHub.", t0 }); return; }
+      let runId: number | null = null;
+      if (r.status === 200) { try { const j = await r.json(); runId = j.workflow_run_id || null; } catch (e) { runId = null; } }
+      if (!runId) runId = await findRun(t0);
+      if (!runId) { setJob({ mode: "scan", phase: "error", msg: "Started, but couldn’t find the run. Open GitHub or tap Refresh in a couple of minutes.", t0 }); return; }
+      await followScan(runId, t0);
+    } catch (e) {
+      setJob({ mode: "scan", phase: "error", msg: "Couldn't reach GitHub. Open the Actions page to start a scan, then tap Refresh.", t0 });
+    }
+  };
+  const onScanClick = () => {
+    if (busy) return;
+    if (hasKey) startScan();
+    else setSheet(sheet === "scan" ? "" : "scan");
+  };
+  const saveKey = () => {
+    const v = keyText.trim();
+    if (!v) return;
+    try { window.localStorage.setItem(KEY_LS, v); } catch (e) { /* ignore */ }
+    setKeyText("");
+    setHasKey(true);
+  };
+  useEffect(() => {
+    if (!hasKey) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        for (const st of ["in_progress", "queued"]) {
+          const r = await ghApi("/actions/runs?status=" + st + "&event=workflow_dispatch&per_page=1");
+          if (!r.ok || cancelled) return;
+          const run = ((await r.json()).workflow_runs || [])[0];
+          if (run) {
+            const t0 = Date.parse(run.run_started_at || run.created_at);
+            setJob({ mode: "scan", phase: st, msg: "A scan is already running…", t0, url: run.html_url });
+            followScan(run.id, t0);
+            return;
+          }
+        }
+      } catch (e) { /* offline or no key access */ }
+    })();
+    return () => { cancelled = true; };
+  }, [hasKey]);
+  const elapsed = job && scanBusy ? Math.max(0, (Date.now() - job.t0) / 1000) : 0;
+  const pct = job && scanBusy ? (job.phase === "loading" ? 100 : Math.min(95, Math.round((elapsed / SCAN_EXPECT_SECS) * 100))) : 0;
   const btnBase: React.CSSProperties = { flex: "1 1 140px", minHeight: 44, padding: "10px 14px", borderRadius: 12, fontWeight: 850, fontSize: 15, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none", boxSizing: "border-box" };
   return (
     <div style={{ minHeight: "100vh", background: PAGE, color: NAVY, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
@@ -672,20 +800,39 @@ export default function App() {
         <h1 style={{ fontSize: 28, fontWeight: 900, letterSpacing: "-0.03em", margin: "4px 0 0" }}>Kalshi Scanner</h1>
         <div style={{ fontSize: 14, fontWeight: 650, color: "#BFDBFE", marginTop: 4 }}>Kalshi whale picks, best first. Scanned {DATA.scannedAt || "—" }.</div>
         <div data-header-actions="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-          <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={refreshing} aria-busy={refreshing} aria-label="Refresh latest scan data" style={{ ...btnBase, border: "0", background: BLUE_BRIGHT, color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
+          <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={busy} aria-busy={refreshing} aria-label="Refresh latest scan data" style={{ ...btnBase, border: "0", background: BLUE_BRIGHT, color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
             {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 16, height: 16, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : null}
             {refreshing ? "Refreshing…" : "Refresh"}
           </button>
-          <a data-scan-btn="1" href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" title="Opens GitHub to start a scan (~2 min), then tap Refresh" aria-label="Open GitHub to start a scan, then tap Refresh" style={{ ...btnBase, border: "1.5px solid #93C5FD", background: "transparent", color: "#FFFFFF" }}>
-            Scan
-          </a>
+          <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...btnBase, border: "1.5px solid #93C5FD", background: "transparent", color: "#FFFFFF", opacity: scanBusy ? 0.85 : 1 }}>
+            {scanBusy ? "Scanning…" : "Scan"}
+          </button>
         </div>
         <div style={{ fontSize: 12, fontWeight: 650, color: "#BFDBFE", marginTop: 8, lineHeight: "18px" }}>
           {updatedAt ? <div data-updated-at="1">{"Updated " + updatedAt}</div> : null}
           {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
           <div>{"Last scan: " + (DATA.scannedAt || "—") + " · Next scheduled: " + nextScheduledPt()}</div>
-          <div style={{ opacity: 0.9 }}>{"Opens GitHub to start a scan (~2 min), then tap Refresh. Leave new_names at 20 unless you want a bigger pass."}</div>
+          {!job && !sheet ? <div style={{ opacity: 0.9 }}>{"Refresh loads the latest data on this page. Scan starts a ~2 min GitHub run" + (hasKey ? ", then this page updates when it finishes." : " — tap Scan to open options.")}</div> : null}
         </div>
+        {job ? (
+          <div data-job-status={job.phase} style={{ marginTop: 10, borderRadius: 14, padding: 12, background: job.phase === "error" ? "rgba(185,28,28,0.45)" : "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{scanBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
+            {scanBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
+            {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
+            {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
+            {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
+          </div>
+        ) : null}
+        {sheet === "scan" ? (
+          <div data-scan-sheet="1" style={{ marginTop: 10, borderRadius: 14, padding: 12, background: "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
+            <div style={{ fontWeight: 800, fontSize: 14 }}>Start a scan</div>
+            <div style={{ marginTop: 4, color: "rgba(255,255,255,0.9)" }}>{"Runs on GitHub (~2 min) with 20 new names, then tap Refresh. Hourly scans at :20 still run on their own."}</div>
+            <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...btnBase, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Open GitHub to run the workflow</a>
+            <div style={{ marginTop: 12, color: "rgba(255,255,255,0.9)" }}>{"Optional: save a fine-grained GitHub token on this device only (Actions access on this repo) to start scans from the button, like the whale scanner. The token is never stored in the public site."}</div>
+            <input value={keyText} onChange={(ev) => setKeyText(ev.target.value)} placeholder="github_pat_…" autoComplete="off" style={{ marginTop: 8, width: "100%", boxSizing: "border-box", minHeight: 44, borderRadius: 12, border: "none", padding: "0 12px", fontSize: 16 }} />
+            <button type="button" onClick={saveKey} disabled={!keyText.trim()} style={{ ...btnBase, marginTop: 8, width: "100%", border: "0", background: keyText.trim() ? "#FFFFFF" : "rgba(255,255,255,0.5)", color: BLUE_INK }}>Save key on this device</button>
+          </div>
+        ) : null}
       </header>
       <style>{"@keyframes ks-spin{to{transform:rotate(360deg)}}"}</style>
       <div style={{ maxWidth: 430, margin: "0 auto", padding: "12px 12px 40px" }}>
