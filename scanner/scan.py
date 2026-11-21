@@ -1485,7 +1485,23 @@ def build(now=None, log=print):
 
 
 
-def significant_state(data, trial_text=""):
+
+def significant_trial():
+    """Ledger identity + grades only. Ignore updatedAt, which is rewritten every run."""
+    ledger = load_json(TRIAL_PATH, {"picks": []})
+    return tuple(sorted(
+        (
+            r.get("id") or "",
+            r.get("status") or "",
+            r.get("result") or "",
+            r.get("settledAt") or "",
+            r.get("recordedTs") or 0,
+        )
+        for r in (ledger.get("picks") or [])
+    ))
+
+
+def significant_state(data):
     """Compare picks, lastTs, follows, and the trial ledger — ignore live prices and clock fields."""
     rows = []
     for g in data.get("games") or []:
@@ -1514,7 +1530,7 @@ def significant_state(data, trial_text=""):
     ))
     followed = tuple(sorted((c.get("nickname") or "") for c in ((data.get("following") or {}).get("cappers") or [])))
     rec = ((data.get("following") or {}).get("recorded") or 0, (data.get("following") or {}).get("graded") or 0)
-    return (tuple(sorted(rows)), fol, followed, rec, trial_text)
+    return (tuple(sorted(rows)), fol, followed, rec)
 
 
 def build_follow_check(now=None, log=print):
@@ -1700,7 +1716,7 @@ def _maybe_decrypt_data_json(log=print):
 def main():
     _maybe_decrypt_data_json()
     follow = SCAN_MODE in ("follow", "follow-check", "follow_check")
-    trial_before = open(TRIAL_PATH).read() if os.path.exists(TRIAL_PATH) else ""
+    trial_before = significant_trial()
     prev, _ = load_previous_payload()
     data = build_follow_check() if follow else build()
     out = os.path.join(ROOT, "data.json")
@@ -1710,8 +1726,8 @@ def main():
           "following", len((data.get("following") or {}).get("picks") or []),
           "db", data["source"]["db"])
     if follow:
-        trial_after = open(TRIAL_PATH).read() if os.path.exists(TRIAL_PATH) else ""
-        changed = significant_state(data, trial_after) != significant_state(prev, trial_before)
+        trial_after = significant_trial()
+        changed = significant_state(data) != significant_state(prev) or trial_before != trial_after
         print("FOLLOW_CHECK_CHANGED=%s" % ("1" if changed else "0"))
         flag = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".follow_changed")
         with open(flag, "w", encoding="utf-8") as f:
