@@ -141,7 +141,21 @@ def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
 TARGET_FOLLOW = 40  # keep discovering every hour even at 40; swap if a pin goes losing
-NEW_PER_SCAN = 20  # queue more candidates per hour; hidden reviews are cheap
+NEW_PER_SCAN_DEFAULT = 20  # hourly cron stays at 20
+
+
+def _env_int(name, default, lo=1, hi=200):
+    raw = os.environ.get(name)
+    if raw is None or str(raw).strip() == "":
+        return default
+    try:
+        return max(lo, min(hi, int(float(str(raw).strip()))))
+    except Exception:
+        return default
+
+
+NEW_PER_SCAN = _env_int("NEW_PER_SCAN", NEW_PER_SCAN_DEFAULT)
+REVIEW_NEW = os.environ.get("REVIEW_NEW", "").strip().lower() in ("1", "true", "yes")
 
 # Already reviewed in the first live scan (visible sports traders stay active
 # even with no open pick today). Market-makers go to rejected and are never rechecked.
@@ -946,6 +960,54 @@ def group_games(cappers, now, log=print):
     return games, dropped
 
 
+def review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log=print):
+    """Move queued names to active or rejected. Returns how many were reviewed this call."""
+    pending = list(queue.get("cappers") or [])
+    leftover = []
+    reviewed = 0
+    for item in pending:
+        nick = nick_key(item.get("nickname"))
+        if not nick:
+            continue
+        if nick in rejected_set(rejected) or any(nick_key(r.get("nickname")) == nick for r in active.get("cappers") or []):
+            cov["queueReviewed"] += 1
+            reviewed += 1
+            continue
+        try:
+            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
+        except Exception as e:
+            log("queue review failed %s: %s — leaving in queue" % (nick, e))
+            leftover.append(item)
+            continue
+        cov["queueReviewed"] += 1
+        reviewed += 1
+        if verdict[0] == "rejected":
+            _v, reason, detail = verdict
+            if is_pinned(nick):
+                log("pinned kept (from queue) despite %s (%s): %s" % (reason, nick, detail))
+                kept = {"nickname": nick, "pinned": True, "tag": PINNED_TAG, "tier": PINNED_TAG, "addedAt": today_pt(now), "picks": [], "pickCount": 0, "recordLine": nick + " · " + PINNED_TAG}
+                upsert_active(active, kept)
+                live_cappers.append(kept)
+                continue
+            reject(rejected, nick, reason, detail, now)
+            cov["queueRejected"] += 1
+            if reason == "hidden book":
+                cov["hiddenRejected"] += 1
+            elif reason == "market-maker":
+                cov["mmDropped"] += 1
+            elif reason == "no sports activity":
+                cov["noSportsRejected"] += 1
+            log("queue → rejected %s (%s: %s)" % (nick, reason, detail))
+            continue
+        _v, cap, _ = verdict
+        upsert_active(active, cap)
+        live_cappers.append(cap)
+        cov["queueToActive"] += 1
+        log("queue → active %s picks=%d" % (nick, len(cap.get("picks") or [])))
+    queue["cappers"] = leftover
+    return reviewed
+
+
 def build(now=None, log=print):
     now = int(now or time.time())
     t0 = time.time()
@@ -1038,56 +1100,29 @@ def build(now=None, log=print):
         save_dbs(active, queue, rejected, now)
 
     # 2) Review the queue: move each name to active or rejected.
-    pending = list(queue.get("cappers") or [])
-    leftover = []
-    for item in pending:
-        nick = nick_key(item.get("nickname"))
-        if not nick:
-            continue
-        if nick in rejected_set(rejected) or any(nick_key(r.get("nickname")) == nick for r in active.get("cappers") or []):
-            cov["queueReviewed"] += 1
-            continue
-        try:
-            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
-        except Exception as e:
-            log("queue review failed %s: %s — leaving in queue" % (nick, e))
-            leftover.append(item)
-            continue
-        cov["queueReviewed"] += 1
-        if verdict[0] == "rejected":
-            _v, reason, detail = verdict
-            if is_pinned(nick):
-                log("pinned kept (from queue) despite %s (%s): %s" % (reason, nick, detail))
-                kept = {"nickname": nick, "pinned": True, "tag": PINNED_TAG, "tier": PINNED_TAG, "addedAt": today_pt(now), "picks": [], "pickCount": 0, "recordLine": nick + " · " + PINNED_TAG}
-                upsert_active(active, kept)
-                live_cappers.append(kept)
-                continue
-            reject(rejected, nick, reason, detail, now)
-            cov["queueRejected"] += 1
-            if reason == "hidden book":
-                cov["hiddenRejected"] += 1
-            elif reason == "market-maker":
-                cov["mmDropped"] += 1
-            elif reason == "no sports activity":
-                cov["noSportsRejected"] += 1
-            log("queue → rejected %s (%s: %s)" % (nick, reason, detail))
-            continue
-        _v, cap, _ = verdict
-        upsert_active(active, cap)
-        live_cappers.append(cap)
-        cov["queueToActive"] += 1
-        log("queue → active %s picks=%d" % (nick, len(cap.get("picks") or [])))
-    queue["cappers"] = leftover
+    review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log)
     save_dbs(active, queue, rejected, now)
     log("phase 2: reviewed %d queue (%d active, %d rejected)" % (cov["queueReviewed"], cov["queueToActive"], cov["queueRejected"]))
 
-    # 3) Add 10 new leaderboard names not already in active/rejected/queue.
-    # If we already seeded the empty queue at the start of this run, those 10 were reviewed
-    # above; still add 10 more so the next scan has a queue, per the standing rule.
+    # 3) Add NEW_PER_SCAN new leaderboard names not already in active/rejected/queue.
+    # On a manual big pass (REVIEW_NEW=1), review those names in this same run, then
+    # leave the default 20 on the queue for the next hourly cron.
     known = known_nicks(active, queue, rejected)
     added = enqueue_new(queue, people, known, NEW_PER_SCAN, now, log)
     cov["queuedNew"] = len(added)
     save_dbs(active, queue, rejected, now)
+    if REVIEW_NEW and added:
+        log("phase 3: reviewing %d newly queued names in this run" % len(added))
+        review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log)
+        save_dbs(active, queue, rejected, now)
+        log("phase 3: reviewed %d total (%d active, %d rejected)" % (cov["queueReviewed"], cov["queueToActive"], cov["queueRejected"]))
+        known = known_nicks(active, queue, rejected)
+        leftover = enqueue_new(queue, people, known, NEW_PER_SCAN_DEFAULT, now, log)
+        cov["queuedNextHour"] = len(leftover)
+        save_dbs(active, queue, rejected, now)
+    cov["namesChecked"] = (cov.get("activeRefreshed") or 0) + (cov.get("queueReviewed") or 0)
+    cov["newPerScan"] = NEW_PER_SCAN
+    cov["reviewNew"] = bool(REVIEW_NEW)
 
     # Dedup live cappers (active refresh + newly activated)
     byn = {}

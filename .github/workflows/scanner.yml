@@ -5,6 +5,12 @@ on:
     # Times are PT-intended (UTC-8). During PDT they run one hour later on the clock.
     - cron: "20 * * * *"   # hourly refresh at :20
   workflow_dispatch:
+    inputs:
+      new_names:
+        description: "New leaderboard names to add this run. Hourly cron always uses 20."
+        required: false
+        default: "20"
+        type: string
   push:
     branches: [main]
 permissions:
@@ -34,7 +40,14 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
         run: |
           set -euo pipefail
-          echo "Running Kalshi public scan"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            export NEW_PER_SCAN="${{ github.event.inputs.new_names }}"
+            export REVIEW_NEW=1
+          else
+            export NEW_PER_SCAN=20
+            export REVIEW_NEW=0
+          fi
+          echo "Running Kalshi public scan NEW_PER_SCAN=${NEW_PER_SCAN} REVIEW_NEW=${REVIEW_NEW}"
           python3 -u scanner/scan.py
       - name: Build app
         run: |
