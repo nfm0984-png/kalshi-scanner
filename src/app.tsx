@@ -33,7 +33,35 @@ interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: 
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
 interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following }
 
-const DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
+let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
+const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
+
+function formatNowPt(ms = Date.now()): string {
+  return new Date(ms).toLocaleString("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" }) + " PT";
+}
+function nextScheduledPt(ms = Date.now()): string {
+  const parts: Record<string, string> = {};
+  new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date(ms)).forEach((p) => { if (p.type !== "literal") parts[p.type] = p.value; });
+  let year = +parts.year, month = +parts.month, day = +parts.day, hour = +parts.hour;
+  if (+parts.minute >= 20) {
+    hour += 1;
+    if (hour >= 24) {
+      hour = 0;
+      const next = new Date(Date.UTC(year, month - 1, day) + 86400000);
+      year = next.getUTCFullYear();
+      month = next.getUTCMonth() + 1;
+      day = next.getUTCDate();
+    }
+  }
+  const ampm = hour >= 12 ? "PM" : "AM";
+  const h12 = hour % 12 === 0 ? 12 : hour % 12;
+  return h12 + ":20 " + ampm + " PT";
+}
+async function fetchLatestData(): Promise<Data> {
+  const r = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return await r.json();
+}
 
 const money = (n: number): string => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
 const kMoney = (n: number): string => {
@@ -607,8 +635,12 @@ function CappersTab(props: { now: number }) {
 
 export default function App() {
   const [tab, setTab] = useState<"coming" | "following" | "ranked" | "cappers">("coming");
-  const now = Math.round(Date.now() / 1000);
-  const games = useMemo(() => openGames(now), [now]);
+  const [tick, setTick] = useState(0);
+  const [now, setNow] = useState(() => Math.round(Date.now() / 1000));
+  const [refreshing, setRefreshing] = useState(false);
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null);
+  const [refreshErr, setRefreshErr] = useState<string | null>(null);
+  const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
   const followN = ((DATA.following && DATA.following.picks) || []).length;
@@ -618,13 +650,44 @@ export default function App() {
     { value: "ranked" as const, label: "Ranked", count: games.length },
     { value: "cappers" as const, label: "Cappers", count: (DATA.cappers || []).length },
   ];
+  const onRefresh = () => {
+    if (refreshing) return;
+    setRefreshing(true);
+    setRefreshErr(null);
+    fetchLatestData().then((data) => {
+      DATA = data;
+      (window as any).__DATA = data;
+      setNow(Math.round(Date.now() / 1000));
+      setTick((n) => n + 1);
+      setUpdatedAt(formatNowPt());
+    }).catch(() => {
+      setRefreshErr("Couldn't refresh. Try again.");
+    }).finally(() => setRefreshing(false));
+  };
+  const btnBase: React.CSSProperties = { flex: "1 1 140px", minHeight: 44, padding: "10px 14px", borderRadius: 12, fontWeight: 850, fontSize: 15, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none", boxSizing: "border-box" };
   return (
     <div style={{ minHeight: "100vh", background: PAGE, color: NAVY, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <header style={{ background: NAVY_DEEP, color: "#FFFFFF", padding: "16px 16px 18px" }}>
         <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#93C5FD" }}>Kalshi · Whale signals</div>
         <h1 style={{ fontSize: 28, fontWeight: 900, letterSpacing: "-0.03em", margin: "4px 0 0" }}>Kalshi Scanner</h1>
         <div style={{ fontSize: 14, fontWeight: 650, color: "#BFDBFE", marginTop: 4 }}>Kalshi whale picks, best first. Scanned {DATA.scannedAt || "—" }.</div>
+        <div data-header-actions="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+          <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={refreshing} aria-busy={refreshing} aria-label="Refresh latest scan data" style={{ ...btnBase, border: "0", background: BLUE_BRIGHT, color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
+            {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 16, height: 16, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : null}
+            {refreshing ? "Refreshing…" : "Refresh"}
+          </button>
+          <a data-scan-btn="1" href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" title="Opens GitHub to start a scan (~2 min), then tap Refresh" aria-label="Open GitHub to start a scan, then tap Refresh" style={{ ...btnBase, border: "1.5px solid #93C5FD", background: "transparent", color: "#FFFFFF" }}>
+            Scan
+          </a>
+        </div>
+        <div style={{ fontSize: 12, fontWeight: 650, color: "#BFDBFE", marginTop: 8, lineHeight: "18px" }}>
+          {updatedAt ? <div data-updated-at="1">{"Updated " + updatedAt}</div> : null}
+          {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
+          <div>{"Last scan: " + (DATA.scannedAt || "—") + " · Next scheduled: " + nextScheduledPt()}</div>
+          <div style={{ opacity: 0.9 }}>{"Opens GitHub to start a scan (~2 min), then tap Refresh. Leave new_names at 20 unless you want a bigger pass."}</div>
+        </div>
       </header>
+      <style>{"@keyframes ks-spin{to{transform:rotate(360deg)}}"}</style>
       <div style={{ maxWidth: 430, margin: "0 auto", padding: "12px 12px 40px" }}>
         <div data-tab-bar="1" style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "4px 0 14px" }}>
           {tabs.map((t) => {
