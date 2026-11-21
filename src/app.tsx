@@ -1007,7 +1007,7 @@ export default function App() {
     setJob({ mode: "scan", phase: "starting", msg: "Starting a scan (20 new names)…", t0 });
     try {
       const r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
-      if (r.status === 401 || r.status === 403 || r.status === 404) { setJob({ mode: "scan", phase: "error", msg: "GitHub rejected the access key (" + r.status + "). It may be expired or missing Actions access. You can still start a scan on GitHub.", t0 }); return; }
+      if (r.status === 401 || r.status === 403 || r.status === 404) { setJob({ mode: "scan", phase: "error", msg: "GitHub rejected the access key (" + r.status + "). This token needs Actions write on the kalshi-scanner repo. You can still start a scan on GitHub.", t0 }); return; }
       if (!r.ok && r.status !== 204) { setJob({ mode: "scan", phase: "error", msg: "GitHub returned " + r.status + ". Try again in a minute, or start the scan on GitHub.", t0 }); return; }
       let runId: number | null = null;
       if (r.status === 200) { try { const j = await r.json(); runId = j.workflow_run_id || null; } catch (e) { runId = null; } }
@@ -1082,6 +1082,7 @@ export default function App() {
             {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
             {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
             {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
+            {job.phase === "error" && !job.url ? <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>Open GitHub to run the workflow ↗</a> : null}
             {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
           </div>
         ) : null}

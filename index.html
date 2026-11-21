@@ -19,7 +19,7 @@ function loadScript(src) {
   });
 }
 var _t = Date.now();
-var _cfg = loadScript('config.js?v=109ebf5fdf&t=' + _t).catch(function () {});
+var _cfg = loadScript('config.js?v=0b6e6d68f8&t=' + _t).catch(function () {});
 fetch('data.json?t=' + _t, {cache: 'no-store'}).then(function (r) {
   if (!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
@@ -27,7 +27,7 @@ fetch('data.json?t=' + _t, {cache: 'no-store'}).then(function (r) {
   window.__DATA = data;
   return _cfg;
 }).then(function () {
-  return loadScript('app.js?v=109ebf5fdf&t=' + Date.now());
+  return loadScript('app.js?v=0b6e6d68f8&t=' + Date.now());
 }).catch(function (e) {
   var boot = document.getElementById('boot');
   if (boot) boot.textContent = 'Could not load the app (' + (e && e.message ? e.message : 'error') + '). Pull to reload.';
