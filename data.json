@@ -1,6 +1,6 @@
 {
-  "scannedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
-  "ts": 1795231577,
+  "scannedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
+  "ts": 1795233745,
   "source": {
     "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 20) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 20; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
@@ -47,7 +47,7 @@
         "Mentions:yearly:projected_pnl": 100,
         "Mentions:yearly:volume": 100
       },
-      "leaderboardNames": 1484,
+      "leaderboardNames": 1481,
       "activeRefreshed": 11,
       "queueReviewed": 10,
       "queueToActive": 0,
@@ -56,28 +56,28 @@
       "mmDropped": 0,
       "hiddenRejected": 10,
       "noSportsRejected": 0,
-      "shown": 1,
-      "picks": 2,
-      "games": 2,
+      "shown": 2,
+      "picks": 3,
+      "games": 3,
       "finishedDropped": 0,
       "finishedNames": [],
-      "calls": 328,
+      "calls": 316,
       "retries429": 0,
-      "secs": 175.2,
+      "secs": 47.4,
       "minBet": 100,
       "dbActive": 11,
       "dbQueue": 10,
-      "dbRejected": 22,
+      "dbRejected": 32,
       "dbPinned": 4,
-      "followingOpen": 2,
+      "followingOpen": 3,
       "followingCappers": 4,
-      "trialRecorded": 2,
+      "trialRecorded": 3,
       "trialGraded": 0
     },
     "db": {
       "active": 11,
       "queue": 10,
-      "rejected": 22,
+      "rejected": 32,
       "pinned": 4
     }
   },
@@ -94,9 +94,9 @@
       "ranks": {
         "monthly": 49
       },
-      "pnl": 140357.43,
+      "pnl": 141021.92,
       "weeklyPnl": null,
-      "monthlyPnl": 89860.72,
+      "monthlyPnl": 90525.21,
       "ageDays": 135,
       "graded": {
         "n": 6,
@@ -106,31 +106,31 @@
         "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$140.4k all \u00b7 Top 10",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23220,
+      "followers": 23246,
       "tier": "Top 10",
       "pinned": true,
       "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "all_time": 14,
-        "weekly": 14,
-        "yearly": 13
+        "all_time": 13,
+        "weekly": 8,
+        "yearly": 12
       },
-      "pnl": 907037.98,
-      "weeklyPnl": 95330.61,
+      "pnl": 926135.44,
+      "weeklyPnl": 117361.41,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+      "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
       "pickCount": 2,
       "followCount": 2
@@ -146,7 +146,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 77,
+        "monthly": 80,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -163,14 +163,14 @@
       "nickname": "past.grass",
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
-      "followers": 111,
+      "followers": 112,
       "tier": "Top 10",
       "pinned": true,
       "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "monthly": 43,
-        "weekly": 17
+        "monthly": 42,
+        "weekly": 18
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -193,7 +193,7 @@
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 39,
+        "monthly": 37,
         "yearly": 16
       },
       "pnl": 1390906.5,
@@ -225,7 +225,7 @@
       "ranks": {
         "all_time": 71
       },
-      "pnl": 516954.95,
+      "pnl": 516954.89,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -252,12 +252,12 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 62,
-        "weekly": 72
+        "monthly": 63,
+        "weekly": 75
       },
-      "pnl": 262227.07,
-      "weeklyPnl": 20943.393,
-      "monthlyPnl": 74378.17,
+      "pnl": 262227.61,
+      "weeklyPnl": 20943.93,
+      "monthlyPnl": 74378.71,
       "ageDays": 336,
       "graded": {
         "n": 4,
@@ -284,12 +284,12 @@
       "ranks": {
         "all_time": 98,
         "monthly": 29,
-        "weekly": 54,
+        "weekly": 50,
         "yearly": 90
       },
-      "pnl": 383613.35,
-      "weeklyPnl": 25583.432,
-      "monthlyPnl": 119700.055,
+      "pnl": 385435.52,
+      "weeklyPnl": 27405.6,
+      "monthlyPnl": 121522.23,
       "ageDays": 44,
       "graded": {
         "n": 1,
@@ -299,7 +299,7 @@
         "profit": 0,
         "sample": "small"
       },
-      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$383.6k all \u00b7 Top 50",
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.4k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -308,7 +308,7 @@
       "nickname": "norrisfan",
       "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
       "joinedAt": "2025-12-08",
-      "followers": 3165,
+      "followers": 3164,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -360,14 +360,15 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 78
+        "monthly": 58,
+        "weekly": 44
       },
-      "pnl": 64160.39,
-      "weeklyPnl": null,
-      "monthlyPnl": 58040.78,
+      "pnl": 88306.06,
+      "weeklyPnl": 30580.486,
+      "monthlyPnl": 82186.45,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$64.2k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$88.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -375,13 +376,63 @@
   ],
   "games": [
     {
+      "id": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
+      "game": "Trotter vs Mayo",
+      "league": "Tennis",
+      "startTs": 1795230600,
+      "start": "Fri Nov 20 \u00b7 7:10 PM PT",
+      "live": true,
+      "state": "live",
+      "picks": [
+        {
+          "key": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY|Yes",
+          "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
+          "eventTicker": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
+          "mid": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
+          "bt": "Moneyline",
+          "big": "Aidan Mayo",
+          "sub": "Trotter vs Mayo",
+          "view": {
+            "backing": "Aidan Mayo",
+            "marketTitle": "Trotter vs Mayo",
+            "outcome": "Aidan Mayo",
+            "yesNo": "Yes",
+            "price": 0.8,
+            "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY"
+          },
+          "backers": [
+            {
+              "name": "iluminado",
+              "cost": 291.85,
+              "avg": 0.6999,
+              "line": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
+              "rec": {
+                "w": 5,
+                "l": 1,
+                "n": 6
+              },
+              "lastTs": 1795232579,
+              "tier": "Top 10"
+            }
+          ],
+          "total": 291.85,
+          "tags": [
+            "Top 10"
+          ],
+          "slip": 10.0,
+          "startTs": 1795230600,
+          "state": "live"
+        }
+      ]
+    },
+    {
       "id": "KXNCAAFTOTAL-26NOV20UTEPAFA",
       "game": "UTEP vs Air Force: Total Points",
       "league": "NCAAF",
       "startTs": 1795233600,
       "start": "Fri Nov 20 \u00b7 8:00 PM PT",
-      "live": false,
-      "state": "upcoming",
+      "live": true,
+      "state": "live",
       "picks": [
         {
           "key": "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -396,7 +447,7 @@
             "marketTitle": "UTEP vs Air Force: Total Points",
             "outcome": "Over 49.5 points",
             "yesNo": "Yes",
-            "price": 0.91,
+            "price": 1.0,
             "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50"
           },
           "backers": [
@@ -404,7 +455,7 @@
               "name": "BWmarkets",
               "cost": 62733.79,
               "avg": 0.4829,
-              "line": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
               "rec": null,
               "lastTs": 1795224231,
               "tier": "Top 10"
@@ -414,9 +465,9 @@
           "tags": [
             "Top 10"
           ],
-          "slip": 42.7,
+          "slip": 51.7,
           "startTs": 1795233600,
-          "state": "upcoming"
+          "state": "live"
         }
       ]
     },
@@ -442,7 +493,7 @@
             "marketTitle": "NC St. vs Seton Hall: Spread",
             "outcome": "NC St. wins by over 4.5 points",
             "yesNo": "Yes",
-            "price": 0.48,
+            "price": 0.19,
             "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5"
           },
           "backers": [
@@ -450,7 +501,7 @@
               "name": "BWmarkets",
               "cost": 24165.0,
               "avg": 0.5062,
-              "line": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
               "rec": null,
               "lastTs": 1795228124,
               "tier": "Top 10"
@@ -460,7 +511,7 @@
           "tags": [
             "Top 10"
           ],
-          "slip": -2.6,
+          "slip": -31.6,
           "startTs": 1795239000,
           "state": "upcoming"
         }
@@ -498,7 +549,7 @@
         "p": 0,
         "n": 0,
         "hitPct": null,
-        "open": 0,
+        "open": 1,
         "hidden": false
       },
       {
@@ -514,6 +565,34 @@
     ],
     "picks": [
       {
+        "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
+        "eventTicker": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
+        "marketTitle": "Trotter vs Mayo",
+        "contractTitle": "Aidan Mayo wins",
+        "backing": "Aidan Mayo",
+        "yesNo": "Yes",
+        "label": "Aidan Mayo",
+        "entry": 0.6999,
+        "price": 0.8,
+        "yesAsk": 0.8,
+        "noAsk": 0.22,
+        "cost": 291.85,
+        "contracts": 417.0,
+        "lastTs": 1795232579,
+        "startTs": 1795230600,
+        "state": "live",
+        "league": "Tennis",
+        "game": "Trotter vs Mayo",
+        "bt": "Moneyline",
+        "slip": 10.0,
+        "status": "active",
+        "result": "",
+        "closeTs": 1796429400,
+        "nickname": "iluminado",
+        "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
+        "tier": "Top 10"
+      },
+      {
         "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
         "eventTicker": "KXNCAAFTOTAL-26NOV20UTEPAFA",
         "marketTitle": "UTEP vs Air Force: Total Points",
@@ -522,23 +601,23 @@
         "yesNo": "Yes",
         "label": "Over 49.5 points",
         "entry": 0.4829,
-        "price": 0.91,
-        "yesAsk": 0.91,
-        "noAsk": 0.24,
+        "price": 1.0,
+        "yesAsk": 1.0,
+        "noAsk": 0.01,
         "cost": 62733.79,
         "contracts": 129913.0,
         "lastTs": 1795224231,
         "startTs": 1795233600,
-        "state": "upcoming",
+        "state": "live",
         "league": "NCAAF",
         "game": "UTEP vs Air Force: Total Points",
         "bt": "Totals",
-        "slip": 42.7,
+        "slip": 51.7,
         "status": "active",
         "result": "",
         "closeTs": 1795395600,
         "nickname": "BWmarkets",
-        "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
         "tier": "Top 10"
       },
       {
@@ -550,9 +629,9 @@
         "yesNo": "Yes",
         "label": "NC St. wins by over 4.5 points",
         "entry": 0.5062,
-        "price": 0.48,
-        "yesAsk": 0.48,
-        "noAsk": 0.56,
+        "price": 0.19,
+        "yesAsk": 0.19,
+        "noAsk": 0.83,
         "cost": 24165.0,
         "contracts": 47735.0,
         "lastTs": 1795228124,
@@ -561,16 +640,16 @@
         "league": "NCAAB",
         "game": "NC St. vs Seton Hall: Spread",
         "bt": "Spread",
-        "slip": -2.6,
+        "slip": -31.6,
         "status": "active",
         "result": "",
         "closeTs": 1795401000,
         "nickname": "BWmarkets",
-        "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
         "tier": "Top 10"
       }
     ],
-    "recorded": 2,
+    "recorded": 3,
     "graded": 0
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -12,7 +12,7 @@
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 39,
+        "monthly": 37,
         "yearly": 16
       },
       "pnl": 1390906.5,
@@ -36,22 +36,22 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23220,
+      "followers": 23246,
       "tier": "Top 10",
       "pinned": true,
       "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "all_time": 14,
-        "weekly": 14,
-        "yearly": 13
+        "all_time": 13,
+        "weekly": 8,
+        "yearly": 12
       },
-      "pnl": 907037.98,
-      "weeklyPnl": 95330.61,
+      "pnl": 926135.44,
+      "weeklyPnl": 117361.41,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$907.0k all \u00b7 Top 10",
+      "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
       "followingPicks": [
         {
@@ -63,18 +63,18 @@
           "yesNo": "Yes",
           "label": "Over 49.5 points",
           "entry": 0.4829,
-          "price": 0.91,
-          "yesAsk": 0.91,
-          "noAsk": 0.24,
+          "price": 1.0,
+          "yesAsk": 1.0,
+          "noAsk": 0.01,
           "cost": 62733.79,
           "contracts": 129913.0,
           "lastTs": 1795224231,
           "startTs": 1795233600,
-          "state": "upcoming",
+          "state": "live",
           "league": "NCAAF",
           "game": "UTEP vs Air Force: Total Points",
           "bt": "Totals",
-          "slip": 42.7,
+          "slip": 51.7,
           "status": "active",
           "result": "",
           "closeTs": 1795395600
@@ -88,9 +88,9 @@
           "yesNo": "Yes",
           "label": "NC St. wins by over 4.5 points",
           "entry": 0.5062,
-          "price": 0.48,
-          "yesAsk": 0.48,
-          "noAsk": 0.56,
+          "price": 0.19,
+          "yesAsk": 0.19,
+          "noAsk": 0.83,
           "cost": 24165.0,
           "contracts": 47735.0,
           "lastTs": 1795228124,
@@ -99,7 +99,7 @@
           "league": "NCAAB",
           "game": "NC St. vs Seton Hall: Spread",
           "bt": "Spread",
-          "slip": -2.6,
+          "slip": -31.6,
           "status": "active",
           "result": "",
           "closeTs": 1795401000
@@ -119,12 +119,12 @@
       "ranks": {
         "all_time": 98,
         "monthly": 29,
-        "weekly": 54,
+        "weekly": 50,
         "yearly": 90
       },
-      "pnl": 383613.35,
-      "weeklyPnl": 25583.432,
-      "monthlyPnl": 119700.055,
+      "pnl": 385435.52,
+      "weeklyPnl": 27405.6,
+      "monthlyPnl": 121522.23,
       "ageDays": 44,
       "graded": {
         "n": 1,
@@ -134,7 +134,7 @@
         "profit": 0,
         "sample": "small"
       },
-      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$383.6k all \u00b7 Top 50",
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.4k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -151,9 +151,9 @@
       "ranks": {
         "monthly": 49
       },
-      "pnl": 140357.43,
+      "pnl": 141021.92,
       "weeklyPnl": null,
-      "monthlyPnl": 89860.72,
+      "monthlyPnl": 90525.21,
       "ageDays": 135,
       "graded": {
         "n": 6,
@@ -163,23 +163,49 @@
         "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$140.4k all \u00b7 Top 10",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
       "addedAt": "2026-11-20",
-      "followingPicks": [],
-      "pickCount": 0
+      "followingPicks": [
+        {
+          "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
+          "eventTicker": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
+          "marketTitle": "Trotter vs Mayo",
+          "contractTitle": "Aidan Mayo wins",
+          "backing": "Aidan Mayo",
+          "yesNo": "Yes",
+          "label": "Aidan Mayo",
+          "entry": 0.6999,
+          "price": 0.8,
+          "yesAsk": 0.8,
+          "noAsk": 0.22,
+          "cost": 291.85,
+          "contracts": 417.0,
+          "lastTs": 1795232579,
+          "startTs": 1795230600,
+          "state": "live",
+          "league": "Tennis",
+          "game": "Trotter vs Mayo",
+          "bt": "Moneyline",
+          "slip": 10.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1796429400
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "past.grass",
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
-      "followers": 111,
+      "followers": 112,
       "tier": "Top 10",
       "pinned": true,
       "tag": "Top 10",
       "heavy": false,
       "ranks": {
-        "monthly": 43,
-        "weekly": 17
+        "monthly": 42,
+        "weekly": 18
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -203,7 +229,7 @@
       "ranks": {
         "all_time": 71
       },
-      "pnl": 516954.95,
+      "pnl": 516954.89,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -230,12 +256,12 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 62,
-        "weekly": 72
+        "monthly": 63,
+        "weekly": 75
       },
-      "pnl": 262227.07,
-      "weeklyPnl": 20943.393,
-      "monthlyPnl": 74378.17,
+      "pnl": 262227.61,
+      "weeklyPnl": 20943.93,
+      "monthlyPnl": 74378.71,
       "ageDays": 336,
       "graded": {
         "n": 4,
@@ -254,7 +280,7 @@
       "nickname": "norrisfan",
       "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
       "joinedAt": "2025-12-08",
-      "followers": 3165,
+      "followers": 3164,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -307,7 +333,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 77,
+        "monthly": 80,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -330,14 +356,15 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 78
+        "monthly": 58,
+        "weekly": 44
       },
-      "pnl": 64160.39,
-      "weeklyPnl": null,
-      "monthlyPnl": 58040.78,
+      "pnl": 88306.06,
+      "weeklyPnl": 30580.486,
+      "monthlyPnl": 82186.45,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$64.2k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$88.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0

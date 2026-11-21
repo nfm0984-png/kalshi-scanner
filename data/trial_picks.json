@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -41,6 +41,27 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
       "recordedTs": 1795231577,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
+      "game": "Trotter vs Mayo",
+      "backing": "Aidan Mayo",
+      "yesNo": "Yes",
+      "entry": 0.6999,
+      "price": 0.8,
+      "cost": 291.85,
+      "contracts": 417.0,
+      "startTs": 1795230600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
+      "recordedTs": 1795233745,
       "status": "open",
       "result": null,
       "settledAt": null
