@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 5:37 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 6:10 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -503,6 +503,27 @@
       "bt": "Other",
       "recordedAt": "Sat Nov 21 \u00b7 5:37 AM PT",
       "recordedTs": 1795268220,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXITFWMATCH-26NOV21STOMIN-STO|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXITFWMATCH-26NOV21STOMIN-STO",
+      "eventTicker": "KXITFWMATCH-26NOV21STOMIN",
+      "game": "Stojsavljevic vs Minnen",
+      "backing": "Mika Stojsavljevic",
+      "yesNo": "Yes",
+      "entry": 0.41,
+      "price": 0.56,
+      "cost": 51.25,
+      "contracts": 125.0,
+      "startTs": 1795280400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 6:10 AM PT",
+      "recordedTs": 1795270235,
       "status": "open",
       "result": null,
       "settledAt": null
