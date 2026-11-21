@@ -46,8 +46,8 @@ jobs:
           set -euo pipefail
           git config user.name "kalshi-scanner-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python3 scanner/validate_json.py pre-commit data.json data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json
-          git add data.json app.js index.html data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json
+          python3 scanner/validate_json.py pre-commit data.json data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json data/trial_picks.json
+          git add data.json app.js index.html data/cappers_active.json data/cappers_queue.json data/cappers_rejected.json data/cappers_pinned.json data/trial_picks.json
           if git diff --cached --quiet; then
             echo "no changes to commit"
           else

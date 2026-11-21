@@ -127,6 +127,7 @@ ACTIVE_PATH = os.path.join(DATA_DIR, "cappers_active.json")
 QUEUE_PATH = os.path.join(DATA_DIR, "cappers_queue.json")
 REJECTED_PATH = os.path.join(DATA_DIR, "cappers_rejected.json")
 PINNED_PATH = os.path.join(DATA_DIR, "cappers_pinned.json")
+TRIAL_PATH = os.path.join(DATA_DIR, "trial_picks.json")
 # Drop-in from another worker: if this appears, names are merged into the pinned list.
 PINNED_DROPINS = [
     "/workspace/kalshi-top10-cappers.json",
@@ -403,7 +404,7 @@ def has_sports_activity(holdings, trades):
     return False
 
 
-def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache):
+def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=MIN_BET, window_secs=WINDOW_SECS, max_entry=MAX_ENTRY):
     picks = []
     for h in holdings or []:
         ev_tk = h.get("event_ticker") or ""
@@ -428,7 +429,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache):
             if state == "final":
                 continue
             start_ts = info.get("start_ts") or 0
-            if start_ts and start_ts > now + WINDOW_SECS:
+            if window_secs and start_ts and start_ts > now + window_secs:
                 continue
             inv = inv_map.get(tk) if inv_map else None
             entry, cost = lib.pick_entry_and_cost(inv, signed)
@@ -436,13 +437,15 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache):
             ask = info.get("yes_ask") if side == "yes" else info.get("no_ask")
             if entry is None and ask is not None:
                 entry = ask
-                cost = abs(signed) * entry
-            if entry is not None and entry >= MAX_ENTRY:
+                cost = abs(signed) * (entry or 0)
+            if max_entry is not None and entry is not None and entry >= max_entry:
                 continue
-            if cost is None or cost < MIN_BET:
+            if min_bet and (cost is None or cost < min_bet):
                 continue
-            if ask is None:
+            if min_bet and ask is None:
                 continue
+            if cost is None:
+                cost = 0.0
             last_ts = (inv or {}).get("last_ts")
             if not last_ts:
                 for tr in trades or []:
@@ -551,17 +554,147 @@ def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=2
         return "rejected", "hidden book", "trades hidden"
     hold_n = sum(len(h.get("market_holdings") or []) for h in holdings or [])
     is_mm, mm_why = lib.mm_flags(trades, nick)
-    if is_mm and hold_n >= 25:
+    pin = is_pinned(nick)
+    if is_mm and hold_n >= 25 and not pin:
         return "rejected", "market-maker", "%s; open=%d trades=%d" % (", ".join(mm_why), hold_n, len(trades))
-    if not has_sports_activity(holdings, trades):
+    if not has_sports_activity(holdings, trades) and not pin:
         return "rejected", "no sports activity", "open=%d trades=%d" % (hold_n, len(trades))
     heavy = bool(is_mm)
     if heavy:
         log("heavy trader kept %s: %s trades=%d open=%d" % (nick, ", ".join(mm_why), len(trades), hold_n))
     inv_map = lib.build_inventory(trades, nick)
     picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
+    follow = []
+    if pin:
+        follow = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=0, window_secs=0, max_entry=None)
     row = build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=heavy)
+    row["followingPicks"] = follow
     return "active", row, ""
+
+
+def trial_grade(info, yes_no):
+    """Grade a copied pick from Kalshi's official market result. None = still open."""
+    result = (info.get("result") or "").strip().lower()
+    status = (info.get("status") or "").strip().lower()
+    if result in ("void", "scalar_void", "cancelled", "canceled", "refund") or status in ("cancelled", "canceled"):
+        return "push"
+    if result in ("yes", "no"):
+        side = (yes_no or "").strip().lower()
+        if side == result:
+            return "win"
+        if side in ("yes", "no"):
+            return "loss"
+    return None
+
+
+def trial_id(nick, ticker, yes_no):
+    return "%s|%s|%s" % (nick_key(nick), ticker or "", yes_no or "")
+
+
+def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, log=print):
+    """Record each followed pick once; grade open ledger rows when Kalshi has a result."""
+    ledger = load_json(TRIAL_PATH, {"startedAt": "", "startedTs": 0, "updatedAt": "", "picks": []})
+    by_id = {row.get("id"): row for row in (ledger.get("picks") or []) if row.get("id")}
+    added = 0
+    for p in open_picks:
+        pid = trial_id(p.get("nickname"), p.get("ticker"), p.get("yesNo"))
+        if not p.get("ticker") or pid in by_id:
+            continue
+        by_id[pid] = {
+            "id": pid,
+            "nickname": p.get("nickname"),
+            "ticker": p.get("ticker"),
+            "eventTicker": p.get("eventTicker") or "",
+            "game": p.get("game") or "",
+            "backing": p.get("backing") or p.get("label") or "",
+            "yesNo": p.get("yesNo"),
+            "entry": p.get("entry"),
+            "price": p.get("price"),
+            "cost": p.get("cost"),
+            "contracts": p.get("contracts"),
+            "startTs": p.get("startTs") or 0,
+            "league": p.get("league") or "",
+            "bt": p.get("bt") or "",
+            "recordedAt": pt(now),
+            "recordedTs": now,
+            "status": "open",
+            "result": None,
+            "settledAt": None,
+        }
+        added += 1
+        if not ledger.get("startedAt"):
+            ledger["startedAt"] = pt(now)
+            ledger["startedTs"] = now
+    graded = 0
+    for row in by_id.values():
+        if (row.get("status") or "open") != "open":
+            continue
+        tk = row.get("ticker")
+        if not tk:
+            continue
+        try:
+            info = lib.hydrate_market(http, tk, mcache, ecache)
+        except Exception as e:
+            log("trial grade skip %s: %s" % (tk, e))
+            continue
+        verdict = trial_grade(info, row.get("yesNo"))
+        if not verdict:
+            continue
+        row["status"] = verdict
+        row["result"] = info.get("result") or info.get("status")
+        row["settledAt"] = pt(now)
+        graded += 1
+    ledger["picks"] = sorted(by_id.values(), key=lambda r: (r.get("recordedTs") or 0, r.get("id") or ""))
+    ledger["updatedAt"] = pt(now)
+    save_json(TRIAL_PATH, ledger)
+    log("trial ledger: +%d new, graded %d, total %d" % (added, graded, len(ledger["picks"])))
+
+    stats = {}
+    def slot(nick):
+        k = nick_key(nick)
+        if not k:
+            return None
+        rec = stats.get(k.lower())
+        if rec is None:
+            rec = {"nickname": k, "w": 0, "l": 0, "p": 0, "n": 0, "hitPct": None, "open": 0, "hidden": nick_key(nick).lower() in hidden}
+            stats[k.lower()] = rec
+        return rec
+    for nick in pinned_names(pinned):
+        slot(nick)
+    for p in open_picks:
+        rec = slot(p.get("nickname"))
+        if rec:
+            rec["open"] += 1
+    # Ledger open rows for a capper with no current book pick still count as open until graded
+    open_ids = {trial_id(p.get("nickname"), p.get("ticker"), p.get("yesNo")) for p in open_picks}
+    for row in ledger["picks"]:
+        rec = slot(row.get("nickname"))
+        if not rec:
+            continue
+        st = row.get("status") or "open"
+        if st == "win":
+            rec["w"] += 1
+        elif st == "loss":
+            rec["l"] += 1
+        elif st == "push":
+            rec["p"] += 1
+        elif st == "open" and row.get("id") not in open_ids:
+            rec["open"] += 1
+    out = []
+    for rec in stats.values():
+        rec["n"] = rec["w"] + rec["l"]
+        rec["hitPct"] = None if not rec["n"] else round(100.0 * rec["w"] / rec["n"], 1)
+        out.append(rec)
+    out.sort(key=lambda r: (-(r["n"] or 0), -((r["hitPct"] or -1)), r["nickname"].lower()))
+    open_sorted = sorted(open_picks, key=lambda p: (0 if (p.get("startTs") and p["startTs"] <= now) else 1, p.get("startTs") or 10**12, p.get("nickname") or "", p.get("ticker") or ""))
+    return {
+        "startedAt": ledger.get("startedAt") or "",
+        "startedTs": ledger.get("startedTs") or 0,
+        "cappers": out,
+        "picks": open_sorted,
+        "recorded": len(ledger["picks"]),
+        "graded": sum(1 for r in ledger["picks"] if (r.get("status") or "open") in ("win", "loss", "push")),
+    }
 
 
 def upsert_active(active, row):
@@ -571,12 +704,14 @@ def upsert_active(active, row):
         if nick_key(existing.get("nickname")) == nick_key(nick):
             row["addedAt"] = existing.get("addedAt") or row.get("addedAt")
             # Don't persist bulky picks inside the db; data.json carries them.
-            stored = {k: v for k, v in row.items() if k != "picks"}
+            stored = {k: v for k, v in row.items() if k not in ("picks", "followingPicks")}
             stored["pickCount"] = len(row.get("picks") or [])
+            stored["followCount"] = len(row.get("followingPicks") or [])
             rows[i] = stored
             return
-    stored = {k: v for k, v in row.items() if k != "picks"}
+    stored = {k: v for k, v in row.items() if k not in ("picks", "followingPicks")}
     stored["pickCount"] = len(row.get("picks") or [])
+    stored["followCount"] = len(row.get("followingPicks") or [])
     rows.append(stored)
 
 
@@ -719,6 +854,7 @@ def build(now=None, log=print):
         "minBet": MIN_BET,
     }
     live_cappers = []
+    pinned_hidden = set()
 
     # 1) Refresh the active db first.
     still_active = []
@@ -741,8 +877,10 @@ def build(now=None, log=print):
             _v, reason, detail = verdict
             if is_pinned(nick):
                 log("pinned kept in active despite %s (%s): %s" % (reason, nick, detail))
-                kept = dict(row, pinned=True, tag=PINNED_TAG, tier=PINNED_TAG, rejectNote="%s: %s" % (reason, detail), picks=[])
-                still_active.append({k: v for k, v in kept.items() if k != "picks"} | {"pickCount": 0})
+                if reason == "hidden book":
+                    pinned_hidden.add(nick.lower())
+                kept = dict(row, pinned=True, tag=PINNED_TAG, tier=PINNED_TAG, rejectNote="%s: %s" % (reason, detail), picks=[], followingPicks=[])
+                still_active.append({k: v for k, v in kept.items() if k not in ("picks", "followingPicks")} | {"pickCount": 0, "followCount": 0})
                 live_cappers.append(kept)
                 continue
             reject(rejected, nick, reason, detail, now)
@@ -860,16 +998,28 @@ def build(now=None, log=print):
         sample = 0 if n >= 10 else 1
         ungraded = 0 if n else 1
         return (pin_n, ungraded, tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
+    following_open = []
+    for c in cappers:
+        if not (c.get("pinned") or is_pinned(c.get("nickname"))):
+            continue
+        for p in c.get("followingPicks") or []:
+            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
+    following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
+    cov["followingOpen"] = len(following.get("picks") or [])
+    cov["followingCappers"] = len(following.get("cappers") or [])
+    cov["trialRecorded"] = following.get("recorded") or 0
+    cov["trialGraded"] = following.get("graded") or 0
+
     pub_cappers = []
     for c in cappers:
-        pub_cappers.append({k: v for k, v in c.items() if k != "picks"} | {"pickCount": len(c.get("picks") or [])})
+        pub_cappers.append({k: v for k, v in c.items() if k not in ("picks", "followingPicks")} | {"pickCount": len(c.get("picks") or []), "followCount": len(c.get("followingPicks") or [])})
     pub_cappers.sort(key=cap_key)
 
     payload = {
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. W-L is reconstructed from the public sports tape and is never invented. Minimum open pick is $%d." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from pinned cappers with no dollar minimum and grades them from official Kalshi results after settlement. W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -881,10 +1031,12 @@ def build(now=None, log=print):
         },
         "cappers": pub_cappers,
         "games": games,
+        "following": following,
     }
     log(
         "scan active {dbActive} queue {dbQueue} rejected {dbRejected} shown {shown} "
-        "picks {picks} games {games} finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov)
+        "picks {picks} games {games} follow {followingOpen} trial {trialRecorded} "
+        "finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov)
     )
     return payload
 
@@ -894,6 +1046,7 @@ def main():
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
     print("wrote", out, "games", len(data["games"]), "cappers", len(data["cappers"]),
+          "following", len((data.get("following") or {}).get("picks") or []),
           "db", data["source"]["db"])
 
 

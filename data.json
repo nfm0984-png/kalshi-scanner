@@ -2,7 +2,7 @@
   "scannedAt": "Fri Nov 20 \u00b7 6:58 PM PT",
   "ts": 1795229927,
   "source": {
-    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Hidden books, market makers, and traders with no sports activity are rejected and never rechecked. Visible sports traders stay in the active db even with no open pick today. W-L is reconstructed from the public sports tape and is never invented. Minimum open pick is $100. Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Pinned Top 10 cappers stay in the active db and are never rejected.",
+    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Hidden books, market makers, and traders with no sports activity are rejected and never rechecked. Visible sports traders stay in the active db even with no open pick today. W-L is reconstructed from the public sports tape and is never invented. Minimum open pick is $100. Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Pinned Top 10 cappers stay in the active db and are never rejected. My 10 copies every open traditional-sports pick from pinned cappers with no dollar minimum and grades them from official Kalshi results after settlement.",
     "periodUsed": "monthly (no 30-day board exists)",
     "coverage": {
       "boards": {
@@ -1266,5 +1266,13 @@
         }
       ]
     }
-  ]
+  ],
+  "following": {
+    "startedAt": "",
+    "startedTs": 0,
+    "cappers": [],
+    "picks": [],
+    "recorded": 0,
+    "graded": 0
+  }
 }
