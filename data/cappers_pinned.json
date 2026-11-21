@@ -1,6 +1,6 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 7:57 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 8:21 AM PT",
   "target": 40,
   "note": "Followed cappers for My 40. Only winning graded records (W > L) are auto-pinned, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to W <= L is unpinned (stays in the active db) and can be swapped for a new winner. doNotPin names are never re-seeded from the drop-in or auto-follow.",
   "doNotPin": [
@@ -69,13 +69,6 @@
       "source": "noel-winning-record",
       "addedAt": "2026-11-20",
       "record": "2-1"
-    },
-    {
-      "nickname": "iluminado",
-      "tag": "My 40",
-      "source": "noel-winning-record",
-      "addedAt": "2026-11-20",
-      "record": "45-21"
     },
     {
       "nickname": "bama0037",
