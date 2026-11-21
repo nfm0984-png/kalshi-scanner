@@ -244,6 +244,12 @@ function isLeaderboardCapper(c: Capper): boolean {
   if (c.weeklyPnl != null || c.monthlyPnl != null || c.yearlyPnl != null) return true;
   return false;
 }
+function isLeaderboardEarner(c?: Capper | null): boolean {
+  // Official all-time profit of $100k+ with no public graded W-L.
+  if (!c || !isLeaderboardCapper(c) || c.pnl == null || c.pnl < 100000) return false;
+  const g = c.graded;
+  return !(g && g.n > 0);
+}
 function tierColors(tier: string): { bg: string; fg: string } {
   if (tier === "My 40" || tier === "Top 10" || tier === "Following") return { bg: "#FEF3C7", fg: "#92400E" };
   if (tier === "Core") return { bg: BLUE_SOFT, fg: BLUE_INK };
@@ -293,6 +299,7 @@ function sportsHeadline(c?: Capper | null): { text: string; color: string } {
     const t = recTone(g.w, g.l);
     return { text: g.w + "–" + g.l + " · " + pctText(g.w / (g.w + g.l)) + (g.roi != null ? " · " + (g.roi >= 0 ? "+" : "") + Math.round(g.roi) + "% ROI" : ""), color: t.fg };
   }
+  if (isLeaderboardEarner(c)) return { text: "Leaderboard earner", color: GREEN };
   if (c && c.pnl != null) return { text: (c.pnl >= 0 ? "+" : "") + kMoney(c.pnl) + " all-time · no settled sports W-L yet", color: c.pnl >= 0 ? GREEN : RED };
   return { text: "No graded sports record yet", color: "#64748B" };
 }
@@ -860,7 +867,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
                   <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
                 )}
                 <div style={{ fontSize: 13, fontWeight: 800, color: recTone(c.w || 0, c.l || 0).fg, marginTop: 2, fontVariantNumeric: "tabular-nums" }}>
-                  {c.n ? ((c.w + "–" + c.l) + " copy trial" + (trialPct != null ? " · " + trialPct + "% hit" : "")) : "Copy trial · no grades yet"}
+                  {c.n ? ((c.w + "–" + c.l) + " copy trial" + (trialPct != null ? " · " + trialPct + "% hit" : "")) : (isLeaderboardEarner(cap) ? "Leaderboard earner" : "Copy trial · no grades yet")}
                   {c.hidden ? " · book hidden" : ""}
                 </div>
                 <div style={{ fontSize: 12, fontWeight: 700, color: head.color, marginTop: 2 }}>{settled ? ("Sports tape " + head.text) : head.text}</div>
@@ -924,7 +931,7 @@ function CapperCard(props: { c: Capper; now: number; rank: number }) {
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 8 }}>
         {c.tier ? <TierChip tier={c.tier} /> : null}
-        {g && g.sample === "small" ? <Chip bg="#FEF3C7" color={AMBER}>Small sample</Chip> : (settled ? <Chip bg={GREEN} color="#FFFFFF">{g!.n}+ graded</Chip> : <Chip bg="#F1F5F9" color="#475569">No sports W-L yet</Chip>)}
+        {g && g.sample === "small" ? <Chip bg="#FEF3C7" color={AMBER}>Small sample</Chip> : (settled ? <Chip bg={GREEN} color="#FFFFFF">{g!.n}+ graded</Chip> : <Chip bg={isLeaderboardEarner(c) ? "#DCFCE7" : "#F1F5F9"} color={isLeaderboardEarner(c) ? GREEN : "#475569"}>{isLeaderboardEarner(c) ? "Leaderboard earner" : "No sports W-L yet"}</Chip>)}
         {c.pnl != null && c.pnl < 0 ? <Chip bg="#FEE2E2" color={RED}>Negative profit</Chip> : null}
         <RankChips ranks={c.ranks} />
         {c.ageDays != null ? <Chip bg="#F8FAFC" color="#334155">{c.ageDays + "d on Kalshi"}</Chip> : null}
@@ -958,7 +965,7 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official profit-leaderboard names with a graded winning record and at least +$10,000 official all-time profit. Ranked by record, then profit.", followed)}
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: graded winners with at least +$10,000 official all-time profit, or leaderboard earners with no public record and at least +$100,000. Ranked by record, then profit.", followed)}
         {section("Watching · " + watching.length, "Official profit-leaderboard names that are not followed. Tape-only books stay off this list. Ranked by record first and profit second.", watching)}
       </div>
     );
@@ -1162,7 +1169,7 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
     { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Graded winning follows with at least +$10,000 all-time profit. Near-term sports picks only; long-dated futures stay off this tab." },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Graded winners at +$10,000, or no-record leaderboard earners at +$100,000. Near-term sports picks only; long-dated futures stay off this tab." },
     { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Followed vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];

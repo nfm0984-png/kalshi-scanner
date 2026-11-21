@@ -1,8 +1,8 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 12:18 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
   "target": 40,
-  "note": "Followed cappers for My 40, taken from official Kalshi projected-PnL leaderboards. Must have a graded winning public record (W > L) and official all-time profit of at least $10,000. Names with no settled W-L, or weak all-time profit, go to Watching. 80Mill and other doNotPin names never re-enter, including via the never-shrink guard. Up to 40. A scan will not shrink the follow list unless each dropped name actually failed a gate or is on doNotPin.",
+  "note": "Followed cappers for My 40, taken from official Kalshi projected-PnL leaderboards. A name is followed if (graded W > L and official all-time profit of at least $10,000) or (no public graded record and official all-time profit of at least $100,000). A losing reconstructed record is out. doNotPin names, including 80Mill, never re-enter, including via the never-shrink guard. Up to 40. A scan will not shrink the follow list unless each dropped name actually failed a gate or is on doNotPin.",
   "doNotPin": [
     {
       "nickname": "WorkerTrader",
@@ -102,6 +102,42 @@
       "tag": "My 40",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "BWmarkets",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "bullishkirby",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "CJJ307",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "ColeBartiromoDOLLARSCHOLAR",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "bama0037",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "past.grass",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
     }
   ],
   "lastGoodFollows": [
@@ -111,6 +147,12 @@
     "Ryqeux",
     "emilianotijerina",
     "door.whale",
-    "drib"
+    "drib",
+    "BWmarkets",
+    "bullishkirby",
+    "CJJ307",
+    "ColeBartiromoDOLLARSCHOLAR",
+    "bama0037",
+    "past.grass"
   ]
 }

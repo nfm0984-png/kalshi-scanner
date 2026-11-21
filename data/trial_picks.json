@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 12:18 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -545,9 +545,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 6:35 AM PT",
       "recordedTs": 1795271757,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 12:36 PM PT"
     },
     {
       "id": "brick.one|KXNFLNFCCHAMP-27-GB|Yes",
@@ -1280,9 +1280,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 8:57 AM PT",
       "recordedTs": 1795280232,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 12:36 PM PT"
     },
     {
       "id": "iluminado|KXITFMATCH-26NOV21JANDAV-DAV|Yes",
@@ -1322,9 +1322,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
       "recordedTs": 1795283577,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 12:36 PM PT"
     },
     {
       "id": "nettinyahoo|KXNCAAF1HSPREAD-26NOV21BYUKU-BYU3|Yes",
@@ -1364,6 +1364,48 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 11:56 AM PT",
       "recordedTs": 1795290980,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "emilianotijerina|KXATPMATCH-26NOV21ZVEMED-ZVE|Yes",
+      "nickname": "emilianotijerina",
+      "ticker": "KXATPMATCH-26NOV21ZVEMED-ZVE",
+      "eventTicker": "KXATPMATCH-26NOV21ZVEMED",
+      "game": "Zverev vs Medvedev",
+      "backing": "Alexander Zverev",
+      "yesNo": "Yes",
+      "entry": 0.6,
+      "price": 0.76,
+      "cost": 9727.2,
+      "contracts": 16212.0,
+      "startTs": 1795300200,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
+      "recordedTs": 1795293416,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXATPCHALLENGERMATCH-26NOV21MOLSEY-SEY|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV21MOLSEY-SEY",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV21MOLSEY",
+      "game": "Moller vs Seyboth Wild",
+      "backing": "Thiago Seyboth Wild",
+      "yesNo": "Yes",
+      "entry": 0.95,
+      "price": 0.98,
+      "cost": 199.5,
+      "contracts": 210.0,
+      "startTs": 1795302000,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
+      "recordedTs": 1795293416,
       "status": "open",
       "result": null,
       "settledAt": null
