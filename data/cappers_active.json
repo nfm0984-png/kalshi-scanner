@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 8:38 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -12,7 +12,7 @@
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 37,
+        "monthly": 38,
         "yearly": 16
       },
       "pnl": 1390906.5,
@@ -36,7 +36,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23246,
+      "followers": 23272,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -46,39 +46,14 @@
         "weekly": 8,
         "yearly": 12
       },
-      "pnl": 926135.44,
-      "weeklyPnl": 117361.41,
+      "pnl": 940386.47,
+      "weeklyPnl": 120304.086,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
+      "recordLine": "BWmarkets \u00b7 +$940.4k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [
-        {
-          "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
-          "eventTicker": "KXNCAAFTOTAL-26NOV20UTEPAFA",
-          "marketTitle": "UTEP vs Air Force: Total Points",
-          "contractTitle": "Full Game: Over 49.5 points scored",
-          "backing": "Over 49.5 points",
-          "yesNo": "Yes",
-          "label": "Over 49.5 points",
-          "entry": 0.4829,
-          "price": 1.0,
-          "yesAsk": 1.0,
-          "noAsk": 0.01,
-          "cost": 62733.79,
-          "contracts": 129913.0,
-          "lastTs": 1795224231,
-          "startTs": 1795233600,
-          "state": "live",
-          "league": "NCAAF",
-          "game": "UTEP vs Air Force: Total Points",
-          "bt": "Totals",
-          "slip": 51.7,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795395600
-        },
         {
           "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
           "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
@@ -88,9 +63,9 @@
           "yesNo": "Yes",
           "label": "NC St. wins by over 4.5 points",
           "entry": 0.5062,
-          "price": 0.19,
-          "yesAsk": 0.19,
-          "noAsk": 0.83,
+          "price": 0.16,
+          "yesAsk": 0.16,
+          "noAsk": 0.87,
           "cost": 24165.0,
           "contracts": 47735.0,
           "lastTs": 1795228124,
@@ -99,13 +74,13 @@
           "league": "NCAAB",
           "game": "NC St. vs Seton Hall: Spread",
           "bt": "Spread",
-          "slip": -31.6,
+          "slip": -34.6,
           "status": "active",
           "result": "",
           "closeTs": 1795401000
         }
       ],
-      "pickCount": 2
+      "pickCount": 1
     },
     {
       "nickname": "reluctant.fox5394",
@@ -119,12 +94,12 @@
       "ranks": {
         "all_time": 98,
         "monthly": 29,
-        "weekly": 50,
+        "weekly": 53,
         "yearly": 90
       },
-      "pnl": 385435.52,
-      "weeklyPnl": 27405.6,
-      "monthlyPnl": 121522.23,
+      "pnl": 385736.85,
+      "weeklyPnl": 27706.934,
+      "monthlyPnl": 121823.555,
       "ageDays": 44,
       "graded": {
         "n": 1,
@@ -134,7 +109,7 @@
         "profit": 0,
         "sample": "small"
       },
-      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.4k all \u00b7 Top 50",
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.7k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -149,11 +124,11 @@
       "tag": "My 40",
       "heavy": true,
       "ranks": {
-        "monthly": 49
+        "monthly": 50
       },
-      "pnl": 141021.92,
+      "pnl": 141013.78,
       "weeklyPnl": null,
-      "monthlyPnl": 90525.21,
+      "monthlyPnl": 90517.07,
       "ageDays": 135,
       "graded": {
         "n": 6,
@@ -163,36 +138,10 @@
         "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [
-        {
-          "ticker": "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY",
-          "eventTicker": "KXATPCHALLENGERMATCH-26NOV20TROMAY",
-          "marketTitle": "Trotter vs Mayo",
-          "contractTitle": "Aidan Mayo wins",
-          "backing": "Aidan Mayo",
-          "yesNo": "Yes",
-          "label": "Aidan Mayo",
-          "entry": 0.6999,
-          "price": 0.8,
-          "yesAsk": 0.8,
-          "noAsk": 0.22,
-          "cost": 291.85,
-          "contracts": 417.0,
-          "lastTs": 1795232579,
-          "startTs": 1795230600,
-          "state": "live",
-          "league": "Tennis",
-          "game": "Trotter vs Mayo",
-          "bt": "Moneyline",
-          "slip": 10.0,
-          "status": "active",
-          "result": "",
-          "closeTs": 1796429400
-        }
-      ],
-      "pickCount": 1
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "past.grass",
@@ -212,7 +161,7 @@
       "monthlyPnl": 95440.445,
       "ageDays": 216,
       "graded": null,
-      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 10",
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -227,7 +176,7 @@
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 71
+        "all_time": 72
       },
       "pnl": 516954.89,
       "weeklyPnl": null,
@@ -244,7 +193,7 @@
       "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.0k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "breezy.panther",
@@ -256,8 +205,8 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 63,
-        "weekly": 75
+        "monthly": 66,
+        "weekly": 78
       },
       "pnl": 262227.61,
       "weeklyPnl": 20943.93,
@@ -287,7 +236,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 76,
-        "yearly": 64
+        "yearly": 63
       },
       "pnl": 484317.11,
       "weeklyPnl": null,
@@ -333,7 +282,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 80,
+        "monthly": 79,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -341,7 +290,7 @@
       "monthlyPnl": 58466.598,
       "ageDays": 770,
       "graded": null,
-      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Top 10",
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -350,24 +299,106 @@
       "nickname": "regine",
       "profileUrl": "https://kalshi.com/ideas/profiles/regine",
       "joinedAt": "2025-12-20",
-      "followers": 49,
+      "followers": 50,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 58,
-        "weekly": 44
+        "monthly": 62,
+        "weekly": 59
       },
-      "pnl": 88306.06,
-      "weeklyPnl": 30580.486,
-      "monthlyPnl": 82186.45,
+      "pnl": 83548.18,
+      "weeklyPnl": 25822.605,
+      "monthlyPnl": 77428.57,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$88.3k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$83.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
+    },
+    {
+      "nickname": "Ryqeux",
+      "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
+      "joinedAt": "2024-06-14",
+      "followers": 1467,
+      "tier": "Top 50",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": false,
+      "ranks": {
+        "monthly": 45,
+        "weekly": 21
+      },
+      "pnl": 147682.29,
+      "weeklyPnl": 67264.5,
+      "monthlyPnl": 92966.125,
+      "ageDays": 889,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 800.0,
+        "profit": 11127.55,
+        "sample": "small"
+      },
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$147.7k all \u00b7 Top 50",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "jspana99",
+      "profileUrl": "https://kalshi.com/ideas/profiles/jspana99",
+      "joinedAt": "2026-02-09",
+      "followers": 48,
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {
+        "weekly": 37
+      },
+      "pnl": -4893.48,
+      "weeklyPnl": 37316.145,
+      "monthlyPnl": null,
+      "ageDays": 284,
+      "graded": null,
+      "recordLine": "jspana99 \u00b7 -$4.89k all \u00b7 Board",
+      "addedAt": "2026-11-20",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "TheGrinder",
+      "profileUrl": "https://kalshi.com/ideas/profiles/TheGrinder",
+      "joinedAt": "2026-09-22",
+      "followers": 1953,
+      "tier": "Top 50",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": true,
+      "ranks": {
+        "monthly": 45,
+        "weekly": 42
+      },
+      "pnl": -209631.31,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 59,
+      "graded": {
+        "n": 10,
+        "w": 10,
+        "l": 0,
+        "roi": 16.7,
+        "profit": 38074.99,
+        "sample": "full"
+      },
+      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.6k all \u00b7 Top 50",
+      "addedAt": "2026-11-20",
+      "pickCount": 2,
+      "followCount": 0
     }
   ]
 }
