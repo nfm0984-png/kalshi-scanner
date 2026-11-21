@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 20 \u00b7 8:38 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -65,6 +65,48 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Fri Nov 20 \u00b7 8:38 PM PT"
+    },
+    {
+      "id": "TheGrinder|KXNBAGAME-26NOV20HOUDEN-DEN|Yes",
+      "nickname": "TheGrinder",
+      "ticker": "KXNBAGAME-26NOV20HOUDEN-DEN",
+      "eventTicker": "KXNBAGAME-26NOV20HOUDEN",
+      "game": "Houston vs Denver",
+      "backing": "Denver",
+      "yesNo": "Yes",
+      "entry": 0.48,
+      "price": 0.4,
+      "cost": 9648.48,
+      "contracts": 20101.0,
+      "startTs": 1795240800,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
+      "recordedTs": 1795237578,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "TheGrinder|KXNBAGAME-26NOV20SACLAL-LAL|Yes",
+      "nickname": "TheGrinder",
+      "ticker": "KXNBAGAME-26NOV20SACLAL-LAL",
+      "eventTicker": "KXNBAGAME-26NOV20SACLAL",
+      "game": "Sacramento vs Los Angeles L",
+      "backing": "Los Angeles L",
+      "yesNo": "Yes",
+      "entry": 0.665,
+      "price": 0.88,
+      "cost": 47845.41,
+      "contracts": 71948.0,
+      "startTs": 1795240800,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
+      "recordedTs": 1795237578,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
