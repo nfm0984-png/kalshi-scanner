@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 1:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -713,9 +713,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV21LSUTENN-TENN|Yes",
@@ -860,9 +860,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
@@ -1364,9 +1364,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 11:56 AM PT",
       "recordedTs": 1795290980,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
     },
     {
       "id": "emilianotijerina|KXATPMATCH-26NOV21ZVEMED-ZVE|Yes",
@@ -1385,9 +1385,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 12:36 PM PT",
       "recordedTs": 1795293416,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 1:16 PM PT"
     },
     {
       "id": "iluminado|KXATPCHALLENGERMATCH-26NOV21MOLSEY-SEY|Yes",
