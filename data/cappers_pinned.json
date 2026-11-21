@@ -1,15 +1,59 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 7:00 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:23 AM PT",
   "target": 40,
   "note": "Followed cappers for My 40. Only winning graded records (W > L) are auto-pinned, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to W <= L is unpinned (stays in the active db) and can be swapped for a new winner. doNotPin names are never re-seeded from the drop-in or auto-follow.",
   "doNotPin": [
-    "WorkerTrader",
-    "autofade",
-    "norrisfan",
-    "devex",
-    "reluctant.fox5394",
-    "breezy.panther"
+    {
+      "nickname": "WorkerTrader",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "autofade",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "norrisfan",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "devex",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "reluctant.fox5394",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "breezy.panther",
+      "reason": "reviewed",
+      "at": ""
+    },
+    {
+      "nickname": "TheGrinder",
+      "reason": "negative profit",
+      "at": "Sat Nov 21 \u00b7 7:23 AM PT"
+    },
+    {
+      "nickname": "answermbs",
+      "reason": "negative profit",
+      "at": "Sat Nov 21 \u00b7 7:23 AM PT"
+    },
+    {
+      "nickname": "black.catt",
+      "reason": "negative profit",
+      "at": "Sat Nov 21 \u00b7 7:23 AM PT"
+    },
+    {
+      "nickname": "brick.one",
+      "reason": "negative profit",
+      "at": "Sat Nov 21 \u00b7 7:23 AM PT"
+    }
   ],
   "cappers": [
     {
@@ -41,12 +85,6 @@
       "record": "47-33"
     },
     {
-      "nickname": "TheGrinder",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-20"
-    },
-    {
       "nickname": "Ryqeux",
       "tag": "My 40",
       "source": "auto-winning",
@@ -71,25 +109,13 @@
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "answermbs",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
       "nickname": "Billy.Hoyle",
       "tag": "My 40",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "black.catt",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "brick.one",
+      "nickname": "coachlord66",
       "tag": "My 40",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
