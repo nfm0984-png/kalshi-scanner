@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 9:20 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1301,6 +1301,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 9:20 AM PT",
       "recordedTs": 1795281638,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "BWmarkets|KXNCAAFSPREAD-26NOV21WAKEGT-WAKE28|No",
+      "nickname": "BWmarkets",
+      "ticker": "KXNCAAFSPREAD-26NOV21WAKEGT-WAKE28",
+      "eventTicker": "KXNCAAFSPREAD-26NOV21WAKEGT",
+      "game": "Wake Forest vs Georgia Tech: Spread",
+      "backing": "Wake Forest wins by over 27.5 points",
+      "yesNo": "No",
+      "entry": 0.4917,
+      "price": 0.31,
+      "cost": 23377.95,
+      "contracts": 47546.0,
+      "startTs": 1795291200,
+      "league": "NCAAF",
+      "bt": "Spread",
+      "recordedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
+      "recordedTs": 1795283577,
       "status": "open",
       "result": null,
       "settledAt": null
