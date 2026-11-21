@@ -391,10 +391,10 @@ def paginate_holdings(http, nick):
     return vis or "visible", holdings
 
 
-def paginate_trades(http, nick, now, stop_ts):
+def paginate_trades(http, nick, now, stop_ts, max_pages=None):
     trades, cursor = [], None
     vis = None
-    for page in range(MAX_TRADE_PAGES):
+    for page in range(max_pages or MAX_TRADE_PAGES):
         params = {"nickname": nick, "page_size": 100}
         if cursor:
             params["cursor"] = cursor
@@ -473,19 +473,46 @@ def hydrate_market(http, ticker, mcache, ecache):
     }
 
 
+ESPORTS_TITLE_RE = re.compile(
+    r"\b(valorant|league of legends|dota(?:\s*2)?|cs:?go|counter[- ]strike|"
+    r"esports?|rocket league|overwatch|call of duty|pubg|fortnite|starcraft|"
+    r"wild rift|mobile legends|king of glory|honor of kings|rainbow six|"
+    r"r6 siege|leagueoflegends)\b",
+    re.I,
+)
+
+
+def is_esports(ticker, info=None):
+    """True for esports tickers/titles. Traditional sports (and sports combos) return False."""
+    info = info or {}
+    if league_of(ticker, info.get("category")) == "Esports":
+        return True
+    blob = " ".join(
+        str(x) for x in (
+            ticker,
+            info.get("title"),
+            info.get("event_title"),
+            info.get("category"),
+            info.get("sub_title"),
+            info.get("yes_sub_title"),
+            info.get("no_sub_title"),
+        ) if x
+    )
+    return bool(ESPORTS_TITLE_RE.search(blob))
+
+
 def is_sports_market(info, ticker):
-    if is_non_sport_ticker(ticker):
+    """Traditional sports singles and sports combos only — esports is excluded."""
+    info = info or {}
+    if is_non_sport_ticker(ticker) or is_esports(ticker, info):
         return False
     cat = (info.get("category") or "").strip().lower()
     if cat in ("crypto", "economics", "economy", "politics", "climate", "weather", "culture", "elections", "financials", "mentions", "companies", "world"):
         return False
-    if cat == "combos":
-        return False
-    if cat == "sports":
+    if cat in ("sports", "combos"):
         return True
-    if league_of(ticker):
+    if league_of(ticker) and league_of(ticker) != "Esports":
         return True
-    # Unknown ticker and no category: exclude unless it already looked like sports
     return False
 
 
@@ -532,8 +559,11 @@ def build_inventory(trades, nick):
 
 
 
-def is_sports_ticker(tk):
-    return bool(tk) and not is_non_sport_ticker(tk)
+def is_sports_ticker(tk, info=None):
+    """Traditional sports (incl. sports combo tickers). Esports is excluded."""
+    if not tk or is_non_sport_ticker(tk) or is_esports(tk, info):
+        return False
+    return True
 
 
 def age_days(joined_at, now):

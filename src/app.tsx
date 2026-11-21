@@ -26,9 +26,9 @@ interface KalshiView { backing?: string; marketTitle?: string; outcome?: string;
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; lastTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
-interface Capper { nickname: string; profileUrl?: string; tier: string; ranks?: Record<string, number>; pnl?: number | null; weeklyPnl?: number | null; monthlyPnl?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; pnl?: number | null; weeklyPnl?: number | null; monthlyPnl?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any }; cappers?: Capper[]; games?: Game[] }
+interface Data { scannedAt: string; ts: number; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[] }
 
 const DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 
@@ -110,21 +110,71 @@ function gameOver(g: Game, now: number): boolean {
 function openGames(now: number): Game[] {
   return (DATA.games || []).filter((g: Game) => !gameOver(g, now) && (!g.startTs || g.startTs <= now + 24 * 3600));
 }
-function pickRec(p: Pick): WL {
-  let w = 0, l = 0;
-  p.backers.forEach((b: Backer) => { if (b.rec) { w += b.rec.w; l += b.rec.l; } });
-  return { w, l };
-}
-function bestPickFirst(picks: Pick[]): Pick[] {
-  const sample = (r: WL): number => (r.w + r.l >= ELITE_MIN_BETS ? 1 : 0);
-  return picks.slice().sort((a: Pick, b: Pick) => {
-    const ra = pickRec(a), rb = pickRec(b);
-    return (sample(rb) - sample(ra)) || (wlRate(rb) - wlRate(ra)) || (rb.w - ra.w) || (b.backers.length - a.backers.length) || (b.total - a.total);
+function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
+  const seen: Record<string, boolean> = {};
+  let w = 0, l = 0, n = 0;
+  backers.forEach((b: Backer) => {
+    if (seen[b.name]) return;
+    seen[b.name] = true;
+    n += 1;
+    if (b.rec) { w += b.rec.w; l += b.rec.l; }
   });
+  return { rec: { w, l }, n };
+}
+/** Laplace / add-one shrink toward 50%: (W+1)/(W+L+2). Weight grows with settled bets. */
+const sideStrength = (rec: WL): number => (rec.w + 1) / ((rec.w + rec.l) + 2);
+const NET_CLOSE = 0.08; // 8 percentage points — "small net margin"
+const netPts = (net: number): number => Math.round(net * 100);
+const netText = (net: number): string => {
+  const pts = netPts(net);
+  return "Net " + (pts > 0 ? "+" + pts : String(pts));
+};
+function oppositionPicks(p: Pick, game: Game): Pick[] {
+  const out: Pick[] = [];
+  const seen: Record<string, boolean> = {};
+  (game.picks || []).forEach((q: Pick) => {
+    if (q.key === p.key || seen[q.key]) return;
+    const sameMkt = !!(p.mid && q.mid && q.mid === p.mid && q.view.yesNo && p.view.yesNo && q.view.yesNo !== p.view.yesNo);
+    const otherTeamML = p.bt === "Moneyline" && q.bt === "Moneyline" && !!p.mid && !!q.mid && q.mid !== p.mid && !!q.view.yesNo && !!p.view.yesNo && q.view.yesNo === p.view.yesNo;
+    if (sameMkt || otherTeamML) { seen[q.key] = true; out.push(q); }
+  });
+  return out;
 }
 function oppositeOf(p: Pick, game: Game): Pick[] {
-  if (!p.mid) return [];
-  return game.picks.filter((q: Pick) => q.key !== p.key && q.mid === p.mid && q.view.yesNo && q.view.yesNo !== p.view.yesNo);
+  return oppositionPicks(p, game);
+}
+interface NetInfo { net: number; own: number; opp: number; ownRec: WL; oppRec: WL; ownN: number; oppN: number; contested: boolean }
+function netOf(p: Pick, game: Game): NetInfo {
+  const own = uniqueSide(p.backers);
+  const seen: Record<string, boolean> = {};
+  const oppBackers: Backer[] = [];
+  oppositionPicks(p, game).forEach((q: Pick) => q.backers.forEach((b: Backer) => {
+    if (seen[b.name]) return;
+    seen[b.name] = true;
+    oppBackers.push(b);
+  }));
+  const opp = uniqueSide(oppBackers);
+  const ownS = sideStrength(own.rec);
+  const oppS = opp.n ? sideStrength(opp.rec) : 0;
+  const net = ownS - oppS;
+  const oppNBets = opp.rec.w + opp.rec.l;
+  const oppRate = oppNBets ? opp.rec.w / oppNBets : 0;
+  const strongOpp = oppRate >= 0.60 && oppNBets >= ELITE_MIN_BETS;
+  const close = opp.n > 0 && Math.abs(net) < NET_CLOSE;
+  return { net, own: ownS, opp: oppS, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, contested: !!(strongOpp || close) };
+}
+function weakerSide(p: Pick, game: Game): boolean {
+  const mine = netOf(p, game).net;
+  return oppositionPicks(p, game).some((q: Pick) => netOf(q, game).net > mine + 1e-12);
+}
+function bestPickFirst(picks: Pick[], game: Game): Pick[] {
+  return picks.slice().sort((a: Pick, b: Pick) => {
+    const na = netOf(a, game), nb = netOf(b, game);
+    return (nb.net - na.net) || (nb.ownRec.w - na.ownRec.w) || (nb.ownN - na.ownN) || ((b.total || 0) - (a.total || 0));
+  });
+}
+function pickRec(p: Pick): WL {
+  return uniqueSide(p.backers).rec;
 }
 function allPicks(games: Game[]): { p: Pick; game: Game }[] {
   const out: { p: Pick; game: Game }[] = [];
@@ -258,11 +308,12 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
   const v = p.view;
   const opp = oppositeOf(p, props.game);
   const cmp = sideCompare(p, props.game);
+  const net = netOf(p, props.game);
   const top = p.backers.slice(0, 3);
   const rest = p.backers.slice(3);
-  const colorOf = (x: string): string[] => (({ Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
+  const colorOf = (x: string): string[] => (({ "Top 10": ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
   return (
-    <div data-ucard={p.key} style={{ borderRadius: 18, border: "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(11,31,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
+    <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(11,31,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ padding: "12px 14px 12px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginBottom: 6 }}>
           {props.rankNo ? <span data-card-no="1" style={{ display: "inline-block", minWidth: 26, textAlign: "center", padding: "2px 8px", borderRadius: 999, background: BLUE, color: "#FFFFFF", fontSize: 13, fontWeight: 900 }}>{"#" + props.rankNo}</span> : null}
@@ -274,6 +325,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         <div data-ucard-sum="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 10 }}>
           <span data-ucard-total="1" style={{ display: "inline-block", padding: "3px 12px", borderRadius: 12, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 28, lineHeight: "34px", fontWeight: 900, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
           <span data-ucard-count="1" style={{ display: "inline-block", padding: "4px 10px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 15, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
+          <span data-net-pill="1" style={{ display: "inline-block", padding: "3px 9px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 13, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
           {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "3px 9px", borderRadius: 999, background: colorOf(x)[0], color: colorOf(x)[1], fontSize: 13, fontWeight: 850, border: "1.5px solid " + colorOf(x)[1] }}>{x}</span>)}
         </div>
         <FreshPricePills p={p} now={props.now} />
@@ -285,6 +337,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         {props.stakeLine ? <div data-stake-line="1" style={{ marginTop: 6, fontSize: 14, fontWeight: 850, color: GREEN, fontVariantNumeric: "tabular-nums" }}>{props.stakeLine}</div> : null}
         <OnKalshiBox view={v} />
         {top.map((b: Backer) => <div key={b.name} data-ucard-rec={b.name} style={{ fontSize: 14, lineHeight: "20px", fontWeight: 650, color: "#475569", marginTop: 2, overflowWrap: "anywhere" }}>{b.line}</div>)}
+        {net.contested ? <div data-contested-badge="1" style={{ marginTop: 10, padding: "8px 12px", borderRadius: 14, border: "1.5px solid #F59E0B", background: "#FFF7ED", color: "#9A3412", fontSize: 14, fontWeight: 800 }}>{"Contested: " + net.oppN + " capper" + (net.oppN === 1 ? "" : "s") + " " + wlText(net.oppRec) + " against"}</div> : null}
         {cmp && cmp.verdict && opp.length ? <RecordFlag cmp={cmp} /> : null}
         <OtherSide p={p} opp={opp} />
         <details data-ucard-more="1" style={{ marginTop: 8 }}>
@@ -307,8 +360,9 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
   const p = props.p;
   const opp = oppositeOf(p, props.game);
   const cmp = sideCompare(p, props.game);
+  const net = netOf(p, props.game);
   return (
-    <div data-alt-bet={p.key} style={{ borderRadius: 14, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "10px 12px", marginBottom: 8 }}>
+    <div data-alt-bet={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 14, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "10px 12px", marginBottom: 8 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
         <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
@@ -316,12 +370,14 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
       {p.sub ? <div style={{ fontSize: 13, fontWeight: 600, color: "#475569", marginTop: 2 }}>{p.sub}</div> : null}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 6 }}>
         <span style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
+        <span data-net-pill="1" style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
         {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "1px 8px", borderRadius: 999, background: "#F1F5F9", color: "#334155", fontSize: 12, fontWeight: 800, border: "1px solid #94A3B8" }}>{x}</span>)}
       </div>
       <FreshPricePills p={p} now={props.now} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
       <OnKalshiBox view={p.view} />
       {p.backers.map((b: Backer) => <div key={b.name} style={{ fontSize: 13, lineHeight: "19px", fontWeight: 650, color: "#475569", marginTop: 2, overflowWrap: "anywhere" }}>{b.line}</div>)}
+      {net.contested ? <div data-contested-badge="1" style={{ marginTop: 8, padding: "7px 10px", borderRadius: 12, border: "1.5px solid #F59E0B", background: "#FFF7ED", color: "#9A3412", fontSize: 13, fontWeight: 800 }}>{"Contested: " + net.oppN + " capper" + (net.oppN === 1 ? "" : "s") + " " + wlText(net.oppRec) + " against"}</div> : null}
       {cmp && cmp.verdict && opp.length ? <RecordFlag cmp={cmp} /> : null}
     </div>
   );
@@ -335,13 +391,13 @@ function GameHeader(props: { g: Game; now: number; rankNo?: number; rec?: WL; ca
       {g.live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
       <span data-game-start-time="1">{(g.live ? "Started " : "Starts ") + ptTime(g.startTs)}</span>
       <span style={{ fontSize: 13, fontWeight: 700, color: "#475569" }}>{(g.live ? ago(g.startTs, props.now) : "in " + untilText(g.startTs, props.now)) + " · " + g.league}</span>
-      {props.rec ? <span data-game-rec="1" style={{ display: "inline-block", padding: "2px 10px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850, border: "1.5px solid " + BLUE }}>{(props.rec.w + props.rec.l ? "Combined " + wlText(props.rec) + " · " + pctText(wlRate(props.rec)) : "No graded record") + (props.cappers ? " · " + props.cappers + " capper" + (props.cappers === 1 ? "" : "s") : "")}</span> : null}
+      {props.rec ? <span data-game-rec="1" style={{ display: "inline-block", padding: "2px 10px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850, border: "1.5px solid " + BLUE }}>{(props.rec.w + props.rec.l ? wlText(props.rec) + " · " + pctText(wlRate(props.rec)) : "No graded record") + (props.cappers ? " · " + props.cappers + " capper" + (props.cappers === 1 ? "" : "s") : "")}</span> : null}
     </div>
   );
 }
 function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boolean; rankNo?: number; rec?: WL; cappers?: number; stakeLine?: string }) {
   const [open, setOpen] = useState(false);
-  const picks = bestPickFirst(props.g.picks);
+  const picks = bestPickFirst(props.g.picks, props.g);
   const main = picks[0];
   const rest = picks.slice(1);
   const groups = BT_ORDER.map((bt: string) => ({ bt, picks: rest.filter((q: Pick) => (q.bt || "Other") === bt) })).filter((x) => x.picks.length);
@@ -364,33 +420,31 @@ function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boo
   );
 }
 
-interface RankedCard { game: Game; rec: WL; cappers: number }
-function gameRec(g: Game): { rec: WL; cappers: number } {
-  const seen: Record<string, boolean> = {};
-  let w = 0, l = 0;
-  g.picks.forEach((p: Pick) => p.backers.forEach((b: Backer) => {
-    if (seen[b.name]) return;
-    seen[b.name] = true;
-    if (b.rec) { w += b.rec.w; l += b.rec.l; }
-  }));
-  return { rec: { w, l }, cappers: Object.keys(seen).length };
+interface RankedCard { game: Game; rec: WL; cappers: number; net: number; contested: boolean }
+function gameRec(g: Game): { rec: WL; cappers: number; net: number; contested: boolean } {
+  const main = bestPickFirst(g.picks || [], g)[0];
+  if (!main) return { rec: { w: 0, l: 0 }, cappers: 0, net: -1, contested: false };
+  const n = netOf(main, g);
+  return { rec: n.ownRec, cappers: n.ownN, net: n.net, contested: n.contested };
 }
-function rankedLists(games: Game[]): { top: RankedCard[]; others: RankedCard[]; small: RankedCard[] } {
+function rankedLists(games: Game[]): { top: RankedCard[]; others: RankedCard[]; small: RankedCard[]; contested: RankedCard[] } {
   const cards = games.map((game: Game) => ({ game, ...gameRec(game) }));
-  const cmp = (a: RankedCard, b: RankedCard) => (wlRate(b.rec) - wlRate(a.rec)) || (b.rec.w - a.rec.w) || (b.cappers - a.cappers) || ((a.game.startTs || 1e12) - (b.game.startTs || 1e12));
-  const big = cards.filter((c: RankedCard) => c.rec.w + c.rec.l >= ELITE_MIN_BETS).sort(cmp);
-  const small = cards.filter((c: RankedCard) => c.rec.w + c.rec.l < ELITE_MIN_BETS).sort(cmp);
-  return { top: big.slice(0, 15), others: big.slice(15), small };
+  const cmp = (a: RankedCard, b: RankedCard) => (b.net - a.net) || (b.rec.w - a.rec.w) || (b.cappers - a.cappers) || ((a.game.startTs || 1e12) - (b.game.startTs || 1e12));
+  const un = cards.filter((c: RankedCard) => !c.contested);
+  const contested = cards.filter((c: RankedCard) => c.contested).sort(cmp);
+  const big = un.filter((c: RankedCard) => c.rec.w + c.rec.l >= ELITE_MIN_BETS).sort(cmp);
+  const small = un.filter((c: RankedCard) => c.rec.w + c.rec.l < ELITE_MIN_BETS).sort(cmp);
+  return { top: big.slice(0, 15), others: big.slice(15), small, contested };
 }
 interface CardPick { p: Pick; game: Game; n: number; stake: number }
 function todayCard(games: Game[], now: number): { picks: CardPick[]; total: number } {
   const L = rankedLists(games);
-  const order = L.top.concat(L.others, L.small);
-  const eligible = (p: Pick, g: Game) => !g.live && g.startTs > now && p.view.price != null && !!p.view.yesNo && payoutOf(p) < 3;
+  const order = L.top.concat(L.others, L.small, L.contested);
+  const eligible = (p: Pick, g: Game) => !g.live && g.startTs > now && p.view.price != null && !!p.view.yesNo && payoutOf(p) < 3 && !netOf(p, g).contested && !weakerSide(p, g);
   const warned = (p: Pick, g: Game) => { const c = sideCompare(p, g); return !!(c && c.verdict === "other"); };
   const rows: { p: Pick; game: Game; n: number }[] = [];
   order.forEach((c: RankedCard) => {
-    const pick = bestPickFirst(c.game.picks).filter((p: Pick) => eligible(p, c.game))[0];
+    const pick = bestPickFirst(c.game.picks, c.game).filter((p: Pick) => eligible(p, c.game))[0];
     if (pick) rows.push({ p: pick, game: c.game, n: pick.backers.length });
   });
   const chosen: { p: Pick; game: Game; n: number }[] = [];
@@ -417,7 +471,7 @@ function TodayCard(props: { games: Game[]; now: number }) {
       <div style={{ borderRadius: 18, background: NAVY, color: "#FFFFFF", padding: "14px 16px", marginBottom: 12 }}>
         <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.01em" }}>{"Today's $" + CARD_BUDGET + " card"}</div>
         <div data-card-total="1" style={{ fontSize: 16, fontWeight: 800, marginTop: 4, fontVariantNumeric: "tabular-nums" }}>{card.picks.length + " picks · $2–4 each · total $" + card.total + " of $" + CARD_BUDGET}</div>
-        <div style={{ fontSize: 13, fontWeight: 650, opacity: 0.9, marginTop: 4 }}>{"One pick per game, taken from the Ranked list below (best combined capper record first). Safer payouts (1.8x or less) first, nothing paying 3x or more, picks with the amber other-side warning last." + (freshN ? " " + freshN + " fresh." : "")}</div>
+        <div style={{ fontSize: 13, fontWeight: 650, opacity: 0.9, marginTop: 4 }}>{"One pick per game, taken from the Ranked list below (highest net score first). Safer payouts (1.8x or less) first, nothing paying 3x or more, contested picks left off, picks with the amber other-side warning last." + (freshN ? " " + freshN + " fresh." : "")}</div>
       </div>
       {card.picks.length === 0 ? <EmptyState title="No picks fit the card right now" body={"Nothing upcoming pays under 3x with a public Kalshi capper on the same side. The Ranked games are below."} /> : card.picks.map((c: CardPick, i: number) => (
         <UCard key={"card-" + c.p.key} p={c.p} game={c.game} now={props.now} stake={"$" + c.stake} stakeLine={"$" + c.stake + " · total $" + card.total + " of $" + CARD_BUDGET} rankNo={i + 1} />
@@ -433,9 +487,9 @@ function ComingUpTab(props: { games: Game[]; now: number }) {
   const pickN = props.games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   return (
     <Section heading={"Coming Up · " + pickN} caption={"Soonest start first · already started at the top · starts within 24 hours"}>
-      <Text>{"Every open $500+ sports position from Kalshi traders who show their book, grouped by game and sorted by start time. Finished games are removed. Suggested $2–4 a ticket, about $40 a day. No parlays."}</Text>
+      <Text>{"Every open $100+ sports position from Kalshi traders who show their book, grouped by game and sorted by start time. Finished games are removed. Suggested $2–4 a ticket, about $40 a day. No parlays."}</Text>
       <div data-combined-summary="1" style={{ fontSize: 14, fontWeight: 750, color: "#475569", margin: "2px 2px 12px" }}>{pickN + " picks · " + props.games.length + " games · " + live.length + " live"}</div>
-      {props.games.length === 0 ? <EmptyState title="No public Kalshi books right now" body={"None of the visible Sports-leaderboard traders has a $500+ open sports position starting within 24 hours. Most top traders hide their book."} /> : null}
+      {props.games.length === 0 ? <EmptyState title="No public Kalshi books right now" body={"None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours. Most top traders hide their book."} /> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 22, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart />)}
       {up.length ? <div data-all-today="1" style={{ fontSize: 22, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
@@ -445,43 +499,46 @@ function ComingUpTab(props: { games: Game[]; now: number }) {
 }
 function RankedTab(props: { games: Game[]; now: number }) {
   const L = rankedLists(props.games);
-  const total = L.top.length + L.others.length + L.small.length;
+  const total = L.top.length + L.others.length + L.small.length + L.contested.length;
   const render = (c: RankedCard, i: number) => <GameBlock key={c.game.id} g={c.game} now={props.now} stake="$2–4" rankNo={i + 1} rec={c.rec} cappers={c.cappers} />;
   return (
-    <Section heading={"Ranked · " + total} caption={"Games ranked by the combined record of every capper on the card · starts or is live within 24 hours"}>
-      <Text>{"Each game is one card. Its rank is the collective win ratio of every public capper betting on that game (all their wins divided by all their settled bets). Record counts, money does not. The $40 card on top takes one pick per game from this list. An amber warning names a capper on the other side with a better record."}</Text>
-      <div data-ranked-summary="1" style={{ fontSize: 14, fontWeight: 750, color: "#475569", margin: "2px 2px 8px" }}>{total + " games · " + L.top.length + " in the top list"}</div>
+    <Section heading={"Ranked · " + total} caption={"Games ranked by the main pick’s net score (own side minus opposition) · uncontested first · starts or is live within 24 hours"}>
+      <Text>{"Each game is one card. The main pick is the highest-net side — never the weaker side of the same market. Net = own Laplace strength (W+1)/(W+L+2) minus the same for cappers on the other outcome (and the other team’s moneyline). Rank uses that net, then own wins, then own cappers. Record counts, money does not. Contested games (opposition at 60%+ with 10+ bets, or a net under 8 points) sit below uncontested and are left off the $40 card. The amber warning still names a capper on the other side with a better individual record."}</Text>
+      <div data-ranked-summary="1" style={{ fontSize: 14, fontWeight: 750, color: "#475569", margin: "2px 2px 8px" }}>{total + " games · " + L.top.length + " in the top list · " + L.contested.length + " contested"}</div>
       {total > 0 ? <TodayCard games={props.games} now={props.now} /> : null}
-      {total === 0 ? <EmptyState title="No ranked games right now" body={"No visible Kalshi capper has a $500+ sports pick starting within 24 hours."} /> : null}
+      {total === 0 ? <EmptyState title="No ranked games right now" body={"No visible Kalshi capper has a $100+ sports pick starting within 24 hours."} /> : null}
       {L.top.length ? <div data-elite-top="1" style={{ fontSize: 22, fontWeight: 900, margin: "4px 2px 4px", color: NAVY }}>{"Top " + L.top.length}</div> : null}
       {L.top.map((c: RankedCard, i: number) => render(c, i))}
       {L.others.length ? <div data-ranked-section="others" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid " + BLUE, color: NAVY }}>{"All other games · " + L.others.length}</div> : null}
       {L.others.map((c: RankedCard, i: number) => render(c, L.top.length + i))}
       {L.small.length ? <div data-ranked-section="small" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid " + BLUE, color: NAVY }}>{"Small sample (under " + ELITE_MIN_BETS + " bets) · " + L.small.length}</div> : null}
-      {L.small.length ? <Text>{"The cappers on these games have fewer than 10 settled bets in total, so the record is not ranked with the main lists yet."}</Text> : null}
+      {L.small.length ? <Text>{"The main pick’s own cappers have fewer than 10 settled bets, so these sit below the main lists. They are still sorted by net score, and contested games are in their own section below."}</Text> : null}
       {L.small.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + i))}
+      {L.contested.length ? <div data-ranked-section="contested" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid #F59E0B", color: NAVY }}>{"Contested · " + L.contested.length}</div> : null}
+      {L.contested.length ? <Text>{"Meaningful opposition on the main pick: the other side is at 60%+ with 10+ settled bets, or the net margin is under 8 points. Sorted by net, below every uncontested game. Left off the $40 card."}</Text> : null}
+      {L.contested.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + L.small.length + i))}
     </Section>
   );
 }
 function CappersTab(props: { now: number }) {
   const caps = DATA.cappers || [];
   return (
-    <Section heading={"Cappers · " + caps.length} caption={"Visible Sports-leaderboard traders. Hidden books are not listed."}>
-      <Text>{"A capper has to show their bets on Kalshi to appear here. Core = in both the all-time and monthly top 50. Top 50 = on one of those boards. W-L is reconstructed from their public sports trade tape, not invented. Market makers are left out."}</Text>
+    <Section heading={"Cappers · " + caps.length} caption={"Visible Sports-leaderboard traders, plus pinned Top 10. Hidden books are not listed unless pinned."}>
+      <Text>{"A capper has to show their bets on Kalshi to appear here, except pinned Top 10 names, who stay in the db even with a hidden book. Top 10 = Noel’s followed list (never rejected). Core = in both the all-time and monthly top 50. Top 50 = on one of those boards. W-L is reconstructed from their public sports trade tape, not invented. Market makers are left out unless pinned. Picks are traditional sports singles and combos only — no esports."}</Text>
       {caps.length === 0 ? <EmptyState title="No visible cappers right now" body={"Almost every name on Kalshi's Sports leaderboard hides their book."} /> : caps.map((c: Capper) => {
         const g = c.graded;
         return (
           <div key={c.nickname} data-capper={c.nickname} style={{ borderRadius: 16, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "12px 14px", marginBottom: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap", alignItems: "baseline" }}>
               <div style={{ fontSize: 17, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
-              <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 12, fontWeight: 850 }}>{c.tier}</span>
+              <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: (c.pinned || c.tier === "Top 10") ? "#FEF3C7" : BLUE_SOFT, color: (c.pinned || c.tier === "Top 10") ? "#92400E" : BLUE_INK, fontSize: 12, fontWeight: 850, border: (c.pinned || c.tier === "Top 10") ? "1.5px solid #92400E" : "0" }}>{c.tier}</span>
             </div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#475569", marginTop: 4 }}>
               {g && g.n ? (g.w + "-" + g.l + " · " + pctText(g.w / Math.max(1, g.w + g.l)) + (g.roi != null ? " · " + (g.roi >= 0 ? "+" : "") + Math.round(g.roi) + "% ROI" : "") + (g.sample === "small" ? " · small sample" : "")) : "No graded sports record yet"}
               {c.pnl != null ? " · " + (c.pnl >= 0 ? "+" : "") + kMoney(c.pnl) + " all-time" : ""}
             </div>
             <div style={{ fontSize: 12, fontWeight: 650, color: "#64748B", marginTop: 2 }}>
-              {(c.ranks && c.ranks.all_time ? "All-time #" + c.ranks.all_time : "") + (c.ranks && c.ranks.monthly ? " · Monthly #" + c.ranks.monthly : "") + (c.ranks && c.ranks.weekly ? " · Weekly #" + c.ranks.weekly : "") + (c.pickCount ? " · " + c.pickCount + " open pick" + (c.pickCount === 1 ? "" : "s") : " · no open $500+ pick in the window")}
+              {(c.ranks && c.ranks.all_time ? "All-time #" + c.ranks.all_time : "") + (c.ranks && c.ranks.monthly ? " · Monthly #" + c.ranks.monthly : "") + (c.ranks && c.ranks.weekly ? " · Weekly #" + c.ranks.weekly : "") + (c.pickCount ? " · " + c.pickCount + " open pick" + (c.pickCount === 1 ? "" : "s") : " · no open $100+ pick in the window")}
             </div>
             {c.profileUrl ? <a href={c.profileUrl} target="_blank" rel="noreferrer" style={{ fontSize: 13, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Kalshi profile ↗</a> : null}
           </div>
@@ -527,8 +584,11 @@ export default function App() {
         <details style={{ marginTop: 18, padding: "10px 12px", borderRadius: 14, background: "#FFFFFF", border: "1px solid #BFDBFE" }}>
           <summary style={{ cursor: "pointer", fontWeight: 800, color: BLUE }}>How this is sourced</summary>
           <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{(DATA.source && DATA.source.note) || "Kalshi Sports leaderboard, public profiles, and the public trade tape."}</p>
-          <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{"Visible books " + (cov.visible || 0) + " · hidden " + (cov.hidden || 0) + " · monthly∩all-time top 50 = " + (cov.intersection50 || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
+          <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{"Refreshed " + (cov.activeRefreshed || 0) + " active · reviewed " + (cov.queueReviewed || 0) + " in queue · new " + (cov.queuedNew || 0) + " · rejected hidden " + (cov.hiddenRejected || 0) + " · MM " + (cov.mmDropped || 0) + " · no sports " + (cov.noSportsRejected || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
         </details>
+        <div data-capper-db="1" style={{ marginTop: 12, fontSize: 11, color: "#64748B", textAlign: "center" }}>
+          {"Capper db: " + (((DATA.source && DATA.source.db && DATA.source.db.active) || 0)) + " active · " + (((DATA.source && DATA.source.db && DATA.source.db.queue) || 0)) + " to check · " + (((DATA.source && DATA.source.db && DATA.source.db.rejected) || 0)) + " rejected" + ((DATA.source && DATA.source.db && DATA.source.db.pinned) ? " · " + DATA.source.db.pinned + " Top 10" : "")}
+        </div>
       </div>
     </div>
   );

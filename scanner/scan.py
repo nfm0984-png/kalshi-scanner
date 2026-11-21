@@ -3,10 +3,11 @@
 
 Source: Kalshi's public social + trade APIs (api.elections.kalshi.com).
 Kalshi has no 30-day leaderboard period; the closest is 'monthly'.
-Universe is Sports projected-PnL all-time and monthly boards (top 50 primary,
-top 100 used so hidden books don't empty the page), plus weekly for extra
-visible traders. Hidden profiles cannot be read. W-L is reconstructed from
-each visible capper's public sports trade tape — never fabricated.
+Capper DB: data/cappers_active.json, data/cappers_queue.json, data/cappers_rejected.json.
+Scan order: refresh active, review the queue (active vs rejected), then enqueue 10 new names.
+Reject = hidden book, market-maker, or no sports activity at all — never rechecked.
+A visible sports trader with no open picks today stays in the active db.
+W-L is reconstructed from the public sports trade tape — never fabricated.
 """
 from __future__ import annotations
 
@@ -19,7 +20,7 @@ sys.path.insert(0, HERE)
 import lib_cappers as lib
 
 PT = lib.PT
-MIN_BET = 500
+MIN_BET = 100  # lower than the whale site so more public books show
 MAX_ENTRY = 0.90
 WINDOW_SECS = 24 * 3600
 DECIDED_PX = 0.97
@@ -121,222 +122,505 @@ def signed_k(n):
     return sign + "$" + ("%d" % round(a) if abs(n - round(n)) < 0.5 else "%.0f" % a)
 
 
-def build(now=None, log=print):
+DATA_DIR = os.path.join(ROOT, "data")
+ACTIVE_PATH = os.path.join(DATA_DIR, "cappers_active.json")
+QUEUE_PATH = os.path.join(DATA_DIR, "cappers_queue.json")
+REJECTED_PATH = os.path.join(DATA_DIR, "cappers_rejected.json")
+PINNED_PATH = os.path.join(DATA_DIR, "cappers_pinned.json")
+# Drop-in from another worker: if this appears, names are merged into the pinned list.
+PINNED_DROPINS = [
+    "/workspace/kalshi-top10-cappers.json",
+    os.path.join(ROOT, "kalshi-top10-cappers.json"),
+    os.path.join(DATA_DIR, "kalshi-top10-cappers.json"),
+]
+PINNED_TAG = "Top 10"
+NEW_PER_SCAN = 10
+
+# Already reviewed in the first live scan (visible sports traders stay active
+# even with no open pick today). Market-makers go to rejected and are never rechecked.
+BOOTSTRAP_ACTIVE = [
+    "WorkerTrader", "BWmarkets", "reluctant.fox5394", "iluminado", "past.grass",
+    "autofade", "breezy.panther", "norrisfan", "devex", "bama0037", "regine",
+]
+BOOTSTRAP_REJECTED = [
+    ("clis41", "market-maker", "MM-like tape and 658 open markets"),
+    ("BitcoinTradingChallenge", "market-maker", "MM-like tape and 33 open markets"),
+]
+
+BOARD_CATS = ["Sports", "Politics", "Economics", "Crypto", "Mentions"]
+BOARD_PERIODS = ["all_time", "monthly", "weekly", "yearly"]
+BOARD_METRICS = ["projected_pnl", "volume"]
+
+
+def today_pt(now=None):
+    return dt.datetime.fromtimestamp(int(now or time.time()), PT).strftime("%Y-%m-%d")
+
+
+def load_json(path, default):
+    if not os.path.exists(path):
+        return default
+    try:
+        return json.load(open(path))
+    except Exception:
+        return default
+
+
+def save_json(path, payload):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    json.dump(payload, open(tmp, "w"), indent=2)
+    os.replace(tmp, path)
+
+
+def nick_key(n):
+    return (n or "").strip()
+
+
+def load_dbs():
+    active = load_json(ACTIVE_PATH, {"updatedAt": "", "cappers": []})
+    queue = load_json(QUEUE_PATH, {"updatedAt": "", "cappers": []})
+    rejected = load_json(REJECTED_PATH, {"updatedAt": "", "cappers": []})
+    if not active.get("cappers") and not rejected.get("cappers") and not queue.get("cappers"):
+        now_s = today_pt()
+        active["cappers"] = [{"nickname": n, "addedAt": now_s, "source": "bootstrap"} for n in BOOTSTRAP_ACTIVE]
+        rejected["cappers"] = [
+            {"nickname": n, "reason": reason, "date": now_s, "ts": int(time.time()), "detail": detail}
+            for n, reason, detail in BOOTSTRAP_REJECTED
+        ]
+    return active, queue, rejected
+
+
+def save_dbs(active, queue, rejected, now):
+    ts = pt(now)
+    active["updatedAt"] = ts
+    queue["updatedAt"] = ts
+    rejected["updatedAt"] = ts
+    save_json(ACTIVE_PATH, active)
+    save_json(QUEUE_PATH, queue)
+    save_json(REJECTED_PATH, rejected)
+
+
+def known_nicks(active, queue, rejected):
+    s = set()
+    for row in active.get("cappers") or []:
+        if row.get("nickname"):
+            s.add(nick_key(row["nickname"]))
+    for row in queue.get("cappers") or []:
+        if row.get("nickname"):
+            s.add(nick_key(row["nickname"]))
+    for row in rejected.get("cappers") or []:
+        if row.get("nickname"):
+            s.add(nick_key(row["nickname"]))
+    return s
+
+
+def rejected_set(rejected):
+    return {nick_key(r["nickname"]) for r in (rejected.get("cappers") or []) if r.get("nickname")}
+
+
+def reject(rejected, nick, reason, detail="", now=None):
     now = int(now or time.time())
-    t0 = time.time()
-    http = lib.Http()
-    stop_ts = now - lib.RECORD_DAYS * 86400
+    if is_pinned(nick):
+        return
+    if nick_key(nick) in rejected_set(rejected):
+        return
+    rejected.setdefault("cappers", []).append({
+        "nickname": nick,
+        "reason": reason,
+        "date": today_pt(now),
+        "ts": now,
+        "detail": detail or "",
+    })
 
-    boards, board_cov = lib.fetch_leaderboards(http)
-    at50, mo50 = board_set(boards, "all_time", 50), board_set(boards, "monthly", 50)
-    at100, mo100 = board_set(boards, "all_time", 100), board_set(boards, "monthly", 100)
-    wk50 = board_set(boards, "weekly", 50)
-    # Primary: all-time top 50 ∪ monthly top 50. Expand to top 100 + weekly 50 so
-    # hidden books don't leave an empty page; those extras are tagged "Board"/"Weekly".
-    pool = sorted(set(at100) | set(mo100) | set(wk50), key=lambda n: (
-        0 if n in at50 and n in mo50 else 1 if n in at50 or n in mo50 else 2,
-        (boards[n]["ranks"].get("all_time") or 9999),
-        (boards[n]["ranks"].get("monthly") or 9999),
-        n.lower(),
-    ))
 
-    cov = {
-        "leaderboardNames": len(boards),
-        "boards": board_cov,
-        "intersection50": len(at50 & mo50),
-        "union50": len(at50 | mo50),
-        "pool": len(pool),
-        "visible": 0,
-        "hidden": 0,
-        "mmDropped": 0,
-        "negativePnl": 0,
-        "noBook": 0,
-        "shown": 0,
-        "picks": 0,
-        "games": 0,
-        "finishedDropped": 0,
-        "finishedNames": [],
-        "calls": 0,
-        "retries429": 0,
-        "secs": 0,
+def parse_capper_names(raw):
+    """Accept a list of nicks, {cappers|nicknames|names|top10: [...]}, or newline text."""
+    names = []
+    if raw is None:
+        return names
+    if isinstance(raw, str):
+        try:
+            raw = json.loads(raw)
+        except Exception:
+            raw = [n.strip() for n in raw.splitlines() if n.strip() and not n.strip().startswith("#")]
+    if isinstance(raw, dict):
+        raw = raw.get("cappers") or raw.get("nicknames") or raw.get("names") or raw.get("top10") or raw.get("traders") or []
+    if isinstance(raw, list):
+        for item in raw:
+            if isinstance(item, str) and item.strip():
+                names.append(item.strip())
+            elif isinstance(item, dict):
+                n = item.get("nickname") or item.get("name") or item.get("nick") or item.get("username")
+                if n and str(n).strip():
+                    names.append(str(n).strip())
+    out, seen = [], set()
+    for n in names:
+        k = nick_key(n).lower()
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        out.append(nick_key(n))
+    return out
+
+
+def load_pinned_file():
+    return load_json(PINNED_PATH, {"tag": PINNED_TAG, "updatedAt": "", "cappers": []})
+
+
+def save_pinned_file(payload, now=None):
+    payload["tag"] = payload.get("tag") or PINNED_TAG
+    if now:
+        payload["updatedAt"] = pt(now)
+    save_json(PINNED_PATH, payload)
+
+
+def merge_dropin_pins(pinned, log=print):
+    """If a worker dropped kalshi-top10-cappers.json, merge those nicks into the pinned list."""
+    added = []
+    have = {nick_key(r.get("nickname") if isinstance(r, dict) else r).lower() for r in (pinned.get("cappers") or [])}
+    for path in PINNED_DROPINS:
+        if not os.path.exists(path):
+            continue
+        try:
+            raw = json.load(open(path))
+        except Exception as e:
+            log("pinned drop-in unreadable %s: %s" % (path, e))
+            continue
+        for nick in parse_capper_names(raw):
+            k = nick.lower()
+            if k in have:
+                continue
+            have.add(k)
+            pinned.setdefault("cappers", []).append({
+                "nickname": nick,
+                "tag": PINNED_TAG,
+                "source": path,
+                "addedAt": today_pt(),
+            })
+            added.append(nick)
+        if added:
+            log("pinned: merged %d from %s: %s" % (len(added), path, ", ".join(added)))
+    return added
+
+
+def pinned_names(pinned=None):
+    pinned = pinned if pinned is not None else load_pinned_file()
+    names = []
+    for r in pinned.get("cappers") or []:
+        n = nick_key(r.get("nickname") if isinstance(r, dict) else r)
+        if n:
+            names.append(n)
+    return names
+
+
+def is_pinned(nick, pinned=None):
+    k = nick_key(nick).lower()
+    return bool(k) and k in {n.lower() for n in pinned_names(pinned)}
+
+
+def apply_pins(active, queue, rejected, pinned, now, log=print):
+    """Seed pinned nicks into active, un-reject them, pull them out of the queue. Never reject."""
+    moved = []
+    have = {nick_key(r.get("nickname")).lower(): r for r in (active.get("cappers") or []) if r.get("nickname")}
+    for nick in pinned_names(pinned):
+        k = nick.lower()
+        # pull out of rejected / queue
+        before_r = len(rejected.get("cappers") or [])
+        rejected["cappers"] = [r for r in (rejected.get("cappers") or []) if nick_key(r.get("nickname")).lower() != k]
+        if len(rejected.get("cappers") or []) != before_r:
+            log("pinned: un-rejected %s" % nick)
+        queue["cappers"] = [r for r in (queue.get("cappers") or []) if nick_key(r.get("nickname")).lower() != k]
+        if k in have:
+            row = have[k]
+            row["pinned"] = True
+            row["tag"] = PINNED_TAG
+            continue
+        row = {"nickname": nick, "addedAt": today_pt(now), "source": "pinned", "pinned": True, "tag": PINNED_TAG}
+        active.setdefault("cappers", []).append(row)
+        have[k] = row
+        moved.append(nick)
+    if moved:
+        log("pinned: seeded %d into active: %s" % (len(moved), ", ".join(moved)))
+    return moved
+
+
+def fetch_all_boards(http, log=print):
+    """Sports + other category boards, all periods, pnl and volume. Limit 100 (200 is rejected)."""
+    people = {}
+    coverage = {}
+    for cat in BOARD_CATS:
+        for period in BOARD_PERIODS:
+            for metric in BOARD_METRICS:
+                key = "%s:%s:%s" % (cat, period, metric)
+                data = http.get(f"{lib.SOCIAL}/leaderboard", {
+                    "metric_name": metric,
+                    "category": cat,
+                    "time_period": period,
+                    "limit": 100,
+                }) or {}
+                rows = data.get("rank_list") or []
+                coverage[key] = len(rows)
+                for row in rows:
+                    nick = nick_key(row.get("nickname") or "")
+                    if not nick:
+                        continue
+                    rec = people.setdefault(nick, {"nickname": nick, "ranks": {}, "pnl": {}, "sources": []})
+                    rec["ranks"].setdefault(cat, {})
+                    if rec["ranks"][cat].get(period) is None or (row.get("rank") or 9999) < rec["ranks"][cat][period]:
+                        rec["ranks"][cat][period] = row.get("rank")
+                    if metric == "projected_pnl" and cat == "Sports":
+                        rec["pnl"][period] = row.get("value")
+                    rec["sources"].append("%s %s #%s" % (cat, period, row.get("rank")))
+                    rec["is_anonymous"] = bool(row.get("is_anonymous"))
+    log("boards: %d unique names across %d lists" % (len(people), len(coverage)))
+    return people, coverage
+
+
+def sports_ranks(people, nick):
+    return ((people.get(nick) or {}).get("ranks") or {}).get("Sports") or {}
+
+
+def capper_tier(nick, people):
+    r = sports_ranks(people, nick)
+    at, mo = r.get("all_time") or 9999, r.get("monthly") or 9999
+    if at <= 50 and mo <= 50:
+        return "Core"
+    if at <= 50 or mo <= 50:
+        return "Top 50"
+    if at <= 100 or mo <= 100 or (r.get("weekly") or 9999) <= 100 or (r.get("yearly") or 9999) <= 100:
+        return "Board"
+    return "Other"
+
+
+def has_sports_activity(holdings, trades):
+    for h in holdings or []:
+        for mh in h.get("market_holdings") or []:
+            if lib.is_sports_ticker(mh.get("market_ticker") or ""):
+                return True
+    for tr in trades or []:
+        if lib.is_sports_ticker(tr.get("ticker") or ""):
+            return True
+    return False
+
+
+def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache):
+    picks = []
+    for h in holdings or []:
+        ev_tk = h.get("event_ticker") or ""
+        for mh in h.get("market_holdings") or []:
+            tk = mh.get("market_ticker")
+            if not tk:
+                continue
+            try:
+                signed = float(mh.get("signed_open_position") or 0)
+            except Exception:
+                signed = 0.0
+            if abs(signed) < 0.5:
+                continue
+            info = lib.hydrate_market(http, tk, mcache, ecache)
+            if not lib.is_sports_market(info, tk):
+                continue
+            league = lib.league_of(tk, info.get("category")) or "Sports"
+            done, _why = game_finished(info, now, league)
+            if done:
+                continue
+            state = lib.open_state(info, now)
+            if state == "final":
+                continue
+            start_ts = info.get("start_ts") or 0
+            if start_ts and start_ts > now + WINDOW_SECS:
+                continue
+            inv = inv_map.get(tk) if inv_map else None
+            entry, cost = lib.pick_entry_and_cost(inv, signed)
+            side = "yes" if signed > 0 else "no"
+            ask = info.get("yes_ask") if side == "yes" else info.get("no_ask")
+            if entry is None and ask is not None:
+                entry = ask
+                cost = abs(signed) * entry
+            if entry is not None and entry >= MAX_ENTRY:
+                continue
+            if cost is None or cost < MIN_BET:
+                continue
+            if ask is None:
+                continue
+            last_ts = (inv or {}).get("last_ts")
+            if not last_ts:
+                for tr in trades or []:
+                    if tr.get("ticker") == tk:
+                        tts = lib.iso_ts(tr.get("create_date"))
+                        if tts and (not last_ts or tts > last_ts):
+                            last_ts = tts
+            backing = (info.get("yes_sub_title") if side == "yes" else info.get("no_sub_title")) or info.get("title") or tk
+            game = info.get("event_title") or info.get("title") or ev_tk or tk
+            slip = round((ask - entry) * 100, 1) if entry is not None and ask is not None else None
+            picks.append({
+                "ticker": tk,
+                "eventTicker": info.get("event_ticker") or ev_tk,
+                "marketTitle": info.get("event_title") or info.get("title") or "",
+                "contractTitle": info.get("title") or "",
+                "backing": backing,
+                "yesNo": "Yes" if side == "yes" else "No",
+                "label": backing,
+                "entry": round(entry, 4) if entry is not None else None,
+                "price": round(ask, 4),
+                "yesAsk": info.get("yes_ask"),
+                "noAsk": info.get("no_ask"),
+                "cost": round(cost, 2),
+                "contracts": round(abs(signed), 2),
+                "lastTs": last_ts,
+                "startTs": start_ts or 0,
+                "state": "live" if (start_ts and start_ts <= now) else "upcoming",
+                "league": league,
+                "game": game,
+                "bt": bet_type(tk, backing or info.get("title") or ""),
+                "slip": slip,
+                "status": info.get("status"),
+                "result": info.get("result"),
+                "closeTs": info.get("close_ts") or 0,
+            })
+    return picks
+
+
+def grade_from_trades(trades, nick):
+    cycles = lib.closed_cycles(trades, nick)
+    risked = [c["risked"] for c in cycles if c.get("risked")]
+    med = lib.median(risked) if risked else None
+    floor = MIN_BET if (med is None or len(risked) < 3) else max(MIN_BET, 1.5 * med)
+    graded = lib.grade_big_bets(cycles, floor)
+    graded100 = lib.grade_big_bets(cycles, MIN_BET)
+    use = graded if (graded.get("n") or 0) >= 10 else (graded100 if graded100.get("n") else graded)
+    return use if use and use.get("n") else None
+
+
+def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=False):
+    rec = people.get(nick) or {}
+    all_time_pnl = lib.usd_units((metrics or {}).get("pnl"))
+    if all_time_pnl is None:
+        all_time_pnl = (rec.get("pnl") or {}).get("all_time")
+    use = grade_from_trades(trades, nick)
+    tier = capper_tier(nick, people)
+    pin = is_pinned(nick)
+    if pin:
+        tier = PINNED_TAG  # show as Top 10; board rank still lives in ranks{}
+    age = lib.age_days((prof or {}).get("joined_at"), now)
+    sports_ranks_flat = sports_ranks(people, nick)
+    return {
+        "nickname": nick,
+        "profileUrl": "https://kalshi.com/ideas/profiles/" + nick,
+        "joinedAt": (prof or {}).get("joined_at") or "",
+        "followers": (prof or {}).get("follower_count") or 0,
+        "tier": tier,
+        "pinned": pin,
+        "tag": PINNED_TAG if pin else "",
+        "heavy": bool(heavy),
+        "ranks": sports_ranks_flat,
+        "pnl": None if all_time_pnl is None else round(all_time_pnl, 2),
+        "weeklyPnl": (rec.get("pnl") or {}).get("weekly"),
+        "monthlyPnl": (rec.get("pnl") or {}).get("monthly"),
+        "ageDays": age,
+        "graded": {
+            "n": use.get("n") or 0,
+            "w": use.get("w") or 0,
+            "l": use.get("l") or 0,
+            "roi": None if use.get("roi") is None else round(use["roi"], 1),
+            "profit": round(use.get("profit") or 0, 2),
+            "sample": "full" if (use.get("n") or 0) >= 10 else "small",
+        } if use else None,
+        "recordLine": rec_line(nick, use, all_time_pnl, age, tier),
+        "picks": picks,
+        "addedAt": today_pt(now),
     }
 
-    mcache, ecache = {}, {}
-    cappers = []
 
-    for nick in pool:
-        vis, _hold = lib.holdings_visible(http, nick, limit=5)
-        if vis != "visible":
-            cov["hidden"] += 1
+def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20):
+    """Return ('active', row) or ('rejected', reason, detail) for a visible-or-unknown nick."""
+    vis, _ = lib.holdings_visible(http, nick, limit=5)
+    if vis == "hidden":
+        return "rejected", "hidden book", "hidden"
+    if vis != "visible":
+        # Empty/failed API response has no visibility_state — do not permanently reject.
+        raise RuntimeError("holdings visibility unknown (%r)" % (vis,))
+    prof = (http.get(f"{lib.SOCIAL}/profile", {"nickname": nick}) or {}).get("social_profile") or {}
+    metrics = (http.get(f"{lib.SOCIAL}/profile/metrics", {"nickname": nick}) or {}).get("metrics") or {}
+    vis2, holdings = lib.paginate_holdings(http, nick)
+    if vis2 == "hidden":
+        return "rejected", "hidden book", "holdings hidden"
+    stop_ts = now - lib.RECORD_DAYS * 86400
+    vis3, trades = lib.paginate_trades(http, nick, now, stop_ts, max_pages=trades_pages)
+    if vis3 == "hidden":
+        return "rejected", "hidden book", "trades hidden"
+    hold_n = sum(len(h.get("market_holdings") or []) for h in holdings or [])
+    is_mm, mm_why = lib.mm_flags(trades, nick)
+    if is_mm and hold_n >= 25:
+        return "rejected", "market-maker", "%s; open=%d trades=%d" % (", ".join(mm_why), hold_n, len(trades))
+    if not has_sports_activity(holdings, trades):
+        return "rejected", "no sports activity", "open=%d trades=%d" % (hold_n, len(trades))
+    heavy = bool(is_mm)
+    if heavy:
+        log("heavy trader kept %s: %s trades=%d open=%d" % (nick, ", ".join(mm_why), len(trades), hold_n))
+    inv_map = lib.build_inventory(trades, nick)
+    picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
+    row = build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=heavy)
+    return "active", row, ""
+
+
+def upsert_active(active, row):
+    nick = row["nickname"]
+    rows = active.setdefault("cappers", [])
+    for i, existing in enumerate(rows):
+        if nick_key(existing.get("nickname")) == nick_key(nick):
+            row["addedAt"] = existing.get("addedAt") or row.get("addedAt")
+            # Don't persist bulky picks inside the db; data.json carries them.
+            stored = {k: v for k, v in row.items() if k != "picks"}
+            stored["pickCount"] = len(row.get("picks") or [])
+            rows[i] = stored
+            return
+    stored = {k: v for k, v in row.items() if k != "picks"}
+    stored["pickCount"] = len(row.get("picks") or [])
+    rows.append(stored)
+
+
+def remove_nick(lst, nick):
+    k = nick_key(nick)
+    return [r for r in lst if nick_key(r.get("nickname")) != k]
+
+
+def enqueue_new(queue, people, known, n, now, log=print):
+    """Add up to n unseen leaderboard names to the queue. Prefer Sports, then better ranks."""
+    def sort_key(nick):
+        r = sports_ranks(people, nick)
+        sports = 0 if r else 1
+        best = min([r.get(p) or 9999 for p in BOARD_PERIODS] or [9999])
+        return (sports, best, nick.lower())
+    added = []
+    for nick in sorted(people.keys(), key=sort_key):
+        if len(added) >= n:
+            break
+        if nick in known:
             continue
-        cov["visible"] += 1
-        prof = (http.get(f"{lib.SOCIAL}/profile", {"nickname": nick}) or {}).get("social_profile") or {}
-        metrics = (http.get(f"{lib.SOCIAL}/profile/metrics", {"nickname": nick}) or {}).get("metrics") or {}
-        vis2, holdings = lib.paginate_holdings(http, nick)
-        if vis2 == "hidden":
-            cov["visible"] -= 1
-            cov["hidden"] += 1
-            continue
-        vis3, trades = lib.paginate_trades(http, nick, now, stop_ts)
-        if vis3 == "hidden":
-            cov["visible"] -= 1
-            cov["hidden"] += 1
-            continue
-        hold_n = sum(len(h.get("market_holdings") or []) for h in holdings or [])
-        is_mm, mm_why = lib.mm_flags(trades, nick)
-        # Drop only a quoting book (many open markets + MM-like tape).
-        if is_mm and hold_n >= 25:
-            cov["mmDropped"] += 1
-            log(f"MM drop {nick}: {', '.join(mm_why)} trades={len(trades)} open={hold_n}")
-            continue
-        heavy = bool(is_mm)
-        if heavy:
-            log(f"heavy trader kept {nick}: {', '.join(mm_why)} trades={len(trades)} open={hold_n}")
-
-        inv_map = lib.build_inventory(trades, nick)
-        all_time_pnl = lib.usd_units(metrics.get("pnl"))
-        if all_time_pnl is None:
-            all_time_pnl = (boards.get(nick) or {}).get("pnl", {}).get("all_time")
-        monthly_pnl = (boards.get(nick) or {}).get("pnl", {}).get("monthly")
-        weekly_pnl = (boards.get(nick) or {}).get("pnl", {}).get("weekly")
-        if all_time_pnl is not None and all_time_pnl < 0:
-            cov["negativePnl"] += 1
-            log(f"drop {nick}: negative all-time PnL ${all_time_pnl:,.0f}")
-            continue
-
-        cycles = lib.closed_cycles(trades, nick)
-        risked = [c["risked"] for c in cycles if c.get("risked")]
-        med = lib.median(risked) if risked else None
-        floor = MIN_BET if (med is None or len(risked) < 3) else max(MIN_BET, 1.5 * med)
-        graded = lib.grade_big_bets(cycles, floor)
-        # Also a $500-flat record so small-sample cappers still have a W-L when we have it.
-        graded500 = lib.grade_big_bets(cycles, MIN_BET)
-        use = graded if (graded.get("n") or 0) >= 10 else (graded500 if graded500.get("n") else graded)
-        age = lib.age_days(prof.get("joined_at"), now)
-        tier = capper_tier(nick, at50, mo50, at100, mo100)
-        ranks = (boards.get(nick) or {}).get("ranks") or {}
-
-        picks = []
-        for h in holdings or []:
-            ev_tk = h.get("event_ticker") or ""
-            for mh in h.get("market_holdings") or []:
-                tk = mh.get("market_ticker")
-                if not tk:
-                    continue
-                try:
-                    signed = float(mh.get("signed_open_position") or 0)
-                except Exception:
-                    signed = 0.0
-                if abs(signed) < 0.5:
-                    continue
-                info = lib.hydrate_market(http, tk, mcache, ecache)
-                if not lib.is_sports_market(info, tk):
-                    continue
-                league = lib.league_of(tk, info.get("category")) or "Sports"
-                done, why = game_finished(info, now, league)
-                if done:
-                    continue
-                state = lib.open_state(info, now)
-                if state == "final":
-                    continue
-                start_ts = info.get("start_ts") or 0
-                # 24h window: live or starting within 24h. No start time goes last, still listed if open.
-                if start_ts and start_ts > now + WINDOW_SECS:
-                    continue
-                inv = inv_map.get(tk)
-                entry, cost = lib.pick_entry_and_cost(inv, signed)
-                side = "yes" if signed > 0 else "no"
-                ask = info.get("yes_ask") if side == "yes" else info.get("no_ask")
-                if entry is None and ask is not None:
-                    entry = ask
-                    cost = abs(signed) * entry
-                if entry is not None and entry >= MAX_ENTRY:
-                    continue
-                if cost is None or cost < MIN_BET:
-                    continue
-                if ask is None:
-                    continue
-                last_ts = (inv or {}).get("last_ts")
-                if not last_ts:
-                    for tr in trades:
-                        if tr.get("ticker") == tk:
-                            tts = lib.iso_ts(tr.get("create_date"))
-                            if tts and (not last_ts or tts > last_ts):
-                                last_ts = tts
-                backing = (info.get("yes_sub_title") if side == "yes" else info.get("no_sub_title")) or info.get("title") or tk
-                game = info.get("event_title") or info.get("title") or ev_tk or tk
-                slip = round((ask - entry) * 100, 1) if entry is not None and ask is not None else None
-                picks.append({
-                    "ticker": tk,
-                    "eventTicker": info.get("event_ticker") or ev_tk,
-                    "marketTitle": info.get("event_title") or info.get("title") or "",
-                    "contractTitle": info.get("title") or "",
-                    "backing": backing,
-                    "yesNo": "Yes" if side == "yes" else "No",
-                    "label": backing,
-                    "entry": round(entry, 4) if entry is not None else None,
-                    "price": round(ask, 4),
-                    "yesAsk": info.get("yes_ask"),
-                    "noAsk": info.get("no_ask"),
-                    "yesSubTitle": info.get("yes_sub_title") or "",
-                    "noSubTitle": info.get("no_sub_title") or "",
-                    "cost": round(cost, 2),
-                    "contracts": round(abs(signed), 2),
-                    "lastTs": last_ts,
-                    "startTs": start_ts or 0,
-                    "state": "live" if (start_ts and start_ts <= now) else "upcoming",
-                    "league": league,
-                    "game": game,
-                    "bt": bet_type(tk, backing or info.get("title") or ""),
-                    "slip": slip,
-                    "status": info.get("status"),
-                    "result": info.get("result"),
-                    "closeTs": info.get("close_ts") or 0,
-                })
-
-        if not picks:
-            cov["noBook"] += 1
-
-        cappers.append({
+        src = ", ".join(((people[nick].get("sources") or [])[:3]) or ["leaderboard"])
+        queue.setdefault("cappers", []).append({
             "nickname": nick,
-            "profileUrl": "https://kalshi.com/ideas/profiles/" + nick,
-            "joinedAt": prof.get("joined_at") or "",
-            "followers": prof.get("follower_count") or 0,
-            "tier": tier, "heavy": heavy,
-            "ranks": ranks,
-            "pnl": None if all_time_pnl is None else round(all_time_pnl, 2),
-            "weeklyPnl": weekly_pnl,
-            "monthlyPnl": monthly_pnl,
-            "ageDays": age,
-            "graded": {
-                "n": use.get("n") or 0,
-                "w": use.get("w") or 0,
-                "l": use.get("l") or 0,
-                "roi": None if use.get("roi") is None else round(use["roi"], 1),
-                "profit": round(use.get("profit") or 0, 2),
-                "sample": "full" if (use.get("n") or 0) >= 10 else "small",
-            } if use and use.get("n") else None,
-            "recordLine": rec_line(nick, use if use and use.get("n") else None, all_time_pnl, age, tier),
-            "picks": picks,
+            "addedAt": today_pt(now),
+            "source": src,
         })
+        known.add(nick)
+        added.append(nick)
+    log("queued %d new cappers: %s" % (len(added), ", ".join(added) if added else "(none)"))
+    return added
 
-    # Group open picks into one card per game (event).
-    by = {}
-    order = []
+
+def group_games(cappers, now, log=print):
+    by, order, dropped = {}, [], []
     for c in cappers:
         rec = c.get("graded")
-        for p in c["picks"]:
+        for p in c.get("picks") or []:
             gid = p.get("eventTicker") or (p.get("game") + "|" + str(p.get("startTs") or 0))
             if gid not in by:
                 by[gid] = {
-                    "id": gid,
-                    "game": p["game"],
-                    "league": p["league"],
-                    "startTs": p["startTs"] or 0,
-                    "start": pt(p["startTs"]) if p["startTs"] else "",
-                    "live": bool(p["startTs"] and p["startTs"] <= now),
-                    "state": p["state"],
-                    "picks": {},
+                    "id": gid, "game": p["game"], "league": p["league"],
+                    "startTs": p["startTs"] or 0, "start": pt(p["startTs"]) if p["startTs"] else "",
+                    "live": bool(p["startTs"] and p["startTs"] <= now), "state": p["state"], "picks": {},
                 }
                 order.append(gid)
             g = by[gid]
@@ -346,41 +630,24 @@ def build(now=None, log=print):
                 g["live"] = p["startTs"] <= now
             key = p["ticker"] + "|" + p["yesNo"]
             slot = g["picks"].setdefault(key, {
-                "key": key,
-                "ticker": p["ticker"],
-                "eventTicker": p.get("eventTicker") or gid,
-                "mid": p["ticker"],
-                "bt": p["bt"],
-                "big": p["label"],
+                "key": key, "ticker": p["ticker"], "eventTicker": p.get("eventTicker") or gid,
+                "mid": p["ticker"], "bt": p["bt"], "big": p["label"],
                 "sub": p["game"] if p["label"] != p["game"] else p.get("contractTitle") or "",
                 "view": {
                     "backing": p["backing"],
                     "marketTitle": p["marketTitle"] or p.get("contractTitle") or p["game"],
-                    "outcome": p["backing"],
-                    "yesNo": p["yesNo"],
-                    "price": p["price"],
-                    "ticker": p["ticker"],
+                    "outcome": p["backing"], "yesNo": p["yesNo"], "price": p["price"], "ticker": p["ticker"],
                 },
-                "backers": [],
-                "total": 0,
-                "tags": [],
-                "slip": p.get("slip"),
-                "startTs": p["startTs"],
-                "state": p["state"],
-                "status": p.get("status"),
-                "result": p.get("result"),
-                "closeTs": p.get("closeTs") or 0,
-                "yesAsk": p.get("yesAsk"),
-                "noAsk": p.get("noAsk"),
+                "backers": [], "total": 0, "tags": [], "slip": p.get("slip"),
+                "startTs": p["startTs"], "state": p["state"], "status": p.get("status"),
+                "result": p.get("result"), "closeTs": p.get("closeTs") or 0,
+                "yesAsk": p.get("yesAsk"), "noAsk": p.get("noAsk"),
             })
             slot["backers"].append({
-                "name": c["nickname"],
-                "cost": p["cost"],
-                "avg": p.get("entry"),
+                "name": c["nickname"], "cost": p["cost"], "avg": p.get("entry"),
                 "line": rec_line(c["nickname"], rec, c.get("pnl"), None, c["tier"]),
                 "rec": {"w": rec["w"], "l": rec["l"], "n": rec["n"]} if rec else None,
-                "lastTs": p.get("lastTs"),
-                "tier": c["tier"],
+                "lastTs": p.get("lastTs"), "tier": c["tier"],
             })
             slot["total"] = round(sum(b["cost"] for b in slot["backers"]), 2)
             tags = []
@@ -388,17 +655,13 @@ def build(now=None, log=print):
                 if b["tier"] not in tags:
                     tags.append(b["tier"])
             slot["tags"] = tags
-
     games = []
-    dropped = []
     for gid in order:
         g = by[gid]
         picks = list(g["picks"].values())
-        # Re-check finished on the grouped game
         if g["startTs"] and g["startTs"] <= now:
             info = {
-                "status": picks[0].get("status"),
-                "result": picks[0].get("result"),
+                "status": picks[0].get("status"), "result": picks[0].get("result"),
                 "start_ts": g["startTs"],
                 "close_ts": min((p.get("closeTs") or 0) for p in picks) or 0,
                 "yes_ask": next((p.get("yesAsk") for p in picks if p.get("bt") == "Moneyline"), None),
@@ -412,53 +675,217 @@ def build(now=None, log=print):
                 continue
         for p in picks:
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
-            p.pop("status", None)
-            p.pop("result", None)
-            p.pop("closeTs", None)
-            p.pop("yesAsk", None)
-            p.pop("noAsk", None)
+            for k in ("status", "result", "closeTs", "yesAsk", "noAsk"):
+                p.pop(k, None)
         g["picks"] = picks
         games.append(g)
-
-    # soonest first, live first (PE N/A)
     games.sort(key=lambda g: (0 if g["live"] else 1, g["startTs"] or 10**12, g["id"]))
+    if dropped:
+        log("finished games removed: %d: %s" % (len(dropped), "; ".join(dropped[:12])))
+    return games, dropped
+
+
+def build(now=None, log=print):
+    now = int(now or time.time())
+    t0 = time.time()
+    http = lib.Http()
+    active, queue, rejected = load_dbs()
+    pinned = load_pinned_file()
+    merge_dropin_pins(pinned, log)
+    apply_pins(active, queue, rejected, pinned, now, log)
+    save_pinned_file(pinned, now)
+    save_dbs(active, queue, rejected, now)
+    people, board_cov = fetch_all_boards(http, log)
+    mcache, ecache = {}, {}
+    cov = {
+        "boards": {k: v for k, v in board_cov.items() if v},
+        "leaderboardNames": len(people),
+        "activeRefreshed": 0,
+        "queueReviewed": 0,
+        "queueToActive": 0,
+        "queueRejected": 0,
+        "queuedNew": 0,
+        "mmDropped": 0,
+        "hiddenRejected": 0,
+        "noSportsRejected": 0,
+        "shown": 0,
+        "picks": 0,
+        "games": 0,
+        "finishedDropped": 0,
+        "finishedNames": [],
+        "calls": 0,
+        "retries429": 0,
+        "secs": 0,
+        "minBet": MIN_BET,
+    }
+    live_cappers = []
+
+    # 1) Refresh the active db first.
+    still_active = []
+    for row in list(active.get("cappers") or []):
+        nick = nick_key(row.get("nickname"))
+        if not nick:
+            continue
+        if nick in rejected_set(rejected) and not is_pinned(nick):
+            continue
+        try:
+            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
+        except Exception as e:
+            log("active refresh failed %s: %s — keeping in active" % (nick, e))
+            if is_pinned(nick):
+                row = dict(row, pinned=True, tag=PINNED_TAG, tier=row.get("tier") or PINNED_TAG)
+            still_active.append(row)
+            live_cappers.append(dict(row, picks=row.get("picks") or []))
+            continue
+        if verdict[0] == "rejected":
+            _v, reason, detail = verdict
+            if is_pinned(nick):
+                log("pinned kept in active despite %s (%s): %s" % (reason, nick, detail))
+                kept = dict(row, pinned=True, tag=PINNED_TAG, tier=PINNED_TAG, rejectNote="%s: %s" % (reason, detail), picks=[])
+                still_active.append({k: v for k, v in kept.items() if k != "picks"} | {"pickCount": 0})
+                live_cappers.append(kept)
+                continue
+            reject(rejected, nick, reason, detail, now)
+            if reason == "hidden book":
+                cov["hiddenRejected"] += 1
+            elif reason == "market-maker":
+                cov["mmDropped"] += 1
+            elif reason == "no sports activity":
+                cov["noSportsRejected"] += 1
+            log("active → rejected %s (%s: %s)" % (nick, reason, detail))
+            continue
+        _v, cap, _ = verdict
+        cap["addedAt"] = row.get("addedAt") or cap.get("addedAt")
+        stored = {k: v for k, v in cap.items() if k != "picks"}
+        stored["pickCount"] = len(cap.get("picks") or [])
+        still_active.append(stored)
+        live_cappers.append(cap)
+        cov["activeRefreshed"] += 1
+    active["cappers"] = still_active
+    save_dbs(active, queue, rejected, now)
+    log("phase 1: refreshed %d active" % cov["activeRefreshed"])
+
+    # If the queue is empty at the start of this cycle (first run), seed 10 so they get reviewed now.
+    known = known_nicks(active, queue, rejected)
+    seeded = False
+    if not (queue.get("cappers") or []):
+        enqueue_new(queue, people, known, NEW_PER_SCAN, now, log)
+        seeded = True
+        save_dbs(active, queue, rejected, now)
+
+    # 2) Review the queue: move each name to active or rejected.
+    pending = list(queue.get("cappers") or [])
+    leftover = []
+    for item in pending:
+        nick = nick_key(item.get("nickname"))
+        if not nick:
+            continue
+        if nick in rejected_set(rejected) or any(nick_key(r.get("nickname")) == nick for r in active.get("cappers") or []):
+            cov["queueReviewed"] += 1
+            continue
+        try:
+            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=20)
+        except Exception as e:
+            log("queue review failed %s: %s — leaving in queue" % (nick, e))
+            leftover.append(item)
+            continue
+        cov["queueReviewed"] += 1
+        if verdict[0] == "rejected":
+            _v, reason, detail = verdict
+            if is_pinned(nick):
+                log("pinned kept (from queue) despite %s (%s): %s" % (reason, nick, detail))
+                kept = {"nickname": nick, "pinned": True, "tag": PINNED_TAG, "tier": PINNED_TAG, "addedAt": today_pt(now), "picks": [], "pickCount": 0, "recordLine": nick + " · " + PINNED_TAG}
+                upsert_active(active, kept)
+                live_cappers.append(kept)
+                continue
+            reject(rejected, nick, reason, detail, now)
+            cov["queueRejected"] += 1
+            if reason == "hidden book":
+                cov["hiddenRejected"] += 1
+            elif reason == "market-maker":
+                cov["mmDropped"] += 1
+            elif reason == "no sports activity":
+                cov["noSportsRejected"] += 1
+            log("queue → rejected %s (%s: %s)" % (nick, reason, detail))
+            continue
+        _v, cap, _ = verdict
+        upsert_active(active, cap)
+        live_cappers.append(cap)
+        cov["queueToActive"] += 1
+        log("queue → active %s picks=%d" % (nick, len(cap.get("picks") or [])))
+    queue["cappers"] = leftover
+    save_dbs(active, queue, rejected, now)
+    log("phase 2: reviewed %d queue (%d active, %d rejected)" % (cov["queueReviewed"], cov["queueToActive"], cov["queueRejected"]))
+
+    # 3) Add 10 new leaderboard names not already in active/rejected/queue.
+    # If we already seeded the empty queue at the start of this run, those 10 were reviewed
+    # above; still add 10 more so the next scan has a queue, per the standing rule.
+    known = known_nicks(active, queue, rejected)
+    added = enqueue_new(queue, people, known, NEW_PER_SCAN, now, log)
+    cov["queuedNew"] = len(added)
+    save_dbs(active, queue, rejected, now)
+
+    # Dedup live cappers (active refresh + newly activated)
+    byn = {}
+    for c in live_cappers:
+        byn[nick_key(c["nickname"])] = c
+    # Any active db member we failed to refresh still appears on the Cappers tab, no invented picks.
+    live_names = set(byn)
+    for row in active.get("cappers") or []:
+        n = nick_key(row.get("nickname"))
+        if n and n not in live_names:
+            byn[n] = dict(row, picks=[])
+    cappers = list(byn.values())
+
+    games, dropped = group_games(cappers, now, log)
     cov["finishedDropped"] = len(dropped)
     cov["finishedNames"] = dropped
-    cov["shown"] = sum(1 for c in cappers if c["picks"])
+    cov["shown"] = sum(1 for c in cappers if c.get("picks"))
     cov["picks"] = sum(len(g["picks"]) for g in games)
     cov["games"] = len(games)
     cov["calls"] = http.calls
     cov["retries429"] = http.retries_429
     cov["secs"] = round(time.time() - t0, 1)
-    if dropped:
-        log("finished games removed: %d: %s" % (len(dropped), "; ".join(dropped[:12])))
+    cov["dbActive"] = len(active.get("cappers") or [])
+    cov["dbQueue"] = len(queue.get("cappers") or [])
+    cov["dbRejected"] = len(rejected.get("cappers") or [])
+    cov["dbPinned"] = sum(1 for r in (active.get("cappers") or []) if r.get("pinned") or r.get("tag") == PINNED_TAG or r.get("tier") == PINNED_TAG)
 
-    # Drop pick lists off capper rows in the published file (they're on games); keep a count.
-    pub_cappers = []
-    for c in cappers:
-        pub_cappers.append({k: v for k, v in c.items() if k != "picks"} | {"pickCount": len(c["picks"])})
-    # Sort cappers: Core, then Top 50, then by win rate then wins, then PnL
     def cap_key(c):
-        tier_n = 0 if c["tier"] == "Core" else 1 if c["tier"] == "Top 50" else 2
+        pin_n = 0 if (c.get("pinned") or c.get("tier") == PINNED_TAG) else 1
+        tier_n = {PINNED_TAG: 0, "Core": 1, "Top 50": 2, "Board": 3}.get(c.get("tier") or "", 4)
         g = c.get("graded") or {"w": 0, "l": 0, "n": 0}
         n = (g.get("w") or 0) + (g.get("l") or 0)
         wr = (g.get("w") or 0) / n if n else -1
         sample = 0 if n >= 10 else 1
-        return (tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
+        ungraded = 0 if n else 1
+        return (pin_n, ungraded, tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
+    pub_cappers = []
+    for c in cappers:
+        pub_cappers.append({k: v for k, v in c.items() if k != "picks"} | {"pickCount": len(c.get("picks") or [])})
     pub_cappers.sort(key=cap_key)
 
     payload = {
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi Sports leaderboard (projected PnL). Kalshi has no 30-day period; monthly is the closest stand-in. Primary pool is all-time top 50 ∩/∪ monthly top 50. Most top traders hide their book; visible traders from all-time/monthly top 100 and weekly top 50 are included so the board is not empty. Positions and W-L come only from public profiles and the public trade tape.",
+            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. W-L is reconstructed from the public sports tape and is never invented. Minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
+            "db": {
+                "active": cov["dbActive"],
+                "queue": cov["dbQueue"],
+                "rejected": cov["dbRejected"],
+                "pinned": cov["dbPinned"],
+            },
         },
         "cappers": pub_cappers,
         "games": games,
     }
-    log("scan visible {visible} hidden {hidden} mm {mmDropped} shown {shown} picks {picks} games {games} finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov))
+    log(
+        "scan active {dbActive} queue {dbQueue} rejected {dbRejected} shown {shown} "
+        "picks {picks} games {games} finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov)
+    )
     return payload
 
 
@@ -466,7 +893,8 @@ def main():
     data = build()
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
-    print("wrote", out, "games", len(data["games"]), "cappers", len(data["cappers"]))
+    print("wrote", out, "games", len(data["games"]), "cappers", len(data["cappers"]),
+          "db", data["source"]["db"])
 
 
 if __name__ == "__main__":

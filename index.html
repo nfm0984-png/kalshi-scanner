@@ -16,7 +16,7 @@ fetch('data.json?t=' + _t, {cache: 'no-store'}).then(function (r) {
 }).then(function (data) {
   window.__DATA = data;
   var s = document.createElement('script');
-  s.src = 'app.js?v=4544f008f7&t=' + Date.now();
+  s.src = 'app.js?v=76d23d2faa&t=' + Date.now();
   s.onerror = function () { document.getElementById('boot').textContent = 'Could not load the app. Pull to reload.'; };
   document.body.appendChild(s);
 }).catch(function (e) { document.getElementById('boot').textContent = 'Could not load data (' + e.message + '). Pull to reload.'; });

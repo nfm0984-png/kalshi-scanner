@@ -1,0 +1,6 @@
+{
+  "tag": "Top 10",
+  "updatedAt": "",
+  "note": "Pinned cappers Noel wants followed. They stay in the active db and are never rejected. Each scan also merges /workspace/kalshi-top10-cappers.json when that drop-in file exists. You can also edit this list directly: add {\"nickname\": \"TheirKalshiName\"} objects (or plain name strings) under cappers.",
+  "cappers": []
+}
