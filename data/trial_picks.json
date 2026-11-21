@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 20 \u00b7 10:05 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 10:51 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -107,6 +107,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Fri Nov 20 \u00b7 10:05 PM PT"
+    },
+    {
+      "id": "Ryqeux|KXWTAMATCH-26NOV20SAKURR-URR|Yes",
+      "nickname": "Ryqeux",
+      "ticker": "KXWTAMATCH-26NOV20SAKURR-URR",
+      "eventTicker": "KXWTAMATCH-26NOV20SAKURR",
+      "game": "Sakatsume vs Urrutia",
+      "backing": "Maria Florencia Urrutia",
+      "yesNo": "Yes",
+      "entry": 0.0377,
+      "price": 0.04,
+      "cost": 485.29,
+      "contracts": 12885.0,
+      "startTs": 1795245300,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 20 \u00b7 10:51 PM PT",
+      "recordedTs": 1795243891,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
