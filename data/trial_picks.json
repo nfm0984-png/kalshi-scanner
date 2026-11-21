@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:57 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1238,6 +1238,27 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXUFCFIGHT-26NOV21MOTFAN-FAN|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXUFCFIGHT-26NOV21MOTFAN-FAN",
+      "eventTicker": "KXUFCFIGHT-26NOV21MOTFAN",
+      "game": "Fight Night: Nikolas Motta vs Dom Mar Fan",
+      "backing": "Dom Mar Fan",
+      "yesNo": "Yes",
+      "entry": 0.4979,
+      "price": 0.38,
+      "cost": 5.48,
+      "contracts": 11.0,
+      "startTs": 1795292400,
+      "league": "MMA",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 7:57 AM PT",
+      "recordedTs": 1795276621,
       "status": "open",
       "result": null,
       "settledAt": null
