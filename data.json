@@ -1,8 +1,8 @@
 {
-  "scannedAt": "Sat Nov 21 · 12:10 AM PT",
-  "ts": 1795248618,
+  "scannedAt": "Sat Nov 21 \u00b7 12:36 AM PT",
+  "ts": 1795250216,
   "source": {
-    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
+    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
     "coverage": {
       "boards": {
@@ -48,7 +48,7 @@
         "Mentions:yearly:volume": 100
       },
       "leaderboardNames": 1482,
-      "activeRefreshed": 19,
+      "activeRefreshed": 22,
       "queueReviewed": 40,
       "queueToActive": 3,
       "queueRejected": 37,
@@ -59,30 +59,75 @@
       "shown": 0,
       "picks": 0,
       "games": 0,
-      "finishedDropped": 0,
-      "finishedNames": [],
-      "calls": 553,
+      "finishedDropped": 40,
+      "finishedNames": [
+        "Orlando vs Brooklyn / regine (kalshi finalized)",
+        "Orlando vs Brooklyn / regine (kalshi finalized)",
+        "Toronto vs Detroit / regine (kalshi finalized)",
+        "Toronto vs Detroit / regine (kalshi finalized)",
+        "UTEP vs Air Force: Total Points / BWmarkets (kalshi finalized)",
+        "Orlando vs Brooklyn: Spread / regine (kalshi finalized)",
+        "Orlando vs Brooklyn: Spread / regine (kalshi finalized)",
+        "Orlando vs Brooklyn: Spread / regine (kalshi finalized)",
+        "Toronto vs Detroit: Spread / regine (kalshi finalized)",
+        "Toronto vs Detroit: Spread / regine (kalshi finalized)",
+        "Orlando vs Brooklyn: Total Points / regine (kalshi finalized)",
+        "Orlando vs Brooklyn: Total Points / regine (kalshi finalized)",
+        "Toronto vs Detroit: Total Points / regine (kalshi finalized)",
+        "Toronto vs Detroit: Total Points / regine (kalshi finalized)",
+        "Washington vs Chicago / regine (kalshi finalized)",
+        "Washington vs Chicago / regine (kalshi finalized)",
+        "Washington vs Chicago: Spread / regine (kalshi finalized)",
+        "Washington vs Chicago: Spread / regine (kalshi finalized)",
+        "Washington vs Chicago: Spread / regine (kalshi finalized)",
+        "Washington vs Chicago: Spread / regine (kalshi finalized)",
+        "Washington vs Chicago: Team Total / regine (kalshi finalized)",
+        "Washington vs Chicago: Total Points / regine (kalshi finalized)",
+        "NC St. vs Seton Hall: Spread / BWmarkets (kalshi finalized)",
+        "Trotter vs Mayo / iluminado (kalshi finalized)",
+        "Oregon vs Michigan St.: Total Points / autofade (kalshi finalized)",
+        "Houston vs Denver / TheGrinder (kalshi finalized)",
+        "Sacramento vs Los Angeles L / TheGrinder (kalshi finalized)",
+        "Sacramento vs Los Angeles L / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Spread / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Spread / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Spread / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Team Total / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Team Total / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Team Total / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Total Points / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Total Points / regine (kalshi finalized)",
+        "Sacramento vs Los Angeles L: Total Points / regine (kalshi finalized)",
+        "Sakatsume vs Urrutia / Ryqeux (kalshi finalized)",
+        "Central Coast vs Perth: Total Goals / Wiseandstrong (kalshi finalized)"
+      ],
+      "calls": 659,
       "retries429": 0,
-      "secs": 83.6,
+      "secs": 98.8,
       "minBet": 100,
       "queuedNextHour": 20,
-      "namesChecked": 59,
+      "namesChecked": 62,
       "newPerScan": 20,
       "reviewNew": true,
-      "dbActive": 22,
+      "carriedPicks": 0,
+      "carriedDropped": 40,
+      "dbActive": 25,
       "dbQueue": 20,
-      "dbRejected": 271,
-      "dbPinned": 7,
+      "dbRejected": 308,
+      "dbPinned": 8,
+      "carriedFollowPicks": 0,
+      "carriedFollowDropped": 6,
       "followingOpen": 0,
       "followingCappers": 8,
       "trialRecorded": 6,
       "trialGraded": 6
     },
     "db": {
-      "active": 22,
+      "active": 25,
       "queue": 20,
-      "rejected": 271,
-      "pinned": 7
+      "rejected": 308,
+      "pinned": 8
     }
   },
   "cappers": [
@@ -111,7 +156,7 @@
         "profit": 38074.99,
         "sample": "full"
       },
-      "recordLine": "TheGrinder · 10-0 · +17% · -$184.2k all · My 40",
+      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$184.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -120,7 +165,7 @@
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1659,
+      "followers": 1674,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -141,7 +186,7 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux · 1-0 · +800% · +$132.9k all · My 40",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$132.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -170,7 +215,7 @@
         "profit": 855.86,
         "sample": "small"
       },
-      "recordLine": "emilianotijerina · 1-0 · +88% · +$32.6k all · Board",
+      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$32.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "pickCount": 0,
       "followCount": 0
@@ -199,7 +244,7 @@
         "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado · 5-1 · +8% · +$141.0k all · My 40",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -228,7 +273,7 @@
         "profit": 257.35,
         "sample": "small"
       },
-      "recordLine": "nettinyahoo · 3-1 · +23% · +$91.6k all · My 40",
+      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -237,7 +282,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23438,
+      "followers": 23450,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -252,7 +297,7 @@
       "monthlyPnl": null,
       "ageDays": 656,
       "graded": null,
-      "recordLine": "BWmarkets · +$877.6k all · My 40",
+      "recordLine": "BWmarkets \u00b7 +$877.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -276,7 +321,7 @@
       "monthlyPnl": 58466.598,
       "ageDays": 771,
       "graded": null,
-      "recordLine": "bama0037 · +$134.2k all · My 40",
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -299,7 +344,7 @@
       "monthlyPnl": 95440.445,
       "ageDays": 217,
       "graded": null,
-      "recordLine": "past.grass · +$117.9k all · My 40",
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -330,7 +375,7 @@
         "profit": -21.84,
         "sample": "small"
       },
-      "recordLine": "WorkerTrader · 2-1 · -13% · +$1.39M all · Core",
+      "recordLine": "WorkerTrader \u00b7 2-1 \u00b7 -13% \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -360,7 +405,7 @@
         "profit": 875.93,
         "sample": "small"
       },
-      "recordLine": "autofade · 6-0 · +55% · +$517.6k all · Board",
+      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.6k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -390,7 +435,7 @@
         "profit": -1502.38,
         "sample": "small"
       },
-      "recordLine": "breezy.panther · 2-2 · -18% · +$262.2k all · Board",
+      "recordLine": "breezy.panther \u00b7 2-2 \u00b7 -18% \u00b7 +$262.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -422,7 +467,7 @@
         "profit": 0,
         "sample": "small"
       },
-      "recordLine": "reluctant.fox5394 · 0-0 · +0% · +$385.7k all · Top 50",
+      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.7k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -445,7 +490,7 @@
       "monthlyPnl": null,
       "ageDays": 348,
       "graded": null,
-      "recordLine": "norrisfan · +$484.3k all · Board",
+      "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -468,7 +513,7 @@
       "monthlyPnl": null,
       "ageDays": 162,
       "graded": null,
-      "recordLine": "devex · +$413.3k all · Board",
+      "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -491,7 +536,7 @@
       "monthlyPnl": 75496.36,
       "ageDays": 336,
       "graded": null,
-      "recordLine": "regine · +$81.6k all · Board",
+      "recordLine": "regine \u00b7 +$81.6k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -513,7 +558,7 @@
       "monthlyPnl": null,
       "ageDays": 190,
       "graded": null,
-      "recordLine": "playful.hornet0945 · +$43.2k all · Board",
+      "recordLine": "playful.hornet0945 \u00b7 +$43.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -535,7 +580,7 @@
       "monthlyPnl": null,
       "ageDays": 247,
       "graded": null,
-      "recordLine": "Muffat00 · +$11.8k all · Board",
+      "recordLine": "Muffat00 \u00b7 +$11.8k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "pickCount": 0,
       "followCount": 0
@@ -557,7 +602,7 @@
       "monthlyPnl": null,
       "ageDays": 657,
       "graded": null,
-      "recordLine": "majebettor123 · +$7.34k all · Board",
+      "recordLine": "majebettor123 \u00b7 +$7.34k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -579,7 +624,7 @@
       "monthlyPnl": null,
       "ageDays": 185,
       "graded": null,
-      "recordLine": "double.boar6452 · +$5.49k all · Board",
+      "recordLine": "double.boar6452 \u00b7 +$5.49k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -601,7 +646,7 @@
       "monthlyPnl": null,
       "ageDays": 285,
       "graded": null,
-      "recordLine": "jspana99 · -$4.89k all · Board",
+      "recordLine": "jspana99 \u00b7 -$4.89k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -623,7 +668,7 @@
       "monthlyPnl": null,
       "ageDays": 269,
       "graded": null,
-      "recordLine": "Wiseandstrong · -$119.1k all · Board",
+      "recordLine": "Wiseandstrong \u00b7 -$119.1k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -645,7 +690,67 @@
       "monthlyPnl": null,
       "ageDays": 296,
       "graded": null,
-      "recordLine": "reach.draft · -$331.8k all · Board",
+      "recordLine": "reach.draft \u00b7 -$331.8k all \u00b7 Board",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "80Mill",
+      "profileUrl": "https://kalshi.com/ideas/profiles/80Mill",
+      "joinedAt": "2025-10-06",
+      "followers": 5,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "pnl": 1719.29,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 411,
+      "graded": null,
+      "recordLine": "80Mill \u00b7 +$1.72k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "314GoalDigger",
+      "profileUrl": "https://kalshi.com/ideas/profiles/314GoalDigger",
+      "joinedAt": "2024-11-05",
+      "followers": 3,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "pnl": 203.05,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 746,
+      "graded": null,
+      "recordLine": "314GoalDigger \u00b7 +$203 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "Aaabbbb",
+      "profileUrl": "https://kalshi.com/ideas/profiles/Aaabbbb",
+      "joinedAt": "2026-02-16",
+      "followers": 24,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "pnl": -85104.33,
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "ageDays": 278,
+      "graded": null,
+      "recordLine": "Aaabbbb \u00b7 -$85.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "pickCount": 0,
       "followCount": 0
@@ -653,7 +758,7 @@
   ],
   "games": [],
   "following": {
-    "startedAt": "Fri Nov 20 · 7:26 PM PT",
+    "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
     "startedTs": 1795231577,
     "cappers": [
       {
@@ -743,8 +848,18 @@
   },
   "scanHistory": [
     {
+      "ts": 1795250216,
+      "at": "Sat Nov 21 \u00b7 12:36 AM PT",
+      "names": 62,
+      "newFollows": [],
+      "followed": 8,
+      "target": 40,
+      "openPicks": 0,
+      "ids": []
+    },
+    {
       "ts": 1795248618,
-      "at": "Sat Nov 21 · 12:10 AM PT",
+      "at": "Sat Nov 21 \u00b7 12:10 AM PT",
       "names": 59,
       "newFollows": [
         "emilianotijerina"
@@ -756,7 +871,7 @@
     },
     {
       "ts": 1795245840,
-      "at": "Fri Nov 20 · 11:24 PM PT",
+      "at": "Fri Nov 20 \u00b7 11:24 PM PT",
       "names": 38,
       "newFollows": [],
       "followed": 7,
@@ -766,7 +881,7 @@
     },
     {
       "ts": 1795243891,
-      "at": "Fri Nov 20 · 10:51 PM PT",
+      "at": "Fri Nov 20 \u00b7 10:51 PM PT",
       "names": 54,
       "newFollows": [
         "nettinyahoo"
@@ -781,7 +896,7 @@
     },
     {
       "ts": 1795241130,
-      "at": "Fri Nov 20 · 10:05 PM PT",
+      "at": "Fri Nov 20 \u00b7 10:05 PM PT",
       "names": 34,
       "newFollows": [],
       "followed": 6,
@@ -791,7 +906,7 @@
     },
     {
       "ts": 1795237578,
-      "at": "Fri Nov 20 · 9:06 PM PT",
+      "at": "Fri Nov 20 \u00b7 9:06 PM PT",
       "names": 34,
       "newFollows": [],
       "followed": 6,
@@ -816,7 +931,7 @@
     },
     {
       "ts": 1795235892,
-      "at": "Fri Nov 20 · 8:38 PM PT",
+      "at": "Fri Nov 20 \u00b7 8:38 PM PT",
       "names": 121,
       "newFollows": [
         "Ryqeux",
@@ -834,7 +949,7 @@
     },
     {
       "ts": 1795233745,
-      "at": "Fri Nov 20 · 8:02 PM PT",
+      "at": "Fri Nov 20 \u00b7 8:02 PM PT",
       "names": 0,
       "newFollows": [],
       "followed": 4,
@@ -848,7 +963,7 @@
     },
     {
       "ts": 1795231577,
-      "at": "Fri Nov 20 · 7:26 PM PT",
+      "at": "Fri Nov 20 \u00b7 7:26 PM PT",
       "names": 0,
       "newFollows": [
         "bama0037",
@@ -866,7 +981,7 @@
     },
     {
       "ts": 1795229927,
-      "at": "Fri Nov 20 · 6:58 PM PT",
+      "at": "Fri Nov 20 \u00b7 6:58 PM PT",
       "names": 0,
       "newFollows": [],
       "followed": 0,
@@ -900,7 +1015,7 @@
     },
     {
       "ts": 1795228193,
-      "at": "Fri Nov 20 · 6:29 PM PT",
+      "at": "Fri Nov 20 \u00b7 6:29 PM PT",
       "names": 0,
       "newFollows": [],
       "followed": 0,
