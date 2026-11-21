@@ -145,6 +145,10 @@ def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
 TARGET_FOLLOW = 40  # keep discovering every hour even at 40; swap if a pin goes losing
+MIN_FOLLOW_SAMPLE = 10  # settled public sports trades; 3-0 / 2-0 stay on Watching
+MIN_FOLLOW_PNL = 1000.0  # official all-time profit; tiny books like +$15 / +$412 cannot follow
+FOLLOW_HORIZON_DAYS = 30  # My 40 keeps near-term sports only, not months-out futures
+FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
 NEW_PER_SCAN_DEFAULT = 30  # hourly cron; stay under Actions time with 0 429s
 
 
@@ -295,6 +299,15 @@ def load_pinned_file():
 
 def save_pinned_file(payload, now=None):
     payload["tag"] = payload.get("tag") or PINNED_TAG
+    payload["target"] = TARGET_FOLLOW
+    payload["note"] = (
+        "Followed cappers for My 40. Auto-pin only when official all-time profit is at least "
+        "$1,000, the public sports record is W > L, and there are at least %d settled public "
+        "sports trades. Up to %d. Discovery keeps running every hour. A followed capper who "
+        "fails a gate is unpinned (stays in the active/Watching db). Negative official profit "
+        "is added to doNotPin and is never re-seeded. doNotPin names never re-enter."
+        % (MIN_FOLLOW_SAMPLE, TARGET_FOLLOW)
+    )
     if now:
         payload["updatedAt"] = pt(now)
     save_json(PINNED_PATH, payload)
@@ -429,22 +442,21 @@ def apply_pins(active, queue, rejected, pinned, now, log=print):
             row["tag"] = PINNED_TAG
         else:
             if row.get("pinned") or is_pin_tag(row.get("tag")) or is_pin_tag(row.get("tier")):
-                row["pinned"] = False
-                row["tag"] = ""
+                clear_follow_flags(row)
     return moved
 
 
 def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
-    """Keep the follow list as winning records with positive all-time profit, up to TARGET_FOLLOW.
+    """Keep My 40 as pinned follows that pass every gate, up to TARGET_FOLLOW.
 
-    Runs on every currently followed capper (not only new candidates). A followed
-    capper who falls to W <= L is unpinned (stays in the active db). A followed
-    capper with negative official all-time profit is unpinned and added to
-    doNotPin with reason 'negative profit'. New auto-follows need W > L and
-    profit > 0. Rank by record first (margin, wins, win rate), profit second.
-    A capper with no graded record yet is not auto-added and is not dropped for
-    being 'losing'. Missing profit is not treated as negative for unfollows, but
-    is not enough to auto-follow."""
+    Every currently followed capper is re-checked each scan (leaderboard and
+    tape-discovered names, same rules). Must have official all-time profit of
+    at least $1,000, W > L, and at least MIN_FOLLOW_SAMPLE settled public
+    sports trades. Failures are unpinned and stay in the active/Watching pool.
+    Negative official all-time profit is also added to doNotPin and can never
+    re-enter. doNotPin names are never auto-followed. New auto-follows must
+    pass the same gates. Rank by record first, profit second.
+    """
     skip = do_not_pin_set(pinned)
     by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
     still, dropped = [], []
@@ -452,22 +464,19 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         nick = nick_key(row.get("nickname") if isinstance(row, dict) else row)
         k = nick.lower()
         cap = by.get(k)
-        g = (cap or {}).get("graded")
-        pnl = official_pnl(cap)
-        if k in skip or is_losing_grade(g) or is_negative_profit(pnl):
+        why = None
+        if k in skip:
+            why = "doNotPin"
+        else:
+            why = follow_fail_reason(cap)
+        if why:
+            pnl = official_pnl(cap)
             if is_negative_profit(pnl):
                 add_do_not_pin(pinned, nick, "negative profit", now)
                 why = "negative profit %s" % signed_k(pnl)
-            elif k in skip:
-                why = "doNotPin"
-            else:
-                why = "%d-%d" % (g.get("w") or 0, g.get("l") or 0)
             dropped.append("%s (%s)" % (nick, why))
             if cap:
-                cap["pinned"] = False
-                cap["tag"] = ""
-                if is_pin_tag(cap.get("tier")):
-                    cap["tier"] = capper_tier(nick, people)
+                clear_follow_flags(cap, people)
             continue
         still.append(row if isinstance(row, dict) else {"nickname": nick, "tag": PINNED_TAG, "addedAt": today_pt(now)})
         if cap:
@@ -482,10 +491,9 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         k = nick_key(cap.get("nickname")).lower()
         if not k or k in have or k in skip:
             continue
-        if is_winning_grade(cap.get("graded")) and is_positive_profit(official_pnl(cap)):
-            g = cap["graded"]
-            w, l = g.get("w") or 0, g.get("l") or 0
-            n = w + l
+        if can_follow(cap):
+            g = cap.get("graded") or {}
+            w, l, n = graded_wl(g)
             pnl = official_pnl(cap) or 0
             cands.append((-(w - l), -w, -(w / n if n else 0), -pnl, cap))
     cands.sort(key=lambda x: (x[0], x[1], x[2], x[3], nick_key(x[4].get("nickname")).lower()))
@@ -494,7 +502,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         if len(pinned["cappers"]) >= TARGET_FOLLOW:
             break
         nick = cap["nickname"]
-        g = cap["graded"]
+        g = cap.get("graded") or {}
         pnl = official_pnl(cap)
         pinned["cappers"].append({
             "nickname": nick,
@@ -508,7 +516,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         have.add(nick.lower())
         added.append("%s %d-%d %s" % (nick, g.get("w") or 0, g.get("l") or 0, signed_k(pnl) if pnl is not None else ""))
     if dropped:
-        log("follow: unpinned (losing, excluded, or negative profit): " + ", ".join(dropped))
+        log("follow: unpinned (failed My 40 gates or excluded): " + ", ".join(dropped))
     if added:
         log("follow: auto-pinned %d (target %d): %s" % (len(added), TARGET_FOLLOW, ", ".join(added)))
     log("follow: %d/%d pinned; discovery continues every hour" % (len(pinned["cappers"]), TARGET_FOLLOW))
@@ -519,10 +527,9 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         if k in pinset:
             row["pinned"] = True
             row["tag"] = PINNED_TAG
+            row["tier"] = PINNED_TAG
         else:
-            row["pinned"] = False
-            if is_pin_tag(row.get("tag")):
-                row["tag"] = ""
+            clear_follow_flags(row, people)
     return pinned
 
 
@@ -760,6 +767,83 @@ def is_negative_profit(pnl):
     return pnl is not None and pnl < 0
 
 
+def graded_wl(g):
+    if not g:
+        return 0, 0, 0
+    w, l = g.get("w") or 0, g.get("l") or 0
+    n = g.get("n") or (w + l)
+    return w, l, n
+
+
+def follow_fail_reason(cap):
+    """Why this capper must not be (or stay) in My 40. None means every gate passed.
+
+    Gates, applied to tape-discovered and leaderboard names alike: official
+    all-time profit of at least $1,000, a winning public sports record (W > L),
+    and at least MIN_FOLLOW_SAMPLE settled public sports trades. Missing profit
+    or a tiny sample is not enough to follow. Negative official profit is also
+    a permanent doNotPin reason, handled by the caller.
+    """
+    w, l, n = graded_wl((cap or {}).get("graded"))
+    pnl = official_pnl(cap)
+    if is_negative_profit(pnl):
+        return "negative profit %s" % signed_k(pnl)
+    if pnl is None:
+        return "no official all-time profit"
+    if pnl < MIN_FOLLOW_PNL:
+        return "profit %s below $1,000" % signed_k(pnl)
+    if n < MIN_FOLLOW_SAMPLE:
+        return "small sample %d-%d (%d settled, need %d)" % (w, l, n, MIN_FOLLOW_SAMPLE)
+    if w <= l:
+        return "%d-%d" % (w, l)
+    return None
+
+
+def can_follow(cap):
+    return follow_fail_reason(cap) is None
+
+
+def is_near_term_pick(p, now, horizon_secs=FOLLOW_HORIZON_SECS):
+    """True for live or soon-starting sports; false for undated / months-out futures."""
+    if not p:
+        return False
+    start = p.get("startTs") or 0
+    close = p.get("closeTs") or 0
+    when = start or close
+    if not when:
+        return False
+    if when <= now:
+        return True
+    return when <= now + horizon_secs
+
+
+def board_tier_for(cap, people=None):
+    """Non-follow badge after an unpin, using stored ranks when the board map is empty."""
+    people = dict(people or {})
+    nick = nick_key((cap or {}).get("nickname") if isinstance(cap, dict) else cap)
+    if isinstance(cap, dict) and nick and nick not in people:
+        ranks = cap.get("ranks") or {}
+        if ranks.get("Sports"):
+            people[nick] = {"ranks": ranks}
+        elif ranks:
+            people[nick] = {"ranks": {"Sports": ranks}}
+    return capper_tier(nick, people)
+
+
+def clear_follow_flags(row, people=None):
+    if not row:
+        return row
+    row["pinned"] = False
+    if is_pin_tag(row.get("tag")):
+        row["tag"] = ""
+    if is_pin_tag(row.get("tier")):
+        row["tier"] = board_tier_for(row, people)
+    line = row.get("recordLine") or ""
+    if line:
+        row["recordLine"] = line.replace(" · My 40", "").replace(" · Top 10", "").replace(" · Following", "")
+    return row
+
+
 def tape_profit_since(trades, nick, now, days):
     """Realized sports-tape profit over a window, from settled public trades only. None if no cycles."""
     cycles = lib.closed_cycles(trades, nick)
@@ -864,7 +948,8 @@ def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=2
     picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
     follow = []
     if pin:
-        follow = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=0, window_secs=0, max_entry=None)
+        follow = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=0, window_secs=FOLLOW_HORIZON_SECS, max_entry=None)
+        follow = [p for p in follow if is_near_term_pick(p, now)]
     row = build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=heavy)
     row["followingPicks"] = follow
     return "active", row, ""
@@ -893,8 +978,13 @@ def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, l
     """Record each followed pick once; grade open ledger rows when Kalshi has a result."""
     ledger = load_json(TRIAL_PATH, {"startedAt": "", "startedTs": 0, "updatedAt": "", "picks": []})
     by_id = {row.get("id"): row for row in (ledger.get("picks") or []) if row.get("id")}
+    pinset = {n.lower() for n in pinned_names(pinned)}
     added = 0
     for p in open_picks:
+        if nick_key(p.get("nickname")).lower() not in pinset:
+            continue
+        if not is_near_term_pick(p, now):
+            continue
         pid = trial_id(p.get("nickname"), p.get("ticker"), p.get("yesNo"))
         if not p.get("ticker") or pid in by_id:
             continue
@@ -960,12 +1050,18 @@ def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, l
     for nick in pinned_names(pinned):
         slot(nick)
     for p in open_picks:
+        if nick_key(p.get("nickname")).lower() not in pinset:
+            continue
         rec = slot(p.get("nickname"))
         if rec:
             rec["open"] += 1
-    # Ledger open rows for a capper with no current book pick still count as open until graded
+    # Ledger open rows for a still-followed capper with no current book pick
+    # still count as open until graded. Unfollowed names stay in the ledger
+    # for history but never re-enter the My 40 capper list.
     open_ids = {trial_id(p.get("nickname"), p.get("ticker"), p.get("yesNo")) for p in open_picks}
     for row in ledger["picks"]:
+        if nick_key(row.get("nickname")).lower() not in pinset:
+            continue
         rec = slot(row.get("nickname"))
         if not rec:
             continue
@@ -977,14 +1073,18 @@ def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, l
         elif st == "push":
             rec["p"] += 1
         elif st == "open" and row.get("id") not in open_ids:
-            rec["open"] += 1
+            # Don't count months-out futures as an open My 40 pick.
+            if is_near_term_pick(row, now):
+                rec["open"] += 1
     out = []
     for rec in stats.values():
         rec["n"] = rec["w"] + rec["l"]
         rec["hitPct"] = None if not rec["n"] else round(100.0 * rec["w"] / rec["n"], 1)
         out.append(rec)
+    out = [r for r in out if r["nickname"].lower() in pinset]
     out.sort(key=lambda r: (-(r["n"] or 0), -((r["hitPct"] or -1)), r["nickname"].lower()))
-    open_sorted = sorted(open_picks, key=lambda p: (0 if (p.get("startTs") and p["startTs"] <= now) else 1, p.get("startTs") or 10**12, p.get("nickname") or "", p.get("ticker") or ""))
+    near = [p for p in open_picks if nick_key(p.get("nickname")).lower() in pinset and is_near_term_pick(p, now)]
+    open_sorted = sorted(near, key=lambda p: (0 if (p.get("startTs") and p["startTs"] <= now) else 1, p.get("startTs") or 10**12, p.get("nickname") or "", p.get("ticker") or ""))
     return {
         "startedAt": ledger.get("startedAt") or "",
         "startedTs": ledger.get("startedTs") or 0,
@@ -1333,21 +1433,36 @@ def carry_forward_games(new_games, prev, now, http, mcache, ecache, log=print):
     return games, carried, dropped
 
 
-def carry_forward_following(new_picks, prev, now, http, mcache, ecache, log=print):
-    """Same carry rules for My 40 display picks. Does not write the trial ledger."""
+def carry_forward_following(new_picks, prev, now, http, mcache, ecache, log=print, pinned=None):
+    """Same carry rules for My 40 display picks. Does not write the trial ledger.
+
+    Only still-followed, near-term sports picks are kept. Unfollowed books and
+    months-out futures are dropped from the display list.
+    """
     def fid(p):
         return _backer_key(p.get("nickname"), p.get("ticker"), p.get("yesNo"))
-    seen = {fid(p) for p in (new_picks or [])}
-    out = list(new_picks or [])
+    pinset = {n.lower() for n in pinned_names(pinned)} if pinned is not None else None
+    def allowed(p):
+        if pinset is not None and nick_key(p.get("nickname")).lower() not in pinset:
+            return False
+        return is_near_term_pick(p, now)
+    seen = {fid(p) for p in (new_picks or []) if allowed(p)}
+    out = [p for p in (new_picks or []) if allowed(p)]
     carried = 0
     dropped = 0
     prev_at = prev.get("scannedAt") or ""
     for p in (prev.get("following") or {}).get("picks") or []:
         if fid(p) in seen:
             continue
+        if not allowed(p):
+            dropped += 1
+            continue
         start_ts = p.get("startTs") or 0
         done, why, info = pick_is_finished(p, now, p.get("league") or "", http, mcache, ecache)
         if done:
+            dropped += 1
+            continue
+        if not is_near_term_pick({**p, "startTs": info.get("start_ts") or p.get("startTs") or 0, "closeTs": info.get("close_ts") or p.get("closeTs") or 0}, now):
             dropped += 1
             continue
         pp = dict(p)
@@ -1588,11 +1703,13 @@ def build(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
+            if not is_near_term_pick(p, now):
+                continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
     # Carry previous My 40 *display* picks only. The trial ledger is already persisted and was
     # updated solely from this scan's visible followed positions.
-    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log)
+    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
     following["picks"] = follow_picks
     cov["carriedFollowPicks"] = carried_follow
     cov["carriedFollowDropped"] = dropped_follow
@@ -1610,7 +1727,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L and positive all-time profit, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record or negative all-time profit is swapped out (negative profit is added to doNotPin). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) from followed cappers only. A followed capper must have a winning public sports record (W > L), at least 10 settled public sports trades, and official all-time profit of at least $1,000. No dollar minimum on those trial picks; they are graded from official Kalshi results after settlement. New cappers are still discovered every hour at 40. A followed capper who fails any gate is unpinned and stays on Watching; negative official profit is added to doNotPin and can never re-enter. W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -1731,7 +1848,7 @@ def build_follow_check(now=None, log=print):
     prev_caps = {nick_key(c.get("nickname")): c for c in (prev.get("cappers") or [])}
     for nick in names:
         try:
-            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=10)
+            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=20)
         except Exception as e:
             log("follow-check failed %s: %s — keeping previous picks" % (nick, e))
             cov["namesChecked"] += 1
@@ -1806,9 +1923,11 @@ def build_follow_check(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
+            if not is_near_term_pick(p, now):
+                continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
-    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log)
+    follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
     following["picks"] = follow_picks
     cov["carriedFollowPicks"] = carried_follow
     cov["carriedFollowDropped"] = dropped_follow
@@ -1824,18 +1943,36 @@ def build_follow_check(now=None, log=print):
     cov["dbRejected"] = len(rejected.get("cappers") or [])
     cov["dbPinned"] = sum(1 for r in (active.get("cappers") or []) if r.get("pinned") or is_pin_tag(r.get("tag")) or is_pin_tag(r.get("tier")))
 
-    refreshed = {nick_key(c.get("nickname")): c for c in live_cappers}
+    # Publish every evaluated book, but follow flags always come from the
+    # post-reconcile pin list — never stale pinned=True / "My 40" tiers from prev.
+    pinset = {n.lower() for n in pinned_names(pinned)}
     pub_cappers = []
     seen = set()
-    for c in live_cappers:
-        k = nick_key(c.get("nickname"))
-        pub_cappers.append({k2: v for k2, v in c.items() if k2 not in ("picks", "followingPicks")} | {"pickCount": len(c.get("picks") or []), "followCount": len(c.get("followingPicks") or [])})
+    def publish(c, counts_from_lists=False):
+        k = nick_key((c or {}).get("nickname"))
+        if not k or k in seen:
+            return
+        row = {k2: v for k2, v in c.items() if k2 not in ("picks", "followingPicks")}
+        if counts_from_lists or "picks" in c:
+            row["pickCount"] = len(c.get("picks") or [])
+            row["followCount"] = len(c.get("followingPicks") or [])
+        else:
+            row.setdefault("pickCount", c.get("pickCount") or 0)
+            row.setdefault("followCount", c.get("followCount") or 0)
+        if k.lower() in pinset:
+            row["pinned"] = True
+            row["tag"] = PINNED_TAG
+            row["tier"] = PINNED_TAG
+        else:
+            clear_follow_flags(row)
+        pub_cappers.append(row)
         seen.add(k)
+    for c in live_cappers:
+        publish(c, counts_from_lists=True)
+    for row in (active.get("cappers") or []):
+        publish(row)
     for c in (prev.get("cappers") or []):
-        k = nick_key(c.get("nickname"))
-        if k and k not in seen:
-            pub_cappers.append(c)
-            seen.add(k)
+        publish(c)
 
     payload = {
         "scannedAt": prev.get("scannedAt") or pt(now),

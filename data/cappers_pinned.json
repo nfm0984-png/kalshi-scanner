@@ -1,8 +1,8 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 10:15 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 10:58 AM PT",
   "target": 40,
-  "note": "Followed cappers for My 40. Only winning graded records (W > L) are auto-pinned, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to W <= L is unpinned (stays in the active db) and can be swapped for a new winner. doNotPin names are never re-seeded from the drop-in or auto-follow.",
+  "note": "Followed cappers for My 40. Auto-pin only when official all-time profit is at least $1,000, the public sports record is W > L, and there are at least 10 settled public sports trades. Up to 40. Discovery keeps running every hour. A followed capper who fails a gate is unpinned (stays in the active/Watching db). Negative official profit is added to doNotPin and is never re-seeded. doNotPin names never re-enter.",
   "doNotPin": [
     {
       "nickname": "WorkerTrader",
@@ -57,76 +57,7 @@
   ],
   "cappers": [
     {
-      "nickname": "BWmarkets",
-      "tag": "My 40",
-      "source": "noel-winning-record",
-      "addedAt": "2026-11-20",
-      "record": "18-13"
-    },
-    {
-      "nickname": "past.grass",
-      "tag": "My 40",
-      "source": "noel-winning-record",
-      "addedAt": "2026-11-20",
-      "record": "2-1"
-    },
-    {
-      "nickname": "bama0037",
-      "tag": "My 40",
-      "source": "noel-winning-record",
-      "addedAt": "2026-11-20",
-      "record": "47-33"
-    },
-    {
-      "nickname": "Ryqeux",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-20"
-    },
-    {
-      "nickname": "nettinyahoo",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-20"
-    },
-    {
-      "nickname": "emilianotijerina",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "ambitious.dandelion1189",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
       "nickname": "Billy.Hoyle",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "coachlord66",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "crazy.sal",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "iluminado",
-      "tag": "My 40",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "degen.4.life112422",
       "tag": "My 40",
       "source": "auto-winning",
       "addedAt": "2026-11-21"

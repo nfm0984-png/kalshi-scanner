@@ -236,7 +236,8 @@ function CapperShell(props: { live?: boolean; followed?: boolean; children: Reac
   );
 }
 function isFollowedCapper(c: Capper): boolean {
-  return !!(c.pinned || c.tier === "My 40" || c.tier === "Top 10" || c.tier === "Following" || c.tag === "My 40");
+  // Only the live pinned flag. Stale "My 40" tier/tag leftover after an unfollow must not count.
+  return !!c.pinned;
 }
 function tierColors(tier: string): { bg: string; fg: string } {
   if (tier === "My 40" || tier === "Top 10" || tier === "Following") return { bg: "#FEF3C7", fg: "#92400E" };
@@ -277,7 +278,7 @@ function CapperStatRow(props: { c: Capper }) {
   return (
     <div>
       <div data-record-strip="1" style={{ display: "flex", gap: 8, margin: "10px 0 0", flexWrap: "wrap" }}>{tiles}</div>
-      <div style={{ fontSize: 11, fontWeight: 650, color: "#64748B", marginTop: 6, lineHeight: "15px" }}>Kalshi does not publish a profit time series. All-time is official profile PnL. Weekly/monthly/yearly are Sports leaderboard projected P&L when the capper ranks in the top 100. 7d and 30d sports-tape figures are reconstructed from settled public sports trades only.</div>
+      <div style={{ fontSize: 11, fontWeight: 650, color: "#64748B", marginTop: 6, lineHeight: "15px" }}>All-time is official profile PnL; 7d/30d figures are from settled public sports trades.</div>
     </div>
   );
 }
@@ -952,8 +953,8 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: winning public sports record and positive official all-time profit. Ranked by record, then profit.", followed)}
-        {section("Watching · " + watching.length, "Every other evaluated public book, ranked by record first and profit second. Not auto-followed.", watching)}
+        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: 10+ settled public sports trades, W > L, and at least +$1,000 official all-time profit. Ranked by record, then profit.", followed)}
+        {section("Watching · " + watching.length, "Evaluated candidates that are not followed, including small samples. Ranked by record first and profit second.", watching)}
       </div>
     );
   }
@@ -1156,7 +1157,7 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
     { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Every open traditional-sports pick from followed winning cappers, no dollar minimum." },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Near-term sports picks from pinned follows only (10+ settled trades, W > L, +$1,000 all-time). Long-dated futures stay off this tab." },
     { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "All evaluated books, split Followed vs Watching · record first, profit second · W–L from the public sports tape." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
