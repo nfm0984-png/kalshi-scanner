@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 8:21 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 8:57 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -629,9 +629,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:00 AM PT",
       "recordedTs": 1795273204,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 8:57 AM PT"
     },
     {
       "id": "coachlord66|KXNBA-27-OKC|Yes",
@@ -1262,6 +1262,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Sat Nov 21 \u00b7 8:21 AM PT"
+    },
+    {
+      "id": "BWmarkets|KXNCAAFSPREAD-26NOV21WAKEGT-WAKE24|No",
+      "nickname": "BWmarkets",
+      "ticker": "KXNCAAFSPREAD-26NOV21WAKEGT-WAKE24",
+      "eventTicker": "KXNCAAFSPREAD-26NOV21WAKEGT",
+      "game": "Wake Forest vs Georgia Tech: Spread",
+      "backing": "Wake Forest wins by over 23.5 points",
+      "yesNo": "No",
+      "entry": 0.4553,
+      "price": 0.52,
+      "cost": 121496.42,
+      "contracts": 266825.0,
+      "startTs": 1795291200,
+      "league": "NCAAF",
+      "bt": "Spread",
+      "recordedAt": "Sat Nov 21 \u00b7 8:57 AM PT",
+      "recordedTs": 1795280232,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
