@@ -1,54 +1,64 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 2:19 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 2:52 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
       "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
       "joinedAt": "2026-03-11",
-      "followers": 497,
+      "followers": 500,
       "tier": "Core",
       "pinned": false,
       "tag": "",
-      "heavy": false,
+      "heavy": true,
       "ranks": {
         "all_time": 18,
-        "monthly": 40,
+        "monthly": 41,
         "yearly": 16
       },
       "profitRanks": {
         "Sports": {
           "all_time": 18,
-          "monthly": 40,
+          "monthly": 41,
           "yearly": 16
         }
       },
       "onProfitBoard": true,
-      "pnl": 1390952.5,
+      "pnl": 1385697.4,
       "pnlSource": "sports_leaderboard_projected",
       "weeklyPnl": null,
-      "monthlyPnl": 100679.52,
-      "yearlyPnl": 1390952.5,
+      "monthlyPnl": 95424.27,
+      "yearlyPnl": 1385697.4,
       "volumeUsd": null,
-      "tape7d": 524.11,
-      "tape30d": 539.21,
+      "tape7d": -3150.18,
+      "tape30d": -49517.05,
       "ageDays": 255,
       "graded": {
-        "n": 4,
-        "w": 4,
-        "l": 0,
-        "roi": 6.3,
-        "profit": 539.21,
-        "sample": "small"
+        "n": 18,
+        "w": 10,
+        "l": 8,
+        "roi": -176.7,
+        "profit": -49517.05,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 4,
-        "w": 4,
-        "l": 0,
-        "roi": 6.3,
-        "profit": 539.21,
-        "sample": "small"
+        "n": 18,
+        "w": 10,
+        "l": 8,
+        "roi": -176.7,
+        "profit": -49517.05,
+        "sample": "full"
       },
-      "recordLine": "WorkerTrader \u00b7 4-0 \u00b7 +6% \u00b7 +$1.39M all \u00b7 Core",
+      "sports": {
+        "Soccer": {
+          "n": 8,
+          "w": 4,
+          "l": 4,
+          "roi": -213.8,
+          "profit": -49264.57
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "WorkerTrader \u00b7 10-8 \u00b7 -177% \u00b7 Best at Soccer \u00b7 +$1.39M all \u00b7 Core",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -57,19 +67,21 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23796,
+      "followers": 24039,
       "tier": "Core",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "all_time": 17,
-        "yearly": 14
+        "all_time": 13,
+        "monthly": 17,
+        "weekly": 2,
+        "yearly": 12
       },
       "profitRanks": {
         "Sports": {
           "all_time": 13,
-          "monthly": 16,
+          "monthly": 17,
           "weekly": 2,
           "yearly": 12
         }
@@ -79,19 +91,41 @@
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 286070.06,
       "monthlyPnl": 186738.2,
-      "yearlyPnl": 1425220.0,
-      "volumeUsd": 9412284.84,
+      "yearlyPnl": 1703584.6,
+      "volumeUsd": 9425410.39,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 656,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "BWmarkets \u00b7 +$766.9k all \u00b7 Top 50",
+      "graded": {
+        "n": 2,
+        "w": 0,
+        "l": 2,
+        "roi": -48.1,
+        "profit": -23927.79,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 2,
+        "w": 0,
+        "l": 2,
+        "roi": -48.1,
+        "profit": -23927.79,
+        "sample": "small"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 2,
+          "w": 0,
+          "l": 2,
+          "roi": -48.1,
+          "profit": -23927.79
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "BWmarkets \u00b7 0-2 \u00b7 -48% \u00b7 Best at Tennis \u00b7 +$1.03M all \u00b7 Core",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -103,46 +137,56 @@
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 96,
-        "monthly": 31,
+        "all_time": 95,
+        "monthly": 32,
         "weekly": 54,
-        "yearly": 88
+        "yearly": 87
       },
       "profitRanks": {
         "Sports": {
           "all_time": 95,
           "monthly": 32,
-          "weekly": 63,
+          "weekly": 65,
           "yearly": 87
         }
       },
       "onProfitBoard": true,
-      "pnl": 385680.96,
+      "pnl": 385212.7,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 27651.04,
-      "monthlyPnl": 121767.66,
-      "yearlyPnl": 385680.94,
-      "volumeUsd": 14165747.47,
-      "tape7d": 0,
-      "tape30d": 0,
+      "weeklyPnl": 27182.78,
+      "monthlyPnl": 121299.41,
+      "yearlyPnl": 385212.7,
+      "volumeUsd": 14216750.74,
+      "tape7d": 19387.6,
+      "tape30d": 19387.6,
       "ageDays": 45,
       "graded": {
-        "n": 1,
-        "w": 0,
+        "n": 3,
+        "w": 1,
         "l": 0,
-        "roi": 0.0,
-        "profit": 0,
+        "roi": 18233.2,
+        "profit": 19387.6,
         "sample": "small"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 0,
+        "n": 3,
+        "w": 1,
         "l": 0,
-        "roi": 0.0,
-        "profit": 0,
+        "roi": 18233.2,
+        "profit": 19387.6,
         "sample": "small"
       },
-      "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.7k all \u00b7 Top 50",
+      "sports": {
+        "Soccer": {
+          "n": 2,
+          "w": 0,
+          "l": 0,
+          "roi": 0.0,
+          "profit": 0
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "reluctant.fox5394 \u00b7 1-0 \u00b7 +18233% \u00b7 Best at Soccer \u00b7 +$385.2k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -165,12 +209,12 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 141697.15,
+      "pnl": 141699.26,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
-      "monthlyPnl": 91202.7,
+      "monthlyPnl": 91202.55,
       "yearlyPnl": null,
-      "volumeUsd": 2211366.83,
+      "volumeUsd": 2211441.83,
       "tape7d": 187.42,
       "tape30d": 293.58,
       "ageDays": 136,
@@ -190,11 +234,6 @@
         "profit": 293.58,
         "sample": "full"
       },
-      "recordLine": "iluminado \u00b7 21-9 \u00b7 +7% \u00b7 Best at Tennis \u00b7 +$141.7k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 1,
       "sports": {
         "MMA": {
           "n": 4,
@@ -211,7 +250,11 @@
           "profit": 265.19
         }
       },
-      "bestAt": "Tennis"
+      "bestAt": "Tennis",
+      "recordLine": "iluminado \u00b7 21-9 \u00b7 +7% \u00b7 Best at Tennis \u00b7 +$141.7k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "past.grass",
@@ -223,13 +266,13 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 43,
-        "weekly": 17
+        "monthly": 40,
+        "weekly": 22
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 41,
-          "weekly": 21
+          "monthly": 40,
+          "weekly": 22
         }
       },
       "onProfitBoard": true,
@@ -244,24 +287,24 @@
       "ageDays": 217,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "autofade",
       "profileUrl": "https://kalshi.com/ideas/profiles/autofade",
       "joinedAt": "2025-06-10",
-      "followers": 761,
+      "followers": 762,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 71
+        "all_time": 70
       },
       "profitRanks": {
         "Sports": {
@@ -269,32 +312,63 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 517638.89,
+      "pnl": 517944.46,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
-      "tape7d": 248.91,
-      "tape30d": 875.93,
+      "tape7d": 239.83,
+      "tape30d": 765.95,
       "ageDays": 529,
       "graded": {
-        "n": 7,
-        "w": 6,
-        "l": 0,
-        "roi": 55.4,
-        "profit": 875.93,
-        "sample": "small"
+        "n": 14,
+        "w": 8,
+        "l": 2,
+        "roi": 20.9,
+        "profit": 765.95,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 7,
-        "w": 6,
-        "l": 0,
-        "roi": 55.4,
-        "profit": 875.93,
-        "sample": "small"
+        "n": 14,
+        "w": 8,
+        "l": 2,
+        "roi": 20.9,
+        "profit": 765.95,
+        "sample": "full"
       },
-      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.6k all \u00b7 Board",
+      "sports": {
+        "NCAAF": {
+          "n": 6,
+          "w": 3,
+          "l": 1,
+          "roi": -4.7,
+          "profit": -92.35
+        },
+        "NFL": {
+          "n": 6,
+          "w": 3,
+          "l": 1,
+          "roi": 15.5,
+          "profit": 231.27
+        },
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 350.9,
+          "profit": 616.36
+        },
+        "NCAAB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 31.1,
+          "profit": 10.66
+        }
+      },
+      "bestAt": "NCAAF",
+      "recordLine": "autofade \u00b7 8-2 \u00b7 +21% \u00b7 Best at NCAAF \u00b7 +$517.9k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -309,42 +383,52 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 66,
-        "weekly": 84
+        "monthly": 65,
+        "weekly": 95
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 63,
-          "weekly": 89
+          "monthly": 65,
+          "weekly": 95
         }
       },
       "onProfitBoard": true,
-      "pnl": 263445.63,
+      "pnl": 262334.01,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 22161.95,
-      "monthlyPnl": 75596.73,
+      "weeklyPnl": 21050.33,
+      "monthlyPnl": 74485.11,
       "yearlyPnl": null,
       "volumeUsd": null,
-      "tape7d": -1508.21,
-      "tape30d": -1502.38,
+      "tape7d": -1459.63,
+      "tape30d": -1737.65,
       "ageDays": 337,
       "graded": {
-        "n": 4,
-        "w": 2,
-        "l": 2,
-        "roi": -18.3,
-        "profit": -1502.38,
-        "sample": "small"
+        "n": 10,
+        "w": 6,
+        "l": 4,
+        "roi": -18.4,
+        "profit": -1737.65,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 4,
-        "w": 2,
-        "l": 2,
-        "roi": -18.3,
-        "profit": -1502.38,
-        "sample": "small"
+        "n": 10,
+        "w": 6,
+        "l": 4,
+        "roi": -18.4,
+        "profit": -1737.65,
+        "sample": "full"
       },
-      "recordLine": "breezy.panther \u00b7 2-2 \u00b7 -18% \u00b7 +$263.4k all \u00b7 Board",
+      "sports": {
+        "Soccer": {
+          "n": 5,
+          "w": 3,
+          "l": 2,
+          "roi": -17.6,
+          "profit": -1551.51
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "breezy.panther \u00b7 6-4 \u00b7 -18% \u00b7 Best at Soccer \u00b7 +$262.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -359,13 +443,13 @@
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 75,
-        "yearly": 63
+        "all_time": 74,
+        "yearly": 64
       },
       "profitRanks": {
         "Sports": {
           "all_time": 74,
-          "yearly": 62
+          "yearly": 64
         }
       },
       "onProfitBoard": true,
@@ -380,6 +464,8 @@
       "ageDays": 348,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -389,14 +475,14 @@
       "nickname": "devex",
       "profileUrl": "https://kalshi.com/ideas/profiles/devex",
       "joinedAt": "2026-06-12",
-      "followers": 501,
+      "followers": 502,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "all_time": 90,
-        "yearly": 83
+        "all_time": 89,
+        "yearly": 82
       },
       "profitRanks": {
         "Sports": {
@@ -416,6 +502,8 @@
       "ageDays": 162,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -431,8 +519,8 @@
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 58,
-        "monthly": 84,
+        "all_time": 59,
+        "monthly": 83,
         "yearly": 53
       },
       "profitRanks": {
@@ -452,12 +540,12 @@
       "ageDays": 771,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "regine",
@@ -469,20 +557,20 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 62,
-        "weekly": 85
+        "monthly": 63,
+        "weekly": 87
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 62,
-          "weekly": 85
+          "monthly": 63,
+          "weekly": 87
         }
       },
       "onProfitBoard": true,
-      "pnl": 81282.09,
+      "pnl": 81305.21,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 23556.52,
-      "monthlyPnl": 75162.48,
+      "weeklyPnl": 23579.63,
+      "monthlyPnl": 75185.59,
       "yearlyPnl": null,
       "volumeUsd": null,
       "tape7d": null,
@@ -490,31 +578,30 @@
       "ageDays": 336,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "regine \u00b7 +$81.3k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "sports": {},
-      "bestAt": null,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 2000,
+      "followers": 2030,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 45,
-        "weekly": 25
+        "weekly": 27
       },
       "profitRanks": {
         "Sports": {
           "monthly": 45,
-          "weekly": 25
+          "weekly": 27
         }
       },
       "onProfitBoard": true,
@@ -543,11 +630,6 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 Best at Tennis \u00b7 +$109.0k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "Tennis": {
           "n": 1,
@@ -557,7 +639,37 @@
           "profit": 11127.55
         }
       },
-      "bestAt": "Tennis"
+      "bestAt": "Tennis",
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 Best at Tennis \u00b7 +$109.0k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [
+        {
+          "ticker": "KXNBAGAME-26NOV21BOSSAC-SAC",
+          "eventTicker": "KXNBAGAME-26NOV21BOSSAC",
+          "marketTitle": "Boston vs Sacramento",
+          "contractTitle": "Sacramento wins",
+          "backing": "Sacramento",
+          "yesNo": "Yes",
+          "label": "Sacramento",
+          "entry": 0.17,
+          "price": 0.17,
+          "yesAsk": 0.17,
+          "noAsk": 0.84,
+          "cost": 23627.11,
+          "contracts": 138983.0,
+          "lastTs": 1795301094,
+          "startTs": 1795327200,
+          "state": "upcoming",
+          "league": "NBA",
+          "game": "Boston vs Sacramento",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795489200
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "jspana99",
@@ -569,7 +681,7 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 32
+        "weekly": 43
       },
       "profitRanks": {
         "Sports": {
@@ -588,6 +700,8 @@
       "ageDays": 285,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "jspana99 \u00b7 -$4.89k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -601,42 +715,73 @@
       "tier": "Top 50",
       "pinned": false,
       "tag": "",
-      "heavy": true,
+      "heavy": false,
       "ranks": {
         "monthly": 43,
-        "weekly": 39
+        "weekly": 42
       },
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -174858.22,
+      "pnl": -175816.37,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 7428716.51,
-      "tape7d": 29801.16,
-      "tape30d": 29801.16,
+      "volumeUsd": 7430555.38,
+      "tape7d": 39306.12,
+      "tape30d": 225729.48,
       "ageDays": 60,
       "graded": {
-        "n": 11,
-        "w": 11,
+        "n": 75,
+        "w": 75,
         "l": 0,
-        "roi": 20.0,
-        "profit": 29801.16,
+        "roi": 18.2,
+        "profit": 225729.48,
         "sample": "full"
       },
       "gradedAll": {
-        "n": 37,
-        "w": 23,
+        "n": 101,
+        "w": 87,
         "l": 14,
-        "roi": 19.9,
-        "profit": 29773.27,
+        "roi": 18.2,
+        "profit": 225701.59,
         "sample": "full"
       },
-      "recordLine": "TheGrinder \u00b7 11-0 \u00b7 +20% \u00b7 -$174.9k all \u00b7 Top 50",
+      "sports": {
+        "NCAAB": {
+          "n": 26,
+          "w": 26,
+          "l": 0,
+          "roi": 13.8,
+          "profit": 3910.17
+        },
+        "Tennis": {
+          "n": 13,
+          "w": 13,
+          "l": 0,
+          "roi": 39.6,
+          "profit": 10943.61
+        },
+        "NBA": {
+          "n": 28,
+          "w": 28,
+          "l": 0,
+          "roi": 18.0,
+          "profit": 207403.62
+        },
+        "NCAAF": {
+          "n": 8,
+          "w": 8,
+          "l": 0,
+          "roi": 9.8,
+          "profit": 3472.08
+        }
+      },
+      "bestAt": "NBA",
+      "recordLine": "TheGrinder \u00b7 75-0 \u00b7 +18% \u00b7 Best at NBA \u00b7 -$175.8k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "nettinyahoo",
@@ -648,15 +793,15 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 52
+        "weekly": 53
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 52
+          "weekly": 53
         }
       },
       "onProfitBoard": true,
-      "pnl": 90556.57,
+      "pnl": 90476.49,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 31542.61,
       "monthlyPnl": null,
@@ -681,37 +826,6 @@
         "profit": 257.35,
         "sample": "small"
       },
-      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 Best at NFL \u00b7 +$90.6k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "followingPicks": [
-        {
-          "ticker": "KXNCAAFGAME-26NOV21OSUNEB-OSU",
-          "eventTicker": "KXNCAAFGAME-26NOV21OSUNEB",
-          "marketTitle": "Ohio St. vs Nebraska",
-          "contractTitle": "Ohio St. wins",
-          "backing": "Ohio St.",
-          "yesNo": "Yes",
-          "label": "Ohio St.",
-          "entry": 0.41,
-          "price": 0.39,
-          "yesAsk": 0.39,
-          "noAsk": 0.62,
-          "cost": 2.05,
-          "contracts": 5.0,
-          "lastTs": 1795287852,
-          "startTs": 1795302000,
-          "state": "upcoming",
-          "league": "NCAAF",
-          "game": "Ohio St. vs Nebraska",
-          "bt": "Moneyline",
-          "slip": -2.0,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795464000
-        }
-      ],
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "NBA": {
           "n": 1,
@@ -728,7 +842,11 @@
           "profit": 475.13
         }
       },
-      "bestAt": "NFL"
+      "bestAt": "NFL",
+      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 Best at NFL \u00b7 +$90.5k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "majebettor123",
@@ -759,13 +877,12 @@
       "ageDays": 657,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "majebettor123 \u00b7 +$10.7k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "sports": {},
-      "bestAt": null,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "Wiseandstrong",
@@ -777,22 +894,24 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 67
+        "monthly": 66
       },
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -118545.78,
+      "pnl": -117201.94,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 15972205.94,
+      "volumeUsd": 15999874.71,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 269,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Wiseandstrong \u00b7 -$118.5k all \u00b7 Board",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Wiseandstrong \u00b7 -$117.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 1
@@ -801,17 +920,17 @@
       "nickname": "playful.hornet0945",
       "profileUrl": "https://kalshi.com/ideas/profiles/playful.hornet0945",
       "joinedAt": "2026-05-15",
-      "followers": 525,
+      "followers": 526,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 75
+        "weekly": 73
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 75
+          "weekly": 73
         }
       },
       "onProfitBoard": true,
@@ -826,13 +945,38 @@
       "ageDays": 190,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "playful.hornet0945 \u00b7 +$43.9k all \u00b7 Board",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 1,
       "sports": {},
       "bestAt": null,
-      "followCount": 1
+      "recordLine": "playful.hornet0945 \u00b7 +$43.9k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [
+        {
+          "ticker": "KXNBAGAME-26NOV21MEMMIN-MEM",
+          "eventTicker": "KXNBAGAME-26NOV21MEMMIN",
+          "marketTitle": "Memphis vs Minnesota",
+          "contractTitle": "Memphis wins",
+          "backing": "Memphis",
+          "yesNo": "Yes",
+          "label": "Memphis",
+          "entry": 0.3373,
+          "price": 0.34,
+          "yesAsk": 0.34,
+          "noAsk": 0.67,
+          "cost": 3583.56,
+          "contracts": 10625.0,
+          "lastTs": 1795293892,
+          "startTs": 1795320000,
+          "state": "upcoming",
+          "league": "NBA",
+          "game": "Memphis vs Minnesota",
+          "bt": "Moneyline",
+          "slip": 0.3,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795482000
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "double.boar6452",
@@ -844,17 +988,17 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 61
+        "weekly": 60
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 61
+          "weekly": 60
         }
       },
       "onProfitBoard": true,
-      "pnl": 9502.34,
+      "pnl": 9945.69,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 28051.04,
+      "weeklyPnl": 28789.97,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": 275426.5,
@@ -863,35 +1007,54 @@
       "ageDays": 185,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "double.boar6452 \u00b7 +$9.21k all \u00b7 Board",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 1,
       "sports": {},
       "bestAt": null,
-      "followCount": 1
+      "recordLine": "double.boar6452 \u00b7 +$9.95k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFSPREAD-26NOV21UCLAMICH-UCLA4",
+          "eventTicker": "KXNCAAFSPREAD-26NOV21UCLAMICH",
+          "marketTitle": "UCLA vs Michigan: Spread",
+          "contractTitle": "UCLA wins by over 3.5 points",
+          "backing": "UCLA wins by over 3.5 points",
+          "yesNo": "Yes",
+          "label": "UCLA wins by over 3.5 points",
+          "entry": 0.49,
+          "price": 0.37,
+          "yesAsk": 0.37,
+          "noAsk": 0.64,
+          "cost": 7241.22,
+          "contracts": 14778.0,
+          "lastTs": 1795293382,
+          "startTs": 1795303800,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "UCLA vs Michigan: Spread",
+          "bt": "Spread",
+          "slip": -12.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795465800
+        }
+      ],
+      "pickCount": 1
     },
     {
       "nickname": "Muffat00",
       "profileUrl": "https://kalshi.com/ideas/profiles/Muffat00",
       "joinedAt": "2026-03-19",
       "followers": 840,
-      "tier": "Board",
+      "tier": "Other",
       "pinned": false,
       "tag": "",
       "heavy": false,
-      "ranks": {
-        "weekly": 92
-      },
-      "profitRanks": {
-        "Sports": {
-          "weekly": 100
-        }
-      },
-      "onProfitBoard": true,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
       "pnl": 11370.86,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 19857.02,
+      "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
@@ -900,7 +1063,9 @@
       "ageDays": 247,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Muffat00 \u00b7 +$11.4k all \u00b7 Board",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Muffat00 \u00b7 +$11.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -915,8 +1080,7 @@
       "tag": "",
       "heavy": true,
       "ranks": {
-        "all_time": 100,
-        "yearly": 88
+        "yearly": 89
       },
       "profitRanks": {},
       "onProfitBoard": false,
@@ -929,9 +1093,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 296,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "reach.draft \u00b7 -$331.8k all \u00b7 Board",
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -6.8,
+        "profit": -19.58,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -6.8,
+        "profit": -19.58,
+        "sample": "small"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -6.8,
+          "profit": -19.58
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "reach.draft \u00b7 0-1 \u00b7 -7% \u00b7 Best at Tennis \u00b7 -$331.8k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -940,23 +1128,23 @@
       "nickname": "emilianotijerina",
       "profileUrl": "https://kalshi.com/ideas/profiles/emilianotijerina",
       "joinedAt": "2026-09-23",
-      "followers": 104,
+      "followers": 106,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 72
+        "weekly": 71
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 72
+          "weekly": 71
         }
       },
       "onProfitBoard": true,
       "pnl": 26003.92,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 26479.62,
+      "weeklyPnl": 26369.37,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": 164819.19,
@@ -979,11 +1167,6 @@
         "profit": 855.86,
         "sample": "small"
       },
-      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 Best at MLB \u00b7 +$26.8k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "MLB": {
           "n": 1,
@@ -993,7 +1176,11 @@
           "profit": 855.86
         }
       },
-      "bestAt": "MLB"
+      "bestAt": "MLB",
+      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 Best at MLB \u00b7 +$26.0k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -1022,6 +1209,8 @@
       "ageDays": 746,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "314GoalDigger \u00b7 +$203 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1043,7 +1232,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 1719.96,
+      "pnl": 1720.4,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1054,6 +1243,8 @@
       "ageDays": 411,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "80Mill \u00b7 +$1.72k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1071,7 +1262,7 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "weekly": 60
+          "weekly": 57
         }
       },
       "onProfitBoard": true,
@@ -1084,16 +1275,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 278,
-      "graded": null,
-      "gradedAll": {
-        "n": 2,
-        "w": 2,
+      "graded": {
+        "n": 1,
+        "w": 1,
         "l": 0,
-        "roi": 26.2,
-        "profit": 858.52,
+        "roi": 38.2,
+        "profit": 925.39,
         "sample": "small"
       },
-      "recordLine": "Aaabbbb \u00b7 -$85.1k all \u00b7 Other",
+      "gradedAll": {
+        "n": 3,
+        "w": 3,
+        "l": 0,
+        "roi": 31.3,
+        "profit": 1783.91,
+        "sample": "small"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 38.2,
+          "profit": 925.39
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "Aaabbbb \u00b7 1-0 \u00b7 +38% \u00b7 Best at Tennis \u00b7 -$85.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1114,7 +1322,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 474.95,
+      "pnl": 463.75,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1139,10 +1347,6 @@
         "profit": 180.48,
         "sample": "small"
       },
-      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 Best at NCAAF \u00b7 +$496 all \u00b7 Other",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 2,
       "sports": {
         "NCAAF": {
           "n": 1,
@@ -1153,7 +1357,36 @@
         }
       },
       "bestAt": "NCAAF",
-      "followCount": 1
+      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 Best at NCAAF \u00b7 +$464 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFGAME-26NOV21UCLAMICH-MICH",
+          "eventTicker": "KXNCAAFGAME-26NOV21UCLAMICH",
+          "marketTitle": "UCLA vs Michigan",
+          "contractTitle": "Michigan wins",
+          "backing": "Michigan",
+          "yesNo": "Yes",
+          "label": "Michigan",
+          "entry": 0.68,
+          "price": 0.43,
+          "yesAsk": 0.43,
+          "noAsk": 0.58,
+          "cost": 190.4,
+          "contracts": 280.0,
+          "lastTs": 1795295090,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "UCLA vs Michigan",
+          "bt": "Moneyline",
+          "slip": -25.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        }
+      ],
+      "pickCount": 2
     },
     {
       "nickname": "answermbs",
@@ -1171,7 +1404,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -640.36,
+      "pnl": -676.84,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1196,9 +1429,348 @@
         "profit": 660.24,
         "sample": "full"
       },
-      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$640 all \u00b7 Other",
+      "sports": {
+        "NCAAF": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 113.4,
+          "profit": 22.55
+        },
+        "Tennis": {
+          "n": 9,
+          "w": 9,
+          "l": 0,
+          "roi": 96.9,
+          "profit": 52.23
+        },
+        "NFL": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 127.6,
+          "profit": 5.68
+        },
+        "MMA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 37.5,
+          "profit": 1.84
+        },
+        "MLB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 11.2,
+          "profit": 0.21
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 Best at Tennis \u00b7 -$677 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "followingPicks": [],
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFGAME-26NOV21SAMAUB-SAM",
+          "eventTicker": "KXNCAAFGAME-26NOV21SAMAUB",
+          "marketTitle": "Samford vs Auburn",
+          "contractTitle": "Samford wins",
+          "backing": "Samford",
+          "yesNo": "Yes",
+          "label": "Samford",
+          "entry": 0.01,
+          "price": 0.01,
+          "yesAsk": 0.01,
+          "noAsk": 1.0,
+          "cost": 4.67,
+          "contracts": 467.0,
+          "lastTs": 1795281452,
+          "startTs": 1795303800,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Samford vs Auburn",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795465800
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21RUTGPSU-RUTG",
+          "eventTicker": "KXNCAAFGAME-26NOV21RUTGPSU",
+          "marketTitle": "Rutgers vs Penn St.",
+          "contractTitle": "Rutgers wins",
+          "backing": "Rutgers",
+          "yesNo": "Yes",
+          "label": "Rutgers",
+          "entry": 0.05,
+          "price": 0.07,
+          "yesAsk": 0.07,
+          "noAsk": 0.94,
+          "cost": 5.15,
+          "contracts": 103.0,
+          "lastTs": 1795281507,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Rutgers vs Penn St.",
+          "bt": "Moneyline",
+          "slip": 2.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21INSTSDST-INST",
+          "eventTicker": "KXNCAAFGAME-26NOV21INSTSDST",
+          "marketTitle": "Indiana St. vs South Dakota St.",
+          "contractTitle": "Indiana St. wins",
+          "backing": "Indiana St.",
+          "yesNo": "Yes",
+          "label": "Indiana St.",
+          "entry": 0.03,
+          "price": 0.01,
+          "yesAsk": 0.01,
+          "noAsk": 1.0,
+          "cost": 2.34,
+          "contracts": 78.0,
+          "lastTs": 1795281385,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Indiana St. vs South Dakota St.",
+          "bt": "Moneyline",
+          "slip": -2.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21NIUNDSU-NIU",
+          "eventTicker": "KXNCAAFGAME-26NOV21NIUNDSU",
+          "marketTitle": "Northern Illinois vs North Dakota St.",
+          "contractTitle": "Northern Illinois wins",
+          "backing": "Northern Illinois",
+          "yesNo": "Yes",
+          "label": "Northern Illinois",
+          "entry": 0.05,
+          "price": 0.01,
+          "yesAsk": 0.01,
+          "noAsk": 1.0,
+          "cost": 2.3,
+          "contracts": 46.0,
+          "lastTs": 1795281550,
+          "startTs": 1795305600,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Northern Illinois vs North Dakota St.",
+          "bt": "Moneyline",
+          "slip": -4.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795467600
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21CSUFRES-CSU",
+          "eventTicker": "KXNCAAFGAME-26NOV21CSUFRES",
+          "marketTitle": "Colorado St. vs Fresno St.",
+          "contractTitle": "Colorado St. wins",
+          "backing": "Colorado St.",
+          "yesNo": "Yes",
+          "label": "Colorado St.",
+          "entry": 0.09,
+          "price": 0.09,
+          "yesAsk": 0.09,
+          "noAsk": 0.92,
+          "cost": 2.34,
+          "contracts": 26.0,
+          "lastTs": 1795281726,
+          "startTs": 1795318200,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Colorado St. vs Fresno St.",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795480200
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21STETUSD-STET",
+          "eventTicker": "KXNCAAFGAME-26NOV21STETUSD",
+          "marketTitle": "Stetson vs San Diego",
+          "contractTitle": "Stetson wins",
+          "backing": "Stetson",
+          "yesNo": "Yes",
+          "label": "Stetson",
+          "entry": 0.09,
+          "price": 0.09,
+          "yesAsk": 0.09,
+          "noAsk": 0.92,
+          "cost": 2.34,
+          "contracts": 26.0,
+          "lastTs": 1795281768,
+          "startTs": 1795320000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Stetson vs San Diego",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795482000
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21VTMIA-VT",
+          "eventTicker": "KXNCAAFGAME-26NOV21VTMIA",
+          "marketTitle": "Virginia Tech vs Miami (FL)",
+          "contractTitle": "Virginia Tech wins",
+          "backing": "Virginia Tech",
+          "yesNo": "Yes",
+          "label": "Virginia Tech",
+          "entry": 0.09,
+          "price": 0.09,
+          "yesAsk": 0.09,
+          "noAsk": 0.92,
+          "cost": 2.34,
+          "contracts": 26.0,
+          "lastTs": 1795281687,
+          "startTs": 1795316400,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Virginia Tech vs Miami (FL)",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795478400
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21ARKTEX-ARK",
+          "eventTicker": "KXNCAAFGAME-26NOV21ARKTEX",
+          "marketTitle": "Arkansas vs Texas",
+          "contractTitle": "Arkansas wins",
+          "backing": "Arkansas",
+          "yesNo": "Yes",
+          "label": "Arkansas",
+          "entry": 0.1,
+          "price": 0.01,
+          "yesAsk": 0.01,
+          "noAsk": 1.0,
+          "cost": 2.3,
+          "contracts": 23.0,
+          "lastTs": 1795281492,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Arkansas vs Texas",
+          "bt": "Moneyline",
+          "slip": -9.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21SDSUBSU-SDSU",
+          "eventTicker": "KXNCAAFGAME-26NOV21SDSUBSU",
+          "marketTitle": "San Diego St. vs Boise St.",
+          "contractTitle": "San Diego St. wins",
+          "backing": "San Diego St.",
+          "yesNo": "Yes",
+          "label": "San Diego St.",
+          "entry": 0.1,
+          "price": 0.09,
+          "yesAsk": 0.09,
+          "noAsk": 0.92,
+          "cost": 2.3,
+          "contracts": 23.0,
+          "lastTs": 1795281757,
+          "startTs": 1795325400,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "San Diego St. vs Boise St.",
+          "bt": "Moneyline",
+          "slip": -1.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795487400
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21SMUND-SMU",
+          "eventTicker": "KXNCAAFGAME-26NOV21SMUND",
+          "marketTitle": "SMU vs Notre Dame",
+          "contractTitle": "SMU wins",
+          "backing": "SMU",
+          "yesNo": "Yes",
+          "label": "SMU",
+          "entry": 0.1,
+          "price": 0.1,
+          "yesAsk": 0.1,
+          "noAsk": 0.91,
+          "cost": 2.3,
+          "contracts": 23.0,
+          "lastTs": 1795281707,
+          "startTs": 1795318200,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "SMU vs Notre Dame",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795480200
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21UTUWEB-UTU",
+          "eventTicker": "KXNCAAFGAME-26NOV21UTUWEB",
+          "marketTitle": "Utah Tech vs Weber St.",
+          "contractTitle": "Utah Tech wins",
+          "backing": "Utah Tech",
+          "yesNo": "Yes",
+          "label": "Utah Tech",
+          "entry": 0.12,
+          "price": 0.01,
+          "yesAsk": 0.01,
+          "noAsk": 1.0,
+          "cost": 2.28,
+          "contracts": 19.0,
+          "lastTs": 1795281435,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Utah Tech vs Weber St.",
+          "bt": "Moneyline",
+          "slip": -11.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        },
+        {
+          "ticker": "KXNCAAFGAME-26NOV21UGASCAR-SCAR",
+          "eventTicker": "KXNCAAFGAME-26NOV21UGASCAR",
+          "marketTitle": "Georgia vs South Carolina",
+          "contractTitle": "South Carolina wins",
+          "backing": "South Carolina",
+          "yesNo": "Yes",
+          "label": "South Carolina",
+          "entry": 0.14,
+          "price": 0.14,
+          "yesAsk": 0.14,
+          "noAsk": 0.87,
+          "cost": 2.24,
+          "contracts": 16.0,
+          "lastTs": 1795281786,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Georgia vs South Carolina",
+          "bt": "Moneyline",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        }
+      ],
       "pickCount": 0
     },
     {
@@ -1217,21 +1789,23 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -6735.49,
+      "pnl": -5633.11,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 19679.42,
+      "volumeUsd": 23387.55,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 185,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "arrogant.partridge5038 \u00b7 -$6.74k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "arrogant.partridge5038 \u00b7 -$5.63k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "balla23",
@@ -1243,12 +1817,8 @@
       "tag": "",
       "heavy": false,
       "ranks": {},
-      "profitRanks": {
-        "Economics": {
-          "weekly": 77
-        }
-      },
-      "onProfitBoard": true,
+      "profitRanks": {},
+      "onProfitBoard": false,
       "pnl": -57667.77,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
@@ -1260,6 +1830,8 @@
       "ageDays": 366,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "balla23 \u00b7 -$57.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1292,6 +1864,8 @@
       "ageDays": 334,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "big.energy \u00b7 +$18.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1309,7 +1883,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -83675.99,
+      "pnl": -83880.68,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1320,7 +1894,9 @@
       "ageDays": 372,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "bigbobbyp \u00b7 -$83.7k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bigbobbyp \u00b7 -$83.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 2
@@ -1337,11 +1913,11 @@
       "ranks": {},
       "profitRanks": {
         "Politics": {
-          "weekly": 70
+          "weekly": 72
         }
       },
       "onProfitBoard": true,
-      "pnl": 1814.16,
+      "pnl": 1816.41,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1366,10 +1942,27 @@
         "profit": -275.44,
         "sample": "full"
       },
-      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.81k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -92.9,
+          "profit": -136.5
+        },
+        "NCAAF": {
+          "n": 6,
+          "w": 1,
+          "l": 5,
+          "roi": -32.3,
+          "profit": -184.0
+        }
+      },
+      "bestAt": "NCAAF",
+      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 Best at NCAAF \u00b7 +$1.82k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "billtuller",
@@ -1383,11 +1976,11 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "weekly": 52
+          "weekly": 61
         }
       },
       "onProfitBoard": true,
-      "pnl": 2.84,
+      "pnl": 2.8,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1398,6 +1991,8 @@
       "ageDays": 399,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "billtuller \u00b7 +$3 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1415,11 +2010,11 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "weekly": 50
+          "weekly": 51
         }
       },
       "onProfitBoard": true,
-      "pnl": 3224.71,
+      "pnl": 3239.71,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1444,10 +2039,6 @@
         "profit": 1034.41,
         "sample": "full"
       },
-      "recordLine": "Billy.Hoyle \u00b7 11-10 \u00b7 +57% \u00b7 Best at WNBA \u00b7 +$3.22k all \u00b7 Other",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
       "sports": {
         "NFL": {
           "n": 2,
@@ -1486,13 +2077,16 @@
         }
       },
       "bestAt": "WNBA",
-      "followCount": 0
+      "recordLine": "Billy.Hoyle \u00b7 11-10 \u00b7 +57% \u00b7 Best at WNBA \u00b7 +$3.24k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "black.catt",
       "profileUrl": "https://kalshi.com/ideas/profiles/black.catt",
       "joinedAt": "2026-01-02",
-      "followers": 152,
+      "followers": 151,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -1504,7 +2098,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -30487.03,
+      "pnl": -33180.7,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1529,55 +2123,145 @@
         "profit": 5934.4,
         "sample": "small"
       },
-      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$30.5k all \u00b7 Other",
+      "sports": {
+        "NBA": {
+          "n": 7,
+          "w": 6,
+          "l": 1,
+          "roi": 35.5,
+          "profit": 5544.54
+        }
+      },
+      "bestAt": "NBA",
+      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 Best at NBA \u00b7 -$33.2k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 11
+      "followingPicks": [
+        {
+          "ticker": "KXNFL1HSPREAD-26NOV22ARIKC-KC10",
+          "eventTicker": "KXNFL1HSPREAD-26NOV22ARIKC",
+          "marketTitle": "Arizona vs Kansas City: 1st Half Spread",
+          "contractTitle": "Kansas City wins 1H by over 9.5 points?",
+          "backing": "Kansas City wins by over 9.5 points",
+          "yesNo": "Yes",
+          "label": "Kansas City wins by over 9.5 points",
+          "entry": 0.5436,
+          "price": 0.52,
+          "yesAsk": 0.52,
+          "noAsk": 0.49,
+          "cost": 4360.34,
+          "contracts": 8021.0,
+          "lastTs": 1795205354,
+          "startTs": 1795381200,
+          "state": "upcoming",
+          "league": "NFL",
+          "game": "Arizona vs Kansas City: 1st Half Spread",
+          "bt": "Spread",
+          "slip": -2.4,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795543200
+        },
+        {
+          "ticker": "KXNFLSPREAD-26NOV22ARIKC-KC17",
+          "eventTicker": "KXNFLSPREAD-26NOV22ARIKC",
+          "marketTitle": "Arizona vs Kansas City: Spread",
+          "contractTitle": "Kansas City wins by over 16.5 points?",
+          "backing": "Kansas City wins by over 16.5 points",
+          "yesNo": "Yes",
+          "label": "Kansas City wins by over 16.5 points",
+          "entry": 0.5,
+          "price": 0.48,
+          "yesAsk": 0.48,
+          "noAsk": 0.53,
+          "cost": 1932.0,
+          "contracts": 3864.0,
+          "lastTs": 1795204775,
+          "startTs": 1795381200,
+          "state": "upcoming",
+          "league": "NFL",
+          "game": "Arizona vs Kansas City: Spread",
+          "bt": "Spread",
+          "slip": -2.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795543200
+        },
+        {
+          "ticker": "KXNBASPREAD-26NOV21BOSSAC-BOS14",
+          "eventTicker": "KXNBASPREAD-26NOV21BOSSAC",
+          "marketTitle": "Boston vs Sacramento: Spread",
+          "contractTitle": "Boston wins by over 13.5 points",
+          "backing": "Boston wins by over 13.5 points",
+          "yesNo": "Yes",
+          "label": "Boston wins by over 13.5 points",
+          "entry": 0.5,
+          "price": 0.45,
+          "yesAsk": 0.45,
+          "noAsk": 0.56,
+          "cost": 124.5,
+          "contracts": 249.0,
+          "lastTs": 1795291403,
+          "startTs": 1795327200,
+          "state": "upcoming",
+          "league": "NBA",
+          "game": "Boston vs Sacramento: Spread",
+          "bt": "Spread",
+          "slip": -5.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795489200
+        }
+      ],
+      "pickCount": 10
     },
     {
       "nickname": "king.45",
       "profileUrl": "https://kalshi.com/ideas/profiles/king.45",
       "joinedAt": "2026-07-18",
       "followers": 64,
-      "tier": "Board",
+      "tier": "Other",
       "pinned": false,
       "tag": "",
       "heavy": false,
-      "ranks": {
-        "weekly": 99
-      },
-      "profitRanks": {
-        "Sports": {
-          "weekly": 99
-        }
-      },
-      "onProfitBoard": true,
-      "pnl": 114346.83,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 113769.23,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 19327.24,
+      "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": 3375153.85,
-      "tape7d": -59.18,
-      "tape30d": -59.18,
+      "tape7d": -204.42,
+      "tape30d": 635.0,
       "ageDays": 126,
       "graded": {
-        "n": 2,
-        "w": 1,
-        "l": 1,
-        "roi": -13.4,
-        "profit": -59.18,
-        "sample": "small"
+        "n": 15,
+        "w": 13,
+        "l": 2,
+        "roi": 6.5,
+        "profit": 635.0,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 1,
-        "l": 1,
-        "roi": -13.4,
-        "profit": -59.18,
-        "sample": "small"
+        "n": 15,
+        "w": 13,
+        "l": 2,
+        "roi": 6.5,
+        "profit": 635.0,
+        "sample": "full"
       },
-      "recordLine": "king.45 \u00b7 1-1 \u00b7 -13% \u00b7 +$114.3k all \u00b7 Board",
+      "sports": {
+        "Cricket": {
+          "n": 5,
+          "w": 4,
+          "l": 1,
+          "roi": -1.7,
+          "profit": -26.29
+        }
+      },
+      "bestAt": "Cricket",
+      "recordLine": "king.45 \u00b7 13-2 \u00b7 +6% \u00b7 Best at Cricket \u00b7 +$113.8k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1586,7 +2270,7 @@
       "nickname": "bospredicts",
       "profileUrl": "https://kalshi.com/ideas/profiles/bospredicts",
       "joinedAt": "2026-04-15",
-      "followers": 1324,
+      "followers": 1330,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -1594,12 +2278,12 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "monthly": 9,
+          "monthly": 8,
           "weekly": 5
         }
       },
       "onProfitBoard": true,
-      "pnl": -17057.1,
+      "pnl": -18767.28,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1608,9 +2292,25 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 220,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "bospredicts \u00b7 -$17.1k all \u00b7 Other",
+      "graded": {
+        "n": 4,
+        "w": 2,
+        "l": 2,
+        "roi": 48.0,
+        "profit": 300.61,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 4,
+        "w": 2,
+        "l": 2,
+        "roi": 48.0,
+        "profit": 300.61,
+        "sample": "small"
+      },
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bospredicts \u00b7 2-2 \u00b7 +48% \u00b7 -$18.8k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1619,7 +2319,7 @@
       "nickname": "BradleyD",
       "profileUrl": "https://kalshi.com/ideas/profiles/BradleyD",
       "joinedAt": "2025-11-26",
-      "followers": 199,
+      "followers": 202,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -1627,25 +2327,53 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "monthly": 24,
-          "weekly": 8
+          "monthly": 27,
+          "weekly": 9
         }
       },
       "onProfitBoard": true,
-      "pnl": -398940.54,
+      "pnl": -393528.33,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1649765.38,
+      "volumeUsd": 1723666.84,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 360,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BradleyD \u00b7 -$398.9k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BradleyD \u00b7 -$393.5k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "followingPicks": [],
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFGAME-26NOV21ARKTEX-TEX",
+          "eventTicker": "KXNCAAFGAME-26NOV21ARKTEX",
+          "marketTitle": "Arkansas vs Texas",
+          "contractTitle": "Texas wins",
+          "backing": "Texas",
+          "yesNo": "Yes",
+          "label": "Texas",
+          "entry": 0.99,
+          "price": 1.0,
+          "yesAsk": 1.0,
+          "noAsk": 0.01,
+          "cost": 39971.25,
+          "contracts": 40375.0,
+          "lastTs": 1795297201,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Arkansas vs Texas",
+          "bt": "Moneyline",
+          "slip": 1.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        }
+      ],
       "pickCount": 0
     },
     {
@@ -1660,7 +2388,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -19934.0,
+      "pnl": -20728.9,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1685,10 +2413,34 @@
         "profit": 1552.2,
         "sample": "small"
       },
-      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$19.9k all \u00b7 Other",
+      "sports": {
+        "NCAAB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 120.0,
+          "profit": 555.64
+        },
+        "NHL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 175.9,
+          "profit": 502.61
+        },
+        "NCAAF": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 114.3,
+          "profit": 316.87
+        }
+      },
+      "bestAt": "NCAAB",
+      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 Best at NCAAB \u00b7 -$20.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 2
+      "pickCount": 4
     },
     {
       "nickname": "toy.room",
@@ -1702,7 +2454,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -64895.01,
+      "pnl": -64024.57,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1713,16 +2465,18 @@
       "ageDays": 350,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "toy.room \u00b7 -$64.9k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "toy.room \u00b7 -$64.0k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "bullishkirby",
       "profileUrl": "https://kalshi.com/ideas/profiles/bullishkirby",
       "joinedAt": "2026-01-03",
-      "followers": 1714,
+      "followers": 1712,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -1746,12 +2500,12 @@
       "ageDays": 322,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "bullishkirby \u00b7 +$356.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "414chuy",
@@ -1765,18 +2519,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3237.9,
+      "pnl": -3403.51,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 60014.5,
+      "volumeUsd": 60298.04,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 746,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "414chuy \u00b7 -$3.24k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "414chuy \u00b7 -$3.40k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1803,22 +2559,46 @@
       "tape30d": 22.05,
       "ageDays": 133,
       "graded": {
-        "n": 5,
-        "w": 5,
-        "l": 0,
-        "roi": 63.7,
-        "profit": 42.59,
-        "sample": "small"
+        "n": 26,
+        "w": 24,
+        "l": 2,
+        "roi": 70.2,
+        "profit": 125.37,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 5,
-        "w": 5,
-        "l": 0,
-        "roi": 63.7,
-        "profit": 42.59,
-        "sample": "small"
+        "n": 26,
+        "w": 24,
+        "l": 2,
+        "roi": 70.2,
+        "profit": 125.37,
+        "sample": "full"
       },
-      "recordLine": "annual.swan0694 \u00b7 5-0 \u00b7 +64% \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 22,
+          "w": 21,
+          "l": 1,
+          "roi": 73.8,
+          "profit": 107.06
+        },
+        "MMA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 67.6,
+          "profit": 9.71
+        },
+        "MLB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 269.2,
+          "profit": 5.07
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "annual.swan0694 \u00b7 24-2 \u00b7 +70% \u00b7 Best at Tennis \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1835,7 +2615,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -912.38,
+      "pnl": -1024.64,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1846,10 +2626,12 @@
       "ageDays": 286,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "azcat8228 \u00b7 -$912 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "azcat8228 \u00b7 -$1.02k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "BadMr.Frosty",
@@ -1863,21 +2645,23 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -23821.46,
+      "pnl": -25018.25,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1919761.04,
+      "volumeUsd": 1923453.38,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 177,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BadMr.Frosty \u00b7 -$23.8k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BadMr.Frosty \u00b7 -$25.0k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 9
+      "pickCount": 10
     },
     {
       "nickname": "big.timer",
@@ -1891,7 +2675,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -32.07,
+      "pnl": 59.91,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1902,7 +2686,9 @@
       "ageDays": 307,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "big.timer \u00b7 -$32 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "big.timer \u00b7 +$60 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1919,7 +2705,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -64.09,
+      "pnl": -107.3,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1930,7 +2716,9 @@
       "ageDays": 121,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BigDiddyBets \u00b7 -$64 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BigDiddyBets \u00b7 -$107 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1947,7 +2735,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -241.02,
+      "pnl": -248.05,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1958,7 +2746,9 @@
       "ageDays": 394,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BJL1 \u00b7 -$241 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BJL1 \u00b7 -$248 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1975,32 +2765,126 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2366.9,
+      "pnl": -2649.82,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 158996.96,
-      "tape7d": 761.46,
-      "tape30d": 2885.19,
+      "volumeUsd": 159277.34,
+      "tape7d": 679.15,
+      "tape30d": 2868.56,
       "ageDays": 197,
       "graded": {
-        "n": 294,
-        "w": 289,
-        "l": 5,
-        "roi": 16.9,
-        "profit": 3665.34,
+        "n": 632,
+        "w": 613,
+        "l": 19,
+        "roi": 17.1,
+        "profit": 5209.85,
         "sample": "full"
       },
       "gradedAll": {
-        "n": 295,
-        "w": 289,
-        "l": 6,
+        "n": 659,
+        "w": 629,
+        "l": 30,
         "roi": 16.9,
-        "profit": 3663.03,
+        "profit": 5210.7,
         "sample": "full"
       },
-      "recordLine": "Blumpkinator \u00b7 289-5 \u00b7 +17% \u00b7 -$2.37k all \u00b7 Other",
+      "sports": {
+        "NCAAW": {
+          "n": 24,
+          "w": 22,
+          "l": 2,
+          "roi": 11.4,
+          "profit": 228.71
+        },
+        "NBA": {
+          "n": 90,
+          "w": 86,
+          "l": 4,
+          "roi": 18.7,
+          "profit": 1519.44
+        },
+        "NCAAF": {
+          "n": 37,
+          "w": 37,
+          "l": 0,
+          "roi": 13.8,
+          "profit": 326.63
+        },
+        "NCAAB": {
+          "n": 22,
+          "w": 22,
+          "l": 0,
+          "roi": 13.4,
+          "profit": 346.05
+        },
+        "Tennis": {
+          "n": 169,
+          "w": 169,
+          "l": 0,
+          "roi": 18.5,
+          "profit": 782.22
+        },
+        "NHL": {
+          "n": 4,
+          "w": 4,
+          "l": 0,
+          "roi": 19.1,
+          "profit": 29.51
+        },
+        "NFL": {
+          "n": 29,
+          "w": 28,
+          "l": 1,
+          "roi": 16.6,
+          "profit": 441.6
+        },
+        "Soccer": {
+          "n": 13,
+          "w": 13,
+          "l": 0,
+          "roi": 17.9,
+          "profit": 85.51
+        },
+        "MLB": {
+          "n": 51,
+          "w": 51,
+          "l": 0,
+          "roi": 8.0,
+          "profit": 120.12
+        },
+        "WNBA": {
+          "n": 51,
+          "w": 43,
+          "l": 8,
+          "roi": 32.4,
+          "profit": 451.67
+        },
+        "CFL": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 25.2,
+          "profit": 9.48
+        },
+        "MMA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 13.6,
+          "profit": 6.37
+        },
+        "Cricket": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 8.0,
+          "profit": 0.42
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "Blumpkinator \u00b7 613-19 \u00b7 +17% \u00b7 Best at Tennis \u00b7 -$2.65k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2017,7 +2901,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -9102.23,
+      "pnl": -9219.51,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2027,22 +2911,53 @@
       "tape30d": null,
       "ageDays": 224,
       "graded": {
-        "n": 3,
-        "w": 1,
-        "l": 2,
-        "roi": 46.2,
-        "profit": 53.92,
-        "sample": "small"
+        "n": 19,
+        "w": 11,
+        "l": 8,
+        "roi": 17.5,
+        "profit": 142.9,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 3,
-        "w": 1,
-        "l": 2,
-        "roi": 46.2,
-        "profit": 53.92,
-        "sample": "small"
+        "n": 67,
+        "w": 42,
+        "l": 25,
+        "roi": 11.7,
+        "profit": 360.8,
+        "sample": "full"
       },
-      "recordLine": "boat.weed \u00b7 1-2 \u00b7 +46% \u00b7 -$9.10k all \u00b7 Other",
+      "sports": {
+        "NHL": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": 79.8,
+          "profit": 71.56
+        },
+        "MLB": {
+          "n": 7,
+          "w": 3,
+          "l": 4,
+          "roi": -7.9,
+          "profit": -27.45
+        },
+        "Tennis": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 65.3,
+          "profit": 31.53
+        },
+        "NCAAB": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -57.9,
+          "profit": -39.2
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "boat.weed \u00b7 11-8 \u00b7 +18% \u00b7 Best at MLB \u00b7 -$9.22k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2059,7 +2974,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -579.36,
+      "pnl": -854.47,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2084,10 +2999,20 @@
         "profit": -134.67,
         "sample": "small"
       },
-      "recordLine": "brai \u00b7 0-1 \u00b7 -94% \u00b7 -$579 all \u00b7 Other",
+      "sports": {
+        "NCAAF": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -94.3,
+          "profit": -134.67
+        }
+      },
+      "bestAt": "NCAAF",
+      "recordLine": "brai \u00b7 0-1 \u00b7 -94% \u00b7 Best at NCAAF \u00b7 -$854 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 9
+      "pickCount": 10
     },
     {
       "nickname": "Burakbas",
@@ -2112,6 +3037,8 @@
       "ageDays": 420,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "Burakbas \u00b7 -$144 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2129,7 +3056,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 150.07,
+      "pnl": 157.28,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2140,7 +3067,9 @@
       "ageDays": 373,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "CamBam327 \u00b7 +$150 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "CamBam327 \u00b7 +$157 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2172,12 +3101,12 @@
       "ageDays": 760,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "CJJ307 \u00b7 +$226.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "clear.bee",
@@ -2189,14 +3118,9 @@
       "tag": "",
       "heavy": true,
       "ranks": {},
-      "profitRanks": {
-        "Economics": {
-          "monthly": 92,
-          "weekly": 80
-        }
-      },
-      "onProfitBoard": true,
-      "pnl": -2901.43,
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -3019.11,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2221,7 +3145,31 @@
         "profit": -1065.21,
         "sample": "small"
       },
-      "recordLine": "clear.bee \u00b7 3-2 \u00b7 -66% \u00b7 -$2.90k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 4.4,
+          "profit": 0.15
+        },
+        "Cricket": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -99.0,
+          "profit": -1132.8
+        },
+        "Golf": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": 80.5,
+          "profit": 14.46
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "clear.bee \u00b7 3-2 \u00b7 -66% \u00b7 Best at NFL \u00b7 -$3.02k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2238,7 +3186,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 14.74,
+      "pnl": 17.39,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2263,7 +3211,45 @@
         "profit": 23.57,
         "sample": "small"
       },
-      "recordLine": "coachlord66 \u00b7 8-1 \u00b7 +65% \u00b7 +$15 all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 22.7,
+          "profit": 0.89
+        },
+        "Soccer": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 244.0,
+          "profit": 4.64
+        },
+        "NCAAF": {
+          "n": 3,
+          "w": 3,
+          "l": 0,
+          "roi": 156.2,
+          "profit": 16.42
+        },
+        "MLB": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -86.1,
+          "profit": -6.13
+        },
+        "NCAAB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 111.8,
+          "profit": 3.2
+        }
+      },
+      "bestAt": "NCAAF",
+      "recordLine": "coachlord66 \u00b7 8-1 \u00b7 +65% \u00b7 Best at NCAAF \u00b7 +$17 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2280,18 +3266,34 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -549.86,
+      "pnl": -1365.58,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 214913.18,
+      "volumeUsd": 223105.56,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 152,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "coastal.raindrop4530 \u00b7 -$550 all \u00b7 Other",
+      "graded": {
+        "n": 8,
+        "w": 8,
+        "l": 0,
+        "roi": 43.5,
+        "profit": 48.54,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 57,
+        "w": 40,
+        "l": 17,
+        "roi": 14.1,
+        "profit": 204.19,
+        "sample": "full"
+      },
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "coastal.raindrop4530 \u00b7 8-0 \u00b7 +44% \u00b7 -$1.37k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2310,12 +3312,12 @@
         "Economics": {
           "all_time": 46,
           "monthly": 6,
-          "weekly": 9,
+          "weekly": 8,
           "yearly": 40
         }
       },
       "onProfitBoard": true,
-      "pnl": 11115.58,
+      "pnl": 11123.75,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2340,6 +3342,8 @@
         "profit": -57.95,
         "sample": "small"
       },
+      "sports": {},
+      "bestAt": null,
       "recordLine": "coin.race \u00b7 0-1 \u00b7 -300% \u00b7 +$11.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2353,7 +3357,7 @@
       "tier": "Other",
       "pinned": false,
       "tag": "",
-      "heavy": false,
+      "heavy": true,
       "ranks": {},
       "profitRanks": {
         "Politics": {
@@ -2371,14 +3375,36 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 258,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "ColeBartiromoDOLLARSCHOLAR \u00b7 +$184.3k all \u00b7 Other",
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -74.5,
+        "profit": -10106.88,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -74.5,
+        "profit": -10106.88,
+        "sample": "small"
+      },
+      "sports": {
+        "MLB": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -74.5,
+          "profit": -10106.88
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "ColeBartiromoDOLLARSCHOLAR \u00b7 0-1 \u00b7 -74% \u00b7 Best at MLB \u00b7 +$184.3k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
-      "sports": {}
+      "pickCount": 0
     },
     {
       "nickname": "crazy.sal",
@@ -2392,7 +3418,7 @@
       "ranks": {},
       "profitRanks": {
         "Politics": {
-          "monthly": 96
+          "monthly": 98
         }
       },
       "onProfitBoard": true,
@@ -2421,13 +3447,12 @@
         "profit": 268.41,
         "sample": "small"
       },
-      "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 Other",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
       "sports": {},
       "bestAt": null,
-      "followCount": 0
+      "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "advanced.redpoll2268",
@@ -2441,7 +3466,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 111.15,
+      "pnl": 97.07,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2452,7 +3477,9 @@
       "ageDays": 237,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "advanced.redpoll2268 \u00b7 +$111 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "advanced.redpoll2268 \u00b7 +$97 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2469,7 +3496,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 189.94,
+      "pnl": 229.25,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2480,7 +3507,9 @@
       "ageDays": 306,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "akamarino \u00b7 +$190 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "akamarino \u00b7 +$229 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2504,18 +3533,56 @@
       "yearlyPnl": null,
       "volumeUsd": null,
       "tape7d": null,
-      "tape30d": null,
+      "tape30d": 18.26,
       "ageDays": 115,
-      "graded": null,
-      "gradedAll": {
-        "n": 5,
-        "w": 0,
-        "l": 5,
-        "roi": -63.5,
-        "profit": -37.77,
-        "sample": "small"
+      "graded": {
+        "n": 25,
+        "w": 16,
+        "l": 8,
+        "roi": 20.5,
+        "profit": 18.26,
+        "sample": "full"
       },
-      "recordLine": "Browncoat \u00b7 Other",
+      "gradedAll": {
+        "n": 35,
+        "w": 19,
+        "l": 15,
+        "roi": -10.6,
+        "profit": -24.72,
+        "sample": "full"
+      },
+      "sports": {
+        "NCAAF": {
+          "n": 2,
+          "w": 1,
+          "l": 0,
+          "roi": 1.6,
+          "profit": 0.47
+        },
+        "NHL": {
+          "n": 9,
+          "w": 7,
+          "l": 2,
+          "roi": 77.8,
+          "profit": 10.23
+        },
+        "Tennis": {
+          "n": 12,
+          "w": 7,
+          "l": 5,
+          "roi": 20.9,
+          "profit": 9.09
+        },
+        "NFL": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": -42.9,
+          "profit": -1.53
+        }
+      },
+      "bestAt": "NHL",
+      "recordLine": "Browncoat \u00b7 16-8 \u00b7 +20% \u00b7 Best at NHL \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2532,7 +3599,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -36.57,
+      "pnl": -20.91,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2543,7 +3610,9 @@
       "ageDays": 283,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "butter.bets \u00b7 -$37 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "butter.bets \u00b7 -$21 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2560,7 +3629,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -40834.64,
+      "pnl": -40931.14,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2571,7 +3640,9 @@
       "ageDays": 305,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "cheep \u00b7 -$40.8k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "cheep \u00b7 -$40.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2613,7 +3684,17 @@
         "profit": 16.76,
         "sample": "small"
       },
-      "recordLine": "clammy.soup \u00b7 1-0 \u00b7 +17% \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 17.2,
+          "profit": 16.76
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "clammy.soup \u00b7 1-0 \u00b7 +17% \u00b7 Best at Tennis \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2630,7 +3711,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -6185.18,
+      "pnl": -6247.85,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2639,9 +3720,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 332,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "coachmall \u00b7 -$6.19k all \u00b7 Other",
+      "graded": {
+        "n": 2,
+        "w": 1,
+        "l": 1,
+        "roi": -12.1,
+        "profit": -51.11,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 2,
+        "w": 1,
+        "l": 1,
+        "roi": -12.1,
+        "profit": -51.11,
+        "sample": "small"
+      },
+      "sports": {
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 50.0,
+          "profit": 10.29
+        }
+      },
+      "bestAt": "NBA",
+      "recordLine": "coachmall \u00b7 1-1 \u00b7 -12% \u00b7 Best at NBA \u00b7 -$6.25k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2658,7 +3763,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -394.6,
+      "pnl": -600.02,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2669,7 +3774,9 @@
       "ageDays": 300,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "coltondevalle \u00b7 -$395 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "coltondevalle \u00b7 -$600 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2686,7 +3793,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3275.97,
+      "pnl": -3256.89,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2697,7 +3804,9 @@
       "ageDays": 488,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "connor627d \u00b7 -$3.28k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "connor627d \u00b7 -$3.26k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2718,7 +3827,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -4096.06,
+      "pnl": -4097.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2743,6 +3852,8 @@
         "profit": -22.84,
         "sample": "small"
       },
+      "sports": {},
+      "bestAt": null,
       "recordLine": "cuzco69 \u00b7 0-2 \u00b7 -4% \u00b7 -$4.10k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2760,12 +3871,12 @@
       "ranks": {},
       "profitRanks": {
         "Politics": {
-          "monthly": 76,
-          "weekly": 79
+          "monthly": 75,
+          "weekly": 82
         }
       },
       "onProfitBoard": true,
-      "pnl": 17641.72,
+      "pnl": 17707.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2776,7 +3887,9 @@
       "ageDays": 286,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "d.palombo \u00b7 +$17.6k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "d.palombo \u00b7 +$17.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2804,6 +3917,8 @@
       "ageDays": 458,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "danigucci \u00b7 -$284 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2827,7 +3942,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 27181.61,
+      "pnl": 27187.12,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2836,9 +3951,25 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 345,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "dear.bet \u00b7 +$27.2k all \u00b7 Other",
+      "graded": {
+        "n": 6,
+        "w": 3,
+        "l": 3,
+        "roi": 15.1,
+        "profit": 162.97,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 6,
+        "w": 3,
+        "l": 3,
+        "roi": 15.1,
+        "profit": 162.97,
+        "sample": "small"
+      },
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "dear.bet \u00b7 3-3 \u00b7 +15% \u00b7 +$27.2k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2855,7 +3986,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -6653.52,
+      "pnl": -6975.68,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2865,22 +3996,95 @@
       "tape30d": 545.65,
       "ageDays": 420,
       "graded": {
-        "n": 18,
-        "w": 13,
-        "l": 5,
-        "roi": 100.7,
-        "profit": 944.25,
+        "n": 230,
+        "w": 117,
+        "l": 109,
+        "roi": -6.1,
+        "profit": -548.98,
         "sample": "full"
       },
       "gradedAll": {
-        "n": 19,
-        "w": 14,
-        "l": 5,
-        "roi": 104.0,
-        "profit": 1019.25,
+        "n": 236,
+        "w": 121,
+        "l": 111,
+        "roi": -4.7,
+        "profit": -440.79,
         "sample": "full"
       },
-      "recordLine": "Alfredoe \u00b7 13-5 \u00b7 +101% \u00b7 -$6.65k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 26,
+          "w": 10,
+          "l": 15,
+          "roi": 23.6,
+          "profit": 137.56
+        },
+        "Soccer": {
+          "n": 101,
+          "w": 52,
+          "l": 48,
+          "roi": -29.9,
+          "profit": -1319.97
+        },
+        "NCAAF": {
+          "n": 57,
+          "w": 28,
+          "l": 27,
+          "roi": -23.0,
+          "profit": -321.2
+        },
+        "NHL": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": 58.0,
+          "profit": 71.94
+        },
+        "Tennis": {
+          "n": 3,
+          "w": 1,
+          "l": 2,
+          "roi": 57.0,
+          "profit": 89.26
+        },
+        "NBA": {
+          "n": 6,
+          "w": 4,
+          "l": 2,
+          "roi": 83.3,
+          "profit": 242.0
+        },
+        "NCAAB": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": -512.5,
+          "profit": -205.0
+        },
+        "Racing": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -78.3,
+          "profit": -36.0
+        },
+        "MLB": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -42.1,
+          "profit": -1.2
+        },
+        "Golf": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 53.5,
+          "profit": 4.28
+        }
+      },
+      "bestAt": "NBA",
+      "recordLine": "Alfredoe \u00b7 117-109 \u00b7 -6% \u00b7 Best at NBA \u00b7 -$6.98k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -2908,6 +4112,8 @@
       "ageDays": 381,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "Arch88 \u00b7 +$324 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2925,7 +4131,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -121.61,
+      "pnl": -113.53,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2936,7 +4142,9 @@
       "ageDays": 236,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "ArrJ \u00b7 -$122 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "ArrJ \u00b7 -$114 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2953,7 +4161,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 94.41,
+      "pnl": 82.7,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2964,7 +4172,9 @@
       "ageDays": 330,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "beerfriendly \u00b7 +$94 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "beerfriendly \u00b7 +$83 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2981,7 +4191,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -13709.58,
+      "pnl": -13396.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2992,7 +4202,9 @@
       "ageDays": 382,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BiglouieG \u00b7 -$13.7k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BiglouieG \u00b7 -$13.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 12
@@ -3009,7 +4221,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 93.05,
+      "pnl": 101.96,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3020,7 +4232,9 @@
       "ageDays": 317,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Bigtricknasty \u00b7 +$93 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Bigtricknasty \u00b7 +$102 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3037,7 +4251,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -9157.55,
+      "pnl": -9245.96,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3048,7 +4262,9 @@
       "ageDays": 395,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "black84 \u00b7 -$9.16k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "black84 \u00b7 -$9.25k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3065,7 +4281,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 328.01,
+      "pnl": 315.45,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3076,7 +4292,9 @@
       "ageDays": 434,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Bradymeyers \u00b7 +$328 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Bradymeyers \u00b7 +$315 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3085,7 +4303,7 @@
       "nickname": "BuyTheDip818",
       "profileUrl": "https://kalshi.com/ideas/profiles/BuyTheDip818",
       "joinedAt": "2025-12-06",
-      "followers": 52,
+      "followers": 54,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -3104,10 +4322,12 @@
       "ageDays": 350,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "BuyTheDip818 \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "coolness77",
@@ -3121,7 +4341,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 331.61,
+      "pnl": 310.19,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3132,7 +4352,9 @@
       "ageDays": 399,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "coolness77 \u00b7 +$332 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "coolness77 \u00b7 +$310 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3149,7 +4371,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -865.02,
+      "pnl": -856.83,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3160,7 +4382,9 @@
       "ageDays": 315,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "deck.disk \u00b7 -$865 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "deck.disk \u00b7 -$857 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3206,11 +4430,6 @@
         "profit": 130.14,
         "sample": "small"
       },
-      "recordLine": "degen.4.life112422 \u00b7 3-0 \u00b7 +69% \u00b7 Best at MLB \u00b7 +$22.6k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "MLB": {
           "n": 2,
@@ -3227,7 +4446,11 @@
           "profit": 41.2
         }
       },
-      "bestAt": "MLB"
+      "bestAt": "MLB",
+      "recordLine": "degen.4.life112422 \u00b7 3-0 \u00b7 +69% \u00b7 Best at MLB \u00b7 +$22.6k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "air.barn",
@@ -3241,7 +4464,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -306.22,
+      "pnl": -292.81,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3266,7 +4489,31 @@
         "profit": 102.75,
         "sample": "small"
       },
-      "recordLine": "air.barn \u00b7 9-0 \u00b7 +78% \u00b7 -$306 all \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 6,
+          "w": 6,
+          "l": 0,
+          "roi": 77.0,
+          "profit": 52.81
+        },
+        "NCAAB": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 32.2,
+          "profit": 14.1
+        },
+        "Racing": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 188.5,
+          "profit": 35.83
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "air.barn \u00b7 9-0 \u00b7 +78% \u00b7 Best at Tennis \u00b7 -$293 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3283,7 +4530,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -208.29,
+      "pnl": -208.4,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3294,6 +4541,8 @@
       "ageDays": 293,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "AKYota11 \u00b7 -$208 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -3311,12 +4560,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -36.14,
+      "pnl": -35.31,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1016.29,
+      "volumeUsd": 1026.65,
       "tape7d": null,
       "tape30d": 0.05,
       "ageDays": 34,
@@ -3336,7 +4585,17 @@
         "profit": 0.05,
         "sample": "small"
       },
-      "recordLine": "back.ladybird0123 \u00b7 1-0 \u00b7 +5% \u00b7 -$36 all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 5.1,
+          "profit": 0.05
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "back.ladybird0123 \u00b7 1-0 \u00b7 +5% \u00b7 Best at NFL \u00b7 -$35 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3353,32 +4612,42 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -176.41,
+      "pnl": -166.81,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
-      "tape7d": -21.28,
-      "tape30d": -43.41,
+      "tape7d": -21.59,
+      "tape30d": -68.59,
       "ageDays": 386,
       "graded": {
-        "n": 184,
-        "w": 30,
-        "l": 153,
-        "roi": -52.6,
-        "profit": -43.41,
+        "n": 413,
+        "w": 88,
+        "l": 323,
+        "roi": -37.2,
+        "profit": -70.62,
         "sample": "full"
       },
       "gradedAll": {
-        "n": 184,
-        "w": 30,
-        "l": 153,
-        "roi": -52.6,
-        "profit": -43.41,
+        "n": 413,
+        "w": 88,
+        "l": 323,
+        "roi": -37.2,
+        "profit": -70.62,
         "sample": "full"
       },
-      "recordLine": "benjammin29 \u00b7 30-153 \u00b7 -53% \u00b7 -$176 all \u00b7 Other",
+      "sports": {
+        "Soccer": {
+          "n": 87,
+          "w": 22,
+          "l": 65,
+          "roi": -23.9,
+          "profit": -10.6
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "benjammin29 \u00b7 88-323 \u00b7 -37% \u00b7 Best at Soccer \u00b7 -$167 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3395,7 +4664,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -704.49,
+      "pnl": -687.2,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3406,7 +4675,9 @@
       "ageDays": 385,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "bernig \u00b7 -$704 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bernig \u00b7 -$687 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3423,7 +4694,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2346.94,
+      "pnl": -2498.6,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3434,7 +4705,9 @@
       "ageDays": 305,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "bigchiefkt \u00b7 -$2.35k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bigchiefkt \u00b7 -$2.50k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3451,18 +4724,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -443.1,
+      "pnl": -458.56,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 11441.37,
+      "volumeUsd": 11446.06,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 149,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Bigdognyce \u00b7 -$443 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Bigdognyce \u00b7 -$459 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3479,7 +4754,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 14.65,
+      "pnl": 40.25,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3490,7 +4765,9 @@
       "ageDays": 286,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "black.steak \u00b7 +$15 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "black.steak \u00b7 +$40 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3507,7 +4784,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -601.4,
+      "pnl": -605.38,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3518,7 +4795,9 @@
       "ageDays": 407,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "blind.car \u00b7 -$601 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "blind.car \u00b7 -$605 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3535,7 +4814,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 11.18,
+      "pnl": 45.99,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3546,7 +4825,9 @@
       "ageDays": 290,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "brand.breeze \u00b7 +$11 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "brand.breeze \u00b7 +$46 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3563,7 +4844,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -33.74,
+      "pnl": -56.66,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3574,7 +4855,9 @@
       "ageDays": 159,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "casual.armadillo6321 \u00b7 -$34 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "casual.armadillo6321 \u00b7 -$57 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3591,12 +4874,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -993.98,
+      "pnl": -1000.99,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 9923.33,
+      "volumeUsd": 9945.03,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 384,
@@ -3616,7 +4899,24 @@
         "profit": 98.4,
         "sample": "small"
       },
-      "recordLine": "Chrisalis47 \u00b7 6-0 \u00b7 +110% \u00b7 -$994 all \u00b7 Other",
+      "sports": {
+        "WNBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 135.1,
+          "profit": 12.94
+        },
+        "MLB": {
+          "n": 3,
+          "w": 3,
+          "l": 0,
+          "roi": 93.2,
+          "profit": 61.18
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "Chrisalis47 \u00b7 6-0 \u00b7 +110% \u00b7 Best at MLB \u00b7 -$1.00k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3633,18 +4933,42 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2254.81,
+      "pnl": -2241.84,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 43654.43,
+      "volumeUsd": 43700.94,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 141,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "civilian.ladybird6303 \u00b7 -$2.25k all \u00b7 Other",
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 94.1,
+        "profit": 13.88,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 8,
+        "w": 4,
+        "l": 4,
+        "roi": -29.1,
+        "profit": -32.16,
+        "sample": "small"
+      },
+      "sports": {
+        "MLB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 94.1,
+          "profit": 13.88
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "civilian.ladybird6303 \u00b7 1-0 \u00b7 +94% \u00b7 Best at MLB \u00b7 -$2.24k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3661,12 +4985,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -253.92,
+      "pnl": -255.8,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 7111.95,
+      "volumeUsd": 7120.59,
       "tape7d": 3.68,
       "tape30d": 14.74,
       "ageDays": 132,
@@ -3686,7 +5010,31 @@
         "profit": 47.26,
         "sample": "full"
       },
-      "recordLine": "civilian.platypus8953 \u00b7 24-0 \u00b7 +87% \u00b7 -$254 all \u00b7 Other",
+      "sports": {
+        "NCAAF": {
+          "n": 14,
+          "w": 14,
+          "l": 0,
+          "roi": 123.5,
+          "profit": 113.8
+        },
+        "NFL": {
+          "n": 7,
+          "w": 7,
+          "l": 0,
+          "roi": 48.0,
+          "profit": 8.8
+        },
+        "MLB": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 23.6,
+          "profit": 11.6
+        }
+      },
+      "bestAt": "NCAAF",
+      "recordLine": "civilian.platypus8953 \u00b7 24-0 \u00b7 +87% \u00b7 Best at NCAAF \u00b7 -$256 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3703,12 +5051,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -737.15,
+      "pnl": -736.81,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 3968.28,
+      "volumeUsd": 3976.39,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 165,
@@ -3721,6 +5069,8 @@
         "profit": -1.45,
         "sample": "small"
       },
+      "sports": {},
+      "bestAt": null,
       "recordLine": "coastal.butterfly8754 \u00b7 -$737 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -3738,18 +5088,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3632.4,
+      "pnl": -3721.81,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 14693.89,
+      "volumeUsd": 14705.63,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 142,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "Counties \u00b7 -$3.63k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Counties \u00b7 -$3.72k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3766,7 +5118,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -377.88,
+      "pnl": -395.29,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3791,7 +5143,17 @@
         "profit": 47.08,
         "sample": "small"
       },
-      "recordLine": "D13turtle \u00b7 2-0 \u00b7 +230% \u00b7 -$378 all \u00b7 Other",
+      "sports": {
+        "MMA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 395.0,
+          "profit": 37.4
+        }
+      },
+      "bestAt": "MMA",
+      "recordLine": "D13turtle \u00b7 2-0 \u00b7 +230% \u00b7 Best at MMA \u00b7 -$395 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3808,18 +5170,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -257.28,
+      "pnl": -259.57,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1115044.78,
+      "volumeUsd": 1115055.1,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 690,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "dabman \u00b7 -$257 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "dabman \u00b7 -$260 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3836,7 +5200,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -306.8,
+      "pnl": -298.39,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3861,7 +5225,9 @@
         "profit": -1.24,
         "sample": "small"
       },
-      "recordLine": "danny1942 \u00b7 3-1 \u00b7 -9% \u00b7 -$307 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "danny1942 \u00b7 3-1 \u00b7 -9% \u00b7 -$298 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -3878,7 +5244,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -5410.68,
+      "pnl": -5346.75,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3903,10 +5269,20 @@
         "profit": 9.39,
         "sample": "small"
       },
-      "recordLine": "DarthTradr \u00b7 1-0 \u00b7 +98% \u00b7 -$5.41k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 97.7,
+          "profit": 9.39
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "DarthTradr \u00b7 1-0 \u00b7 +98% \u00b7 Best at NFL \u00b7 -$5.35k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 2
     },
     {
       "nickname": "Davmjxn",
@@ -3920,12 +5296,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 2445.68,
+      "pnl": 2625.14,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 17214.11,
+      "volumeUsd": 21913.84,
       "tape7d": null,
       "tape30d": 1.2,
       "ageDays": 193,
@@ -3945,10 +5321,20 @@
         "profit": 1.2,
         "sample": "small"
       },
-      "recordLine": "Davmjxn \u00b7 1-0 \u00b7 +5% \u00b7 +$2.45k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 4.9,
+          "profit": 1.2
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "Davmjxn \u00b7 1-0 \u00b7 +5% \u00b7 Best at NFL \u00b7 +$2.63k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 2
+      "pickCount": 7
     },
     {
       "nickname": "Dimesy",
@@ -3966,7 +5352,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 43913.15,
+      "pnl": 43908.44,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3977,6 +5363,8 @@
       "ageDays": 225,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "Dimesy \u00b7 +$43.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -4009,6 +5397,8 @@
       "ageDays": 775,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "discountelf \u00b7 +$17.5k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -4018,32 +5408,57 @@
       "nickname": "dependent.snail8369",
       "profileUrl": "https://kalshi.com/ideas/profiles/dependent.snail8369",
       "joinedAt": "2026-05-26",
-      "followers": 102,
-      "tier": "Board",
+      "followers": 103,
+      "tier": "Other",
       "pinned": false,
       "tag": "",
       "heavy": false,
-      "ranks": {
-        "weekly": 96
-      },
-      "profitRanks": {
-        "Sports": {
-          "weekly": 96
-        }
-      },
-      "onProfitBoard": true,
-      "pnl": 14105.83,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 14392.38,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 19417.8,
+      "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1891614.94,
+      "volumeUsd": 1922374.71,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 179,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "dependent.snail8369 \u00b7 +$14.1k all \u00b7 Board",
+      "graded": {
+        "n": 13,
+        "w": 9,
+        "l": 4,
+        "roi": 13.0,
+        "profit": 573.9,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 13,
+        "w": 9,
+        "l": 4,
+        "roi": 13.0,
+        "profit": 573.9,
+        "sample": "full"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 3,
+          "w": 3,
+          "l": 0,
+          "roi": 28.7,
+          "profit": 265.73
+        },
+        "MLB": {
+          "n": 10,
+          "w": 6,
+          "l": 4,
+          "roi": 8.9,
+          "profit": 308.17
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "dependent.snail8369 \u00b7 9-4 \u00b7 +13% \u00b7 Best at MLB \u00b7 +$14.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4060,18 +5475,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 95.33,
+      "pnl": 98.58,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 9492.37,
+      "volumeUsd": 9668.63,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 397,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "714Smith \u00b7 +$95 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "714Smith \u00b7 +$99 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4088,21 +5505,23 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -546.67,
+      "pnl": -653.29,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 34414.15,
+      "volumeUsd": 36486.5,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 135,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "absent.mongoose7869 \u00b7 -$547 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "absent.mongoose7869 \u00b7 -$653 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 2
     },
     {
       "nickname": "additional.flea1535",
@@ -4116,18 +5535,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -386.65,
+      "pnl": -415.46,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 42292.71,
+      "volumeUsd": 42502.76,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 159,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "additional.flea1535 \u00b7 -$387 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "additional.flea1535 \u00b7 -$415 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4144,7 +5565,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -4049.54,
+      "pnl": -4108.94,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4153,9 +5574,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 257,
-      "graded": null,
-      "gradedAll": null,
-      "recordLine": "ariel0206 \u00b7 -$4.05k all \u00b7 Other",
+      "graded": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 207.5,
+        "profit": 78.42,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 207.5,
+        "profit": 78.42,
+        "sample": "small"
+      },
+      "sports": {
+        "Soccer": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 215.0,
+          "profit": 40.72
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "ariel0206 \u00b7 2-0 \u00b7 +208% \u00b7 Best at Soccer \u00b7 -$4.11k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4172,7 +5617,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -342.31,
+      "pnl": -38.01,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4197,7 +5642,17 @@
         "profit": 20.34,
         "sample": "small"
       },
-      "recordLine": "benstef22 \u00b7 1-0 \u00b7 +70% \u00b7 -$342 all \u00b7 Other",
+      "sports": {
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 70.5,
+          "profit": 20.34
+        }
+      },
+      "bestAt": "NBA",
+      "recordLine": "benstef22 \u00b7 1-0 \u00b7 +70% \u00b7 Best at NBA \u00b7 -$38 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 2
@@ -4214,18 +5669,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2129.63,
+      "pnl": -2140.03,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 131926.68,
+      "volumeUsd": 139902.17,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 258,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "BLACKKYLE \u00b7 -$2.13k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "BLACKKYLE \u00b7 -$2.14k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4242,13 +5699,13 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -13.06,
+      "pnl": -30.42,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 13655.41,
-      "tape7d": 2.44,
+      "volumeUsd": 13718.89,
+      "tape7d": null,
       "tape30d": 4.57,
       "ageDays": 165,
       "graded": {
@@ -4267,7 +5724,17 @@
         "profit": 406.55,
         "sample": "full"
       },
-      "recordLine": "BoBbee.B \u00b7 78-0 \u00b7 +86% \u00b7 -$13 all \u00b7 Other",
+      "sports": {
+        "Soccer": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 43.5,
+          "profit": 2.13
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "BoBbee.B \u00b7 78-0 \u00b7 +86% \u00b7 Best at Soccer \u00b7 -$30 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4284,18 +5751,20 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 2149.82,
+      "pnl": 2104.97,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 10548.31,
+      "volumeUsd": 10567.24,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 149,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "brxyxm \u00b7 +$2.15k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "brxyxm \u00b7 +$2.10k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4312,32 +5781,56 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -18058.71,
+      "pnl": -18052.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
       "tape7d": -7.65,
-      "tape30d": -10.2,
+      "tape30d": -5.36,
       "ageDays": 334,
       "graded": {
-        "n": 6,
-        "w": 2,
-        "l": 4,
-        "roi": -18.9,
-        "profit": -10.2,
-        "sample": "small"
+        "n": 27,
+        "w": 8,
+        "l": 19,
+        "roi": -28.9,
+        "profit": -156.21,
+        "sample": "full"
       },
       "gradedAll": {
-        "n": 6,
-        "w": 2,
-        "l": 4,
-        "roi": -18.9,
-        "profit": -10.2,
-        "sample": "small"
+        "n": 27,
+        "w": 8,
+        "l": 19,
+        "roi": -28.9,
+        "profit": -156.21,
+        "sample": "full"
       },
-      "recordLine": "bushman77 \u00b7 2-4 \u00b7 -19% \u00b7 -$18.1k all \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 23,
+          "w": 7,
+          "l": 16,
+          "roi": -19.2,
+          "profit": -86.16
+        },
+        "NFL": {
+          "n": 3,
+          "w": 1,
+          "l": 2,
+          "roi": -16.0,
+          "profit": -3.06
+        },
+        "NCAAF": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -92.1,
+          "profit": -66.99
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "bushman77 \u00b7 8-19 \u00b7 -29% \u00b7 Best at Tennis \u00b7 -$18.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4354,32 +5847,49 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -9807.64,
+      "pnl": -9789.19,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
-      "tape7d": null,
-      "tape30d": null,
+      "tape7d": 49.25,
+      "tape30d": 49.25,
       "ageDays": 311,
       "graded": {
-        "n": 2,
-        "w": 2,
+        "n": 3,
+        "w": 3,
         "l": 0,
-        "roi": 45.0,
-        "profit": 19.7,
+        "roi": 74.9,
+        "profit": 68.95,
         "sample": "small"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 2,
+        "n": 3,
+        "w": 3,
         "l": 0,
-        "roi": 45.0,
-        "profit": 19.7,
+        "roi": 74.9,
+        "profit": 68.95,
         "sample": "small"
       },
-      "recordLine": "calebsequel \u00b7 2-0 \u00b7 +45% \u00b7 -$9.81k all \u00b7 Other",
+      "sports": {
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 102.1,
+          "profit": 49.25
+        },
+        "Tennis": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 45.0,
+          "profit": 19.7
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "calebsequel \u00b7 3-0 \u00b7 +75% \u00b7 Best at Tennis \u00b7 -$9.79k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4396,12 +5906,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -237.44,
+      "pnl": -351.26,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 8432.16,
+      "volumeUsd": 9007.92,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 288,
@@ -4421,7 +5931,17 @@
         "profit": 9.11,
         "sample": "small"
       },
-      "recordLine": "chanchavac \u00b7 1-0 \u00b7 +63% \u00b7 -$237 all \u00b7 Other",
+      "sports": {
+        "Soccer": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 63.0,
+          "profit": 9.11
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "chanchavac \u00b7 1-0 \u00b7 +63% \u00b7 Best at Soccer \u00b7 -$351 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -4438,7 +5958,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -1000.5,
+      "pnl": -1035.28,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4449,7 +5969,9 @@
       "ageDays": 316,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "CJAY.WINZ \u00b7 -$1.00k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "CJAY.WINZ \u00b7 -$1.04k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4466,7 +5988,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -48.8,
+      "pnl": -41.25,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4477,7 +5999,9 @@
       "ageDays": 385,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "cn41 \u00b7 -$49 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "cn41 \u00b7 -$41 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4494,7 +6018,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -168.6,
+      "pnl": -162.7,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4519,7 +6043,17 @@
         "profit": 442.56,
         "sample": "full"
       },
-      "recordLine": "cryptoglobal991 \u00b7 77-0 \u00b7 +56% \u00b7 -$169 all \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 76,
+          "w": 76,
+          "l": 0,
+          "roi": 55.9,
+          "profit": 416.76
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "cryptoglobal991 \u00b7 77-0 \u00b7 +56% \u00b7 Best at Tennis \u00b7 -$163 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4536,7 +6070,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -4094.55,
+      "pnl": -4806.09,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4547,10 +6081,12 @@
       "ageDays": 254,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "dbausz \u00b7 -$4.09k all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "dbausz \u00b7 -$4.81k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 2
+      "pickCount": 0
     },
     {
       "nickname": "diegocloud97",
@@ -4564,7 +6100,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -262.62,
+      "pnl": -265.12,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4589,7 +6125,9 @@
         "profit": 31.04,
         "sample": "small"
       },
-      "recordLine": "diegocloud97 \u00b7 1-0 \u00b7 +330% \u00b7 -$263 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "diegocloud97 \u00b7 1-0 \u00b7 +330% \u00b7 -$265 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4606,7 +6144,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -91594.42,
+      "pnl": -91823.4,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4631,10 +6169,34 @@
         "profit": 80.74,
         "sample": "small"
       },
-      "recordLine": "dislexic.walrus \u00b7 2-4 \u00b7 +106% \u00b7 -$91.6k all \u00b7 Other",
+      "sports": {
+        "NCAAB": {
+          "n": 2,
+          "w": 1,
+          "l": 0,
+          "roi": 132.6,
+          "profit": 78.65
+        },
+        "NBA": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": 45.5,
+          "profit": 3.86
+        },
+        "NHL": {
+          "n": 3,
+          "w": 0,
+          "l": 3,
+          "roi": -21.4,
+          "profit": -1.77
+        }
+      },
+      "bestAt": "NCAAB",
+      "recordLine": "dislexic.walrus \u00b7 2-4 \u00b7 +106% \u00b7 Best at NCAAB \u00b7 -$91.8k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "dollasignmike",
@@ -4648,7 +6210,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 693.64,
+      "pnl": 690.05,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4659,7 +6221,9 @@
       "ageDays": 455,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "dollasignmike \u00b7 +$694 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "dollasignmike \u00b7 +$690 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -4705,10 +6269,6 @@
         "profit": 1411.96,
         "sample": "full"
       },
-      "recordLine": "door.whale \u00b7 169-42 \u00b7 +34% \u00b7 Best at NCAAB \u00b7 +$11.9k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "MLB": {
           "n": 17,
@@ -4774,7 +6334,11 @@
           "profit": 9.0
         }
       },
-      "bestAt": "NCAAB"
+      "bestAt": "NCAAB",
+      "recordLine": "door.whale \u00b7 169-42 \u00b7 +34% \u00b7 Best at NCAAB \u00b7 +$11.9k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "door.work",
@@ -4788,7 +6352,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 95.85,
+      "pnl": 75.85,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4813,10 +6377,12 @@
         "profit": 4.57,
         "sample": "small"
       },
-      "recordLine": "door.work \u00b7 2-0 \u00b7 +44% \u00b7 +$96 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "door.work \u00b7 2-0 \u00b7 +44% \u00b7 +$76 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dot.hill",
@@ -4830,7 +6396,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -72.77,
+      "pnl": -73.04,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4841,10 +6407,12 @@
       "ageDays": 337,
       "graded": null,
       "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
       "recordLine": "dot.hill \u00b7 -$73 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dough.ranch",
@@ -4858,7 +6426,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -98.38,
+      "pnl": -99.28,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4869,10 +6437,12 @@
       "ageDays": 369,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "dough.ranch \u00b7 -$98 all \u00b7 Other",
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "dough.ranch \u00b7 -$99 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dr.house",
@@ -4887,7 +6457,7 @@
       "profitRanks": {
         "Economics": {
           "weekly": 17,
-          "yearly": 89
+          "yearly": 90
         }
       },
       "onProfitBoard": true,
@@ -4902,12 +6472,12 @@
       "ageDays": 548,
       "graded": null,
       "gradedAll": null,
-      "recordLine": "dr.house \u00b7 +$8.17k all \u00b7 Other",
-      "addedAt": "2026-11-21",
-      "pickCount": 1,
-      "followCount": 0,
       "sports": {},
-      "bestAt": null
+      "bestAt": null,
+      "recordLine": "dr.house \u00b7 +$8.21k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 1
     },
     {
       "nickname": "drib",
@@ -4950,10 +6520,6 @@
         "profit": 359.04,
         "sample": "small"
       },
-      "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 Best at WNBA \u00b7 +$13.5k all \u00b7 My 40",
-      "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0,
       "sports": {
         "WNBA": {
           "n": 1,
@@ -4963,7 +6529,11 @@
           "profit": 359.04
         }
       },
-      "bestAt": "WNBA"
+      "bestAt": "WNBA",
+      "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 Best at WNBA \u00b7 +$13.5k all \u00b7 My 40",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dumb.rail",
@@ -4977,7 +6547,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 186.56,
+      "pnl": 179.56,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5002,10 +6572,20 @@
         "profit": 54.55,
         "sample": "small"
       },
-      "recordLine": "dumb.rail \u00b7 5-0 \u00b7 +196% \u00b7 +$187 all \u00b7 Other",
+      "sports": {
+        "Tennis": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 162.5,
+          "profit": 8.89
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "dumb.rail \u00b7 5-0 \u00b7 +196% \u00b7 Best at Tennis \u00b7 +$180 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "eeks",
@@ -5019,7 +6599,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -1082.1,
+      "pnl": -1166.35,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5044,10 +6624,20 @@
         "profit": 15.9,
         "sample": "small"
       },
-      "recordLine": "eeks \u00b7 2-0 \u00b7 +116% \u00b7 -$1.08k all \u00b7 Other",
+      "sports": {
+        "NFL": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 116.0,
+          "profit": 15.9
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "eeks \u00b7 2-0 \u00b7 +116% \u00b7 Best at NFL \u00b7 -$1.17k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "electric.tuna",
@@ -5065,7 +6655,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -23140.88,
+      "pnl": -23097.35,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5137,8 +6727,234 @@
       "bestAt": "Soccer",
       "recordLine": "electric.tuna \u00b7 13-2 \u00b7 +59% \u00b7 Best at Soccer \u00b7 -$23.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 4,
-      "followCount": 9
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFSPREAD-26NOV21UCLAMICH-UCLA4",
+          "eventTicker": "KXNCAAFSPREAD-26NOV21UCLAMICH",
+          "marketTitle": "UCLA vs Michigan: Spread",
+          "contractTitle": "UCLA wins by over 3.5 points",
+          "backing": "UCLA wins by over 3.5 points",
+          "yesNo": "Yes",
+          "label": "UCLA wins by over 3.5 points",
+          "entry": 0.49,
+          "price": 0.37,
+          "yesAsk": 0.37,
+          "noAsk": 0.64,
+          "cost": 197.96,
+          "contracts": 404.0,
+          "lastTs": 1795293412,
+          "startTs": 1795303800,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "UCLA vs Michigan: Spread",
+          "bt": "Spread",
+          "slip": -12.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795465800
+        },
+        {
+          "ticker": "KXNCAAFTOTAL-26NOV21UGASCAR-52",
+          "eventTicker": "KXNCAAFTOTAL-26NOV21UGASCAR",
+          "marketTitle": "Georgia vs South Carolina: Total Points",
+          "contractTitle": "Full Game: Over 51.5 points scored",
+          "backing": "Over 51.5 points",
+          "yesNo": "No",
+          "label": "Over 51.5 points",
+          "entry": 0.47,
+          "price": 0.52,
+          "yesAsk": 0.49,
+          "noAsk": 0.52,
+          "cost": 103.87,
+          "contracts": 221.0,
+          "lastTs": 1795297817,
+          "startTs": 1795318200,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Georgia vs South Carolina: Total Points",
+          "bt": "Totals",
+          "slip": 5.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795480200
+        },
+        {
+          "ticker": "KXNCAAFSPREAD-26NOV21WSUTXST-TXST14",
+          "eventTicker": "KXNCAAFSPREAD-26NOV21WSUTXST",
+          "marketTitle": "Washington St. vs Texas St.: Spread",
+          "contractTitle": "Texas St. wins by over 13.5 points",
+          "backing": "Texas St. wins by over 13.5 points",
+          "yesNo": "Yes",
+          "label": "Texas St. wins by over 13.5 points",
+          "entry": 0.52,
+          "price": 0.53,
+          "yesAsk": 0.53,
+          "noAsk": 0.48,
+          "cost": 112.32,
+          "contracts": 216.0,
+          "lastTs": 1795271415,
+          "startTs": 1795312800,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Washington St. vs Texas St.: Spread",
+          "bt": "Spread",
+          "slip": 1.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795474800
+        },
+        {
+          "ticker": "KXNCAAFSPREAD-26NOV21MDUSC-USC18",
+          "eventTicker": "KXNCAAFSPREAD-26NOV21MDUSC",
+          "marketTitle": "Maryland vs USC: Spread",
+          "contractTitle": "USC wins by over 17.5 points",
+          "backing": "USC wins by over 17.5 points",
+          "yesNo": "Yes",
+          "label": "USC wins by over 17.5 points",
+          "entry": 0.52,
+          "price": 0.55,
+          "yesAsk": 0.55,
+          "noAsk": 0.46,
+          "cost": 111.8,
+          "contracts": 215.0,
+          "lastTs": 1795297789,
+          "startTs": 1795313700,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Maryland vs USC: Spread",
+          "bt": "Spread",
+          "slip": 3.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795475700
+        },
+        {
+          "ticker": "KXNHLSPREAD-26NOV21PHIMTL-MTL2",
+          "eventTicker": "KXNHLSPREAD-26NOV21PHIMTL",
+          "marketTitle": "Philadelphia vs Montreal: Spread",
+          "contractTitle": "Montreal wins by over 1.5 goals",
+          "backing": "Montreal wins by over 1.5 goals",
+          "yesNo": "Yes",
+          "label": "Montreal wins by over 1.5 goals",
+          "entry": 0.37,
+          "price": 0.37,
+          "yesAsk": 0.37,
+          "noAsk": 0.64,
+          "cost": 47.73,
+          "contracts": 129.0,
+          "lastTs": 1795298276,
+          "startTs": 1795316400,
+          "state": "upcoming",
+          "league": "NHL",
+          "game": "Philadelphia vs Montreal: Spread",
+          "bt": "Spread",
+          "slip": 0.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795478400
+        },
+        {
+          "ticker": "KXNCAAFSPREAD-26NOV21TTUBAY-TTU6",
+          "eventTicker": "KXNCAAFSPREAD-26NOV21TTUBAY",
+          "marketTitle": "Texas Tech vs Baylor: Spread",
+          "contractTitle": "Texas Tech wins by over 5.5 points",
+          "backing": "Texas Tech wins by over 5.5 points",
+          "yesNo": "No",
+          "label": "Texas Tech wins by over 5.5 points",
+          "entry": 0.5,
+          "price": 0.36,
+          "yesAsk": 0.65,
+          "noAsk": 0.36,
+          "cost": 52.0,
+          "contracts": 104.0,
+          "lastTs": 1795292314,
+          "startTs": 1795303800,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Texas Tech vs Baylor: Spread",
+          "bt": "Spread",
+          "slip": -14.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795465800
+        },
+        {
+          "ticker": "KXNHLTEAMTOTAL-26NOV21BUFFLA-FLA4",
+          "eventTicker": "KXNHLTEAMTOTAL-26NOV21BUFFLA",
+          "marketTitle": "Buffalo vs Florida: Team Total",
+          "contractTitle": "Florida over 3.5 goals scored",
+          "backing": "Florida over 3.5",
+          "yesNo": "Yes",
+          "label": "Florida over 3.5",
+          "entry": 0.4661,
+          "price": 0.46,
+          "yesAsk": 0.46,
+          "noAsk": 0.57,
+          "cost": 48.01,
+          "contracts": 103.0,
+          "lastTs": 1795298318,
+          "startTs": 1795312800,
+          "state": "upcoming",
+          "league": "NHL",
+          "game": "Buffalo vs Florida: Team Total",
+          "bt": "Totals",
+          "slip": -0.6,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795474800
+        },
+        {
+          "ticker": "KXNBATOTAL-26NOV21MEMMIN-229",
+          "eventTicker": "KXNBATOTAL-26NOV21MEMMIN",
+          "marketTitle": "Memphis vs Minnesota: Total Points",
+          "contractTitle": "Full Game: Over 228.5 points scored",
+          "backing": "Over 228.5 points",
+          "yesNo": "No",
+          "label": "Over 228.5 points",
+          "entry": 0.52,
+          "price": 0.49,
+          "yesAsk": 0.52,
+          "noAsk": 0.49,
+          "cost": 52.0,
+          "contracts": 100.0,
+          "lastTs": 1795298134,
+          "startTs": 1795320000,
+          "state": "upcoming",
+          "league": "NBA",
+          "game": "Memphis vs Minnesota: Total Points",
+          "bt": "Totals",
+          "slip": -3.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795482000
+        },
+        {
+          "ticker": "KXNCAAFTOTAL-26NOV21UTSAUAB-49",
+          "eventTicker": "KXNCAAFTOTAL-26NOV21UTSAUAB",
+          "marketTitle": "UTSA vs UAB: Total Points",
+          "contractTitle": "Full Game: Over 48.5 points scored",
+          "backing": "Over 48.5 points",
+          "yesNo": "No",
+          "label": "Over 48.5 points",
+          "entry": 0.52,
+          "price": 0.48,
+          "yesAsk": 0.53,
+          "noAsk": 0.48,
+          "cost": 52.0,
+          "contracts": 100.0,
+          "lastTs": 1795297908,
+          "startTs": 1795320000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "UTSA vs UAB: Total Points",
+          "bt": "Totals",
+          "slip": -4.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795482000
+        }
+      ],
+      "pickCount": 4
     },
     {
       "nickname": "embarrassed.tyrannosaurus",
@@ -5152,7 +6968,7 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "all_time": 19,
+          "all_time": 20,
           "yearly": 16
         }
       },
@@ -5192,10 +7008,10 @@
         }
       },
       "bestAt": "Golf",
-      "recordLine": "embarrassed.tyrannosaurus \u00b7 1-0 \u00b7 +371% \u00b7 Best at Golf \u00b7 +$109.5k all \u00b7 Other",
+      "recordLine": "embarrassed.tyrannosaurus \u00b7 1-0 \u00b7 +371% \u00b7 Best at Golf \u00b7 +$109.5k all \u00b7 My 40",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "excessive.canary4409",
@@ -5210,16 +7026,16 @@
       "profitRanks": {
         "Politics": {
           "monthly": 30,
-          "weekly": 16
+          "weekly": 19
         }
       },
       "onProfitBoard": true,
-      "pnl": 95877.32,
+      "pnl": 94618.94,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1343647.92,
+      "volumeUsd": 1346222.92,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 305,
@@ -5227,10 +7043,10 @@
       "gradedAll": null,
       "sports": {},
       "bestAt": null,
-      "recordLine": "excessive.canary4409 \u00b7 +$95.9k all \u00b7 Other",
+      "recordLine": "excessive.canary4409 \u00b7 +$94.6k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "expitia",
@@ -5244,11 +7060,11 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "weekly": 34
+          "weekly": 33
         }
       },
       "onProfitBoard": true,
-      "pnl": 1036.27,
+      "pnl": 1033.44,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5261,10 +7077,10 @@
       "gradedAll": null,
       "sports": {},
       "bestAt": null,
-      "recordLine": "expitia \u00b7 +$1.04k all \u00b7 Other",
+      "recordLine": "expitia \u00b7 +$1.03k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "fattii",
@@ -5282,7 +7098,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2347.64,
+      "pnl": 2357.64,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5309,10 +7125,10 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fattii \u00b7 1-0 \u00b7 +43% \u00b7 +$2.35k all \u00b7 Other",
+      "recordLine": "fattii \u00b7 1-0 \u00b7 +43% \u00b7 +$2.36k all \u00b7 My 40",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "firebirds",
@@ -5326,7 +7142,7 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "weekly": 64
+          "weekly": 61
         }
       },
       "onProfitBoard": true,
@@ -5344,6 +7160,885 @@
       "sports": {},
       "bestAt": null,
       "recordLine": "firebirds \u00b7 -$113.8k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
+    },
+    {
+      "nickname": "1Betaway",
+      "profileUrl": "https://kalshi.com/ideas/profiles/1Betaway",
+      "joinedAt": "2025-09-09",
+      "followers": 2,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -2712.21,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 438,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "1Betaway \u00b7 -$2.71k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "1eyedsquirrel",
+      "profileUrl": "https://kalshi.com/ideas/profiles/1eyedsquirrel",
+      "joinedAt": "2025-10-17",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -1151.94,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 400,
+      "graded": {
+        "n": 6,
+        "w": 2,
+        "l": 4,
+        "roi": 3.0,
+        "profit": 8.15,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 6,
+        "w": 2,
+        "l": 4,
+        "roi": 3.0,
+        "profit": 8.15,
+        "sample": "small"
+      },
+      "sports": {
+        "MLB": {
+          "n": 2,
+          "w": 0,
+          "l": 2,
+          "roi": -13.2,
+          "profit": -19.0
+        },
+        "NCAAB": {
+          "n": 3,
+          "w": 2,
+          "l": 1,
+          "roi": 32.9,
+          "profit": 29.14
+        },
+        "Tennis": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -5.0,
+          "profit": -1.99
+        }
+      },
+      "bestAt": "NCAAB",
+      "recordLine": "1eyedsquirrel \u00b7 2-4 \u00b7 +3% \u00b7 Best at NCAAB \u00b7 -$1.15k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "ashtatl",
+      "profileUrl": "https://kalshi.com/ideas/profiles/ashtatl",
+      "joinedAt": "2026-03-14",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -365.74,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 252,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "ashtatl \u00b7 -$366 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "bewildered.buck6143",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bewildered.buck6143",
+      "joinedAt": "2026-07-03",
+      "followers": 2,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -153.19,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 3724.47,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 141,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bewildered.buck6143 \u00b7 -$153 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "big.doinkz",
+      "profileUrl": "https://kalshi.com/ideas/profiles/big.doinkz",
+      "joinedAt": "2026-01-26",
+      "followers": 2,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -2209.65,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 299,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 113.9,
+        "profit": 54.5,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 113.9,
+        "profit": 54.5,
+        "sample": "small"
+      },
+      "sports": {
+        "MLB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 113.9,
+          "profit": 54.5
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "big.doinkz \u00b7 1-0 \u00b7 +114% \u00b7 Best at MLB \u00b7 -$2.21k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "bold.ocean8652",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bold.ocean8652",
+      "joinedAt": "2026-06-22",
+      "followers": 3,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -2917.46,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 96708.34,
+      "tape7d": 5.42,
+      "tape30d": 14.6,
+      "ageDays": 152,
+      "graded": {
+        "n": 31,
+        "w": 24,
+        "l": 7,
+        "roi": 70.5,
+        "profit": 41.89,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 31,
+        "w": 24,
+        "l": 7,
+        "roi": 70.5,
+        "profit": 41.89,
+        "sample": "full"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 30,
+          "w": 23,
+          "l": 7,
+          "roi": 70.9,
+          "profit": 41.78
+        },
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 22.7,
+          "profit": 0.11
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "bold.ocean8652 \u00b7 24-7 \u00b7 +71% \u00b7 Best at Tennis \u00b7 -$2.92k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "bored.gerbil8298",
+      "profileUrl": "https://kalshi.com/ideas/profiles/bored.gerbil8298",
+      "joinedAt": "2026-06-17",
+      "followers": 1,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -10082.75,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 204367.5,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 157,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "bored.gerbil8298 \u00b7 -$10.1k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "breezy.cormorant4724",
+      "profileUrl": "https://kalshi.com/ideas/profiles/breezy.cormorant4724",
+      "joinedAt": "2026-01-25",
+      "followers": 3,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 16106.22,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 404696.75,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 300,
+      "graded": {
+        "n": 201,
+        "w": 178,
+        "l": 22,
+        "roi": 29.1,
+        "profit": 5216.51,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 242,
+        "w": 202,
+        "l": 37,
+        "roi": 24.1,
+        "profit": 5472.27,
+        "sample": "full"
+      },
+      "sports": {
+        "Soccer": {
+          "n": 63,
+          "w": 59,
+          "l": 4,
+          "roi": 19.8,
+          "profit": 1225.58
+        }
+      },
+      "bestAt": "Soccer",
+      "recordLine": "breezy.cormorant4724 \u00b7 178-22 \u00b7 +29% \u00b7 Best at Soccer \u00b7 +$16.1k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "chama619",
+      "profileUrl": "https://kalshi.com/ideas/profiles/chama619",
+      "joinedAt": "2025-04-03",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -309.64,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 597,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "chama619 \u00b7 -$310 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "chuckobones",
+      "profileUrl": "https://kalshi.com/ideas/profiles/chuckobones",
+      "joinedAt": "2025-11-22",
+      "followers": 2,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -285.56,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 364,
+      "graded": {
+        "n": 3,
+        "w": 2,
+        "l": 1,
+        "roi": 66.7,
+        "profit": 8.22,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 3,
+        "w": 2,
+        "l": 1,
+        "roi": 66.7,
+        "profit": 8.22,
+        "sample": "small"
+      },
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 215.0,
+          "profit": 10.18
+        },
+        "NCAAF": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": -25.8,
+          "profit": -1.96
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "chuckobones \u00b7 2-1 \u00b7 +67% \u00b7 Best at NFL \u00b7 -$286 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "DabAholicCks",
+      "profileUrl": "https://kalshi.com/ideas/profiles/DabAholicCks",
+      "joinedAt": "2026-06-04",
+      "followers": 3,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -3234.15,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 68379.63,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 170,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 47.8,
+        "profit": 35.01,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 6,
+        "w": 2,
+        "l": 4,
+        "roi": 17.9,
+        "profit": 20.54,
+        "sample": "small"
+      },
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "DabAholicCks \u00b7 1-0 \u00b7 +48% \u00b7 -$3.23k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "Danco",
+      "profileUrl": "https://kalshi.com/ideas/profiles/Danco",
+      "joinedAt": "2026-01-18",
+      "followers": 2,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -11264.17,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 109749.84,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 307,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 145.7,
+        "profit": 83.62,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 145.7,
+        "profit": 83.62,
+        "sample": "small"
+      },
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "Danco \u00b7 1-0 \u00b7 +146% \u00b7 -$11.3k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "desertelf",
+      "profileUrl": "https://kalshi.com/ideas/profiles/desertelf",
+      "joinedAt": "2026-01-31",
+      "followers": 3,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": true,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 7938.14,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": -40.14,
+      "tape30d": -40.14,
+      "ageDays": 294,
+      "graded": {
+        "n": 251,
+        "w": 89,
+        "l": 159,
+        "roi": -9.8,
+        "profit": -40.14,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 251,
+        "w": 89,
+        "l": 159,
+        "roi": -9.8,
+        "profit": -40.14,
+        "sample": "full"
+      },
+      "sports": {
+        "NHL": {
+          "n": 3,
+          "w": 1,
+          "l": 2,
+          "roi": -9.8,
+          "profit": -0.32
+        },
+        "NCAAF": {
+          "n": 128,
+          "w": 49,
+          "l": 77,
+          "roi": -4.8,
+          "profit": -11.06
+        },
+        "Soccer": {
+          "n": 52,
+          "w": 11,
+          "l": 41,
+          "roi": -52.2,
+          "profit": -42.06
+        },
+        "NCAAB": {
+          "n": 15,
+          "w": 7,
+          "l": 8,
+          "roi": -28.8,
+          "profit": -1.92
+        },
+        "Tennis": {
+          "n": 16,
+          "w": 7,
+          "l": 9,
+          "roi": 37.6,
+          "profit": 7.88
+        },
+        "MMA": {
+          "n": 11,
+          "w": 6,
+          "l": 5,
+          "roi": 83.5,
+          "profit": 20.09
+        },
+        "NBA": {
+          "n": 6,
+          "w": 2,
+          "l": 4,
+          "roi": 0.8,
+          "profit": 0.16
+        }
+      },
+      "bestAt": "MMA",
+      "recordLine": "desertelf \u00b7 89-159 \u00b7 -10% \u00b7 Best at MMA \u00b7 +$7.94k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dock.guilt",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dock.guilt",
+      "joinedAt": "2026-01-09",
+      "followers": 4,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 30.37,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 316,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 34.8,
+        "profit": 0.65,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 34.8,
+        "profit": 0.65,
+        "sample": "small"
+      },
+      "sports": {
+        "MLB": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 34.8,
+          "profit": 0.65
+        }
+      },
+      "bestAt": "MLB",
+      "recordLine": "dock.guilt \u00b7 1-0 \u00b7 +35% \u00b7 Best at MLB \u00b7 +$30 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "DonCarlo",
+      "profileUrl": "https://kalshi.com/ideas/profiles/DonCarlo",
+      "joinedAt": "2025-11-03",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -13092.33,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 383,
+      "graded": null,
+      "gradedAll": null,
+      "sports": {},
+      "bestAt": null,
+      "recordLine": "DonCarlo \u00b7 -$13.1k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "drink.juice",
+      "profileUrl": "https://kalshi.com/ideas/profiles/drink.juice",
+      "joinedAt": "2025-07-19",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -1069.12,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 490,
+      "graded": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -13.0,
+        "profit": -0.28,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -13.0,
+        "profit": -0.28,
+        "sample": "small"
+      },
+      "sports": {
+        "NFL": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -13.0,
+          "profit": -0.28
+        }
+      },
+      "bestAt": "NFL",
+      "recordLine": "drink.juice \u00b7 0-1 \u00b7 -13% \u00b7 Best at NFL \u00b7 -$1.07k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dwazza",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dwazza",
+      "joinedAt": "2025-12-29",
+      "followers": 1,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -787.49,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": 57.64,
+      "ageDays": 327,
+      "graded": {
+        "n": 115,
+        "w": 107,
+        "l": 8,
+        "roi": 71.7,
+        "profit": 621.22,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 115,
+        "w": 107,
+        "l": 8,
+        "roi": 71.7,
+        "profit": 621.22,
+        "sample": "full"
+      },
+      "sports": {
+        "Soccer": {
+          "n": 46,
+          "w": 42,
+          "l": 4,
+          "roi": 67.1,
+          "profit": 178.38
+        },
+        "Tennis": {
+          "n": 15,
+          "w": 15,
+          "l": 0,
+          "roi": 62.8,
+          "profit": 68.79
+        },
+        "NBA": {
+          "n": 14,
+          "w": 11,
+          "l": 3,
+          "roi": 37.2,
+          "profit": 49.65
+        },
+        "NFL": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 108.9,
+          "profit": 10.48
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "dwazza \u00b7 107-8 \u00b7 +72% \u00b7 Best at Tennis \u00b7 -$787 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "emji.emji",
+      "profileUrl": "https://kalshi.com/ideas/profiles/emji.emji",
+      "joinedAt": "2026-02-04",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": true,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -995.84,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": -0.19,
+      "tape30d": -0.19,
+      "ageDays": 290,
+      "graded": {
+        "n": 38,
+        "w": 16,
+        "l": 19,
+        "roi": -72.0,
+        "profit": -0.19,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 114,
+        "w": 65,
+        "l": 44,
+        "roi": -10.3,
+        "profit": -0.1,
+        "sample": "full"
+      },
+      "sports": {
+        "Tennis": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 68.8,
+          "profit": 0.01
+        }
+      },
+      "bestAt": "Tennis",
+      "recordLine": "emji.emji \u00b7 16-19 \u00b7 -72% \u00b7 Best at Tennis \u00b7 -$996 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "pickCount": 0,
       "followCount": 0

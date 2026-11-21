@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 2:16 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 2:52 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1490,6 +1490,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 2:16 PM PT",
       "recordedTs": 1795299396,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 2:52 PM PT"
+    },
+    {
+      "id": "Ryqeux|KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
+      "nickname": "Ryqeux",
+      "ticker": "KXNBAGAME-26NOV21BOSSAC-SAC",
+      "eventTicker": "KXNBAGAME-26NOV21BOSSAC",
+      "game": "Boston vs Sacramento",
+      "backing": "Sacramento",
+      "yesNo": "Yes",
+      "entry": 0.17,
+      "price": 0.17,
+      "cost": 23627.11,
+      "contracts": 138983.0,
+      "startTs": 1795327200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 2:52 PM PT",
+      "recordedTs": 1795301548,
       "status": "open",
       "result": null,
       "settledAt": null
