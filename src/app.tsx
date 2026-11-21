@@ -314,7 +314,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
   const net = netOf(p, props.game);
   const top = p.backers.slice(0, 3);
   const rest = p.backers.slice(3);
-  const colorOf = (x: string): string[] => (({ "Top 10": ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
+  const colorOf = (x: string): string[] => (({ "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
   return (
     <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(11,31,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ padding: "12px 14px 12px" }}>
@@ -535,14 +535,14 @@ function FollowingTab(props: { now: number }) {
   const tn = tw + tl;
   const hit = tn ? Math.round((1000 * tw) / tn) / 10 : null;
   return (
-    <Section heading={"My 10 · " + picks.length} caption={"Every open traditional-sports pick from followed winning cappers (up to 20) · no dollar minimum · soonest start first"}>
-      <Text>{"If you like a capper, every open sports pick from their book lands here — singles and sports combos, no $ minimum and no record gate. Only cappers with a winning graded record (W > L) are followed, up to 20. Discovery keeps running every hour; a followed capper who falls to a losing record is swapped out and stays in Coming Up / Ranked. Esports and finished games are left off. Each pick is recorded once in a copy trial and graded from Kalshi’s official market result after it settles."}</Text>
+    <Section heading={"My 40 · " + picks.length} caption={"Every open traditional-sports pick from followed winning cappers (up to 40) · no dollar minimum · soonest start first"}>
+      <Text>{"If you like a capper, every open sports pick from their book lands here — singles and sports combos, no $ minimum and no record gate. Only cappers with a winning graded record (W > L) are followed, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to a losing record is swapped out and stays in Coming Up / Ranked. Esports and finished games are left off. Each pick is recorded once in a copy trial and graded from Kalshi’s official market result after it settles."}</Text>
       <div data-trial-box="1" style={{ borderRadius: 16, border: "1.5px solid #FDE68A", background: "#FFFBEB", padding: "12px 14px", marginBottom: 12 }}>
         <div style={{ fontSize: 13, fontWeight: 850, letterSpacing: "0.06em", textTransform: "uppercase", color: "#92400E" }}>Copy trial</div>
         <div style={{ fontSize: 16, fontWeight: 850, color: NAVY, marginTop: 2 }}>
           {F.startedAt ? ("Since " + F.startedAt + (tn ? " · " + tw + "-" + tl + " · " + hit + "% hit" : " · no settled picks yet") + ((F.recorded || 0) ? " · " + (F.recorded || 0) + " recorded" : "")) : "Trial starts when the first followed pick is recorded."}
         </div>
-        {caps.length === 0 ? <div style={{ fontSize: 14, fontWeight: 650, color: "#57534E", marginTop: 6 }}>{"No followed cappers yet. When the Top 10 list is seeded, they’ll show up here with a running hit rate."}</div> : null}
+        {caps.length === 0 ? <div style={{ fontSize: 14, fontWeight: 650, color: "#57534E", marginTop: 6 }}>{"No followed cappers yet. When followed cappers are seeded, they’ll show up here with a running hit rate."}</div> : null}
         {caps.map((c: FollowCapper) => (
           <div key={c.nickname} data-trial-capper={c.nickname} style={{ display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap", borderTop: "1px solid #FDE68A", marginTop: 8, paddingTop: 8 }}>
             <div style={{ fontSize: 15, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}{c.hidden ? " · book hidden" : ""}</div>
@@ -552,8 +552,8 @@ function FollowingTab(props: { now: number }) {
           </div>
         ))}
       </div>
-      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your Top 10 don’t have an open traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
-      {picks.length === 0 && !caps.length ? <EmptyState title="My 10 is waiting on the Top 10 list" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
+      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your followed cappers don’t have an open traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
+      {picks.length === 0 && !caps.length ? <EmptyState title="My 40 is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
       {picks.map((p: FollowPick) => {
         const live = !!(p.startTs && p.startTs <= props.now);
         const view = { backing: p.backing || p.label || p.game, marketTitle: p.marketTitle || p.game, outcome: p.backing || p.label, yesNo: (p.yesNo === "No" ? "No" : "Yes") as "Yes" | "No", price: p.price ?? null, ticker: p.ticker };
@@ -580,15 +580,15 @@ function FollowingTab(props: { now: number }) {
 function CappersTab(props: { now: number }) {
   const caps = DATA.cappers || [];
   return (
-    <Section heading={"Cappers · " + caps.length} caption={"Visible Sports-leaderboard traders, plus pinned Top 10. Hidden books are not listed unless pinned."}>
-      <Text>{"A capper has to show their bets on Kalshi to appear here, except pinned Top 10 names, who stay in the db even with a hidden book. Top 10 = Noel’s followed list (never rejected). Core = in both the all-time and monthly top 50. Top 50 = on one of those boards. W-L is reconstructed from their public sports trade tape, not invented. Market makers are left out unless pinned. Picks are traditional sports singles and combos only — no esports."}</Text>
+    <Section heading={"Cappers · " + caps.length} caption={"Visible Sports-leaderboard traders, plus followed My 40 cappers. Hidden books are not listed unless followed."}>
+      <Text>{"A capper has to show their bets on Kalshi to appear here, except followed My 40 names, who stay in the db even with a hidden book. My 40 = Noel’s followed list (winning record, never rejected). Core = in both the all-time and monthly top 50. Top 50 = on one of those boards. W-L is reconstructed from their public sports trade tape, not invented. Market makers are left out unless followed. Picks are traditional sports singles and combos only — no esports."}</Text>
       {caps.length === 0 ? <EmptyState title="No visible cappers right now" body={"Almost every name on Kalshi's Sports leaderboard hides their book."} /> : caps.map((c: Capper) => {
         const g = c.graded;
         return (
           <div key={c.nickname} data-capper={c.nickname} style={{ borderRadius: 16, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "12px 14px", marginBottom: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap", alignItems: "baseline" }}>
               <div style={{ fontSize: 17, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
-              <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: (c.pinned || c.tier === "Top 10") ? "#FEF3C7" : BLUE_SOFT, color: (c.pinned || c.tier === "Top 10") ? "#92400E" : BLUE_INK, fontSize: 12, fontWeight: 850, border: (c.pinned || c.tier === "Top 10") ? "1.5px solid #92400E" : "0" }}>{c.tier}</span>
+              <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: (c.pinned || c.tier === "Top 10" || c.tier === "My 40" || c.tier === "Following") ? "#FEF3C7" : BLUE_SOFT, color: (c.pinned || c.tier === "Top 10" || c.tier === "My 40" || c.tier === "Following") ? "#92400E" : BLUE_INK, fontSize: 12, fontWeight: 850, border: (c.pinned || c.tier === "Top 10" || c.tier === "My 40" || c.tier === "Following") ? "1.5px solid #92400E" : "0" }}>{c.tier}</span>
             </div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#475569", marginTop: 4 }}>
               {g && g.n ? (g.w + "-" + g.l + " · " + pctText(g.w / Math.max(1, g.w + g.l)) + (g.roi != null ? " · " + (g.roi >= 0 ? "+" : "") + Math.round(g.roi) + "% ROI" : "") + (g.sample === "small" ? " · small sample" : "")) : "No graded sports record yet"}
@@ -614,7 +614,7 @@ export default function App() {
   const followN = ((DATA.following && DATA.following.picks) || []).length;
   const tabs = [
     { value: "coming" as const, label: "Coming Up", count: comingN },
-    { value: "following" as const, label: "My 10", count: followN },
+    { value: "following" as const, label: "My 40", count: followN },
     { value: "ranked" as const, label: "Ranked", count: games.length },
     { value: "cappers" as const, label: "Cappers", count: (DATA.cappers || []).length },
   ];
@@ -647,7 +647,7 @@ export default function App() {
           <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{"Refreshed " + (cov.activeRefreshed || 0) + " active · reviewed " + (cov.queueReviewed || 0) + " in queue · new " + (cov.queuedNew || 0) + " · rejected hidden " + (cov.hiddenRejected || 0) + " · MM " + (cov.mmDropped || 0) + " · no sports " + (cov.noSportsRejected || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
         </details>
         <div data-capper-db="1" style={{ marginTop: 12, fontSize: 11, color: "#64748B", textAlign: "center" }}>
-          {"Capper db: " + (((DATA.source && DATA.source.db && DATA.source.db.active) || 0)) + " active · " + (((DATA.source && DATA.source.db && DATA.source.db.queue) || 0)) + " to check · " + (((DATA.source && DATA.source.db && DATA.source.db.rejected) || 0)) + " rejected" + ((DATA.source && DATA.source.db && DATA.source.db.pinned) ? " · " + DATA.source.db.pinned + " Top 10" : "")}
+          {"Capper db: " + (((DATA.source && DATA.source.db && DATA.source.db.active) || 0)) + " active · " + (((DATA.source && DATA.source.db && DATA.source.db.queue) || 0)) + " to check · " + (((DATA.source && DATA.source.db && DATA.source.db.rejected) || 0)) + " rejected" + ((DATA.source && DATA.source.db && DATA.source.db.pinned) ? " · " + DATA.source.db.pinned + " followed (target 40)" : "")}
         </div>
       </div>
     </div>

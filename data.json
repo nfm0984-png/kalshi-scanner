@@ -2,7 +2,7 @@
   "scannedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
   "ts": 1795233745,
   "source": {
-    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 20) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 20; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
+    "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
     "coverage": {
       "boards": {
@@ -87,9 +87,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
       "joinedAt": "2026-07-08",
       "followers": 68,
-      "tier": "Top 10",
+      "tier": "My 40",
       "pinned": true,
-      "tag": "Top 10",
+      "tag": "My 40",
       "heavy": true,
       "ranks": {
         "monthly": 49
@@ -106,7 +106,7 @@
         "profit": 55.78,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
+      "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 1,
       "followCount": 1
@@ -116,9 +116,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
       "followers": 23246,
-      "tier": "Top 10",
+      "tier": "My 40",
       "pinned": true,
-      "tag": "Top 10",
+      "tag": "My 40",
       "heavy": false,
       "ranks": {
         "all_time": 13,
@@ -130,7 +130,7 @@
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
+      "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 2,
       "followCount": 2
@@ -140,9 +140,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/bama0037",
       "joinedAt": "2024-10-11",
       "followers": 93,
-      "tier": "Top 10",
+      "tier": "My 40",
       "pinned": true,
-      "tag": "Top 10",
+      "tag": "My 40",
       "heavy": true,
       "ranks": {
         "all_time": 58,
@@ -154,7 +154,7 @@
       "monthlyPnl": 58466.598,
       "ageDays": 770,
       "graded": null,
-      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Top 10",
+      "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -164,9 +164,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
       "followers": 112,
-      "tier": "Top 10",
+      "tier": "My 40",
       "pinned": true,
-      "tag": "Top 10",
+      "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 42,
@@ -177,7 +177,7 @@
       "monthlyPnl": 95440.445,
       "ageDays": 216,
       "graded": null,
-      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 10",
+      "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -405,19 +405,19 @@
               "name": "iluminado",
               "cost": 291.85,
               "avg": 0.6999,
-              "line": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
+              "line": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
               "rec": {
                 "w": 5,
                 "l": 1,
                 "n": 6
               },
               "lastTs": 1795232579,
-              "tier": "Top 10"
+              "tier": "My 40"
             }
           ],
           "total": 291.85,
           "tags": [
-            "Top 10"
+            "My 40"
           ],
           "slip": 10.0,
           "startTs": 1795230600,
@@ -455,15 +455,15 @@
               "name": "BWmarkets",
               "cost": 62733.79,
               "avg": 0.4829,
-              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
+              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 My 40",
               "rec": null,
               "lastTs": 1795224231,
-              "tier": "Top 10"
+              "tier": "My 40"
             }
           ],
           "total": 62733.79,
           "tags": [
-            "Top 10"
+            "My 40"
           ],
           "slip": 51.7,
           "startTs": 1795233600,
@@ -501,15 +501,15 @@
               "name": "BWmarkets",
               "cost": 24165.0,
               "avg": 0.5062,
-              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
+              "line": "BWmarkets \u00b7 +$926.1k all \u00b7 My 40",
               "rec": null,
               "lastTs": 1795228124,
-              "tier": "Top 10"
+              "tier": "My 40"
             }
           ],
           "total": 24165.0,
           "tags": [
-            "Top 10"
+            "My 40"
           ],
           "slip": -31.6,
           "startTs": 1795239000,
@@ -589,8 +589,8 @@
         "result": "",
         "closeTs": 1796429400,
         "nickname": "iluminado",
-        "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 Top 10",
-        "tier": "Top 10"
+        "recordLine": "iluminado \u00b7 5-1 \u00b7 +8% \u00b7 +$141.0k all \u00b7 My 40",
+        "tier": "My 40"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV20UTEPAFA-50",
@@ -617,8 +617,8 @@
         "result": "",
         "closeTs": 1795395600,
         "nickname": "BWmarkets",
-        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
-        "tier": "Top 10"
+        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 My 40",
+        "tier": "My 40"
       },
       {
         "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
@@ -645,8 +645,8 @@
         "result": "",
         "closeTs": 1795401000,
         "nickname": "BWmarkets",
-        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 Top 10",
-        "tier": "Top 10"
+        "recordLine": "BWmarkets \u00b7 +$926.1k all \u00b7 My 40",
+        "tier": "My 40"
       }
     ],
     "recorded": 3,

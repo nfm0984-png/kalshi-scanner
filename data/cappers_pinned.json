@@ -1,8 +1,8 @@
 {
-  "tag": "Top 10",
+  "tag": "My 40",
   "updatedAt": "Fri Nov 20 \u00b7 8:02 PM PT",
-  "target": 20,
-  "note": "Followed cappers for My 10. Only winning graded records (W > L) are auto-pinned, up to 20. Discovery keeps running every hour even at 20; a followed capper who falls to W <= L is unpinned (stays in the active db) and can be swapped for a new winner. doNotPin names are never re-seeded from the drop-in or auto-follow.",
+  "target": 40,
+  "note": "Followed cappers for My 40. Only winning graded records (W > L) are auto-pinned, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to W <= L is unpinned (stays in the active db) and can be swapped for a new winner. doNotPin names are never re-seeded from the drop-in or auto-follow.",
   "doNotPin": [
     "WorkerTrader",
     "autofade",
@@ -14,28 +14,28 @@
   "cappers": [
     {
       "nickname": "BWmarkets",
-      "tag": "Top 10",
+      "tag": "My 40",
       "source": "noel-winning-record",
       "addedAt": "2026-11-20",
       "record": "18-13"
     },
     {
       "nickname": "past.grass",
-      "tag": "Top 10",
+      "tag": "My 40",
       "source": "noel-winning-record",
       "addedAt": "2026-11-20",
       "record": "2-1"
     },
     {
       "nickname": "iluminado",
-      "tag": "Top 10",
+      "tag": "My 40",
       "source": "noel-winning-record",
       "addedAt": "2026-11-20",
       "record": "45-21"
     },
     {
       "nickname": "bama0037",
-      "tag": "Top 10",
+      "tag": "My 40",
       "source": "noel-winning-record",
       "addedAt": "2026-11-20",
       "record": "47-33"

@@ -134,9 +134,14 @@ PINNED_DROPINS = [
     os.path.join(ROOT, "kalshi-top10-cappers.json"),
     os.path.join(DATA_DIR, "kalshi-top10-cappers.json"),
 ]
-PINNED_TAG = "Top 10"
-TARGET_FOLLOW = 20  # keep discovering every hour even at 20; swap if a pin goes losing
-NEW_PER_SCAN = 10
+PINNED_TAG = "My 40"
+PINNED_TAGS = {PINNED_TAG, "Top 10", "Following"}  # accept older badge labels
+
+def is_pin_tag(v):
+    return (v or "") in PINNED_TAGS
+
+TARGET_FOLLOW = 40  # keep discovering every hour even at 40; swap if a pin goes losing
+NEW_PER_SCAN = 20  # queue more candidates per hour; hidden reviews are cheap
 
 # Already reviewed in the first live scan (visible sports traders stay active
 # even with no open pick today). Market-makers go to rejected and are never rechecked.
@@ -368,14 +373,14 @@ def apply_pins(active, queue, rejected, pinned, now, log=print):
             row["pinned"] = True
             row["tag"] = PINNED_TAG
         else:
-            if row.get("pinned") or row.get("tag") == PINNED_TAG or row.get("tier") == PINNED_TAG:
+            if row.get("pinned") or is_pin_tag(row.get("tag")) or is_pin_tag(row.get("tier")):
                 row["pinned"] = False
                 row["tag"] = ""
     return moved
 
 
 def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
-    """Keep My 10 as winning records only, up to TARGET_FOLLOW.
+    """Keep the follow list as winning records only, up to TARGET_FOLLOW.
     Discovery of new cappers continues every hour even when the list is full.
     If a followed capper's graded record falls to W <= L, unpin them (they stay
     in the active db for Coming Up / Ranked) and swap in a new winner if one is available.
@@ -394,7 +399,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
             if cap:
                 cap["pinned"] = False
                 cap["tag"] = ""
-                if cap.get("tier") == PINNED_TAG:
+                if is_pin_tag(cap.get("tier")):
                     cap["tier"] = capper_tier(nick, people)
             continue
         still.append(row if isinstance(row, dict) else {"nickname": nick, "tag": PINNED_TAG, "addedAt": today_pt(now)})
@@ -446,7 +451,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
             row["tag"] = PINNED_TAG
         else:
             row["pinned"] = False
-            if row.get("tag") == PINNED_TAG:
+            if is_pin_tag(row.get("tag")):
                 row["tag"] = ""
     return pinned
 
@@ -592,7 +597,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
 
 def grade_from_trades(trades, nick):
     """Full traditional-sports W-L from every settled cycle (no dollar floor).
-    Used for display and for the My 10 winning-record gate (W > L). A high
+    Used for display and for the My 40 winning-record gate (W > L). A high
     size floor would hide a losing overall book behind a few big wins."""
     cycles = lib.closed_cycles(trades, nick)
     use = lib.grade_big_bets(cycles, 0)
@@ -625,7 +630,7 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
     tier = capper_tier(nick, people)
     pin = is_pinned(nick)
     if pin:
-        tier = PINNED_TAG  # show as Top 10; board rank still lives in ranks{}
+        tier = PINNED_TAG  # show as My 40; board rank still lives in ranks{}
     age = lib.age_days((prof or {}).get("joined_at"), now)
     sports_ranks_flat = sports_ranks(people, nick)
     return {
@@ -1108,11 +1113,11 @@ def build(now=None, log=print):
     cov["dbActive"] = len(active.get("cappers") or [])
     cov["dbQueue"] = len(queue.get("cappers") or [])
     cov["dbRejected"] = len(rejected.get("cappers") or [])
-    cov["dbPinned"] = sum(1 for r in (active.get("cappers") or []) if r.get("pinned") or r.get("tag") == PINNED_TAG or r.get("tier") == PINNED_TAG)
+    cov["dbPinned"] = sum(1 for r in (active.get("cappers") or []) if r.get("pinned") or is_pin_tag(r.get("tag")) or is_pin_tag(r.get("tier")))
 
     def cap_key(c):
-        pin_n = 0 if (c.get("pinned") or c.get("tier") == PINNED_TAG) else 1
-        tier_n = {PINNED_TAG: 0, "Core": 1, "Top 50": 2, "Board": 3}.get(c.get("tier") or "", 4)
+        pin_n = 0 if (c.get("pinned") or is_pin_tag(c.get("tier"))) else 1
+        tier_n = 0 if is_pin_tag(c.get("tier")) else {"Core": 1, "Top 50": 2, "Board": 3}.get(c.get("tier") or "", 4)
         g = c.get("graded") or {"w": 0, "l": 0, "n": 0}
         n = (g.get("w") or 0) + (g.get("l") or 0)
         wr = (g.get("w") or 0) / n if n else -1
@@ -1120,7 +1125,7 @@ def build(now=None, log=print):
         ungraded = 0 if n else 1
         return (pin_n, ungraded, tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
     # Refresh the follow list from this scan's full W-L, then copy their open picks.
-    # Discovery (queue + 10 new) already ran above and never stops at TARGET_FOLLOW.
+    # Discovery (queue + NEW_PER_SCAN new) already ran above and never stops at TARGET_FOLLOW.
     pinned = reconcile_follow_list(active, pinned, cappers, people, now, log)
     save_dbs(active, queue, rejected, now)
     following_open = []
@@ -1144,7 +1149,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except pinned Top 10 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 10 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 20) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 20; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $%d." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
