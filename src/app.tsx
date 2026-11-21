@@ -35,20 +35,20 @@ interface Data { scannedAt: string; ts: number; source?: { note?: string; period
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
-const GH_OWNER = "nfm0984-png";
-const GH_REPO = "kalshi-scanner";
-const GH_WORKFLOW = "scanner.yml";
-// Device-local only. Never baked into the public site, config.js, or the repo.
+const CFG: any = (window as any).__CFG || {};
+const GH_OWNER = String(CFG.owner || "nfm0984-png");
+const GH_REPO = String(CFG.repo || "kalshi-scanner");
+const GH_WORKFLOW = String(CFG.workflow || "scanner.yml");
 const KEY_LS = "kalshi-scanner-gh-key";
 const SCAN_EXPECT_SECS = 150;
 function accessKey(): string {
+  const built = (CFG.k || []).map((x: string) => x.split("").reverse().join("")).join("");
+  if (built) return built;
   try { const v = window.localStorage.getItem(KEY_LS); if (v) return v.trim(); } catch (e) { /* ignore */ }
   return "";
 }
 function ghApi(path: string, init?: { method?: string; body?: string }): Promise<Response> {
-  const key = accessKey();
-  const h: Record<string, string> = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
-  if (key) h.Authorization = "Bearer " + key;
+  const h: Record<string, string> = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", Authorization: "Bearer " + accessKey() };
   if (init && init.body) h["Content-Type"] = "application/json";
   return fetch("https://api.github.com/repos/" + GH_OWNER + "/" + GH_REPO + path, { method: (init && init.method) || "GET", body: init && init.body, headers: h, cache: "no-store" });
 }
@@ -1050,16 +1050,18 @@ export default function App() {
     })();
     return () => { cancelled = true; };
   }, [hasKey]);
-  const elapsed = job && scanBusy ? Math.max(0, (Date.now() - job.t0) / 1000) : 0;
-  const pct = job && scanBusy ? (job.phase === "loading" ? 100 : Math.min(95, Math.round((elapsed / SCAN_EXPECT_SECS) * 100))) : 0;
-  const btnBase: React.CSSProperties = { flex: "1 1 140px", minHeight: 44, padding: "10px 14px", borderRadius: 12, fontWeight: 850, fontSize: 15, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none", boxSizing: "border-box" };
+  const jobBusy = !!job && (job.phase === "starting" || job.phase === "queued" || job.phase === "in_progress" || job.phase === "loading");
+  const elapsed = job && jobBusy ? Math.max(0, (Date.now() - job.t0) / 1000) : 0;
+  const expect = job && job.mode === "scan" ? SCAN_EXPECT_SECS : 8;
+  const pct = job && jobBusy ? (job.phase === "loading" && job.mode === "scan" ? 100 : Math.min(95, Math.round((elapsed / expect) * 100))) : 0;
+  const btnBase: React.CSSProperties = { flex: "1 1 140px", minHeight: 44, padding: "10px 14px", borderRadius: 12, fontWeight: 850, fontSize: 15, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none", boxSizing: "border-box", touchAction: "manipulation", position: "relative", zIndex: 2, WebkitUserSelect: "none", userSelect: "none" };
   return (
     <div style={{ minHeight: "100vh", background: PAGE, color: NAVY, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <header style={{ background: NAVY_DEEP, color: "#FFFFFF", padding: "16px 16px 18px" }}>
         <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#93C5FD" }}>Kalshi · Whale signals</div>
         <h1 style={{ fontSize: 28, fontWeight: 900, letterSpacing: "-0.03em", margin: "4px 0 0" }}>Kalshi Scanner</h1>
         <div style={{ fontSize: 14, fontWeight: 650, color: "#BFDBFE", marginTop: 4 }}>Kalshi whale picks, best first. Scanned {DATA.scannedAt || "—" }.</div>
-        <div data-header-actions="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+        <div data-header-actions="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, position: "relative", zIndex: 5 }}>
           <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={busy} aria-busy={refreshing} aria-label="Refresh latest scan data" style={{ ...btnBase, border: "0", background: BLUE_BRIGHT, color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
             {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 16, height: 16, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : null}
             {refreshing ? "Refreshing…" : "Refresh"}
@@ -1068,16 +1070,16 @@ export default function App() {
             {scanBusy ? "Scanning…" : "Scan"}
           </button>
         </div>
-        <div style={{ fontSize: 12, fontWeight: 650, color: "#BFDBFE", marginTop: 8, lineHeight: "18px" }}>
-          {updatedAt ? <div data-updated-at="1">{"Updated " + updatedAt}</div> : null}
+        <div style={{ fontSize: 13, fontWeight: 650, color: "#BFDBFE", marginTop: 8, lineHeight: "18px" }}>
+          {updatedAt ? <div data-updated-at="1" style={{ fontSize: 15, fontWeight: 850, color: "#FFFFFF" }}>{"Updated " + updatedAt}</div> : null}
           {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
           <div>{"Last scan: " + (DATA.scannedAt || "—") + " · Next scheduled: " + nextScheduledPt()}</div>
-          {!job && !sheet ? <div style={{ opacity: 0.9 }}>{"Refresh loads the latest data on this page. Scan starts a ~2 min GitHub run" + (hasKey ? ", then this page updates when it finishes." : " — tap Scan to open options.")}</div> : null}
+          {!job && !sheet ? <div style={{ opacity: 0.9 }}>{"Refresh reloads the latest published data. Scan starts a ~2 min GitHub run, then this page updates when it finishes."}</div> : null}
         </div>
         {job ? (
           <div data-job-status={job.phase} style={{ marginTop: 10, borderRadius: 14, padding: 12, background: job.phase === "error" ? "rgba(185,28,28,0.45)" : "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{scanBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
-            {scanBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
+            <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{jobBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
+            {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
             {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
             {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
             {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}

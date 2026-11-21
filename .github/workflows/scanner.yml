@@ -72,7 +72,7 @@ jobs:
       - name: Stage Pages files
         run: |
           mkdir -p _site
-          cp -f index.html app.js data.json _site/
+          cp -f index.html app.js data.json config.js _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

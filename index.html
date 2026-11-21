@@ -9,16 +9,28 @@
 </head><body>
 <div id="root"><div id="boot">Loading Kalshi picks…</div></div>
 <script>
+function loadScript(src) {
+  return new Promise(function (resolve, reject) {
+    var s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.body.appendChild(s);
+  });
+}
 var _t = Date.now();
+var _cfg = loadScript('config.js?v=109ebf5fdf&t=' + _t).catch(function () {});
 fetch('data.json?t=' + _t, {cache: 'no-store'}).then(function (r) {
   if (!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
 }).then(function (data) {
   window.__DATA = data;
-  var s = document.createElement('script');
-  s.src = 'app.js?v=b37b9b7fb2&t=' + Date.now();
-  s.onerror = function () { document.getElementById('boot').textContent = 'Could not load the app. Pull to reload.'; };
-  document.body.appendChild(s);
-}).catch(function (e) { document.getElementById('boot').textContent = 'Could not load data (' + e.message + '). Pull to reload.'; });
+  return _cfg;
+}).then(function () {
+  return loadScript('app.js?v=109ebf5fdf&t=' + Date.now());
+}).catch(function (e) {
+  var boot = document.getElementById('boot');
+  if (boot) boot.textContent = 'Could not load the app (' + (e && e.message ? e.message : 'error') + '). Pull to reload.';
+});
 </script>
 </body></html>
