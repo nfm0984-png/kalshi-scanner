@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 11:26 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 11:56 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1346,6 +1346,27 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Sat Nov 21 \u00b7 10:58 AM PT"
+    },
+    {
+      "id": "nettinyahoo|KXNCAAFGAME-26NOV21OSUNEB-OSU|Yes",
+      "nickname": "nettinyahoo",
+      "ticker": "KXNCAAFGAME-26NOV21OSUNEB-OSU",
+      "eventTicker": "KXNCAAFGAME-26NOV21OSUNEB",
+      "game": "Ohio St. vs Nebraska",
+      "backing": "Ohio St.",
+      "yesNo": "Yes",
+      "entry": 0.41,
+      "price": 0.39,
+      "cost": 2.05,
+      "contracts": 5.0,
+      "startTs": 1795302000,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 11:56 AM PT",
+      "recordedTs": 1795290980,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

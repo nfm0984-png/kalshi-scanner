@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 11:35 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 11:56 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -12,27 +12,35 @@
       "heavy": false,
       "ranks": {
         "all_time": 18,
-        "monthly": 41,
+        "monthly": 40,
         "yearly": 16
       },
       "profitRanks": {
         "Sports": {
           "all_time": 18,
-          "monthly": 41,
+          "monthly": 40,
           "yearly": 16
         }
       },
       "onProfitBoard": true,
-      "pnl": 1389979.5,
+      "pnl": 1390952.5,
       "pnlSource": "sports_leaderboard_projected",
       "weeklyPnl": null,
-      "monthlyPnl": 99706.41,
-      "yearlyPnl": 1389979.5,
+      "monthlyPnl": 100679.52,
+      "yearlyPnl": 1390952.5,
       "volumeUsd": null,
       "tape7d": 524.11,
       "tape30d": 539.21,
       "ageDays": 255,
       "graded": {
+        "n": 4,
+        "w": 4,
+        "l": 0,
+        "roi": 6.3,
+        "profit": 539.21,
+        "sample": "small"
+      },
+      "gradedAll": {
         "n": 4,
         "w": 4,
         "l": 0,
@@ -49,7 +57,7 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23778,
+      "followers": 23796,
       "tier": "Top 50",
       "pinned": false,
       "tag": "",
@@ -65,17 +73,18 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 773243.54,
+      "pnl": 766890.04,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
-      "yearlyPnl": 1431573.5,
+      "yearlyPnl": 1425220.0,
       "volumeUsd": 9412284.84,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 656,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$773.2k all \u00b7 Top 50",
+      "gradedAll": null,
+      "recordLine": "BWmarkets \u00b7 +$766.9k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 2
@@ -121,6 +130,14 @@
         "profit": 0,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 0,
+        "roi": 0.0,
+        "profit": 0,
+        "sample": "small"
+      },
       "recordLine": "reluctant.fox5394 \u00b7 0-0 \u00b7 +0% \u00b7 +$385.7k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -144,12 +161,12 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 141511.93,
+      "pnl": 141505.26,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
-      "monthlyPnl": 91015.22,
+      "monthlyPnl": 91008.55,
       "yearlyPnl": null,
-      "volumeUsd": 2201492.54,
+      "volumeUsd": 2201584.76,
       "tape7d": 60.05,
       "tape30d": 60.05,
       "ageDays": 136,
@@ -161,7 +178,15 @@
         "profit": 60.05,
         "sample": "small"
       },
-      "recordLine": "iluminado \u00b7 4-1 \u00b7 +6% \u00b7 +$141.5k all \u00b7 Top 50",
+      "gradedAll": {
+        "n": 5,
+        "w": 4,
+        "l": 1,
+        "roi": 6.1,
+        "profit": 60.05,
+        "sample": "small"
+      },
+      "recordLine": "iluminado \u00b7 4-1 \u00b7 +6% \u00b7 +$141.5k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -177,12 +202,12 @@
       "heavy": false,
       "ranks": {
         "monthly": 43,
-        "weekly": 18
+        "weekly": 17
       },
       "profitRanks": {
         "Sports": {
           "monthly": 43,
-          "weekly": 18
+          "weekly": 17
         }
       },
       "onProfitBoard": true,
@@ -196,6 +221,7 @@
       "tape30d": null,
       "ageDays": 217,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -236,6 +262,14 @@
         "profit": 875.93,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 7,
+        "w": 6,
+        "l": 0,
+        "roi": 55.4,
+        "profit": 875.93,
+        "sample": "small"
+      },
       "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.6k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -251,26 +285,34 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 65,
-        "weekly": 82
+        "monthly": 66,
+        "weekly": 84
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 65,
-          "weekly": 82
+          "monthly": 66,
+          "weekly": 84
         }
       },
       "onProfitBoard": true,
-      "pnl": 263368.57,
+      "pnl": 263445.63,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 22084.89,
-      "monthlyPnl": 75519.66,
+      "weeklyPnl": 22161.95,
+      "monthlyPnl": 75596.73,
       "yearlyPnl": null,
       "volumeUsd": null,
       "tape7d": -1508.21,
       "tape30d": -1502.38,
       "ageDays": 337,
       "graded": {
+        "n": 4,
+        "w": 2,
+        "l": 2,
+        "roi": -18.3,
+        "profit": -1502.38,
+        "sample": "small"
+      },
+      "gradedAll": {
         "n": 4,
         "w": 2,
         "l": 2,
@@ -313,6 +355,7 @@
       "tape30d": null,
       "ageDays": 348,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "norrisfan \u00b7 +$484.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -348,6 +391,7 @@
       "tape30d": null,
       "ageDays": 162,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "devex \u00b7 +$413.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -369,7 +413,7 @@
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 84
+          "monthly": 86
         }
       },
       "onProfitBoard": true,
@@ -383,6 +427,7 @@
       "tape30d": null,
       "ageDays": 771,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -398,36 +443,37 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 63,
-        "weekly": 72
+        "monthly": 65,
+        "weekly": 73
       },
       "profitRanks": {
         "Sports": {
-          "monthly": 63,
-          "weekly": 72
+          "monthly": 65,
+          "weekly": 73
         }
       },
       "onProfitBoard": true,
-      "pnl": 81880.86,
+      "pnl": 81896.12,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 24155.29,
-      "monthlyPnl": 75761.25,
+      "weeklyPnl": 24170.55,
+      "monthlyPnl": 75776.52,
       "yearlyPnl": null,
       "volumeUsd": null,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 336,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "regine \u00b7 +$81.9k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 3
     },
     {
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1918,
+      "followers": 1931,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
@@ -460,7 +506,15 @@
         "profit": 11127.55,
         "sample": "small"
       },
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$109.0k all \u00b7 Top 50",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 800.0,
+        "profit": 11127.55,
+        "sample": "small"
+      },
+      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$109.0k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -475,11 +529,11 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 33
+        "weekly": 32
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 33
+          "weekly": 32
         }
       },
       "onProfitBoard": true,
@@ -493,6 +547,7 @@
       "tape30d": null,
       "ageDays": 285,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "jspana99 \u00b7 -$4.89k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
@@ -509,16 +564,16 @@
       "heavy": true,
       "ranks": {
         "monthly": 43,
-        "weekly": 41
+        "weekly": 39
       },
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -178029.51,
+      "pnl": -174858.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 7350704.17,
+      "volumeUsd": 7428716.51,
       "tape7d": 29801.16,
       "tape30d": 29801.16,
       "ageDays": 60,
@@ -530,7 +585,15 @@
         "profit": 29801.16,
         "sample": "full"
       },
-      "recordLine": "TheGrinder \u00b7 11-0 \u00b7 +20% \u00b7 -$178.0k all \u00b7 Top 50",
+      "gradedAll": {
+        "n": 37,
+        "w": 23,
+        "l": 14,
+        "roi": 19.9,
+        "profit": 29773.27,
+        "sample": "full"
+      },
+      "recordLine": "TheGrinder \u00b7 11-0 \u00b7 +20% \u00b7 -$174.9k all \u00b7 Top 50",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 1
@@ -545,17 +608,17 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 48
+        "weekly": 47
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 48
+          "weekly": 47
         }
       },
       "onProfitBoard": true,
-      "pnl": 90563.13,
+      "pnl": 90559.07,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 31549.18,
+      "weeklyPnl": 31545.12,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
@@ -570,9 +633,43 @@
         "profit": 257.35,
         "sample": "small"
       },
-      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$90.6k all \u00b7 Board",
+      "gradedAll": {
+        "n": 4,
+        "w": 3,
+        "l": 1,
+        "roi": 23.4,
+        "profit": 257.35,
+        "sample": "small"
+      },
+      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$90.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [],
+      "followingPicks": [
+        {
+          "ticker": "KXNCAAFGAME-26NOV21OSUNEB-OSU",
+          "eventTicker": "KXNCAAFGAME-26NOV21OSUNEB",
+          "marketTitle": "Ohio St. vs Nebraska",
+          "contractTitle": "Ohio St. wins",
+          "backing": "Ohio St.",
+          "yesNo": "Yes",
+          "label": "Ohio St.",
+          "entry": 0.41,
+          "price": 0.39,
+          "yesAsk": 0.39,
+          "noAsk": 0.62,
+          "cost": 2.05,
+          "contracts": 5.0,
+          "lastTs": 1795287852,
+          "startTs": 1795302000,
+          "state": "upcoming",
+          "league": "NCAAF",
+          "game": "Ohio St. vs Nebraska",
+          "bt": "Moneyline",
+          "slip": -2.0,
+          "status": "active",
+          "result": "",
+          "closeTs": 1795464000
+        }
+      ],
       "pickCount": 0
     },
     {
@@ -585,11 +682,11 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 55
+        "weekly": 53
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 55
+          "weekly": 53
         }
       },
       "onProfitBoard": true,
@@ -603,10 +700,11 @@
       "tape30d": null,
       "ageDays": 657,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "majebettor123 \u00b7 +$7.34k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "Wiseandstrong",
@@ -632,40 +730,42 @@
       "tape30d": null,
       "ageDays": 269,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Wiseandstrong \u00b7 -$118.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "playful.hornet0945",
       "profileUrl": "https://kalshi.com/ideas/profiles/playful.hornet0945",
       "joinedAt": "2026-05-15",
-      "followers": 522,
+      "followers": 523,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 70
+        "weekly": 68
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 70
+          "weekly": 68
         }
       },
       "onProfitBoard": true,
-      "pnl": 43151.68,
+      "pnl": 43311.67,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 24821.56,
+      "weeklyPnl": 24981.55,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 575547.54,
+      "volumeUsd": 578468.84,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 190,
       "graded": null,
-      "recordLine": "playful.hornet0945 \u00b7 +$43.2k all \u00b7 Board",
+      "gradedAll": null,
+      "recordLine": "playful.hornet0945 \u00b7 +$43.3k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 1
@@ -680,17 +780,17 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 81
+        "weekly": 65
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 81
+          "weekly": 65
         }
       },
       "onProfitBoard": true,
-      "pnl": 3475.86,
+      "pnl": 7596.69,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 22320.14,
+      "weeklyPnl": 26440.97,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": 268185.02,
@@ -698,7 +798,8 @@
       "tape30d": null,
       "ageDays": 185,
       "graded": null,
-      "recordLine": "double.boar6452 \u00b7 +$3.48k all \u00b7 Board",
+      "gradedAll": null,
+      "recordLine": "double.boar6452 \u00b7 +$7.60k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 1
@@ -713,11 +814,11 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 93
+        "weekly": 92
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 94
+          "weekly": 92
         }
       },
       "onProfitBoard": true,
@@ -731,6 +832,7 @@
       "tape30d": null,
       "ageDays": 247,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Muffat00 \u00b7 +$11.4k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -761,6 +863,7 @@
       "tape30d": null,
       "ageDays": 296,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "reach.draft \u00b7 -$331.8k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -770,21 +873,21 @@
       "nickname": "emilianotijerina",
       "profileUrl": "https://kalshi.com/ideas/profiles/emilianotijerina",
       "joinedAt": "2026-09-23",
-      "followers": 85,
+      "followers": 88,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "weekly": 92
+        "weekly": 91
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 92
+          "weekly": 91
         }
       },
       "onProfitBoard": true,
-      "pnl": 25351.51,
+      "pnl": 30306.91,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 20156.66,
       "monthlyPnl": null,
@@ -801,7 +904,15 @@
         "profit": 855.86,
         "sample": "small"
       },
-      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$25.4k all \u00b7 Board",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 88.5,
+        "profit": 855.86,
+        "sample": "small"
+      },
+      "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$30.3k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -832,6 +943,7 @@
       "tape30d": null,
       "ageDays": 746,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "314GoalDigger \u00b7 +$203 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -863,6 +975,7 @@
       "tape30d": null,
       "ageDays": 411,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "80Mill \u00b7 +$1.72k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -880,7 +993,7 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "weekly": 59
+          "weekly": 58
         }
       },
       "onProfitBoard": true,
@@ -894,6 +1007,14 @@
       "tape30d": null,
       "ageDays": 278,
       "graded": null,
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 26.2,
+        "profit": 858.52,
+        "sample": "small"
+      },
       "recordLine": "Aaabbbb \u00b7 -$85.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -915,7 +1036,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 476.32,
+      "pnl": 426.95,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -932,7 +1053,15 @@
         "profit": 180.48,
         "sample": "small"
       },
-      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 +$476 all \u00b7 Other",
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 85.1,
+        "profit": 180.48,
+        "sample": "small"
+      },
+      "recordLine": "ambitious.dandelion1189 \u00b7 2-0 \u00b7 +85% \u00b7 +$427 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -949,11 +1078,11 @@
       "ranks": {},
       "profitRanks": {
         "Mentions": {
-          "weekly": 68
+          "weekly": 67
         }
       },
       "onProfitBoard": true,
-      "pnl": -640.75,
+      "pnl": -640.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -970,7 +1099,15 @@
         "profit": 599.1,
         "sample": "full"
       },
-      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$641 all \u00b7 Other",
+      "gradedAll": {
+        "n": 107,
+        "w": 82,
+        "l": 25,
+        "roi": 71.1,
+        "profit": 660.24,
+        "sample": "full"
+      },
+      "recordLine": "answermbs \u00b7 56-8 \u00b7 +84% \u00b7 -$640 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -987,24 +1124,25 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "monthly": 86
+          "monthly": 89
         }
       },
       "onProfitBoard": true,
-      "pnl": -6698.1,
+      "pnl": -6735.49,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 19523.9,
+      "volumeUsd": 19679.42,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 185,
       "graded": null,
-      "recordLine": "arrogant.partridge5038 \u00b7 -$6.70k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "arrogant.partridge5038 \u00b7 -$6.74k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1
     },
     {
       "nickname": "balla23",
@@ -1018,7 +1156,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -57667.74,
+      "pnl": -57667.77,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1028,6 +1166,7 @@
       "tape30d": null,
       "ageDays": 366,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "balla23 \u00b7 -$57.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1059,6 +1198,7 @@
       "tape30d": null,
       "ageDays": 334,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "big.energy \u00b7 +$18.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1076,7 +1216,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -83895.58,
+      "pnl": -83675.99,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1086,7 +1226,8 @@
       "tape30d": null,
       "ageDays": 372,
       "graded": null,
-      "recordLine": "bigbobbyp \u00b7 -$83.9k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "bigbobbyp \u00b7 -$83.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 2
@@ -1107,7 +1248,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 1781.01,
+      "pnl": 1814.16,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1124,7 +1265,15 @@
         "profit": -325.54,
         "sample": "full"
       },
-      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.78k all \u00b7 Other",
+      "gradedAll": {
+        "n": 17,
+        "w": 7,
+        "l": 10,
+        "roi": -17.9,
+        "profit": -275.44,
+        "sample": "full"
+      },
+      "recordLine": "BigHusky \u00b7 3-9 \u00b7 -28% \u00b7 +$1.81k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -1145,7 +1294,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2.94,
+      "pnl": 2.84,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1155,6 +1304,7 @@
       "tape30d": null,
       "ageDays": 399,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "billtuller \u00b7 +$3 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1172,11 +1322,12 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "weekly": 52
+          "monthly": 85,
+          "weekly": 42
         }
       },
       "onProfitBoard": true,
-      "pnl": 3207.63,
+      "pnl": 3417.59,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1193,11 +1344,18 @@
         "profit": 987.0,
         "sample": "full"
       },
-      "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.21k all \u00b7 Other",
+      "gradedAll": {
+        "n": 12,
+        "w": 7,
+        "l": 2,
+        "roi": 113.4,
+        "profit": 987.0,
+        "sample": "full"
+      },
+      "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.42k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 0
     },
     {
       "nickname": "black.catt",
@@ -1215,7 +1373,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -31021.96,
+      "pnl": -30487.03,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1232,10 +1390,18 @@
         "profit": 5544.54,
         "sample": "small"
       },
-      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$31.0k all \u00b7 Other",
+      "gradedAll": {
+        "n": 8,
+        "w": 7,
+        "l": 1,
+        "roi": 35.3,
+        "profit": 5934.4,
+        "sample": "small"
+      },
+      "recordLine": "black.catt \u00b7 6-1 \u00b7 +35% \u00b7 -$30.5k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 8
+      "pickCount": 11
     },
     {
       "nickname": "king.45",
@@ -1272,6 +1438,14 @@
         "profit": -59.18,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 2,
+        "w": 1,
+        "l": 1,
+        "roi": -13.4,
+        "profit": -59.18,
+        "sample": "small"
+      },
       "recordLine": "king.45 \u00b7 1-1 \u00b7 -13% \u00b7 +$114.3k all \u00b7 Board",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1294,7 +1468,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": -17393.19,
+      "pnl": -17057.1,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1304,7 +1478,8 @@
       "tape30d": null,
       "ageDays": 220,
       "graded": null,
-      "recordLine": "bospredicts \u00b7 -$17.4k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "bospredicts \u00b7 -$17.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1321,7 +1496,7 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "monthly": 28,
+          "monthly": 27,
           "weekly": 11
         }
       },
@@ -1336,6 +1511,7 @@
       "tape30d": null,
       "ageDays": 360,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "BradleyD \u00b7 -$398.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1353,7 +1529,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -19954.94,
+      "pnl": -19934.0,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1370,7 +1546,15 @@
         "profit": 1375.12,
         "sample": "small"
       },
-      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$20.0k all \u00b7 Other",
+      "gradedAll": {
+        "n": 4,
+        "w": 4,
+        "l": 0,
+        "roi": 139.3,
+        "profit": 1552.2,
+        "sample": "small"
+      },
+      "recordLine": "brick.one \u00b7 3-0 \u00b7 +134% \u00b7 -$19.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 2
@@ -1380,22 +1564,16 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/toy.room",
       "joinedAt": "2025-12-06",
       "followers": 1,
-      "tier": "Board",
+      "tier": "Other",
       "pinned": false,
       "tag": "",
       "heavy": false,
-      "ranks": {
-        "weekly": 97
-      },
-      "profitRanks": {
-        "Sports": {
-          "weekly": 97
-        }
-      },
-      "onProfitBoard": true,
-      "pnl": -63838.7,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -64895.01,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 19706.57,
+      "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": null,
@@ -1403,7 +1581,8 @@
       "tape30d": null,
       "ageDays": 350,
       "graded": null,
-      "recordLine": "toy.room \u00b7 -$63.8k all \u00b7 Board",
+      "gradedAll": null,
+      "recordLine": "toy.room \u00b7 -$64.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 1
@@ -1435,6 +1614,7 @@
       "tape30d": null,
       "ageDays": 322,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "bullishkirby \u00b7 +$356.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1452,17 +1632,18 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3177.89,
+      "pnl": -3237.9,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 59941.74,
+      "volumeUsd": 60014.5,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 746,
       "graded": null,
-      "recordLine": "414chuy \u00b7 -$3.18k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "414chuy \u00b7 -$3.24k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1496,6 +1677,14 @@
         "profit": 42.59,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 5,
+        "w": 5,
+        "l": 0,
+        "roi": 63.7,
+        "profit": 42.59,
+        "sample": "small"
+      },
       "recordLine": "annual.swan0694 \u00b7 5-0 \u00b7 +64% \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1513,7 +1702,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -921.63,
+      "pnl": -912.38,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1523,7 +1712,8 @@
       "tape30d": null,
       "ageDays": 286,
       "graded": null,
-      "recordLine": "azcat8228 \u00b7 -$922 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "azcat8228 \u00b7 -$912 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1540,20 +1730,21 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -23360.41,
+      "pnl": -23821.46,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1918760.53,
+      "volumeUsd": 1919761.04,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 177,
       "graded": null,
-      "recordLine": "BadMr.Frosty \u00b7 -$23.4k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "BadMr.Frosty \u00b7 -$23.8k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 8
+      "pickCount": 9
     },
     {
       "nickname": "big.timer",
@@ -1577,6 +1768,7 @@
       "tape30d": null,
       "ageDays": 307,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "big.timer \u00b7 -$32 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1594,7 +1786,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -66.82,
+      "pnl": -64.09,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1604,7 +1796,8 @@
       "tape30d": null,
       "ageDays": 121,
       "graded": null,
-      "recordLine": "BigDiddyBets \u00b7 -$67 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "BigDiddyBets \u00b7 -$64 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1621,7 +1814,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -243.31,
+      "pnl": -241.02,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1631,7 +1824,8 @@
       "tape30d": null,
       "ageDays": 394,
       "graded": null,
-      "recordLine": "BJL1 \u00b7 -$243 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "BJL1 \u00b7 -$241 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1648,27 +1842,35 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2428.02,
+      "pnl": -2366.9,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 158891.94,
-      "tape7d": 768.33,
+      "volumeUsd": 158996.96,
+      "tape7d": 761.46,
       "tape30d": 2885.19,
       "ageDays": 197,
       "graded": {
-        "n": 297,
-        "w": 292,
+        "n": 294,
+        "w": 289,
         "l": 5,
-        "roi": 17.0,
-        "profit": 3698.06,
+        "roi": 16.9,
+        "profit": 3665.34,
         "sample": "full"
       },
-      "recordLine": "Blumpkinator \u00b7 292-5 \u00b7 +17% \u00b7 -$2.43k all \u00b7 Other",
+      "gradedAll": {
+        "n": 295,
+        "w": 289,
+        "l": 6,
+        "roi": 16.9,
+        "profit": 3663.03,
+        "sample": "full"
+      },
+      "recordLine": "Blumpkinator \u00b7 289-5 \u00b7 +17% \u00b7 -$2.37k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 0
     },
     {
       "nickname": "boat.weed",
@@ -1682,7 +1884,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -9112.05,
+      "pnl": -9102.23,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1699,7 +1901,15 @@
         "profit": 53.92,
         "sample": "small"
       },
-      "recordLine": "boat.weed \u00b7 1-2 \u00b7 +46% \u00b7 -$9.11k all \u00b7 Other",
+      "gradedAll": {
+        "n": 3,
+        "w": 1,
+        "l": 2,
+        "roi": 46.2,
+        "profit": 53.92,
+        "sample": "small"
+      },
+      "recordLine": "boat.weed \u00b7 1-2 \u00b7 +46% \u00b7 -$9.10k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1716,7 +1926,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -467.62,
+      "pnl": -579.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1733,7 +1943,15 @@
         "profit": -134.67,
         "sample": "small"
       },
-      "recordLine": "brai \u00b7 0-1 \u00b7 -94% \u00b7 -$468 all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -94.3,
+        "profit": -134.67,
+        "sample": "small"
+      },
+      "recordLine": "brai \u00b7 0-1 \u00b7 -94% \u00b7 -$579 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 9
@@ -1760,6 +1978,7 @@
       "tape30d": null,
       "ageDays": 420,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Burakbas \u00b7 -$144 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1777,7 +1996,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 144.22,
+      "pnl": 150.07,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1787,7 +2006,8 @@
       "tape30d": null,
       "ageDays": 373,
       "graded": null,
-      "recordLine": "CamBam327 \u00b7 +$144 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "CamBam327 \u00b7 +$150 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1818,6 +2038,7 @@
       "tape30d": null,
       "ageDays": 760,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "CJJ307 \u00b7 +$226.4k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1835,7 +2056,7 @@
       "ranks": {},
       "profitRanks": {
         "Economics": {
-          "monthly": 91,
+          "monthly": 92,
           "weekly": 80
         }
       },
@@ -1857,6 +2078,14 @@
         "profit": -1073.19,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 9,
+        "w": 6,
+        "l": 3,
+        "roi": -65.8,
+        "profit": -1065.21,
+        "sample": "small"
+      },
       "recordLine": "clear.bee \u00b7 3-2 \u00b7 -66% \u00b7 -$2.90k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -1874,7 +2103,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 13.73,
+      "pnl": 14.74,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1891,7 +2120,15 @@
         "profit": 23.57,
         "sample": "small"
       },
-      "recordLine": "coachlord66 \u00b7 8-1 \u00b7 +65% \u00b7 +$14 all \u00b7 Other",
+      "gradedAll": {
+        "n": 9,
+        "w": 8,
+        "l": 1,
+        "roi": 65.5,
+        "profit": 23.57,
+        "sample": "small"
+      },
+      "recordLine": "coachlord66 \u00b7 8-1 \u00b7 +65% \u00b7 +$15 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1908,17 +2145,18 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -265.1,
+      "pnl": -549.86,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 214224.64,
+      "volumeUsd": 214913.18,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 152,
       "graded": null,
-      "recordLine": "coastal.raindrop4530 \u00b7 -$265 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "coastal.raindrop4530 \u00b7 -$550 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1942,7 +2180,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 11158.3,
+      "pnl": 11115.58,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1959,7 +2197,15 @@
         "profit": -57.95,
         "sample": "small"
       },
-      "recordLine": "coin.race \u00b7 0-1 \u00b7 -300% \u00b7 +$11.2k all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 0,
+        "l": 1,
+        "roi": -300.3,
+        "profit": -57.95,
+        "sample": "small"
+      },
+      "recordLine": "coin.race \u00b7 0-1 \u00b7 -300% \u00b7 +$11.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -1991,6 +2237,7 @@
       "tape30d": null,
       "ageDays": 258,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "ColeBartiromoDOLLARSCHOLAR \u00b7 +$184.3k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2029,6 +2276,14 @@
         "profit": 268.41,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 5,
+        "w": 3,
+        "l": 2,
+        "roi": 18.9,
+        "profit": 268.41,
+        "sample": "small"
+      },
       "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2046,16 +2301,17 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 111.23,
+      "pnl": 111.15,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 7439.34,
+      "volumeUsd": 7440.31,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 237,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "advanced.redpoll2268 \u00b7 +$111 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2073,7 +2329,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 189.44,
+      "pnl": 189.94,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2083,7 +2339,8 @@
       "tape30d": null,
       "ageDays": 306,
       "graded": null,
-      "recordLine": "akamarino \u00b7 +$189 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "akamarino \u00b7 +$190 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2110,6 +2367,14 @@
       "tape30d": null,
       "ageDays": 115,
       "graded": null,
+      "gradedAll": {
+        "n": 5,
+        "w": 0,
+        "l": 5,
+        "roi": -63.5,
+        "profit": -37.77,
+        "sample": "small"
+      },
       "recordLine": "Browncoat \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2127,7 +2392,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -36.2,
+      "pnl": -36.57,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2137,7 +2402,8 @@
       "tape30d": null,
       "ageDays": 283,
       "graded": null,
-      "recordLine": "butter.bets \u00b7 -$36 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "butter.bets \u00b7 -$37 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2154,7 +2420,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -40867.52,
+      "pnl": -40834.64,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2164,7 +2430,8 @@
       "tape30d": null,
       "ageDays": 305,
       "graded": null,
-      "recordLine": "cheep \u00b7 -$40.9k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "cheep \u00b7 -$40.8k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2198,6 +2465,14 @@
         "profit": 16.76,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 17.2,
+        "profit": 16.76,
+        "sample": "small"
+      },
       "recordLine": "clammy.soup \u00b7 1-0 \u00b7 +17% \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2215,7 +2490,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -6172.13,
+      "pnl": -6185.18,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2225,7 +2500,8 @@
       "tape30d": null,
       "ageDays": 332,
       "graded": null,
-      "recordLine": "coachmall \u00b7 -$6.17k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "coachmall \u00b7 -$6.19k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2242,7 +2518,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -380.12,
+      "pnl": -394.6,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2252,7 +2528,8 @@
       "tape30d": null,
       "ageDays": 300,
       "graded": null,
-      "recordLine": "coltondevalle \u00b7 -$380 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "coltondevalle \u00b7 -$395 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2269,7 +2546,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3280.19,
+      "pnl": -3275.97,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2279,6 +2556,7 @@
       "tape30d": null,
       "ageDays": 488,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "connor627d \u00b7 -$3.28k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2296,11 +2574,11 @@
       "ranks": {},
       "profitRanks": {
         "Politics": {
-          "yearly": 86
+          "yearly": 85
         }
       },
       "onProfitBoard": true,
-      "pnl": -4097.36,
+      "pnl": -4096.06,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2310,6 +2588,14 @@
       "tape30d": null,
       "ageDays": 392,
       "graded": {
+        "n": 2,
+        "w": 0,
+        "l": 2,
+        "roi": -4.3,
+        "profit": -22.84,
+        "sample": "small"
+      },
+      "gradedAll": {
         "n": 2,
         "w": 0,
         "l": 2,
@@ -2334,13 +2620,13 @@
       "ranks": {},
       "profitRanks": {
         "Politics": {
-          "monthly": 73,
-          "weekly": 69,
+          "monthly": 76,
+          "weekly": 83,
           "yearly": 100
         }
       },
       "onProfitBoard": true,
-      "pnl": 17755.86,
+      "pnl": 17641.72,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2350,7 +2636,8 @@
       "tape30d": null,
       "ageDays": 286,
       "graded": null,
-      "recordLine": "d.palombo \u00b7 +$17.8k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "d.palombo \u00b7 +$17.6k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2367,7 +2654,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -284.62,
+      "pnl": -283.59,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2377,7 +2664,8 @@
       "tape30d": null,
       "ageDays": 458,
       "graded": null,
-      "recordLine": "danigucci \u00b7 -$285 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "danigucci \u00b7 -$284 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2400,7 +2688,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 27185.81,
+      "pnl": 27181.61,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2410,6 +2698,7 @@
       "tape30d": null,
       "ageDays": 345,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "dear.bet \u00b7 +$27.2k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2427,7 +2716,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -6544.9,
+      "pnl": -6653.52,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2444,10 +2733,18 @@
         "profit": 944.25,
         "sample": "full"
       },
-      "recordLine": "Alfredoe \u00b7 13-5 \u00b7 +101% \u00b7 -$6.54k all \u00b7 Other",
+      "gradedAll": {
+        "n": 19,
+        "w": 14,
+        "l": 5,
+        "roi": 104.0,
+        "profit": 1019.25,
+        "sample": "full"
+      },
+      "recordLine": "Alfredoe \u00b7 13-5 \u00b7 +101% \u00b7 -$6.65k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 2
+      "pickCount": 1
     },
     {
       "nickname": "Arch88",
@@ -2471,6 +2768,7 @@
       "tape30d": null,
       "ageDays": 381,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Arch88 \u00b7 +$324 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2498,6 +2796,7 @@
       "tape30d": null,
       "ageDays": 236,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "ArrJ \u00b7 -$122 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2515,7 +2814,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 82.16,
+      "pnl": 94.41,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2525,7 +2824,8 @@
       "tape30d": null,
       "ageDays": 330,
       "graded": null,
-      "recordLine": "beerfriendly \u00b7 +$82 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "beerfriendly \u00b7 +$94 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2542,7 +2842,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -13737.45,
+      "pnl": -13709.58,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2552,6 +2852,7 @@
       "tape30d": null,
       "ageDays": 382,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "BiglouieG \u00b7 -$13.7k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2569,7 +2870,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 92.9,
+      "pnl": 93.05,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2579,6 +2880,7 @@
       "tape30d": null,
       "ageDays": 317,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Bigtricknasty \u00b7 +$93 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2606,6 +2908,7 @@
       "tape30d": null,
       "ageDays": 395,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "black84 \u00b7 -$9.16k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2623,7 +2926,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 322.21,
+      "pnl": 328.01,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2633,7 +2936,8 @@
       "tape30d": null,
       "ageDays": 434,
       "graded": null,
-      "recordLine": "Bradymeyers \u00b7 +$322 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "Bradymeyers \u00b7 +$328 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2642,7 +2946,7 @@
       "nickname": "BuyTheDip818",
       "profileUrl": "https://kalshi.com/ideas/profiles/BuyTheDip818",
       "joinedAt": "2025-12-06",
-      "followers": 51,
+      "followers": 52,
       "tier": "Other",
       "pinned": false,
       "tag": "",
@@ -2660,6 +2964,7 @@
       "tape30d": null,
       "ageDays": 350,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "BuyTheDip818 \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2677,7 +2982,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 330.3,
+      "pnl": 331.61,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2687,7 +2992,8 @@
       "tape30d": null,
       "ageDays": 399,
       "graded": null,
-      "recordLine": "coolness77 \u00b7 +$330 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "coolness77 \u00b7 +$332 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2704,7 +3010,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -865.0,
+      "pnl": -865.02,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2714,6 +3020,7 @@
       "tape30d": null,
       "ageDays": 315,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "deck.disk \u00b7 -$865 all \u00b7 Other",
       "addedAt": "2026-11-21",
       "followingPicks": [],
@@ -2731,7 +3038,7 @@
       "ranks": {},
       "profitRanks": {
         "Crypto": {
-          "monthly": 82
+          "monthly": 83
         }
       },
       "onProfitBoard": true,
@@ -2752,7 +3059,15 @@
         "profit": 88.94,
         "sample": "small"
       },
-      "recordLine": "degen.4.life112422 \u00b7 2-0 \u00b7 +60% \u00b7 +$22.6k all \u00b7 Other",
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 60.2,
+        "profit": 88.94,
+        "sample": "small"
+      },
+      "recordLine": "degen.4.life112422 \u00b7 2-0 \u00b7 +60% \u00b7 +$22.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0
@@ -2769,7 +3084,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -305.92,
+      "pnl": -306.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2786,10 +3101,18 @@
         "profit": 102.75,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 9,
+        "w": 9,
+        "l": 0,
+        "roi": 78.2,
+        "profit": 102.75,
+        "sample": "small"
+      },
       "recordLine": "air.barn \u00b7 9-0 \u00b7 +78% \u00b7 -$306 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "AKYota11",
@@ -2803,7 +3126,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -208.55,
+      "pnl": -208.29,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2813,10 +3136,11 @@
       "tape30d": null,
       "ageDays": 293,
       "graded": null,
-      "recordLine": "AKYota11 \u00b7 -$209 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "AKYota11 \u00b7 -$208 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "back.ladybird0123",
@@ -2830,12 +3154,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -36.16,
+      "pnl": -36.14,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 1014.32,
+      "volumeUsd": 1016.29,
       "tape7d": null,
       "tape30d": 0.05,
       "ageDays": 34,
@@ -2847,10 +3171,18 @@
         "profit": 0.05,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 5.1,
+        "profit": 0.05,
+        "sample": "small"
+      },
       "recordLine": "back.ladybird0123 \u00b7 1-0 \u00b7 +5% \u00b7 -$36 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "benjammin29",
@@ -2864,7 +3196,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -169.31,
+      "pnl": -176.41,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2881,10 +3213,18 @@
         "profit": -43.41,
         "sample": "full"
       },
-      "recordLine": "benjammin29 \u00b7 30-153 \u00b7 -53% \u00b7 -$169 all \u00b7 Other",
+      "gradedAll": {
+        "n": 184,
+        "w": 30,
+        "l": 153,
+        "roi": -52.6,
+        "profit": -43.41,
+        "sample": "full"
+      },
+      "recordLine": "benjammin29 \u00b7 30-153 \u00b7 -53% \u00b7 -$176 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "bernig",
@@ -2908,10 +3248,11 @@
       "tape30d": null,
       "ageDays": 385,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "bernig \u00b7 -$704 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "bigchiefkt",
@@ -2925,7 +3266,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2380.93,
+      "pnl": -2346.94,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2935,10 +3276,11 @@
       "tape30d": null,
       "ageDays": 305,
       "graded": null,
-      "recordLine": "bigchiefkt \u00b7 -$2.38k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "bigchiefkt \u00b7 -$2.35k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "Bigdognyce",
@@ -2952,7 +3294,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -440.49,
+      "pnl": -443.1,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2962,10 +3304,11 @@
       "tape30d": null,
       "ageDays": 149,
       "graded": null,
-      "recordLine": "Bigdognyce \u00b7 -$440 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "Bigdognyce \u00b7 -$443 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "black.steak",
@@ -2979,7 +3322,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 13.32,
+      "pnl": 14.65,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2989,10 +3332,11 @@
       "tape30d": null,
       "ageDays": 286,
       "graded": null,
-      "recordLine": "black.steak \u00b7 +$13 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "black.steak \u00b7 +$15 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "blind.car",
@@ -3006,7 +3350,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -600.09,
+      "pnl": -601.4,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3016,10 +3360,11 @@
       "tape30d": null,
       "ageDays": 407,
       "graded": null,
-      "recordLine": "blind.car \u00b7 -$600 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "blind.car \u00b7 -$601 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "brand.breeze",
@@ -3033,7 +3378,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 30.94,
+      "pnl": 11.18,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3043,10 +3388,11 @@
       "tape30d": null,
       "ageDays": 290,
       "graded": null,
-      "recordLine": "brand.breeze \u00b7 +$31 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "brand.breeze \u00b7 +$11 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "casual.armadillo6321",
@@ -3070,10 +3416,11 @@
       "tape30d": null,
       "ageDays": 159,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "casual.armadillo6321 \u00b7 -$34 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "Chrisalis47",
@@ -3087,7 +3434,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -993.73,
+      "pnl": -993.98,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3104,10 +3451,18 @@
         "profit": 100.81,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 8,
+        "w": 7,
+        "l": 1,
+        "roi": 102.0,
+        "profit": 98.4,
+        "sample": "small"
+      },
       "recordLine": "Chrisalis47 \u00b7 6-0 \u00b7 +110% \u00b7 -$994 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "civilian.ladybird6303",
@@ -3121,20 +3476,21 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2252.94,
+      "pnl": -2254.81,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 43641.99,
+      "volumeUsd": 43654.43,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 141,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "civilian.ladybird6303 \u00b7 -$2.25k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "civilian.platypus8953",
@@ -3148,7 +3504,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -253.12,
+      "pnl": -253.92,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3165,10 +3521,18 @@
         "profit": 147.86,
         "sample": "full"
       },
-      "recordLine": "civilian.platypus8953 \u00b7 24-0 \u00b7 +87% \u00b7 -$253 all \u00b7 Other",
+      "gradedAll": {
+        "n": 112,
+        "w": 55,
+        "l": 57,
+        "roi": 6.8,
+        "profit": 47.26,
+        "sample": "full"
+      },
+      "recordLine": "civilian.platypus8953 \u00b7 24-0 \u00b7 +87% \u00b7 -$254 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "coastal.butterfly8754",
@@ -3182,20 +3546,28 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -737.43,
+      "pnl": -737.15,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 3967.83,
+      "volumeUsd": 3968.28,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 165,
       "graded": null,
+      "gradedAll": {
+        "n": 2,
+        "w": 1,
+        "l": 1,
+        "roi": -201.4,
+        "profit": -1.45,
+        "sample": "small"
+      },
       "recordLine": "coastal.butterfly8754 \u00b7 -$737 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "Counties",
@@ -3209,7 +3581,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -3611.45,
+      "pnl": -3632.4,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3219,10 +3591,11 @@
       "tape30d": null,
       "ageDays": 142,
       "graded": null,
-      "recordLine": "Counties \u00b7 -$3.61k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "Counties \u00b7 -$3.63k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "D13turtle",
@@ -3236,7 +3609,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -376.81,
+      "pnl": -377.88,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3253,10 +3626,18 @@
         "profit": 47.08,
         "sample": "small"
       },
-      "recordLine": "D13turtle \u00b7 2-0 \u00b7 +230% \u00b7 -$377 all \u00b7 Other",
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 229.8,
+        "profit": 47.08,
+        "sample": "small"
+      },
+      "recordLine": "D13turtle \u00b7 2-0 \u00b7 +230% \u00b7 -$378 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dabman",
@@ -3270,7 +3651,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -255.67,
+      "pnl": -257.28,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3280,10 +3661,11 @@
       "tape30d": null,
       "ageDays": 690,
       "graded": null,
-      "recordLine": "dabman \u00b7 -$256 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "dabman \u00b7 -$257 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "danny1942",
@@ -3314,10 +3696,18 @@
         "profit": -1.24,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 4,
+        "w": 3,
+        "l": 1,
+        "roi": -9.0,
+        "profit": -1.24,
+        "sample": "small"
+      },
       "recordLine": "danny1942 \u00b7 3-1 \u00b7 -9% \u00b7 -$307 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "DarthTradr",
@@ -3331,7 +3721,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -5420.8,
+      "pnl": -5410.68,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3348,10 +3738,18 @@
         "profit": 9.39,
         "sample": "small"
       },
-      "recordLine": "DarthTradr \u00b7 1-0 \u00b7 +98% \u00b7 -$5.42k all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 97.7,
+        "profit": 9.39,
+        "sample": "small"
+      },
+      "recordLine": "DarthTradr \u00b7 1-0 \u00b7 +98% \u00b7 -$5.41k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "Davmjxn",
@@ -3365,7 +3763,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 2481.09,
+      "pnl": 2445.68,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3382,10 +3780,18 @@
         "profit": 1.2,
         "sample": "small"
       },
-      "recordLine": "Davmjxn \u00b7 1-0 \u00b7 +5% \u00b7 +$2.48k all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 4.9,
+        "profit": 1.2,
+        "sample": "small"
+      },
+      "recordLine": "Davmjxn \u00b7 1-0 \u00b7 +5% \u00b7 +$2.45k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 2,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 2
     },
     {
       "nickname": "Dimesy",
@@ -3403,7 +3809,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 43926.48,
+      "pnl": 43913.15,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3413,10 +3819,11 @@
       "tape30d": null,
       "ageDays": 225,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "Dimesy \u00b7 +$43.9k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "discountelf",
@@ -3444,10 +3851,11 @@
       "tape30d": null,
       "ageDays": 775,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "discountelf \u00b7 +$17.5k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dependent.snail8369",
@@ -3459,17 +3867,17 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "weekly": 98
+        "weekly": 96
       },
       "profitRanks": {
         "Sports": {
-          "weekly": 98
+          "weekly": 96
         }
       },
       "onProfitBoard": true,
-      "pnl": 14055.33,
+      "pnl": 14105.83,
       "pnlSource": "kalshi_profile_metrics",
-      "weeklyPnl": 19367.3,
+      "weeklyPnl": 19417.8,
       "monthlyPnl": null,
       "yearlyPnl": null,
       "volumeUsd": 1891614.94,
@@ -3477,10 +3885,11 @@
       "tape30d": null,
       "ageDays": 179,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "dependent.snail8369 \u00b7 +$14.1k all \u00b7 Board",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "714Smith",
@@ -3494,20 +3903,21 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 110.11,
+      "pnl": 95.33,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 9408.92,
+      "volumeUsd": 9492.37,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 397,
       "graded": null,
-      "recordLine": "714Smith \u00b7 +$110 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "714Smith \u00b7 +$95 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "absent.mongoose7869",
@@ -3531,10 +3941,11 @@
       "tape30d": null,
       "ageDays": 135,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "absent.mongoose7869 \u00b7 -$547 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "additional.flea1535",
@@ -3548,20 +3959,21 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -377.13,
+      "pnl": -386.65,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 42262.38,
+      "volumeUsd": 42292.71,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 159,
       "graded": null,
-      "recordLine": "additional.flea1535 \u00b7 -$377 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "additional.flea1535 \u00b7 -$387 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "ariel0206",
@@ -3575,7 +3987,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -4065.44,
+      "pnl": -4049.54,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3585,10 +3997,11 @@
       "tape30d": null,
       "ageDays": 257,
       "graded": null,
-      "recordLine": "ariel0206 \u00b7 -$4.07k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "ariel0206 \u00b7 -$4.05k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "benstef22",
@@ -3602,7 +4015,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -325.79,
+      "pnl": -342.31,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3619,10 +4032,18 @@
         "profit": 20.34,
         "sample": "small"
       },
-      "recordLine": "benstef22 \u00b7 1-0 \u00b7 +70% \u00b7 -$326 all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 70.5,
+        "profit": 20.34,
+        "sample": "small"
+      },
+      "recordLine": "benstef22 \u00b7 1-0 \u00b7 +70% \u00b7 -$342 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 2,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 2
     },
     {
       "nickname": "BLACKKYLE",
@@ -3636,20 +4057,21 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -2129.87,
+      "pnl": -2129.63,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 131921.96,
+      "volumeUsd": 131926.68,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 258,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "BLACKKYLE \u00b7 -$2.13k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "BoBbee.B",
@@ -3663,12 +4085,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -1.34,
+      "pnl": -13.06,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 13645.61,
+      "volumeUsd": 13655.41,
       "tape7d": 2.44,
       "tape30d": 4.57,
       "ageDays": 165,
@@ -3680,10 +4102,18 @@
         "profit": 406.55,
         "sample": "full"
       },
-      "recordLine": "BoBbee.B \u00b7 78-0 \u00b7 +86% \u00b7 -$1 all \u00b7 Other",
+      "gradedAll": {
+        "n": 78,
+        "w": 78,
+        "l": 0,
+        "roi": 85.6,
+        "profit": 406.55,
+        "sample": "full"
+      },
+      "recordLine": "BoBbee.B \u00b7 78-0 \u00b7 +86% \u00b7 -$13 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "brxyxm",
@@ -3702,15 +4132,16 @@
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 10501.7,
+      "volumeUsd": 10548.31,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 149,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "brxyxm \u00b7 +$2.15k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "bushman77",
@@ -3724,7 +4155,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -18058.82,
+      "pnl": -18058.71,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3741,10 +4172,18 @@
         "profit": -10.2,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 6,
+        "w": 2,
+        "l": 4,
+        "roi": -18.9,
+        "profit": -10.2,
+        "sample": "small"
+      },
       "recordLine": "bushman77 \u00b7 2-4 \u00b7 -19% \u00b7 -$18.1k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "calebsequel",
@@ -3758,7 +4197,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -9806.63,
+      "pnl": -9807.64,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3775,10 +4214,18 @@
         "profit": 19.7,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 45.0,
+        "profit": 19.7,
+        "sample": "small"
+      },
       "recordLine": "calebsequel \u00b7 2-0 \u00b7 +45% \u00b7 -$9.81k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "chanchavac",
@@ -3792,12 +4239,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -239.18,
+      "pnl": -237.44,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 8422.62,
+      "volumeUsd": 8432.16,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 288,
@@ -3809,10 +4256,18 @@
         "profit": 9.11,
         "sample": "small"
       },
-      "recordLine": "chanchavac \u00b7 1-0 \u00b7 +63% \u00b7 -$239 all \u00b7 Other",
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 63.0,
+        "profit": 9.11,
+        "sample": "small"
+      },
+      "recordLine": "chanchavac \u00b7 1-0 \u00b7 +63% \u00b7 -$237 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 1
     },
     {
       "nickname": "CJAY.WINZ",
@@ -3826,7 +4281,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -1009.82,
+      "pnl": -1000.5,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3836,10 +4291,11 @@
       "tape30d": null,
       "ageDays": 316,
       "graded": null,
-      "recordLine": "CJAY.WINZ \u00b7 -$1.01k all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "CJAY.WINZ \u00b7 -$1.00k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "cn41",
@@ -3853,7 +4309,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -51.65,
+      "pnl": -48.8,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3863,10 +4319,11 @@
       "tape30d": null,
       "ageDays": 385,
       "graded": null,
-      "recordLine": "cn41 \u00b7 -$52 all \u00b7 Other",
+      "gradedAll": null,
+      "recordLine": "cn41 \u00b7 -$49 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "cryptoglobal991",
@@ -3880,12 +4337,12 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -168.63,
+      "pnl": -168.6,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
       "yearlyPnl": null,
-      "volumeUsd": 3201.49,
+      "volumeUsd": 3210.67,
       "tape7d": null,
       "tape30d": null,
       "ageDays": 143,
@@ -3897,10 +4354,18 @@
         "profit": 420.66,
         "sample": "full"
       },
+      "gradedAll": {
+        "n": 82,
+        "w": 81,
+        "l": 1,
+        "roi": 57.0,
+        "profit": 442.56,
+        "sample": "full"
+      },
       "recordLine": "cryptoglobal991 \u00b7 77-0 \u00b7 +56% \u00b7 -$169 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dbausz",
@@ -3914,7 +4379,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -4092.19,
+      "pnl": -4094.55,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3924,10 +4389,11 @@
       "tape30d": null,
       "ageDays": 254,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "dbausz \u00b7 -$4.09k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 1,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 2
     },
     {
       "nickname": "diegocloud97",
@@ -3958,10 +4424,18 @@
         "profit": 31.04,
         "sample": "small"
       },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 330.0,
+        "profit": 31.04,
+        "sample": "small"
+      },
       "recordLine": "diegocloud97 \u00b7 1-0 \u00b7 +330% \u00b7 -$263 all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dislexic.walrus",
@@ -3975,7 +4449,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": -91872.89,
+      "pnl": -91594.42,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3992,10 +4466,18 @@
         "profit": 80.74,
         "sample": "small"
       },
-      "recordLine": "dislexic.walrus \u00b7 2-4 \u00b7 +106% \u00b7 -$91.9k all \u00b7 Other",
+      "gradedAll": {
+        "n": 7,
+        "w": 2,
+        "l": 4,
+        "roi": 106.1,
+        "profit": 80.74,
+        "sample": "small"
+      },
+      "recordLine": "dislexic.walrus \u00b7 2-4 \u00b7 +106% \u00b7 -$91.6k all \u00b7 Other",
       "addedAt": "2026-11-21",
-      "pickCount": 0,
-      "followCount": 0
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "dollasignmike",
@@ -4019,7 +4501,315 @@
       "tape30d": null,
       "ageDays": 455,
       "graded": null,
+      "gradedAll": null,
       "recordLine": "dollasignmike \u00b7 +$694 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "followingPicks": [],
+      "pickCount": 0
+    },
+    {
+      "nickname": "door.whale",
+      "profileUrl": "https://kalshi.com/ideas/profiles/door.whale",
+      "joinedAt": "2026-01-20",
+      "followers": 13,
+      "tier": "My 40",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {
+        "Mentions": {
+          "monthly": 87
+        }
+      },
+      "onProfitBoard": true,
+      "pnl": 11929.85,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": 93.02,
+      "ageDays": 305,
+      "graded": {
+        "n": 12,
+        "w": 7,
+        "l": 5,
+        "roi": 42.1,
+        "profit": 163.16,
+        "sample": "full"
+      },
+      "gradedAll": {
+        "n": 12,
+        "w": 7,
+        "l": 5,
+        "roi": 42.1,
+        "profit": 163.16,
+        "sample": "full"
+      },
+      "recordLine": "door.whale \u00b7 7-5 \u00b7 +42% \u00b7 +$11.9k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "door.work",
+      "profileUrl": "https://kalshi.com/ideas/profiles/door.work",
+      "joinedAt": "2025-09-09",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 95.85,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 438,
+      "graded": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 44.0,
+        "profit": 4.57,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 44.0,
+        "profit": 4.57,
+        "sample": "small"
+      },
+      "recordLine": "door.work \u00b7 2-0 \u00b7 +44% \u00b7 +$96 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dot.hill",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dot.hill",
+      "joinedAt": "2025-12-19",
+      "followers": 1,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -72.77,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 337,
+      "graded": null,
+      "gradedAll": null,
+      "recordLine": "dot.hill \u00b7 -$73 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dough.ranch",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dough.ranch",
+      "joinedAt": "2025-11-17",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -98.38,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 369,
+      "graded": null,
+      "gradedAll": null,
+      "recordLine": "dough.ranch \u00b7 -$98 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dr.house",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dr.house",
+      "joinedAt": "2025-05-22",
+      "followers": 9,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {
+        "Economics": {
+          "weekly": 17,
+          "yearly": 89
+        }
+      },
+      "onProfitBoard": true,
+      "pnl": 8214.38,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": 21600.95,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 548,
+      "graded": null,
+      "gradedAll": null,
+      "recordLine": "dr.house \u00b7 +$8.21k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 1,
+      "followCount": 0
+    },
+    {
+      "nickname": "drib",
+      "profileUrl": "https://kalshi.com/ideas/profiles/drib",
+      "joinedAt": "2024-11-03",
+      "followers": 44,
+      "tier": "My 40",
+      "pinned": true,
+      "tag": "My 40",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {
+        "Politics": {
+          "monthly": 48
+        }
+      },
+      "onProfitBoard": true,
+      "pnl": 13515.61,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 748,
+      "graded": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 22.0,
+        "profit": 359.04,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 1,
+        "w": 1,
+        "l": 0,
+        "roi": 22.0,
+        "profit": 359.04,
+        "sample": "small"
+      },
+      "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 +$13.5k all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "dumb.rail",
+      "profileUrl": "https://kalshi.com/ideas/profiles/dumb.rail",
+      "joinedAt": "2026-03-24",
+      "followers": 0,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": 186.56,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 242,
+      "graded": {
+        "n": 5,
+        "w": 5,
+        "l": 0,
+        "roi": 196.3,
+        "profit": 48.13,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 6,
+        "w": 6,
+        "l": 0,
+        "roi": 186.2,
+        "profit": 54.55,
+        "sample": "small"
+      },
+      "recordLine": "dumb.rail \u00b7 5-0 \u00b7 +196% \u00b7 +$187 all \u00b7 Other",
+      "addedAt": "2026-11-21",
+      "pickCount": 0,
+      "followCount": 0
+    },
+    {
+      "nickname": "eeks",
+      "profileUrl": "https://kalshi.com/ideas/profiles/eeks",
+      "joinedAt": "2025-11-29",
+      "followers": 1,
+      "tier": "Other",
+      "pinned": false,
+      "tag": "",
+      "heavy": false,
+      "ranks": {},
+      "profitRanks": {},
+      "onProfitBoard": false,
+      "pnl": -1082.1,
+      "pnlSource": "kalshi_profile_metrics",
+      "weeklyPnl": null,
+      "monthlyPnl": null,
+      "yearlyPnl": null,
+      "volumeUsd": null,
+      "tape7d": null,
+      "tape30d": null,
+      "ageDays": 357,
+      "graded": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 116.0,
+        "profit": 15.9,
+        "sample": "small"
+      },
+      "gradedAll": {
+        "n": 2,
+        "w": 2,
+        "l": 0,
+        "roi": 116.0,
+        "profit": 15.9,
+        "sample": "small"
+      },
+      "recordLine": "eeks \u00b7 2-0 \u00b7 +116% \u00b7 -$1.08k all \u00b7 Other",
       "addedAt": "2026-11-21",
       "pickCount": 0,
       "followCount": 0
