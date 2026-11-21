@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 10:15 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1322,6 +1322,27 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
       "recordedTs": 1795283577,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "nettinyahoo|KXNCAAF1HSPREAD-26NOV21BYUKU-BYU3|Yes",
+      "nickname": "nettinyahoo",
+      "ticker": "KXNCAAF1HSPREAD-26NOV21BYUKU-BYU3",
+      "eventTicker": "KXNCAAF1HSPREAD-26NOV21BYUKU",
+      "game": "BYU vs Kansas: 1st Half Spread",
+      "backing": "BYU wins by over 2.5 points",
+      "yesNo": "Yes",
+      "entry": 0.4701,
+      "price": 0.13,
+      "cost": 912.03,
+      "contracts": 1940.0,
+      "startTs": 1795291200,
+      "league": "NCAAF",
+      "bt": "Spread",
+      "recordedAt": "Sat Nov 21 \u00b7 10:15 AM PT",
+      "recordedTs": 1795284948,
       "status": "open",
       "result": null,
       "settledAt": null

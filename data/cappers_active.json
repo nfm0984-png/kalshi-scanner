@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 9:52 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 10:15 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -51,7 +51,7 @@
         "weekly": 5,
         "yearly": 12
       },
-      "pnl": 913893.78,
+      "pnl": 850993.47,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 148874.81,
       "monthlyPnl": null,
@@ -115,7 +115,8 @@
           "closeTs": 1795453200
         }
       ],
-      "pickCount": 2
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "reluctant.fox5394",
@@ -166,7 +167,7 @@
       "ranks": {
         "monthly": 47
       },
-      "pnl": 141438.11,
+      "pnl": 141375.57,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": 90941.4,
@@ -176,17 +177,18 @@
       "tape30d": 60.05,
       "ageDays": 136,
       "graded": {
-        "n": 5,
-        "w": 4,
+        "n": 3,
+        "w": 2,
         "l": 1,
-        "roi": 6.1,
-        "profit": 60.05,
+        "roi": 4.6,
+        "profit": 27.17,
         "sample": "small"
       },
       "recordLine": "iluminado \u00b7 4-1 \u00b7 +6% \u00b7 +$141.4k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "past.grass",
@@ -214,7 +216,8 @@
       "recordLine": "past.grass \u00b7 +$117.9k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "autofade",
@@ -369,7 +372,8 @@
       "recordLine": "bama0037 \u00b7 +$134.2k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "regine",
@@ -412,7 +416,7 @@
         "monthly": 45,
         "weekly": 21
       },
-      "pnl": 156137.03,
+      "pnl": 134662.52,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 66746.51,
       "monthlyPnl": 92448.13,
@@ -432,7 +436,8 @@
       "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 +$156.1k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jspana99",
@@ -528,7 +533,8 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 +$91.6k all \u00b7 My 40",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "majebettor123",
@@ -704,7 +710,7 @@
       "ranks": {
         "weekly": 99
       },
-      "pnl": 30607.23,
+      "pnl": 29946.51,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 20156.66,
       "monthlyPnl": null,
@@ -724,7 +730,8 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 +$30.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -811,7 +818,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": 409.94,
+      "pnl": 411.8,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -882,7 +889,8 @@
           "closeTs": 1833980400
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 2
     },
     {
       "nickname": "answermbs",
@@ -1083,7 +1091,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": 3193.48,
+      "pnl": 3192.63,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1093,12 +1101,12 @@
       "tape30d": null,
       "ageDays": 425,
       "graded": {
-        "n": 12,
-        "w": 7,
-        "l": 2,
-        "roi": 113.4,
-        "profit": 987.0,
-        "sample": "full"
+        "n": 2,
+        "w": 1,
+        "l": 0,
+        "roi": 12.3,
+        "profit": 40.0,
+        "sample": "small"
       },
       "recordLine": "Billy.Hoyle \u00b7 7-2 \u00b7 +113% \u00b7 +$3.19k all \u00b7 My 40",
       "addedAt": "2026-11-21",
@@ -1129,7 +1137,8 @@
           "closeTs": 1865719800
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 1
     },
     {
       "nickname": "black.catt",
@@ -1726,7 +1735,7 @@
       "tag": "My 40",
       "heavy": false,
       "ranks": {},
-      "pnl": 14.37,
+      "pnl": 14.47,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2472,7 +2481,8 @@
           "closeTs": 1795655700
         }
       ],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 29
     },
     {
       "nickname": "coastal.raindrop4530",
@@ -2586,7 +2596,8 @@
       "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "advanced.redpoll2268",
