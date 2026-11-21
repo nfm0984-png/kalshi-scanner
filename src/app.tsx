@@ -11,6 +11,7 @@ const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
 const CARD_BUDGET = 40;
+const TARGET_FOLLOW = 40;
 const CARD_MIN = 10;
 const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
@@ -58,6 +59,9 @@ interface Job { mode: "scan" | "refresh"; phase: string; msg: string; t0: number
 
 function formatNowPt(ms = Date.now()): string {
   return new Date(ms).toLocaleString("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" }) + " PT";
+}
+function formatLongDatePt(ms = Date.now()): string {
+  return new Date(ms).toLocaleDateString("en-US", { timeZone: "America/Los_Angeles", weekday: "long", month: "long", day: "numeric" });
 }
 function nextScheduledPt(ms = Date.now()): string {
   const parts: Record<string, string> = {};
@@ -731,46 +735,48 @@ function TodayCard(props: { games: Game[]; now: number }) {
   );
 }
 
-function ComingUpTab(props: { games: Game[]; now: number }) {
-  const live = props.games.filter((g: Game) => g.live).sort((a, b) => (a.startTs || 0) - (b.startTs || 0) || (a.id < b.id ? -1 : 1));
-  const up = props.games.filter((g: Game) => !g.live).sort((a, b) => (a.startTs || 1e12) - (b.startTs || 1e12) || (a.id < b.id ? -1 : 1));
-  const pickN = props.games.reduce((n: number, g: Game) => n + g.picks.length, 0);
+function gameMatchesQuery(g: Game, q: string): boolean {
+  if (!q) return true;
+  if ((g.game || "").toLowerCase().includes(q) || (g.league || "").toLowerCase().includes(q)) return true;
+  return g.picks.some((p: Pick) => (p.big + " " + p.sub + " " + (p.view.backing || "")).toLowerCase().includes(q) || p.backers.some((b: Backer) => (b.name || "").toLowerCase().includes(q)));
+}
+function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
+  const q = (props.query || "").trim().toLowerCase();
+  const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
+  const live = games.filter((g: Game) => g.live).sort((a, b) => (a.startTs || 0) - (b.startTs || 0) || (a.id < b.id ? -1 : 1));
+  const up = games.filter((g: Game) => !g.live).sort((a, b) => (a.startTs || 1e12) - (b.startTs || 1e12) || (a.id < b.id ? -1 : 1));
   return (
-    <Section heading={"Coming Up · " + pickN} caption={"Soonest start first · already started at the top · starts within 24 hours"}>
-      <Text>{"Every open $100+ sports position from Kalshi traders who show their book, grouped by game and sorted by start time. Finished games are removed. Suggested $2–4 a ticket, about $40 a day. No parlays."}</Text>
-      <div data-combined-summary="1" style={{ fontSize: 14, fontWeight: 750, color: "#475569", margin: "2px 2px 12px" }}>{pickN + " picks · " + props.games.length + " games · " + live.length + " live"}</div>
-      {props.games.length === 0 ? <EmptyState title="No public Kalshi books right now" body={"None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours. Most top traders hide their book."} /> : null}
-      {live.length ? <div data-live-head="1" style={{ fontSize: 22, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
+    <div>
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours. Most top traders hide their book." : "Try another search or clear the filter."} /> : null}
+      {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart />)}
-      {up.length ? <div data-all-today="1" style={{ fontSize: 22, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
+      {up.length ? <div data-all-today="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
       {up.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart />)}
-    </Section>
+    </div>
   );
 }
-function RankedTab(props: { games: Game[]; now: number }) {
-  const L = rankedLists(props.games);
+function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
+  const q = (props.query || "").trim().toLowerCase();
+  const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
+  const L = rankedLists(games);
   const total = L.top.length + L.others.length + L.small.length + L.contested.length;
   const render = (c: RankedCard, i: number) => <GameBlock key={c.game.id} g={c.game} now={props.now} stake="$2–4" rankNo={i + 1} rec={c.rec} cappers={c.cappers} />;
   return (
-    <Section heading={"Ranked · " + total} caption={"Games ranked by the main pick’s net score (own side minus opposition) · uncontested first · starts or is live within 24 hours"}>
-      <Text>{"Each game is one card. The main pick is the highest-net side — never the weaker side of the same market. Net = own Laplace strength (W+1)/(W+L+2) minus the same for cappers on the other outcome (and the other team’s moneyline). Rank uses that net, then own wins, then own cappers. Record counts, money does not. Contested games (opposition at 60%+ with 10+ bets, or a net under 8 points) sit below uncontested and are left off the $40 card. The amber warning still names a capper on the other side with a better individual record."}</Text>
-      <div data-ranked-summary="1" style={{ fontSize: 14, fontWeight: 750, color: "#475569", margin: "2px 2px 8px" }}>{total + " games · " + L.top.length + " in the top list · " + L.contested.length + " contested"}</div>
-      {total > 0 ? <TodayCard games={props.games} now={props.now} /> : null}
-      {total === 0 ? <EmptyState title="No ranked games right now" body={"No visible Kalshi capper has a $100+ sports pick starting within 24 hours."} /> : null}
-      {L.top.length ? <div data-elite-top="1" style={{ fontSize: 22, fontWeight: 900, margin: "4px 2px 4px", color: NAVY }}>{"Top " + L.top.length}</div> : null}
+    <div>
+      {total > 0 ? <TodayCard games={games} now={props.now} /> : null}
+      {total === 0 ? <EmptyState title={props.games.length === 0 ? "No ranked games right now" : "No games match that filter"} body={props.games.length === 0 ? "No visible Kalshi capper has a $100+ sports pick starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {L.top.length ? <div data-elite-top="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 4px", color: NAVY }}>{"Top " + L.top.length}</div> : null}
       {L.top.map((c: RankedCard, i: number) => render(c, i))}
-      {L.others.length ? <div data-ranked-section="others" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid " + BLUE, color: NAVY }}>{"All other games · " + L.others.length}</div> : null}
+      {L.others.length ? <div style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Others (" + L.others.length + ")"}</div> : null}
       {L.others.map((c: RankedCard, i: number) => render(c, L.top.length + i))}
-      {L.small.length ? <div data-ranked-section="small" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid " + BLUE, color: NAVY }}>{"Small sample (under " + ELITE_MIN_BETS + " bets) · " + L.small.length}</div> : null}
-      {L.small.length ? <Text>{"The main pick’s own cappers have fewer than 10 settled bets, so these sit below the main lists. They are still sorted by net score, and contested games are in their own section below."}</Text> : null}
+      {L.small.length ? <div style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Smaller books (" + L.small.length + ")"}</div> : null}
       {L.small.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + i))}
-      {L.contested.length ? <div data-ranked-section="contested" style={{ fontSize: 22, fontWeight: 900, margin: "18px 2px 4px", paddingTop: 10, borderTop: "3px solid #F59E0B", color: NAVY }}>{"Contested · " + L.contested.length}</div> : null}
-      {L.contested.length ? <Text>{"Meaningful opposition on the main pick: the other side is at 60%+ with 10+ settled bets, or the net margin is under 8 points. Sorted by net, below every uncontested game. Left off the $40 card."}</Text> : null}
+      {L.contested.length ? <div data-contested-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 4px", color: NAVY }}>{"Contested (" + L.contested.length + ")"}</div> : null}
       {L.contested.map((c: RankedCard, i: number) => render(c, L.top.length + L.others.length + L.small.length + i))}
-    </Section>
+    </div>
   );
 }
-function FollowingTab(props: { now: number }) {
+function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   const F = DATA.following || { cappers: [], picks: [], startedAt: "", recorded: 0, graded: 0 };
   const caps = F.cappers || [];
   const picks = (F.picks || []).slice();
@@ -794,27 +800,24 @@ function FollowingTab(props: { now: number }) {
   const tn = tw + tl;
   const hit = tn ? Math.round((1000 * tw) / tn) / 10 : null;
   const trialTone = recTone(tw, tl);
+  const q = (props.query || "").trim().toLowerCase();
+  let shown = ordered.filter((c: FollowCapper) => !q || (c.nickname || "").toLowerCase().includes(q));
+  if (props.filter === "graded") shown = shown.filter((c: FollowCapper) => (c.w || 0) + (c.l || 0) > 0);
+  if (props.filter === "open") shown = shown.filter((c: FollowCapper) => (byName[c.nickname] || []).length > 0);
   return (
-    <Section heading={"My 40 · " + picks.length} caption={"Every open traditional-sports pick from followed winning cappers (up to 40) · no dollar minimum · soonest start first, grouped under each capper"}>
-      <Text>{"If you like a capper, every open sports pick from their book lands here — singles and sports combos, no $ minimum and no record gate. Only cappers with a winning graded record (W > L) are followed, up to 40. Discovery keeps running every hour even at 40; a followed capper who falls to a losing record is swapped out and stays in Coming Up / Ranked. Esports and finished games are left off. Each pick is recorded once in a copy trial and graded from Kalshi’s official market result after it settles."}</Text>
-      <div data-trial-box="1" style={{ borderRadius: 16, border: "1.5px solid #FDE68A", background: "#FFFBEB", padding: "12px 14px", marginBottom: 12 }}>
-        <div style={{ fontSize: 13, fontWeight: 850, letterSpacing: "0.06em", textTransform: "uppercase", color: "#92400E" }}>Copy trial</div>
-        <div style={{ fontSize: 16, fontWeight: 850, color: NAVY, marginTop: 2 }}>
-          {F.startedAt ? ("Since " + F.startedAt + ((F.recorded || 0) ? " · " + (F.recorded || 0) + " recorded" : "") + ((F.graded || 0) ? " · " + (F.graded || 0) + " graded" : "")) : "Trial starts when the first followed pick is recorded."}
-        </div>
-        <div data-record-strip="trial" style={{ display: "flex", gap: 8, margin: "10px 0 0", flexWrap: "wrap" }}>
-          <StatTile label="Wins" value={String(tw)} color={GREEN} bg="#DCFCE7" />
-          <StatTile label="Losses" value={String(tl)} color={RED} bg="#FEE2E2" />
-          <StatTile label="Record" value={tn ? (tw + "–" + tl) : "—"} color={trialTone.fg} bg={trialTone.bg} />
-          <StatTile label="Hit rate" value={hit == null ? "—" : hit + "%"} color={trialTone.fg} bg={trialTone.bg} />
-          <StatTile label="Cappers" value={String(caps.length)} />
-          <StatTile label="Open picks" value={String(picks.length)} />
-        </div>
-        {caps.length === 0 ? <div style={{ fontSize: 14, fontWeight: 650, color: "#57534E", marginTop: 8 }}>{"No followed cappers yet. When followed cappers are seeded, they’ll show up here with a running hit rate."}</div> : null}
+    <div>
+      <div data-trial-box="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 12, background: "#FFFBEB", border: "1px solid #FDE68A", marginBottom: 12 }}>
+        <span style={{ fontSize: 12, fontWeight: 850, letterSpacing: "0.06em", textTransform: "uppercase", color: "#92400E" }}>Copy trial</span>
+        <RecordPill w={tw} l={tl} />
+        {hit != null ? <span style={{ fontSize: 13, fontWeight: 800, color: trialTone.fg }}>{hit}% hit</span> : null}
+        <span style={{ fontSize: 13, fontWeight: 650, color: "#78716C" }}>
+          {F.startedAt ? ("Since " + F.startedAt + ((F.graded || 0) ? " · " + F.graded + " graded" : (F.recorded || 0) ? " · " + F.recorded + " recorded" : "")) : "Starts when the first followed pick is recorded."}
+        </span>
       </div>
       {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your followed cappers don’t have an open traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
       {picks.length === 0 && !caps.length ? <EmptyState title="My 40 is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
-      {ordered.map((c: FollowCapper) => {
+      {shown.length === 0 && (q || props.filter) && caps.length ? <EmptyState title="No followed cappers match that filter" body="Try another search or clear the filter." /> : null}
+      {shown.map((c: FollowCapper) => {
         const cap = capperOf(c.nickname);
         const g = gradedWL(cap);
         const settled = !!(g && (g.w + g.l) > 0);
@@ -852,24 +855,18 @@ function FollowingTab(props: { now: number }) {
           </CapperShell>
         );
       })}
-    </Section>
+    </div>
   );
 }
-function CappersTab(props: { now: number }) {
+function CappersTab(props: { now: number; query?: string; filter?: string }) {
   const caps = (DATA.cappers || []).slice();
-  const followedN = caps.filter(isFollowedCapper).length;
-  const openN = caps.reduce((n: number, c: Capper) => n + (c.pickCount || 0), 0);
-  const settledN = caps.filter((c: Capper) => { const g = gradedWL(c); return !!(g && (g.w + g.l) > 0); }).length;
+  const q = (props.query || "").trim().toLowerCase();
+  let shown = caps.filter((c: Capper) => !q || (c.nickname || "").toLowerCase().includes(q));
+  if (props.filter === "followed") shown = shown.filter(isFollowedCapper);
+  if (props.filter === "wl") shown = shown.filter((c: Capper) => { const g = gradedWL(c); return !!(g && (g.w + g.l) > 0); });
   return (
-    <Section heading={"Cappers · " + caps.length} caption={"Visible Sports-leaderboard traders, plus followed My 40 cappers. Hidden books are not listed unless followed. Picks are grouped under each capper."}>
-      <Text>{"A capper has to show their bets on Kalshi to appear here, except followed My 40 names, who stay in the db even with a hidden book. My 40 = Noel’s followed list (winning record, never rejected). Core = in both the all-time and monthly top 50. Top 50 = on one of those boards. W-L is reconstructed from their public sports trade tape, not invented. Market makers are left out unless followed. Picks are traditional sports singles and combos only — no esports."}</Text>
-      <div data-record-strip="cappers" style={{ display: "flex", gap: 8, margin: "4px 0 14px", flexWrap: "wrap" }}>
-        <StatTile label="Cappers" value={String(caps.length)} />
-        <StatTile label="Followed" value={String(followedN)} />
-        <StatTile label="With a W-L" value={String(settledN)} />
-        <StatTile label="Open picks" value={String(openN)} />
-      </div>
-      {caps.length === 0 ? <EmptyState title="No visible cappers right now" body={"Almost every name on Kalshi's Sports leaderboard hides their book."} /> : caps.map((c: Capper, i: number) => {
+    <div>
+      {shown.length === 0 ? <EmptyState title={caps.length === 0 ? "No visible cappers right now" : "No cappers match that filter"} body={caps.length === 0 ? "Almost every name on Kalshi's Sports leaderboard hides their book." : "Try another search or clear the filter."} /> : shown.map((c: Capper, i: number) => {
         const g = gradedWL(c);
         const settled = !!(g && (g.w + g.l) > 0);
         const head = sportsHeadline(c);
@@ -903,7 +900,46 @@ function CappersTab(props: { now: number }) {
           </CapperShell>
         );
       })}
-    </Section>
+    </div>
+  );
+}
+
+
+function Ico(props: { children: ReactNode; size?: number }) {
+  const s = props.size || 16;
+  return <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{props.children}</svg>;
+}
+const IconCalendar = () => <Ico><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></Ico>;
+const IconRefresh = () => <Ico><path d="M23 4v6h-6" /><path d="M1 20v-6h6" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" /></Ico>;
+const IconBolt = () => <Ico><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></Ico>;
+const IconList = () => <Ico><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></Ico>;
+const IconUsers = () => <Ico><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></Ico>;
+const IconStack = () => <Ico><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5M2 12l10 5 10-5" /></Ico>;
+const IconChart = () => <Ico><path d="M3 3v18h18" /><path d="M7 14l4-4 4 4 6-6" /></Ico>;
+const IconTrophy = () => <Ico><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z" /><path d="M17 6h2a3 3 0 0 1 0 6h-2M7 6H5a3 3 0 0 0 0 6h2" /></Ico>;
+const IconStar = () => <Ico><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" /></Ico>;
+const IconSearch = () => <Ico size={16}><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></Ico>;
+
+function DashStat(props: { label: string; value: string; sub?: string; color: string; icon: ReactNode }) {
+  return (
+    <div data-dash-stat={props.label} style={{ background: NAVY, color: "#FFFFFF", borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, minHeight: 76, boxShadow: "0 10px 24px rgba(7,20,34,0.12)" }}>
+      <div style={{ width: 40, height: 40, borderRadius: 12, background: props.color, display: "flex", alignItems: "center", justifyContent: "center", color: "#FFFFFF", flex: "0 0 auto" }}>{props.icon}</div>
+      <div style={{ minWidth: 0 }}>
+        <div style={{ fontSize: 12, fontWeight: 700, color: "#93C5FD", letterSpacing: "0.02em" }}>{props.label}</div>
+        <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.03em", lineHeight: "30px", fontVariantNumeric: "tabular-nums" }}>{props.value}</div>
+        {props.sub ? <div style={{ fontSize: 11, fontWeight: 650, color: "#BFDBFE", marginTop: 1 }}>{props.sub}</div> : null}
+      </div>
+    </div>
+  );
+}
+
+function StatusRow(props: { label: string; status: string; tone: "ok" | "public" | "muted" | "warn" }) {
+  const color = props.tone === "ok" ? "#4ADE80" : props.tone === "public" ? "#7DD3FC" : props.tone === "warn" ? "#FBBF24" : "#94A3B8";
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "baseline", padding: "8px 0", borderBottom: "1px solid rgba(148,163,184,0.16)" }}>
+      <span style={{ fontSize: 13, fontWeight: 650, color: "#E2E8F0" }}>{props.label}</span>
+      <span style={{ fontSize: 13, fontWeight: 800, color, textAlign: "right" }}>{props.status}</span>
+    </div>
   );
 }
 
@@ -925,16 +961,12 @@ export default function App() {
   const [sheet, setSheet] = useState<"" | "scan">("");
   const [hasKey, setHasKey] = useState<boolean>(() => !!accessKey());
   const [keyText, setKeyText] = useState("");
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("all");
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
   const followN = ((DATA.following && DATA.following.picks) || []).length;
-  const tabs = [
-    { value: "coming" as const, label: "Coming Up", count: comingN },
-    { value: "following" as const, label: "My 40", count: followN },
-    { value: "ranked" as const, label: "Ranked", count: games.length },
-    { value: "cappers" as const, label: "Cappers", count: (DATA.cappers || []).length },
-  ];
   const applyData = (data: Data) => {
     DATA = data;
     (window as any).__DATA = data;
@@ -1054,73 +1086,178 @@ export default function App() {
   const elapsed = job && jobBusy ? Math.max(0, (Date.now() - job.t0) / 1000) : 0;
   const expect = job && job.mode === "scan" ? SCAN_EXPECT_SECS : 8;
   const pct = job && jobBusy ? (job.phase === "loading" && job.mode === "scan" ? 100 : Math.min(95, Math.round((elapsed / expect) * 100))) : 0;
-  const btnBase: React.CSSProperties = { flex: "1 1 140px", minHeight: 44, padding: "10px 14px", borderRadius: 12, fontWeight: 850, fontSize: 15, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none", boxSizing: "border-box", touchAction: "manipulation", position: "relative", zIndex: 2, WebkitUserSelect: "none", userSelect: "none" };
+
+  const followCaps = (DATA.following && DATA.following.cappers) || [];
+  const trialW = followCaps.reduce((a: number, c: FollowCapper) => a + (c.w || 0), 0);
+  const trialL = followCaps.reduce((a: number, c: FollowCapper) => a + (c.l || 0), 0);
+  const trialN = trialW + trialL;
+  const followedN = followCaps.length;
+  const db = (DATA.source && DATA.source.db) || {};
+  const dbActive = db.active != null ? db.active : (DATA.cappers || []).length;
+  const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
+  const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Soonest start first · $100+ public books starting within 24 hours." },
+    { value: "ranked", label: "Ranked", count: games.length, icon: <IconTrophy />, title: "Ranked", caption: "Games ranked by the main pick’s net score · uncontested first." },
+    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Every open traditional-sports pick from followed winning cappers, no dollar minimum." },
+    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Visible books plus followed My 40 names · W–L from the public sports tape only." },
+  ];
+  const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
+  const pills = tab === "coming" || tab === "ranked"
+    ? [{ id: "all", label: "All" }, { id: "live", label: "Live" }, { id: "upcoming", label: "Upcoming" }]
+    : tab === "following"
+    ? [{ id: "all", label: "All" }, { id: "graded", label: "Graded" }, { id: "open", label: "Open picks" }]
+    : [{ id: "all", label: "All" }, { id: "followed", label: "My 40" }, { id: "wl", label: "With a W–L" }];
+  const compactBtn: React.CSSProperties = { minHeight: 36, padding: "0 14px", borderRadius: 10, fontWeight: 800, fontSize: 13, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, textDecoration: "none", boxSizing: "border-box", touchAction: "manipulation", whiteSpace: "nowrap" };
+  const iconBtn: React.CSSProperties = { ...compactBtn, width: 36, padding: 0, flex: "0 0 36px" };
   return (
     <div style={{ minHeight: "100vh", background: PAGE, color: NAVY, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
-      <header style={{ background: NAVY_DEEP, color: "#FFFFFF", padding: "16px 16px 18px" }}>
-        <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#93C5FD" }}>Kalshi · Whale signals</div>
-        <h1 style={{ fontSize: 28, fontWeight: 900, letterSpacing: "-0.03em", margin: "4px 0 0" }}>Kalshi Scanner</h1>
-        <div style={{ fontSize: 14, fontWeight: 650, color: "#BFDBFE", marginTop: 4 }}>Kalshi whale picks, best first. Scanned {DATA.scannedAt || "—" }.</div>
-        <div data-header-actions="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, position: "relative", zIndex: 5 }}>
-          <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={busy} aria-busy={refreshing} aria-label="Refresh latest scan data" style={{ ...btnBase, border: "0", background: BLUE_BRIGHT, color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
-            {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 16, height: 16, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : null}
-            {refreshing ? "Refreshing…" : "Refresh"}
-          </button>
-          <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...btnBase, border: "1.5px solid #93C5FD", background: "transparent", color: "#FFFFFF", opacity: scanBusy ? 0.85 : 1 }}>
-            {scanBusy ? "Scanning…" : "Scan"}
-          </button>
-        </div>
-        <div style={{ fontSize: 13, fontWeight: 650, color: "#BFDBFE", marginTop: 8, lineHeight: "18px" }}>
-          {updatedAt ? <div data-updated-at="1" style={{ fontSize: 15, fontWeight: 850, color: "#FFFFFF" }}>{"Updated " + updatedAt}</div> : null}
-          {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
-          <div>{"Last scan: " + (DATA.scannedAt || "—") + " · Next scheduled: " + nextScheduledPt()}</div>
-          {!job && !sheet ? <div style={{ opacity: 0.9 }}>{"Refresh reloads the latest published data. Scan starts a ~2 min GitHub run, then this page updates when it finishes."}</div> : null}
-        </div>
-        {job ? (
-          <div data-job-status={job.phase} style={{ marginTop: 10, borderRadius: 14, padding: 12, background: job.phase === "error" ? "rgba(185,28,28,0.45)" : "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{jobBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
-            {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
-            {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
-            {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
-            {job.phase === "error" && !job.url ? <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>Open GitHub to run the workflow ↗</a> : null}
-            {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
+      <style>{`
+        @keyframes ks-spin{to{transform:rotate(360deg)}}
+        .ks-wrap{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
+        .ks-hero{position:relative;overflow:hidden;border-radius:24px;background:${NAVY_DEEP};color:#fff;padding:22px 24px 20px;box-shadow:0 0 80px rgba(37,99,235,0.22),0 18px 40px rgba(7,20,34,0.28)}
+        .ks-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 30% 0%,#000 0%,transparent 70%);pointer-events:none}
+        .ks-hero::after{content:"";position:absolute;width:280px;height:280px;right:-60px;top:-80px;background:radial-gradient(circle,rgba(37,99,235,0.45),transparent 70%);pointer-events:none}
+        .ks-hero-row{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+        .ks-hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:0 0 auto}
+        .ks-hero-btns{display:flex;align-items:center;gap:8px}
+        .ks-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 0}
+        .ks-tabs{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:${NAVY};border-radius:16px;padding:6px;margin:16px 0 0}
+        .ks-tabs::-webkit-scrollbar{display:none}
+        .ks-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:18px}
+        .ks-side{display:flex;flex-direction:column;gap:12px;position:sticky;top:16px}
+        .ks-side-card{background:${NAVY};color:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 10px 24px rgba(7,20,34,0.12)}
+        .ks-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#fff;border:1px solid #BFDBFE;border-radius:14px;padding:8px 10px;margin:0 0 14px}
+        .ks-search{flex:1 1 180px;display:flex;align-items:center;gap:8px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:0 10px;min-height:38px;color:#64748B}
+        .ks-search input{border:0;background:transparent;outline:none;width:100%;font:650 15px/1.2 inherit;color:${NAVY};padding:8px 0}
+        @media (max-width: 800px){
+          .ks-wrap{padding:12px 12px 36px}
+          .ks-hero{padding:16px 16px 14px;border-radius:20px}
+          .ks-hero-row{flex-direction:column}
+          .ks-hero-actions{align-items:stretch;width:100%}
+          .ks-hero-btns{justify-content:flex-start}
+          .ks-stats{grid-template-columns:1fr 1fr}
+          .ks-body{grid-template-columns:1fr;margin-top:14px}
+          .ks-side{position:static}
+        }
+      `}</style>
+      <div className="ks-wrap">
+        <header className="ks-hero" data-header-actions="1">
+          <div className="ks-hero-row">
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 700, color: "#93C5FD" }}>
+                <IconCalendar />
+                <span>{formatLongDatePt()}</span>
+              </div>
+              <h1 style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.03em", margin: "8px 0 0", lineHeight: 1.1 }}>Kalshi Scanner</h1>
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#94A3B8", marginTop: 6 }}>Kalshi whale picks, best first — public books and trade tape only.</div>
+            </div>
+            <div className="ks-hero-actions">
+              <div className="ks-hero-btns">
+                <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={busy} aria-busy={refreshing} aria-label="Refresh latest scan data" title="Reload the latest published data" style={{ ...iconBtn, border: "1.5px solid rgba(147,197,253,0.55)", background: "rgba(255,255,255,0.06)", color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
+                  {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 14, height: 14, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : <IconRefresh />}
+                </button>
+                <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...compactBtn, border: "0", background: "#93C5FD", color: NAVY_DEEP, opacity: scanBusy ? 0.85 : 1 }}>
+                  <IconBolt />
+                  {scanBusy ? "Scanning…" : "Run Scan"}
+                </button>
+              </div>
+              <div style={{ fontSize: 12, fontWeight: 650, color: "#BFDBFE", textAlign: "right" }}>
+                {"Last scan " + (DATA.scannedAt || "—")}
+                {updatedAt ? <div data-updated-at="1" style={{ fontWeight: 800, color: "#FFFFFF" }}>{"Updated " + updatedAt}</div> : null}
+                {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
+              </div>
+            </div>
           </div>
-        ) : null}
-        {sheet === "scan" ? (
-          <div data-scan-sheet="1" style={{ marginTop: 10, borderRadius: 14, padding: 12, background: "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
-            <div style={{ fontWeight: 800, fontSize: 14 }}>Start a scan</div>
-            <div style={{ marginTop: 4, color: "rgba(255,255,255,0.9)" }}>{"Runs on GitHub (~2 min) with 20 new names, then tap Refresh. Hourly scans at :20 still run on their own."}</div>
-            <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...btnBase, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Open GitHub to run the workflow</a>
-            <div style={{ marginTop: 12, color: "rgba(255,255,255,0.9)" }}>{"Optional: save a fine-grained GitHub token on this device only (Actions access on this repo) to start scans from the button, like the whale scanner. The token is never stored in the public site."}</div>
-            <input value={keyText} onChange={(ev) => setKeyText(ev.target.value)} placeholder="github_pat_…" autoComplete="off" style={{ marginTop: 8, width: "100%", boxSizing: "border-box", minHeight: 44, borderRadius: 12, border: "none", padding: "0 12px", fontSize: 16 }} />
-            <button type="button" onClick={saveKey} disabled={!keyText.trim()} style={{ ...btnBase, marginTop: 8, width: "100%", border: "0", background: keyText.trim() ? "#FFFFFF" : "rgba(255,255,255,0.5)", color: BLUE_INK }}>Save key on this device</button>
-          </div>
-        ) : null}
-      </header>
-      <style>{"@keyframes ks-spin{to{transform:rotate(360deg)}}"}</style>
-      <div style={{ maxWidth: 430, margin: "0 auto", padding: "12px 12px 40px" }}>
-        <div data-tab-bar="1" style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "4px 0 14px" }}>
-          {tabs.map((t) => {
+          {job ? (
+            <div data-job-status={job.phase} style={{ position: "relative", zIndex: 1, marginTop: 12, borderRadius: 14, padding: 12, background: job.phase === "error" ? "rgba(185,28,28,0.45)" : "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{jobBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
+              {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
+              {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
+              {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
+              {job.phase === "error" && !job.url ? <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>Open GitHub to run the workflow ↗</a> : null}
+              {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
+            </div>
+          ) : null}
+          {sheet === "scan" ? (
+            <div data-scan-sheet="1" style={{ position: "relative", zIndex: 1, marginTop: 12, borderRadius: 14, padding: 12, background: "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
+              <div style={{ fontWeight: 800, fontSize: 14 }}>Start a scan</div>
+              <div style={{ marginTop: 4, color: "rgba(255,255,255,0.9)" }}>{"Runs on GitHub (~2 min) with 20 new names, then tap Refresh. Hourly scans at :20 still run on their own."}</div>
+              <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Open GitHub to run the workflow</a>
+              <div style={{ marginTop: 12, color: "rgba(255,255,255,0.9)" }}>{"Optional: save a fine-grained GitHub token on this device only (Actions access on this repo) to start scans from the button, like the whale scanner. The token is never stored in the public site."}</div>
+              <input value={keyText} onChange={(ev) => setKeyText(ev.target.value)} placeholder="github_pat_…" autoComplete="off" style={{ marginTop: 8, width: "100%", boxSizing: "border-box", minHeight: 44, borderRadius: 12, border: "none", padding: "0 12px", fontSize: 16 }} />
+              <button type="button" onClick={saveKey} disabled={!keyText.trim()} style={{ ...compactBtn, marginTop: 8, width: "100%", border: "0", background: keyText.trim() ? "#FFFFFF" : "rgba(255,255,255,0.5)", color: BLUE_INK }}>Save key on this device</button>
+            </div>
+          ) : null}
+        </header>
+
+        <div className="ks-stats">
+          <DashStat label="Open picks" value={String(comingN)} sub="in the 24-hour $100+ window" color={BLUE_BRIGHT} icon={<IconList />} />
+          <DashStat label="Cappers followed" value={followedN + "/" + TARGET_FOLLOW} sub="auto-follow target 40" color="#0EA5E9" icon={<IconUsers />} />
+          <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
+          <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />
+        </div>
+
+        <div data-tab-bar="1" className="ks-tabs">
+          {tabMeta.map((t) => {
             const on = tab === t.value;
             return (
-              <button key={t.value} type="button" onClick={() => setTab(t.value)} style={{ padding: "8px 12px", borderRadius: 999, border: on ? "0" : "1.5px solid #93C5FD", background: on ? BLUE : "#FFFFFF", color: on ? "#FFFFFF" : BLUE_INK, fontWeight: 850, fontSize: 14, cursor: "pointer", fontFamily: "inherit" }}>
-                {t.label}{" "}
-                <span style={{ display: "inline-block", marginLeft: 4, padding: "0 7px", borderRadius: 999, background: on ? "#FFFFFF" : BLUE_SOFT, color: on ? BLUE : BLUE_INK, fontSize: 12 }}>{t.count}</span>
+              <button key={t.value} type="button" onClick={() => changeTab(t.value)} style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 999, border: "0", background: on ? BLUE : "transparent", color: on ? "#FFFFFF" : "#BFDBFE", fontWeight: 800, fontSize: 14, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap", touchAction: "manipulation" }}>
+                {t.icon}
+                {t.label}
+                <span style={{ display: "inline-block", marginLeft: 2, padding: "1px 7px", borderRadius: 999, background: on ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)", color: on ? "#FFFFFF" : "#93C5FD", fontSize: 12 }}>{t.count}</span>
               </button>
             );
           })}
         </div>
-        {tab === "coming" ? <ComingUpTab games={games} now={now} /> : null}
-        {tab === "following" ? <FollowingTab now={now} /> : null}
-        {tab === "ranked" ? <RankedTab games={games} now={now} /> : null}
-        {tab === "cappers" ? <CappersTab now={now} /> : null}
-        <details style={{ marginTop: 18, padding: "10px 12px", borderRadius: 14, background: "#FFFFFF", border: "1px solid #BFDBFE" }}>
-          <summary style={{ cursor: "pointer", fontWeight: 800, color: BLUE }}>How this is sourced</summary>
-          <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{(DATA.source && DATA.source.note) || "Kalshi Sports leaderboard, public profiles, and the public trade tape."}</p>
-          <p style={{ fontSize: 13, lineHeight: "19px", color: "#475569" }}>{"Refreshed " + (cov.activeRefreshed || 0) + " active · reviewed " + (cov.queueReviewed || 0) + " in queue · new " + (cov.queuedNew || 0) + " · rejected hidden " + (cov.hiddenRejected || 0) + " · MM " + (cov.mmDropped || 0) + " · no sports " + (cov.noSportsRejected || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
-        </details>
-        <div data-capper-db="1" style={{ marginTop: 12, fontSize: 11, color: "#64748B", textAlign: "center" }}>
-          {"Capper db: " + (((DATA.source && DATA.source.db && DATA.source.db.active) || 0)) + " active · " + (((DATA.source && DATA.source.db && DATA.source.db.queue) || 0)) + " to check · " + (((DATA.source && DATA.source.db && DATA.source.db.rejected) || 0)) + " rejected" + ((DATA.source && DATA.source.db && DATA.source.db.pinned) ? " · " + DATA.source.db.pinned + " followed (target 40)" : "")}
+
+        <div className="ks-body">
+          <div>
+            <div style={{ margin: "0 0 10px" }}>
+              <h2 style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.03em", margin: 0 }}>{active.title}</h2>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#64748B", marginTop: 4 }}>{active.caption}</div>
+            </div>
+            <div className="ks-filters">
+              {pills.map((p) => {
+                const on = filter === p.id;
+                return (
+                  <button key={p.id} type="button" onClick={() => setFilter(p.id)} style={{ padding: "6px 12px", borderRadius: 999, border: on ? "0" : "1.5px solid #BFDBFE", background: on ? BLUE : "#FFFFFF", color: on ? "#FFFFFF" : BLUE_INK, fontWeight: 800, fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>{p.label}</button>
+                );
+              })}
+              <label className="ks-search">
+                <IconSearch />
+                <input type="search" value={query} onChange={(ev) => setQuery(ev.target.value)} placeholder="Search cappers or games" aria-label="Search cappers or games" />
+              </label>
+            </div>
+            {tab === "coming" ? <ComingUpTab games={games} now={now} query={query} filter={filter} /> : null}
+            {tab === "following" ? <FollowingTab now={now} query={query} filter={filter} /> : null}
+            {tab === "ranked" ? <RankedTab games={games} now={now} query={query} filter={filter} /> : null}
+            {tab === "cappers" ? <CappersTab now={now} query={query} filter={filter} /> : null}
+            <p style={{ margin: "16px 0 0", fontSize: 13, fontWeight: 650, color: "#64748B" }}>Public Kalshi leaderboards, profiles, and the sports trade tape. Records are never invented.</p>
+            <details data-how-it-works="1" style={{ marginTop: 16, padding: "8px 0", fontSize: 13, color: "#475569" }}>
+              <summary style={{ cursor: "pointer", fontWeight: 800, color: BLUE, listStyle: "none" }}>How it works</summary>
+              <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>Public Kalshi leaderboards, profiles, and the sports trade tape. Records are never invented.</p>
+              <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>{(DATA.source && DATA.source.note) || "Kalshi Sports leaderboard, public profiles, and the public trade tape."}</p>
+              <p style={{ margin: "8px 0 0", lineHeight: "19px" }}>{"Refreshed " + (cov.activeRefreshed || 0) + " active · reviewed " + (cov.queueReviewed || 0) + " in queue · new " + (cov.queuedNew || 0) + " · rejected hidden " + (cov.hiddenRejected || 0) + " · MM " + (cov.mmDropped || 0) + " · no sports " + (cov.noSportsRejected || 0) + ". Kalshi period used: " + ((DATA.source && DATA.source.periodUsed) || "monthly") + "."}</p>
+            </details>
+          </div>
+          <aside className="ks-side">
+            <div className="ks-side-card" data-data-sources="1">
+              <div style={{ fontSize: 14, fontWeight: 850, marginBottom: 4 }}>Data sources</div>
+              <StatusRow label="Kalshi markets" status="Public" tone="public" />
+              <StatusRow label="Public trades" status="Public tape" tone="ok" />
+              <StatusRow label="Social leaderboard" status={"Public ranks"} tone="public" />
+              <StatusRow label="Capper books" status={String(dbActive) + " visible"} tone="ok" />
+            </div>
+            <div className="ks-side-card" data-scan-status="1">
+              <div style={{ fontSize: 14, fontWeight: 850, marginBottom: 4 }}>Scan status</div>
+              <StatusRow label="Last scan" status={DATA.scannedAt || "—"} tone="ok" />
+              <StatusRow label="Next hourly scan" status={nextScheduledPt()} tone="public" />
+              <StatusRow label="Auto-follow" status={followedN + "/" + TARGET_FOLLOW} tone={followedN ? "ok" : "muted"} />
+              <div data-capper-db="1" style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#94A3B8" }}>
+                {"Capper db: " + (dbActive) + " active" + (db.queue != null ? " · " + db.queue + " to check" : "") + (db.rejected != null ? " · " + db.rejected + " rejected" : "")}
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </div>
