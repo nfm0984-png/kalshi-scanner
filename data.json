@@ -1,6 +1,6 @@
 {
-  "scannedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
-  "ts": 1795237578,
+  "scannedAt": "Fri Nov 20 \u00b7 10:05 PM PT",
+  "ts": 1795241130,
   "source": {
     "note": "Kalshi public social + trade APIs. No 30-day leaderboard exists; monthly is the stand-in. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100). Picks are traditional sports singles and sports combos only \u2014 esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed My 40 cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. My 40 copies every open traditional-sports pick from followed cappers (winning graded record W > L, up to 40) with no dollar minimum and grades them from official Kalshi results after settlement. New cappers are still discovered every hour at 40; a followed capper who falls to a losing record is swapped out (and stays in the general active db). W-L is reconstructed from the public sports tape and is never invented. Coming Up / Ranked minimum open pick is $100.",
     "periodUsed": "monthly (no 30-day board exists)",
@@ -47,7 +47,7 @@
         "Mentions:yearly:projected_pnl": 100,
         "Mentions:yearly:volume": 100
       },
-      "leaderboardNames": 1483,
+      "leaderboardNames": 1480,
       "activeRefreshed": 14,
       "queueReviewed": 20,
       "queueToActive": 0,
@@ -56,31 +56,31 @@
       "mmDropped": 0,
       "hiddenRejected": 20,
       "noSportsRejected": 0,
-      "shown": 3,
-      "picks": 14,
-      "games": 6,
+      "shown": 0,
+      "picks": 0,
+      "games": 0,
       "finishedDropped": 0,
       "finishedNames": [],
-      "calls": 405,
+      "calls": 366,
       "retries429": 0,
-      "secs": 62.9,
+      "secs": 55.9,
       "minBet": 100,
       "namesChecked": 34,
       "newPerScan": 20,
       "reviewNew": false,
       "dbActive": 14,
       "dbQueue": 20,
-      "dbRejected": 159,
+      "dbRejected": 179,
       "dbPinned": 6,
-      "followingOpen": 3,
+      "followingOpen": 0,
       "followingCappers": 6,
       "trialRecorded": 5,
-      "trialGraded": 2
+      "trialGraded": 5
     },
     "db": {
       "active": 14,
       "queue": 20,
-      "rejected": 159,
+      "rejected": 179,
       "pinned": 6
     }
   },
@@ -89,16 +89,16 @@
       "nickname": "TheGrinder",
       "profileUrl": "https://kalshi.com/ideas/profiles/TheGrinder",
       "joinedAt": "2026-09-22",
-      "followers": 1959,
+      "followers": 1967,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": true,
       "ranks": {
-        "monthly": 42,
+        "monthly": 44,
         "weekly": 39
       },
-      "pnl": -209016.79,
+      "pnl": -202801.98,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 59,
@@ -110,23 +110,23 @@
         "profit": 38074.99,
         "sample": "full"
       },
-      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
+      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$202.8k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1510,
+      "followers": 1604,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "monthly": 47,
-        "weekly": 21
+        "monthly": 45,
+        "weekly": 19
       },
       "pnl": 147682.29,
       "weeklyPnl": 67264.5,
@@ -149,17 +149,17 @@
       "nickname": "iluminado",
       "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
       "joinedAt": "2026-07-08",
-      "followers": 68,
+      "followers": 69,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": true,
       "ranks": {
-        "monthly": 50
+        "monthly": 48
       },
-      "pnl": 141007.49,
+      "pnl": 140983.61,
       "weeklyPnl": null,
-      "monthlyPnl": 90510.77,
+      "monthlyPnl": 90486.9,
       "ageDays": 135,
       "graded": {
         "n": 6,
@@ -178,25 +178,25 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23295,
+      "followers": 23355,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "all_time": 13,
-        "weekly": 8,
+        "weekly": 9,
         "yearly": 12
       },
-      "pnl": 947862.0,
-      "weeklyPnl": 124835.87,
+      "pnl": 919789.85,
+      "weeklyPnl": 113844.39,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$947.9k all \u00b7 My 40",
+      "recordLine": "BWmarkets \u00b7 +$919.8k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "bama0037",
@@ -209,7 +209,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 79,
+        "monthly": 82,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -226,14 +226,14 @@
       "nickname": "past.grass",
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
-      "followers": 112,
+      "followers": 113,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 42,
-        "weekly": 18
+        "weekly": 16
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -249,7 +249,7 @@
       "nickname": "WorkerTrader",
       "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
       "joinedAt": "2026-03-11",
-      "followers": 492,
+      "followers": 493,
       "tier": "Core",
       "pinned": false,
       "tag": "",
@@ -289,7 +289,7 @@
         "all_time": 71,
         "yearly": 100
       },
-      "pnl": 516954.89,
+      "pnl": 517490.59,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -301,7 +301,7 @@
         "profit": 875.93,
         "sample": "small"
       },
-      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.0k all \u00b7 Board",
+      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "pickCount": 0,
       "followCount": 0
@@ -310,18 +310,18 @@
       "nickname": "breezy.panther",
       "profileUrl": "https://kalshi.com/ideas/profiles/breezy.panther",
       "joinedAt": "2025-12-19",
-      "followers": 135,
+      "followers": 136,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 66,
-        "weekly": 79
+        "monthly": 67,
+        "weekly": 83
       },
-      "pnl": 262229.22,
-      "weeklyPnl": 20945.541,
-      "monthlyPnl": 74380.32,
+      "pnl": 262238.26,
+      "weeklyPnl": 20954.574,
+      "monthlyPnl": 74389.35,
       "ageDays": 336,
       "graded": {
         "n": 4,
@@ -347,7 +347,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 97,
-        "monthly": 30,
+        "monthly": 31,
         "weekly": 52,
         "yearly": 89
       },
@@ -372,7 +372,7 @@
       "nickname": "norrisfan",
       "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
       "joinedAt": "2025-12-08",
-      "followers": 3164,
+      "followers": 3165,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -395,7 +395,7 @@
       "nickname": "devex",
       "profileUrl": "https://kalshi.com/ideas/profiles/devex",
       "joinedAt": "2026-06-12",
-      "followers": 499,
+      "followers": 500,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -424,24 +424,24 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 62,
-        "weekly": 62
+        "monthly": 61,
+        "weekly": 57
       },
-      "pnl": 83548.56,
-      "weeklyPnl": 25822.986,
-      "monthlyPnl": 77428.945,
+      "pnl": 85485.79,
+      "weeklyPnl": 27760.217,
+      "monthlyPnl": 79366.18,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$83.5k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$85.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
-      "pickCount": 11,
+      "pickCount": 0,
       "followCount": 0
     },
     {
       "nickname": "jspana99",
       "profileUrl": "https://kalshi.com/ideas/profiles/jspana99",
       "joinedAt": "2026-02-09",
-      "followers": 48,
+      "followers": 49,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -460,584 +460,29 @@
       "followCount": 0
     }
   ],
-  "games": [
-    {
-      "id": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
-      "game": "NC St. vs Seton Hall: Spread",
-      "league": "NCAAB",
-      "startTs": 1795239000,
-      "start": "Fri Nov 20 \u00b7 9:30 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes",
-          "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
-          "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
-          "mid": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
-          "bt": "Spread",
-          "big": "NC St. wins by over 4.5 points",
-          "sub": "NC St. vs Seton Hall: Spread",
-          "view": {
-            "backing": "NC St. wins by over 4.5 points",
-            "marketTitle": "NC St. vs Seton Hall: Spread",
-            "outcome": "NC St. wins by over 4.5 points",
-            "yesNo": "Yes",
-            "price": 0.01,
-            "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5"
-          },
-          "backers": [
-            {
-              "name": "BWmarkets",
-              "cost": 24165.0,
-              "avg": 0.5062,
-              "line": "BWmarkets \u00b7 +$947.9k all \u00b7 My 40",
-              "rec": null,
-              "lastTs": 1795228124,
-              "tier": "My 40"
-            }
-          ],
-          "total": 24165.0,
-          "tags": [
-            "My 40"
-          ],
-          "slip": -49.6,
-          "startTs": 1795239000,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBAGAME-26NOV20HOUDEN",
-      "game": "Houston vs Denver",
-      "league": "NBA",
-      "startTs": 1795240800,
-      "start": "Fri Nov 20 \u00b7 10:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBAGAME-26NOV20HOUDEN-DEN|Yes",
-          "ticker": "KXNBAGAME-26NOV20HOUDEN-DEN",
-          "eventTicker": "KXNBAGAME-26NOV20HOUDEN",
-          "mid": "KXNBAGAME-26NOV20HOUDEN-DEN",
-          "bt": "Moneyline",
-          "big": "Denver",
-          "sub": "Houston vs Denver",
-          "view": {
-            "backing": "Denver",
-            "marketTitle": "Houston vs Denver",
-            "outcome": "Denver",
-            "yesNo": "Yes",
-            "price": 0.4,
-            "ticker": "KXNBAGAME-26NOV20HOUDEN-DEN"
-          },
-          "backers": [
-            {
-              "name": "TheGrinder",
-              "cost": 9648.48,
-              "avg": 0.48,
-              "line": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
-              "rec": {
-                "w": 10,
-                "l": 0,
-                "n": 10
-              },
-              "lastTs": 1795232009,
-              "tier": "My 40"
-            }
-          ],
-          "total": 9648.48,
-          "tags": [
-            "My 40"
-          ],
-          "slip": -8.0,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBAGAME-26NOV20SACLAL",
-      "game": "Sacramento vs Los Angeles L",
-      "league": "NBA",
-      "startTs": 1795240800,
-      "start": "Fri Nov 20 \u00b7 10:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBAGAME-26NOV20SACLAL-LAL|No",
-          "ticker": "KXNBAGAME-26NOV20SACLAL-LAL",
-          "eventTicker": "KXNBAGAME-26NOV20SACLAL",
-          "mid": "KXNBAGAME-26NOV20SACLAL-LAL",
-          "bt": "Moneyline",
-          "big": "Los Angeles L",
-          "sub": "Sacramento vs Los Angeles L",
-          "view": {
-            "backing": "Los Angeles L",
-            "marketTitle": "Sacramento vs Los Angeles L",
-            "outcome": "Los Angeles L",
-            "yesNo": "No",
-            "price": 0.13,
-            "ticker": "KXNBAGAME-26NOV20SACLAL-LAL"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 858.53,
-              "avg": 0.5762,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 858.53,
-          "tags": [
-            "Board"
-          ],
-          "slip": -44.6,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBAGAME-26NOV20SACLAL-SAC|No",
-          "ticker": "KXNBAGAME-26NOV20SACLAL-SAC",
-          "eventTicker": "KXNBAGAME-26NOV20SACLAL",
-          "mid": "KXNBAGAME-26NOV20SACLAL-SAC",
-          "bt": "Moneyline",
-          "big": "Sacramento",
-          "sub": "Sacramento vs Los Angeles L",
-          "view": {
-            "backing": "Sacramento",
-            "marketTitle": "Sacramento vs Los Angeles L",
-            "outcome": "Sacramento",
-            "yesNo": "No",
-            "price": 0.88,
-            "ticker": "KXNBAGAME-26NOV20SACLAL-SAC"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 734.37,
-              "avg": 0.4929,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 734.37,
-          "tags": [
-            "Board"
-          ],
-          "slip": 38.7,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBAGAME-26NOV20SACLAL-LAL|Yes",
-          "ticker": "KXNBAGAME-26NOV20SACLAL-LAL",
-          "eventTicker": "KXNBAGAME-26NOV20SACLAL",
-          "mid": "KXNBAGAME-26NOV20SACLAL-LAL",
-          "bt": "Moneyline",
-          "big": "Los Angeles L",
-          "sub": "Sacramento vs Los Angeles L",
-          "view": {
-            "backing": "Los Angeles L",
-            "marketTitle": "Sacramento vs Los Angeles L",
-            "outcome": "Los Angeles L",
-            "yesNo": "Yes",
-            "price": 0.88,
-            "ticker": "KXNBAGAME-26NOV20SACLAL-LAL"
-          },
-          "backers": [
-            {
-              "name": "TheGrinder",
-              "cost": 47845.41,
-              "avg": 0.665,
-              "line": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
-              "rec": {
-                "w": 10,
-                "l": 0,
-                "n": 10
-              },
-              "lastTs": 1795233890,
-              "tier": "My 40"
-            }
-          ],
-          "total": 47845.41,
-          "tags": [
-            "My 40"
-          ],
-          "slip": 21.5,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBASPREAD-26NOV20SACLAL",
-      "game": "Sacramento vs Los Angeles L: Spread",
-      "league": "NBA",
-      "startTs": 1795240800,
-      "start": "Fri Nov 20 \u00b7 10:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBASPREAD-26NOV20SACLAL-LAL9|No",
-          "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL9",
-          "eventTicker": "KXNBASPREAD-26NOV20SACLAL",
-          "mid": "KXNBASPREAD-26NOV20SACLAL-LAL9",
-          "bt": "Spread",
-          "big": "Los Angeles L wins by over 8.5 points",
-          "sub": "Sacramento vs Los Angeles L: Spread",
-          "view": {
-            "backing": "Los Angeles L wins by over 8.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Spread",
-            "outcome": "Los Angeles L wins by over 8.5 points",
-            "yesNo": "No",
-            "price": 0.74,
-            "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL9"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 617.84,
-              "avg": 0.4738,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 617.84,
-          "tags": [
-            "Board"
-          ],
-          "slip": 26.6,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20SACLAL-LAL11|No",
-          "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL11",
-          "eventTicker": "KXNBASPREAD-26NOV20SACLAL",
-          "mid": "KXNBASPREAD-26NOV20SACLAL-LAL11",
-          "bt": "Spread",
-          "big": "Los Angeles L wins by over 10.5 points",
-          "sub": "Sacramento vs Los Angeles L: Spread",
-          "view": {
-            "backing": "Los Angeles L wins by over 10.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Spread",
-            "outcome": "Los Angeles L wins by over 10.5 points",
-            "yesNo": "No",
-            "price": 0.86,
-            "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL11"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 274.52,
-              "avg": 0.3057,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237384,
-              "tier": "Board"
-            }
-          ],
-          "total": 274.52,
-          "tags": [
-            "Board"
-          ],
-          "slip": 55.4,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBASPREAD-26NOV20SACLAL-LAL7|No",
-          "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL7",
-          "eventTicker": "KXNBASPREAD-26NOV20SACLAL",
-          "mid": "KXNBASPREAD-26NOV20SACLAL-LAL7",
-          "bt": "Spread",
-          "big": "Los Angeles L wins by over 6.5 points",
-          "sub": "Sacramento vs Los Angeles L: Spread",
-          "view": {
-            "backing": "Los Angeles L wins by over 6.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Spread",
-            "outcome": "Los Angeles L wins by over 6.5 points",
-            "yesNo": "No",
-            "price": 0.52,
-            "ticker": "KXNBASPREAD-26NOV20SACLAL-LAL7"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 343.5,
-              "avg": 0.5763,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 343.5,
-          "tags": [
-            "Board"
-          ],
-          "slip": -5.6,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATEAMTOTAL-26NOV20SACLAL",
-      "game": "Sacramento vs Los Angeles L: Team Total",
-      "league": "NBA",
-      "startTs": 1795240800,
-      "start": "Fri Nov 20 \u00b7 10:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL113|Yes",
-          "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL113",
-          "eventTicker": "KXNBATEAMTOTAL-26NOV20SACLAL",
-          "mid": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL113",
-          "bt": "Totals",
-          "big": "Los Angeles L over 112.5 points",
-          "sub": "Sacramento vs Los Angeles L: Team Total",
-          "view": {
-            "backing": "Los Angeles L over 112.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Team Total",
-            "outcome": "Los Angeles L over 112.5 points",
-            "yesNo": "Yes",
-            "price": 0.4,
-            "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL113"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 406.95,
-              "avg": 0.612,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237153,
-              "tier": "Board"
-            }
-          ],
-          "total": 406.95,
-          "tags": [
-            "Board"
-          ],
-          "slip": -21.2,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL115|Yes",
-          "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL115",
-          "eventTicker": "KXNBATEAMTOTAL-26NOV20SACLAL",
-          "mid": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL115",
-          "bt": "Totals",
-          "big": "Los Angeles L over 114.5 points",
-          "sub": "Sacramento vs Los Angeles L: Team Total",
-          "view": {
-            "backing": "Los Angeles L over 114.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Team Total",
-            "outcome": "Los Angeles L over 114.5 points",
-            "yesNo": "Yes",
-            "price": 0.22,
-            "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-LAL115"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 288.26,
-              "avg": 0.4568,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237153,
-              "tier": "Board"
-            }
-          ],
-          "total": 288.26,
-          "tags": [
-            "Board"
-          ],
-          "slip": -23.7,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATEAMTOTAL-26NOV20SACLAL-SAC105|Yes",
-          "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-SAC105",
-          "eventTicker": "KXNBATEAMTOTAL-26NOV20SACLAL",
-          "mid": "KXNBATEAMTOTAL-26NOV20SACLAL-SAC105",
-          "bt": "Totals",
-          "big": "Sacramento over 104.5 points",
-          "sub": "Sacramento vs Los Angeles L: Team Total",
-          "view": {
-            "backing": "Sacramento over 104.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Team Total",
-            "outcome": "Sacramento over 104.5 points",
-            "yesNo": "Yes",
-            "price": 0.56,
-            "ticker": "KXNBATEAMTOTAL-26NOV20SACLAL-SAC105"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 177.73,
-              "avg": 0.3814,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 177.73,
-          "tags": [
-            "Board"
-          ],
-          "slip": 17.9,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        }
-      ]
-    },
-    {
-      "id": "KXNBATOTAL-26NOV20SACLAL",
-      "game": "Sacramento vs Los Angeles L: Total Points",
-      "league": "NBA",
-      "startTs": 1795240800,
-      "start": "Fri Nov 20 \u00b7 10:00 PM PT",
-      "live": false,
-      "state": "upcoming",
-      "picks": [
-        {
-          "key": "KXNBATOTAL-26NOV20SACLAL-217|Yes",
-          "ticker": "KXNBATOTAL-26NOV20SACLAL-217",
-          "eventTicker": "KXNBATOTAL-26NOV20SACLAL",
-          "mid": "KXNBATOTAL-26NOV20SACLAL-217",
-          "bt": "Totals",
-          "big": "Over 216.5 points",
-          "sub": "Sacramento vs Los Angeles L: Total Points",
-          "view": {
-            "backing": "Over 216.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Total Points",
-            "outcome": "Over 216.5 points",
-            "yesNo": "Yes",
-            "price": 0.46,
-            "ticker": "KXNBATOTAL-26NOV20SACLAL-217"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 549.21,
-              "avg": 0.3801,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 549.21,
-          "tags": [
-            "Board"
-          ],
-          "slip": 8.0,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATOTAL-26NOV20SACLAL-213|Yes",
-          "ticker": "KXNBATOTAL-26NOV20SACLAL-213",
-          "eventTicker": "KXNBATOTAL-26NOV20SACLAL",
-          "mid": "KXNBATOTAL-26NOV20SACLAL-213",
-          "bt": "Totals",
-          "big": "Over 212.5 points",
-          "sub": "Sacramento vs Los Angeles L: Total Points",
-          "view": {
-            "backing": "Over 212.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Total Points",
-            "outcome": "Over 212.5 points",
-            "yesNo": "Yes",
-            "price": 0.75,
-            "ticker": "KXNBATOTAL-26NOV20SACLAL-213"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 872.57,
-              "avg": 0.6595,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237456,
-              "tier": "Board"
-            }
-          ],
-          "total": 872.57,
-          "tags": [
-            "Board"
-          ],
-          "slip": 9.0,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        },
-        {
-          "key": "KXNBATOTAL-26NOV20SACLAL-223|Yes",
-          "ticker": "KXNBATOTAL-26NOV20SACLAL-223",
-          "eventTicker": "KXNBATOTAL-26NOV20SACLAL",
-          "mid": "KXNBATOTAL-26NOV20SACLAL-223",
-          "bt": "Totals",
-          "big": "Over 222.5 points",
-          "sub": "Sacramento vs Los Angeles L: Total Points",
-          "view": {
-            "backing": "Over 222.5 points",
-            "marketTitle": "Sacramento vs Los Angeles L: Total Points",
-            "outcome": "Over 222.5 points",
-            "yesNo": "Yes",
-            "price": 0.16,
-            "ticker": "KXNBATOTAL-26NOV20SACLAL-223"
-          },
-          "backers": [
-            {
-              "name": "regine",
-              "cost": 316.54,
-              "avg": 0.31,
-              "line": "regine \u00b7 +$83.5k all \u00b7 Board",
-              "rec": null,
-              "lastTs": 1795237153,
-              "tier": "Board"
-            }
-          ],
-          "total": 316.54,
-          "tags": [
-            "Board"
-          ],
-          "slip": -15.0,
-          "startTs": 1795240800,
-          "state": "upcoming"
-        }
-      ]
-    }
-  ],
+  "games": [],
   "following": {
     "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
     "startedTs": 1795231577,
     "cappers": [
       {
-        "nickname": "BWmarkets",
-        "w": 1,
+        "nickname": "TheGrinder",
+        "w": 2,
         "l": 0,
         "p": 0,
-        "n": 1,
+        "n": 2,
         "hitPct": 100.0,
-        "open": 1,
+        "open": 0,
+        "hidden": false
+      },
+      {
+        "nickname": "BWmarkets",
+        "w": 1,
+        "l": 1,
+        "p": 0,
+        "n": 2,
+        "hitPct": 50.0,
+        "open": 0,
         "hidden": false
       },
       {
@@ -1079,105 +524,10 @@
         "hitPct": null,
         "open": 0,
         "hidden": false
-      },
-      {
-        "nickname": "TheGrinder",
-        "w": 0,
-        "l": 0,
-        "p": 0,
-        "n": 0,
-        "hitPct": null,
-        "open": 2,
-        "hidden": false
       }
     ],
-    "picks": [
-      {
-        "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
-        "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
-        "marketTitle": "NC St. vs Seton Hall: Spread",
-        "contractTitle": "NC St. wins by over 4.5 points",
-        "backing": "NC St. wins by over 4.5 points",
-        "yesNo": "Yes",
-        "label": "NC St. wins by over 4.5 points",
-        "entry": 0.5062,
-        "price": 0.01,
-        "yesAsk": 0.01,
-        "noAsk": 1.0,
-        "cost": 24165.0,
-        "contracts": 47735.0,
-        "lastTs": 1795228124,
-        "startTs": 1795239000,
-        "state": "upcoming",
-        "league": "NCAAB",
-        "game": "NC St. vs Seton Hall: Spread",
-        "bt": "Spread",
-        "slip": -49.6,
-        "status": "active",
-        "result": "",
-        "closeTs": 1795401000,
-        "nickname": "BWmarkets",
-        "recordLine": "BWmarkets \u00b7 +$947.9k all \u00b7 My 40",
-        "tier": "My 40"
-      },
-      {
-        "ticker": "KXNBAGAME-26NOV20HOUDEN-DEN",
-        "eventTicker": "KXNBAGAME-26NOV20HOUDEN",
-        "marketTitle": "Houston vs Denver",
-        "contractTitle": "Denver wins",
-        "backing": "Denver",
-        "yesNo": "Yes",
-        "label": "Denver",
-        "entry": 0.48,
-        "price": 0.4,
-        "yesAsk": 0.4,
-        "noAsk": 0.61,
-        "cost": 9648.48,
-        "contracts": 20101.0,
-        "lastTs": 1795232009,
-        "startTs": 1795240800,
-        "state": "upcoming",
-        "league": "NBA",
-        "game": "Houston vs Denver",
-        "bt": "Moneyline",
-        "slip": -8.0,
-        "status": "active",
-        "result": "",
-        "closeTs": 1795402800,
-        "nickname": "TheGrinder",
-        "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
-        "tier": "My 40"
-      },
-      {
-        "ticker": "KXNBAGAME-26NOV20SACLAL-LAL",
-        "eventTicker": "KXNBAGAME-26NOV20SACLAL",
-        "marketTitle": "Sacramento vs Los Angeles L",
-        "contractTitle": "Los Angeles L wins",
-        "backing": "Los Angeles L",
-        "yesNo": "Yes",
-        "label": "Los Angeles L",
-        "entry": 0.665,
-        "price": 0.88,
-        "yesAsk": 0.88,
-        "noAsk": 0.13,
-        "cost": 47845.41,
-        "contracts": 71948.0,
-        "lastTs": 1795233890,
-        "startTs": 1795240800,
-        "state": "upcoming",
-        "league": "NBA",
-        "game": "Sacramento vs Los Angeles L",
-        "bt": "Moneyline",
-        "slip": 21.5,
-        "status": "active",
-        "result": "",
-        "closeTs": 1795402800,
-        "nickname": "TheGrinder",
-        "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
-        "tier": "My 40"
-      }
-    ],
+    "picks": [],
     "recorded": 5,
-    "graded": 2
+    "graded": 5
   }
 }

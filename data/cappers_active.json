@@ -1,11 +1,11 @@
 {
-  "updatedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 10:05 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
       "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
       "joinedAt": "2026-03-11",
-      "followers": 492,
+      "followers": 493,
       "tier": "Core",
       "pinned": false,
       "tag": "",
@@ -36,51 +36,25 @@
       "nickname": "BWmarkets",
       "profileUrl": "https://kalshi.com/ideas/profiles/BWmarkets",
       "joinedAt": "2025-02-03",
-      "followers": 23295,
+      "followers": 23355,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "all_time": 13,
-        "weekly": 8,
+        "weekly": 9,
         "yearly": 12
       },
-      "pnl": 947862.0,
-      "weeklyPnl": 124835.87,
+      "pnl": 919789.85,
+      "weeklyPnl": 113844.39,
       "monthlyPnl": null,
       "ageDays": 655,
       "graded": null,
-      "recordLine": "BWmarkets \u00b7 +$947.9k all \u00b7 My 40",
+      "recordLine": "BWmarkets \u00b7 +$919.8k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [
-        {
-          "ticker": "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5",
-          "eventTicker": "KXNCAAMBSPREAD-26NOV20NCSTHALL",
-          "marketTitle": "NC St. vs Seton Hall: Spread",
-          "contractTitle": "NC St. wins by over 4.5 points",
-          "backing": "NC St. wins by over 4.5 points",
-          "yesNo": "Yes",
-          "label": "NC St. wins by over 4.5 points",
-          "entry": 0.5062,
-          "price": 0.01,
-          "yesAsk": 0.01,
-          "noAsk": 1.0,
-          "cost": 24165.0,
-          "contracts": 47735.0,
-          "lastTs": 1795228124,
-          "startTs": 1795239000,
-          "state": "upcoming",
-          "league": "NCAAB",
-          "game": "NC St. vs Seton Hall: Spread",
-          "bt": "Spread",
-          "slip": -49.6,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795401000
-        }
-      ],
-      "pickCount": 1
+      "followingPicks": [],
+      "pickCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -93,7 +67,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 97,
-        "monthly": 30,
+        "monthly": 31,
         "weekly": 52,
         "yearly": 89
       },
@@ -118,17 +92,17 @@
       "nickname": "iluminado",
       "profileUrl": "https://kalshi.com/ideas/profiles/iluminado",
       "joinedAt": "2026-07-08",
-      "followers": 68,
+      "followers": 69,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": true,
       "ranks": {
-        "monthly": 50
+        "monthly": 48
       },
-      "pnl": 141007.49,
+      "pnl": 140983.61,
       "weeklyPnl": null,
-      "monthlyPnl": 90510.77,
+      "monthlyPnl": 90486.9,
       "ageDays": 135,
       "graded": {
         "n": 6,
@@ -147,14 +121,14 @@
       "nickname": "past.grass",
       "profileUrl": "https://kalshi.com/ideas/profiles/past.grass",
       "joinedAt": "2026-04-18",
-      "followers": 112,
+      "followers": 113,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
         "monthly": 42,
-        "weekly": 18
+        "weekly": 16
       },
       "pnl": 117905.16,
       "weeklyPnl": 75865.89,
@@ -179,7 +153,7 @@
         "all_time": 71,
         "yearly": 100
       },
-      "pnl": 516954.89,
+      "pnl": 517490.59,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 528,
@@ -191,7 +165,7 @@
         "profit": 875.93,
         "sample": "small"
       },
-      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.0k all \u00b7 Board",
+      "recordLine": "autofade \u00b7 6-0 \u00b7 +55% \u00b7 +$517.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "pickCount": 0
@@ -200,18 +174,18 @@
       "nickname": "breezy.panther",
       "profileUrl": "https://kalshi.com/ideas/profiles/breezy.panther",
       "joinedAt": "2025-12-19",
-      "followers": 135,
+      "followers": 136,
       "tier": "Board",
       "pinned": false,
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 66,
-        "weekly": 79
+        "monthly": 67,
+        "weekly": 83
       },
-      "pnl": 262229.22,
-      "weeklyPnl": 20945.541,
-      "monthlyPnl": 74380.32,
+      "pnl": 262238.26,
+      "weeklyPnl": 20954.574,
+      "monthlyPnl": 74389.35,
       "ageDays": 336,
       "graded": {
         "n": 4,
@@ -230,7 +204,7 @@
       "nickname": "norrisfan",
       "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
       "joinedAt": "2025-12-08",
-      "followers": 3164,
+      "followers": 3165,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -253,7 +227,7 @@
       "nickname": "devex",
       "profileUrl": "https://kalshi.com/ideas/profiles/devex",
       "joinedAt": "2026-06-12",
-      "followers": 499,
+      "followers": 500,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -283,7 +257,7 @@
       "heavy": true,
       "ranks": {
         "all_time": 58,
-        "monthly": 79,
+        "monthly": 82,
         "yearly": 53
       },
       "pnl": 134208.54,
@@ -306,31 +280,31 @@
       "tag": "",
       "heavy": false,
       "ranks": {
-        "monthly": 62,
-        "weekly": 62
+        "monthly": 61,
+        "weekly": 57
       },
-      "pnl": 83548.56,
-      "weeklyPnl": 25822.986,
-      "monthlyPnl": 77428.945,
+      "pnl": 85485.79,
+      "weeklyPnl": 27760.217,
+      "monthlyPnl": 79366.18,
       "ageDays": 335,
       "graded": null,
-      "recordLine": "regine \u00b7 +$83.5k all \u00b7 Board",
+      "recordLine": "regine \u00b7 +$85.5k all \u00b7 Board",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 11
+      "pickCount": 0
     },
     {
       "nickname": "Ryqeux",
       "profileUrl": "https://kalshi.com/ideas/profiles/Ryqeux",
       "joinedAt": "2024-06-14",
-      "followers": 1510,
+      "followers": 1604,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": false,
       "ranks": {
-        "monthly": 47,
-        "weekly": 21
+        "monthly": 45,
+        "weekly": 19
       },
       "pnl": 147682.29,
       "weeklyPnl": 67264.5,
@@ -353,7 +327,7 @@
       "nickname": "jspana99",
       "profileUrl": "https://kalshi.com/ideas/profiles/jspana99",
       "joinedAt": "2026-02-09",
-      "followers": 48,
+      "followers": 49,
       "tier": "Board",
       "pinned": false,
       "tag": "",
@@ -375,16 +349,16 @@
       "nickname": "TheGrinder",
       "profileUrl": "https://kalshi.com/ideas/profiles/TheGrinder",
       "joinedAt": "2026-09-22",
-      "followers": 1959,
+      "followers": 1967,
       "tier": "My 40",
       "pinned": true,
       "tag": "My 40",
       "heavy": true,
       "ranks": {
-        "monthly": 42,
+        "monthly": 44,
         "weekly": 39
       },
-      "pnl": -209016.79,
+      "pnl": -202801.98,
       "weeklyPnl": null,
       "monthlyPnl": null,
       "ageDays": 59,
@@ -396,61 +370,10 @@
         "profit": 38074.99,
         "sample": "full"
       },
-      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$209.0k all \u00b7 My 40",
+      "recordLine": "TheGrinder \u00b7 10-0 \u00b7 +17% \u00b7 -$202.8k all \u00b7 My 40",
       "addedAt": "2026-11-20",
-      "followingPicks": [
-        {
-          "ticker": "KXNBAGAME-26NOV20SACLAL-LAL",
-          "eventTicker": "KXNBAGAME-26NOV20SACLAL",
-          "marketTitle": "Sacramento vs Los Angeles L",
-          "contractTitle": "Los Angeles L wins",
-          "backing": "Los Angeles L",
-          "yesNo": "Yes",
-          "label": "Los Angeles L",
-          "entry": 0.665,
-          "price": 0.88,
-          "yesAsk": 0.88,
-          "noAsk": 0.13,
-          "cost": 47845.41,
-          "contracts": 71948.0,
-          "lastTs": 1795233890,
-          "startTs": 1795240800,
-          "state": "upcoming",
-          "league": "NBA",
-          "game": "Sacramento vs Los Angeles L",
-          "bt": "Moneyline",
-          "slip": 21.5,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795402800
-        },
-        {
-          "ticker": "KXNBAGAME-26NOV20HOUDEN-DEN",
-          "eventTicker": "KXNBAGAME-26NOV20HOUDEN",
-          "marketTitle": "Houston vs Denver",
-          "contractTitle": "Denver wins",
-          "backing": "Denver",
-          "yesNo": "Yes",
-          "label": "Denver",
-          "entry": 0.48,
-          "price": 0.4,
-          "yesAsk": 0.4,
-          "noAsk": 0.61,
-          "cost": 9648.48,
-          "contracts": 20101.0,
-          "lastTs": 1795232009,
-          "startTs": 1795240800,
-          "state": "upcoming",
-          "league": "NBA",
-          "game": "Houston vs Denver",
-          "bt": "Moneyline",
-          "slip": -8.0,
-          "status": "active",
-          "result": "",
-          "closeTs": 1795402800
-        }
-      ],
-      "pickCount": 2
+      "followingPicks": [],
+      "pickCount": 0
     }
   ]
 }

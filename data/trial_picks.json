@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
+  "updatedAt": "Fri Nov 20 \u00b7 10:05 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -41,9 +41,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
       "recordedTs": 1795231577,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 20 \u00b7 10:05 PM PT"
     },
     {
       "id": "iluminado|KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY|Yes",
@@ -83,9 +83,9 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
       "recordedTs": 1795237578,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 20 \u00b7 10:05 PM PT"
     },
     {
       "id": "TheGrinder|KXNBAGAME-26NOV20SACLAL-LAL|Yes",
@@ -104,9 +104,9 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 20 \u00b7 9:06 PM PT",
       "recordedTs": 1795237578,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 20 \u00b7 10:05 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
