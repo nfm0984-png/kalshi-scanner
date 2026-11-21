@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 8:57 AM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 9:20 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1280,6 +1280,27 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 8:57 AM PT",
       "recordedTs": 1795280232,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXITFMATCH-26NOV21JANDAV-DAV|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXITFMATCH-26NOV21JANDAV-DAV",
+      "eventTicker": "KXITFMATCH-26NOV21JANDAV",
+      "game": "Jansen vs Davidov",
+      "backing": "Teodor Davidov",
+      "yesNo": "Yes",
+      "entry": 0.4788,
+      "price": 0.47,
+      "cost": 55.54,
+      "contracts": 116.0,
+      "startTs": 1795296600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 9:20 AM PT",
+      "recordedTs": 1795281638,
       "status": "open",
       "result": null,
       "settledAt": null
