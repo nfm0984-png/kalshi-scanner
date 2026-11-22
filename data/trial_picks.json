@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 3:42 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 3:47 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1091,9 +1091,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:47 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22PITPHI-PIT|Yes",
@@ -3632,9 +3632,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
       "recordedTs": 1795384494,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:47 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV22JACNYG-JAC|Yes",
@@ -3737,9 +3737,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 3:31 PM PT",
       "recordedTs": 1795390310,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 3:47 PM PT"
     },
     {
       "id": "parspectives|KXNFLGAME-26NOV22JACNYG-NYG|Yes",
@@ -3779,9 +3779,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 3:42 PM PT",
       "recordedTs": 1795390923,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 3:47 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
