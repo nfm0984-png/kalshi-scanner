@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 10:50 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 10:55 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -117,12 +117,12 @@
       "recordLine": "BWmarkets \u00b7 71-81 \u00b7 +$1.11M all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 1,
-      "followCount": 1,
+      "pickCount": 2,
+      "followCount": 2,
       "positionsVisible": true,
       "postsVisible": true,
       "pickSource": "positions+posts",
-      "openPositions": 1
+      "openPositions": 2
     },
     {
       "nickname": "reluctant.fox5394",
@@ -217,18 +217,18 @@
       "ageDays": 137,
       "graded": {
         "n": 400,
-        "w": 263,
-        "l": 117,
+        "w": 265,
+        "l": 116,
         "roi": null,
-        "profit": 141384.92,
+        "profit": 141437.01,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 263,
-        "l": 117,
+        "w": 265,
+        "l": 116,
         "roi": null,
-        "profit": 141384.92,
+        "profit": 141437.01,
         "sample": "positions"
       },
       "sports": {
@@ -248,7 +248,7 @@
         }
       },
       "bestAt": "MMA",
-      "recordLine": "iluminado \u00b7 263-117 \u00b7 Best at MMA \u00b7 +$141.7k all",
+      "recordLine": "iluminado \u00b7 265-116 \u00b7 Best at MMA \u00b7 +$141.7k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
@@ -256,7 +256,7 @@
       "positionsVisible": true,
       "postsVisible": false,
       "pickSource": "positions",
-      "openPositions": 0
+      "openPositions": 1
     },
     {
       "nickname": "past.grass",
@@ -9141,8 +9141,8 @@
       "tag": "Best Cappers",
       "tier": "Best Cappers",
       "rejectNote": "hidden book: hidden",
-      "pickCount": 0,
-      "followCount": 0,
+      "pickCount": 1,
+      "followCount": 1,
       "graded": {
         "n": 27,
         "w": 18,
