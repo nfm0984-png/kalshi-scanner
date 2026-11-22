@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 12:32 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 12:55 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -377,9 +377,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 5:37 AM PT",
       "recordedTs": 1795268220,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "black.catt|KXSB-27-BUF|Yes",
@@ -944,9 +944,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22BALCAR-CAR|Yes",
@@ -2960,9 +2960,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLGAME-26NOV22LVDEN-LV|Yes",
@@ -3065,9 +3065,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLSPREAD-26NOV23CINWAS-CIN8|No",
@@ -3338,9 +3338,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 10:55 AM PT",
       "recordedTs": 1795373706,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV22BALCAR-BAL|Yes",
@@ -3422,9 +3422,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 11:00 AM PT",
       "recordedTs": 1795374014,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNFLGAME-26NOV22BALCAR-CAR|Yes",
@@ -3506,9 +3506,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
       "recordedTs": 1795377447,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 12:55 PM PT"
     },
     {
       "id": "regine|KXLNBELITEGAME-26NOV221300JLBASV-JLB|Yes",

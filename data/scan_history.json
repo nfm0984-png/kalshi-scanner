@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 12:55 PM PT",
   "scans": [
+    {
+      "ts": 1795380941,
+      "at": "Sun Nov 22 \u00b7 12:55 PM PT",
+      "names": 278,
+      "newFollows": [],
+      "followed": 50,
+      "target": 50,
+      "openPicks": 8,
+      "ids": [
+        "KXNFL4QSPREAD-26NOV22TBDET-TB3|Yes",
+        "KXNFLGAME-26NOV22BALCAR-CAR|Yes",
+        "KXNFLGAME-26NOV22BALCAR-BAL|Yes",
+        "KXNFLGAME-26NOV22NOCHI-CHI|Yes",
+        "KXNFLGAME-26NOV22PITPHI-PIT|Yes",
+        "KXNFLGAME-26NOV22TBDET-DET|Yes",
+        "KXNFLSPREAD-26NOV22PITPHI-PHI7|Yes",
+        "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
+      ]
+    },
     {
       "ts": 1795377447,
       "at": "Sun Nov 22 \u00b7 11:57 AM PT",
