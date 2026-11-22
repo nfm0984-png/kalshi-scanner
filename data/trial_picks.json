@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 12:55 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 1:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1028,9 +1028,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22MINSF-SF|Yes",
@@ -1070,9 +1070,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22NYJLAC-LAC|Yes",
@@ -1112,9 +1112,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22TBDET-DET|Yes",
@@ -1133,9 +1133,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22TENDAL-DAL|Yes",
@@ -1154,9 +1154,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
@@ -2876,9 +2876,9 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 11:24 PM PT",
       "recordedTs": 1795332263,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
@@ -2939,9 +2939,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLGAME-26NOV22ARIKC-ARI|Yes",
@@ -3002,9 +3002,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLGAME-26NOV22NOCHI-NO|Yes",
@@ -3023,9 +3023,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLGAME-26NOV22TBDET-TB|Yes",
@@ -3044,9 +3044,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLSPREAD-26NOV22TBDET-DET8|No",
@@ -3107,9 +3107,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNBA3PT-26NOV22DETATL-DETKHUERTERSF-2|No",
@@ -3191,9 +3191,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
       "recordedTs": 1795356473,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "Ryqeux|KXLALIGAGAME-26NOV22BARVIL-VIL|Yes",
@@ -3380,9 +3380,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 11:00 AM PT",
       "recordedTs": 1795374014,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "fen.dachi|KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes",
@@ -3464,9 +3464,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
       "recordedTs": 1795377447,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNFLGAME-26NOV22NOCHI-CHI|Yes",
@@ -3485,9 +3485,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
       "recordedTs": 1795377447,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
     },
     {
       "id": "majebettor123|KXNFLSPREAD-26NOV22MIABUF-BUF24|No",
@@ -3548,6 +3548,27 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 12:32 PM PT",
       "recordedTs": 1795379547,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:16 PM PT"
+    },
+    {
+      "id": "majebettor123|KXNBA1HSPREAD-26NOV22DETATL-ATL7|No",
+      "nickname": "majebettor123",
+      "ticker": "KXNBA1HSPREAD-26NOV22DETATL-ATL7",
+      "eventTicker": "KXNBA1HSPREAD-26NOV22DETATL",
+      "game": "Detroit vs Atlanta: 1st Half Spread",
+      "backing": "Atlanta wins by over 6.5 points",
+      "yesNo": "No",
+      "entry": 0.4889,
+      "price": 0.43,
+      "cost": 3623.51,
+      "contracts": 7411.0,
+      "startTs": 1795390200,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 1:16 PM PT",
+      "recordedTs": 1795382162,
       "status": "open",
       "result": null,
       "settledAt": null
