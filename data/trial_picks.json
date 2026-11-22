@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 7:55 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:45 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1301,9 +1301,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 9:20 AM PT",
       "recordedTs": 1795281638,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:45 AM PT"
     },
     {
       "id": "BWmarkets|KXNCAAFSPREAD-26NOV21WAKEGT-WAKE28|No",
@@ -3275,6 +3275,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 6:58 AM PT",
       "recordedTs": 1795359515,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:45 AM PT"
+    },
+    {
+      "id": "Billy.Hoyle|KXNBA3PT-26NOV22DETATL-ATLOOKONGWU17-2|Yes",
+      "nickname": "Billy.Hoyle",
+      "ticker": "KXNBA3PT-26NOV22DETATL-ATLOOKONGWU17-2",
+      "eventTicker": "KXNBA3PT-26NOV22DETATL",
+      "game": "Detroit vs Atlanta: Threes",
+      "backing": "Onyeka Okongwu: 2+",
+      "yesNo": "Yes",
+      "entry": 0.5,
+      "price": 0.52,
+      "cost": 88.5,
+      "contracts": 177.0,
+      "startTs": 1795390200,
+      "league": "NBA",
+      "bt": "Player props",
+      "recordedAt": "Sun Nov 22 \u00b7 8:45 AM PT",
+      "recordedTs": 1795365924,
       "status": "open",
       "result": null,
       "settledAt": null

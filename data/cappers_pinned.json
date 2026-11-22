@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 7:55 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:45 AM PT",
   "target": 50,
   "note": "Best Cappers is a rotating top 50 of official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
   "doNotPin": [
@@ -68,6 +68,11 @@
       "nickname": "double.boar6452",
       "reason": "negative profit",
       "at": "Sat Nov 21 \u00b7 6:41 PM PT"
+    },
+    {
+      "nickname": "nickkrxzy",
+      "reason": "negative profit",
+      "at": "Sun Nov 22 \u00b7 8:45 AM PT"
     }
   ],
   "cappers": [
@@ -216,12 +221,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "nickkrxzy",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
     },
     {
       "nickname": "parspectives",
