@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 1:16 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -965,9 +965,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:54 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22JACNYG-JAC|Yes",
@@ -3359,9 +3359,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 10:55 AM PT",
       "recordedTs": 1795373706,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 1:54 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV22PITPHI-PIT|Yes",
@@ -3443,9 +3443,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 11:00 AM PT",
       "recordedTs": 1795374014,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 1:54 PM PT"
     },
     {
       "id": "BWmarkets|KXNFLSPREAD-26NOV22PITPHI-PHI7|Yes",
@@ -3569,6 +3569,69 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 1:16 PM PT",
       "recordedTs": 1795382162,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "BWmarkets|KXNFLTOTAL-26NOV22LVDEN-40|No",
+      "nickname": "BWmarkets",
+      "ticker": "KXNFLTOTAL-26NOV22LVDEN-40",
+      "eventTicker": "KXNFLTOTAL-26NOV22LVDEN",
+      "game": "Las Vegas vs Denver: Total Points",
+      "backing": "Over 39.5 points",
+      "yesNo": "No",
+      "entry": 0.4651,
+      "price": 0.52,
+      "cost": 132829.33,
+      "contracts": 285591.0,
+      "startTs": 1795393500,
+      "league": "NFL",
+      "bt": "Totals",
+      "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
+      "recordedTs": 1795384494,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBAGAME-26NOV22DETATL-DET|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNBAGAME-26NOV22DETATL-DET",
+      "eventTicker": "KXNBAGAME-26NOV22DETATL",
+      "game": "DET vs ATL (Nov 22)",
+      "backing": "Detroit",
+      "yesNo": "Yes",
+      "entry": 0.5872,
+      "price": 0.57,
+      "cost": 2999.99,
+      "contracts": 5109.36,
+      "startTs": 1795390200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
+      "recordedTs": 1795384494,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV22NYJLAC-LAC|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV22NYJLAC-LAC",
+      "eventTicker": "KXNFLGAME-26NOV22NYJLAC",
+      "game": "New York J vs Los Angeles C",
+      "backing": "Los Angeles C",
+      "yesNo": "Yes",
+      "entry": 0.3274,
+      "price": 0.29,
+      "cost": 3349.89,
+      "contracts": 10232.0,
+      "startTs": 1795392300,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
+      "recordedTs": 1795384494,
       "status": "open",
       "result": null,
       "settledAt": null
