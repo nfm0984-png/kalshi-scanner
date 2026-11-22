@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
   "target": 50,
   "note": "Best Cappers is a rotating top 50 of official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
   "doNotPin": [
@@ -110,12 +110,6 @@
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "LargeFarva",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
       "nickname": "Billy.Hoyle",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -170,13 +164,13 @@
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "emilianotijerina",
+      "nickname": "Ryqeux",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "Ryqeux",
+      "nickname": "emilianotijerina",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
@@ -218,6 +212,12 @@
       "addedAt": "2026-11-21"
     },
     {
+      "nickname": "nickkrxzy",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "dr.house",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -237,7 +237,6 @@
     "door.whale",
     "ministuh",
     "iluminado",
-    "LargeFarva",
     "Billy.Hoyle",
     "kevin702",
     "jakem12",
@@ -247,14 +246,15 @@
     "nettinyahoo",
     "crazy.sal",
     "loff123",
-    "emilianotijerina",
     "Ryqeux",
+    "emilianotijerina",
     "bananastand21",
     "long.whale",
     "mild.fire",
     "Kali.Kiddd.007",
     "drib",
     "fattii",
+    "nickkrxzy",
     "dr.house",
     "parspectives"
   ]
