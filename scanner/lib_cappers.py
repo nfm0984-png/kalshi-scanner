@@ -564,22 +564,23 @@ def series_slug(title):
     return re.sub(r"[^a-z0-9]+", "-", (title or "").lower()).strip("-")
 
 
-def combo_market_url(event_ticker, series_ticker=None, series_title=None):
-    """Canonical kalshi.com URL for an already-created combo market.
+def combo_market_url(market_ticker, side=None, event_ticker=None, series_ticker=None, series_title=None):
+    """One-click URL that opens an existing combo in Kalshi's combo builder.
 
-    Live shape (indexed by Kalshi): /markets/{series}/{series-title-slug}/{event_ticker}
-    e.g. https://kalshi.com/markets/kxmvesportsmultigameextended/mve-sport-mutli-game/kxmvesportsmultigameextended-s20264ed70a46381
-    That page is the one-click link for that exact combo. There is no public
-    share URL that pre-loads arbitrary loose legs into the /combos builder.
+    Confirmed live shape:
+      https://kalshi.com/combos?marketTicker={MARKET_TICKER}&side=yes
+    That page loads a ticket with every leg pre-selected and a Cost amount
+    field. The older /markets/{series}/{slug}/{event} path 307-redirects to
+    a bare /combos builder with no legs loaded.
     """
-    ev = (event_ticker or "").lower()
-    if not ev:
+    tk = (market_ticker or "").strip()
+    if not tk:
         return None
-    ser = (series_ticker or "").lower()
-    slug = series_slug(series_title or "")
-    if ser and slug:
-        return "https://kalshi.com/markets/%s/%s/%s" % (ser, slug, ev)
-    return "https://kalshi.com/markets/" + ev
+    url = "https://kalshi.com/combos?marketTicker=" + urllib.parse.quote(tk, safe="")
+    s = (side or "").strip().lower()
+    if s in ("yes", "no"):
+        url += "&side=" + s
+    return url
 
 
 def series_info(http, series_ticker, cache):
@@ -675,7 +676,7 @@ def hydrate_market(http, ticker, mcache, ecache):
         "series_title": series_title,
         "mve_selected_legs": mve_legs,
         "mve_collection_ticker": mve_collection,
-        "combo_url": combo_market_url(ev_tk or ticker, series_ticker, series_title) if (is_combo_ticker(ticker) or mve_legs) else None,
+        "combo_url": combo_market_url(ticker) if (is_combo_ticker(ticker) or mve_legs) else None,
     }
 
 

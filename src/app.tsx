@@ -11,7 +11,7 @@ const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
 const CARD_BUDGET = 40;
-const TARGET_FOLLOW = 50;
+const TARGET_FOLLOW = 200;
 const CARD_MIN = 10;
 const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
@@ -186,8 +186,17 @@ const eventTickerOf = (ticker: string | null): string | null => {
   const i = ticker.lastIndexOf("-");
   return i > 0 ? ticker.slice(0, i) : ticker;
 };
-const kalshiUrlOf = (ticker: string | null | undefined, comboUrl?: string | null): string | null => {
-  if (comboUrl) return comboUrl;
+const comboShareUrl = (ticker: string | null | undefined, yesNo?: string | null): string | null => {
+  if (!ticker || ticker.toUpperCase().indexOf("KXMVE") !== 0) return null;
+  const side = (yesNo || "yes").toLowerCase() === "no" ? "no" : "yes";
+  return "https://kalshi.com/combos?marketTicker=" + encodeURIComponent(ticker) + "&side=" + side;
+};
+const kalshiUrlOf = (ticker: string | null | undefined, comboUrl?: string | null, yesNo?: string | null): string | null => {
+  // Prefer the ticker-based combo share URL. Older comboUrl values pointed at
+  // /markets/{series}/{slug}/{event}, which Kalshi 307s to an empty /combos builder.
+  const share = comboShareUrl(ticker, yesNo);
+  if (share) return share;
+  if (comboUrl && comboUrl.indexOf("marketTicker=") >= 0) return comboUrl;
   const ev = eventTickerOf(ticker || null);
   return ev ? "https://kalshi.com/markets/" + ev.toLowerCase() : null;
 };
@@ -225,33 +234,76 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   });
   return lines.filter((x) => x !== "").join("\n");
 }
-function ComboLegsList(props: { legs?: ComboLeg[]; now: number; comboUrl?: string | null; ticker?: string | null; copyPayload?: string }): React.ReactElement | null {
+function ComboBlock(props: {
+  legs?: ComboLeg[];
+  now: number;
+  ticker?: string | null;
+  comboUrl?: string | null;
+  yesNo?: string | null;
+  price?: number | null;
+  payout?: number | null;
+  stake?: number | null;
+  backers?: Backer[];
+  copyPayload?: string;
+}): React.ReactElement | null {
   const legs = props.legs || [];
-  if (!legs.length) return null;
-  const bundled = !!(props.comboUrl || (props.ticker || "").toUpperCase().indexOf("KXMVE") === 0);
+  if (!legs.length && !isComboPick({ ticker: props.ticker || undefined, comboUrl: props.comboUrl, legs: props.legs })) return null;
+  const href = kalshiUrlOf(props.ticker, props.comboUrl, props.yesNo);
+  const n = legs.length;
+  const yes = (props.yesNo || "Yes") !== "No";
+  const pay = props.payout && props.payout > 0 ? props.payout : (props.price && props.price > 0 ? 1 / Math.min(props.price, 1) : null);
   return (
-    <div data-combo-legs="1" style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "1.5px solid #C4B5FD", background: "#F5F3FF" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
-        <span style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{"Combo · " + legs.length + " legs"}</span>
-        <span style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          {bundled && (props.comboUrl || kalshiUrlOf(props.ticker)) ? <a data-combo-link="1" href={(props.comboUrl || kalshiUrlOf(props.ticker)) as string} target="_blank" rel="noreferrer" style={{ fontSize: 13, fontWeight: 800, color: "#5B21B6", textDecoration: "none" }}>Open combo on Kalshi ↗</a> : null}
-          <button type="button" data-copy-legs="1" onClick={() => copyText(props.copyPayload || "")} style={{ border: "none", background: "none", padding: 0, fontSize: 13, fontWeight: 800, color: "#5B21B6", cursor: "pointer" }}>Copy all legs</button>
-        </span>
+    <div data-combo-card="1" style={{ marginTop: 10, padding: "12px 14px 14px", borderRadius: 16, border: "1.5px solid #C4B5FD", background: "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 42%)" }}>
+      <div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{"Combo · " + n + " legs"}</div>
+      {(props.backers || []).map((b: Backer) => {
+        const cap = capperOf(b.name);
+        const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap && cap.graded && cap.graded.roi != null ? cap.graded.roi : null) as number | null } : null;
+        const fromDb = gradedWL(cap);
+        const g = fromBacker || (fromDb && (fromDb.w + fromDb.l) > 0 ? { w: fromDb.w, l: fromDb.l, roi: fromDb.roi } : null);
+        const pnl = cap && cap.pnl != null ? cap.pnl : null;
+        return (
+          <div key={b.name} data-combo-capper={b.name} style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 8, flexWrap: "wrap" }}>
+            <Face name={b.name} size={28} />
+            <div style={{ minWidth: 0, flex: 1 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
+                <span style={{ fontSize: 15, fontWeight: 850, color: NAVY }}>{b.name}</span>
+                {g ? <RecordPill w={g.w} l={g.l} roi={g.roi} /> : <RecordPill w={0} l={0} />}
+                {pnl != null ? <Chip bg={pnl >= 0 ? "#DCFCE7" : "#FEE2E2"} color={pnl >= 0 ? GREEN : RED}>{(pnl >= 0 ? "+" : "") + kMoney(pnl)}</Chip> : null}
+                {b.tier ? <TierChip tier={b.tier} /> : null}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      {n ? (
+        <ol data-combo-legs="1" style={{ margin: "10px 0 0", padding: "0 0 0 18px" }}>
+          {legs.map((leg: ComboLeg, i: number) => {
+            const live = !!(leg.startTs && leg.startTs <= props.now);
+            const legHref = (!href) ? (leg.url || kalshiUrlOf(leg.ticker)) : null;
+            return (
+              <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 5, fontSize: 14, lineHeight: "19px", color: NAVY }}>
+                <span style={{ fontWeight: 800 }}>{(leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker)}</span>
+                {leg.startTs ? <span style={{ fontWeight: 650, color: "#475569" }}>{" · " + (live ? "Started " : "") + ptTime(leg.startTs)}</span> : null}
+                {legHref ? <a href={legHref} target="_blank" rel="noreferrer" style={{ marginLeft: 8, fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
+              </li>
+            );
+          })}
+        </ol>
+      ) : null}
+      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 12, flexWrap: "wrap" }}>
+        {props.stake != null && props.stake > 0 ? <span style={{ fontSize: 24, lineHeight: "28px", fontWeight: 900, fontVariantNumeric: "tabular-nums", color: NAVY }}>{kMoney(props.stake)}</span> : null}
+        <span style={{ fontSize: 13, fontWeight: 800, color: "#64748B" }}>Stake</span>
+        {pay ? <span style={{ fontSize: 16, fontWeight: 850, color: yes ? GREEN : RED }}>{(props.yesNo || "Yes") + " · pays " + (Math.round(pay * 10) / 10) + "x"}</span> : (props.price != null ? <span style={{ fontSize: 16, fontWeight: 850, color: yes ? GREEN : RED }}>{(props.yesNo || "Yes") + " · pays " + cents(props.price)}</span> : null)}
       </div>
-      <ol style={{ margin: "8px 0 0", padding: "0 0 0 18px" }}>
-        {legs.map((leg: ComboLeg, i: number) => {
-          const live = !!(leg.startTs && leg.startTs <= props.now);
-          const href = leg.url || kalshiUrlOf(leg.ticker);
-          return (
-            <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 6, fontSize: 14, lineHeight: "19px", color: NAVY }}>
-              <div style={{ fontWeight: 800, overflowWrap: "anywhere" }}>{(leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker)}</div>
-              <div style={{ fontSize: 13, fontWeight: 650, color: "#475569", overflowWrap: "anywhere" }}>{(leg.game || "") + (leg.league ? " · " + leg.league : "") + (leg.startTs ? (" · " + (live ? "Started " : "Starts ") + ptTime(leg.startTs)) : "")}</div>
-              {!bundled && href ? <a href={href} target="_blank" rel="noreferrer" style={{ fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
-            </li>
-          );
-        })}
-      </ol>
-      {!bundled ? <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>Kalshi has no share link that pre-loads loose legs into the combo builder. Open each leg, or copy them all.</div> : null}
+      {href ? (
+        <a data-combo-link="1" href={href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>Open combo on Kalshi ↗</a>
+      ) : (
+        <div style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>
+          {"Kalshi has no share link that pre-loads loose legs into the combo builder. Open each leg, or "}
+          <button type="button" data-copy-legs="1" onClick={() => copyText(props.copyPayload || "")} style={{ border: "none", background: "none", padding: 0, fontSize: 12, fontWeight: 800, color: "#5B21B6", cursor: "pointer" }}>copy them all</button>
+          {"."}
+        </div>
+      )}
     </div>
   );
 }
@@ -470,13 +522,18 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
         {game.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{game.league}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{(live ? "Started " : "Starts ") + (p.startTs || game.startTs ? ptTime(p.startTs || game.startTs) : "—")}</Chip>
       </div>
+      {isComboPick(p) ? (
+        <ComboBlock legs={p.legs} now={now} ticker={p.ticker} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={mine ? mine.cost : p.total} backers={mine ? [mine] : p.backers} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
+      ) : (
+        <>
       <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{game.game}</div>
       <div style={{ fontSize: 15, fontWeight: 800, color: BLUE_INK, marginTop: 2, overflowWrap: "anywhere" }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
       {mine ? <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}><span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{money(mine.cost)}</span><span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (mine.avg != null ? " · entry " + cents(mine.avg) : "")}</span></div> : null}
       {mine && mine.lastSeen ? <div data-last-seen="1" style={{ marginTop: 6 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + mine.lastSeen}</Chip></div> : null}
       <FreshPricePills p={p} now={now} />
-      <ComboLegsList legs={p.legs} now={now} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
+        </>
+      )}
     </div>
   );
 }
@@ -497,6 +554,10 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         {pickSourceLabel(p.source) ? <Chip bg="#EDE9FE" color="#5B21B6">{pickSourceLabel(p.source)}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{p.startTs ? ((live ? "Started " : "Starts ") + ptTime(p.startTs)) : "—"}</Chip>
       </div>
+      {isComboPick(p) ? (
+        <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl} yesNo={p.yesNo} price={p.price} payout={p.payout} stake={p.cost} backers={[{ name: p.nickname, cost: p.cost || 0, avg: p.entry ?? null, line: p.recordLine || p.nickname, tier: p.tier || "Best Cappers", pinned: true, lastTs: p.lastTs ?? null }]} copyPayload={comboLegsText(p)} />
+      ) : (
+        <>
       <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{p.game}</div>
       <div style={{ fontSize: 15, fontWeight: 800, color: BLUE_INK, marginTop: 2, overflowWrap: "anywhere" }}>{(p.backing || p.label || p.game) + " · " + (p.yesNo || "")}</div>
       <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
@@ -510,8 +571,9 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
           {p.lastSeen ? <Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + p.lastSeen}</Chip> : null}
         </div>
       ) : null}
-      <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl} ticker={p.ticker} copyPayload={comboLegsText(p)} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={view} /></div>
+        </>
+      )}
     </div>
   );
 }
@@ -1045,6 +1107,10 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           {props.game.live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
         </div>
+        {isComboPick(p) ? (
+          <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
+        ) : (
+          <>
         <div data-ucard-big="1" style={{ fontSize: 22, lineHeight: "27px", fontWeight: 850, letterSpacing: "-0.01em", overflowWrap: "anywhere", color: NAVY }}>{p.big}</div>
         {p.sub ? <div style={{ fontSize: 14, lineHeight: "19px", fontWeight: 600, color: "#475569", marginTop: 2, overflowWrap: "anywhere" }}>{p.sub}</div> : null}
         <div data-ucard-sum="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 10 }}>
@@ -1055,7 +1121,6 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         </div>
         <PickRankChips p={p} game={props.game} now={props.now} />
         {props.moreRow}
-        <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl || v.comboUrl} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
           <div style={{ flex: 1 }}><KalshiBuyButton view={v} /></div>
           <div data-k-stake="1" style={{ fontSize: 14, fontWeight: 800, color: GREEN, lineHeight: "17px" }}>{"Stake"}<br />{(props.stakeLine ? props.stake : (props.stake && props.stake !== "$2–4" ? props.stake : tapeStake(p)))}</div>
@@ -1070,6 +1135,8 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
             {rest.map((b: Backer) => <BackerRow key={b.name} b={b} now={props.now} />)}
           </details>
         ) : null}
+          </>
+        )}
       </div>
     </div>
   );
@@ -1091,11 +1158,16 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         <span data-net-pill="1" style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
         {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "1px 8px", borderRadius: 999, background: "#F1F5F9", color: "#334155", fontSize: 12, fontWeight: 800, border: "1px solid #94A3B8" }}>{x}</span>)}
       </div>
+      {isComboPick(p) ? (
+        <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || p.view.comboUrl} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: p.view.yesNo || undefined, cost: p.total, price: p.view.price, comboUrl: p.comboUrl || p.view.comboUrl, ticker: p.ticker, legs: p.legs })} />
+      ) : (
+        <>
       <PickRankChips p={p} game={props.game} now={props.now} />
-      <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl || p.view.comboUrl} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: p.view.yesNo || undefined, cost: p.total, price: p.view.price, comboUrl: p.comboUrl || p.view.comboUrl, ticker: p.ticker, legs: p.legs })} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
       <OnKalshiBox view={p.view} />
       {p.backers.map((b: Backer) => <BackerRow key={b.name} b={b} now={props.now} />)}
+        </>
+      )}
     </div>
   );
 }
@@ -1564,11 +1636,12 @@ export default function App() {
     if (scanBusy || !accessKey()) return;
     const t0 = Date.now();
     setSheet("");
-    setJob({ mode: "scan", phase: "starting", msg: "Starting a scan (20 new names)…", t0 });
+    setJob({ mode: "scan", phase: "starting", msg: "Starting a scan…", t0 });
     try {
       const r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
       if (r.status === 401 || r.status === 403 || r.status === 404) { askRunOnGitHub(t0); return; }
       if (!r.ok && r.status !== 204) { setJob({ mode: "scan", phase: "error", msg: "GitHub returned " + r.status + ". Try again in a minute, or start the scan on GitHub.", t0 }); return; }
+      setJob({ mode: "scan", phase: "queued", msg: "Scan started. Waiting for GitHub to pick it up…", t0 });
       let runId: number | null = null;
       if (r.status === 200) { try { const j = await r.json(); runId = j.workflow_run_id || null; } catch (e) { runId = null; } }
       if (!runId) {

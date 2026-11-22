@@ -12,6 +12,7 @@ W-L is reconstructed from the public sports trade tape — never fabricated.
 from __future__ import annotations
 
 import json, os, re, sys, time, datetime as dt
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -182,13 +183,21 @@ PINNED_TAGS = {PINNED_TAG, "My 40", "Top 10", "Following"}  # accept older badge
 def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
-TARGET_FOLLOW = 50  # rotating top 50 on each full scan; manuals stay pinned
-# Best Cappers is a rotating top 50 of official-leaderboard cappers whose public
-# trades are visible and trackable. Official all-time profit must be positive; a
-# losing reconstructed record is out. Names with no public trades go to Watching.
-# Noel's manual pins (falcon999, BWmarkets) stay unless he says otherwise.
-MIN_FOLLOW_SAMPLE = 1
+TARGET_FOLLOW = 200  # rotating top 200 of *good* cappers; manuals stay pinned
+# Best Cappers is a rotating top 200 of official-leaderboard cappers whose public
+# positions or posts are viewable, official all-time profit is positive, and the
+# closed record is a real winning sample (n>=10, W>L; if n>=100 the win rate
+# must be at least 52.5%, otherwise Wilson lower bound >= 0.40) with recent
+# form not collapsing. Losing or coin-flip books rotate off.
+# Noel's manual pins (falcon999, BWmarkets) stay even if they fail those gates,
+# but their records are labeled honestly.
+MIN_FOLLOW_SAMPLE = 10
+MIN_FOLLOW_WILSON = 0.40  # small-sample (n<100) 95% Wilson lower bound
+MIN_FOLLOW_LARGE_N = 100
+MIN_FOLLOW_LARGE_WR = 0.525  # n>=100 must clear 52.5% (drops coin-flip whales)
+MIN_FOLLOW_FORM_N = 5
 MIN_FOLLOW_PNL = 0.01  # any official profit > 0
+FOLLOW_WORKERS = 6  # parallel inspect in follow-check so 200 names fit ~5 min
 MIN_FOLLOW_PNL_EARNER = 100000.0  # unused for follows; no-trade earners are Watching
 FOLLOW_HORIZON_DAYS = 30  # Best Cappers keeps near-term sports only, not months-out futures
 FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
@@ -351,7 +360,7 @@ def save_pinned_file(payload, now=None):
     payload["tag"] = payload.get("tag") or PINNED_TAG
     payload["target"] = TARGET_FOLLOW
     payload["note"] = (
-        "Best Cappers is a rotating top %d of official Kalshi projected-PnL "
+        "Best Cappers is a rotating top %d of good official Kalshi projected-PnL "
         "leaderboard cappers whose public trades can be tracked, official "
         "all-time profit is positive, and they have no losing reconstructed "
         "record. Each full scan reranks by performance (veteran Wilson record, "
@@ -585,14 +594,16 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
     """Keep Best Cappers as a rotating top TARGET_FOLLOW, plus Noel's manual pins.
 
     Auto members come only from official projected-PnL leaderboards, must be
-    publicly trackable, have a winning (or ungraded) record, and positive
-    official profit. doNotPin names never enter. On each successful full scan
+    publicly trackable, have a winning n>=10 record (W>L; n>=100 needs a 52.5% win rate, smaller
+    samples need Wilson lower bound >= 0.40), positive official profit, and recent form that is not
+    collapsing. doNotPin names never enter. On each successful full scan
     the list is reranked by performance (veteran Wilson/experience, then recent
-    form, then official PnL) and trimmed to the top 50. Manual pins stay even
-    if they would rank below the cut. Ranking-based drops are allowed; if the
+    form, then official PnL) and trimmed to the top TARGET_FOLLOW. Manual pins
+    stay even if they fail those gates. Ranking-based drops are allowed; if the
     board fetch fails or this is a follow-check (incomplete pool), the last
-    list is kept. Negative official profit still unpins non-manual names and
-    adds them to doNotPin.
+    good list is kept except non-manuals who now fail the quality gates.
+    Negative official profit still unpins non-manual names and adds them to
+    doNotPin.
     """
     if rotate is None:
         rotate = SCAN_MODE not in ("follow", "follow-check", "follow_check")
@@ -654,6 +665,9 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
             # Only drop a non-manual we re-evaluated this run who now has negative official profit.
             if cap and is_negative_profit(official_pnl(cap)):
                 drop_name(nick, cap, "negative profit")
+                continue
+            if cap and not can_follow(cap):
+                drop_name(nick, cap, follow_fail_reason(cap) or "failed quality gate")
                 continue
             still.append(keep_row(nick, cap, (row or {}).get("source") if row else "safeguard", row))
             have.add(k)
@@ -887,7 +901,7 @@ def enrich_combo(http, info, ticker, now, mcache, ecache):
     ev = info.get("event_ticker") or ""
     if not ev and ticker and ticker.count("-"):
         ev = ticker.rsplit("-", 1)[0]
-    info["combo_url"] = info.get("combo_url") or lib.combo_market_url(ev or ticker, info.get("series_ticker"), info.get("series_title"))
+    info["combo_url"] = info.get("combo_url") or lib.combo_market_url(ticker)
     leagues = [x["league"] for x in legs if x.get("league") and x["league"] not in ("Sports", "Combo")]
     uniq = list(dict.fromkeys(leagues))
     info["league"] = (uniq[0] if len(uniq) == 1 else "Combo") if legs else (info.get("league") or "Combo")
@@ -906,10 +920,10 @@ def attach_combo_fields(pick, info):
     pick["bt"] = "Combo"
     pick["legs"] = legs
     pick["comboUrl"] = (info or {}).get("combo_url") or pick.get("comboUrl") or lib.combo_market_url(
-        pick.get("eventTicker") or (tk.rsplit("-", 1)[0] if tk.count("-") else tk),
-        (info or {}).get("series_ticker"),
-        (info or {}).get("series_title"),
+        tk, (pick.get("yesNo") or "").lower()
     )
+    if tk and not (pick.get("comboUrl") or "").startswith("https://kalshi.com/combos?marketTicker="):
+        pick["comboUrl"] = lib.combo_market_url(tk, (pick.get("yesNo") or "").lower())
     if (info or {}).get("league"):
         pick["league"] = info["league"]
     elif not pick.get("league") or pick.get("league") == "Sports":
@@ -1114,11 +1128,24 @@ def _grade_n(g):
 
 def follow_record(cap):
     """Prefer the fuller public W-L. A short follow-check tape must not beat a longer grade."""
-    all_g = (cap or {}).get("gradedAll")
-    sports = (cap or {}).get("graded")
+    cap = cap or {}
+    all_g = cap.get("gradedAll")
+    sports = cap.get("graded")
     if _grade_n(all_g) >= _grade_n(sports) and _grade_n(all_g) > 0:
         return all_g
-    return sports or all_g
+    if sports or all_g:
+        return sports or all_g
+    # Slim Best Cappers rows store closedW/closedL instead of a graded object.
+    w, l = cap.get("closedW"), cap.get("closedL")
+    if w is not None or l is not None:
+        try:
+            w, l = int(w or 0), int(l or 0)
+        except (TypeError, ValueError):
+            w, l = 0, 0
+        n = int(cap.get("closedN") or 0) or (w + l)
+        if n:
+            return {"w": w, "l": l, "n": n, "formW": cap.get("formW"), "formL": cap.get("formL"), "roi": cap.get("roi")}
+    return None
 
 
 def merge_preserved_record(new_cap, old_cap):
@@ -1173,9 +1200,31 @@ def follow_fail_reason(cap):
     pnl = official_pnl(cap)
     if is_negative_profit(pnl):
         return "negative profit %s" % signed_k(pnl)
-    # Viewable positions or profile posts are enough to stay on the list.
-    # Closed-position grade (veterans first) does the ranking; a losing
-    # reconstructed tape no longer auto-drops a book we can actually copy.
+    if not is_positive_profit(pnl):
+        return "no official profit"
+    g = follow_record(cap) or {}
+    w, l, n_raw = graded_wl(g)
+    # Use settled W+L as the sample, not a possibly padded grade n.
+    n = (w + l) if (w + l) > 0 else n_raw
+    if n < MIN_FOLLOW_SAMPLE:
+        return "thin record %d-%d (need n>=%d)" % (w, l, MIN_FOLLOW_SAMPLE)
+    if w <= l:
+        return "losing or even record %d-%d" % (w, l)
+    wr = float(w) / float(n)
+    wl = wilson_lower(w, n)
+    if n >= MIN_FOLLOW_LARGE_N:
+        if wr < MIN_FOLLOW_LARGE_WR:
+            return "low-edge record %d-%d (%.1f%% of %d < %.1f%%)" % (w, l, 100 * wr, n, 100 * MIN_FOLLOW_LARGE_WR)
+    elif wl < MIN_FOLLOW_WILSON:
+        return "low-edge record %d-%d (Wilson %.3f < %.2f)" % (w, l, wl, MIN_FOLLOW_WILSON)
+    fw = g.get("formW") if g.get("formW") is not None else cap.get("formW")
+    fl = g.get("formL") if g.get("formL") is not None else cap.get("formL")
+    try:
+        fw_i, fl_i = int(fw or 0), int(fl or 0)
+    except (TypeError, ValueError):
+        fw_i, fl_i = 0, 0
+    if fw is not None and fl is not None and (fw_i + fl_i) >= MIN_FOLLOW_FORM_N and fw_i < fl_i:
+        return "recent form collapsing %d-%d" % (fw_i, fl_i)
     return None
 
 
@@ -2718,17 +2767,35 @@ def build_follow_check(now=None, log=print):
     live_cappers = []
     pinned_hidden = set()
     names = pinned_names(pinned)
-    log("follow-check: refreshing %d pinned cappers (all books, $%d+ stakes)" % (len(names), MIN_BET))
+    log("follow-check: refreshing %d pinned cappers (all books, $%d+ stakes, %d workers)" % (len(names), MIN_BET, FOLLOW_WORKERS))
     prev_caps = {nick_key(c.get("nickname")): c for c in (prev.get("cappers") or [])}
-    for nick in names:
-        try:
-            old = prev_caps.get(nick_key(nick)) or next((r for r in (active.get("cappers") or []) if nick_key(r.get("nickname")) == nick_key(nick)), None)
-            verdict = inspect_visible(http, nick, now, mcache, ecache, {}, log, trades_pages=20, old=old)
-        except Exception as e:
-            log("follow-check failed %s: %s — keeping previous picks" % (nick, e))
-            cov["namesChecked"] += 1
-            continue
+
+    def _inspect_one(nick):
+        local_http = lib.Http()
+        old_row = prev_caps.get(nick_key(nick)) or next((r for r in (active.get("cappers") or []) if nick_key(r.get("nickname")) == nick_key(nick)), None)
+        verdict = inspect_visible(local_http, nick, now, {}, {}, {}, log, trades_pages=20, old=old_row)
+        return nick, verdict, local_http.calls, local_http.retries_429
+
+    inspected = []
+    workers = min(FOLLOW_WORKERS, max(1, len(names)))
+    if names:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futs = {pool.submit(_inspect_one, nick): nick for nick in names}
+            for fut in as_completed(futs):
+                nick = futs[fut]
+                try:
+                    inspected.append(fut.result())
+                except Exception as e:
+                    log("follow-check failed %s: %s — keeping previous picks" % (nick, e))
+                    cov["namesChecked"] += 1
+                    cov["retries429"] = (cov.get("retries429") or 0)
+    else:
+        inspected = []
+
+    for nick, verdict, calls, retries in inspected:
         cov["namesChecked"] += 1
+        cov["calls"] = (cov.get("calls") or 0) + (calls or 0)
+        cov["retries429"] = (cov.get("retries429") or 0) + (retries or 0)
         if verdict[0] == "rejected":
             _v, reason, detail = verdict
             log("follow-check pinned kept despite %s (%s): %s" % (reason, nick, detail))
@@ -2825,8 +2892,8 @@ def build_follow_check(now=None, log=print):
     cov["followingCappers"] = len(following.get("cappers") or [])
     cov["trialRecorded"] = following.get("recorded") or 0
     cov["trialGraded"] = following.get("graded") or 0
-    cov["calls"] = http.calls
-    cov["retries429"] = http.retries_429
+    cov["calls"] = (cov.get("calls") or 0) + http.calls
+    cov["retries429"] = (cov.get("retries429") or 0) + http.retries_429
     cov["secs"] = round(time.time() - t0, 1)
     cov["dbActive"] = len(active.get("cappers") or [])
     cov["dbQueue"] = len(queue.get("cappers") or [])
