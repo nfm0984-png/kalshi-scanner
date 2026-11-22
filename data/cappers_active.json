@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 9:28 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 10:50 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -87,7 +87,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 1112917.59,
+      "pnl": 1110073.95,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 372895.5,
       "monthlyPnl": 273563.66,
@@ -97,28 +97,32 @@
       "tape30d": null,
       "ageDays": 657,
       "graded": {
-        "n": 2,
-        "w": 0,
-        "l": 2,
-        "roi": -48.1,
-        "profit": -23927.79,
-        "sample": "small"
+        "n": 153,
+        "w": 71,
+        "l": 81,
+        "roi": null,
+        "profit": 1520967.66,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 0,
-        "l": 2,
-        "roi": -48.1,
-        "profit": -23927.79,
-        "sample": "small"
+        "n": 153,
+        "w": 71,
+        "l": 81,
+        "roi": null,
+        "profit": 1520967.66,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": "Tennis",
-      "recordLine": "BWmarkets \u00b7 0-2 \u00b7 -48% \u00b7 Best at Tennis \u00b7 +$1.11M all \u00b7 Best Cappers",
+      "recordLine": "BWmarkets \u00b7 71-81 \u00b7 +$1.11M all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 1
     },
     {
       "nickname": "reluctant.fox5394",
@@ -212,28 +216,47 @@
       "tape30d": 293.58,
       "ageDays": 137,
       "graded": {
-        "n": 31,
-        "w": 21,
-        "l": 9,
-        "roi": 6.9,
-        "profit": 293.58,
-        "sample": "full"
+        "n": 400,
+        "w": 263,
+        "l": 117,
+        "roi": null,
+        "profit": 141384.92,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 31,
-        "w": 21,
-        "l": 9,
-        "roi": 6.9,
-        "profit": 293.58,
-        "sample": "full"
+        "n": 400,
+        "w": 263,
+        "l": 117,
+        "roi": null,
+        "profit": 141384.92,
+        "sample": "positions"
       },
-      "sports": {},
-      "bestAt": "Tennis",
-      "recordLine": "iluminado \u00b7 21-9 \u00b7 +7% \u00b7 Best at Tennis \u00b7 +$141.7k all \u00b7 Best Cappers",
+      "sports": {
+        "MMA": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 33.5,
+          "profit": 32.32
+        },
+        "Tennis": {
+          "n": 3,
+          "w": 2,
+          "l": 1,
+          "roi": 3.1,
+          "profit": 27.73
+        }
+      },
+      "bestAt": "MMA",
+      "recordLine": "iluminado \u00b7 263-117 \u00b7 Best at MMA \u00b7 +$141.7k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 0
     },
     {
       "nickname": "past.grass",
@@ -584,7 +607,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 195136.86,
+      "pnl": 178565.85,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 150730.36,
       "monthlyPnl": 176431.98,
@@ -594,28 +617,32 @@
       "tape30d": 11127.55,
       "ageDays": 891,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 800.0,
-        "profit": 11127.55,
-        "sample": "small"
+        "n": 51,
+        "w": 15,
+        "l": 34,
+        "roi": null,
+        "profit": 188223.01,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 800.0,
-        "profit": 11127.55,
-        "sample": "small"
+        "n": 51,
+        "w": 15,
+        "l": 34,
+        "roi": null,
+        "profit": 188223.01,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": "Tennis",
-      "recordLine": "Ryqeux \u00b7 1-0 \u00b7 +800% \u00b7 Best at Tennis \u00b7 +$194.5k all \u00b7 Best Cappers",
+      "recordLine": "Ryqeux \u00b7 15-34 \u00b7 +$178.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 2
     },
     {
       "nickname": "jspana99",
@@ -747,7 +774,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 88082.31,
+      "pnl": 87789.43,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 34267.89,
       "monthlyPnl": null,
@@ -757,28 +784,32 @@
       "tape30d": 257.35,
       "ageDays": 285,
       "graded": {
-        "n": 4,
-        "w": 3,
-        "l": 1,
-        "roi": 23.4,
-        "profit": 257.35,
-        "sample": "small"
+        "n": 246,
+        "w": 91,
+        "l": 149,
+        "roi": null,
+        "profit": 87612.27,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 4,
-        "w": 3,
-        "l": 1,
-        "roi": 23.4,
-        "profit": 257.35,
-        "sample": "small"
+        "n": 246,
+        "w": 91,
+        "l": 149,
+        "roi": null,
+        "profit": 87612.27,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": "NFL",
-      "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 Best at NFL \u00b7 +$88.0k all \u00b7 Best Cappers",
+      "recordLine": "nettinyahoo \u00b7 91-149 \u00b7 +$87.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 7
     },
     {
       "nickname": "majebettor123",
@@ -1543,7 +1574,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2984.85,
+      "pnl": 2987.3,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -1553,20 +1584,20 @@
       "tape30d": null,
       "ageDays": 426,
       "graded": {
-        "n": 1,
-        "w": 0,
-        "l": 0,
-        "roi": 0.0,
-        "profit": 0,
-        "sample": "small"
+        "n": 272,
+        "w": 110,
+        "l": 162,
+        "roi": null,
+        "profit": 1251.46,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 0,
-        "l": 0,
-        "roi": 0.0,
-        "profit": 0,
-        "sample": "small"
+        "n": 272,
+        "w": 110,
+        "l": 162,
+        "roi": null,
+        "profit": 1251.46,
+        "sample": "positions"
       },
       "sports": {
         "NFL": {
@@ -1578,7 +1609,7 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Billy.Hoyle \u00b7 11-10 \u00b7 +57% \u00b7 Best at WNBA \u00b7 +$3.00k all \u00b7 Best Cappers",
+      "recordLine": "Billy.Hoyle \u00b7 110-162 \u00b7 Best at NFL \u00b7 +$2.99k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -1807,8 +1838,12 @@
           "closeTs": 1795552200
         }
       ],
-      "pickCount": 2,
-      "followCount": 9
+      "pickCount": 0,
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 30
     },
     {
       "nickname": "black.catt",
@@ -3114,28 +3149,32 @@
       "tape30d": 268.41,
       "ageDays": 323,
       "graded": {
-        "n": 5,
-        "w": 3,
-        "l": 2,
-        "roi": 18.9,
-        "profit": 268.41,
-        "sample": "small"
+        "n": 14,
+        "w": 4,
+        "l": 10,
+        "roi": null,
+        "profit": 3564.16,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 5,
-        "w": 3,
-        "l": 2,
-        "roi": 18.9,
-        "profit": 268.41,
-        "sample": "small"
+        "n": 14,
+        "w": 4,
+        "l": 10,
+        "roi": null,
+        "profit": 3564.16,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 Best Cappers",
+      "recordLine": "crazy.sal \u00b7 4-10 \u00b7 +$909 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 10
     },
     {
       "nickname": "advanced.redpoll2268",
@@ -4092,28 +4131,40 @@
       "tape30d": null,
       "ageDays": 225,
       "graded": {
-        "n": 3,
-        "w": 3,
-        "l": 0,
-        "roi": 69.4,
-        "profit": 130.14,
-        "sample": "small"
+        "n": 125,
+        "w": 60,
+        "l": 64,
+        "roi": null,
+        "profit": 23218.74,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 3,
-        "w": 3,
-        "l": 0,
-        "roi": 69.4,
-        "profit": 130.14,
-        "sample": "small"
+        "n": 125,
+        "w": 60,
+        "l": 64,
+        "roi": null,
+        "profit": 23218.74,
+        "sample": "positions"
       },
-      "sports": {},
+      "sports": {
+        "MLB": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 60.2,
+          "profit": 88.94
+        }
+      },
       "bestAt": "MLB",
-      "recordLine": "degen.4.life112422 \u00b7 3-0 \u00b7 +69% \u00b7 Best at MLB \u00b7 +$22.6k all \u00b7 Best Cappers",
+      "recordLine": "degen.4.life112422 \u00b7 60-64 \u00b7 Best at MLB \u00b7 +$22.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 0
     },
     {
       "nickname": "air.barn",
@@ -5907,7 +5958,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 11932.34,
+      "pnl": 11931.98,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -5917,20 +5968,20 @@
       "tape30d": 93.82,
       "ageDays": 306,
       "graded": {
-        "n": 4,
-        "w": 2,
-        "l": 2,
-        "roi": 41.1,
-        "profit": 3.1,
-        "sample": "small"
+        "n": 199,
+        "w": 116,
+        "l": 17,
+        "roi": null,
+        "profit": 2052.9,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 4,
-        "w": 2,
-        "l": 2,
-        "roi": 41.1,
-        "profit": 3.1,
-        "sample": "small"
+        "n": 199,
+        "w": 116,
+        "l": 17,
+        "roi": null,
+        "profit": 2052.9,
+        "sample": "positions"
       },
       "sports": {
         "NCAAF": {
@@ -5942,11 +5993,15 @@
         }
       },
       "bestAt": "NCAAF",
-      "recordLine": "door.whale \u00b7 170-42 \u00b7 +34% \u00b7 Best at NCAAB \u00b7 +$11.9k all \u00b7 Best Cappers",
+      "recordLine": "door.whale \u00b7 116-17 \u00b7 Best at NCAAF \u00b7 +$11.9k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 13
     },
     {
       "nickname": "door.work",
@@ -6070,7 +6125,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 8377.22,
+      "pnl": 8263.24,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6079,15 +6134,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 549,
-      "graded": null,
-      "gradedAll": null,
+      "graded": {
+        "n": 7,
+        "w": 2,
+        "l": 5,
+        "roi": null,
+        "profit": -977.17,
+        "sample": "positions"
+      },
+      "gradedAll": {
+        "n": 7,
+        "w": 2,
+        "l": 5,
+        "roi": null,
+        "profit": -977.17,
+        "sample": "positions"
+      },
       "sports": {},
       "bestAt": null,
-      "recordLine": "dr.house \u00b7 +$8.38k all \u00b7 Best Cappers",
+      "recordLine": "dr.house \u00b7 2-5 \u00b7 +$8.26k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1,
-      "followCount": 0
+      "pickCount": 0,
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 13
     },
     {
       "nickname": "drib",
@@ -6105,7 +6178,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 13510.32,
+      "pnl": 13458.32,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6115,28 +6188,40 @@
       "tape30d": null,
       "ageDays": 749,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 22.0,
-        "profit": 359.04,
-        "sample": "small"
+        "n": 15,
+        "w": 12,
+        "l": 3,
+        "roi": null,
+        "profit": 26443.42,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 22.0,
-        "profit": 359.04,
-        "sample": "small"
+        "n": 15,
+        "w": 12,
+        "l": 3,
+        "roi": null,
+        "profit": 26443.42,
+        "sample": "positions"
       },
-      "sports": {},
+      "sports": {
+        "WNBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 22.0,
+          "profit": 359.04
+        }
+      },
       "bestAt": "WNBA",
-      "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 Best at WNBA \u00b7 +$13.5k all \u00b7 Best Cappers",
+      "recordLine": "drib \u00b7 12-3 \u00b7 Best at WNBA \u00b7 +$13.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 5
     },
     {
       "nickname": "dumb.rail",
@@ -6540,7 +6625,11 @@
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 2
     },
     {
       "nickname": "excessive.canary4409",
@@ -6623,7 +6712,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2392.65,
+      "pnl": 2390.56,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6633,28 +6722,32 @@
       "tape30d": null,
       "ageDays": 230,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 42.9,
-        "profit": 30.0,
-        "sample": "small"
+        "n": 66,
+        "w": 37,
+        "l": 29,
+        "roi": null,
+        "profit": 1730.16,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 42.9,
-        "profit": 30.0,
-        "sample": "small"
+        "n": 66,
+        "w": 37,
+        "l": 29,
+        "roi": null,
+        "profit": 1730.16,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fattii \u00b7 1-0 \u00b7 +43% \u00b7 +$2.39k all \u00b7 Best Cappers",
+      "recordLine": "fattii \u00b7 37-29 \u00b7 +$2.39k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 20
     },
     {
       "nickname": "firebirds",
@@ -8463,28 +8556,32 @@
       "tape30d": null,
       "ageDays": 289,
       "graded": {
-        "n": 1,
-        "w": 0,
-        "l": 1,
-        "roi": -320.0,
-        "profit": -166.4,
-        "sample": "small"
+        "n": 42,
+        "w": 23,
+        "l": 13,
+        "roi": null,
+        "profit": -2034.93,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 1,
-        "l": 1,
-        "roi": -62.8,
-        "profit": -112.13,
-        "sample": "small"
+        "n": 42,
+        "w": 23,
+        "l": 13,
+        "roi": null,
+        "profit": -2034.93,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "jakem12 \u00b7 6-4 \u00b7 +38% \u00b7 +$1.07k all \u00b7 Best Cappers",
+      "recordLine": "jakem12 \u00b7 23-13 \u00b7 +$1.07k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 20
     },
     {
       "nickname": "jefft",
@@ -8730,22 +8827,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 77,
-      "graded": null,
+      "graded": {
+        "n": 342,
+        "w": 111,
+        "l": 229,
+        "roi": null,
+        "profit": 17837.99,
+        "sample": "positions"
+      },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 683.3,
-        "profit": 64.36,
-        "sample": "small"
+        "n": 342,
+        "w": 111,
+        "l": 229,
+        "roi": null,
+        "profit": 17837.99,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "Kali.Kiddd.007 \u00b7 +$17.6k all \u00b7 Best Cappers",
+      "recordLine": "Kali.Kiddd.007 \u00b7 111-229 \u00b7 +$17.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 4
     },
     {
       "nickname": "kentrain",
@@ -8916,7 +9024,11 @@
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 1
     },
     {
       "nickname": "khey",
@@ -8944,20 +9056,20 @@
       "tape30d": 745.92,
       "ageDays": 385,
       "graded": {
-        "n": 2,
-        "w": 2,
-        "l": 0,
-        "roi": 883.2,
-        "profit": 422.4,
-        "sample": "small"
+        "n": 400,
+        "w": 35,
+        "l": 350,
+        "roi": null,
+        "profit": 828.11,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 2,
-        "l": 0,
-        "roi": 883.2,
-        "profit": 422.4,
-        "sample": "small"
+        "n": 400,
+        "w": 35,
+        "l": 350,
+        "roi": null,
+        "profit": 828.11,
+        "sample": "positions"
       },
       "sports": {
         "NCAAW": {
@@ -8968,19 +9080,23 @@
           "profit": 374.2
         },
         "Tennis": {
-          "n": 1,
-          "w": 1,
+          "n": 4,
+          "w": 4,
           "l": 0,
-          "roi": 203.5,
-          "profit": 48.19
+          "roi": 526.2,
+          "profit": 371.72
         }
       },
-      "bestAt": "NCAAW",
-      "recordLine": "khey \u00b7 5-0 \u00b7 +787% \u00b7 Best at Tennis \u00b7 +$1.76k all \u00b7 Best Cappers",
+      "bestAt": "Tennis",
+      "recordLine": "khey \u00b7 35-350 \u00b7 Best at Tennis \u00b7 +$1.76k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 0
     },
     {
       "nickname": "KneeHowdy",
@@ -9026,7 +9142,35 @@
       "tier": "Best Cappers",
       "rejectNote": "hidden book: hidden",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "graded": {
+        "n": 27,
+        "w": 18,
+        "l": 9,
+        "roi": 46.7,
+        "profit": 45605.6,
+        "sample": "posts",
+        "formW": 0,
+        "formL": 0
+      },
+      "gradedAll": {
+        "n": 27,
+        "w": 18,
+        "l": 9,
+        "roi": 46.7,
+        "profit": 45605.6,
+        "sample": "posts",
+        "formW": 0,
+        "formL": 0
+      },
+      "sports": {},
+      "pnl": 82068.31,
+      "positionsVisible": false,
+      "postsVisible": true,
+      "pickSource": "posts",
+      "openPositions": 0,
+      "recordLine": "falcon999 \u00b7 18-9 \u00b7 +47% \u00b7 +$82.1k all \u00b7 +47%",
+      "pnlSource": "kalshi_profile_metrics"
     },
     {
       "nickname": "truewonder",
@@ -9140,28 +9284,32 @@
       "tape30d": null,
       "ageDays": 234,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 10.8,
-        "profit": 21.06,
-        "sample": "small"
+        "n": 11,
+        "w": 6,
+        "l": 5,
+        "roi": null,
+        "profit": 2461.55,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 2,
-        "w": 2,
-        "l": 0,
-        "roi": 12.8,
-        "profit": 30.99,
-        "sample": "small"
+        "n": 11,
+        "w": 6,
+        "l": 5,
+        "roi": null,
+        "profit": 2461.55,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "loff123 \u00b7 1-0 \u00b7 +11% \u00b7 +$3.28k all \u00b7 Best Cappers",
+      "recordLine": "loff123 \u00b7 6-5 \u00b7 +$3.28k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 2
     },
     {
       "nickname": "long.whale",
@@ -9179,7 +9327,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 57205.03,
+      "pnl": 57213.38,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9189,20 +9337,20 @@
       "tape30d": null,
       "ageDays": 755,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 13.6,
-        "profit": 0.67,
-        "sample": "small"
+        "n": 131,
+        "w": 52,
+        "l": 78,
+        "roi": null,
+        "profit": 72.36,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 13.6,
-        "profit": 0.67,
-        "sample": "small"
+        "n": 131,
+        "w": 52,
+        "l": 78,
+        "roi": null,
+        "profit": 72.36,
+        "sample": "positions"
       },
       "sports": {
         "MLB": {
@@ -9214,11 +9362,15 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "long.whale \u00b7 1-0 \u00b7 +14% \u00b7 Best at MLB \u00b7 +$57.2k all \u00b7 Best Cappers",
+      "recordLine": "long.whale \u00b7 52-78 \u00b7 Best at MLB \u00b7 +$57.2k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 3
     },
     {
       "nickname": "LongLiveLance",
@@ -9450,28 +9602,32 @@
       "tape30d": 5125.48,
       "ageDays": 121,
       "graded": {
-        "n": 208,
-        "w": 200,
+        "n": 194,
+        "w": 186,
         "l": 7,
-        "roi": 214.8,
-        "profit": 5125.48,
+        "roi": 248.4,
+        "profit": 4986.22,
         "sample": "full"
       },
       "gradedAll": {
-        "n": 208,
-        "w": 200,
+        "n": 194,
+        "w": 186,
         "l": 7,
-        "roi": 214.8,
-        "profit": 5125.48,
+        "roi": 248.4,
+        "profit": 4986.22,
         "sample": "full"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "loyal.lion9691 \u00b7 200-7 \u00b7 +215% \u00b7 +$10.5k all \u00b7 Best Cappers",
+      "recordLine": "loyal.lion9691 \u00b7 186-7 \u00b7 +248% \u00b7 +$10.5k all \u00b7 Best Cappers",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 4
     },
     {
       "nickname": "lack.house",
@@ -9520,7 +9676,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 24447.85,
+      "pnl": 24777.16,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9529,22 +9685,33 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 652,
-      "graded": null,
+      "graded": {
+        "n": 19,
+        "w": 16,
+        "l": 3,
+        "roi": null,
+        "profit": 7966.08,
+        "sample": "positions"
+      },
       "gradedAll": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 26.3,
-        "profit": 2.47,
-        "sample": "small"
+        "n": 19,
+        "w": 16,
+        "l": 3,
+        "roi": null,
+        "profit": 7966.08,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "mild.fire \u00b7 +$24.4k all \u00b7 Best Cappers",
+      "recordLine": "mild.fire \u00b7 16-3 \u00b7 +$24.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 10
     },
     {
       "nickname": "mild.screentondog",
@@ -9596,7 +9763,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 1027.57,
+      "pnl": 1064.89,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9606,28 +9773,82 @@
       "tape30d": null,
       "ageDays": 512,
       "graded": {
-        "n": 35,
-        "w": 23,
-        "l": 12,
-        "roi": 17.1,
-        "profit": 1041.52,
-        "sample": "full"
+        "n": 122,
+        "w": 60,
+        "l": 61,
+        "roi": null,
+        "profit": 2665.95,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 36,
-        "w": 24,
-        "l": 12,
-        "roi": 17.3,
-        "profit": 1076.84,
-        "sample": "full"
+        "n": 122,
+        "w": 60,
+        "l": 61,
+        "roi": null,
+        "profit": 2665.95,
+        "sample": "positions"
       },
-      "sports": {},
+      "sports": {
+        "NFL": {
+          "n": 2,
+          "w": 2,
+          "l": 0,
+          "roi": 297.2,
+          "profit": 841.0
+        },
+        "MLB": {
+          "n": 3,
+          "w": 3,
+          "l": 0,
+          "roi": 114.7,
+          "profit": 200.8
+        },
+        "NBA": {
+          "n": 7,
+          "w": 4,
+          "l": 3,
+          "roi": -124.3,
+          "profit": -1161.88
+        },
+        "NCAAB": {
+          "n": 17,
+          "w": 10,
+          "l": 7,
+          "roi": 28.2,
+          "profit": 1020.3
+        },
+        "Soccer": {
+          "n": 1,
+          "w": 0,
+          "l": 1,
+          "roi": -120.8,
+          "profit": -130.0
+        },
+        "Tennis": {
+          "n": 2,
+          "w": 1,
+          "l": 1,
+          "roi": 10.1,
+          "profit": 81.5
+        },
+        "NCAAF": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 150.0,
+          "profit": 75.0
+        }
+      },
       "bestAt": "NCAAB",
-      "recordLine": "ministuh \u00b7 23-12 \u00b7 +17% \u00b7 Best at NCAAB \u00b7 +$1.03k all \u00b7 Best Cappers",
+      "recordLine": "ministuh \u00b7 60-61 \u00b7 Best at NCAAB \u00b7 +$1.06k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1,
-      "followCount": 0
+      "pickCount": 0,
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 21
     },
     {
       "nickname": "minnowsaurus",
@@ -9862,7 +10083,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 799.0,
+      "pnl": 814.08,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9871,11 +10092,25 @@
       "tape7d": null,
       "tape30d": null,
       "ageDays": 359,
-      "graded": null,
-      "gradedAll": null,
+      "graded": {
+        "n": 58,
+        "w": 38,
+        "l": 20,
+        "roi": null,
+        "profit": 1489.07,
+        "sample": "positions"
+      },
+      "gradedAll": {
+        "n": 58,
+        "w": 38,
+        "l": 20,
+        "roi": null,
+        "profit": 1489.07,
+        "sample": "positions"
+      },
       "sports": {},
       "bestAt": null,
-      "recordLine": "parspectives \u00b7 +$799 all \u00b7 Best Cappers",
+      "recordLine": "parspectives \u00b7 38-20 \u00b7 +$814 all",
       "addedAt": "2026-11-22",
       "followingPicks": [
         {
@@ -9905,7 +10140,11 @@
         }
       ],
       "pickCount": 1,
-      "followCount": 1
+      "followCount": 1,
+      "positionsVisible": true,
+      "postsVisible": false,
+      "pickSource": "positions",
+      "openPositions": 3
     },
     {
       "nickname": "bananastand21",
@@ -10929,27 +11168,31 @@
       "tape30d": null,
       "ageDays": 218,
       "graded": {
-        "n": 1,
-        "w": 1,
-        "l": 0,
-        "roi": 141.9,
-        "profit": 13.53,
-        "sample": "small"
+        "n": 166,
+        "w": 67,
+        "l": 87,
+        "roi": null,
+        "profit": 11965.86,
+        "sample": "positions"
       },
       "gradedAll": {
-        "n": 3,
-        "w": 2,
-        "l": 1,
-        "roi": 44.9,
-        "profit": 25.89,
-        "sample": "small"
+        "n": 166,
+        "w": 67,
+        "l": 87,
+        "roi": null,
+        "profit": 11965.86,
+        "sample": "positions"
       },
       "sports": {},
       "bestAt": "MLB",
-      "recordLine": "slimed.out \u00b7 1-0 \u00b7 +142% \u00b7 Best at MLB \u00b7 +$10.4k all \u00b7 Other",
+      "recordLine": "slimed.out \u00b7 67-87 \u00b7 +$10.4k all",
       "addedAt": "2026-11-22",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 0,
+      "positionsVisible": true,
+      "postsVisible": true,
+      "pickSource": "positions+posts",
+      "openPositions": 1
     },
     {
       "nickname": "Snoz3berries",

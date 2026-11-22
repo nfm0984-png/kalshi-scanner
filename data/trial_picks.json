@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 9:28 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 10:50 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3296,6 +3296,27 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 8:45 AM PT",
       "recordedTs": 1795365924,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "BWmarkets|KXNFLTOTAL-26NOV22ARIKC-41|No",
+      "nickname": "BWmarkets",
+      "ticker": "KXNFLTOTAL-26NOV22ARIKC-41",
+      "eventTicker": "KXNFLTOTAL-26NOV22ARIKC",
+      "game": "Arizona vs Kansas City: Total Points",
+      "backing": "Over 40.5 points",
+      "yesNo": "No",
+      "entry": 0.49,
+      "price": 0.2,
+      "cost": 46445.63,
+      "contracts": 94787.0,
+      "startTs": 1795381200,
+      "league": "NFL",
+      "bt": "Totals",
+      "recordedAt": "Sun Nov 22 \u00b7 10:50 AM PT",
+      "recordedTs": 1795373421,
       "status": "open",
       "result": null,
       "settledAt": null
