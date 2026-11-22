@@ -24,7 +24,8 @@ MIN_BET = 100  # lower than the whale site so more public books show
 MAX_ENTRY = 0.90
 WINDOW_SECS = 24 * 3600
 DECIDED_PX = 0.97
-KFINAL = ("finalized", "determined", "settled", "closed", "deactivated", "inactive")
+KFINAL = ("finalized", "determined", "settled")  # result is in
+KSOFT_CLOSED = ("closed", "deactivated", "inactive")  # not enough alone if the game is still live or not started
 FINISH_GRACE_SECS = 30 * 60  # short OT window past typical duration, if the market is still mid-price
 LIVE_HOURS = {
     "NFL": 4, "CFB": 4, "NCAAF": 4, "MLB": 3.5, "ATP": 3.5, "WTA": 3.5, "TENNIS": 3.5,
@@ -101,10 +102,16 @@ def game_finished(info, now, league):
     result = (info.get("result") or "")
     if isinstance(result, str):
         result = result.lower()
-    if status in KFINAL or result in ("yes", "no"):
-        return True, "kalshi " + (status or str(result))
+    if result in ("yes", "no"):
+        return True, "kalshi " + str(result)
+    if status in KFINAL:
+        return True, "kalshi " + status
     start = info.get("start_ts") or 0
     close = info.get("close_ts") or 0
+    # "inactive" / "closed" / "deactivated" are not treated as settled on their
+    # own — Kalshi often uses them before tip or while a live market is halted.
+    # Those picks stay up until the result is in, the price is decided after
+    # start, or the typical game length (plus a short OT grace) has passed.
     if close and now >= close:
         return True, "past close"
     ya, na, px = info.get("yes_ask"), info.get("no_ask"), info.get("price")
@@ -452,6 +459,18 @@ def is_pinned(nick, pinned=None):
     return bool(k) and k in {n.lower() for n in pinned_names(pinned)}
 
 
+def is_manual_pin(row):
+    """User-requested follows stay pinned even if a gate would drop them.
+
+    doNotPin still wins. lastGoodFollows keeps these so the never-shrink
+    guard restores them if a scan skipped re-evaluation.
+    """
+    if not isinstance(row, dict):
+        return False
+    src = (row.get("source") or "").strip().lower()
+    return bool(row.get("manual")) or src in ("manual", "user")
+
+
 def apply_pins(active, queue, rejected, pinned, now, log=print):
     """Seed pinned nicks into active, un-reject them, pull them out of the queue. Never reject."""
     moved = []
@@ -553,6 +572,8 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print):
         why = None
         if k in skip:
             why = "doNotPin"
+        elif is_manual_pin(row if isinstance(row, dict) else {"nickname": nick, "source": ""}):
+            why = None
         else:
             why = follow_fail_reason(cap)
         if why:

@@ -140,12 +140,18 @@ async function fetchLatestData(): Promise<Data> {
   }
 }
 
-const money = (n: number): string => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
+const money = (n: number): string => {
+  const a = Math.abs(n), s = n < 0 ? "-" : "";
+  const cts = Math.round(a * 100);
+  // Show cents whenever the tape is not a whole dollar, so $1.84 is not $2.
+  const frac = cts % 100 === 0 && a >= 100 ? 0 : 2;
+  return s + "$" + a.toLocaleString("en-US", { minimumFractionDigits: frac, maximumFractionDigits: 2 });
+};
 const kMoney = (n: number): string => {
   const a = Math.abs(n), s = n < 0 ? "-" : "";
   if (a >= 1e6) return s + "$" + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2).replace(/\.0$/, "") + "M";
-  if (a >= 1000) return s + "$" + (a >= 10000 ? (a / 1000).toFixed(1) + "k" : (a / 1000).toFixed(a >= 1000 && a < 10000 ? 1 : 0) + "k").replace(/\.0k$/, "k");
-  return s + "$" + Math.round(a).toLocaleString("en-US");
+  if (a >= 10000) return s + "$" + (a / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+  return money(n);
 };
 const cents = (px: number | null | undefined): string => {
   if (px == null || px <= 0) return "—";
@@ -869,6 +875,14 @@ function MoreBetsRow(props: { n: number; open: boolean; onToggle: () => void; no
   );
 }
 
+function tapeStake(p: Pick): string {
+  const costs = (p.backers || []).map((b: Backer) => b.cost || 0).filter((x: number) => x > 0);
+  if (!costs.length) return p.total ? money(p.total) : "—";
+  const lo = Math.min.apply(null, costs), hi = Math.max.apply(null, costs);
+  if (hi - lo < 0.005) return money(lo);
+  return money(lo) + "–" + money(hi);
+}
+
 function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow?: ReactNode; stakeLine?: string; rankNo?: number }) {
   const p = props.p;
   const v = p.view;
@@ -898,7 +912,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         {props.moreRow}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
           <div style={{ flex: 1 }}><KalshiBuyButton view={v} /></div>
-          <div data-k-stake="1" style={{ fontSize: 14, fontWeight: 800, color: GREEN, lineHeight: "17px" }}>{"Stake"}<br />{props.stake}</div>
+          <div data-k-stake="1" style={{ fontSize: 14, fontWeight: 800, color: GREEN, lineHeight: "17px" }}>{"Stake"}<br />{(props.stakeLine ? props.stake : (props.stake && props.stake !== "$2–4" ? props.stake : tapeStake(p)))}</div>
         </div>
         {props.stakeLine ? <div data-stake-line="1" style={{ marginTop: 6, fontSize: 14, fontWeight: 850, color: GREEN, fontVariantNumeric: "tabular-nums" }}>{props.stakeLine}</div> : null}
         <OnKalshiBox view={v} />
