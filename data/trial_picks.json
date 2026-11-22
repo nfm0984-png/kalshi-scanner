@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3569,9 +3569,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 1:16 PM PT",
       "recordedTs": 1795382162,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 2:15 PM PT"
     },
     {
       "id": "BWmarkets|KXNFLTOTAL-26NOV22LVDEN-40|No",
@@ -3632,6 +3632,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
       "recordedTs": 1795384494,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV22JACNYG-JAC|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV22JACNYG-JAC",
+      "eventTicker": "KXNFLGAME-26NOV22JACNYG",
+      "game": "JAC vs NYG (Nov 22)",
+      "backing": "Jacksonville",
+      "yesNo": "Yes",
+      "entry": 0.5275,
+      "price": 0.54,
+      "cost": 2999.99,
+      "contracts": 5687.27,
+      "startTs": 1795393500,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
+      "recordedTs": 1795385734,
       "status": "open",
       "result": null,
       "settledAt": null
