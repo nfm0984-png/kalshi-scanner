@@ -1,6 +1,27 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 6:58 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 7:55 AM PT",
   "scans": [
+    {
+      "ts": 1795362954,
+      "at": "Sun Nov 22 \u00b7 7:55 AM PT",
+      "names": 252,
+      "newFollows": [],
+      "followed": 26,
+      "target": 50,
+      "openPicks": 10,
+      "ids": [
+        "KXATPCHALLENGERMATCH-26NOV22HAMKAR-KAR|Yes",
+        "KXNFLGAME-26NOV22TBDET-DET|Yes",
+        "KXNFLREC-26NOV22TBDET-DETJGIBBS0-4|No",
+        "KXNFLRECYDS-26NOV22TBDET-DETJWILLIAMS1-50|No",
+        "KXNFLRECYDS-26NOV22TBDET-DETJGIBBS0-30|No",
+        "KXNBA3PT-26NOV22DETATL-DETKHUERTERSF-2|No",
+        "KXNBAPTS-26NOV22DETATL-ATLNALEXANDERWALKER7-20|No",
+        "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
+        "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
+        "KXNBAPTS-26NOV22DENCHI-CHIIOKORO35-10|No"
+      ]
+    },
     {
       "ts": 1795359515,
       "at": "Sun Nov 22 \u00b7 6:58 AM PT",

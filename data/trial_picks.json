@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 6:58 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 7:55 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3212,9 +3212,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
       "recordedTs": 1795356473,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:55 AM PT"
     },
     {
       "id": "nickkrxzy|KXATPCHALLENGERMATCH-26NOV22AUNNEU-AUN|Yes",
@@ -3254,9 +3254,9 @@
       "bt": "Other",
       "recordedAt": "Sun Nov 22 \u00b7 6:58 AM PT",
       "recordedTs": 1795359515,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:55 AM PT"
     },
     {
       "id": "nickkrxzy|KXATPCHALLENGERMATCH-26NOV22HAMKAR-KAR|Yes",
