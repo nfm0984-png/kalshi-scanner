@@ -425,10 +425,13 @@ def holdings_visible(http, nick, limit=20):
     return vis, data
 
 
-def paginate_holdings(http, nick):
+def paginate_holdings(http, nick, closed=False, max_pages=8):
+    """Public positions. closed=True sends closed_positions=true (open+closed)."""
     holdings, cursor, vis = [], None, None
-    for _ in range(8):
+    for _ in range(max_pages):
         params = {"nickname": nick, "limit": 100}
+        if closed:
+            params["closed_positions"] = "true"
         if cursor:
             params["cursor"] = cursor
         data = http.get(f"{SOCIAL}/profile/holdings", params) or {}
@@ -441,6 +444,61 @@ def paginate_holdings(http, nick):
         if not cursor or not batch:
             break
     return vis or "visible", holdings
+
+
+def paginate_timeline(http, nick, max_pages=6, page_size=50):
+    """Public Ideas/profile posts for a nickname (works even when holdings are hidden)."""
+    posts, cursor, seen = [], None, set()
+    for _ in range(max_pages):
+        params = {"nickname": nick, "limit": page_size}
+        if cursor:
+            params["cursor"] = cursor
+        data = http.get(f"{SOCIAL}/timeline", params) or {}
+        batch = data.get("posts") or []
+        if not batch:
+            break
+        for p in batch:
+            pid = p.get("id")
+            if pid and pid in seen:
+                continue
+            if pid:
+                seen.add(pid)
+            posts.append(p)
+        cursor = data.get("cursor")
+        if not cursor:
+            break
+    return posts
+
+
+def post_created_ts(p):
+    raw = p.get("created_ts") or p.get("created_time") or 0
+    try:
+        n = int(raw)
+    except (TypeError, ValueError):
+        return 0
+    if n > 10**15:  # ns
+        return n // 10**9
+    if n > 10**12:  # us
+        return n // 10**6
+    return n
+
+
+def post_cost_dollars(p):
+    try:
+        cents = p.get("cost_cents")
+        if cents is None:
+            return None
+        return float(cents) / 100.0
+    except (TypeError, ValueError):
+        return None
+
+
+def post_is_settled(p):
+    if p.get("paid_out_cents") is not None:
+        return True
+    if (p.get("post_type") or "").lower() == "roi" and not (p.get("value_cents") or 0):
+        return True
+    return False
 
 
 def paginate_trades(http, nick, now, stop_ts, max_pages=None, need_tickers=None):

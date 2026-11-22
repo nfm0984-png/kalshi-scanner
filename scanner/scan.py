@@ -877,11 +877,14 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
             if entry is None and ask is not None:
                 entry = ask
                 cost = abs(signed) * (entry or 0)
+            if entry is None or cost is None:
+                # Public positions can lack a quote or tape entry; estimate so
+                # large viewable books (e.g. BWmarkets) are not silently dropped.
+                entry = 0.5 if entry is None else entry
+                cost = abs(signed) * entry
             if max_entry is not None and entry is not None and entry >= max_entry:
                 continue
             if min_bet and (cost is None or cost < min_bet):
-                continue
-            if min_bet and ask is None:
                 continue
             if cost is None:
                 cost = 0.0
@@ -1069,27 +1072,23 @@ def follow_fail_reason(cap):
     cannot be copied. doNotPin is handled by the caller and never re-enters
     (the never-shrink guard also honors it).
     """
-    if not on_profit_leaderboard(cap):
-        return "not on official profit leaderboard"
+    if not is_trackable(cap):
+        return "no public positions or posts to track"
     pnl = official_pnl(cap)
     if is_negative_profit(pnl):
         return "negative profit %s" % signed_k(pnl)
-    if pnl is None:
-        return "no official all-time profit"
-    if pnl <= 0:
-        return "profit %s is not positive" % signed_k(pnl)
-    w, l, n = graded_wl(follow_record(cap))
-    if n > 0 and w <= l:
-        return "%d-%d" % (w, l)
-    if not is_trackable(cap):
-        return "no public trades to track"
+    # Viewable positions or profile posts are enough to stay on the list.
+    # Closed-position grade (veterans first) does the ranking; a losing
+    # reconstructed tape no longer auto-drops a book we can actually copy.
     return None
 
 
 def is_trackable(cap):
-    """True when we can actually see this capper's public sports tape or open picks."""
+    """True when public positions or profile posts let us copy this capper's book."""
     if not cap:
         return False
+    if cap.get("positionsVisible") or cap.get("postsVisible"):
+        return True
     w, l, n = graded_wl(follow_record(cap) or cap.get("graded") or cap.get("gradedAll"))
     if n > 0:
         return True
@@ -1250,61 +1249,327 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
     }
 
 
+
+
+_TICKER_DATE_RE = re.compile(r"(?:^|-)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d{2})(?:-|$)", re.I)
+_MONTH_NUM = {"JAN":1,"FEB":2,"MAR":3,"APR":4,"MAY":5,"JUN":6,"JUL":7,"AUG":8,"SEP":9,"OCT":10,"NOV":11,"DEC":12}
+
+def post_ticker_in_window(tk, now, slack_days=3, ahead_days=45):
+    """Skip clearly stale dated tickers before we hydrate (finished weeks ago)."""
+    m = _TICKER_DATE_RE.search(tk or "")
+    if not m:
+        return True
+    try:
+        day = dt.date(2000 + int(m.group(3)), _MONTH_NUM[m.group(2).upper()], int(m.group(1)))
+    except (ValueError, KeyError):
+        return True
+    today = dt.datetime.fromtimestamp(int(now), PT).date()
+    delta = (day - today).days
+    return -slack_days <= delta <= ahead_days
+
+
+def grade_from_closed_holdings(holdings, open_tickers=None):
+    """W-L from public closed positions (PnL sign). ROI unknown without cost."""
+    open_tickers = {t.lower() for t in (open_tickers or []) if t}
+    w = l = n = 0
+    profit = 0.0
+    for h in holdings or []:
+        for mh in h.get("market_holdings") or []:
+            tk = (mh.get("market_ticker") or "").lower()
+            if tk and tk in open_tickers:
+                continue
+            pnl = lib.usd_units(mh.get("pnl"))
+            if pnl is None:
+                continue
+            n += 1
+            profit += pnl
+            if pnl > 0.5:
+                w += 1
+            elif pnl < -0.5:
+                l += 1
+    if not n:
+        return None
+    return {"n": n, "w": w, "l": l, "roi": None, "profit": round(profit, 2), "sample": "positions"}
+
+
+def grade_from_posts(posts, now=None, form_days=14):
+    """W-L and ROI from settled idea/roi profile posts, one row per ticker|side."""
+    best = {}
+    for p in posts or []:
+        tk = p.get("market_ticker") or ""
+        side = (p.get("side") or "").lower()
+        if not tk or not lib.post_is_settled(p):
+            continue
+        if lib.is_esports(tk) or not (lib.is_sports_ticker(tk) or tk.upper().startswith("KXMVE")):
+            # Keep traditional sports and sports combos; skip non-sports.
+            if not (lib.is_sports_ticker(tk) or "SPORT" in (p.get("series_title") or "").upper()):
+                if not lib.is_sports_market({}, tk):
+                    continue
+        key = tk + "|" + side
+        prev = best.get(key)
+        if not prev or lib.post_created_ts(p) >= lib.post_created_ts(prev):
+            best[key] = p
+    w = l = n = 0
+    profit = 0.0
+    cost_sum = 0.0
+    form_w = form_l = 0
+    cutoff = (int(now) - form_days * 86400) if now else 0
+    for p in best.values():
+        cost = lib.post_cost_dollars(p) or 0.0
+        paid = p.get("paid_out_cents")
+        try:
+            paid_d = float(paid) / 100.0 if paid is not None else None
+        except (TypeError, ValueError):
+            paid_d = None
+        pnl = p.get("dollar_roi")
+        if pnl is None and paid_d is not None:
+            pnl = paid_d - cost
+        if pnl is None:
+            continue
+        n += 1
+        profit += float(pnl)
+        cost_sum += cost
+        win = float(pnl) > 0.5
+        loss = float(pnl) < -0.5
+        if win:
+            w += 1
+        elif loss:
+            l += 1
+        ts = lib.post_created_ts(p)
+        if cutoff and ts >= cutoff:
+            if win:
+                form_w += 1
+            elif loss:
+                form_l += 1
+    if not n:
+        return None
+    roi = (100.0 * profit / cost_sum) if cost_sum else None
+    return {
+        "n": n, "w": w, "l": l,
+        "roi": round(roi, 1) if roi is not None else None,
+        "profit": round(profit, 2),
+        "sample": "posts",
+        "formW": form_w, "formL": form_l,
+    }
+
+
+def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
+    """Open $500+ sports ideas from profile posts, newest post wins a ticker|side."""
+    latest = {}
+    for p in posts or []:
+        tk = p.get("market_ticker") or ""
+        if not tk or lib.post_is_settled(p):
+            continue
+        if lib.is_esports(tk):
+            continue
+        cost = lib.post_cost_dollars(p)
+        if min_bet and (cost is None or cost < min_bet):
+            continue
+        if not post_ticker_in_window(tk, now):
+            continue
+        ts = lib.post_created_ts(p)
+        dated = bool(_TICKER_DATE_RE.search(tk or ""))
+        if not dated and ts and int(now) - ts > 10 * 86400:
+            continue
+        side = "Yes" if (p.get("side") or "yes").lower() == "yes" else "No"
+        key = tk + "|" + side
+        if key not in latest or ts >= lib.post_created_ts(latest[key][0]):
+            latest[key] = (p, cost, side)
+    out = []
+    ordered = sorted(latest.items(), key=lambda kv: -lib.post_created_ts(kv[1][0]))
+    for key, (p, cost, side) in ordered[:40]:
+        tk = p.get("market_ticker")
+        info = lib.hydrate_market(http, tk, mcache, ecache)
+        if not lib.is_sports_market(info, tk):
+            continue
+        league = lib.league_of(tk, info.get("category")) or "Sports"
+        done, _why = game_finished(info, now, league)
+        if done or lib.open_state(info, now) == "final":
+            continue
+        start_ts = info.get("start_ts") or 0
+        if not is_near_term_pick({"startTs": start_ts, "closeTs": info.get("close_ts") or 0, "league": league, "ticker": tk, "status": info.get("status")}, now):
+            continue
+        yes_no = side
+        ask = info.get("yes_ask") if yes_no == "Yes" else info.get("no_ask")
+        payout = p.get("payout_if_win_cents")
+        try:
+            contracts = float(payout) / 100.0 if payout else None
+        except (TypeError, ValueError):
+            contracts = None
+        entry = (cost / contracts) if contracts else None
+        backing = (info.get("yes_sub_title") if yes_no == "Yes" else info.get("no_sub_title")) or p.get("market_title") or info.get("title") or tk
+        game = p.get("event_title") or info.get("event_title") or info.get("title") or p.get("event_ticker") or tk
+        out.append({
+            "ticker": tk,
+            "eventTicker": info.get("event_ticker") or p.get("event_ticker") or "",
+            "marketTitle": p.get("event_title") or info.get("event_title") or info.get("title") or "",
+            "contractTitle": p.get("market_title") or info.get("title") or "",
+            "backing": backing,
+            "yesNo": yes_no,
+            "label": backing,
+            "entry": round(entry, 4) if entry is not None else None,
+            "price": round(ask, 4) if ask is not None else (round(entry, 4) if entry is not None else None),
+            "yesAsk": info.get("yes_ask"),
+            "noAsk": info.get("no_ask"),
+            "cost": round(cost or 0, 2),
+            "contracts": round(contracts, 2) if contracts is not None else None,
+            "lastTs": lib.post_created_ts(p) or None,
+            "startTs": start_ts or 0,
+            "state": "live" if (start_ts and start_ts <= now) else "upcoming",
+            "league": league,
+            "game": game,
+            "bt": bet_type(tk, backing or p.get("market_title") or ""),
+            "slip": None,
+            "status": info.get("status"),
+            "result": info.get("result"),
+            "closeTs": info.get("close_ts") or 0,
+            "source": "posts",
+            "postId": p.get("id"),
+        })
+    return out
+
+
+def merge_picks(*groups):
+    """Dedupe by ticker|side; prefer positions cost when both sources have the pick."""
+    by = {}
+    for group, source in groups:
+        for p in group or []:
+            key = "%s|%s" % (p.get("ticker") or "", p.get("yesNo") or "")
+            if not key.strip("|"):
+                continue
+            cur = by.get(key)
+            incoming = dict(p)
+            incoming.setdefault("source", source)
+            if not cur:
+                by[key] = incoming
+                continue
+            # Keep the larger stake; remember both sources.
+            if (incoming.get("cost") or 0) > (cur.get("cost") or 0):
+                srcs = sorted({cur.get("source"), incoming.get("source")} - {None})
+                incoming["source"] = "+".join(srcs) if len(srcs) > 1 else (incoming.get("source") or cur.get("source"))
+                by[key] = incoming
+            else:
+                srcs = sorted({cur.get("source"), incoming.get("source")} - {None})
+                if len(srcs) > 1:
+                    cur["source"] = "+".join(srcs)
+    return list(by.values())
+
+
 def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=80, old=None, need_tickers=None):
-    """Return ('active', row) or ('rejected', reason, detail) for a visible-or-unknown nick."""
+    """Return ('active', row) or ('rejected', reason, detail).
+
+    Positions come from the public holdings endpoint. If that book is hidden,
+    profile posts/ideas are used instead (falcon999). Both are used when available.
+    """
     vis, _ = lib.holdings_visible(http, nick, limit=5)
-    if vis == "hidden":
-        return "rejected", "hidden book", "hidden"
-    if vis != "visible":
+    positions_hidden = vis == "hidden"
+    if vis not in ("visible", "hidden", None, ""):
         # Empty/failed API response has no visibility_state — do not permanently reject.
-        raise RuntimeError("holdings visibility unknown (%r)" % (vis,))
+        if vis is not None and vis != "":
+            raise RuntimeError("holdings visibility unknown (%r)" % (vis,))
+    if vis not in ("visible", "hidden"):
+        # unknown: try as visible, but don't reject
+        positions_hidden = False
     prof = (http.get(f"{lib.SOCIAL}/profile", {"nickname": nick}) or {}).get("social_profile") or {}
     metrics = (http.get(f"{lib.SOCIAL}/profile/metrics", {"nickname": nick}) or {}).get("metrics") or {}
-    vis2, holdings = lib.paginate_holdings(http, nick)
-    if vis2 == "hidden":
-        return "rejected", "hidden book", "holdings hidden"
-    stop_ts = now - lib.RECORD_DAYS * 86400
-    auto_need = need_tickers
-    # Short follow-checks only need enough tape to cost open positions, not a full W-L rebuild.
-    if auto_need is None and trades_pages is not None and trades_pages <= 20:
-        auto_need = set()
-        for h in holdings or []:
-            for mh in h.get("market_holdings") or []:
-                tk = mh.get("market_ticker")
-                try:
-                    signed = float(mh.get("signed_open_position") or 0)
-                except Exception:
-                    signed = 0.0
-                if tk and abs(signed) >= 0.5:
-                    auto_need.add(tk)
-        if not auto_need:
-            auto_need = None
-    vis3, trades = lib.paginate_trades(http, nick, now, stop_ts, max_pages=trades_pages, need_tickers=auto_need)
-    if vis3 == "hidden":
-        return "rejected", "hidden book", "trades hidden"
-    hold_n = sum(len(h.get("market_holdings") or []) for h in holdings or [])
-    is_mm, mm_why = lib.mm_flags(trades, nick)
+    holdings, trades, closed_holdings = [], [], []
+    if not positions_hidden:
+        vis2, holdings = lib.paginate_holdings(http, nick)
+        if vis2 == "hidden":
+            positions_hidden = True
+            holdings = []
+        else:
+            stop_ts = now - lib.RECORD_DAYS * 86400
+            auto_need = need_tickers
+            if auto_need is None and trades_pages is not None and trades_pages <= 20:
+                auto_need = set()
+                for h in holdings or []:
+                    for mh in h.get("market_holdings") or []:
+                        tk = mh.get("market_ticker")
+                        try:
+                            signed = float(mh.get("signed_open_position") or 0)
+                        except Exception:
+                            signed = 0.0
+                        if tk and abs(signed) >= 0.5:
+                            auto_need.add(tk)
+                if not auto_need:
+                    auto_need = None
+            vis3, trades = lib.paginate_trades(http, nick, now, stop_ts, max_pages=trades_pages, need_tickers=auto_need)
+            if vis3 == "hidden":
+                trades = []
+            # Closed positions for W-L / form (cheap extra pages).
+            _cv, closed_holdings = lib.paginate_holdings(http, nick, closed=True, max_pages=4)
+            if _cv == "hidden":
+                closed_holdings = []
+    # Profile posts always — this is how hidden books like falcon999 publish picks.
+    posts = lib.paginate_timeline(http, nick, max_pages=5 if (trades_pages or 80) <= 20 else 8)
+    posts_visible = any((p.get("market_ticker") and (lib.post_cost_dollars(p) or 0) > 0) for p in posts)
     pin = is_pinned(nick)
+    if positions_hidden and not posts_visible and not pin:
+        return "rejected", "hidden book", "hidden"
+    hold_n = sum(len(h.get("market_holdings") or []) for h in holdings or [])
+    is_mm, mm_why = lib.mm_flags(trades, nick) if trades else (False, [])
     if is_mm and hold_n >= 25 and not pin:
         return "rejected", "market-maker", "%s; open=%d trades=%d" % (", ".join(mm_why), hold_n, len(trades))
-    if not has_sports_activity(holdings, trades) and not pin:
+    if (not positions_hidden) and (not has_sports_activity(holdings, trades)) and (not posts_visible) and (not pin):
         return "rejected", "no sports activity", "open=%d trades=%d" % (hold_n, len(trades))
     heavy = bool(is_mm)
     if heavy:
         log("heavy trader kept %s: %s trades=%d open=%d" % (nick, ", ".join(mm_why), len(trades), hold_n))
-    inv_map = lib.build_inventory(trades, nick)
-    picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
-    # Collect copyable near-term sports picks ($500+ stake on that side) for any
-    # leaderboard or followed name so we can tell whether their book is trackable.
+    inv_map = lib.build_inventory(trades, nick) if trades else {}
+    pos_picks = []
+    if holdings:
+        pos_picks = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache)
+        for p in pos_picks:
+            p.setdefault("source", "positions")
+    post_picks = picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET) if posts else []
+    picks = merge_picks((pos_picks, "positions"), (post_picks, "posts"))
     boardish = pin or on_profit_leaderboard({"nickname": nick, "profitRanks": (people.get(nick) or {}).get("profitRanks"), "pnl": (people.get(nick) or {}).get("pnl")})
     follow = []
-    if boardish or pin:
-        follow = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=MIN_BET, window_secs=FOLLOW_HORIZON_SECS, max_entry=None)
+    if boardish or pin or posts_visible or (not positions_hidden):
+        follow_pos = []
+        if holdings:
+            follow_pos = collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=MIN_BET, window_secs=FOLLOW_HORIZON_SECS, max_entry=None)
+            for p in follow_pos:
+                p.setdefault("source", "positions")
+        follow = merge_picks((follow_pos, "positions"), (post_picks, "posts"))
         follow = [p for p in follow if is_near_term_pick(p, now) and stake_ok(p)]
     row = build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, heavy=heavy)
     row = merge_preserved_record(row, old)
+    # Prefer a fuller closed-position or posts grade when the public tape is thin/hidden.
+    open_tks = [mh.get("market_ticker") for h in holdings or [] for mh in (h.get("market_holdings") or [])]
+    pos_grade = grade_from_closed_holdings(closed_holdings, open_tks) if closed_holdings else None
+    post_grade = grade_from_posts(posts, now=now)
+    chosen = None
+    if pos_grade and post_grade:
+        # Use the larger sample. Do not copy ROI across sources — posts ROI
+        # does not belong on a positions W-L (and vice versa).
+        chosen = pos_grade if (pos_grade.get("n") or 0) >= (post_grade.get("n") or 0) else post_grade
+    else:
+        chosen = pos_grade or post_grade
+    if chosen and (_grade_n(chosen) >= _grade_n(row.get("graded")) or not row.get("graded")):
+        row["graded"] = chosen
+        if not row.get("gradedAll") or _grade_n(chosen) >= _grade_n(row.get("gradedAll")):
+            row["gradedAll"] = chosen
+        extra = ""
+        if chosen.get("roi") is not None:
+            extra = "%s%.0f%%" % ("+" if chosen["roi"] >= 0 else "", chosen["roi"])
+        row["recordLine"] = rec_line(nick, chosen, row.get("pnl"), None, extra, row.get("bestAt"))
     row["followingPicks"] = follow
+    row["positionsVisible"] = not positions_hidden
+    row["postsVisible"] = bool(posts_visible)
+    row["openPositions"] = hold_n
+    srcs = []
+    if row["positionsVisible"]:
+        srcs.append("positions")
+    if row["postsVisible"]:
+        srcs.append("posts")
+    row["pickSource"] = "+".join(srcs) if srcs else ("hidden" if positions_hidden else "")
+    if positions_hidden and posts_visible:
+        row["rejectNote"] = None
+        log("posts used for hidden book %s: %d posts, %d open $%d+ picks" % (nick, len(posts), len(follow), MIN_BET))
     return "active", row, ""
+
 
 
 def trial_grade(info, yes_no):
@@ -1324,6 +1589,41 @@ def trial_grade(info, yes_no):
 
 def trial_id(nick, ticker, yes_no):
     return "%s|%s|%s" % (nick_key(nick), ticker or "", yes_no or "")
+
+
+
+def enrich_follow_cappers(following, live_cappers):
+    """Attach official profit, closed grade, and pick source to the Best Cappers roster."""
+    by = {nick_key(c.get("nickname")): c for c in (live_cappers or []) if c.get("nickname")}
+    for rec in following.get("cappers") or []:
+        src = by.get(nick_key(rec.get("nickname")))
+        if not src:
+            continue
+        rec["pnl"] = src.get("pnl")
+        rec["pnlSource"] = src.get("pnlSource")
+        rec["openPositions"] = src.get("openPositions") if src.get("openPositions") is not None else rec.get("open")
+        rec["pickSource"] = src.get("pickSource") or ""
+        rec["positionsVisible"] = bool(src.get("positionsVisible"))
+        rec["postsVisible"] = bool(src.get("postsVisible"))
+        g = src.get("graded") or {}
+        rec["roi"] = g.get("roi")
+        rec["closedW"] = g.get("w")
+        rec["closedL"] = g.get("l")
+        rec["closedN"] = g.get("n") or ((g.get("w") or 0) + (g.get("l") or 0))
+        rec["formW"] = g.get("formW")
+        rec["formL"] = g.get("formL")
+        rec["recordLine"] = src.get("recordLine") or rec.get("recordLine")
+        rec["profileUrl"] = src.get("profileUrl") or rec.get("profileUrl")
+        if src.get("postsVisible") or src.get("positionsVisible") or rec.get("open"):
+            rec["hidden"] = False
+    def rank(r):
+        n = r.get("closedN") or 0
+        veteran = 0 if n >= 10 else (1 if n >= 5 else (2 if n else 3))
+        wr = (r.get("closedW") or 0) / n if n else -1
+        roi = r.get("roi")
+        return (veteran, -wr, -n, 1e9 if roi is None else -float(roi), -(r.get("pnl") or 0), (r.get("nickname") or "").lower())
+    following["cappers"] = sorted(following.get("cappers") or [], key=rank)
+    return following
 
 
 def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, log=print):
@@ -2125,13 +2425,13 @@ def build(now=None, log=print):
 
     def cap_key(c):
         pin_n = 0 if (c.get("pinned") or is_pin_tag(c.get("tier"))) else 1
-        tier_n = 0 if is_pin_tag(c.get("tier")) else {"Core": 1, "Top 50": 2, "Board": 3}.get(c.get("tier") or "", 4)
         g = c.get("graded") or {"w": 0, "l": 0, "n": 0}
-        n = (g.get("w") or 0) + (g.get("l") or 0)
+        n = (g.get("w") or 0) + (g.get("l") or 0) or (g.get("n") or 0)
         wr = (g.get("w") or 0) / n if n else -1
-        sample = 0 if n >= 10 else 1
-        ungraded = 0 if n else 1
-        return (pin_n, ungraded, tier_n, sample, -wr, -(g.get("w") or 0), -(c.get("pnl") or 0))
+        veteran = 0 if n >= 10 else (1 if n >= 5 else (2 if n else 3))
+        roi = g.get("roi")
+        roi_n = -(float(roi)) if roi is not None else 1e9
+        return (pin_n, veteran, -wr, -n, roi_n, -(c.get("pnl") or 0), (c.get("nickname") or "").lower())
     # Refresh the follow list from this scan's full W-L, then copy their open picks.
     # Discovery (queue + NEW_PER_SCAN new) already ran above and never stops at TARGET_FOLLOW.
     pinned = reconcile_follow_list(active, pinned, cappers, people, now, log, rotate=bool(people))
@@ -2153,8 +2453,9 @@ def build(now=None, log=print):
         for p in c.get("followingPicks") or []:
             if not is_near_term_pick(p, now) or not stake_ok(p):
                 continue
-            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
+            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
+    following = enrich_follow_cappers(following, cappers)
     # Carry previous Best Cappers *display* picks only. The trial ledger is already persisted and was
     # updated solely from this scan's visible followed positions.
     follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
@@ -2168,6 +2469,8 @@ def build(now=None, log=print):
 
     pub_cappers = []
     for c in cappers:
+        if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned) or is_trackable(c)):
+            continue
         pub_cappers.append({k: v for k, v in c.items() if k not in ("picks", "followingPicks")} | {"pickCount": len(c.get("picks") or []), "followCount": len(c.get("followingPicks") or [])})
     pub_cappers.sort(key=cap_key)
 
@@ -2175,7 +2478,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Best Cappers is a rotating top 50 from official projected-PnL leaderboards (weekly, monthly, yearly, all-time) and copies near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded). A followed capper must be on that leaderboard, have no losing reconstructed record, and official all-time profit that is positive. Public trades must be trackable. Tape-discovered names are never followed. Only picks where that capper’s total stake on that side of that market is at least $%d are shown (Best Cappers, Coming Up, and the ranked slate). They are graded from official Kalshi results after settlement. New cappers are still discovered every hour, and a full scan keeps reviewing official-board names while the list is short of 50. The followed list rotates to the top 50 on each full scan. A followed capper who falls out of the top 50 or fails a gate is unpinned and stays on Watching; negative official profit is added to doNotPin and can never re-enter. W-L is reconstructed from the public sports tape and is never invented." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching 100+ pool is not displayed. Best Cappers is ranked by closed-position grade, veterans (longer records) above small samples. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $%d. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -2351,6 +2654,9 @@ def build_follow_check(now=None, log=print):
                     row["bestAt"] = cap.get("bestAt")
                 if cap.get("pnl") is not None:
                     row["pnl"] = cap.get("pnl")
+                for fld in ("positionsVisible", "postsVisible", "pickSource", "openPositions", "recordLine", "pnlSource"):
+                    if cap.get(fld) is not None:
+                        row[fld] = cap.get(fld)
                 break
     # Reconcile follows immediately: drop negative-profit or losing followed names
     # and swap from the previously evaluated pool when a better capper is already known.
@@ -2383,10 +2689,11 @@ def build_follow_check(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now):
+            if not is_near_term_pick(p, now) or not stake_ok(p):
                 continue
-            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG))
+            following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
+    following = enrich_follow_cappers(following, live_cappers)
     follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
     following["picks"] = follow_picks
     cov["carriedFollowPicks"] = carried_follow
@@ -2429,10 +2736,8 @@ def build_follow_check(now=None, log=print):
         seen.add(k)
     for c in live_cappers:
         publish(c, counts_from_lists=True)
-    for row in (active.get("cappers") or []):
-        publish(row)
-    for c in (prev.get("cappers") or []):
-        publish(c)
+    # Display only cappers we can actually track (positions or posts). Do not
+    # republish the watching 100+ pool onto the page.
 
     payload = {
         "scannedAt": prev.get("scannedAt") or pt(now),
