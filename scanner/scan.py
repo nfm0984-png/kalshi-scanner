@@ -43,6 +43,8 @@ def pt(ts):
 
 
 def bet_type(ticker, label=""):
+    if lib.is_combo_ticker(ticker):
+        return "Combo"
     ser = ((ticker or "").split("-")[0] or "").upper()
     if re.search(r"SPREAD", ser):
         return "Spread"
@@ -843,6 +845,87 @@ def has_sports_activity(holdings, trades):
     return False
 
 
+def enrich_combo(http, info, ticker, now, mcache, ecache):
+    """Hydrate each combo leg and set start_ts from the earliest leg kickoff."""
+    info = info or {}
+    raw = info.get("mve_selected_legs") or []
+    if not (lib.is_combo_ticker(ticker) or raw):
+        return info
+    legs = []
+    starts = []
+    for leg in raw:
+        if not isinstance(leg, dict):
+            continue
+        ltk = leg.get("market_ticker") or ""
+        if not ltk:
+            continue
+        linfo = lib.hydrate_market(http, ltk, mcache, ecache)
+        side = (leg.get("side") or "yes").lower()
+        yes_no = "Yes" if side == "yes" else "No"
+        start = linfo.get("start_ts") or ticker_date_ts(ltk) or 0
+        if start:
+            starts.append(int(start))
+        ev_tk = linfo.get("event_ticker") or leg.get("event_ticker") or ""
+        backing = (linfo.get("yes_sub_title") if yes_no == "Yes" else linfo.get("no_sub_title")) or linfo.get("title") or ltk
+        legs.append({
+            "ticker": ltk,
+            "eventTicker": ev_tk,
+            "yesNo": yes_no,
+            "side": yes_no,
+            "backing": backing,
+            "game": linfo.get("event_title") or linfo.get("title") or ev_tk or ltk,
+            "marketTitle": linfo.get("event_title") or linfo.get("title") or "",
+            "contractTitle": linfo.get("title") or "",
+            "startTs": int(start or 0),
+            "closeTs": linfo.get("close_ts") or 0,
+            "league": lib.league_of(ltk, linfo.get("category")) or "Sports",
+            "url": "https://kalshi.com/markets/" + (ev_tk or ltk).lower(),
+        })
+    info["legs"] = legs
+    if starts and not info.get("start_ts"):
+        info["start_ts"] = min(starts)
+    ev = info.get("event_ticker") or ""
+    if not ev and ticker and ticker.count("-"):
+        ev = ticker.rsplit("-", 1)[0]
+    info["combo_url"] = info.get("combo_url") or lib.combo_market_url(ev or ticker, info.get("series_ticker"), info.get("series_title"))
+    leagues = [x["league"] for x in legs if x.get("league") and x["league"] not in ("Sports", "Combo")]
+    uniq = list(dict.fromkeys(leagues))
+    info["league"] = (uniq[0] if len(uniq) == 1 else "Combo") if legs else (info.get("league") or "Combo")
+    return info
+
+
+def attach_combo_fields(pick, info):
+    """Mark a pick as a combo and attach grouped legs + the one-click market URL."""
+    if not pick:
+        return pick
+    tk = pick.get("ticker") or ""
+    legs = (info or {}).get("legs") or pick.get("legs") or []
+    if not (lib.is_combo_ticker(tk) or len(legs) >= 2):
+        return pick
+    pick["isCombo"] = True
+    pick["bt"] = "Combo"
+    pick["legs"] = legs
+    pick["comboUrl"] = (info or {}).get("combo_url") or pick.get("comboUrl") or lib.combo_market_url(
+        pick.get("eventTicker") or (tk.rsplit("-", 1)[0] if tk.count("-") else tk),
+        (info or {}).get("series_ticker"),
+        (info or {}).get("series_title"),
+    )
+    if (info or {}).get("league"):
+        pick["league"] = info["league"]
+    elif not pick.get("league") or pick.get("league") == "Sports":
+        pick["league"] = "Combo"
+    px = pick.get("price")
+    if px and px > 0:
+        pick["payout"] = round(1.0 / min(float(px), 1.0), 2)
+    n = len(legs)
+    if n:
+        pick["game"] = pick.get("game") or ("Combo · %d legs" % n)
+        # Keep the Kalshi combo subtitle as the headline, and note the leg count.
+        if pick.get("backing") and "·" not in (pick.get("label") or ""):
+            pick["label"] = "%s · %d-leg combo" % (pick.get("backing"), n)
+    return pick
+
+
 def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=MIN_BET, window_secs=WINDOW_SECS, max_entry=MAX_ENTRY):
     picks = []
     for h in holdings or []:
@@ -858,9 +941,11 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
             if abs(signed) < 0.5:
                 continue
             info = lib.hydrate_market(http, tk, mcache, ecache)
+            if lib.is_combo_ticker(tk) or info.get("mve_selected_legs"):
+                info = enrich_combo(http, info, tk, now, mcache, ecache)
             if not lib.is_sports_market(info, tk):
                 continue
-            league = lib.league_of(tk, info.get("category")) or "Sports"
+            league = info.get("league") or lib.league_of(tk, info.get("category")) or "Sports"
             done, _why = game_finished(info, now, league)
             if done:
                 continue
@@ -924,6 +1009,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
                 "result": info.get("result"),
                 "closeTs": info.get("close_ts") or 0,
             })
+            attach_combo_fields(picks[-1], info)
     return picks
 
 
@@ -1384,10 +1470,10 @@ def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
         cost = lib.post_cost_dollars(p)
         if min_bet and (cost is None or cost < min_bet):
             continue
-        if not post_ticker_in_window(tk, now):
+        if not post_ticker_in_window(tk, now) and not lib.is_combo_ticker(tk):
             continue
         ts = lib.post_created_ts(p)
-        dated = bool(_TICKER_DATE_RE.search(tk or ""))
+        dated = bool(_TICKER_DATE_RE.search(tk or "")) or lib.is_combo_ticker(tk)
         if not dated and ts and int(now) - ts > 10 * 86400:
             continue
         side = "Yes" if (p.get("side") or "yes").lower() == "yes" else "No"
@@ -1399,9 +1485,11 @@ def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
     for key, (p, cost, side) in ordered[:40]:
         tk = p.get("market_ticker")
         info = lib.hydrate_market(http, tk, mcache, ecache)
+        if lib.is_combo_ticker(tk) or info.get("mve_selected_legs"):
+            info = enrich_combo(http, info, tk, now, mcache, ecache)
         if not lib.is_sports_market(info, tk):
             continue
-        league = lib.league_of(tk, info.get("category")) or "Sports"
+        league = info.get("league") or lib.league_of(tk, info.get("category")) or "Sports"
         done, _why = game_finished(info, now, league)
         if done or lib.open_state(info, now) == "final":
             continue
@@ -1445,6 +1533,7 @@ def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
             "source": "posts",
             "postId": p.get("id"),
         })
+        attach_combo_fields(out[-1], info)
     return out
 
 

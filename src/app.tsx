@@ -23,17 +23,18 @@ const KFINAL = ["finalized", "determined", "settled"];
 const FINISH_GRACE_SECS = 30 * 60;
 const LIVE_HOURS: Record<string, number> = { NFL: 4, CFB: 4, NCAAF: 4, MLB: 3.5, ATP: 3.5, WTA: 3.5, TENNIS: 3.5, UFC: 6, MMA: 6, BOXING: 6, CBB: 2.75, NCAAB: 2.75, NCAAMB: 2.75, NBA: 3, NHL: 3, CS2: 3.5, DOTA2: 3.5, LOL: 3.5, VAL: 3.5, ESPORTS: 3.5 };
 const liveSecsFor = (league?: string | null): number => Math.round(3600 * (LIVE_HOURS[(league || "").toUpperCase()] || 3));
-const BT_ORDER = ["Moneyline", "Spread", "Totals", "Both teams to score", "Player props", "Other"];
+const BT_ORDER = ["Combo", "Moneyline", "Spread", "Totals", "Both teams to score", "Player props", "Other"];
 
 interface WL { w: number; l: number; n?: number }
-interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null }
+interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
+interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null; comboUrl?: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
-interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null }
+interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; source?: string }
+interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
@@ -185,10 +186,75 @@ const eventTickerOf = (ticker: string | null): string | null => {
   const i = ticker.lastIndexOf("-");
   return i > 0 ? ticker.slice(0, i) : ticker;
 };
-const kalshiUrlOf = (ticker: string | null | undefined): string | null => {
+const kalshiUrlOf = (ticker: string | null | undefined, comboUrl?: string | null): string | null => {
+  if (comboUrl) return comboUrl;
   const ev = eventTickerOf(ticker || null);
   return ev ? "https://kalshi.com/markets/" + ev.toLowerCase() : null;
 };
+const isComboPick = (p: { isCombo?: boolean; ticker?: string; legs?: ComboLeg[]; bt?: string; comboUrl?: string | null }): boolean => {
+  return !!(p.isCombo || (p.legs && p.legs.length >= 2) || p.bt === "Combo" || (p.ticker || "").toUpperCase().indexOf("KXMVE") === 0);
+};
+function copyText(text: string): void {
+  try { if (navigator.clipboard && navigator.clipboard.writeText) { void navigator.clipboard.writeText(text); return; } } catch (e) {}
+  try {
+    const el = document.createElement("textarea");
+    el.value = text;
+    el.setAttribute("readonly", "true");
+    el.style.position = "fixed";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+  } catch (e) {}
+}
+function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cost?: number | null; price?: number | null; comboUrl?: string | null; ticker?: string; legs?: ComboLeg[] }): string {
+  const legs = p.legs || [];
+  const lines: string[] = [
+    "Kalshi combo" + (p.game ? (" · " + p.game) : ""),
+    (p.backing || "") + (p.yesNo ? (" · " + p.yesNo) : ""),
+    p.cost != null ? ("Stake $" + Math.round(p.cost * 100) / 100) : "",
+    p.price != null ? ("Price " + p.price + " · pays " + cents(p.price)) : "",
+    p.comboUrl || kalshiUrlOf(p.ticker || null) || "",
+    "",
+    "Legs:",
+  ];
+  legs.forEach((leg: ComboLeg, i: number) => {
+    const start = leg.startTs ? ptTime(leg.startTs) : "";
+    lines.push((i + 1) + ". " + (leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker) + " · " + (leg.game || "") + (start ? (" · " + start) : "") + (leg.url ? (" · " + leg.url) : ""));
+  });
+  return lines.filter((x) => x !== "").join("\n");
+}
+function ComboLegsList(props: { legs?: ComboLeg[]; now: number; comboUrl?: string | null; ticker?: string | null; copyPayload?: string }): React.ReactElement | null {
+  const legs = props.legs || [];
+  if (!legs.length) return null;
+  const bundled = !!(props.comboUrl || (props.ticker || "").toUpperCase().indexOf("KXMVE") === 0);
+  return (
+    <div data-combo-legs="1" style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "1.5px solid #C4B5FD", background: "#F5F3FF" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
+        <span style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{"Combo · " + legs.length + " legs"}</span>
+        <span style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {bundled && (props.comboUrl || kalshiUrlOf(props.ticker)) ? <a data-combo-link="1" href={(props.comboUrl || kalshiUrlOf(props.ticker)) as string} target="_blank" rel="noreferrer" style={{ fontSize: 13, fontWeight: 800, color: "#5B21B6", textDecoration: "none" }}>Open combo on Kalshi ↗</a> : null}
+          <button type="button" data-copy-legs="1" onClick={() => copyText(props.copyPayload || "")} style={{ border: "none", background: "none", padding: 0, fontSize: 13, fontWeight: 800, color: "#5B21B6", cursor: "pointer" }}>Copy all legs</button>
+        </span>
+      </div>
+      <ol style={{ margin: "8px 0 0", padding: "0 0 0 18px" }}>
+        {legs.map((leg: ComboLeg, i: number) => {
+          const live = !!(leg.startTs && leg.startTs <= props.now);
+          const href = leg.url || kalshiUrlOf(leg.ticker);
+          return (
+            <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 6, fontSize: 14, lineHeight: "19px", color: NAVY }}>
+              <div style={{ fontWeight: 800, overflowWrap: "anywhere" }}>{(leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker)}</div>
+              <div style={{ fontSize: 13, fontWeight: 650, color: "#475569", overflowWrap: "anywhere" }}>{(leg.game || "") + (leg.league ? " · " + leg.league : "") + (leg.startTs ? (" · " + (live ? "Started " : "Starts ") + ptTime(leg.startTs)) : "")}</div>
+              {!bundled && href ? <a href={href} target="_blank" rel="noreferrer" style={{ fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
+            </li>
+          );
+        })}
+      </ol>
+      {!bundled ? <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>Kalshi has no share link that pre-loads loose legs into the combo builder. Open each leg, or copy them all.</div> : null}
+    </div>
+  );
+}
 
 function Chip(props: { bg: string; color: string; children: ReactNode }) {
   return <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: props.bg, color: props.color, fontSize: 11, fontWeight: 850 }}>{props.children}</span>;
@@ -409,6 +475,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
       {mine ? <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}><span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{money(mine.cost)}</span><span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (mine.avg != null ? " · entry " + cents(mine.avg) : "")}</span></div> : null}
       {mine && mine.lastSeen ? <div data-last-seen="1" style={{ marginTop: 6 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + mine.lastSeen}</Chip></div> : null}
       <FreshPricePills p={p} now={now} />
+      <ComboLegsList legs={p.legs} now={now} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
     </div>
   );
@@ -443,6 +510,7 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
           {p.lastSeen ? <Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + p.lastSeen}</Chip> : null}
         </div>
       ) : null}
+      <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl} ticker={p.ticker} copyPayload={comboLegsText(p)} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={view} /></div>
     </div>
   );
@@ -573,7 +641,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
   fps.forEach((fp: FollowPick) => {
     if (followPickIsFinished(fp, now)) return;
     if (!stakeOk(fp.cost)) return;
-    const start = fp.startTs || 0;
+    const start = fp.startTs || (fp.legs && fp.legs.reduce((m: number, l: ComboLeg) => (l.startTs && (!m || l.startTs < m) ? (l.startTs as number) : m), 0)) || fp.closeTs || 0;
     if (!start || start > now + 30 * 24 * 3600) return;
     const yesNo = (fp.yesNo === "No" ? "No" : "Yes") as "Yes" | "No";
     const key = (fp.ticker || "") + "|" + yesNo;
@@ -587,7 +655,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
     const backer: Backer = { name: fp.nickname, cost: fp.cost || 0, avg: fp.entry ?? null, line: fp.recordLine || fp.nickname, tier: fp.tier || "Best Cappers", pinned: true, lastTs: fp.lastTs ?? null, lastSeen: fp.lastSeen, lastSeenTs: fp.lastSeenTs };
     if (!pick) {
       const total = backer.cost || 0;
-      pick = { key, ticker: fp.ticker, eventTicker: fp.eventTicker, mid: fp.ticker, bt: fp.bt || "Other", big: fp.backing || fp.label || fp.game, sub: fp.marketTitle && fp.marketTitle !== (fp.backing || fp.label) ? fp.game : "", view: { backing: fp.backing || fp.label || fp.game, marketTitle: fp.marketTitle || fp.game, outcome: fp.backing || fp.label || "", yesNo, price: fp.price ?? null, ticker: fp.ticker }, backers: [backer], total, tags: [backer.tier || "Best Cappers"], slip: fp.slip, startTs: start, state: fp.state || (start <= now ? "live" : "upcoming"), status: fp.status, result: fp.result ?? null, closeTs: fp.closeTs, yesAsk: fp.yesAsk, noAsk: fp.noAsk };
+      pick = { key, ticker: fp.ticker, eventTicker: fp.eventTicker, mid: fp.ticker, bt: fp.bt || "Other", big: fp.backing || fp.label || fp.game, sub: fp.marketTitle && fp.marketTitle !== (fp.backing || fp.label) ? fp.game : "", view: { backing: fp.backing || fp.label || fp.game, marketTitle: fp.marketTitle || fp.game, outcome: fp.backing || fp.label || "", yesNo, price: fp.price ?? null, ticker: fp.ticker, comboUrl: fp.comboUrl || null }, backers: [backer], total, tags: [backer.tier || "Best Cappers"], slip: fp.slip, startTs: start, state: fp.state || (start <= now ? "live" : "upcoming"), status: fp.status, result: fp.result ?? null, closeTs: fp.closeTs, yesAsk: fp.yesAsk, noAsk: fp.noAsk, isCombo: isComboPick(fp), legs: fp.legs, comboUrl: fp.comboUrl || null, payout: fp.payout ?? null };
       g.picks = (g.picks || []).concat([pick]);
     } else if (!(pick.backers || []).some((b: Backer) => (b.name || "").toLowerCase() === (fp.nickname || "").toLowerCase())) {
       pick.backers = (pick.backers || []).concat([backer]);
@@ -870,7 +938,7 @@ function OnKalshiBox(props: { view: KalshiView }) {
   if (!v.yesNo || !v.marketTitle) return null;
   const yes = v.yesNo === "Yes";
   const plain = !v.outcome || /^(yes|no)$/i.test(v.outcome) || (v.marketTitle.toLowerCase().indexOf((v.outcome || "").toLowerCase()) >= 0 && /^(will|who|what|which|is|are|does|do)\b/i.test(v.marketTitle));
-  const url = kalshiUrlOf(v.ticker);
+  const url = kalshiUrlOf(v.ticker, v.comboUrl);
   const col = yes ? GREEN : RED;
   return (
     <div data-on-kalshi="1" style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "1.5px dashed " + BLUE, background: "#EFF6FF" }}>
@@ -987,6 +1055,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
         </div>
         <PickRankChips p={p} game={props.game} now={props.now} />
         {props.moreRow}
+        <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl || v.comboUrl} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
           <div style={{ flex: 1 }}><KalshiBuyButton view={v} /></div>
           <div data-k-stake="1" style={{ fontSize: 14, fontWeight: 800, color: GREEN, lineHeight: "17px" }}>{"Stake"}<br />{(props.stakeLine ? props.stake : (props.stake && props.stake !== "$2–4" ? props.stake : tapeStake(p)))}</div>
@@ -1023,6 +1092,7 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         {p.tags.map((x: string) => <span key={x} style={{ display: "inline-block", padding: "1px 8px", borderRadius: 999, background: "#F1F5F9", color: "#334155", fontSize: 12, fontWeight: 800, border: "1px solid #94A3B8" }}>{x}</span>)}
       </div>
       <PickRankChips p={p} game={props.game} now={props.now} />
+      <ComboLegsList legs={p.legs} now={props.now} comboUrl={p.comboUrl || p.view.comboUrl} ticker={p.ticker} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: p.view.yesNo || undefined, cost: p.total, price: p.view.price, comboUrl: p.comboUrl || p.view.comboUrl, ticker: p.ticker, legs: p.legs })} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
       <OnKalshiBox view={p.view} />
       {p.backers.map((b: Backer) => <BackerRow key={b.name} b={b} now={props.now} />)}
@@ -1129,7 +1199,7 @@ function TodayCard(props: { games: Game[]; now: number }) {
       {card.picks.length === 0 ? <EmptyState title="No picks fit the card right now" body={"Nothing upcoming pays under 3x with a public Kalshi capper on the same side. The Ranked games are below."} /> : card.picks.map((c: CardPick, i: number) => (
         <UCard key={"card-" + c.p.key} p={c.p} game={c.game} now={props.now} stake={"$" + c.stake} stakeLine={"$" + c.stake + " · total $" + card.total + " of $" + CARD_BUDGET} rankNo={i + 1} />
       ))}
-      <div style={{ fontSize: 12, fontWeight: 650, color: "#64748B", margin: "2px 2px 0" }}>{"Suggested stakes only. Nothing is placed for you. No parlays."}</div>
+      <div style={{ fontSize: 12, fontWeight: 650, color: "#64748B", margin: "2px 2px 0" }}>{"Suggested stakes only. Nothing is placed for you. Combos are one card when the combo stake is $500+."}</div>
     </div>
   );
 }

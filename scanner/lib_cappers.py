@@ -555,6 +555,62 @@ def event_info(http, event_ticker, cache):
     return cache[event_ticker]
 
 
+def is_combo_ticker(ticker):
+    """Kalshi multivariate combo/parlay markets use the KXMVE prefix."""
+    return (ticker or "").upper().startswith("KXMVE")
+
+
+def series_slug(title):
+    return re.sub(r"[^a-z0-9]+", "-", (title or "").lower()).strip("-")
+
+
+def combo_market_url(event_ticker, series_ticker=None, series_title=None):
+    """Canonical kalshi.com URL for an already-created combo market.
+
+    Live shape (indexed by Kalshi): /markets/{series}/{series-title-slug}/{event_ticker}
+    e.g. https://kalshi.com/markets/kxmvesportsmultigameextended/mve-sport-mutli-game/kxmvesportsmultigameextended-s20264ed70a46381
+    That page is the one-click link for that exact combo. There is no public
+    share URL that pre-loads arbitrary loose legs into the /combos builder.
+    """
+    ev = (event_ticker or "").lower()
+    if not ev:
+        return None
+    ser = (series_ticker or "").lower()
+    slug = series_slug(series_title or "")
+    if ser and slug:
+        return "https://kalshi.com/markets/%s/%s/%s" % (ser, slug, ev)
+    return "https://kalshi.com/markets/" + ev
+
+
+def series_info(http, series_ticker, cache):
+    if not series_ticker:
+        return {}
+    key = "series:" + series_ticker
+    if key in cache:
+        return cache[key]
+    data = http.get(f"{TRADE}/series/{urllib.parse.quote(series_ticker, safe='')}") or {}
+    s = data.get("series") or data or {}
+    cache[key] = s if isinstance(s, dict) else {}
+    return cache[key]
+
+
+def combo_leg_counts(legs):
+    sports = esports = other = 0
+    for leg in legs or []:
+        ltk = (leg.get("market_ticker") if isinstance(leg, dict) else "") or ""
+        if is_esports(ltk) or league_of(ltk) == "Esports":
+            esports += 1
+        elif is_non_sport_ticker(ltk):
+            other += 1
+        elif league_of(ltk):
+            sports += 1
+        elif (ltk or "").upper().startswith("KX"):
+            sports += 1
+        else:
+            other += 1
+    return sports, esports, other
+
+
 def hydrate_market(http, ticker, mcache, ecache):
     m = market_quote(http, ticker, mcache)
     ev_tk = m.get("event_ticker") or ""
@@ -564,10 +620,14 @@ def hydrate_market(http, ticker, mcache, ecache):
     no_ask = None
     try:
         yes_ask = float(m.get("yes_ask_dollars"))
+        if yes_ask <= 0:
+            yes_ask = None
     except Exception:
         pass
     try:
         no_ask = float(m.get("no_ask_dollars"))
+        if no_ask <= 0:
+            no_ask = None
     except Exception:
         pass
     start = iso_ts(m.get("occurrence_datetime") or m.get("occurrence_time") or m.get("event_time"))
@@ -575,6 +635,19 @@ def hydrate_market(http, ticker, mcache, ecache):
         start = iso_ts(ev.get("occurrence_datetime") or ev.get("strike_date") or ev.get("target_datetime"))
     close = iso_ts(m.get("close_time") or m.get("latest_expiration_time") or ev.get("close_time"))
     status = (m.get("status") or ev.get("status") or "").lower()
+    series_ticker = m.get("series_ticker") or ev.get("series_ticker") or ""
+    mve_legs = m.get("mve_selected_legs") or []
+    mve_collection = m.get("mve_collection_ticker") or ""
+    series_title = ""
+    if is_combo_ticker(ticker) or mve_legs or (series_ticker or "").upper().startswith("KXMVE"):
+        if not series_ticker:
+            series_ticker = (ticker or "").split("-")[0]
+        ser = series_info(http, series_ticker, ecache) if series_ticker else {}
+        series_title = ser.get("title") or ""
+        if not category:
+            category = ser.get("category")
+        if not ev_tk:
+            ev_tk = (ticker.rsplit("-", 1)[0] if (ticker or "").count("-") else ticker) or ""
     return {
         "ticker": ticker,
         "event_ticker": ev_tk,
@@ -589,6 +662,11 @@ def hydrate_market(http, ticker, mcache, ecache):
         "start_ts": start,
         "close_ts": close,
         "result": m.get("result"),
+        "series_ticker": series_ticker,
+        "series_title": series_title,
+        "mve_selected_legs": mve_legs,
+        "mve_collection_ticker": mve_collection,
+        "combo_url": combo_market_url(ev_tk or ticker, series_ticker, series_title) if (is_combo_ticker(ticker) or mve_legs) else None,
     }
 
 
@@ -621,14 +699,32 @@ def is_esports(ticker, info=None):
 
 
 def is_sports_market(info, ticker):
-    """Traditional sports singles and sports combos only — esports is excluded."""
+    """Traditional sports singles and sports combos only — esports is excluded.
+
+    Kalshi files combo series under category Exotics, so a KXMVE ticker must
+    not be dropped as non-sports. Esports-only combos are still excluded.
+    """
     info = info or {}
+    if is_combo_ticker(ticker) or info.get("mve_selected_legs"):
+        legs = info.get("mve_selected_legs") or info.get("legs") or []
+        if legs:
+            sports, esports, _other = combo_leg_counts(legs)
+            return sports > 0 and sports >= esports
+        if is_esports(ticker, info):
+            return False
+        cat = (info.get("category") or "").strip().lower()
+        if cat in ("crypto", "economics", "economy", "politics", "climate", "weather", "culture", "elections", "financials", "mentions", "companies", "world"):
+            return False
+        return True
     if is_non_sport_ticker(ticker) or is_esports(ticker, info):
         return False
     cat = (info.get("category") or "").strip().lower()
     if cat in ("crypto", "economics", "economy", "politics", "climate", "weather", "culture", "elections", "financials", "mentions", "companies", "world"):
         return False
-    if cat in ("sports", "combos"):
+    if cat in ("sports", "combos", "exotics"):
+        # 'exotics' without a KXMVE ticker is unusual; only keep if it looks like sports
+        if cat == "exotics":
+            return bool(league_of(ticker) and league_of(ticker) != "Esports")
         return True
     if league_of(ticker) and league_of(ticker) != "Esports":
         return True
@@ -680,7 +776,11 @@ def build_inventory(trades, nick):
 
 def is_sports_ticker(tk, info=None):
     """Traditional sports (incl. sports combo tickers). Esports is excluded."""
-    if not tk or is_non_sport_ticker(tk) or is_esports(tk, info):
+    if not tk:
+        return False
+    if is_combo_ticker(tk):
+        return not is_esports(tk, info)
+    if is_non_sport_ticker(tk) or is_esports(tk, info):
         return False
     return True
 
