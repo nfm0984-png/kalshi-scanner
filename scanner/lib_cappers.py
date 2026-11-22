@@ -616,20 +616,21 @@ def hydrate_market(http, ticker, mcache, ecache):
     ev_tk = m.get("event_ticker") or ""
     ev = event_info(http, ev_tk, ecache) if ev_tk else {}
     category = ev.get("category") or m.get("category")
-    yes_ask = None
-    no_ask = None
-    try:
-        yes_ask = float(m.get("yes_ask_dollars"))
-        if yes_ask <= 0:
-            yes_ask = None
-    except Exception:
-        pass
-    try:
-        no_ask = float(m.get("no_ask_dollars"))
-        if no_ask <= 0:
-            no_ask = None
-    except Exception:
-        pass
+    def _pos_dollar(*keys):
+        for k in keys:
+            try:
+                v = float(m.get(k))
+                if v > 0:
+                    return v
+            except Exception:
+                pass
+        return None
+
+    yes_ask = _pos_dollar("yes_ask_dollars")
+    no_ask = _pos_dollar("no_ask_dollars")
+    last_price = _pos_dollar("last_price_dollars")
+    yes_bid = _pos_dollar("yes_bid_dollars")
+    no_bid = _pos_dollar("no_bid_dollars")
     start = iso_ts(m.get("occurrence_datetime") or m.get("occurrence_time") or m.get("event_time"))
     if not start:
         start = iso_ts(ev.get("occurrence_datetime") or ev.get("strike_date") or ev.get("target_datetime"))
@@ -657,6 +658,9 @@ def hydrate_market(http, ticker, mcache, ecache):
         "no_sub_title": m.get("no_sub_title") or "",
         "yes_ask": yes_ask,
         "no_ask": no_ask,
+        "last_price": last_price,
+        "yes_bid": yes_bid,
+        "no_bid": no_bid,
         "status": status,
         "category": category,
         "start_ts": start,

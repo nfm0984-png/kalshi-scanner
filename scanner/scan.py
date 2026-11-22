@@ -959,14 +959,23 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
             entry, cost = lib.pick_entry_and_cost(inv, signed)
             side = "yes" if signed > 0 else "no"
             ask = info.get("yes_ask") if side == "yes" else info.get("no_ask")
-            if entry is None and ask is not None:
-                entry = ask
-                cost = abs(signed) * (entry or 0)
-            if entry is None or cost is None:
-                # Public positions can lack a quote or tape entry; estimate so
-                # large viewable books (e.g. BWmarkets) are not silently dropped.
-                entry = 0.5 if entry is None else entry
-                cost = abs(signed) * entry
+            if entry is None:
+                # Prefer a real quote or last trade over a 50-cent guess.
+                # Combo RFQ books often quote near 0, then flicker; a 0.5
+                # fallback would turn falcon999's $931 9-leg (62,049
+                # contracts at 1.5c) into a fake $31k stake.
+                last_px = info.get("last_price")
+                bid = info.get("yes_bid") if side == "yes" else info.get("no_bid")
+                if ask is not None:
+                    entry = ask
+                elif last_px is not None:
+                    entry = last_px
+                elif bid is not None:
+                    entry = bid
+                elif not lib.is_combo_ticker(tk):
+                    entry = 0.5
+                if entry is not None:
+                    cost = abs(signed) * entry
             if max_entry is not None and entry is not None and entry >= max_entry:
                 continue
             if min_bet and (cost is None or cost < min_bet):
