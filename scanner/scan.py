@@ -1251,7 +1251,7 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
 
 
 
-_TICKER_DATE_RE = re.compile(r"(?:^|-)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d{2})(?:-|$)", re.I)
+_TICKER_DATE_RE = re.compile(r"(?:^|-)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d{2})(?=[A-Z-]|\b)", re.I)
 _MONTH_NUM = {"JAN":1,"FEB":2,"MAR":3,"APR":4,"MAY":5,"JUN":6,"JUL":7,"AUG":8,"SEP":9,"OCT":10,"NOV":11,"DEC":12}
 
 def post_ticker_in_window(tk, now, slack_days=3, ahead_days=45):
@@ -1260,7 +1260,7 @@ def post_ticker_in_window(tk, now, slack_days=3, ahead_days=45):
     if not m:
         return True
     try:
-        day = dt.date(2000 + int(m.group(3)), _MONTH_NUM[m.group(2).upper()], int(m.group(1)))
+        day = dt.date(2000 + int(m.group(1)), _MONTH_NUM[m.group(2).upper()], int(m.group(3)))
     except (ValueError, KeyError):
         return True
     today = dt.datetime.fromtimestamp(int(now), PT).date()
