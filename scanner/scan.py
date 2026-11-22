@@ -25,6 +25,7 @@ MAX_ENTRY = 0.90
 WINDOW_SECS = 24 * 3600
 DECIDED_PX = 0.97
 KFINAL = ("finalized", "determined", "settled", "closed", "deactivated", "inactive")
+FINISH_GRACE_SECS = 30 * 60  # short OT window past typical duration, if the market is still mid-price
 LIVE_HOURS = {
     "NFL": 4, "CFB": 4, "NCAAF": 4, "MLB": 3.5, "ATP": 3.5, "WTA": 3.5, "TENNIS": 3.5,
     "UFC": 6, "MMA": 6, "BOXING": 6, "CBB": 2.75, "NCAAB": 2.75, "NCAAMB": 2.75,
@@ -79,21 +80,47 @@ def capper_tier(nick, at50, mo50, at100, mo100):
     return "Weekly"
 
 
+def _mid_price(info):
+    ya, na, px = info.get("yes_ask"), info.get("no_ask"), info.get("price")
+    def mid(v):
+        return v is not None and (1 - DECIDED_PX) < float(v) < DECIDED_PX
+    if mid(ya) or mid(na) or mid(px):
+        return True
+    if ya is not None and na is not None:
+        return float(ya) < DECIDED_PX and float(na) < DECIDED_PX
+    return False
+
 def game_finished(info, now, league):
-    status = (info.get("status") or "").lower()
-    if status in KFINAL or info.get("result") in ("yes", "no"):
-        return True, "kalshi " + (status or str(info.get("result")))
+    """True when the Kalshi market is done or the event has clearly ended.
+
+    Live in-progress games stay up: a still-active mid-price market gets a short
+    grace window past typical duration (overtime). After that, or once Kalshi
+    settles/closes the market or the result is in, the pick is dropped.
+    """
+    status = (info.get("status") or info.get("state") or "").lower()
+    result = (info.get("result") or "")
+    if isinstance(result, str):
+        result = result.lower()
+    if status in KFINAL or result in ("yes", "no"):
+        return True, "kalshi " + (status or str(result))
     start = info.get("start_ts") or 0
     close = info.get("close_ts") or 0
     if close and now >= close:
         return True, "past close"
-    if start and now >= start + live_secs(league):
-        return True, "past max duration"
-    if start and now >= start and (league or "").upper() not in ("UFC", "MMA", "BOXING"):
-        ya, na = info.get("yes_ask"), info.get("no_ask")
+    ya, na, px = info.get("yes_ask"), info.get("no_ask"), info.get("price")
+    started = bool(start and now >= start)
+    if started:
         kind = bet_type(info.get("ticker") or "", info.get("title") or "")
-        if kind == "Moneyline" and ((ya is not None and ya >= DECIDED_PX) or (na is not None and na >= DECIDED_PX)):
-            return True, "decided at %s/%s" % (ya, na)
+        if (league or "").upper() not in ("UFC", "MMA", "BOXING"):
+            if kind == "Moneyline" and ((ya is not None and ya >= DECIDED_PX) or (na is not None and na >= DECIDED_PX)):
+                return True, "decided at %s/%s" % (ya, na)
+            if px is not None and (px >= DECIDED_PX or px <= 1 - DECIDED_PX):
+                return True, "decided at %s" % px
+    if start and now >= start + live_secs(league):
+        active = status in ("", "active", "open", "initialized", "unopened")
+        if active and _mid_price(info) and now < start + live_secs(league) + FINISH_GRACE_SECS:
+            return False, ""
+        return True, "past max duration"
     return False, ""
 
 
@@ -947,11 +974,27 @@ def can_follow(cap):
 
 
 def is_near_term_pick(p, now, horizon_secs=FOLLOW_HORIZON_SECS):
-    """True for live or soon-starting sports; false for undated / months-out futures."""
+    """True for live or soon-starting sports; false for undated / months-out futures or finished markets."""
     if not p:
         return False
     start = p.get("startTs") or 0
     close = p.get("closeTs") or 0
+    view = p.get("view") or {}
+    info = {
+        "status": p.get("status") or p.get("state") or "",
+        "result": p.get("result") or "",
+        "start_ts": start,
+        "close_ts": close,
+        "yes_ask": p.get("yesAsk") if p.get("yesAsk") is not None else view.get("yesAsk"),
+        "no_ask": p.get("noAsk") if p.get("noAsk") is not None else view.get("noAsk"),
+        "price": p.get("price") if p.get("price") is not None else view.get("price"),
+        "ticker": p.get("ticker") or view.get("ticker"),
+        "title": p.get("label") or p.get("backing") or p.get("big") or p.get("game") or "",
+        "state": p.get("state") or "",
+    }
+    done, _why = game_finished(info, now, p.get("league") or "")
+    if done:
+        return False
     when = start or close
     if not when:
         return False
@@ -1385,25 +1428,31 @@ def group_games(cappers, now, log=print):
     for gid in order:
         g = by[gid]
         picks = list(g["picks"].values())
-        if g["startTs"] and g["startTs"] <= now:
+        kept = []
+        for p in picks:
             info = {
-                "status": picks[0].get("status"), "result": picks[0].get("result"),
-                "start_ts": g["startTs"],
-                "close_ts": min((p.get("closeTs") or 0) for p in picks) or 0,
-                "yes_ask": next((p.get("yesAsk") for p in picks if p.get("bt") == "Moneyline"), None),
-                "no_ask": next((p.get("noAsk") for p in picks if p.get("bt") == "Moneyline"), None),
-                "ticker": next((p["ticker"] for p in picks if p.get("bt") == "Moneyline"), picks[0]["ticker"]),
-                "title": g["game"],
+                "status": p.get("status") or p.get("state") or "",
+                "result": p.get("result") or "",
+                "start_ts": p.get("startTs") or g["startTs"] or 0,
+                "close_ts": p.get("closeTs") or 0,
+                "yes_ask": p.get("yesAsk"),
+                "no_ask": p.get("noAsk"),
+                "price": (p.get("view") or {}).get("price"),
+                "ticker": p.get("ticker"),
+                "title": p.get("big") or g["game"],
+                "state": p.get("state") or "",
             }
             done, why = game_finished(info, now, g["league"])
             if done:
-                dropped.append("%s (%s)" % (g["game"], why))
+                dropped.append("%s · %s (%s)" % (g["game"], p.get("big") or "", why))
                 continue
-        for p in picks:
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
-            for k in ("status", "result", "closeTs", "yesAsk", "noAsk"):
-                p.pop(k, None)
-        g["picks"] = picks
+            kept.append(p)
+        if not kept:
+            continue
+        g["picks"] = kept
+        closes = [p.get("closeTs") or 0 for p in kept if p.get("closeTs")]
+        g["closeTs"] = min(closes) if closes else 0
         games.append(g)
     games.sort(key=lambda g: (0 if g["live"] else 1, g["startTs"] or 10**12, g["id"]))
     if dropped:

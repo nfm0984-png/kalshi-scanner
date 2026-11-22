@@ -18,6 +18,8 @@ const ELITE_MIN_BETS = 10;
 const FRESH_SECS = 3 * 3600;
 const FRESH_MIN = 500;
 const DECIDED_PX = 0.97;
+const KFINAL = ["finalized", "determined", "settled", "closed", "deactivated", "inactive"];
+const FINISH_GRACE_SECS = 30 * 60;
 const LIVE_HOURS: Record<string, number> = { NFL: 4, CFB: 4, NCAAF: 4, MLB: 3.5, ATP: 3.5, WTA: 3.5, TENNIS: 3.5, UFC: 6, MMA: 6, BOXING: 6, CBB: 2.75, NCAAB: 2.75, NCAAMB: 2.75, NBA: 3, NHL: 3, CS2: 3.5, DOTA2: 3.5, LOL: 3.5, VAL: 3.5, ESPORTS: 3.5 };
 const liveSecsFor = (league?: string | null): number => Math.round(3600 * (LIVE_HOURS[(league || "").toUpperCase()] || 3));
 const BT_ORDER = ["Moneyline", "Spread", "Totals", "Both teams to score", "Player props", "Other"];
@@ -26,11 +28,11 @@ interface WL { w: number; l: number; n?: number }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
-interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string }
-interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[] }
+interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null }
+interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; cost?: number | null; contracts?: number | null; startTs: number; state?: string; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
+interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
@@ -435,12 +437,48 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
 }
 
 
-function gameOver(g: Game, now: number): boolean {
-  if (g.startTs && now >= g.startTs + liveSecsFor(g.league)) return true;
-  if (/^(UFC|MMA|BOXING)$/i.test(g.league || "")) return false;
-  if (g.startTs && g.startTs <= now) {
-    return (g.picks || []).some((p: Pick) => p.bt === "Moneyline" && p.view.price != null && (p.view.price >= DECIDED_PX || (p.view.price <= 1 - DECIDED_PX && p.view.yesNo === "No")));
+function marketStatusOf(p: { status?: string; state?: string; result?: string | null }): { status: string; result: string } {
+  return { status: String(p.status || p.state || "").toLowerCase(), result: String(p.result || "").toLowerCase() };
+}
+function midMarketPrice(price?: number | null, yesAsk?: number | null, noAsk?: number | null): boolean {
+  const mid = (v?: number | null) => v != null && v > 1 - DECIDED_PX && v < DECIDED_PX;
+  return mid(price) || mid(yesAsk) || mid(noAsk);
+}
+function decidedMarketPrice(price?: number | null, yesAsk?: number | null, noAsk?: number | null, bt?: string, yesNo?: string | null): boolean {
+  if (yesAsk != null && yesAsk >= DECIDED_PX) return true;
+  if (noAsk != null && noAsk >= DECIDED_PX) return true;
+  if (price == null) return false;
+  if (price >= DECIDED_PX || price <= 1 - DECIDED_PX) return true;
+  return false;
+}
+// Hide a pick when its Kalshi market is closed/settled, the result is in, or the game has clearly finished.
+// Still-active mid-price markets get a short grace window past typical duration so live OT stays visible.
+function pickIsFinished(p: { status?: string; state?: string; result?: string | null; closeTs?: number; startTs?: number; yesAsk?: number | null; noAsk?: number | null; price?: number | null; view?: { price?: number | null; yesNo?: string | null }; bt?: string; league?: string }, now: number, league?: string, gameCloseTs?: number, gameStartTs?: number): boolean {
+  const { status, result } = marketStatusOf(p);
+  if (KFINAL.indexOf(status) >= 0 || result === "yes" || result === "no") return true;
+  const close = p.closeTs || gameCloseTs || 0;
+  if (close && now >= close) return true;
+  const start = p.startTs || gameStartTs || 0;
+  const px = (p.view && p.view.price != null) ? p.view.price : (p.price != null ? p.price : null);
+  const started = !!(start && start <= now);
+  if (started && decidedMarketPrice(px, p.yesAsk, p.noAsk) && !/^(UFC|MMA|BOXING)$/i.test(league || "")) return true;
+  if (start && now >= start + liveSecsFor(league)) {
+    const active = !status || status === "active" || status === "open" || status === "initialized" || status === "unopened";
+    if (active && midMarketPrice(px, p.yesAsk, p.noAsk) && now < start + liveSecsFor(league) + FINISH_GRACE_SECS) return false;
+    return true;
   }
+  return false;
+}
+function gamePickIsFinished(p: Pick, g: Game, now: number): boolean {
+  return pickIsFinished(p, now, g.league, g.closeTs, g.startTs);
+}
+function followPickIsFinished(p: FollowPick, now: number): boolean {
+  return pickIsFinished({ status: p.status, state: p.state, result: p.result, closeTs: p.closeTs, startTs: p.startTs, yesAsk: p.yesAsk, noAsk: p.noAsk, price: p.price, bt: p.bt }, now, p.league, undefined, p.startTs);
+}
+function gameOver(g: Game, now: number): boolean {
+  const picks = g.picks || [];
+  if (picks.length && picks.every((p: Pick) => gamePickIsFinished(p, g, now))) return true;
+  if (!picks.length && pickIsFinished({ status: g.state, state: g.state, closeTs: g.closeTs, startTs: g.startTs }, now, g.league, g.closeTs, g.startTs)) return true;
   return false;
 }
 function ptDateParts(ts: number): { y: number; m: number; d: number; h: number; key: string } {
@@ -479,7 +517,7 @@ function todayGames(games: Game[], now: number): Game[] {
 }
 function openGames(now: number): Game[] {
   const horizon = now + 30 * 24 * 3600;
-  return (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
+  return (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon && !gamePickIsFinished(p, g, now)) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
 }
 function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   const seen: Record<string, boolean> = {};
@@ -1049,7 +1087,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
 function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   const F = DATA.following || { cappers: [], picks: [], startedAt: "", recorded: 0, graded: 0 };
   const caps = F.cappers || [];
-  const picks = (F.picks || []).slice();
+  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now));
   const byName: Record<string, FollowPick[]> = {};
   picks.forEach((fp: FollowPick) => { (byName[fp.nickname] = byName[fp.nickname] || []).push(fp); });
   Object.keys(byName).forEach((k: string) => {
@@ -1280,7 +1318,7 @@ export default function App() {
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
-  const followN = ((DATA.following && DATA.following.picks) || []).length;
+  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now)).length;
   const applyData = (data: Data) => {
     DATA = data;
     (window as any).__DATA = data;
