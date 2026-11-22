@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 3:37 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 3:42 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3758,6 +3758,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 3:37 PM PT",
       "recordedTs": 1795390623,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXNFLGAME-26NOV22NYJLAC-NYJ|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNFLGAME-26NOV22NYJLAC-NYJ",
+      "eventTicker": "KXNFLGAME-26NOV22NYJLAC",
+      "game": "New York J vs Los Angeles C",
+      "backing": "New York J",
+      "yesNo": "Yes",
+      "entry": 0.98,
+      "price": 0.99,
+      "cost": 19375.58,
+      "contracts": 19771.0,
+      "startTs": 1795392300,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 3:42 PM PT",
+      "recordedTs": 1795390923,
       "status": "open",
       "result": null,
       "settledAt": null
