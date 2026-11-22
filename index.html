@@ -125,18 +125,48 @@ function bootApp(data) {
     document.getElementById("root").innerHTML = '<div id="boot">Loading Kalshi picks…</div>';
   }
   var t = Date.now();
-  return loadScript("config.js?v=6d43d1557c&t=" + t).catch(function () {}).then(function () {
-    return loadScript("app.js?v=6d43d1557c&t=" + Date.now());
+  return loadScript("config.js?v=1f66e95deb&t=" + t).catch(function () {}).then(function () {
+    return loadScript("app.js?v=1f66e95deb&t=" + Date.now());
   });
 }
-function fetchData() {
-  return fetch("data.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) {
+function pageAssetUrl(name) {
+  var path = (location.pathname || "/");
+  if (path.slice(-5) === ".html") path = path.replace(/[^/]+$/, "");
+  if (path.charAt(path.length - 1) !== "/") path += "/";
+  return location.origin + path + name;
+}
+function fetchPagesData() {
+  var url = pageAssetUrl("data.json") + "?t=" + Date.now() + "&n=" + Math.random().toString(36).slice(2);
+  return fetch(url, { cache: "no-store", headers: { "Cache-Control": "no-cache", Pragma: "no-cache" } }).then(function (r) {
     if (!r.ok) throw new Error("HTTP " + r.status);
     return r.json();
   });
 }
+function fetchGithubData() {
+  // Bypass the 10-minute GitHub Pages cache on data.json.
+  var url = "https://api.github.com/repos/nfm0984-png/kalshi-scanner/contents/data.json?ref=main&t=" + Date.now();
+  var headers = { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": "2022-11-28" };
+  try {
+    var cfg = window.__CFG || {};
+    var built = ((cfg.k || []).map(function (x) { return String(x).split("").reverse().join(""); }).join("")) || "";
+    var stored = "";
+    try { stored = (localStorage.getItem("kalshi-scanner-gh-key") || "").trim(); } catch (e) {}
+    var key = built || stored;
+    if (key) headers.Authorization = "Bearer " + key;
+  } catch (e) {}
+  return fetch(url, { cache: "no-store", headers: headers }).then(function (r) {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  });
+}
+function fetchData() {
+  return fetchGithubData().catch(function () { return fetchPagesData(); });
+}
 window.__loadScannerData = function () {
-  return fetchData().then(function (raw) { return window.__unlockData(raw); });
+  return fetchData().then(function (raw) {
+    if (!window.__unlockData) throw new Error("Unlock this device to refresh.");
+    return window.__unlockData(raw);
+  });
 };
 async function start() {
   var gate = await (await fetch("gate.json?t=" + Date.now(), { cache: "no-store" })).json();

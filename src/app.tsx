@@ -42,6 +42,8 @@ const CFG: any = (window as any).__CFG || {};
 const GH_OWNER = String(CFG.owner || "nfm0984-png");
 const GH_REPO = String(CFG.repo || "kalshi-scanner");
 const GH_WORKFLOW = String(CFG.workflow || "scanner.yml");
+const GH_FALLBACK_REPO = String(CFG.fallbackRepo || "whale-scanner-kexg2auz");
+const GH_FALLBACK_WORKFLOW = String(CFG.fallbackWorkflow || "dispatch-kalshi-scan.yml");
 const KEY_LS = "kalshi-scanner-gh-key";
 const SCAN_EXPECT_SECS = 150;
 function accessKey(): string {
@@ -50,10 +52,21 @@ function accessKey(): string {
   try { const v = window.localStorage.getItem(KEY_LS); if (v) return v.trim(); } catch (e) { /* ignore */ }
   return "";
 }
-function ghApi(path: string, init?: { method?: string; body?: string }): Promise<Response> {
+function ghApi(path: string, init?: { method?: string; body?: string; repo?: string }): Promise<Response> {
+  const repo = (init && init.repo) || GH_REPO;
   const h: Record<string, string> = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", Authorization: "Bearer " + accessKey() };
   if (init && init.body) h["Content-Type"] = "application/json";
-  return fetch("https://api.github.com/repos/" + GH_OWNER + "/" + GH_REPO + path, { method: (init && init.method) || "GET", body: init && init.body, headers: h, cache: "no-store" });
+  return fetch("https://api.github.com/repos/" + GH_OWNER + "/" + repo + path, { method: (init && init.method) || "GET", body: init && init.body, headers: h, cache: "no-store" });
+}
+function pageAssetUrl(name: string): string {
+  try {
+    let path = window.location.pathname || "/";
+    if (path.endsWith(".html")) path = path.replace(/[^/]+$/, "");
+    if (!path.endsWith("/")) path += "/";
+    return window.location.origin + path + name;
+  } catch (e) {
+    return name;
+  }
 }
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const mmss = (sec: number): string => Math.floor(sec / 60) + ":" + String(Math.floor(sec % 60)).padStart(2, "0");
@@ -83,16 +96,48 @@ function nextScheduledPt(ms = Date.now()): string {
   const h12 = hour % 12 === 0 ? 12 : hour % 12;
   return h12 + ":20 " + ampm + " PT";
 }
-async function fetchLatestData(): Promise<Data> {
-  const loader = (window as any).__loadScannerData as undefined | (() => Promise<Data>);
-  if (loader) return await loader();
-  const r = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
-  if (!r.ok) throw new Error("HTTP " + r.status);
-  const raw = await r.json();
+async function unlockRawData(raw: any): Promise<Data> {
   const unlock = (window as any).__unlockData as undefined | ((raw: any) => Promise<Data>);
   if (unlock) return await unlock(raw);
   if (raw && raw.enc) throw new Error("Unlock this device to refresh.");
   return raw as Data;
+}
+async function fetchPagesData(): Promise<any> {
+  const url = pageAssetUrl("data.json") + "?t=" + Date.now() + "&n=" + Math.random().toString(36).slice(2);
+  const r = await fetch(url, { cache: "no-store", headers: { "Cache-Control": "no-cache", Pragma: "no-cache" } });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return await r.json();
+}
+async function fetchGithubData(): Promise<any> {
+  // GitHub Pages caches data.json for 10 minutes and often ignores query-string busts.
+  // The Contents API is a public, CORS-open read of the same encrypted file on main.
+  const url = "https://api.github.com/repos/" + GH_OWNER + "/" + GH_REPO + "/contents/data.json?ref=main&t=" + Date.now();
+  const h: Record<string, string> = { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": "2022-11-28" };
+  const key = accessKey();
+  if (key) h.Authorization = "Bearer " + key;
+  const r = await fetch(url, { cache: "no-store", headers: h });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return await r.json();
+}
+async function fetchLatestData(): Promise<Data> {
+  let raw: any = null;
+  let lastErr: any = null;
+  try { raw = await fetchGithubData(); } catch (e) { lastErr = e; }
+  if (!raw) {
+    try { raw = await fetchPagesData(); } catch (e) { lastErr = e; }
+  }
+  if (!raw) {
+    const loader = (window as any).__loadScannerData as undefined | (() => Promise<Data>);
+    if (loader) return await loader();
+    throw lastErr || new Error("Couldn't refresh.");
+  }
+  try {
+    return await unlockRawData(raw);
+  } catch (e: any) {
+    const msg = String((e && e.message) || e || "");
+    if (/unlock/i.test(msg)) throw e;
+    throw new Error("Couldn't decrypt the new data. Unlock this device and try again.");
+  }
 }
 
 const money = (n: number): string => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
@@ -401,9 +446,19 @@ function gameOver(g: Game, now: number): boolean {
   return false;
 }
 function ptDateParts(ts: number): { y: number; m: number; d: number; h: number; key: string } {
-  const parts: Record<string, string> = {};
-  new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date(ts * 1000)).forEach((p) => { if (p.type !== "literal") parts[p.type] = p.value; });
-  return { y: +parts.year, m: +parts.month, d: +parts.day, h: +parts.hour, key: parts.year + "-" + parts.month + "-" + parts.day };
+  const d = new Date((ts || 0) * 1000);
+  const fallback = { y: 1970, m: 1, d: 1, h: 0, key: "1970-01-01" };
+  if (isNaN(d.getTime())) return fallback;
+  try {
+    const parts: Record<string, string> = {};
+    new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hour12: false }).formatToParts(d).forEach((p) => { if (p.type !== "literal") parts[p.type] = p.value; });
+    let h = +parts.hour;
+    if (h === 24) h = 0;
+    if (!parts.year || !parts.month || !parts.day) return fallback;
+    return { y: +parts.year, m: +parts.month, d: +parts.day, h: isNaN(h) ? 0 : h, key: parts.year + "-" + parts.month + "-" + parts.day };
+  } catch (e) {
+    return fallback;
+  }
 }
 function ptDayOffset(startTs: number, now: number): number {
   const a = ptDateParts(startTs), b = ptDateParts(now);
@@ -1243,10 +1298,12 @@ export default function App() {
     setJob({ mode: "refresh", phase: "loading", msg: "Fetching the latest scan data…", t0 });
     fetchLatestData().then((data) => {
       applyData(data);
-      setJob({ mode: "refresh", phase: "done", msg: "Updated " + formatNowPt(), t0 });
-    }).catch(() => {
-      setRefreshErr("Couldn't refresh. Try again.");
-      setJob({ mode: "refresh", phase: "error", msg: "Couldn't refresh. Try again.", t0 });
+      const stamp = data.followCheckedAt || data.scannedAt || formatNowPt();
+      setJob({ mode: "refresh", phase: "done", msg: "Updated " + formatNowPt() + " · " + stamp, t0 });
+    }).catch((e: any) => {
+      const msg = String((e && e.message) || "Couldn't refresh. Try again.");
+      setRefreshErr(msg);
+      setJob({ mode: "refresh", phase: "error", msg, t0 });
     }).finally(() => setRefreshing(false));
   };
   const scanBusy = !!job && job.mode === "scan" && (job.phase === "starting" || job.phase === "queued" || job.phase === "in_progress" || job.phase === "loading");
@@ -1279,32 +1336,83 @@ export default function App() {
     }
     setJob({ mode: "scan", phase: "error", msg: "Started, but the run is taking longer than expected. Open GitHub or tap Refresh later.", t0 });
   };
-  const findRun = async (t0: number): Promise<number | null> => {
+  const findRun = async (t0: number, repo?: string): Promise<{ id: number; url?: string } | null> => {
     for (let i = 0; i < 12; i++) {
       await sleep(4000);
       try {
-        const r = await ghApi("/actions/runs?event=workflow_dispatch&per_page=5");
+        const r = await ghApi("/actions/runs?event=workflow_dispatch&per_page=5", { repo: repo || GH_REPO });
         if (r.ok) {
           const j = await r.json();
-          const run = (j.workflow_runs || []).find((x: { created_at?: string; id?: number }) => Date.parse(x.created_at || "") >= t0 - 90000);
-          if (run && run.id) return run.id;
+          const run = (j.workflow_runs || []).find((x: { created_at?: string; id?: number; html_url?: string }) => Date.parse(x.created_at || "") >= t0 - 90000);
+          if (run && run.id) return { id: run.id, url: run.html_url };
         }
       } catch (e) { /* retry */ }
     }
     return null;
   };
+  const followFallback = async (runId: number, t0: number, url?: string) => {
+    const before = DATA.ts || 0;
+    for (let i = 0; i < 40; i++) {
+      await sleep(i === 0 ? 3000 : 6000);
+      let r: Response;
+      try { r = await ghApi("/actions/runs/" + runId, { repo: GH_FALLBACK_REPO }); } catch (e) { continue; }
+      if (!r.ok) continue;
+      const run = await r.json();
+      const runUrl = run.html_url || url;
+      if (run.status !== "completed") {
+        setJob({ mode: "scan", phase: run.status === "in_progress" ? "in_progress" : "queued", msg: run.status === "in_progress" ? "Starting the Kalshi scan via the whale repo…" : "Waiting for the fallback workflow…", t0, url: runUrl });
+        continue;
+      }
+      if (run.conclusion !== "success") {
+        setJob({ mode: "scan", phase: "error", msg: "Fallback needs a KALSHI_DISPATCH_TOKEN secret on the whale repo.", t0, url: runUrl });
+        return;
+      }
+      setJob({ mode: "scan", phase: "queued", msg: "Fallback started the Kalshi scan…", t0, url: runUrl });
+      const kalshi = await findRun(t0, GH_REPO);
+      if (kalshi) { await followScan(kalshi.id, t0); return; }
+      setJob({ mode: "scan", phase: "loading", msg: "Done. Loading the new data…", t0, url: runUrl });
+      for (let k = 0; k < 24; k++) {
+        try {
+          const data = await fetchLatestData();
+          if ((data.ts || 0) !== before) { applyData(data); setJob({ mode: "scan", phase: "done", msg: "Updated " + formatNowPt(), t0, url: runUrl }); return; }
+        } catch (e) { /* retry */ }
+        await sleep(5000);
+      }
+      setJob({ mode: "scan", phase: "done", msg: "Scan finished. Tap Refresh if the new data isn’t here yet.", t0, url: runUrl });
+      return;
+    }
+    setJob({ mode: "scan", phase: "error", msg: "Started, but the run is taking longer than expected. Open GitHub or tap Refresh later.", t0, url });
+  };
   const startScan = async () => {
-    if (busy || !accessKey()) return;
+    if (scanBusy || !accessKey()) return;
     const t0 = Date.now();
     setSheet("");
     setJob({ mode: "scan", phase: "starting", msg: "Starting a scan (20 new names)…", t0 });
     try {
-      const r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
-      if (r.status === 401 || r.status === 403 || r.status === 404) { setJob({ mode: "scan", phase: "error", msg: "GitHub rejected the access key (" + r.status + "). This token needs Actions write on the kalshi-scanner repo. You can still start a scan on GitHub.", t0 }); return; }
+      let r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
+      let via = "direct";
+      if (r.status === 401 || r.status === 403 || r.status === 404) {
+        setJob({ mode: "scan", phase: "starting", msg: "Token needs Actions write. Trying the whale-repo fallback…", t0 });
+        r = await ghApi("/actions/workflows/" + GH_FALLBACK_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20", mode: "scan" } }), repo: GH_FALLBACK_REPO });
+        via = "fallback";
+        if (r.status === 401 || r.status === 403 || r.status === 404) {
+          setJob({ mode: "scan", phase: "error", msg: "Token needs Actions write", t0 });
+          return;
+        }
+      }
       if (!r.ok && r.status !== 204) { setJob({ mode: "scan", phase: "error", msg: "GitHub returned " + r.status + ". Try again in a minute, or start the scan on GitHub.", t0 }); return; }
+      if (via === "fallback") {
+        const run = await findRun(t0, GH_FALLBACK_REPO);
+        if (!run) { setJob({ mode: "scan", phase: "error", msg: "Started fallback, but couldn’t find the run. Open GitHub or tap Refresh later.", t0 }); return; }
+        await followFallback(run.id, t0, run.url);
+        return;
+      }
       let runId: number | null = null;
       if (r.status === 200) { try { const j = await r.json(); runId = j.workflow_run_id || null; } catch (e) { runId = null; } }
-      if (!runId) runId = await findRun(t0);
+      if (!runId) {
+        const run = await findRun(t0, GH_REPO);
+        runId = run ? run.id : null;
+      }
       if (!runId) { setJob({ mode: "scan", phase: "error", msg: "Started, but couldn’t find the run. Open GitHub or tap Refresh in a couple of minutes.", t0 }); return; }
       await followScan(runId, t0);
     } catch (e) {
@@ -1415,7 +1523,7 @@ export default function App() {
             </div>
             <div className="ks-hero-actions">
               <div className="ks-hero-btns">
-                <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={busy} aria-busy={refreshing} aria-label="Refresh latest scan data" title="Reload the latest published data" style={{ ...iconBtn, border: "1.5px solid rgba(147,197,253,0.55)", background: "rgba(255,255,255,0.06)", color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
+                <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={refreshing} aria-busy={refreshing} aria-label="Refresh latest scan data" title="Reload the latest published data" style={{ ...iconBtn, border: "1.5px solid rgba(147,197,253,0.55)", background: "rgba(255,255,255,0.06)", color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
                   {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 14, height: 14, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : <IconRefresh />}
                 </button>
                 <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...compactBtn, border: "0", background: "#93C5FD", color: NAVY_DEEP, opacity: scanBusy ? 0.85 : 1 }}>
