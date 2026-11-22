@@ -867,7 +867,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
             state = lib.open_state(info, now)
             if state == "final":
                 continue
-            start_ts = info.get("start_ts") or 0
+            start_ts = info.get("start_ts") or ticker_date_ts(tk) or 0
             if window_secs and start_ts and start_ts > now + window_secs:
                 continue
             inv = inv_map.get(tk) if inv_map else None
@@ -898,6 +898,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
             backing = (info.get("yes_sub_title") if side == "yes" else info.get("no_sub_title")) or info.get("title") or tk
             game = info.get("event_title") or info.get("title") or ev_tk or tk
             slip = round((ask - entry) * 100, 1) if entry is not None and ask is not None else None
+            px = ask if ask is not None else entry
             picks.append({
                 "ticker": tk,
                 "eventTicker": info.get("event_ticker") or ev_tk,
@@ -907,7 +908,7 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
                 "yesNo": "Yes" if side == "yes" else "No",
                 "label": backing,
                 "entry": round(entry, 4) if entry is not None else None,
-                "price": round(ask, 4),
+                "price": round(px, 4) if px is not None else None,
                 "yesAsk": info.get("yes_ask"),
                 "noAsk": info.get("no_ask"),
                 "cost": round(cost, 2),
@@ -1125,7 +1126,7 @@ def is_near_term_pick(p, now, horizon_secs=FOLLOW_HORIZON_SECS):
     done, _why = game_finished(info, now, p.get("league") or "")
     if done:
         return False
-    when = start or close
+    when = start or close or ticker_date_ts(p.get("ticker") or info.get("ticker") or "") or 0
     if not when:
         return False
     if when <= now:
@@ -1254,14 +1255,32 @@ def build_capper_row(nick, people, prof, metrics, trades, holdings, picks, now, 
 _TICKER_DATE_RE = re.compile(r"(?:^|-)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d{2})(?=[A-Z-]|\b)", re.I)
 _MONTH_NUM = {"JAN":1,"FEB":2,"MAR":3,"APR":4,"MAY":5,"JUN":6,"JUL":7,"AUG":8,"SEP":9,"OCT":10,"NOV":11,"DEC":12}
 
-def post_ticker_in_window(tk, now, slack_days=3, ahead_days=45):
-    """Skip clearly stale dated tickers before we hydrate (finished weeks ago)."""
+def ticker_date(tk):
+    """Calendar date encoded in a YYMONDD ticker, or None."""
     m = _TICKER_DATE_RE.search(tk or "")
     if not m:
-        return True
+        return None
     try:
-        day = dt.date(2000 + int(m.group(1)), _MONTH_NUM[m.group(2).upper()], int(m.group(3)))
+        return dt.date(2000 + int(m.group(1)), _MONTH_NUM[m.group(2).upper()], int(m.group(3)))
     except (ValueError, KeyError):
+        return None
+
+def ticker_date_ts(tk, hour=13):
+    """PT timestamp for a dated ticker when Kalshi omits occurrence_datetime.
+
+    1pm PT is a last-resort slate time (typical NFL window) so $500+ today
+    positions are not dropped as undated. Do not invent a start in the past
+    morning, which would let decided-price logic hide a pre-kickoff favorite.
+    """
+    day = ticker_date(tk)
+    if not day:
+        return None
+    return int(dt.datetime(day.year, day.month, day.day, hour, 0, tzinfo=PT).timestamp())
+
+def post_ticker_in_window(tk, now, slack_days=3, ahead_days=45):
+    """Skip clearly stale dated tickers before we hydrate (finished weeks ago)."""
+    day = ticker_date(tk)
+    if not day:
         return True
     today = dt.datetime.fromtimestamp(int(now), PT).date()
     delta = (day - today).days
@@ -1386,7 +1405,7 @@ def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
         done, _why = game_finished(info, now, league)
         if done or lib.open_state(info, now) == "final":
             continue
-        start_ts = info.get("start_ts") or 0
+        start_ts = info.get("start_ts") or ticker_date_ts(tk) or 0
         if not is_near_term_pick({"startTs": start_ts, "closeTs": info.get("close_ts") or 0, "league": league, "ticker": tk, "status": info.get("status")}, now):
             continue
         yes_no = side
@@ -2406,11 +2425,17 @@ def build(now=None, log=print):
     for c in live_cappers:
         byn[nick_key(c["nickname"])] = c
     # Any active db member we failed to refresh still appears on the Cappers tab, no invented picks.
+    # Keep their last published following picks so a missed refresh cannot wipe $500+ copies.
     live_names = set(byn)
+    prev_follow = {}
+    for p in ((prev.get("following") or {}).get("picks") or []):
+        nk = nick_key(p.get("nickname"))
+        if nk:
+            prev_follow.setdefault(nk, []).append(p)
     for row in active.get("cappers") or []:
         n = nick_key(row.get("nickname"))
         if n and n not in live_names:
-            byn[n] = dict(row, picks=[])
+            byn[n] = dict(row, picks=[], followingPicks=list(prev_follow.get(n) or []))
     cappers = list(byn.values())
 
     # Ranked / Coming Up are built after reconcile so they only include Best Cappers picks.

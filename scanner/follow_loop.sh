@@ -9,6 +9,9 @@ cd "$ROOT"
 git config user.name "kalshi-scanner"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+# A queued job may have checked out an older SHA while a scan pushed. Start from latest data.
+git pull --rebase origin main || true
+
 CHANGED=0
 python3 - <<'PY' || true
 from datetime import datetime
@@ -29,8 +32,9 @@ if 0 <= now_pt.hour < 6:
     print("quiet hours — stopping the follow loop")
     sys.exit(0)
 utc = datetime.now(timezone.utc)
-# Yield the :20 UTC hourly full scan.
-if 18 <= utc.minute <= 24:
+# Yield just before the :20 UTC hourly full scan. A delayed loop that
+# starts at :21–:24 (after that scan should have begun) still does a pass.
+if 18 <= utc.minute <= 20:
     print("near :20 UTC — stopping so the full scan can run")
     sys.exit(0)
 sys.exit(1)
@@ -65,6 +69,17 @@ run_once() {
       return 0
     fi
     echo "push failed (attempt $i); retrying"
+    # data.json often conflicts; keep this run's data ("theirs" during rebase).
+    if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+      git checkout --theirs -- data.json data 2>/dev/null || true
+      git add data.json
+      if [ -d data ]; then git add -A data; fi
+      if GIT_EDITOR=true git rebase --continue && git push; then
+        CHANGED=1
+        echo "pushed followed check $(git rev-parse --short HEAD)"
+        return 0
+      fi
+    fi
     git rebase --abort 2>/dev/null || true
     sleep 8
   done
@@ -72,11 +87,14 @@ run_once() {
   return 1
 }
 
-# Always do one pass, then repeat every 5 minutes until the window ends.
+# Always do one pass (even if this job started late in the :18–:20 yield
+# window), then repeat every 5 minutes until the window ends.
+FIRST=1
 while true; do
-  if should_stop; then
+  if [ "$FIRST" != 1 ] && should_stop; then
     break
   fi
+  FIRST=0
   START=$(date +%s)
   echo "==== follow-check $(date -u +%H:%M:%SZ) ===="
   run_once || echo "follow-check iteration failed; will try again next cycle"
