@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 8:23 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -692,9 +692,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 8:23 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV21BYUKU-BYU|Yes",
@@ -776,9 +776,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 8:23 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV21TXAMOKLA-TXAM|Yes",
@@ -839,9 +839,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 8:23 PM PT"
     },
     {
       "id": "coachlord66|KXNCAAFGAME-26NOV21VANFLA-FLA|Yes",
