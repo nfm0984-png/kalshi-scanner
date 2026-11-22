@@ -1,6 +1,32 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 11:00 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
   "scans": [
+    {
+      "ts": 1795377447,
+      "at": "Sun Nov 22 \u00b7 11:57 AM PT",
+      "names": 267,
+      "newFollows": [
+        "jreit123",
+        "emji.emji"
+      ],
+      "followed": 50,
+      "target": 50,
+      "openPicks": 12,
+      "ids": [
+        "KXLNBELITEGAME-26NOV221300JLBASV-JLB|Yes",
+        "KXNFLGAME-26NOV22BALCAR-CAR|Yes",
+        "KXNFLGAME-26NOV22BALCAR-BAL|Yes",
+        "KXNFLGAME-26NOV22NOCHI-CHI|Yes",
+        "KXNFLGAME-26NOV22PITPHI-PIT|Yes",
+        "KXNFLGAME-26NOV22TBDET-DET|Yes",
+        "KXNFLSPREAD-26NOV22MIABUF-BUF24|No",
+        "KXNFLSPREAD-26NOV22PITPHI-PHI7|Yes",
+        "KXNFLTDPROT-26NOV22TBDET-DETJGIBBS0-1|Yes",
+        "KXNFLTOTAL-26NOV22ARIKC-48|No",
+        "KXNFLTOTAL-26NOV22ARIKC-41|No",
+        "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
+      ]
+    },
     {
       "ts": 1795374014,
       "at": "Sun Nov 22 \u00b7 11:00 AM PT",
