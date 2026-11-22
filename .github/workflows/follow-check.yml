@@ -1,0 +1,97 @@
+name: Kalshi follow-check
+# Starts at :30 UTC each hour (same minute in PT while the offset is whole hours)
+# and re-checks every Best Capper's public book about every 5 minutes until just
+# before the :20 full scan. GitHub's */5 cron is too often delayed or dropped.
+# Scheduled runs no-op from midnight–6 AM America/Los_Angeles (DST-safe).
+# Manual dispatch is always allowed, including overnight (one pass, or a loop).
+on:
+  schedule:
+    - cron: "30 * * * *"
+  workflow_dispatch:
+    inputs:
+      once:
+        description: "Run a single follow-check instead of the 5-minute loop"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: kalshi-scanner
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  follow-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    env:
+      KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
+    steps:
+      - name: Quiet hours (midnight–6 AM PT)
+        id: quiet
+        if: github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          now = datetime.now(ZoneInfo("America/Los_Angeles"))
+          skip = 0 <= now.hour < 6
+          print("PT now %s hour=%d quiet=%s" % (now.strftime("%a %b %-d %-I:%M %p %Z"), now.hour, skip))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("skip=%s\n" % ("1" if skip else "0"))
+          PY
+
+      - uses: actions/checkout@v4
+        if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
+
+      - uses: actions/setup-python@v5
+        if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
+        with:
+          python-version: "3.12"
+
+      - name: Follow-check loop
+        if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
+        id: loop
+        env:
+          FOLLOW_LOOP_SECS: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.once == 'true') && '1' || '2880' }}
+        run: |
+          set -euo pipefail
+          pip install -q cryptography
+          bash scanner/follow_loop.sh
+
+      - name: Stage Pages
+        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main || true
+          mkdir -p _site
+          cp index.html app.js data.json robots.txt gate.json _site/
+          if [ -f config.js ]; then cp config.js _site/; fi
+          echo "nfm0984-png.github.io" > _site/CNAME
+
+      - name: Setup Pages
+        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Wait for Pages artifact
+        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
+        run: sleep 20
+
+      - name: Deploy to GitHub Pages
+        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
+        id: pages
+        uses: actions/deploy-pages@v4

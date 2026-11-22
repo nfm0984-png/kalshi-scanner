@@ -443,9 +443,10 @@ def paginate_holdings(http, nick):
     return vis or "visible", holdings
 
 
-def paginate_trades(http, nick, now, stop_ts, max_pages=None):
+def paginate_trades(http, nick, now, stop_ts, max_pages=None, need_tickers=None):
     trades, cursor = [], None
     vis = None
+    need = set(need_tickers or [])
     for page in range(max_pages or MAX_TRADE_PAGES):
         params = {"nickname": nick, "page_size": 100}
         if cursor:
@@ -462,6 +463,14 @@ def paginate_trades(http, nick, now, stop_ts, max_pages=None):
         oldest = iso_ts(batch[-1].get("create_date"))
         if oldest is not None and oldest < stop_ts:
             break
+        if need:
+            got = set()
+            for tr in trades:
+                tk = tr.get("ticker") or tr.get("market_ticker") or ""
+                if tk:
+                    got.add(tk)
+            if need.issubset(got):
+                break
         cursor = data.get("cursor")
         if not cursor:
             break

@@ -1,5 +1,6 @@
 name: Kalshi scanner
-# :20 UTC = full hourly scan. */5 = light followed-check of pinned books only.
+# :20 UTC = full hourly scan (minute :20 PT as well while the offset is whole hours).
+# 5-minute followed-checks live in follow-check.yml (hourly :30 start, loop every 5 min).
 # Scheduled runs no-op from midnight–6 AM America/Los_Angeles (DST-safe).
 # workflow_dispatch: leave mode blank (or "scan") for a full scan; "follow-check" for a light run.
 # push to main deploys the already-built site and does not run a scan.
@@ -7,7 +8,6 @@ name: Kalshi scanner
 on:
   schedule:
     - cron: "20 * * * *"
-    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       new_names:
@@ -131,8 +131,9 @@ jobs:
           set -euo pipefail
           git config user.name "kalshi-scanner"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json index.html app.js
+          git add data.json
           if [ -d data ]; then git add -A data; fi
+          # Do not add app.js/index.html — a stale checkout would revert frontend commits.
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else
@@ -141,7 +142,17 @@ jobs:
               MSG="followed check"
             fi
             git commit -m "$MSG"
-            git push
+            i=0
+            while [ $i -lt 3 ]; do
+              i=$((i + 1))
+              git pull --rebase origin main && git push && break
+              echo "push failed (attempt $i); retrying"
+              git rebase --abort 2>/dev/null || true
+              sleep 8
+            done
+            git status -sb
+            git rev-parse HEAD
+            git log -1 --oneline origin/main || true
           fi
 
       - name: Stage Pages

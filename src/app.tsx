@@ -17,6 +17,7 @@ const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
 const FRESH_SECS = 3 * 3600;
 const FRESH_MIN = 500;
+const MIN_STAKE = 500;
 const DECIDED_PX = 0.97;
 const KFINAL = ["finalized", "determined", "settled"];
 const FINISH_GRACE_SECS = 30 * 60;
@@ -30,7 +31,7 @@ interface SportRec { n: number; w: number; l: number; roi?: number | null; profi
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
-interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; rejectNote?: string }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean }
@@ -526,6 +527,23 @@ function isRankedTodayGame(g: Game, now: number): boolean {
 function todayGames(games: Game[], now: number): Game[] {
   return games.filter((g: Game) => isRankedTodayGame(g, now));
 }
+function stakeOk(cost?: number | null): boolean {
+  return (cost || 0) >= MIN_STAKE;
+}
+function filterMinStakeGames(games: Game[]): Game[] {
+  return games.map((g: Game) => {
+    const picks = (g.picks || []).map((p: Pick) => {
+      const backers = (p.backers || []).filter((b: Backer) => stakeOk(b.cost));
+      const total = Math.round(backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
+      return { ...p, backers, total };
+    }).filter((p: Pick) => p.backers.length);
+    return { ...g, picks };
+  }).filter((g: Game) => (g.picks || []).length);
+}
+function isHiddenBook(c?: Capper | null): boolean {
+  const note = ((c && c.rejectNote) || "").toLowerCase();
+  return note.includes("hidden");
+}
 function mergeFollowPicks(games: Game[], now: number): Game[] {
   const byId: Record<string, Game> = {};
   const order: string[] = [];
@@ -536,6 +554,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
   const fps = ((DATA.following || {}).picks || []) as FollowPick[];
   fps.forEach((fp: FollowPick) => {
     if (followPickIsFinished(fp, now)) return;
+    if (!stakeOk(fp.cost)) return;
     const start = fp.startTs || 0;
     if (!start || start > now + 30 * 24 * 3600) return;
     const yesNo = (fp.yesNo === "No" ? "No" : "Yes") as "Yes" | "No";
@@ -563,7 +582,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
 function openGames(now: number): Game[] {
   const horizon = now + 30 * 24 * 3600;
   const base = (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon && !gamePickIsFinished(p, g, now)) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
-  return mergeFollowPicks(base, now);
+  return filterMinStakeGames(mergeFollowPicks(base, now));
 }
 function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   const seen: Record<string, boolean> = {};
@@ -1114,7 +1133,7 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   };
   return (
     <div>
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the visible sports traders in the capper db has a $100+ open sports position starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the visible sports traders in the capper db has a $500+ open sports position starting within 24 hours." : "Try another search or clear the filter."} /> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
       {up.length ? <div data-all-today="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
@@ -1145,8 +1164,8 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const list = rankedPicks(games);
   return (
     <div>
-      <Section heading={"Best Cappers · " + list.length + " picks"} caption="Every open pick from the rotating top 50, best first. Today in PT; after 7pm PT, tomorrow is included.">
-        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Best Cappers picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No Best Cappers name has a trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+      <Section heading={"Best Cappers · " + list.length + " picks"} caption="Every open $500+ pick from the rotating top 50, best first. Today in PT; after 7pm PT, tomorrow is included.">
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Best Cappers picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No Best Cappers name has a $500+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
@@ -1159,7 +1178,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
 function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   const F = DATA.following || { cappers: [], picks: [], startedAt: "", recorded: 0, graded: 0 };
   const caps = F.cappers || [];
-  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now));
+  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now) && stakeOk(fp.cost));
   const byName: Record<string, FollowPick[]> = {};
   picks.forEach((fp: FollowPick) => { (byName[fp.nickname] = byName[fp.nickname] || []).push(fp); });
   Object.keys(byName).forEach((k: string) => {
@@ -1194,7 +1213,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
           {F.startedAt ? ("Since " + F.startedAt + ((F.graded || 0) ? " · " + F.graded + " graded" : (F.recorded || 0) ? " · " + F.recorded + " recorded" : "")) : "Starts when the first followed pick is recorded."}
         </span>
       </div>
-      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your followed cappers don’t have an open traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
+      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your followed cappers don’t have an open $500+ traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
       {picks.length === 0 && !caps.length ? <EmptyState title="Best Cappers is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
       {shown.length === 0 && (q || props.filter) && caps.length ? <EmptyState title="No followed cappers match that filter" body="Try another search or clear the filter." /> : null}
       {shown.map((c: FollowCapper) => {
@@ -1231,7 +1250,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
               {c.open ? <Chip bg={BLUE_BRIGHT} color="#FFFFFF">{c.open} open</Chip> : null}
             </div>
             {cap ? <CapperStatRow c={cap} /> : null}
-            {mine.length ? mine.map((fp: FollowPick) => <FollowPickMini key={c.nickname + "|" + fp.ticker + "|" + fp.yesNo} p={fp} now={props.now} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>No open traditional-sports picks from this capper right now.</div>}
+            {mine.length ? mine.map((fp: FollowPick) => <FollowPickMini key={c.nickname + "|" + fp.ticker + "|" + fp.yesNo} p={fp} now={props.now} />) : <div style={{ fontSize: 13, fontWeight: 650, color: c.hidden ? AMBER : "#64748B", marginTop: 10 }}>{c.hidden ? "Trades are hidden — picks can’t be copied." : "No open $500+ traditional-sports picks from this capper right now."}</div>}
           </CapperShell>
         );
       })}
@@ -1287,7 +1306,7 @@ function CapperCard(props: { c: Capper; now: number; rank: number }) {
         {c.volumeUsd != null ? <Chip bg="#F8FAFC" color="#334155">{"Vol " + kMoney(c.volumeUsd)}</Chip> : null}
       </div>
       <CapperStatRow c={c} />
-      {picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $100 Coming Up window, or already started and dropped from this list." : "No open $100+ pick in the window."}</div>}
+      {isHiddenBook(c) ? <div style={{ fontSize: 13, fontWeight: 700, color: AMBER, marginTop: 10 }}>Trades are hidden — picks can’t be copied.</div> : picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $500 minimum, or already started and dropped from this list." : "No open $500+ pick in the window."}</div>}
     </CapperShell>
   );
 }
@@ -1390,7 +1409,7 @@ export default function App() {
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
-  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now)).length;
+  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost)).length;
   const applyData = (data: Data) => {
     DATA = data;
     (window as any).__DATA = data;
@@ -1532,8 +1551,8 @@ export default function App() {
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "ranked", label: "Best Cappers", count: rankedN, icon: <IconTrophy />, title: "Best Cappers", caption: "All open picks, best first · today in PT, after 7pm + tomorrow" },
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Best Cappers picks, soonest first" },
+    { value: "ranked", label: "Best Cappers", count: rankedN, icon: <IconTrophy />, title: "Best Cappers", caption: "$500+ bets only · today in PT, after 7pm + tomorrow" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$500+ bets only, soonest first" },
     { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Best Cappers vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
@@ -1584,7 +1603,8 @@ export default function App() {
                 <span>{formatLongDatePt()}</span>
               </div>
               <h1 style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.03em", margin: "8px 0 0", lineHeight: 1.1 }}>Kalshi Scanner</h1>
-              <div style={{ fontSize: 15, fontWeight: 600, color: "#94A3B8", marginTop: 6 }}>Kalshi whale picks, best first — public books and trade tape only.</div>
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#94A3B8", marginTop: 6 }}>Kalshi whale picks, best first — public books and trade tape.</div>
+              <div data-min-stake="1" style={{ display: "inline-block", marginTop: 8, padding: "4px 10px", borderRadius: 999, background: "rgba(21,128,61,0.2)", border: "1px solid rgba(134,239,172,0.45)", color: "#BBF7D0", fontSize: 13, fontWeight: 800 }}>$500+ bets only</div>
             </div>
             <div className="ks-hero-actions">
               <div className="ks-hero-btns">
@@ -1631,7 +1651,7 @@ export default function App() {
         </header>
 
         <div className="ks-stats">
-          <DashStat label="Open picks" value={String(comingN)} sub="in the 24-hour $100+ window" color={BLUE_BRIGHT} icon={<IconList />} />
+          <DashStat label="Open picks" value={String(comingN)} sub="$500+ bets only" color={BLUE_BRIGHT} icon={<IconList />} />
           <DashStat label="Best Cappers" value={followedN + "/" + TARGET_FOLLOW} sub="rotating top 50" color="#0EA5E9" icon={<IconUsers />} />
           <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
           <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />
