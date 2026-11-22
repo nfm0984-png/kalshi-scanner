@@ -1,6 +1,34 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 11:24 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
   "scans": [
+    {
+      "ts": 1795335891,
+      "at": "Sun Nov 22 \u00b7 12:24 AM PT",
+      "names": 262,
+      "newFollows": [
+        "nettinyahoo",
+        "bananastand21",
+        "LargeFarva",
+        "parspectives"
+      ],
+      "followed": 26,
+      "target": 50,
+      "openPicks": 12,
+      "ids": [
+        "KXNFLGAME-26NOV22ARIKC-ARI|Yes",
+        "KXNFLGAME-26NOV22MIABUF-MIA|Yes",
+        "KXNFLGAME-26NOV22NOCHI-NO|Yes",
+        "KXNFLGAME-26NOV22TBDET-DET|Yes",
+        "KXNFLGAME-26NOV22TBDET-TB|Yes",
+        "KXNFLREC-26NOV22TBDET-DETJGIBBS0-4|No",
+        "KXNFLRECYDS-26NOV22TBDET-DETJGIBBS0-30|No",
+        "KXNFLSPREAD-26NOV22TBDET-DET8|No",
+        "KXNFLGAME-26NOV22LVDEN-LV|Yes",
+        "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
+        "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
+        "KXNFLSPREAD-26NOV23CINWAS-CIN8|No"
+      ]
+    },
     {
       "ts": 1795332263,
       "at": "Sat Nov 21 \u00b7 11:24 PM PT",
