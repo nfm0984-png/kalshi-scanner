@@ -1,11 +1,13 @@
 name: Kalshi scanner
-# :20 = full hourly scan. 5,35,50 = light followed-check of pinned books only.
+# :20 UTC = full hourly scan. */5 = light followed-check of pinned books only.
+# Scheduled runs no-op from midnight–6 AM America/Los_Angeles (DST-safe).
 # workflow_dispatch: leave mode blank (or "scan") for a full scan; "follow-check" for a light run.
 # push to main deploys the already-built site and does not run a scan.
+# Manual dispatch is always allowed, including overnight.
 on:
   schedule:
     - cron: "20 * * * *"
-    - cron: "5,35,50 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       new_names:
@@ -31,7 +33,8 @@ on:
     paths-ignore:
       - "README.md"
 
-# Keep a running scan; a new one waits. Never cancel mid-Kalshi-crawl.
+# One crawl at a time: 5-minute checks wait if a scan is running, and never
+# cancel a mid-Kalshi crawl. Hourly full scans and 5-minute checks share this group.
 concurrency:
   group: kalshi-scanner
   cancel-in-progress: false
@@ -50,21 +53,48 @@ jobs:
     env:
       KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
+      - name: Quiet hours (midnight–6 AM PT)
+        id: quiet
+        if: github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          now = datetime.now(ZoneInfo("America/Los_Angeles"))
+          skip = 0 <= now.hour < 6
+          print("PT now %s hour=%d quiet=%s" % (now.strftime("%a %b %-d %-I:%M %p %Z"), now.hour, skip))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("skip=%s\n" % ("1" if skip else "0"))
+          PY
+
       - uses: actions/checkout@v4
+        if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
 
       - uses: actions/setup-python@v5
+        if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
         with:
           python-version: "3.12"
 
       - name: Scan or followed-check
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1')
         env:
           NEW_NAMES: ${{ github.event.inputs.new_names || '30' }}
           NEW_PER_SCAN: ${{ github.event.inputs.new_names || '30' }}
           REVIEW_NEW: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode != 'follow-check' && github.event.inputs.review_new) && '1' || '' }}
-          KALSHI_SCAN_MODE: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '5,35,50 * * * *') && 'follow' || 'scan' }}
+          KALSHI_SCAN_MODE: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '*/5 * * * *') && 'follow' || 'scan' }}
         run: |
           set -euo pipefail
+          if [ "${KALSHI_SCAN_MODE}" = "follow" ] && [ "${{ github.event_name }}" = "schedule" ]; then
+            MIN=$(python3 -c "from datetime import datetime, timezone; print(datetime.now(timezone.utc).minute)")
+            if [ "$MIN" -ge 18 ] && [ "$MIN" -le 22 ]; then
+              echo "Skipping the 5-minute check near :20 UTC so the hourly full scan can run."
+              mkdir -p scanner
+              echo 0 > scanner/.follow_changed
+              exit 0
+            fi
+          fi
           pip install -q cryptography
           python scanner/scan.py
           if [ "${KALSHI_SCAN_MODE}" = "follow" ]; then
@@ -74,7 +104,7 @@ jobs:
           fi
 
       - name: Read follow-check change flag
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1')
         id: changed
         run: |
           set -euo pipefail
@@ -107,7 +137,7 @@ jobs:
             echo "No data changes to commit."
           else
             MSG="scan"
-            if [ "${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '5,35,50 * * * *') && 'follow' || 'scan' }}" = "follow" ]; then
+            if [ "${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '*/5 * * * *') && 'follow' || 'scan' }}" = "follow" ]; then
               MSG="followed check"
             fi
             git commit -m "$MSG"

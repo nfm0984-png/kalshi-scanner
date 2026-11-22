@@ -11,14 +11,14 @@ const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
 const CARD_BUDGET = 40;
-const TARGET_FOLLOW = 40;
+const TARGET_FOLLOW = 50;
 const CARD_MIN = 10;
 const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
 const FRESH_SECS = 3 * 3600;
 const FRESH_MIN = 500;
 const DECIDED_PX = 0.97;
-const KFINAL = ["finalized", "determined", "settled", "closed", "deactivated", "inactive"];
+const KFINAL = ["finalized", "determined", "settled"];
 const FINISH_GRACE_SECS = 30 * 60;
 const LIVE_HOURS: Record<string, number> = { NFL: 4, CFB: 4, NCAAF: 4, MLB: 3.5, ATP: 3.5, WTA: 3.5, TENNIS: 3.5, UFC: 6, MMA: 6, BOXING: 6, CBB: 2.75, NCAAB: 2.75, NCAAMB: 2.75, NBA: 3, NHL: 3, CS2: 3.5, DOTA2: 3.5, LOL: 3.5, VAL: 3.5, ESPORTS: 3.5 };
 const liveSecsFor = (league?: string | null): number => Math.round(3600 * (LIVE_HOURS[(league || "").toUpperCase()] || 3));
@@ -288,7 +288,7 @@ function CapperShell(props: { live?: boolean; followed?: boolean; children: Reac
   );
 }
 function isFollowedCapper(c: Capper): boolean {
-  // Only the live pinned flag. Stale "My 40" tier/tag leftover after an unfollow must not count.
+  // Only the live pinned flag. Stale "My 40" / "Best Cappers" leftover after an unfollow must not count.
   return !!c.pinned;
 }
 function isLeaderboardCapper(c: Capper): boolean {
@@ -302,8 +302,12 @@ function isLeaderboardEarner(c?: Capper | null): boolean {
   const g = c.graded;
   return !(g && g.n > 0);
 }
+function displayTier(tier: string): string {
+  if (tier === "My 40" || tier === "Top 10" || tier === "Following" || tier === "Best Cappers") return "Best Cappers";
+  return tier;
+}
 function tierColors(tier: string): { bg: string; fg: string } {
-  if (tier === "My 40" || tier === "Top 10" || tier === "Following") return { bg: "#FEF3C7", fg: "#92400E" };
+  if (tier === "My 40" || tier === "Top 10" || tier === "Following" || tier === "Best Cappers") return { bg: "#FEF3C7", fg: "#92400E" };
   if (tier === "Core") return { bg: BLUE_SOFT, fg: BLUE_INK };
   if (tier === "Top 50") return { bg: "#E0E7FF", fg: "#3730A3" };
   return { bg: "#F1F5F9", fg: "#334155" };
@@ -311,7 +315,7 @@ function tierColors(tier: string): { bg: string; fg: string } {
 function TierChip(props: { tier: string }) {
   if (!props.tier) return null;
   const t = tierColors(props.tier);
-  return <span data-tier={props.tier} style={{ display: "inline-block", padding: "0 8px", borderRadius: 999, background: t.bg, color: t.fg, border: "1.5px solid " + t.fg, fontSize: 11, fontWeight: 850, lineHeight: "18px" }}>{props.tier}</span>;
+  return <span data-tier={displayTier(props.tier)} style={{ display: "inline-block", padding: "0 8px", borderRadius: 999, background: t.bg, color: t.fg, border: "1.5px solid " + t.fg, fontSize: 11, fontWeight: 850, lineHeight: "18px" }}>{displayTier(props.tier)}</span>;
 }
 function RankChips(props: { ranks?: Record<string, number> }) {
   const r = props.ranks || {};
@@ -461,7 +465,8 @@ function decidedMarketPrice(price?: number | null, yesAsk?: number | null, noAsk
 // Still-active mid-price markets get a short grace window past typical duration so live OT stays visible.
 function pickIsFinished(p: { status?: string; state?: string; result?: string | null; closeTs?: number; startTs?: number; yesAsk?: number | null; noAsk?: number | null; price?: number | null; view?: { price?: number | null; yesNo?: string | null }; bt?: string; league?: string }, now: number, league?: string, gameCloseTs?: number, gameStartTs?: number): boolean {
   const { status, result } = marketStatusOf(p);
-  if (KFINAL.indexOf(status) >= 0 || result === "yes" || result === "no") return true;
+  if (result === "yes" || result === "no" || KFINAL.indexOf(status) >= 0) return true;
+  // inactive/closed/deactivated are not settled on their own — often used before tip or during a live halt.
   const close = p.closeTs || gameCloseTs || 0;
   if (close && now >= close) return true;
   const start = p.startTs || gameStartTs || 0;
@@ -521,9 +526,44 @@ function isRankedTodayGame(g: Game, now: number): boolean {
 function todayGames(games: Game[], now: number): Game[] {
   return games.filter((g: Game) => isRankedTodayGame(g, now));
 }
+function mergeFollowPicks(games: Game[], now: number): Game[] {
+  const byId: Record<string, Game> = {};
+  const order: string[] = [];
+  games.forEach((g: Game) => {
+    byId[g.id] = { ...g, picks: (g.picks || []).map((p: Pick) => ({ ...p, backers: (p.backers || []).slice() })) };
+    order.push(g.id);
+  });
+  const fps = ((DATA.following || {}).picks || []) as FollowPick[];
+  fps.forEach((fp: FollowPick) => {
+    if (followPickIsFinished(fp, now)) return;
+    const start = fp.startTs || 0;
+    if (!start || start > now + 30 * 24 * 3600) return;
+    const yesNo = (fp.yesNo === "No" ? "No" : "Yes") as "Yes" | "No";
+    const key = (fp.ticker || "") + "|" + yesNo;
+    const gid = fp.eventTicker || ((fp.game || "") + "|" + start);
+    if (!byId[gid]) {
+      byId[gid] = { id: gid, game: fp.game, league: fp.league || "Sports", startTs: start, start: "", live: !!(start && start <= now), state: start && start <= now ? "live" : "upcoming", picks: [] };
+      order.push(gid);
+    }
+    const g = byId[gid];
+    let pick = (g.picks || []).find((p: Pick) => p.key === key || (p.ticker === fp.ticker && p.view && p.view.yesNo === yesNo));
+    const backer: Backer = { name: fp.nickname, cost: fp.cost || 0, avg: fp.entry ?? null, line: fp.recordLine || fp.nickname, tier: fp.tier || "Best Cappers", pinned: true, lastTs: fp.lastTs ?? null, lastSeen: fp.lastSeen, lastSeenTs: fp.lastSeenTs };
+    if (!pick) {
+      const total = backer.cost || 0;
+      pick = { key, ticker: fp.ticker, eventTicker: fp.eventTicker, mid: fp.ticker, bt: fp.bt || "Other", big: fp.backing || fp.label || fp.game, sub: fp.marketTitle && fp.marketTitle !== (fp.backing || fp.label) ? fp.game : "", view: { backing: fp.backing || fp.label || fp.game, marketTitle: fp.marketTitle || fp.game, outcome: fp.backing || fp.label || "", yesNo, price: fp.price ?? null, ticker: fp.ticker }, backers: [backer], total, tags: [backer.tier || "Best Cappers"], slip: fp.slip, startTs: start, state: fp.state || (start <= now ? "live" : "upcoming"), status: fp.status, result: fp.result ?? null, closeTs: fp.closeTs, yesAsk: fp.yesAsk, noAsk: fp.noAsk };
+      g.picks = (g.picks || []).concat([pick]);
+    } else if (!(pick.backers || []).some((b: Backer) => (b.name || "").toLowerCase() === (fp.nickname || "").toLowerCase())) {
+      pick.backers = (pick.backers || []).concat([backer]);
+      pick.total = Math.round(pick.backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
+      if (backer.tier && (pick.tags || []).indexOf(backer.tier) < 0) pick.tags = (pick.tags || []).concat([backer.tier]);
+    }
+  });
+  return order.map((id: string) => byId[id]).filter((g: Game) => (g.picks || []).length && !gameOver(g, now));
+}
 function openGames(now: number): Game[] {
   const horizon = now + 30 * 24 * 3600;
-  return (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon && !gamePickIsFinished(p, g, now)) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
+  const base = (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon && !gamePickIsFinished(p, g, now)) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
+  return mergeFollowPicks(base, now);
 }
 function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   const seen: Record<string, boolean> = {};
@@ -573,7 +613,7 @@ function capperSportRec(c?: Capper | null, league?: string | null): SportRec | n
   return rec && rec.n > 0 ? rec : null;
 }
 function isFollowedBacker(b: Backer): boolean {
-  if (b.pinned || b.tier === "My 40" || b.tier === "Top 10" || b.tier === "Following") return true;
+  if (b.pinned || b.tier === "Best Cappers" || b.tier === "My 40" || b.tier === "Top 10" || b.tier === "Following") return true;
   const c = capperOf(b.name);
   return !!(c && isFollowedCapper(c));
 }
@@ -668,7 +708,7 @@ function netOf(p: Pick, game: Game): NetInfo {
   const mineW: Record<string, boolean> = {};
   p.backers.forEach((b: Backer) => { mineW[b.name] = true; });
   const lg = game.league;
-  // Score from every tracked backer (hedges dropped). Followed My 40 cappers add a count boost.
+  // Score from every tracked backer (hedges dropped). Followed Best Cappers add a count boost.
   const ownAll = p.backers.filter((b: Backer) => !oppW[b.name]);
   const own = recOfBackers(ownAll, lg);
   const oppB: Backer[] = [];
@@ -891,7 +931,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
   const net = netOf(p, props.game);
   const top = p.backers.slice(0, 3);
   const rest = p.backers.slice(3);
-  const colorOf = (x: string): string[] => (({ "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
+  const colorOf = (x: string): string[] => (({ "Best Cappers": ["#FEF3C7", "#92400E"], "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
   return (
     <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(11,31,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ padding: "12px 14px 12px" }}>
@@ -1082,19 +1122,37 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
     </div>
   );
 }
+function BestCappersRoster() {
+  const caps = ((DATA.following || {}).cappers || []) as FollowCapper[];
+  if (!caps.length) return null;
+  return (
+    <details data-best-cappers-roster="1" style={{ marginTop: 18, marginBottom: 8, borderRadius: 14, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "8px 12px" }}>
+      <summary style={{ cursor: "pointer", fontWeight: 800, fontSize: 14, color: BLUE_INK }}>{"Best Cappers roster · " + caps.length + "/" + TARGET_FOLLOW + " · tap to expand"}</summary>
+      <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 4 }}>
+        {caps.map((c: FollowCapper, i: number) => (
+          <div key={c.nickname} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 13, fontWeight: 700, color: NAVY, padding: "4px 0", borderTop: i ? "1px solid #DBEAFE" : undefined }}>
+            <span style={{ overflowWrap: "anywhere" }}>{(i + 1) + ". " + c.nickname}</span>
+            <span style={{ color: "#64748B", fontVariantNumeric: "tabular-nums", flex: "none" }}>{(c.n ? ((c.w || 0) + "–" + (c.l || 0)) : "no W–L") + (c.open ? " · " + c.open + " open" : "")}</span>
+          </div>
+        ))}
+      </div>
+    </details>
+  );
+}
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const list = rankedPicks(games);
   return (
     <div>
-      <Section heading={"Ranked · " + list.length} caption="Best picks first">
-        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No ranked picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No My 40 capper has a trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+      <Section heading={"Best Cappers · " + list.length + " picks"} caption="Every open pick from the rotating top 50, best first. Today in PT; after 7pm PT, tomorrow is included.">
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Best Cappers picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No Best Cappers name has a trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
       </Section>
       {list.length ? <TodayCard games={games} now={props.now} /> : null}
+      <BestCappersRoster />
     </div>
   );
 }
@@ -1137,7 +1195,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
         </span>
       </div>
       {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Your followed cappers don’t have an open traditional-sports position, or their books are hidden. Finished games drop off; the trial still grades what was already recorded."} /> : null}
-      {picks.length === 0 && !caps.length ? <EmptyState title="My 40 is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
+      {picks.length === 0 && !caps.length ? <EmptyState title="Best Cappers is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
       {shown.length === 0 && (q || props.filter) && caps.length ? <EmptyState title="No followed cappers match that filter" body="Try another search or clear the filter." /> : null}
       {shown.map((c: FollowCapper) => {
         const cap = capperOf(c.nickname);
@@ -1167,7 +1225,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
               <Chip bg={mine.length ? GREEN : "#F1F5F9"} color={mine.length ? "#FFFFFF" : "#475569"}>{mine.length === 1 ? "1 pick" : mine.length + " picks"}</Chip>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 8 }}>
-              <TierChip tier="My 40" />
+              <TierChip tier="Best Cappers" />
               {g && g.sample === "small" ? <Chip bg="#FEF3C7" color={AMBER}>Small sample</Chip> : null}
               <RankChips ranks={cap && cap.ranks} />
               {c.open ? <Chip bg={BLUE_BRIGHT} color="#FFFFFF">{c.open} open</Chip> : null}
@@ -1256,7 +1314,7 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   if (split) {
     return (
       <div>
-        {section("Followed · " + followed.length + "/" + TARGET_FOLLOW, "My 40: official leaderboard names whose public trades we can track, with positive profit and no losing record. Longest records first.", followed)}
+        {section("Best Cappers · " + followed.length + "/" + TARGET_FOLLOW, "Best Cappers: rotating top 50 official leaderboard names whose public trades we can track, with positive profit and no losing record. Veterans first.", followed)}
         {section("Watching · " + watching.length, "Official profit-leaderboard names that are not followed. Tape-only books stay off this list. Ranked by record first and profit second.", watching)}
       </div>
     );
@@ -1474,10 +1532,9 @@ export default function App() {
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "ranked", label: "Ranked", count: rankedN, icon: <IconTrophy />, title: "Ranked", caption: "Today in PT · after 7pm, + tomorrow" },
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "My 40 picks, soonest first" },
-    { value: "following", label: "My 40", count: followedN, icon: <IconStar />, title: "My 40", caption: "Top-leaderboard cappers whose public picks we can track. Positive profit, no losing record." },
-    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Followed vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
+    { value: "ranked", label: "Best Cappers", count: rankedN, icon: <IconTrophy />, title: "Best Cappers", caption: "All open picks, best first · today in PT, after 7pm + tomorrow" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Best Cappers picks, soonest first" },
+    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Best Cappers vs Watching · Watching is official profit-leaderboard names only · record first, profit second." },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
@@ -1575,7 +1632,7 @@ export default function App() {
 
         <div className="ks-stats">
           <DashStat label="Open picks" value={String(comingN)} sub="in the 24-hour $100+ window" color={BLUE_BRIGHT} icon={<IconList />} />
-          <DashStat label="Cappers followed" value={followedN + "/" + TARGET_FOLLOW} sub="auto-follow target 40" color="#0EA5E9" icon={<IconUsers />} />
+          <DashStat label="Best Cappers" value={followedN + "/" + TARGET_FOLLOW} sub="rotating top 50" color="#0EA5E9" icon={<IconUsers />} />
           <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
           <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />
         </div>
@@ -1636,7 +1693,7 @@ export default function App() {
               <StatusRow label="Last scan" status={DATA.scannedAt || "—"} tone="ok" />
               {DATA.followCheckedAt ? <StatusRow label="Followed books" status={DATA.followCheckedAt} tone="public" /> : null}
               <StatusRow label="Next hourly scan" status={nextScheduledPt()} tone="public" />
-              <StatusRow label="Auto-follow" status={followedN + "/" + TARGET_FOLLOW} tone={followedN ? "ok" : "muted"} />
+              <StatusRow label="Best Cappers" status={followedN + "/" + TARGET_FOLLOW} tone={followedN ? "ok" : "muted"} />
               <div data-capper-db="1" style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#94A3B8" }}>
                 {"Capper db: " + (dbActive) + " active" + (db.queue != null ? " · " + db.queue + " to check" : "") + (db.rejected != null ? " · " + db.rejected + " rejected" : "")}
               </div>
