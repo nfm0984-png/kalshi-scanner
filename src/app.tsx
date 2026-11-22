@@ -42,8 +42,6 @@ const CFG: any = (window as any).__CFG || {};
 const GH_OWNER = String(CFG.owner || "nfm0984-png");
 const GH_REPO = String(CFG.repo || "kalshi-scanner");
 const GH_WORKFLOW = String(CFG.workflow || "scanner.yml");
-const GH_FALLBACK_REPO = String(CFG.fallbackRepo || "whale-scanner-kexg2auz");
-const GH_FALLBACK_WORKFLOW = String(CFG.fallbackWorkflow || "dispatch-kalshi-scan.yml");
 const KEY_LS = "kalshi-scanner-gh-key";
 const SCAN_EXPECT_SECS = 150;
 function accessKey(): string {
@@ -1350,38 +1348,11 @@ export default function App() {
     }
     return null;
   };
-  const followFallback = async (runId: number, t0: number, url?: string) => {
-    const before = DATA.ts || 0;
-    for (let i = 0; i < 40; i++) {
-      await sleep(i === 0 ? 3000 : 6000);
-      let r: Response;
-      try { r = await ghApi("/actions/runs/" + runId, { repo: GH_FALLBACK_REPO }); } catch (e) { continue; }
-      if (!r.ok) continue;
-      const run = await r.json();
-      const runUrl = run.html_url || url;
-      if (run.status !== "completed") {
-        setJob({ mode: "scan", phase: run.status === "in_progress" ? "in_progress" : "queued", msg: run.status === "in_progress" ? "Starting the Kalshi scan via the whale repo…" : "Waiting for the fallback workflow…", t0, url: runUrl });
-        continue;
-      }
-      if (run.conclusion !== "success") {
-        setJob({ mode: "scan", phase: "error", msg: "Fallback needs a KALSHI_DISPATCH_TOKEN secret on the whale repo.", t0, url: runUrl });
-        return;
-      }
-      setJob({ mode: "scan", phase: "queued", msg: "Fallback started the Kalshi scan…", t0, url: runUrl });
-      const kalshi = await findRun(t0, GH_REPO);
-      if (kalshi) { await followScan(kalshi.id, t0); return; }
-      setJob({ mode: "scan", phase: "loading", msg: "Done. Loading the new data…", t0, url: runUrl });
-      for (let k = 0; k < 24; k++) {
-        try {
-          const data = await fetchLatestData();
-          if ((data.ts || 0) !== before) { applyData(data); setJob({ mode: "scan", phase: "done", msg: "Updated " + formatNowPt(), t0, url: runUrl }); return; }
-        } catch (e) { /* retry */ }
-        await sleep(5000);
-      }
-      setJob({ mode: "scan", phase: "done", msg: "Scan finished. Tap Refresh if the new data isn’t here yet.", t0, url: runUrl });
-      return;
-    }
-    setJob({ mode: "scan", phase: "error", msg: "Started, but the run is taking longer than expected. Open GitHub or tap Refresh later.", t0, url });
+  const askRunOnGitHub = (t0: number) => {
+    // This device token can read Kalshi Actions and write whale Actions, but it cannot
+    // dispatch, commit, or repository-dispatch on kalshi-scanner. A one-tap GitHub link
+    // is the only path that starts a scan without new permissions.
+    setJob({ mode: "scan", phase: "needs_github", msg: "This key can’t start a scan from the page. Run it on GitHub — one tap.", t0, url: SCAN_WORKFLOW_URL });
   };
   const startScan = async () => {
     if (scanBusy || !accessKey()) return;
@@ -1389,24 +1360,9 @@ export default function App() {
     setSheet("");
     setJob({ mode: "scan", phase: "starting", msg: "Starting a scan (20 new names)…", t0 });
     try {
-      let r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
-      let via = "direct";
-      if (r.status === 401 || r.status === 403 || r.status === 404) {
-        setJob({ mode: "scan", phase: "starting", msg: "Token needs Actions write. Trying the whale-repo fallback…", t0 });
-        r = await ghApi("/actions/workflows/" + GH_FALLBACK_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20", mode: "scan" } }), repo: GH_FALLBACK_REPO });
-        via = "fallback";
-        if (r.status === 401 || r.status === 403 || r.status === 404) {
-          setJob({ mode: "scan", phase: "error", msg: "Token needs Actions write", t0 });
-          return;
-        }
-      }
+      const r = await ghApi("/actions/workflows/" + GH_WORKFLOW + "/dispatches", { method: "POST", body: JSON.stringify({ ref: "main", inputs: { new_names: "20" } }) });
+      if (r.status === 401 || r.status === 403 || r.status === 404) { askRunOnGitHub(t0); return; }
       if (!r.ok && r.status !== 204) { setJob({ mode: "scan", phase: "error", msg: "GitHub returned " + r.status + ". Try again in a minute, or start the scan on GitHub.", t0 }); return; }
-      if (via === "fallback") {
-        const run = await findRun(t0, GH_FALLBACK_REPO);
-        if (!run) { setJob({ mode: "scan", phase: "error", msg: "Started fallback, but couldn’t find the run. Open GitHub or tap Refresh later.", t0 }); return; }
-        await followFallback(run.id, t0, run.url);
-        return;
-      }
       let runId: number | null = null;
       if (r.status === 200) { try { const j = await r.json(); runId = j.workflow_run_id || null; } catch (e) { runId = null; } }
       if (!runId) {
@@ -1416,7 +1372,7 @@ export default function App() {
       if (!runId) { setJob({ mode: "scan", phase: "error", msg: "Started, but couldn’t find the run. Open GitHub or tap Refresh in a couple of minutes.", t0 }); return; }
       await followScan(runId, t0);
     } catch (e) {
-      setJob({ mode: "scan", phase: "error", msg: "Couldn't reach GitHub. Open the Actions page to start a scan, then tap Refresh.", t0 });
+      askRunOnGitHub(t0);
     }
   };
   const onScanClick = () => {
@@ -1543,9 +1499,14 @@ export default function App() {
               <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 800 }}><span>{job.msg}</span>{jobBusy ? <span style={{ fontVariantNumeric: "tabular-nums" }}>{mmss(elapsed)}</span> : null}</div>
               {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
               {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
-              {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a> : null}
-              {job.phase === "error" && !job.url ? <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>Open GitHub to run the workflow ↗</a> : null}
-              {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: job.url ? 12 : 0, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
+              {job.phase === "needs_github" ? (
+                <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Run scan on GitHub ↗</a>
+              ) : job.url ? (
+                <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a>
+              ) : job.phase === "error" ? (
+                <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>Run scan on GitHub ↗</a>
+              ) : null}
+              {!busy ? <button type="button" onClick={() => setJob(null)} style={{ marginLeft: 12, marginTop: 6, background: "transparent", border: "none", color: "#FFFFFF", textDecoration: "underline", fontSize: 13, padding: 0, cursor: "pointer" }}>Dismiss</button> : null}
             </div>
           ) : null}
           {sheet === "scan" ? (
