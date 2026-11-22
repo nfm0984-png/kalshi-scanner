@@ -649,6 +649,11 @@ def hydrate_market(http, ticker, mcache, ecache):
             category = ser.get("category")
         if not ev_tk:
             ev_tk = (ticker.rsplit("-", 1)[0] if (ticker or "").count("-") else ticker) or ""
+        # RFQ combo books often emit a dummy $1.00 yes ask when there is
+        # no offer. Use the last trade so payout is not shown as 1x.
+        if last_price is not None and last_price < 0.9:
+            if yes_ask is None or yes_ask >= 0.99:
+                yes_ask = last_price
     return {
         "ticker": ticker,
         "event_ticker": ev_tk,
