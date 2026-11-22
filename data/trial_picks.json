@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 3:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3128,9 +3128,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
       "recordedTs": 1795356473,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:16 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNBAPTS-26NOV22DENCHI-CHIIOKORO35-10|No",
@@ -3296,9 +3296,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 8:45 AM PT",
       "recordedTs": 1795365924,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:16 PM PT"
     },
     {
       "id": "BWmarkets|KXNFLTOTAL-26NOV22ARIKC-41|No",
@@ -3674,6 +3674,48 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
       "recordedTs": 1795388106,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S20265VFPJIIEWH6RYO7X-PXPHEGE3E|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S20265VFPJIIEWH6RYO7X-PXPHEGE3E",
+      "eventTicker": "KXMVECROSSCATEGORY-S20265VFPJIIEWH6RYO7X",
+      "game": "MVE",
+      "backing": "yes Trevor Lawrence: 200+,yes J.J. McCarthy: 150+,yes Fernando Mendoza: 125+,yes Kirk Cousins: 175+,yes Malik Nabers: 50+,yes Jaylen Waddle: 1+,yes Omarion Hampton: 1+,yes Justin Jefferson: 1+,yes Christian McCaffrey: 1+",
+      "yesNo": "Yes",
+      "entry": 0.016,
+      "price": 0.0013,
+      "cost": 994.92,
+      "contracts": 62049.68,
+      "startTs": 1795392300,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 3:16 PM PT",
+      "recordedTs": 1795389369,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026PVPTSSQGSTRYGPWZ-GS2LHICD5|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026PVPTSSQGSTRYGPWZ-GS2LHICD5",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026PVPTSSQGSTRYGPWZ",
+      "game": "MVE",
+      "backing": "yes Los Angeles C,yes Justin Herbert: 175+",
+      "yesNo": "Yes",
+      "entry": 0.5085,
+      "price": 0.059,
+      "cost": 2999.96,
+      "contracts": 5899.7,
+      "startTs": 1795392300,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 3:16 PM PT",
+      "recordedTs": 1795389369,
       "status": "open",
       "result": null,
       "settledAt": null
