@@ -1,6 +1,6 @@
 {
   "tag": "My 40",
-  "updatedAt": "Sat Nov 21 \u00b7 9:57 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 10:01 PM PT",
   "target": 40,
   "note": "Followed cappers for My 40, taken from official Kalshi projected-PnL leaderboards. A name is followed only if their public trades or open sports picks can be found and tracked, official all-time profit is positive, and they have no losing reconstructed record. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter, including via the never-shrink guard. Up to 40, preferring the longest track records. A scan will not shrink the follow list unless each dropped name actually failed a gate or is on doNotPin.",
   "doNotPin": [
@@ -209,6 +209,30 @@
       "source": "manual",
       "manual": true,
       "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "loyal.lion9691",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "dopesayles",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "loff123",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "long.whale",
+      "tag": "My 40",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
     }
   ],
   "lastGoodFollows": [
@@ -233,6 +257,10 @@
     "jackivouce",
     "past.grass",
     "bama0037",
-    "regine"
+    "regine",
+    "loyal.lion9691",
+    "dopesayles",
+    "loff123",
+    "long.whale"
   ]
 }

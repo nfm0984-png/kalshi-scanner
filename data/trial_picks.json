@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 9:42 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 10:01 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1532,9 +1532,9 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 3:15 PM PT",
       "recordedTs": 1795302937,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 10:01 PM PT"
     },
     {
       "id": "nettinyahoo|KXNCAAMBTOTAL-26NOV21AFAUTSA-169|Yes",
@@ -2816,6 +2816,48 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Sat Nov 21 \u00b7 9:42 PM PT"
+    },
+    {
+      "id": "regine|KXNBLGAME-26NOV212300CARSEM-CAR|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBLGAME-26NOV212300CARSEM-CAR",
+      "eventTicker": "KXNBLGAME-26NOV212300CARSEM",
+      "game": "Cairns Taipans vs SE Melbourne Phoenix",
+      "backing": "Cairns Taipans",
+      "yesNo": "Yes",
+      "entry": 0.8431,
+      "price": 1.0,
+      "cost": 557.32,
+      "contracts": 661.0,
+      "startTs": 1795330800,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 10:01 PM PT",
+      "recordedTs": 1795327317,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBLGAME-26NOV212300CARSEM-SEM|No",
+      "nickname": "regine",
+      "ticker": "KXNBLGAME-26NOV212300CARSEM-SEM",
+      "eventTicker": "KXNBLGAME-26NOV212300CARSEM",
+      "game": "Cairns Taipans vs SE Melbourne Phoenix",
+      "backing": "SE Melbourne Phoenix",
+      "yesNo": "No",
+      "entry": 0.1376,
+      "price": 1.0,
+      "cost": 83.67,
+      "contracts": 608.0,
+      "startTs": 1795330800,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 10:01 PM PT",
+      "recordedTs": 1795327317,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
