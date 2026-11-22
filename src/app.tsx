@@ -1179,14 +1179,17 @@ function BestCappersRoster() {
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
-  const caps = sortCappers((DATA.cappers || []).filter(isFollowedCapper).filter((c: Capper) => !q || (c.nickname || "").toLowerCase().includes(q)));
-  const pickN = caps.reduce((n: number, c: Capper) => n + openPicksFor(c.nickname, props.now).filter((x) => props.filter === "live" ? !!x.game.live : props.filter === "upcoming" ? !x.game.live : true).length, 0);
+  const list = rankedPicks(games);
   return (
     <div>
-      <Section heading={"Best Cappers · " + caps.length} caption={"$500+ bets only · ranked by closed-position grade, veterans first. Picks from public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included. " + pickN + " open pick" + (pickN === 1 ? "" : "s") + "."}>
-        {caps.length === 0 ? <EmptyState title="No trackable cappers right now" body="The list only includes names whose public positions or profile posts we can actually copy." /> : null}
-        {caps.map((c: Capper, i: number) => <CapperCard key={c.nickname} c={c} now={props.now} rank={i + 1} filter={props.filter} />)}
+      <Section heading={"Ranked Picks · " + list.length + " picks"} caption="Every open $500+ pick, best first. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $500+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+        {list.map((c: RankedCard, i: number) => (
+          <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
+        ))}
       </Section>
+      {list.length ? <TodayCard games={games} now={props.now} /> : null}
+      <BestCappersRoster />
     </div>
   );
 }
@@ -1555,9 +1558,9 @@ export default function App() {
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "ranked", label: "Best Cappers", count: rankedN, icon: <IconTrophy />, title: "Best Cappers", caption: "$500+ bets only · ranked by closed grade, veterans first · positions or profile posts" },
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$500+ bets only, soonest first" },
-    { value: "cappers", label: "Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Cappers", caption: "Only viewable books · official profit, closed record, and $500+ picks" },
+    { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$500+ bets only · best to worst · today in PT, after 7pm + tomorrow" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$500+ bets only, soonest first · live first" },
+    { value: "cappers", label: "Best Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Best Cappers", caption: "Official profit, closed record, and $500+ picks · positions or profile posts" },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
