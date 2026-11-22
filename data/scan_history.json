@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 2:52 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 3:50 PM PT",
   "scans": [
+    {
+      "ts": 1795305015,
+      "at": "Sat Nov 21 \u00b7 3:50 PM PT",
+      "names": 189,
+      "newFollows": [],
+      "followed": 14,
+      "target": 40,
+      "openPicks": 5,
+      "ids": [
+        "KXNCAAFSPREAD-26NOV21UCLAMICH-UCLA4|Yes",
+        "KXNCAAMBTOTAL-26NOV21AFAUTSA-169|Yes",
+        "KXNBAGAME-26NOV21MEMMIN-MEM|Yes",
+        "KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
+        "KXNBAPTS-26NOV21BOSSAC-SACDACUFF5-25|Yes"
+      ]
+    },
     {
       "ts": 1795301548,
       "at": "Sat Nov 21 \u00b7 2:52 PM PT",

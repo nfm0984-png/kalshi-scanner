@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 3:15 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 3:50 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1532,6 +1532,27 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 3:15 PM PT",
       "recordedTs": 1795302937,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "nettinyahoo|KXNCAAMBTOTAL-26NOV21AFAUTSA-169|Yes",
+      "nickname": "nettinyahoo",
+      "ticker": "KXNCAAMBTOTAL-26NOV21AFAUTSA-169",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV21AFAUTSA",
+      "game": "Air Force vs UTSA: Point Total",
+      "backing": "Over 168.5 points",
+      "yesNo": "Yes",
+      "entry": 0.4698,
+      "price": 0.03,
+      "cost": 4763.3,
+      "contracts": 10139.0,
+      "startTs": 1795309200,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Sat Nov 21 \u00b7 3:50 PM PT",
+      "recordedTs": 1795305015,
       "status": "open",
       "result": null,
       "settledAt": null
