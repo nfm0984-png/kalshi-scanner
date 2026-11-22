@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 3:47 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 3:52 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3590,9 +3590,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
       "recordedTs": 1795384494,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 3:52 PM PT"
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV22DETATL-DET|Yes",
@@ -3695,9 +3695,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 3:16 PM PT",
       "recordedTs": 1795389369,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:52 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026PVPTSSQGSTRYGPWZ-GS2LHICD5|Yes",
@@ -3716,9 +3716,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 3:16 PM PT",
       "recordedTs": 1795389369,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 3:52 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNFLGAME-26NOV22NYJLAC-NYJ|Yes",
