@@ -1,6 +1,35 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 8:23 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 9:09 PM PT",
   "scans": [
+    {
+      "ts": 1795324188,
+      "at": "Sat Nov 21 \u00b7 9:09 PM PT",
+      "names": 211,
+      "newFollows": [
+        "kevin702",
+        "khey"
+      ],
+      "followed": 16,
+      "target": 40,
+      "openPicks": 15,
+      "ids": [
+        "KXNBAGAME-26NOV21BOSSAC-BOS|Yes",
+        "KXNBAGAME-26NOV21BOSSAC-SAC|No",
+        "KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
+        "KXNBAPTS-26NOV21BOSSAC-SACDACUFF5-25|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-BOS8|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-BOS6|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-SAC7|No",
+        "KXNBASPREAD-26NOV21BOSSAC-BOS10|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-BOS2|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-BOS4|Yes",
+        "KXNBASPREAD-26NOV21BOSSAC-SAC2|No",
+        "KXNBATEAMTOTAL-26NOV21BOSSAC-BOS101|Yes",
+        "KXNBATEAMTOTAL-26NOV21BOSSAC-SAC95|Yes",
+        "KXNBATEAMTOTAL-26NOV21BOSSAC-BOS99|Yes",
+        "KXNBATEAMTOTAL-26NOV21BOSSAC-BOS103|Yes"
+      ]
+    },
     {
       "ts": 1795321414,
       "at": "Sat Nov 21 \u00b7 8:23 PM PT",
