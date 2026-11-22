@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -382,7 +382,8 @@
       "recordLine": "iluminado \u00b7 21-9 \u00b7 +7% \u00b7 Best at Tennis \u00b7 +$141.8k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "past.grass",
@@ -693,7 +694,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 81256.09,
+      "pnl": 102659.17,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 23530.51,
       "monthlyPnl": 75136.48,
@@ -1160,7 +1161,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 12
+      "pickCount": 0,
+      "followCount": 2
     },
     {
       "nickname": "Ryqeux",
@@ -1246,7 +1248,8 @@
           "closeTs": 1795489200
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "jspana99",
@@ -1437,7 +1440,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 6075.92,
+      "pnl": 10809.47,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 27405.82,
       "monthlyPnl": null,
@@ -1479,7 +1482,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "Wiseandstrong",
@@ -1518,9 +1522,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/playful.hornet0945",
       "joinedAt": "2026-05-15",
       "followers": 546,
-      "tier": "My 40",
-      "pinned": true,
-      "tag": "My 40",
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "weekly": 91
@@ -1531,7 +1535,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 41912.44,
+      "pnl": 41063.37,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 23582.33,
       "monthlyPnl": null,
@@ -1544,7 +1548,7 @@
       "gradedAll": null,
       "sports": {},
       "bestAt": null,
-      "recordLine": "playful.hornet0945 \u00b7 +$41.9k all \u00b7 My 40",
+      "recordLine": "playful.hornet0945 \u00b7 +$41.9k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -1573,7 +1577,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "double.boar6452",
@@ -1745,7 +1750,8 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 Best at MLB \u00b7 +$26.0k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -2404,7 +2410,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 3206.22,
+      "pnl": 3221.61,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2521,7 +2527,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "black.catt",
@@ -3918,7 +3925,8 @@
       "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "advanced.redpoll2268",
@@ -4917,7 +4925,8 @@
       "recordLine": "degen.4.life112422 \u00b7 3-0 \u00b7 +69% \u00b7 Best at MLB \u00b7 +$22.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "air.barn",
@@ -6805,7 +6814,8 @@
       "recordLine": "door.whale \u00b7 169-42 \u00b7 +34% \u00b7 Best at NCAAB \u00b7 +$11.9k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "door.work",
@@ -6944,7 +6954,8 @@
       "recordLine": "dr.house \u00b7 +$8.28k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 0
     },
     {
       "nickname": "drib",
@@ -7000,7 +7011,8 @@
       "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 Best at WNBA \u00b7 +$13.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "dumb.rail",
@@ -7378,7 +7390,8 @@
       "recordLine": "embarrassed.tyrannosaurus \u00b7 1-0 \u00b7 +371% \u00b7 Best at Golf \u00b7 +$109.5k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "excessive.canary4409",
@@ -7495,7 +7508,8 @@
       "recordLine": "fattii \u00b7 1-0 \u00b7 +43% \u00b7 +$2.39k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "firebirds",

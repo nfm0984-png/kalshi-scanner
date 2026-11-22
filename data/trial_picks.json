@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1469,9 +1469,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 1:58 PM PT",
       "recordedTs": 1795298285.7379346,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "iluminado|KXITFMATCH-26NOV21TORBAR-TOR|Yes",
@@ -1574,9 +1574,9 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 5:22 PM PT",
       "recordedTs": 1795310571,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "double.boar6452|KXNCAAF1HSPREAD-26NOV21UKMIZZ-MIZZ4|No",
@@ -1637,9 +1637,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 5:22 PM PT",
       "recordedTs": 1795310571,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV21MEMMIN-MIN|No",
@@ -1658,9 +1658,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 5:22 PM PT",
       "recordedTs": 1795310571,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV21PORNYK-NYK|Yes",
@@ -1721,9 +1721,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 6:41 PM PT",
       "recordedTs": 1795315278,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV21PORNYK-NYK|No",
@@ -2183,9 +2183,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV21MEMMIN-MIN10|Yes",
@@ -2204,9 +2204,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV21MEMMIN-MIN11|No",
@@ -2225,9 +2225,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV21MEMMIN-MIN14|No",
@@ -2246,9 +2246,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV21MEMMIN-MIN16|Yes",
@@ -2267,9 +2267,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV21MEMMIN-MIN18|Yes",
@@ -2288,9 +2288,9 @@
       "bt": "Spread",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MEM93|Yes",
@@ -2309,9 +2309,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MEM95|Yes",
@@ -2330,9 +2330,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MEM97|Yes",
@@ -2351,9 +2351,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MIN106|Yes",
@@ -2372,9 +2372,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MIN108|Yes",
@@ -2393,9 +2393,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MIN110|Yes",
@@ -2414,9 +2414,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV21MEMMIN-MIN114|Yes",
@@ -2435,9 +2435,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV21MEMMIN-197|Yes",
@@ -2456,9 +2456,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV21MEMMIN-199|Yes",
@@ -2477,9 +2477,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV21MEMMIN-201|Yes",
@@ -2498,9 +2498,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV21MEMMIN-203|Yes",
@@ -2519,6 +2519,69 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 6:59 PM PT",
       "recordedTs": 1795316364,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sat Nov 21 \u00b7 7:39 PM PT"
+    },
+    {
+      "id": "majebettor123|KXNBA1HSPREAD-26NOV21BOSSAC-BOS6|No",
+      "nickname": "majebettor123",
+      "ticker": "KXNBA1HSPREAD-26NOV21BOSSAC-BOS6",
+      "eventTicker": "KXNBA1HSPREAD-26NOV21BOSSAC",
+      "game": "Boston vs Sacramento: 1st Half Spread",
+      "backing": "Boston wins by over 5.5 points",
+      "yesNo": "No",
+      "entry": 0.3615,
+      "price": 0.54,
+      "cost": 1814.87,
+      "contracts": 5020.0,
+      "startTs": 1795327200,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
+      "recordedTs": 1795318750,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV21BOSSAC-BOS|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV21BOSSAC-BOS",
+      "eventTicker": "KXNBAGAME-26NOV21BOSSAC",
+      "game": "Boston vs Sacramento",
+      "backing": "Boston",
+      "yesNo": "Yes",
+      "entry": 0.6122,
+      "price": 0.79,
+      "cost": 1.84,
+      "contracts": 3.0,
+      "startTs": 1795327200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
+      "recordedTs": 1795318750,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV21BOSSAC-SAC|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV21BOSSAC-SAC",
+      "eventTicker": "KXNBAGAME-26NOV21BOSSAC",
+      "game": "Boston vs Sacramento",
+      "backing": "Sacramento",
+      "yesNo": "No",
+      "entry": 0.3889,
+      "price": 0.79,
+      "cost": 1.17,
+      "contracts": 3.0,
+      "startTs": 1795327200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 21 \u00b7 7:39 PM PT",
+      "recordedTs": 1795318750,
       "status": "open",
       "result": null,
       "settledAt": null
