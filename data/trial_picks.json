@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 12:32 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1217,9 +1217,9 @@
       "bt": "Totals",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:32 PM PT"
     },
     {
       "id": "coachlord66|KXRECORDNFLBEST-27-DEN|Yes",
@@ -3317,9 +3317,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 10:50 AM PT",
       "recordedTs": 1795373421,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:32 PM PT"
     },
     {
       "id": "BWmarkets|KXNFLTOTAL-26NOV22ARIKC-48|No",
@@ -3527,6 +3527,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 11:57 AM PT",
       "recordedTs": 1795377447,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 12:32 PM PT"
+    },
+    {
+      "id": "majebettor123|KXNFL4QSPREAD-26NOV22TBDET-TB3|Yes",
+      "nickname": "majebettor123",
+      "ticker": "KXNFL4QSPREAD-26NOV22TBDET-TB3",
+      "eventTicker": "KXNFL4QSPREAD-26NOV22TBDET",
+      "game": "Tampa Bay vs Detroit: 4th Quarter Spread ",
+      "backing": "Tampa Bay wins by over 2.5 points",
+      "yesNo": "Yes",
+      "entry": 0.3905,
+      "price": 0.15,
+      "cost": 4795.53,
+      "contracts": 12279.0,
+      "startTs": 1795381200,
+      "league": "NFL",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 12:32 PM PT",
+      "recordedTs": 1795379547,
       "status": "open",
       "result": null,
       "settledAt": null
