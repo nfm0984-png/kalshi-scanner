@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3170,9 +3170,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
       "recordedTs": 1795356473,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 2:55 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNFLRECYDS-26NOV22TBDET-DETJWILLIAMS1-50|No",
@@ -3611,9 +3611,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 1:54 PM PT",
       "recordedTs": 1795384494,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 2:55 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV22NYJLAC-LAC|Yes",
@@ -3653,6 +3653,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
       "recordedTs": 1795385734,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNFLGAME-26NOV22JACNYG-NYG|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNFLGAME-26NOV22JACNYG-NYG",
+      "eventTicker": "KXNFLGAME-26NOV22JACNYG",
+      "game": "Jacksonville vs New York G",
+      "backing": "New York G",
+      "yesNo": "Yes",
+      "entry": 0.65,
+      "price": 0.8,
+      "cost": 4880.2,
+      "contracts": 7508.0,
+      "startTs": 1795393500,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
+      "recordedTs": 1795388106,
       "status": "open",
       "result": null,
       "settledAt": null

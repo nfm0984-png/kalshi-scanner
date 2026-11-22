@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
   "target": 50,
   "note": "Best Cappers is a rotating top 50 of official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
   "doNotPin": [
@@ -127,6 +127,12 @@
       "addedAt": "2026-11-21"
     },
     {
+      "nickname": "yunktrader",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "iluminado",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -158,6 +164,12 @@
     },
     {
       "nickname": "dear.bet",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "YoungGriff",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -265,6 +277,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "whig",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "jakem12",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -301,16 +319,16 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "kevin702",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
       "nickname": "emji.emji",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "kevin702",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
     },
     {
       "nickname": "mild.screentondog",
@@ -355,25 +373,7 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "clammy.soup",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
       "nickname": "desertelf",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "BuyTheDip818",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "Rodriguez777.",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -388,12 +388,14 @@
     "loyal.lion9691",
     "dependent.snail8369",
     "door.whale",
+    "yunktrader",
     "iluminado",
     "regine",
     "714Smith",
     "nshrd",
     "successful.koi2475",
     "dear.bet",
+    "YoungGriff",
     "king.45",
     "jreit123",
     "guy777",
@@ -411,14 +413,15 @@
     "akamarino",
     "Dimesy",
     "truewonder",
+    "whig",
     "jakem12",
     "mild.fire",
     "d.palombo",
     "drib",
     "milesdavis",
     "bananastand21",
-    "kevin702",
     "emji.emji",
+    "kevin702",
     "mild.screentondog",
     "minnowsaurus",
     "Weedkage",
@@ -426,9 +429,6 @@
     "loff123",
     "benstef22",
     "premium.groundhog9303",
-    "clammy.soup",
-    "desertelf",
-    "BuyTheDip818",
-    "Rodriguez777."
+    "desertelf"
   ]
 }
