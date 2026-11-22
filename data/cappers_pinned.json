@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sat Nov 21 \u00b7 10:01 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 11:24 PM PT",
   "target": 50,
   "note": "Best Cappers is a rotating top 50 of official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
   "doNotPin": [
@@ -72,25 +72,21 @@
   ],
   "cappers": [
     {
-      "nickname": "iluminado",
+      "nickname": "falcon999",
       "tag": "Best Cappers",
-      "source": "auto-winning",
+      "source": "manual",
+      "manual": true,
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "degen.4.life112422",
+      "nickname": "BWmarkets",
       "tag": "Best Cappers",
-      "source": "auto-winning",
+      "source": "manual",
+      "manual": true,
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "Ryqeux",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "emilianotijerina",
+      "nickname": "loyal.lion9691",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
@@ -102,7 +98,13 @@
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "drib",
+      "nickname": "ministuh",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "iluminado",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
@@ -114,13 +116,79 @@
       "addedAt": "2026-11-21"
     },
     {
+      "nickname": "kevin702",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "jakem12",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "khey",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
       "nickname": "embarrassed.tyrannosaurus",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
     },
     {
+      "nickname": "degen.4.life112422",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
       "nickname": "crazy.sal",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "loff123",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "emilianotijerina",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "Ryqeux",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "long.whale",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "mild.fire",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "Kali.Kiddd.007",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "drib",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
@@ -136,126 +204,30 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "jakem12",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "Kali.Kiddd.007",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "kevin702",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "khey",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "falcon999",
-      "tag": "Best Cappers",
-      "source": "manual",
-      "manual": true,
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "BWmarkets",
-      "tag": "Best Cappers",
-      "source": "manual",
-      "manual": true,
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "nettinyahoo",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "jackivouce",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "past.grass",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "bama0037",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "regine",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "loyal.lion9691",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "dopesayles",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "loff123",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "long.whale",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
     }
   ],
   "lastGoodFollows": [
-    "iluminado",
-    "degen.4.life112422",
-    "Ryqeux",
-    "emilianotijerina",
-    "door.whale",
-    "drib",
-    "Billy.Hoyle",
-    "embarrassed.tyrannosaurus",
-    "crazy.sal",
-    "fattii",
-    "dr.house",
-    "jakem12",
-    "Kali.Kiddd.007",
-    "kevin702",
-    "khey",
     "falcon999",
     "BWmarkets",
-    "nettinyahoo",
-    "jackivouce",
-    "past.grass",
-    "bama0037",
-    "regine",
     "loyal.lion9691",
-    "dopesayles",
+    "door.whale",
+    "ministuh",
+    "iluminado",
+    "Billy.Hoyle",
+    "kevin702",
+    "jakem12",
+    "khey",
+    "embarrassed.tyrannosaurus",
+    "degen.4.life112422",
+    "crazy.sal",
     "loff123",
-    "long.whale"
+    "emilianotijerina",
+    "Ryqeux",
+    "long.whale",
+    "mild.fire",
+    "Kali.Kiddd.007",
+    "drib",
+    "fattii",
+    "dr.house"
   ]
 }
