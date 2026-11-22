@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sat Nov 21 \u00b7 5:22 PM PT",
+  "updatedAt": "Sat Nov 21 \u00b7 6:41 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -254,7 +254,8 @@
       "recordLine": "iluminado \u00b7 21-9 \u00b7 +7% \u00b7 Best at Tennis \u00b7 +$141.8k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "past.grass",
@@ -565,7 +566,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 81305.21,
+      "pnl": 81256.09,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 23579.63,
       "monthlyPnl": 75185.59,
@@ -682,7 +683,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 0
+      "pickCount": 18,
+      "followCount": 23
     },
     {
       "nickname": "Ryqeux",
@@ -768,7 +770,8 @@
           "closeTs": 1795489200
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "jspana99",
@@ -900,7 +903,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 81463.83,
+      "pnl": 80709.42,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 22618.22,
       "monthlyPnl": null,
@@ -945,16 +948,17 @@
       "recordLine": "nettinyahoo \u00b7 3-1 \u00b7 +23% \u00b7 Best at NFL \u00b7 +$81.5k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "majebettor123",
       "profileUrl": "https://kalshi.com/ideas/profiles/majebettor123",
       "joinedAt": "2025-02-02",
       "followers": 59,
-      "tier": "My 40",
-      "pinned": true,
-      "tag": "My 40",
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "weekly": 51
@@ -965,7 +969,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 10663.73,
+      "pnl": 6075.92,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 31997.97,
       "monthlyPnl": null,
@@ -1007,7 +1011,8 @@
           "closeTs": 1795480200
         }
       ],
-      "pickCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Wiseandstrong",
@@ -1059,7 +1064,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 43931.31,
+      "pnl": 41912.44,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 25601.19,
       "monthlyPnl": null,
@@ -1101,16 +1106,17 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "double.boar6452",
       "profileUrl": "https://kalshi.com/ideas/profiles/double.boar6452",
       "joinedAt": "2026-05-20",
       "followers": 6,
-      "tier": "My 40",
-      "pinned": true,
-      "tag": "My 40",
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": false,
       "ranks": {
         "weekly": 99
@@ -1121,7 +1127,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2948.79,
+      "pnl": -1769.83,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 21793.07,
       "monthlyPnl": null,
@@ -1134,7 +1140,7 @@
       "gradedAll": null,
       "sports": {},
       "bestAt": null,
-      "recordLine": "double.boar6452 \u00b7 +$2.95k all \u00b7 My 40",
+      "recordLine": "double.boar6452 \u00b7 +$2.95k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -1163,7 +1169,8 @@
           "closeTs": 1795480200
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "Muffat00",
@@ -1305,7 +1312,8 @@
       "recordLine": "emilianotijerina \u00b7 1-0 \u00b7 +88% \u00b7 Best at MLB \u00b7 +$26.0k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "314GoalDigger",
@@ -1989,7 +1997,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 3234.64,
+      "pnl": 3206.22,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -2106,7 +2114,8 @@
           "closeTs": 1795482000
         }
       ],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 2
     },
     {
       "nickname": "black.catt",
@@ -3472,7 +3481,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 909.11,
+      "pnl": 908.56,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -3502,7 +3511,8 @@
       "recordLine": "crazy.sal \u00b7 3-2 \u00b7 +19% \u00b7 +$909 all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "advanced.redpoll2268",
@@ -4501,7 +4511,8 @@
       "recordLine": "degen.4.life112422 \u00b7 3-0 \u00b7 +69% \u00b7 Best at MLB \u00b7 +$22.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "air.barn",
@@ -6389,7 +6400,8 @@
       "recordLine": "door.whale \u00b7 169-42 \u00b7 +34% \u00b7 Best at NCAAB \u00b7 +$11.9k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "door.work",
@@ -6512,7 +6524,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 8277.27,
+      "pnl": 8280.41,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6528,7 +6540,8 @@
       "recordLine": "dr.house \u00b7 +$8.28k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 1
+      "pickCount": 1,
+      "followCount": 0
     },
     {
       "nickname": "drib",
@@ -6546,7 +6559,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 13567.61,
+      "pnl": 13588.32,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6584,7 +6597,8 @@
       "recordLine": "drib \u00b7 1-0 \u00b7 +22% \u00b7 Best at WNBA \u00b7 +$13.6k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "dumb.rail",
@@ -7112,7 +7126,8 @@
       "recordLine": "embarrassed.tyrannosaurus \u00b7 1-0 \u00b7 +371% \u00b7 Best at Golf \u00b7 +$109.5k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "excessive.canary4409",
@@ -7199,7 +7214,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2375.01,
+      "pnl": 2411.23,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -7229,7 +7244,8 @@
       "recordLine": "fattii \u00b7 1-0 \u00b7 +43% \u00b7 +$2.38k all \u00b7 My 40",
       "addedAt": "2026-11-21",
       "followingPicks": [],
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "firebirds",
