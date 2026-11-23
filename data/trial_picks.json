@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 5:50 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4031,6 +4031,27 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
       "recordedTs": 1795397286,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXNBAGAME-26NOV22DENCHI-DEN|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNBAGAME-26NOV22DENCHI-DEN",
+      "eventTicker": "KXNBAGAME-26NOV22DENCHI",
+      "game": "Denver vs Chicago",
+      "backing": "Denver",
+      "yesNo": "Yes",
+      "entry": 0.93,
+      "price": 0.89,
+      "cost": 20579.04,
+      "contracts": 22128.0,
+      "startTs": 1795402800,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 5:50 PM PT",
+      "recordedTs": 1795398655,
       "status": "open",
       "result": null,
       "settledAt": null
