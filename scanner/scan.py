@@ -962,6 +962,19 @@ def has_sports_activity(holdings, trades):
     return False
 
 
+def matchup_name(*titles):
+    """Return a clean 'Team vs Team' from an event title, or empty if unknown."""
+    import re
+    for raw in titles:
+        t = (raw or "").strip()
+        if not t:
+            continue
+        head = t.split(":")[0].strip()
+        if re.search(r"\bvs\.?\b", head, re.I) and 5 <= len(head) <= 90:
+            return head
+    return ""
+
+
 def enrich_combo(http, info, ticker, now, mcache, ecache):
     """Hydrate each combo leg and set start_ts from the earliest leg kickoff."""
     info = info or {}
@@ -984,15 +997,17 @@ def enrich_combo(http, info, ticker, now, mcache, ecache):
             starts.append(int(start))
         ev_tk = linfo.get("event_ticker") or leg.get("event_ticker") or ""
         backing = (linfo.get("yes_sub_title") if yes_no == "Yes" else linfo.get("no_sub_title")) or linfo.get("title") or ltk
+        ev_title = linfo.get("event_title") or linfo.get("title") or ev_tk or ltk
         legs.append({
             "ticker": ltk,
             "eventTicker": ev_tk,
             "yesNo": yes_no,
             "side": yes_no,
             "backing": backing,
-            "game": linfo.get("event_title") or linfo.get("title") or ev_tk or ltk,
+            "game": ev_title,
             "marketTitle": linfo.get("event_title") or linfo.get("title") or "",
             "contractTitle": linfo.get("title") or "",
+            "matchup": matchup_name(linfo.get("event_title"), linfo.get("title"), ev_title),
             "startTs": int(start or 0),
             "closeTs": linfo.get("close_ts") or 0,
             "league": lib.league_of(ltk, linfo.get("category")) or "Sports",

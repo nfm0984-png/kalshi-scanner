@@ -46,7 +46,7 @@ const liveSecsFor = (league?: string | null): number => Math.round(3600 * (LIVE_
 const BT_ORDER = ["Combo", "Moneyline", "Spread", "Totals", "Both teams to score", "Player props", "Other"];
 
 interface WL { w: number; l: number; n?: number }
-interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
+interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; matchup?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null; comboUrl?: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
@@ -239,6 +239,29 @@ function copyText(text: string): void {
     document.body.removeChild(el);
   } catch (e) {}
 }
+function matchupOf(...vals: Array<string | null | undefined>): string {
+  // "Ole Miss vs Clemson: 1st Half Spread" -> "Ole Miss vs Clemson"
+  for (let i = 0; i < vals.length; i++) {
+    const raw = (vals[i] || "").trim();
+    if (!raw) continue;
+    const head = raw.split(":")[0].trim();
+    if (/\bvs\.?\b/i.test(head) && head.length >= 5 && head.length <= 90) return head;
+  }
+  return "";
+}
+function legPickLabel(leg: ComboLeg): string {
+  const line = (leg.contractTitle || leg.backing || leg.ticker || "").trim();
+  return ((leg.yesNo || "") + (line ? " · " + line : "")).trim();
+}
+function MatchupLine(props: { matchup?: string; startTs?: number; now?: number }): React.ReactElement | null {
+  const mu = props.matchup || "";
+  const start = props.startTs || 0;
+  if (!mu && !start) return null;
+  const live = !!(start && props.now && start <= props.now);
+  const bits = [mu, start ? ((live ? "Started " : "") + ptTime(start)) : ""].filter(Boolean);
+  return <div data-matchup="1" style={{ fontSize: 13, lineHeight: "18px", fontWeight: 650, color: "#475569", marginTop: 2, overflowWrap: "anywhere" }}>{bits.join(" · ")}</div>;
+}
+
 function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cost?: number | null; price?: number | null; comboUrl?: string | null; ticker?: string; legs?: ComboLeg[] }): string {
   const legs = p.legs || [];
   const lines: string[] = [
@@ -252,7 +275,8 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   ];
   legs.forEach((leg: ComboLeg, i: number) => {
     const start = leg.startTs ? ptTime(leg.startTs) : "";
-    lines.push((i + 1) + ". " + (leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker) + " · " + (leg.game || "") + (start ? (" · " + start) : "") + (leg.url ? (" · " + leg.url) : ""));
+    const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
+    lines.push((i + 1) + ". " + legPickLabel(leg) + (mu ? (" · " + mu) : "") + (start ? (" · " + start) : "") + (leg.url ? (" · " + leg.url) : ""));
   });
   return lines.filter((x) => x !== "").join("\n");
 }
@@ -302,13 +326,13 @@ function ComboBlock(props: {
       {n ? (
         <ol data-combo-legs="1" style={{ margin: "10px 0 0", padding: "0 0 0 18px" }}>
           {legs.map((leg: ComboLeg, i: number) => {
-            const live = !!(leg.startTs && leg.startTs <= props.now);
             const legHref = (!href) ? (leg.url || kalshiUrlOf(leg.ticker)) : null;
+            const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
             return (
-              <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 5, fontSize: 14, lineHeight: "19px", color: NAVY }}>
-                <span style={{ fontWeight: 800 }}>{(leg.yesNo || "") + " · " + (leg.backing || leg.contractTitle || leg.ticker)}</span>
-                {leg.startTs ? <span style={{ fontWeight: 650, color: "#475569" }}>{" · " + (live ? "Started " : "") + ptTime(leg.startTs)}</span> : null}
-                {legHref ? <a href={legHref} target="_blank" rel="noreferrer" style={{ marginLeft: 8, fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
+              <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 8, fontSize: 14, lineHeight: "19px", color: NAVY }}>
+                <div style={{ fontWeight: 800 }}>{legPickLabel(leg)}</div>
+                <MatchupLine matchup={mu} startTs={leg.startTs} now={props.now} />
+                {legHref ? <a href={legHref} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 2, fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
               </li>
             );
           })}
@@ -320,7 +344,10 @@ function ComboBlock(props: {
         {pay ? <span style={{ fontSize: 16, fontWeight: 850, color: yes ? GREEN : RED }}>{(props.yesNo || "Yes") + " · pays " + (Math.round(pay * 10) / 10) + "x"}</span> : (props.price != null ? <span style={{ fontSize: 16, fontWeight: 850, color: yes ? GREEN : RED }}>{(props.yesNo || "Yes") + " · pays " + cents(props.price)}</span> : null)}
       </div>
       {href ? (
+        <>
         <a data-combo-link="1" href={href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>Open combo on Kalshi ↗</a>
+        <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>If the ticket does not open (common in the Kalshi iPhone app), enter each leg above by hand.</div>
+        </>
       ) : (
         <div style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>
           {"Kalshi has no share link that pre-loads loose legs into the combo builder. Open each leg, or "}
@@ -550,8 +577,8 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
         <ComboBlock legs={p.legs} now={now} ticker={p.ticker} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={mine ? mine.cost : p.total} backers={mine ? [mine] : p.backers} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
       ) : (
         <>
-      <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{game.game}</div>
-      <div style={{ fontSize: 15, fontWeight: 800, color: BLUE_INK, marginTop: 2, overflowWrap: "anywhere" }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
+      <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
+      <MatchupLine matchup={matchupOf(p.view.marketTitle, game.game, p.sub)} startTs={p.startTs || game.startTs} now={now} />
       {mine ? <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}><span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{money(mine.cost)}</span><span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (mine.avg != null ? " · entry " + cents(mine.avg) : "")}</span></div> : null}
       {mine && mine.lastSeen ? <div data-last-seen="1" style={{ marginTop: 6 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + mine.lastSeen}</Chip></div> : null}
       <FreshPricePills p={p} now={now} />
@@ -582,8 +609,8 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl} yesNo={p.yesNo} price={p.price} payout={p.payout} stake={p.cost} backers={[{ name: p.nickname, cost: p.cost || 0, avg: p.entry ?? null, line: p.recordLine || p.nickname, tier: p.tier || "Best Cappers", pinned: true, lastTs: p.lastTs ?? null }]} copyPayload={comboLegsText(p)} />
       ) : (
         <>
-      <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{p.game}</div>
-      <div style={{ fontSize: 15, fontWeight: 800, color: BLUE_INK, marginTop: 2, overflowWrap: "anywhere" }}>{(p.backing || p.label || p.game) + " · " + (p.yesNo || "")}</div>
+      <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{(p.yesNo ? p.yesNo + " · " : "") + (p.contractTitle || p.backing || p.label || p.game)}</div>
+      <MatchupLine matchup={matchupOf(p.marketTitle, p.game)} startTs={p.startTs} now={props.now} />
       <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
         {p.cost != null && p.cost > 0 ? <span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.cost)}</span> : null}
         <span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (p.price != null ? " · pays " + cents(p.price) : "") + (p.entry != null ? " · entry " + cents(p.entry) : "")}</span>
@@ -1148,8 +1175,8 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
         ) : (
           <>
-        <div data-ucard-big="1" style={{ fontSize: 22, lineHeight: "27px", fontWeight: 850, letterSpacing: "-0.01em", overflowWrap: "anywhere", color: NAVY }}>{p.big}</div>
-        {p.sub ? <div style={{ fontSize: 14, lineHeight: "19px", fontWeight: 600, color: "#475569", marginTop: 2, overflowWrap: "anywhere" }}>{p.sub}</div> : null}
+        <div data-ucard-big="1" style={{ fontSize: 22, lineHeight: "27px", fontWeight: 850, letterSpacing: "-0.01em", overflowWrap: "anywhere", color: NAVY }}>{p.big}{v.yesNo ? " · " + v.yesNo : ""}</div>
+        <MatchupLine matchup={matchupOf(v.marketTitle, p.sub, props.game.game)} startTs={p.startTs || props.game.startTs} now={props.now} />
         <div data-ucard-sum="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 10 }}>
           <span data-ucard-total="1" style={{ display: "inline-block", padding: "3px 12px", borderRadius: 12, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 28, lineHeight: "34px", fontWeight: 900, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
           <span data-ucard-count="1" style={{ display: "inline-block", padding: "4px 10px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 15, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
@@ -1186,10 +1213,10 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
   return (
     <div data-alt-bet={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 14, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "10px 12px", marginBottom: 8 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
-        <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}</div>
+        <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
       </div>
-      {p.sub ? <div style={{ fontSize: 13, fontWeight: 600, color: "#475569", marginTop: 2 }}>{p.sub}</div> : null}
+      <MatchupLine matchup={matchupOf(p.view.marketTitle, p.sub, props.game.game)} startTs={p.startTs || props.game.startTs} now={props.now} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 6 }}>
         <span style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
         <span data-net-pill="1" style={{ display: "inline-block", padding: "2px 8px", borderRadius: 999, background: "#F8FAFC", color: "#334155", border: "1px solid #CBD5E1", fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums" }}>{netText(net.net)}</span>
