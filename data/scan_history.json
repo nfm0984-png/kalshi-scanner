@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 8:21 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
   "scans": [
+    {
+      "ts": 1795414733,
+      "at": "Sun Nov 22 \u00b7 10:18 PM PT",
+      "names": 353,
+      "newFollows": [
+        "lebronthanos"
+      ],
+      "followed": 45,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
+        "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
+      ]
+    },
     {
       "ts": 1795407706,
       "at": "Sun Nov 22 \u00b7 8:21 PM PT",

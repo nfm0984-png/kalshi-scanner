@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 9:11 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4748,6 +4748,27 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Sun Nov 22 \u00b7 9:11 PM PT"
+    },
+    {
+      "id": "ustrader|KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
+      "nickname": "ustrader",
+      "ticker": "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A",
+      "game": "Colorado St. vs Arizona",
+      "backing": "no Arizona wins by over 27.5 points,no Providence wins by over 19.5 points,yes Eastern Illinois,no Loyola Chicago wins by over 26.5 points",
+      "yesNo": "Yes",
+      "entry": 0.353,
+      "price": 0.353,
+      "cost": 9566.3,
+      "contracts": 27100.0,
+      "startTs": 1795420740,
+      "league": "NCAAB",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
+      "recordedTs": 1795414733,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
