@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 4:51 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:56 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -986,9 +986,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22LVDEN-DEN|Yes",
@@ -2918,9 +2918,9 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 11:24 PM PT",
       "recordedTs": 1795332263,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNFLRECYDS-26NOV22TBDET-DETJGIBBS0-30|No",
@@ -3653,9 +3653,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 2:15 PM PT",
       "recordedTs": 1795385734,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNFLGAME-26NOV22JACNYG-NYG|Yes",
@@ -3674,9 +3674,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 2:55 PM PT",
       "recordedTs": 1795388106,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S20265VFPJIIEWH6RYO7X-PXPHEGE3E|Yes",
@@ -3758,9 +3758,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 3:37 PM PT",
       "recordedTs": 1795390623,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNFLGAME-26NOV22NYJLAC-NYJ|Yes",
@@ -3800,9 +3800,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
       "recordedTs": 1795392123,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV22ZHUCOO-ZHU|Yes",
@@ -3842,9 +3842,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:04 PM PT",
       "recordedTs": 1795392250,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:56 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026R25EU4Q4CPV7JMHH-NQFUFMAN6|Yes",
@@ -3905,6 +3905,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:51 PM PT",
       "recordedTs": 1795395077,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXNBAGAME-26NOV22OKCMIA-MIA|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNBAGAME-26NOV22OKCMIA-MIA",
+      "eventTicker": "KXNBAGAME-26NOV22OKCMIA",
+      "game": "Oklahoma City vs Miami",
+      "backing": "Miami",
+      "yesNo": "Yes",
+      "entry": 0.99,
+      "price": 0.99,
+      "cost": 20473.2,
+      "contracts": 20680.0,
+      "startTs": 1795399200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 4:56 PM PT",
+      "recordedTs": 1795395377,
       "status": "open",
       "result": null,
       "settledAt": null
