@@ -1,31 +1,11 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 9:01 PM PT",
-  "target": 200,
-  "note": "Best Cappers is a rotating top 200 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
+  "updatedAt": "Sun Nov 22 \u00b7 9:06 PM PT",
+  "target": 100,
+  "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
     {
-      "nickname": "WorkerTrader",
-      "reason": "reviewed",
-      "at": ""
-    },
-    {
-      "nickname": "autofade",
-      "reason": "reviewed",
-      "at": ""
-    },
-    {
-      "nickname": "norrisfan",
-      "reason": "reviewed",
-      "at": ""
-    },
-    {
       "nickname": "devex",
-      "reason": "reviewed",
-      "at": ""
-    },
-    {
-      "nickname": "reluctant.fox5394",
       "reason": "reviewed",
       "at": ""
     },
@@ -75,31 +55,12 @@
       "at": "Sun Nov 22 \u00b7 8:45 AM PT"
     },
     {
-      "nickname": "truewonder",
-      "reason": "negative profit",
-      "at": "Sun Nov 22 \u00b7 5:11 PM PT"
-    },
-    {
       "nickname": "benstef22",
       "reason": "negative profit",
       "at": "Sun Nov 22 \u00b7 5:16 PM PT"
     }
   ],
   "cappers": [
-    {
-      "nickname": "falcon999",
-      "tag": "Best Cappers",
-      "source": "manual",
-      "manual": true,
-      "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "BWmarkets",
-      "tag": "Best Cappers",
-      "source": "manual",
-      "manual": true,
-      "addedAt": "2026-11-21"
-    },
     {
       "nickname": "uuqoo",
       "tag": "Best Cappers",
@@ -119,10 +80,22 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "autofade",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "loyal.lion9691",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "WorkerTrader",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
     },
     {
       "nickname": "dependent.snail8369",
@@ -135,6 +108,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "reluctant.fox5394",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
     },
     {
       "nickname": "yunktrader",
@@ -215,13 +194,13 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "parspectives",
+      "nickname": "brand.breeze",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "brand.breeze",
+      "nickname": "parspectives",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -252,6 +231,12 @@
     },
     {
       "nickname": "akamarino",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "truewonder",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -311,6 +296,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "norrisfan",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "kevin702",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -321,6 +312,20 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "BWmarkets",
+      "tag": "Best Cappers",
+      "source": "manual",
+      "manual": true,
+      "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "falcon999",
+      "tag": "Best Cappers",
+      "source": "manual",
+      "manual": true,
+      "addedAt": "2026-11-21"
     }
   ],
   "lastGoodFollows": [

@@ -1,14 +1,14 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 9:01 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 9:06 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
       "profileUrl": "https://kalshi.com/ideas/profiles/WorkerTrader",
       "joinedAt": "2026-03-11",
       "followers": 509,
-      "tier": "Core",
-      "pinned": false,
-      "tag": "",
+      "tier": "Best Cappers",
+      "pinned": true,
+      "tag": "Best Cappers",
       "heavy": true,
       "ranks": {
         "all_time": 17,
@@ -138,9 +138,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/reluctant.fox5394",
       "joinedAt": "2026-10-07",
       "followers": 383,
-      "tier": "Top 50",
-      "pinned": false,
-      "tag": "",
+      "tier": "Best Cappers",
+      "pinned": true,
+      "tag": "Best Cappers",
       "heavy": true,
       "ranks": {
         "all_time": 92,
@@ -332,9 +332,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/autofade",
       "joinedAt": "2025-06-10",
       "followers": 768,
-      "tier": "Board",
-      "pinned": false,
-      "tag": "",
+      "tier": "Best Cappers",
+      "pinned": true,
+      "tag": "Best Cappers",
       "heavy": true,
       "ranks": {
         "all_time": 71
@@ -477,9 +477,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/norrisfan",
       "joinedAt": "2025-12-08",
       "followers": 3168,
-      "tier": "Board",
-      "pinned": false,
-      "tag": "",
+      "tier": "Best Cappers",
+      "pinned": true,
+      "tag": "Best Cappers",
       "heavy": true,
       "ranks": {
         "all_time": 75,
@@ -9280,17 +9280,17 @@
       "graded": {
         "n": 400,
         "w": 71,
-        "l": 57,
+        "l": 58,
         "roi": null,
-        "profit": -811.07,
+        "profit": -811.52,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
         "w": 71,
-        "l": 57,
+        "l": 58,
         "roi": null,
-        "profit": -811.07,
+        "profit": -811.52,
         "sample": "positions"
       },
       "sports": {
@@ -9303,7 +9303,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 71-57 \u00b7 Best at Tennis \u00b7 +$655 all",
+      "recordLine": "emji.emji \u00b7 71-58 \u00b7 Best at Tennis \u00b7 +$655 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -10832,17 +10832,17 @@
       "postsVisible": true,
       "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 2,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "truewonder",
       "profileUrl": "https://kalshi.com/ideas/profiles/truewonder",
       "joinedAt": "2024-10-15",
       "followers": 289,
-      "tier": "Board",
-      "pinned": false,
-      "tag": "",
+      "tier": "Best Cappers",
+      "pinned": true,
+      "tag": "Best Cappers",
       "heavy": false,
       "ranks": {
         "weekly": 54
