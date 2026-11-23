@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 8:05 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:21 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3863,9 +3863,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 4:31 PM PT",
       "recordedTs": 1795393877,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:21 PM PT"
     },
     {
       "id": "fen.dachi|KXNFLTDPROT-26NOV22MINSF-SFMEVANS5-1|Yes",
@@ -4220,9 +4220,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:31 PM PT",
       "recordedTs": 1795401102,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:21 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN9|No",
@@ -4727,6 +4727,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
+    },
+    {
+      "id": "falcon999|KXATPCHALLENGERMATCH-26NOV22HOLSAN-HOL|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV22HOLSAN-HOL",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV22HOLSAN",
+      "game": "Holmgren vs Santillan",
+      "backing": "August Holmgren",
+      "yesNo": "Yes",
+      "entry": 0.49,
+      "price": 0.67,
+      "cost": 1930.6,
+      "contracts": 3940.0,
+      "startTs": 1795410000,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 8:21 PM PT",
+      "recordedTs": 1795407706,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
