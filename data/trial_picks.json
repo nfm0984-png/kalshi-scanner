@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 5:11 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 5:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3968,6 +3968,27 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 5:06 PM PT",
       "recordedTs": 1795395977,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV22OKCMIA-MIA11|No",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV22OKCMIA-MIA11",
+      "eventTicker": "KXNBASPREAD-26NOV22OKCMIA",
+      "game": "Oklahoma City vs Miami: Spread",
+      "backing": "Miami wins by over 10.5 points",
+      "yesNo": "No",
+      "entry": 0.7008,
+      "price": 0.36,
+      "cost": 578.83,
+      "contracts": 826.0,
+      "startTs": 1795399200,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 5:16 PM PT",
+      "recordedTs": 1795396578,
       "status": "open",
       "result": null,
       "settledAt": null
