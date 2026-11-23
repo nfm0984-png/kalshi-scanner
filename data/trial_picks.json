@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:52 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4871,6 +4871,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
       "recordedTs": 1795451078,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXITFWMATCH-26NOV23SHITRA-SHI|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXITFWMATCH-26NOV23SHITRA-SHI",
+      "eventTicker": "KXITFWMATCH-26NOV23SHITRA",
+      "game": "Shinikova vs Tran",
+      "backing": "Isabella Shinikova",
+      "yesNo": "Yes",
+      "entry": 0.88,
+      "price": 0.88,
+      "cost": 3706.56,
+      "contracts": 4212.0,
+      "startTs": 1795465800,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 8:52 AM PT",
+      "recordedTs": 1795452751,
       "status": "open",
       "result": null,
       "settledAt": null
