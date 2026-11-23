@@ -1,6 +1,27 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 1:01 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 2:02 PM PT",
   "scans": [
+    {
+      "ts": 1795471336,
+      "at": "Mon Nov 23 \u00b7 2:02 PM PT",
+      "names": 469,
+      "newFollows": [],
+      "followed": 52,
+      "target": 100,
+      "openPicks": 10,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
+        "KXMVECROSSCATEGORY-S20266Z4UUFVS6VK77KEY-MV54ON57S|Yes",
+        "KXMVECROSSCATEGORY-S2026A5R7AIKLWJUKWIXP-HIYRX24PA|Yes",
+        "KXNBAGAME-26NOV23PORPHI-POR|Yes",
+        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
+        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
+        "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
+        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes",
+        "KXNBASPREAD-26NOV23SASSAC-SAS17|No"
+      ]
+    },
     {
       "ts": 1795467715,
       "at": "Mon Nov 23 \u00b7 1:01 PM PT",
@@ -1350,16 +1371,6 @@
         "KXWTAMATCH-26NOV20SAKURR-URR|Yes",
         "KXALEAGUETOTAL-26NOV21CCMPER-2|Yes"
       ]
-    },
-    {
-      "ts": 1795241130,
-      "at": "Fri Nov 20 \u00b7 10:05 PM PT",
-      "names": 34,
-      "newFollows": [],
-      "followed": 6,
-      "target": 40,
-      "openPicks": 0,
-      "ids": []
     }
   ]
 }
