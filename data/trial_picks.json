@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 11:58 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:03 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4829,9 +4829,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
       "recordedTs": 1795447148,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 12:03 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV23DONILK-DON|Yes",
