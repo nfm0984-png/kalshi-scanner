@@ -2,8 +2,8 @@ import React, { useEffect, useMemo, useState, type ReactNode } from "react";
 
 const NAVY = "#1B1233";
 const NAVY_DEEP = "#11081F";
-const BLUE = "#6D28D9";
-const BLUE_BRIGHT = "#7C3AED";
+const BLUE = "#5B21B6";
+const BLUE_BRIGHT = "#5B21B6";
 const BLUE_SOFT = "#EDE9FE";
 const BLUE_INK = "#5B21B6";
 const PAGE = "#F5F3FF";
@@ -1734,9 +1734,9 @@ export default function App() {
       <style>{`
         @keyframes ks-spin{to{transform:rotate(360deg)}}
         .ks-wrap{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
-        .ks-hero{position:relative;overflow:hidden;border-radius:24px;background:${NAVY_DEEP};color:#fff;padding:22px 24px 20px;box-shadow:0 0 80px rgba(124,58,237,0.22),0 18px 40px rgba(17,8,31,0.28)}
+        .ks-hero{position:relative;overflow:hidden;border-radius:24px;background:${NAVY_DEEP};color:#fff;padding:22px 24px 20px;box-shadow:0 0 80px rgba(91,33,182,0.22),0 18px 40px rgba(17,8,31,0.28)}
         .ks-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 30% 0%,#000 0%,transparent 70%);pointer-events:none}
-        .ks-hero::after{content:"";position:absolute;width:280px;height:280px;right:-60px;top:-80px;background:radial-gradient(circle,rgba(124,58,237,0.45),transparent 70%);pointer-events:none}
+        .ks-hero::after{content:"";position:absolute;width:280px;height:280px;right:-60px;top:-80px;background:radial-gradient(circle,rgba(91,33,182,0.45),transparent 70%);pointer-events:none}
         .ks-hero-row{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
         .ks-hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:0 0 auto}
         .ks-hero-btns{display:flex;align-items:center;gap:8px}
