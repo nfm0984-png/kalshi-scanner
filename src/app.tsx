@@ -1337,9 +1337,11 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const list = rankedPicks(games);
+  const comboN = list.filter((p: Pick) => isComboPick(p)).length;
+  const singleN = list.length - comboN;
   return (
     <div>
-      <Section heading={"Ranked Picks · " + list.length + " picks"} caption="Every open $500+ pick, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
+      <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $500+ pick, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $500+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
@@ -1783,8 +1785,9 @@ export default function App() {
                 </button>
               </div>
               <div style={{ fontSize: 12, fontWeight: 650, color: "#DDD6FE", textAlign: "right" }}>
-                {"Last scan " + (DATA.scannedAt || "—")}
-                {updatedAt ? <div data-updated-at="1" style={{ fontWeight: 800, color: "#FFFFFF" }}>{"Updated " + updatedAt}</div> : null}
+                <div data-data-updated="1" style={{ fontWeight: 800, color: "#FFFFFF" }}>{"Updated " + (DATA.followCheckedAt || DATA.scannedAt || "—")}</div>
+                {DATA.followCheckedAt && DATA.scannedAt ? <div data-last-full-scan="1">{"Full scan " + DATA.scannedAt}</div> : null}
+                {updatedAt ? <div data-updated-at="1">{"Refreshed " + updatedAt}</div> : null}
                 {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
               </div>
             </div>
