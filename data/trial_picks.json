@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 1:39 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 1:54 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5210,6 +5210,27 @@
       "status": "open",
       "result": null,
       "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXLALIGAGAME-26NOV23LEVELC-TIE|Yes",
+      "nickname": "WorkerTrader",
+      "ticker": "KXLALIGAGAME-26NOV23LEVELC-TIE",
+      "eventTicker": "KXLALIGAGAME-26NOV23LEVELC",
+      "game": "Levante vs Elche",
+      "backing": "Tie",
+      "yesNo": "Yes",
+      "entry": 0.9452,
+      "price": 1.0,
+      "cost": 13723.71,
+      "contracts": 14519.0,
+      "startTs": 1795474800,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 1:54 PM PT",
+      "recordedTs": 1795470863,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 1:54 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

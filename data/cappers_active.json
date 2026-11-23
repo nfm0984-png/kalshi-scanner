@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 1:39 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 1:54 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -73,7 +73,7 @@
       "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "BWmarkets",
@@ -202,7 +202,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9530,17 +9530,17 @@
       "graded": {
         "n": 400,
         "w": 133,
-        "l": 106,
+        "l": 105,
         "roi": null,
-        "profit": -812.97,
+        "profit": -812.3,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
         "w": 133,
-        "l": 106,
+        "l": 105,
         "roi": null,
-        "profit": -812.97,
+        "profit": -812.3,
         "sample": "positions"
       },
       "sports": {
@@ -9553,12 +9553,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 133-106 \u00b7 Best at Tennis \u00b7 +$2.14k all",
+      "recordLine": "emji.emji \u00b7 133-105 \u00b7 Best at Tennis \u00b7 +$2.14k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 7,
+      "openPositions": 8,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10598,29 +10598,29 @@
       "tape30d": null,
       "ageDays": 338,
       "graded": {
-        "n": 126,
-        "w": 72,
+        "n": 128,
+        "w": 74,
         "l": 54,
         "roi": null,
-        "profit": 48007.5,
+        "profit": 50307.16,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 126,
-        "w": 72,
+        "n": 128,
+        "w": 74,
         "l": 54,
         "roi": null,
-        "profit": 48007.5,
+        "profit": 50307.16,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 72-54 \u00b7 +$48.0k all",
+      "recordLine": "fen.dachi \u00b7 74-54 \u00b7 +$48.0k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 2,
       "followCount": 2
@@ -21826,7 +21826,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -24197,7 +24197,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
