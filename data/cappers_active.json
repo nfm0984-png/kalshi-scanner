@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:31 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:39 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -5939,29 +5939,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 73,
+        "n": 74,
         "w": 49,
-        "l": 24,
+        "l": 25,
         "roi": null,
-        "profit": 257.56,
+        "profit": 246.56,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 73,
+        "n": 74,
         "w": 49,
-        "l": 24,
+        "l": 25,
         "roi": null,
-        "profit": 257.56,
+        "profit": 246.56,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 49-24 \u00b7 +$208 all",
+      "recordLine": "brand.breeze \u00b7 49-25 \u00b7 +$208 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9482,18 +9482,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 132,
+        "w": 133,
         "l": 106,
         "roi": null,
-        "profit": -812.98,
+        "profit": -813.01,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 132,
+        "w": 133,
         "l": 106,
         "roi": null,
-        "profit": -812.98,
+        "profit": -813.01,
         "sample": "positions"
       },
       "sports": {
@@ -9506,12 +9506,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 132-106 \u00b7 Best at Tennis \u00b7 +$2.07k all",
+      "recordLine": "emji.emji \u00b7 133-106 \u00b7 Best at Tennis \u00b7 +$2.07k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 7,
+      "openPositions": 8,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9930,10 +9930,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 3,
+      "followCount": 3
     },
     {
       "nickname": "hedge123",

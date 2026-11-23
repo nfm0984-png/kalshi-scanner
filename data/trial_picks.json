@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:31 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:39 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5060,6 +5060,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 12:28 PM PT",
       "recordedTs": 1795465728,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K",
+      "eventTicker": "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK",
+      "game": "San Antonio vs Sacramento",
+      "backing": "no Devin Vassell: 6+,yes Memphis,yes North Carolina,yes Tennessee",
+      "yesNo": "Yes",
+      "entry": 0.472,
+      "price": 0.471,
+      "cost": 963.82,
+      "contracts": 2042.0,
+      "startTs": 1795492800,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 12:39 PM PT",
+      "recordedTs": 1795466345,
       "status": "open",
       "result": null,
       "settledAt": null
