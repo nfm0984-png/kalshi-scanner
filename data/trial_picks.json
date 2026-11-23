@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 3:45 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 3:50 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5249,6 +5249,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 3:45 PM PT",
       "recordedTs": 1795477503,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV23DELDEL2-DEL2|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV23DELDEL2-DEL2",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV23DELDEL2",
+      "game": "Delaney vs Dellavedova",
+      "backing": "Matthew Dellavedova",
+      "yesNo": "Yes",
+      "entry": 0.97,
+      "price": 0.97,
+      "cost": 12417.94,
+      "contracts": 12802.0,
+      "startTs": 1795487400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 3:50 PM PT",
+      "recordedTs": 1795477803,
       "status": "open",
       "result": null,
       "settledAt": null
