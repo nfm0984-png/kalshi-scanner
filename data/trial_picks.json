@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:04 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3821,6 +3821,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
       "recordedTs": 1795392123,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "truewonder|KXNFLGAME-26NOV22JACNYG-NYG|Yes",
+      "nickname": "truewonder",
+      "ticker": "KXNFLGAME-26NOV22JACNYG-NYG",
+      "eventTicker": "KXNFLGAME-26NOV22JACNYG",
+      "game": "Jacksonville vs New York G",
+      "backing": "New York G",
+      "yesNo": "Yes",
+      "entry": 0.7803,
+      "price": 0.73,
+      "cost": 70450.25,
+      "contracts": 90283.0,
+      "startTs": 1795393500,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 4:04 PM PT",
+      "recordedTs": 1795392250,
       "status": "open",
       "result": null,
       "settledAt": null
