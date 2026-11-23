@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:51 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:10 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -72,7 +72,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "BWmarkets",
@@ -136,7 +137,8 @@
       "postsVisible": true,
       "openPositions": 0,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -202,7 +204,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "iluminado",
@@ -222,7 +225,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 141860.11,
+      "pnl": 142247.7,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": 91363.4,
@@ -233,18 +236,18 @@
       "ageDays": 138,
       "graded": {
         "n": 400,
-        "w": 265,
-        "l": 115,
+        "w": 268,
+        "l": 112,
         "roi": null,
-        "profit": 141505.61,
+        "profit": 143836.99,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 265,
-        "l": 115,
+        "w": 268,
+        "l": 112,
         "roi": null,
-        "profit": 141505.61,
+        "profit": 143836.99,
         "sample": "positions"
       },
       "sports": {
@@ -264,14 +267,15 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "iluminado \u00b7 265-115 \u00b7 Best at Tennis \u00b7 +$141.9k all",
+      "recordLine": "iluminado \u00b7 268-112 \u00b7 Best at Tennis \u00b7 +$142.2k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "past.grass",
@@ -345,7 +349,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 519050.86,
+      "pnl": 519050.34,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -408,7 +412,8 @@
       "postsVisible": true,
       "openPositions": 5,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "breezy.panther",
@@ -530,7 +535,8 @@
       "postsVisible": true,
       "openPositions": 4,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "devex",
@@ -628,7 +634,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "regine",
@@ -682,7 +689,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -1210,7 +1218,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reach.draft",
@@ -2135,7 +2144,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "bospredicts",
@@ -3645,7 +3655,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Browncoat",
@@ -4097,7 +4108,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 18290.68,
+      "pnl": 18381.16,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4124,14 +4135,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "d.palombo \u00b7 14-3 \u00b7 +$18.3k all",
+      "recordLine": "d.palombo \u00b7 14-3 \u00b7 +$18.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 25,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "danigucci",
@@ -4199,7 +4211,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 27192.43,
+      "pnl": 27196.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4233,7 +4245,8 @@
       "postsVisible": true,
       "openPositions": 53,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Alfredoe",
@@ -4743,7 +4756,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 404.34,
+      "pnl": 401.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -4770,14 +4783,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "coolness77 \u00b7 61-54 \u00b7 +$404 all",
+      "recordLine": "coolness77 \u00b7 61-54 \u00b7 +$401 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "deck.disk",
@@ -5410,7 +5424,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "casual.armadillo6321",
@@ -5965,7 +5980,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 3654.93,
+      "pnl": 3670.39,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6000,14 +6015,15 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Davmjxn \u00b7 69-45 \u00b7 Best at NFL \u00b7 +$3.65k all",
+      "recordLine": "Davmjxn \u00b7 69-45 \u00b7 Best at NFL \u00b7 +$3.67k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Dimesy",
@@ -6025,7 +6041,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 43936.9,
+      "pnl": 44019.83,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -6052,14 +6068,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "Dimesy \u00b7 19-5 \u00b7 +$43.9k all",
+      "recordLine": "Dimesy \u00b7 19-5 \u00b7 +$44.0k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 25,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "discountelf",
@@ -6160,7 +6177,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -6208,7 +6226,8 @@
       "postsVisible": true,
       "openPositions": 0,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "absent.mongoose7869",
@@ -7141,7 +7160,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 11932.0,
+      "pnl": 11931.7,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -7239,7 +7258,8 @@
       "postsVisible": true,
       "openPositions": 13,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "door.work",
@@ -7453,7 +7473,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 13437.61,
+      "pnl": 13458.32,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -7488,14 +7508,15 @@
         }
       },
       "bestAt": "WNBA",
-      "recordLine": "drib \u00b7 12-3 \u00b7 Best at WNBA \u00b7 +$13.4k all",
+      "recordLine": "drib \u00b7 12-3 \u00b7 Best at WNBA \u00b7 +$13.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "dumb.rail",
@@ -7878,7 +7899,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2428.41,
+      "pnl": 2720.46,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -7905,14 +7926,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fattii \u00b7 37-29 \u00b7 +$2.43k all",
+      "recordLine": "fattii \u00b7 37-29 \u00b7 +$2.72k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 20,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "1Betaway",
@@ -8914,7 +8936,7 @@
       },
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 1381.93,
+      "pnl": 2021.64,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -8925,18 +8947,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 95,
-        "l": 72,
+        "w": 117,
+        "l": 101,
         "roi": null,
-        "profit": -803.39,
+        "profit": -825.06,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 95,
-        "l": 72,
+        "w": 117,
+        "l": 101,
         "roi": null,
-        "profit": -803.39,
+        "profit": -825.06,
         "sample": "positions"
       },
       "sports": {
@@ -8949,14 +8971,15 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 95-72 \u00b7 Best at Tennis \u00b7 +$1.38k all",
+      "recordLine": "emji.emji \u00b7 117-101 \u00b7 Best at Tennis \u00b7 +$2.02k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 8,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "flag.tea",
@@ -9311,7 +9334,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "hedge123",
@@ -9551,7 +9575,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 43028.32,
+      "pnl": 40528.32,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9561,31 +9585,32 @@
       "tape30d": null,
       "ageDays": 338,
       "graded": {
-        "n": 114,
+        "n": 118,
         "w": 66,
-        "l": 48,
+        "l": 52,
         "roi": null,
-        "profit": 38706.54,
+        "profit": 40798.74,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 114,
+        "n": 118,
         "w": 66,
-        "l": 48,
+        "l": 52,
         "roi": null,
-        "profit": 38706.54,
+        "profit": 40798.74,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 66-48 \u00b7 +$43.0k all",
+      "recordLine": "fen.dachi \u00b7 66-52 \u00b7 +$40.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 0,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jackivouce",
@@ -9603,7 +9628,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 146885.86,
+      "pnl": 146988.62,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -9630,14 +9655,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "jackivouce \u00b7 391-9 \u00b7 +$146.9k all",
+      "recordLine": "jackivouce \u00b7 391-9 \u00b7 +$147.0k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jacosta",
@@ -9769,7 +9795,8 @@
       "postsVisible": true,
       "openPositions": 20,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jefft",
@@ -10266,7 +10293,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "khey",
@@ -10382,7 +10410,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 63472.44,
+      "pnl": 62861.18,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -10393,30 +10421,31 @@
       "ageDays": 434,
       "graded": {
         "n": 400,
-        "w": 125,
-        "l": 275,
+        "w": 126,
+        "l": 274,
         "roi": null,
-        "profit": 66321.12,
+        "profit": 83403.66,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 125,
-        "l": 275,
+        "w": 126,
+        "l": 274,
         "roi": null,
-        "profit": 66321.12,
+        "profit": 83403.66,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "falcon999 \u00b7 125-275 \u00b7 +$63.5k all",
+      "recordLine": "falcon999 \u00b7 126-274 \u00b7 +$62.9k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "truewonder",
@@ -10472,7 +10501,8 @@
       "postsVisible": false,
       "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Freshprincemari249",
@@ -10913,7 +10943,8 @@
       "postsVisible": false,
       "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "lack.house",
@@ -10979,7 +11010,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 22977.97,
+      "pnl": 23490.63,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -11006,14 +11037,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "mild.fire \u00b7 16-3 \u00b7 +$23.0k all",
+      "recordLine": "mild.fire \u00b7 16-3 \u00b7 +$23.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 10,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "mild.screentondog",
@@ -11437,7 +11469,8 @@
       "postsVisible": true,
       "openPositions": 4,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "parspectives",
@@ -11451,7 +11484,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 2814.68,
+      "pnl": 2846.42,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -11478,14 +11511,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "parspectives \u00b7 44-22 \u00b7 +$2.81k all",
+      "recordLine": "parspectives \u00b7 44-22 \u00b7 +$2.85k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "bananastand21",
@@ -11499,7 +11533,7 @@
       "ranks": {},
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 60503.68,
+      "pnl": 61255.6,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -11526,14 +11560,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "bananastand21 \u00b7 9-1 \u00b7 +$60.5k all",
+      "recordLine": "bananastand21 \u00b7 9-1 \u00b7 +$61.3k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 4,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "frightened.kiwi",
@@ -12043,7 +12078,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 15637.05,
+      "pnl": 15651.55,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -12070,14 +12105,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "milesdavis \u00b7 11-5 \u00b7 +$15.6k all",
+      "recordLine": "milesdavis \u00b7 11-5 \u00b7 +$15.7k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 21,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "rhezbets",
@@ -12609,9 +12645,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "pg00",
@@ -13088,7 +13125,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 12394.25,
+      "pnl": 12270.97,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -13115,14 +13152,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "successful.koi2475 \u00b7 127-87 \u00b7 +$12.4k all",
+      "recordLine": "successful.koi2475 \u00b7 127-87 \u00b7 +$12.3k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "sum.skull",
@@ -14305,31 +14343,32 @@
       "tape30d": null,
       "ageDays": 652,
       "graded": {
-        "n": 51,
-        "w": 10,
-        "l": 3,
+        "n": 53,
+        "w": 11,
+        "l": 4,
         "roi": null,
-        "profit": -11.97,
+        "profit": 323.08,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 51,
-        "w": 10,
-        "l": 3,
+        "n": 53,
+        "w": 11,
+        "l": 4,
         "roi": null,
-        "profit": -11.97,
+        "profit": 323.08,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "larrry33 \u00b7 10-3 \u00b7 +$334 all",
+      "recordLine": "larrry33 \u00b7 11-4 \u00b7 +$334 all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "updogshisoon",
@@ -14454,7 +14493,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 79824.55,
+      "pnl": 79821.55,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -14686,7 +14725,8 @@
       "postsVisible": false,
       "openPositions": 11,
       "pickSource": "positions",
-      "pickCount": 2
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "usual.hummingbird1606",
@@ -14762,7 +14802,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 37598.75,
+      "pnl": 37686.47,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -14789,14 +14829,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "uuqoo \u00b7 400-0 \u00b7 +$37.6k all",
+      "recordLine": "uuqoo \u00b7 400-0 \u00b7 +$37.7k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Vanilla.Warsh",
@@ -15454,7 +15495,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 12458.31,
+      "pnl": 12527.72,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -15488,7 +15529,8 @@
       "postsVisible": false,
       "openPositions": 21,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "white.cheddah",
@@ -15829,7 +15871,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 255524.72,
+      "pnl": 255820.71,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -15856,14 +15898,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "YoungGriff \u00b7 76-34 \u00b7 +$255.5k all",
+      "recordLine": "YoungGriff \u00b7 76-34 \u00b7 +$255.8k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 47,
       "pickSource": "positions+posts",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "yunktrader",
@@ -15881,7 +15924,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 4426.92,
+      "pnl": 4423.07,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -15908,14 +15951,15 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "yunktrader \u00b7 169-50 \u00b7 +$4.43k all",
+      "recordLine": "yunktrader \u00b7 169-50 \u00b7 +$4.42k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 86,
+      "openPositions": 88,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "zealous.sawfish1273",
@@ -15968,7 +16012,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 8947.94,
+      "pnl": 8210.19,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -15979,30 +16023,31 @@
       "ageDays": 100,
       "graded": {
         "n": 400,
-        "w": 224,
-        "l": 174,
+        "w": 222,
+        "l": 177,
         "roi": null,
-        "profit": 6353.21,
+        "profit": 5799.6,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 224,
-        "l": 174,
+        "w": 222,
+        "l": 177,
         "roi": null,
-        "profit": 6353.21,
+        "profit": 5799.6,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 224-174 \u00b7 +$8.95k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 222-177 \u00b7 +$8.21k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "zerorequiem",
@@ -18185,7 +18230,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 2513854.5,
+      "pnl": 2511222.75,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": 5792.88,
       "monthlyPnl": null,
@@ -18224,7 +18269,8 @@
       "openPositions": 0,
       "pickSource": "posts",
       "rejectNote": null,
-      "pickCount": 0
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "crystalcheck",
@@ -19585,7 +19631,7 @@
       },
       "profitRanks": {},
       "onProfitBoard": false,
-      "pnl": 87783.93,
+      "pnl": 87474.69,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -19616,7 +19662,7 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "tru3f0rmr \u00b7 18-0 \u00b7 +215% \u00b7 +$87.8k all \u00b7 +215%",
+      "recordLine": "tru3f0rmr \u00b7 18-0 \u00b7 +215% \u00b7 +$87.5k all \u00b7 +215%",
       "addedAt": "2026-11-23",
       "positionsVisible": false,
       "postsVisible": true,
