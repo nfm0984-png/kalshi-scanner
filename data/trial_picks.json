@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 6:36 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:41 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3884,9 +3884,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 4:46 PM PT",
       "recordedTs": 1795394778,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:41 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV22MINSF-MIN|Yes",
@@ -4220,6 +4220,27 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:31 PM PT",
       "recordedTs": 1795401102,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN9|No",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV22DENCHI-DEN9",
+      "eventTicker": "KXNBASPREAD-26NOV22DENCHI",
+      "game": "Denver vs Chicago: Spread",
+      "backing": "Denver wins by over 8.5 points",
+      "yesNo": "No",
+      "entry": 0.5327,
+      "price": 1.0,
+      "cost": 807.03,
+      "contracts": 1515.0,
+      "startTs": 1795402800,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 6:41 PM PT",
+      "recordedTs": 1795401702,
       "status": "open",
       "result": null,
       "settledAt": null
