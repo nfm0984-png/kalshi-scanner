@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 6:00 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:05 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -686,10 +686,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 15,
+      "openPositions": 17,
       "pickSource": "positions",
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "Ryqeux",
@@ -9508,7 +9508,7 @@
         "w": 59,
         "l": 49,
         "roi": null,
-        "profit": -822.75,
+        "profit": -822.08,
         "sample": "positions"
       },
       "gradedAll": {
@@ -9516,7 +9516,7 @@
         "w": 59,
         "l": 49,
         "roi": null,
-        "profit": -822.75,
+        "profit": -822.08,
         "sample": "positions"
       },
       "sports": {
@@ -9534,7 +9534,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 8,
+      "openPositions": 6,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10181,24 +10181,24 @@
       "tape30d": null,
       "ageDays": 337,
       "graded": {
-        "n": 104,
-        "w": 59,
+        "n": 105,
+        "w": 60,
         "l": 45,
         "roi": null,
-        "profit": 43431.23,
+        "profit": 43954.54,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 104,
-        "w": 59,
+        "n": 105,
+        "w": 60,
         "l": 45,
         "roi": null,
-        "profit": 43431.23,
+        "profit": 43954.54,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 59-45 \u00b7 +$44.0k all",
+      "recordLine": "fen.dachi \u00b7 60-45 \u00b7 +$44.0k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10257,7 +10257,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 2,
       "followCount": 2
