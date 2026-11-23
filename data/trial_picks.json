@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 5:16 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3926,9 +3926,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:56 PM PT",
       "recordedTs": 1795395377,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 5:28 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S20265Z2I5TVRBK6VIKWV-N4WWIYT57|Yes",
@@ -3989,6 +3989,48 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 5:16 PM PT",
       "recordedTs": 1795396578,
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 5:28 PM PT"
+    },
+    {
+      "id": "iknowballmorethanu|KXNFLGAME-26NOV22MINSF-SF|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNFLGAME-26NOV22MINSF-SF",
+      "eventTicker": "KXNFLGAME-26NOV22MINSF",
+      "game": "Minnesota vs San Francisco",
+      "backing": "San Francisco",
+      "yesNo": "Yes",
+      "entry": 0.77,
+      "price": 0.77,
+      "cost": 6559.63,
+      "contracts": 8519.0,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
+      "recordedTs": 1795397286,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "ustrader|KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+      "nickname": "ustrader",
+      "ticker": "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX",
+      "game": "Los Angeles C vs Houston",
+      "backing": "yes Houston,no Ole Miss wins by over 27.5 points,no Washington wins by over 13.5 points,yes Eastern Illinois",
+      "yesNo": "Yes",
+      "entry": 0.225,
+      "price": 0.225,
+      "cost": 5688.9,
+      "contracts": 25284.0,
+      "startTs": 1795467600,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
+      "recordedTs": 1795397286,
       "status": "open",
       "result": null,
       "settledAt": null

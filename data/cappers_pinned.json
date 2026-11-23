@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 5:16 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 5:28 PM PT",
   "target": 200,
   "note": "Best Cappers is a rotating top 200 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin names, including 80Mill, never re-enter.",
   "doNotPin": [
@@ -161,6 +161,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "opposite.dolphin8700",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "nshrd",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -209,13 +215,7 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "Muffat00",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "ustrader",
+      "nickname": "parspectives",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -227,7 +227,13 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "parspectives",
+      "nickname": "ustrader",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "Muffat00",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -309,12 +315,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "coachlord66",
-      "tag": "Best Cappers",
-      "source": "safeguard",
-      "addedAt": "2026-11-22"
     }
   ],
   "lastGoodFollows": [
@@ -330,27 +330,22 @@
     "iluminado",
     "regine",
     "714Smith",
+    "opposite.dolphin8700",
     "nshrd",
     "successful.koi2475",
     "dear.bet",
     "YoungGriff",
     "king.45",
-    "jreit123",
-    "guy777",
-    "ColeBartiromoDOLLARSCHOLAR",
     "iknowballmorethanu",
     "Davmjxn",
-    "coachlord66",
     "fen.dachi",
-    "Muffat00",
-    "ustrader",
-    "coolness77",
-    "brand.breeze",
     "parspectives",
+    "brand.breeze",
+    "ustrader",
+    "Muffat00",
     "fattii",
     "akamarino",
     "Dimesy",
-    "truewonder",
     "whig",
     "jakem12",
     "mild.fire",
@@ -360,13 +355,6 @@
     "bananastand21",
     "emji.emji",
     "kevin702",
-    "mild.screentondog",
-    "minnowsaurus",
-    "Weedkage",
-    "larrry33",
-    "loff123",
-    "benstef22",
-    "premium.groundhog9303",
-    "desertelf"
+    "larrry33"
   ]
 }
