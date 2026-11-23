@@ -216,9 +216,16 @@ const kalshiUrlOf = (ticker: string | null | undefined, comboUrl?: string | null
   const share = comboShareUrl(ticker, yesNo);
   if (share) return share;
   if (comboUrl && comboUrl.indexOf("marketTicker=") >= 0) return comboUrl;
-  const ev = eventTickerOf(ticker || null);
-  return ev ? "https://kalshi.com/markets/" + ev.toLowerCase() : null;
+  // Singles: /markets_by_ticker/{MARKET} is a path the Kalshi iPhone app claims
+  // (apple-app-site-association) and on web it 200s to the market page with that
+  // contract pre-selected. The old /markets/{event} short form 404s on web.
+  return marketByTickerUrl(ticker);
 };
+function marketByTickerUrl(ticker: string | null | undefined): string | null {
+  const t = (ticker || "").trim();
+  return t ? "https://kalshi.com/markets_by_ticker/" + encodeURIComponent(t.toUpperCase()) : null;
+}
+const legUrlOf = (leg: ComboLeg): string | null => marketByTickerUrl(leg.ticker) || leg.url || null;
 const isComboPick = (p: { isCombo?: boolean; ticker?: string; legs?: ComboLeg[]; bt?: string; comboUrl?: string | null }): boolean => {
   return !!(p.isCombo || (p.legs && p.legs.length >= 2) || p.bt === "Combo" || (p.ticker || "").toUpperCase().indexOf("KXMVE") === 0);
 };
@@ -273,7 +280,7 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   legs.forEach((leg: ComboLeg, i: number) => {
     const start = leg.startTs ? ptTime(leg.startTs) : "";
     const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
-    lines.push((i + 1) + ". " + legPickLabel(leg) + (mu ? (" · " + mu) : "") + (start ? (" · " + start) : "") + (leg.url ? (" · " + leg.url) : ""));
+    lines.push((i + 1) + ". " + legPickLabel(leg) + (mu ? (" · " + mu) : "") + (start ? (" · " + start) : "") + (legUrlOf(leg) ? (" · " + legUrlOf(leg)) : ""));
   });
   return lines.filter((x) => x !== "").join("\n");
 }
@@ -323,13 +330,13 @@ function ComboBlock(props: {
       {n ? (
         <ol data-combo-legs="1" style={{ margin: "10px 0 0", padding: "0 0 0 18px" }}>
           {legs.map((leg: ComboLeg, i: number) => {
-            const legHref = (!href) ? (leg.url || kalshiUrlOf(leg.ticker)) : null;
+            const legHref = legUrlOf(leg);
             const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
             return (
               <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 8, fontSize: 14, lineHeight: "19px", color: NAVY }}>
                 <div style={{ fontWeight: 800 }}>{legPickLabel(leg)}</div>
                 <MatchupLine matchup={mu} startTs={leg.startTs} now={props.now} />
-                {legHref ? <a href={legHref} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 2, fontSize: 12, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open this leg ↗</a> : null}
+                {legHref ? <a data-leg-link="1" href={legHref} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 4, padding: "4px 10px", borderRadius: 999, border: "1.5px solid #C4B5FD", background: "#FFFFFF", fontSize: 13, fontWeight: 800, color: "#5B21B6", textDecoration: "none" }}>Open leg ↗</a> : null}
               </li>
             );
           })}
@@ -343,11 +350,11 @@ function ComboBlock(props: {
       {href ? (
         <>
         <a data-combo-link="1" href={href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>Open combo on Kalshi ↗</a>
-        <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>If the ticket does not open (common in the Kalshi iPhone app), enter each leg above by hand.</div>
+        <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>On iPhone, if the combo doesn’t load in the Kalshi app, tap each leg’s “Open leg ↗” above and add it to your combo ticket.</div>
         </>
       ) : (
         <div style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>
-          {"Kalshi has no share link that pre-loads loose legs into the combo builder. Open each leg, or "}
+          {"Tap each leg’s “Open leg ↗” above to add it to your combo ticket, or "}
           <button type="button" data-copy-legs="1" onClick={() => copyText(props.copyPayload || "")} style={{ border: "none", background: "none", padding: 0, fontSize: 12, fontWeight: 800, color: "#5B21B6", cursor: "pointer" }}>copy them all</button>
           {"."}
         </div>

@@ -1011,7 +1011,7 @@ def enrich_combo(http, info, ticker, now, mcache, ecache):
             "startTs": int(start or 0),
             "closeTs": linfo.get("close_ts") or 0,
             "league": lib.league_of(ltk, linfo.get("category")) or "Sports",
-            "url": "https://kalshi.com/markets/" + (ev_tk or ltk).lower(),
+            "url": "https://kalshi.com/markets_by_ticker/" + ltk.upper(),
         })
     info["legs"] = legs
     if starts and not info.get("start_ts"):
