@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 7:50 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:00 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3401,9 +3401,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 11:00 AM PT",
       "recordedTs": 1795374014,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "fen.dachi|KXNFLTDPROT-26NOV22TBDET-DETJGIBBS0-1|Yes",
@@ -4283,9 +4283,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
       "recordedTs": 1795402003,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNFLGAME-26NOV22MINSF-SF|Yes",
@@ -4535,9 +4535,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22INDNYK-215|Yes",
@@ -4661,9 +4661,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
       "recordedTs": 1795405252,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22BOSGSW-GSW|No",
@@ -4682,9 +4682,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
       "recordedTs": 1795405252,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22BOSGSW-190|Yes",
@@ -4703,9 +4703,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
       "recordedTs": 1795405252,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22BOSGSW-GSW|Yes",
@@ -4724,9 +4724,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:45 PM PT",
       "recordedTs": 1795405552,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 8:00 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

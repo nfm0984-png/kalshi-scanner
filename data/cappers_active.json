@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 7:50 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:00 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -688,8 +688,8 @@
       "postsVisible": false,
       "openPositions": 28,
       "pickSource": "positions",
-      "pickCount": 4,
-      "followCount": 4
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "Ryqeux",
@@ -6704,28 +6704,28 @@
       "ageDays": 398,
       "graded": {
         "n": 400,
-        "w": 228,
-        "l": 172,
+        "w": 231,
+        "l": 169,
         "roi": null,
-        "profit": -28.27,
+        "profit": 40.14,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 228,
-        "l": 172,
+        "w": 231,
+        "l": 169,
         "roi": null,
-        "profit": -28.27,
+        "profit": 40.14,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "714Smith \u00b7 228-172 \u00b7 +$167 all",
+      "recordLine": "714Smith \u00b7 231-169 \u00b7 +$167 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 8,
+      "openPositions": 7,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9505,18 +9505,18 @@
       "ageDays": 291,
       "graded": {
         "n": 400,
-        "w": 65,
-        "l": 53,
+        "w": 68,
+        "l": 54,
         "roi": null,
-        "profit": -816.19,
+        "profit": -812.18,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 65,
-        "l": 53,
+        "w": 68,
+        "l": 54,
         "roi": null,
-        "profit": -816.19,
+        "profit": -812.18,
         "sample": "positions"
       },
       "sports": {
@@ -9529,7 +9529,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 65-53 \u00b7 Best at Tennis \u00b7 +$524 all",
+      "recordLine": "emji.emji \u00b7 68-54 \u00b7 Best at Tennis \u00b7 +$524 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -9872,24 +9872,24 @@
       "tape30d": null,
       "ageDays": 40,
       "graded": {
-        "n": 107,
+        "n": 108,
         "w": 67,
-        "l": 40,
+        "l": 41,
         "roi": null,
-        "profit": 39211.35,
+        "profit": 38890.46,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 107,
+        "n": 108,
         "w": 67,
-        "l": 40,
+        "l": 41,
         "roi": null,
-        "profit": 39211.35,
+        "profit": 38890.46,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "iknowballmorethanu \u00b7 67-40 \u00b7 +$38.4k all",
+      "recordLine": "iknowballmorethanu \u00b7 67-41 \u00b7 +$38.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -9921,7 +9921,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 1,
       "followCount": 1
@@ -10259,8 +10259,8 @@
       "postsVisible": true,
       "openPositions": 3,
       "pickSource": "positions+posts",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "jackivouce",
