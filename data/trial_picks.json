@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 6:21 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:26 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4178,6 +4178,27 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:10 PM PT",
       "recordedTs": 1795399854,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN5|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV22DENCHI-DEN5",
+      "eventTicker": "KXNBASPREAD-26NOV22DENCHI",
+      "game": "Denver vs Chicago: Spread",
+      "backing": "Denver wins by over 4.5 points",
+      "yesNo": "Yes",
+      "entry": 0.5081,
+      "price": 0.52,
+      "cost": 551.78,
+      "contracts": 1086.0,
+      "startTs": 1795402800,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 6:26 PM PT",
+      "recordedTs": 1795400802,
       "status": "open",
       "result": null,
       "settledAt": null
