@@ -11,7 +11,27 @@ const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
 const CARD_BUDGET = 40;
-const TARGET_FOLLOW = 200;
+const TARGET_FOLLOW = 100;
+function capperDatabase(): CapperDatabase {
+  const fol = DATA.following || {};
+  const db = fol.database || {};
+  const rows = db.cappers && db.cappers.length ? db.cappers : (fol.cappers || []).map((c: FollowCapper, i: number) => ({ rank: c.rank || (i + 1), nickname: c.nickname, w: c.closedW, l: c.closedL, n: c.closedN, pnl: c.pnl, recordLine: c.recordLine, manual: c.manual }));
+  return { target: db.target || TARGET_FOLLOW, size: db.size != null ? db.size : rows.length, updatedAt: db.updatedAt, note: db.note, cappers: rows };
+}
+function dbRankOf(name: string): number {
+  const rows = capperDatabase().cappers || [];
+  const k = (name || "").toLowerCase();
+  const hit = rows.find((c: CapperDbRow) => (c.nickname || "").toLowerCase() === k);
+  if (hit && hit.rank) return hit.rank;
+  const i = rows.findIndex((c: CapperDbRow) => (c.nickname || "").toLowerCase() === k);
+  return i >= 0 ? i + 1 : 9999;
+}
+function bestDbRank(backers: Backer[]): number {
+  let best = 9999;
+  (backers || []).forEach((b: Backer) => { if (isFollowedBacker(b)) best = Math.min(best, dbRankOf(b.name)); });
+  return best;
+}
+
 const CARD_MIN = 10;
 const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
@@ -35,8 +55,10 @@ interface Game { id: string; game: string; league: string; startTs: number; star
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
-interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string }
-interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number }
+interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string; rank?: number; manual?: boolean }
+interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; n?: number; pnl?: number | null; recordLine?: string; manual?: boolean }
+interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
+interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number; database?: CapperDatabase }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
 interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[] }
 
@@ -862,7 +884,7 @@ function oppositionPicks(p: Pick, game: Game): Pick[] {
 function oppositeOf(p: Pick, game: Game): Pick[] {
   return oppositionPicks(p, game);
 }
-interface NetInfo { net: number; raw: number; own: number; opp: number; ownRec: WL; oppRec: WL; ownN: number; oppN: number; my40: number; contested: boolean; proven: boolean; padded: boolean; longshot: boolean; tier: number; bestN: number }
+interface NetInfo { net: number; raw: number; own: number; opp: number; ownRec: WL; oppRec: WL; ownN: number; oppN: number; my40: number; contested: boolean; proven: boolean; padded: boolean; longshot: boolean; tier: number; bestN: number; dbRank: number }
 function recOfBackers(backers: Backer[], league?: string | null): { rec: WL; n: number; score: number; proven: boolean; earner: boolean; my40: number; bestN: number } {
   const seen: Record<string, boolean> = {};
   let w = 0, l = 0, n = 0, score = 0, my40 = 0, proven = false, earner = false, bestN = 0;
@@ -915,7 +937,7 @@ function netOf(p: Pick, game: Game): NetInfo {
   const net = Math.round(raw);
   const oppNBets = opp.rec.w + opp.rec.l;
   const contested = oppNBets >= ELITE_MIN_BETS && (wlRate(opp.rec) >= NET_OPP_WR || net < NET_CLOSE || (opp.proven && opp.score > ownScore + 1e-6));
-  return { net, raw, own: ownScore, opp: opp.score, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, my40: own.my40, contested, proven: own.proven, padded, longshot, tier, bestN: own.bestN };
+  return { net, raw, own: ownScore, opp: opp.score, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, my40: own.my40, contested, proven: own.proven, padded, longshot, tier, bestN: own.bestN, dbRank: bestDbRank(ownAll) };
 }
 function hasMy40Backer(p: Pick): boolean {
   return (p.backers || []).some(isFollowedBacker);
@@ -927,7 +949,8 @@ function weakerSide(p: Pick, game: Game): boolean {
 function rankCmpNet(a: NetInfo, b: NetInfo): number {
   // Experience first: veterans, then big leaderboard earners, then thin samples.
   // Within a tier, longshots and 90c+ padding sort down; then net, then sample size.
-  return (b.tier - a.tier) || (Number(a.longshot) - Number(b.longshot)) || (Number(a.padded) - Number(b.padded)) || (b.net - a.net) || (b.bestN - a.bestN) || (b.raw - a.raw) || (b.my40 - a.my40);
+  // Best Cappers database rank (1 = best) surfaces those $500+ picks first, after tier and price-quality.
+  return (b.tier - a.tier) || (Number(a.longshot) - Number(b.longshot)) || (Number(a.padded) - Number(b.padded)) || ((a.dbRank || 9999) - (b.dbRank || 9999)) || (b.net - a.net) || (b.bestN - a.bestN) || (b.raw - a.raw) || (b.my40 - a.my40);
 }
 function bestPickFirst(picks: Pick[], game: Game): Pick[] {
   return picks.slice().sort((a: Pick, b: Pick) => rankCmpNet(netOf(a, game), netOf(b, game)) || ((b.total || 0) - (a.total || 0)));
@@ -1320,12 +1343,12 @@ function BestCappersRoster() {
   if (!caps.length) return null;
   return (
     <details data-best-cappers-roster="1" style={{ marginTop: 18, marginBottom: 8, borderRadius: 14, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "8px 12px" }}>
-      <summary style={{ cursor: "pointer", fontWeight: 800, fontSize: 14, color: BLUE_INK }}>{"Best Cappers roster · " + caps.length + " · tap to expand"}</summary>
+      <summary style={{ cursor: "pointer", fontWeight: 800, fontSize: 14, color: BLUE_INK }}>{"Best Cappers database · " + caps.length + " of " + ((capperDatabase().target) || TARGET_FOLLOW) + " · tap to expand"}</summary>
       <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 4 }}>
         {caps.map((c: FollowCapper, i: number) => (
           <div key={c.nickname} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 13, fontWeight: 700, color: NAVY, padding: "4px 0", borderTop: i ? "1px solid #DBEAFE" : undefined }}>
             <span style={{ overflowWrap: "anywhere" }}>{(i + 1) + ". " + c.nickname}</span>
-            <span style={{ color: "#64748B", fontVariantNumeric: "tabular-nums", flex: "none" }}>{(c.n ? ((c.w || 0) + "–" + (c.l || 0)) : "no W–L") + (c.open ? " · " + c.open + " open" : "")}</span>
+            <span style={{ color: "#64748B", fontVariantNumeric: "tabular-nums", flex: "none" }}>{((c.closedN || ((c.closedW || 0) + (c.closedL || 0))) ? ((c.closedW || 0) + "–" + (c.closedL || 0)) : (c.n ? ((c.w || 0) + "–" + (c.l || 0)) : "no W–L")) + (c.open ? " · " + c.open + " open" : "")}</span>
           </div>
         ))}
       </div>
@@ -1338,7 +1361,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const list = rankedPicks(games);
   return (
     <div>
-      <Section heading={"Ranked Picks · " + list.length + " picks"} caption="Every open $500+ pick, best first. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
+      <Section heading={"Ranked Picks · " + list.length + " picks"} caption="Every open $500+ pick, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $500+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
@@ -1442,6 +1465,8 @@ function capRankTuple(c: Capper): number[] {
 }
 function sortCappers(caps: Capper[]): Capper[] {
   return caps.slice().sort((a: Capper, b: Capper) => {
+    const ra = dbRankOf(a.nickname), rb = dbRankOf(b.nickname);
+    if (ra !== rb) return ra - rb;
     const ka = capRankTuple(a), kb = capRankTuple(b);
     for (let i = 0; i < ka.length; i++) if (ka[i] !== kb[i]) return ka[i] < kb[i] ? -1 : 1;
     return (a.nickname || "").localeCompare(b.nickname || "");
@@ -1462,7 +1487,7 @@ function CapperCard(props: { c: Capper; now: number; rank: number; filter?: stri
   return (
     <CapperShell live={hasLive} followed={true}>
       <div data-capper={c.nickname} style={{ display: "flex", gap: 10, alignItems: "center" }}>
-        <div style={{ fontSize: 18, fontWeight: 850, color: BLUE, minWidth: 28 }}>{"#" + props.rank}</div>
+        <div style={{ fontSize: 18, fontWeight: 850, color: BLUE, minWidth: 28 }}>{"#" + (dbRankOf(c.nickname) < 9999 ? dbRankOf(c.nickname) : props.rank)}</div>
         <Face name={c.nickname} size={44} />
         <div style={{ flex: 1, minWidth: 0 }}>
           {c.profileUrl ? (
@@ -1499,8 +1524,8 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   }
   return (
     <div>
-      <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{"Cappers · " + shown.length}</div>
-      <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", margin: "0 0 12px", lineHeight: "18px" }}>Only books we can view via public positions or profile posts. Ranked by closed-position grade, veterans first.</div>
+      <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{"Best Cappers · " + shown.length + " of " + ((capperDatabase().target) || TARGET_FOLLOW)}</div>
+      <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", margin: "0 0 12px", lineHeight: "18px" }}>{shown.length < ((capperDatabase().target) || TARGET_FOLLOW) ? ("Persistent good-only database, rechecked every 5 minutes. " + shown.length + " currently qualify with a winning record and official profit — losing books are not added just to fill the list of " + ((capperDatabase().target) || TARGET_FOLLOW) + ".") : "Persistent good-only database, rechecked every 5 minutes. Ranked by closed-position grade, veterans first."}</div>
       {shown.map((c: Capper, i: number) => <CapperCard key={c.nickname} c={c} now={props.now} rank={i + 1} />)}
     </div>
   );
@@ -1717,7 +1742,7 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$500+ bets only · best to worst · today in PT, after 7pm + tomorrow" },
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$500+ bets only, soonest first · live first" },
-    { value: "cappers", label: "Best Cappers", count: (DATA.cappers || []).length, icon: <IconUsers />, title: "Best Cappers", caption: "Official profit, closed record, and $500+ picks · positions or profile posts" },
+    { value: "cappers", label: "Best Cappers", count: followedN, icon: <IconUsers />, title: "Best Cappers", caption: "Persistent good-only database (target 100) · rechecked every 5 minutes · official profit and closed record" },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
@@ -1816,7 +1841,7 @@ export default function App() {
 
         <div className="ks-stats">
           <DashStat label="Open picks" value={String(comingN)} sub="$500+ bets only" color={BLUE_BRIGHT} icon={<IconList />} />
-          <DashStat label="Best Cappers" value={String(followedN)} sub="viewable books" color="#0EA5E9" icon={<IconUsers />} />
+          <DashStat label="Best Cappers" value={followedN + "/" + ((capperDatabase().target) || TARGET_FOLLOW)} sub={followedN < ((capperDatabase().target) || TARGET_FOLLOW) ? "good-only (true count)" : "good-only database"} color="#0EA5E9" icon={<IconUsers />} />
           <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
           <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />
         </div>

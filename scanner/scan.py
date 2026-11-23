@@ -183,8 +183,8 @@ PINNED_TAGS = {PINNED_TAG, "My 40", "Top 10", "Following"}  # accept older badge
 def is_pin_tag(v):
     return (v or "") in PINNED_TAGS
 
-TARGET_FOLLOW = 200  # rotating top 200 of *good* cappers; manuals stay pinned
-# Best Cappers is a rotating top 200 of official-leaderboard cappers whose public
+TARGET_FOLLOW = 100  # persistent top 100 of *good* cappers; manuals stay pinned
+# Best Cappers is a persistent top-100 database of official-leaderboard cappers whose public
 # positions or posts are viewable, official all-time profit is positive, and the
 # closed record is a real winning sample (n>=10, W>L; if n>=100 the win rate
 # must be at least 52.5%, otherwise Wilson lower bound >= 0.40) with recent
@@ -197,7 +197,7 @@ MIN_FOLLOW_LARGE_N = 100
 MIN_FOLLOW_LARGE_WR = 0.525  # n>=100 must clear 52.5% (drops coin-flip whales)
 MIN_FOLLOW_FORM_N = 5
 MIN_FOLLOW_PNL = 0.01  # any official profit > 0
-FOLLOW_WORKERS = 6  # parallel inspect in follow-check so 200 names fit ~5 min
+FOLLOW_WORKERS = 10  # parallel inspect in follow-check so 100 names finish in ~5 min
 MIN_FOLLOW_PNL_EARNER = 100000.0  # unused for follows; no-trade earners are Watching
 FOLLOW_HORIZON_DAYS = 30  # Best Cappers keeps near-term sports only, not months-out futures
 FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
@@ -366,8 +366,8 @@ def save_pinned_file(payload, now=None):
         "record. Each full scan reranks by performance (veteran Wilson record, "
         "recent form, then official PnL) and keeps the top of the list. Manual "
         "pins stay. If a board fetch fails, the last list is kept. Leaderboard "
-        "earners with no public trades go to Watching. doNotPin names, including "
-        "80Mill, never re-enter."
+        "earners with no public trades go to Watching. doNotPin still blocks "
+        "current losers; names who later pass the good-only gate can re-enter."
         % TARGET_FOLLOW
     )
     if now:
@@ -590,6 +590,117 @@ def apply_follow_safeguard(pinned, previous_names, cappers, now, log=print):
     return restored
 
 
+def lift_stale_do_not_pin(pinned, cappers, now, log=print):
+    """Re-open doNotPin names who now pass the good-only gate.
+
+    An older "reviewed" or outdated "negative profit" mark was a permanent ban,
+    which locked out books such as WorkerTrader (winning record, large official
+    profit). Losing and still-negative books stay banned until they actually
+    pass can_follow (trackable, official profit > 0, n>=10 W>L, Wilson/win-rate
+    bar, form not collapsing).
+    """
+    by = {nick_key(c.get("nickname")).lower(): c for c in (cappers or []) if c.get("nickname")}
+    entries = do_not_pin_entries(pinned)
+    kept, lifted = [], []
+    for e in entries:
+        nick = nick_key(e.get("nickname") if isinstance(e, dict) else e)
+        cap = by.get(nick.lower()) if nick else None
+        if cap and can_follow(cap) and not is_negative_profit(official_pnl(cap)):
+            lifted.append("%s (was %s)" % (nick, (e.get("reason") if isinstance(e, dict) else None) or "doNotPin"))
+            continue
+        kept.append(e if isinstance(e, dict) else {"nickname": nick, "reason": "doNotPin", "at": ""})
+    if lifted:
+        pinned["doNotPin"] = kept
+        log("doNotPin: lifted %d who now pass the good-only gate: %s" % (len(lifted), ", ".join(lifted)))
+    return lifted
+
+
+def build_capper_database(pinned, cappers, now):
+    """Persistent top-N snapshot stored in encrypted data.json."""
+    by = {nick_key(c.get("nickname")).lower(): c for c in (cappers or []) if c.get("nickname")}
+    rows = []
+    for i, raw in enumerate(pinned.get("cappers") or []):
+        nick = nick_key(raw.get("nickname") if isinstance(raw, dict) else raw)
+        if not nick:
+            continue
+        cap = by.get(nick.lower()) or (raw if isinstance(raw, dict) else {})
+        g = follow_record(cap) or {}
+        w, l, n_raw = graded_wl(g)
+        n = (w + l) if (w + l) > 0 else n_raw
+        sc = rotation_score(cap) if cap else (0, 0, 0, 0, 0, 0)
+        rows.append({
+            "rank": i + 1,
+            "nickname": nick,
+            "w": w,
+            "l": l,
+            "n": n,
+            "pnl": official_pnl(cap),
+            "recordLine": cap.get("recordLine") or nick,
+            "manual": is_manual_pin(raw if isinstance(raw, dict) else {}, nick),
+            "positionsVisible": bool(cap.get("positionsVisible")),
+            "postsVisible": bool(cap.get("postsVisible")),
+            "score": [sc[0], round(float(sc[1]), 6), round(float(sc[2]), 4), sc[3], sc[4], sc[5]],
+        })
+    return {
+        "target": TARGET_FOLLOW,
+        "size": len(rows),
+        "updatedAt": pt(now) if now else "",
+        "cappers": rows,
+        "note": "Persistent good-only Best Cappers database (target %d). Rechecked about every 5 minutes. If fewer than %d qualify, this is the true count — losing books are never added to fill the list." % (TARGET_FOLLOW, TARGET_FOLLOW),
+    }
+
+
+def attach_capper_database(following, live_cappers, pinned, now):
+    db = build_capper_database(pinned, live_cappers or [], now)
+    following["database"] = db
+    by = {(r.get("nickname") or "").lower(): r for r in db.get("cappers") or []}
+    for rec in following.get("cappers") or []:
+        row = by.get(nick_key(rec.get("nickname")).lower())
+        if row:
+            rec["rank"] = row.get("rank")
+            rec["manual"] = row.get("manual")
+    following["cappers"] = sorted(
+        following.get("cappers") or [],
+        key=lambda r: (r.get("rank") or 9999, (r.get("nickname") or "").lower()),
+    )
+    return following
+
+
+def _score_sort_key(cap, nick=""):
+    sc = rotation_score(cap) if cap else (0, 0, 0, 0, 0, 0)
+    return (-sc[0], -sc[1], -sc[2], -sc[3], -sc[4], -sc[5], nick_key(nick or (cap or {}).get("nickname")).lower())
+
+
+def _add_qualifying(still, have, skip, cappers, now, prev_rows, log, label):
+    """Append can_follow names, best first, until the database hits TARGET_FOLLOW."""
+    scored = []
+    for cap in cappers or []:
+        k = nick_key(cap.get("nickname")).lower()
+        if not k or k in have or k in skip:
+            continue
+        if can_follow(cap):
+            scored.append((rotation_score(cap), cap))
+    scored.sort(key=lambda x: (-x[0][0], -x[0][1], -x[0][2], -x[0][3], -x[0][4], -x[0][5], nick_key(x[1].get("nickname")).lower()))
+    added = []
+    for _sc, cap in scored:
+        if len(still) >= TARGET_FOLLOW:
+            break
+        nick = cap["nickname"]
+        k = nick_key(nick).lower()
+        g = cap.get("graded") or {}
+        pnl = official_pnl(cap)
+        still.append(keep_row_fn(nick, cap, "auto-winning", prev_rows.get(k), now))
+        have.add(k)
+        added.append("%s %d-%d %s" % (nick, g.get("w") or 0, g.get("l") or 0, signed_k(pnl) if pnl is not None else ""))
+    if added:
+        log("follow: %s %d (target %d): %s" % (label, len(added), TARGET_FOLLOW, ", ".join(added)))
+    return added
+
+
+# used by _add_qualifying; set on each reconcile call
+keep_row_fn = None
+
+
 def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotate=None):
     """Keep Best Cappers as a rotating top TARGET_FOLLOW, plus Noel's manual pins.
 
@@ -610,6 +721,7 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
     previous_names = list(dict.fromkeys(
         pinned_names(pinned) + [nick_key(n) for n in (pinned.get("lastGoodFollows") or []) if nick_key(n)]
     ))
+    lift_stale_do_not_pin(pinned, cappers, now, log)
     skip = do_not_pin_set(pinned)
     by = {nick_key(c.get("nickname")).lower(): c for c in cappers if c.get("nickname")}
     prev_rows = {}
@@ -636,6 +748,8 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
 
     still, dropped = [], []
     have = set()
+    global keep_row_fn
+    keep_row_fn = lambda nick, cap, source, row, _now=now: keep_row(nick, cap, source, row)
 
     def drop_name(nick, cap, why):
         pnl = official_pnl(cap)
@@ -672,27 +786,9 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
             still.append(keep_row(nick, cap, (row or {}).get("source") if row else "safeguard", row))
             have.add(k)
 
+    skip = do_not_pin_set(pinned)
     if rotate:
-        skip = do_not_pin_set(pinned)
-        scored = []
-        for cap in cappers:
-            k = nick_key(cap.get("nickname")).lower()
-            if not k or k in have or k in skip:
-                continue
-            if can_follow(cap):
-                scored.append((rotation_score(cap), cap))
-        scored.sort(key=lambda x: (-x[0][0], -x[0][1], -x[0][2], -x[0][3], -x[0][4], -x[0][5], nick_key(x[1].get("nickname")).lower()))
-        added = []
-        for _sc, cap in scored:
-            if len(still) >= TARGET_FOLLOW:
-                break
-            nick = cap["nickname"]
-            k = nick_key(nick).lower()
-            g = cap.get("graded") or {}
-            pnl = official_pnl(cap)
-            still.append(keep_row(nick, cap, "auto-winning", prev_rows.get(k)))
-            have.add(k)
-            added.append("%s %d-%d %s" % (nick, g.get("w") or 0, g.get("l") or 0, signed_k(pnl) if pnl is not None else ""))
+        _add_qualifying(still, have, skip, cappers, now, prev_rows, log, "rotated in")
         # Anyone previously followed who did not make this cut rotates off.
         for nick in previous_names:
             k = nick.lower()
@@ -703,8 +799,15 @@ def reconcile_follow_list(active, pinned, cappers, people, now, log=print, rotat
                 dropped.append("%s (rotated)" % nick)
                 if cap:
                     clear_follow_flags(cap, people)
-        if added:
-            log("follow: rotated in %d (target %d): %s" % (len(added), TARGET_FOLLOW, ", ".join(added)))
+    elif len(still) < TARGET_FOLLOW:
+        # Follow-check may lift a stale doNotPin; top up from already-known books.
+        _add_qualifying(still, have, skip, cappers, now, prev_rows, log, "topped up")
+
+    # Re-score and re-rank the persistent database (manuals stay, losing manuals sort last).
+    def _row_key(row):
+        nick = nick_key(row.get("nickname") if isinstance(row, dict) else row)
+        return _score_sort_key(by.get(nick.lower()), nick)
+    still.sort(key=_row_key)
 
     pinned["cappers"] = still
     if dropped:
@@ -2640,6 +2743,7 @@ def build(now=None, log=print):
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
     following = enrich_follow_cappers(following, cappers)
+    following = attach_capper_database(following, cappers, pinned, now)
     # Carry previous Best Cappers *display* picks only. The trial ledger is already persisted and was
     # updated solely from this scan's visible followed positions.
     follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
@@ -2662,7 +2766,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching 100+ pool is not displayed. Best Cappers is ranked by closed-position grade, veterans (longer records) above small samples. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $%d. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching pool is not displayed. Best Cappers is a persistent good-only database (target 100), reranked about every 5 minutes by closed-position grade, veterans first. If fewer than 100 qualify, the true count is shown. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $%d. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented." % MIN_BET,
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -2867,7 +2971,21 @@ def build_follow_check(now=None, log=print):
         k = nick_key(c.get("nickname"))
         if k and k not in pool:
             pool[k] = dict(c, picks=c.get("picks") or [], followingPicks=c.get("followingPicks") or [])
+    # Include the persistent active db so a follow-check can lift stale
+    # doNotPin names (e.g. WorkerTrader) and top up toward the target of 100.
+    for row in (active.get("cappers") or []):
+        k = nick_key(row.get("nickname"))
+        if k and k not in pool:
+            pool[k] = dict(row)
     pinned = reconcile_follow_list(active, pinned, list(pool.values()), {}, now, log, rotate=False)
+    # Newly admitted books should appear this cycle with their last known record.
+    pinset = {n.lower() for n in pinned_names(pinned)}
+    have_live = {nick_key(c.get("nickname")).lower() for c in live_cappers if c.get("nickname")}
+    for cap in pool.values():
+        k = nick_key(cap.get("nickname")).lower()
+        if k and k in pinset and k not in have_live:
+            live_cappers.append(dict(cap, picks=cap.get("picks") or [], followingPicks=cap.get("followingPicks") or []))
+            have_live.add(k)
     # Keep only still-followed in the live inspect list for Best Cappers picks.
     live_cappers = [
         c for c in live_cappers
@@ -2896,6 +3014,7 @@ def build_follow_check(now=None, log=print):
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
     following = enrich_follow_cappers(following, live_cappers)
+    following = attach_capper_database(following, live_cappers, pinned, now)
     follow_picks, carried_follow, dropped_follow = carry_forward_following(following.get("picks") or [], prev, now, http, mcache, ecache, log, pinned=pinned)
     following["picks"] = follow_picks
     cov["carriedFollowPicks"] = carried_follow
