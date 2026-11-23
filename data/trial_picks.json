@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:10 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4790,6 +4790,48 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Mon Nov 23 \u00b7 12:51 AM PT"
+    },
+    {
+      "id": "king.45|KXT20MATCH-26NOV230930DESSW-DES|Yes",
+      "nickname": "king.45",
+      "ticker": "KXT20MATCH-26NOV230930DESSW-DES",
+      "eventTicker": "KXT20MATCH-26NOV230930DESSW",
+      "game": "Sharjah Warriorz vs Desert Vipers",
+      "backing": "Desert Vipers",
+      "yesNo": "Yes",
+      "entry": 0.3855,
+      "price": 0.4,
+      "cost": 998.41,
+      "contracts": 2590.0,
+      "startTs": 1795458600,
+      "league": "Cricket",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
+      "recordedTs": 1795447148,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "ustrader|KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
+      "nickname": "ustrader",
+      "ticker": "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU",
+      "eventTicker": "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG",
+      "game": "Real Madrid vs Alaves",
+      "backing": "no Alaves wins by more than 1.5 goals,no Deportivo De La Coruna wins by more than 1.5 goals,yes Indiana-South Bend,no Monza wins by more than 1.5 goals",
+      "yesNo": "Yes",
+      "entry": 0.044,
+      "price": 0.044,
+      "cost": 2059.55,
+      "contracts": 46808.0,
+      "startTs": 1795467600,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
+      "recordedTs": 1795447148,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:51 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
   "scans": [
+    {
+      "ts": 1795447148,
+      "at": "Mon Nov 23 \u00b7 7:19 AM PT",
+      "names": 402,
+      "newFollows": [
+        "Eibriham",
+        "bdadams"
+      ],
+      "followed": 49,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXT20MATCH-26NOV230930DESSW-DES|Yes",
+        "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
+      ]
+    },
     {
       "ts": 1795423879,
       "at": "Mon Nov 23 \u00b7 12:51 AM PT",
@@ -1363,20 +1380,6 @@
         "KXNBATOTAL-26NOV20WASCHI-203|Yes",
         "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
         "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes"
-      ]
-    },
-    {
-      "ts": 1795228193,
-      "at": "Fri Nov 20 \u00b7 6:29 PM PT",
-      "names": 0,
-      "newFollows": [],
-      "followed": 0,
-      "target": 40,
-      "openPicks": 3,
-      "ids": [
-        "KXNBAGAME-26NOV20ORLBKN-BKN|Yes",
-        "KXNBAGAME-26NOV20TORDET-TOR|Yes",
-        "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes"
       ]
     }
   ]
