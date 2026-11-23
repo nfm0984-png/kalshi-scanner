@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 11:14 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 11:53 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4976,6 +4976,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 9:43 AM PT",
       "recordedTs": 1795455817,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXAFCCLGAME-26NOV23QUWALG-TIE|Yes",
+      "nickname": "WorkerTrader",
+      "ticker": "KXAFCCLGAME-26NOV23QUWALG-TIE",
+      "eventTicker": "KXAFCCLGAME-26NOV23QUWALG",
+      "game": "Al Quwa Al Jawiya vs Al Gharafa",
+      "backing": "Tie",
+      "yesNo": "Yes",
+      "entry": 0.7593,
+      "price": 0.13,
+      "cost": 3912.7,
+      "contracts": 5153.0,
+      "startTs": 1795468500,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 11:53 AM PT",
+      "recordedTs": 1795463626,
       "status": "open",
       "result": null,
       "settledAt": null
