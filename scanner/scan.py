@@ -3101,6 +3101,81 @@ def build_follow_check(now=None, log=print):
     return payload
 
 
+FIRST_SEEN_PATH = os.path.join(DATA_DIR, "first_seen.json")
+FIRST_SEEN_KEEP_SECS = 21 * 24 * 3600
+
+
+def _added_key(name, ticker, yes_no):
+    return "%s|%s|%s" % ((name or "").lower(), (ticker or "").upper(), (yes_no or "").capitalize())
+
+
+def stamp_added_times(data, prev, now=None, log=print):
+    """Stable 'Added <time> PT' per capper + market/combo ticker + side.
+
+    First-seen time persists in data/first_seen.json (and in data.json via
+    addedTs) and is never moved later. Backfill order for keys we have not
+    stored yet: the trial ledger's recordedTs (when the scanner first logged
+    the pick), else the capper's trade time (lastTs), else this scan's time.
+    addedLastTs is set when the capper's latest trade on that position is
+    clearly after the first-seen time (they added to it).
+    """
+    now = int(now or time.time())
+    store = load_json(FIRST_SEEN_PATH, {}) or {}
+    if not isinstance(store, dict):
+        store = {}
+    seeds = {}
+    try:
+        for t in (load_json(TRIAL_PATH, {}) or {}).get("picks") or []:
+            ts = t.get("recordedTs")
+            if ts:
+                k = _added_key(t.get("nickname"), t.get("ticker"), t.get("yesNo"))
+                seeds[k] = min(int(ts), seeds.get(k, int(ts)))
+    except Exception:
+        pass
+    for g, p, b, _k in _flatten_game_positions((prev or {}).get("games") or []):
+        if b.get("addedTs"):
+            k = _added_key(b.get("name"), p.get("ticker") or (p.get("view") or {}).get("ticker"), (p.get("view") or {}).get("yesNo") or p.get("yesNo"))
+            seeds[k] = min(int(b["addedTs"]), seeds.get(k, int(b["addedTs"])))
+    for fp in ((prev or {}).get("following") or {}).get("picks") or []:
+        if fp.get("addedTs"):
+            k = _added_key(fp.get("nickname"), fp.get("ticker"), fp.get("yesNo"))
+            seeds[k] = min(int(fp["addedTs"]), seeds.get(k, int(fp["addedTs"])))
+
+    def first_seen(k, last_ts):
+        ent = store.get(k) or {}
+        cands = [x for x in (ent.get("ts"), seeds.get(k)) if x]
+        if not cands and last_ts and int(last_ts) <= now:
+            cands = [int(last_ts)]
+        ts = int(min(cands)) if cands else now
+        store[k] = {"ts": ts, "seen": now}
+        return ts
+
+    def stamp(obj, k):
+        last_ts = obj.get("lastTs")
+        ts = first_seen(k, last_ts)
+        obj["addedTs"] = ts
+        if last_ts and int(last_ts) > ts + 300:
+            obj["addedLastTs"] = int(last_ts)
+        else:
+            obj.pop("addedLastTs", None)
+
+    n = 0
+    for g, p, b, _k in _flatten_game_positions(data.get("games") or []):
+        stamp(b, _added_key(b.get("name"), p.get("ticker") or (p.get("view") or {}).get("ticker"), (p.get("view") or {}).get("yesNo") or p.get("yesNo")))
+        n += 1
+    for fp in (data.get("following") or {}).get("picks") or []:
+        stamp(fp, _added_key(fp.get("nickname"), fp.get("ticker"), fp.get("yesNo")))
+        n += 1
+    cutoff = now - FIRST_SEEN_KEEP_SECS
+    store = {k: v for k, v in store.items() if (v or {}).get("seen", 0) >= cutoff}
+    # Only rewrite when the first-seen times change, so quiet checks stay quiet.
+    old = load_json(FIRST_SEEN_PATH, {}) or {}
+    if {k: (v or {}).get("ts") for k, v in store.items()} != {k: (v or {}).get("ts") for k, v in (old if isinstance(old, dict) else {}).items()}:
+        save_json(FIRST_SEEN_PATH, store)
+    log("added-times: stamped %d picks, %d keys stored" % (n, len(store)))
+    return data
+
+
 def _maybe_decrypt_data_json(log=print):
     """If data.json is AES-wrapped (after the passcode gate landed), unwrap for this process."""
     path = os.path.join(ROOT, "data.json")
@@ -3129,6 +3204,10 @@ def main():
     trial_before = significant_trial()
     prev, _ = load_previous_payload()
     data = build_follow_check() if follow else build()
+    try:
+        stamp_added_times(data, prev)
+    except Exception as e:
+        print("added-times skipped: %s" % e)
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
     open(out, "a").write(chr(10))

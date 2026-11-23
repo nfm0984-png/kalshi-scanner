@@ -46,12 +46,12 @@ interface WL { w: number; l: number; n?: number }
 interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; matchup?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null; comboUrl?: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
-interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string }
+interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
+interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; addedTs?: number | null; addedLastTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string; rank?: number; manual?: boolean }
 interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; n?: number; pnl?: number | null; recordLine?: string; manual?: boolean }
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
@@ -181,6 +181,24 @@ const cents = (px: number | null | undefined): string => {
 };
 const payoutOf = (p: Pick): number => (p.view.price ? Math.round((1 / Math.min(p.view.price, 1)) * 10) / 10 : 99);
 const ptTime = (ts: number): string => new Date(ts * 1000).toLocaleString("en-US", { timeZone: "America/Los_Angeles", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " PT";
+const ptDayKey = (ts: number): string => new Date(ts * 1000).toLocaleDateString("en-US", { timeZone: "America/Los_Angeles" });
+const ptClock = (ts: number): string => new Date(ts * 1000).toLocaleTimeString("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" });
+const addedWhen = (ts: number, now: number): string => {
+  if (ptDayKey(ts) === ptDayKey(now)) return ptClock(ts) + " PT";
+  if (ptDayKey(ts) === ptDayKey(now - 86400)) return "yesterday " + ptClock(ts) + " PT";
+  return new Date(ts * 1000).toLocaleString("en-US", { timeZone: "America/Los_Angeles", weekday: "short", month: "short", day: "numeric" }) + ", " + ptClock(ts) + " PT";
+};
+function AddedChip(props: { backers?: Backer[]; addedTs?: number | null; addedLastTs?: number | null; now: number }): React.ReactElement | null {
+  const bs = props.backers || [];
+  const firsts = bs.map((b: Backer) => b.addedTs || 0).filter((x: number) => x > 0);
+  if (props.addedTs) firsts.push(props.addedTs);
+  if (!firsts.length) return null;
+  const first = Math.min(...firsts);
+  const lasts = bs.map((b: Backer) => b.addedLastTs || 0).concat([props.addedLastTs || 0]);
+  const last = Math.max(...lasts);
+  const more = last > first + 300 ? (" · added to " + (ptDayKey(last) === ptDayKey(first) ? ptClock(last) : addedWhen(last, props.now))) : "";
+  return <span data-added-ts={String(first)} title="When this pick first showed up on the scanner" style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: "#EDE9FE", color: "#4C1D95", border: "1.5px solid #A78BFA", fontSize: 12, fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{"🕒 Added " + addedWhen(first, props.now) + more}</span>;
+}
 const untilText = (ts: number, now: number): string => {
   const m = Math.max(0, Math.round((ts - now) / 60));
   return m < 60 ? m + " min" : Math.floor(m / 60) + "h " + (m % 60 ? (m % 60) + "m" : "");
@@ -576,6 +594,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
         {live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
         {game.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{game.league}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{(live ? "Started " : "Starts ") + (p.startTs || game.startTs ? ptTime(p.startTs || game.startTs) : "—")}</Chip>
+        <AddedChip backers={mine ? [mine] : p.backers} now={now} />
       </div>
       {isComboPick(p) ? (
         <ComboBlock legs={p.legs} now={now} ticker={p.ticker} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={mine ? mine.cost : p.total} backers={mine ? [mine] : p.backers} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
@@ -608,6 +627,7 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         {p.bt ? <Chip bg="#F8FAFC" color="#334155">{p.bt}</Chip> : null}
         {pickSourceLabel(p.source) ? <Chip bg="#EDE9FE" color="#5B21B6">{pickSourceLabel(p.source)}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{p.startTs ? ((live ? "Started " : "Starts ") + ptTime(p.startTs)) : "—"}</Chip>
+        <AddedChip addedTs={p.addedTs} addedLastTs={p.addedLastTs} now={props.now} />
       </div>
       {isComboPick(p) ? (
         <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl} yesNo={p.yesNo} price={p.price} payout={p.payout} stake={p.cost} backers={[{ name: p.nickname, cost: p.cost || 0, avg: p.entry ?? null, line: p.recordLine || p.nickname, tier: p.tier || "Best Cappers", pinned: true, lastTs: p.lastTs ?? null }]} copyPayload={comboLegsText(p)} />
@@ -769,7 +789,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
     }
     const g = byId[gid];
     let pick = (g.picks || []).find((p: Pick) => p.key === key || (p.ticker === fp.ticker && p.view && p.view.yesNo === yesNo));
-    const backer: Backer = { name: fp.nickname, cost: fp.cost || 0, avg: fp.entry ?? null, line: fp.recordLine || fp.nickname, tier: fp.tier || "Best Cappers", pinned: true, lastTs: fp.lastTs ?? null, lastSeen: fp.lastSeen, lastSeenTs: fp.lastSeenTs };
+    const backer: Backer = { name: fp.nickname, cost: fp.cost || 0, avg: fp.entry ?? null, line: fp.recordLine || fp.nickname, tier: fp.tier || "Best Cappers", pinned: true, lastTs: fp.lastTs ?? null, lastSeen: fp.lastSeen, lastSeenTs: fp.lastSeenTs, addedTs: fp.addedTs ?? null, addedLastTs: fp.addedLastTs ?? null };
     if (!pick) {
       const total = backer.cost || 0;
       pick = { key, ticker: fp.ticker, eventTicker: fp.eventTicker, mid: fp.ticker, bt: fp.bt || "Other", big: fp.backing || fp.label || fp.game, sub: fp.marketTitle && fp.marketTitle !== (fp.backing || fp.label) ? fp.game : "", view: { backing: fp.backing || fp.label || fp.game, marketTitle: fp.marketTitle || fp.game, outcome: fp.backing || fp.label || "", yesNo, price: fp.price ?? null, ticker: fp.ticker, comboUrl: fp.comboUrl || null }, backers: [backer], total, tags: [backer.tier || "Best Cappers"], slip: fp.slip, startTs: start, state: fp.state || (start <= now ? "live" : "upcoming"), status: fp.status, result: fp.result ?? null, closeTs: fp.closeTs, yesAsk: fp.yesAsk, noAsk: fp.noAsk, isCombo: isComboPick(fp), legs: fp.legs, comboUrl: fp.comboUrl || null, payout: fp.payout ?? null };
@@ -785,6 +805,11 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
       }
       if (fp.payout != null && pick.payout == null) pick.payout = fp.payout;
       if (fp.bt === "Combo" && pick.bt !== "Combo") pick.bt = "Combo";
+      (pick.backers || []).forEach((b: Backer) => {
+        if ((b.name || "").toLowerCase() !== (fp.nickname || "").toLowerCase()) return;
+        if (fp.addedTs && (!b.addedTs || fp.addedTs < b.addedTs)) b.addedTs = fp.addedTs;
+        if (fp.addedLastTs && (!b.addedLastTs || fp.addedLastTs > b.addedLastTs)) b.addedLastTs = fp.addedLastTs;
+      });
       if (!(pick.backers || []).some((b: Backer) => (b.name || "").toLowerCase() === (fp.nickname || "").toLowerCase())) {
         pick.backers = (pick.backers || []).concat([backer]);
         pick.total = Math.round(pick.backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
@@ -1174,6 +1199,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           {props.rankNo ? <span data-card-no="1" style={{ display: "inline-block", minWidth: 26, textAlign: "center", padding: "2px 8px", borderRadius: 999, background: BLUE, color: "#FFFFFF", fontSize: 13, fontWeight: 900 }}>{"#" + props.rankNo}</span> : null}
           {props.game.live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
+          <AddedChip backers={p.backers} now={props.now} />
         </div>
         {isComboPick(p) ? (
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
@@ -1220,6 +1246,7 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
       </div>
+      <div style={{ marginTop: 4 }}><AddedChip backers={p.backers} now={props.now} /></div>
       <MatchupLine matchup={matchupOf(p.view.marketTitle, p.sub, props.game.game)} startTs={p.startTs || props.game.startTs} now={props.now} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 6 }}>
         <span style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
