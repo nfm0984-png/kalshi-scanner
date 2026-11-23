@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 9:38 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:43 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4955,6 +4955,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 9:33 AM PT",
       "recordedTs": 1795455216,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL",
+      "game": "TCU vs Texas Tech",
+      "backing": "yes Texas Tech,yes Charlotte wins by over 6.5 points",
+      "yesNo": "Yes",
+      "entry": 0.43,
+      "price": 0.427,
+      "cost": 961.48,
+      "contracts": 2236.0,
+      "startTs": 1795469400,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 9:43 AM PT",
+      "recordedTs": 1795455817,
       "status": "open",
       "result": null,
       "settledAt": null

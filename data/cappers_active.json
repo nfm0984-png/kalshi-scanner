@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 9:38 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:43 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6652,18 +6652,18 @@
       "ageDays": 181,
       "graded": {
         "n": 400,
-        "w": 316,
-        "l": 84,
+        "w": 318,
+        "l": 82,
         "roi": null,
-        "profit": 30123.71,
+        "profit": 31330.24,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 316,
-        "l": 84,
+        "w": 318,
+        "l": 82,
         "roi": null,
-        "profit": 30123.71,
+        "profit": 31330.24,
         "sample": "positions"
       },
       "sports": {
@@ -6683,12 +6683,12 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 316-84 \u00b7 Best at MLB \u00b7 +$22.3k all",
+      "recordLine": "dependent.snail8369 \u00b7 318-82 \u00b7 Best at MLB \u00b7 +$22.3k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9851,10 +9851,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "hedge123",
@@ -11070,7 +11070,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1
