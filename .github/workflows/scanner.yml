@@ -3,7 +3,7 @@ name: Kalshi scanner
 # 5-minute followed-checks live in follow-check.yml (hourly :30 start, loop every 5 min).
 # Scheduled runs no-op from midnight–6 AM America/Los_Angeles (DST-safe).
 # workflow_dispatch: leave mode blank (or "scan") for a full scan; "follow-check" for a light run.
-# push to main deploys the already-built site and does not run a scan.
+# Frontend pushes are deployed by deploy.yml, not here.
 # Manual dispatch is always allowed, including overnight.
 on:
   schedule:
@@ -28,28 +28,22 @@ on:
         options:
           - scan
           - follow-check
-  push:
-    branches: [main]
-    paths-ignore:
-      - "README.md"
 
-# One crawl at a time: 5-minute checks wait if a scan is running, and never
-# cancel a mid-Kalshi crawl. Hourly full scans and 5-minute checks share this group.
+# Full scans have their own group so a queued follow-check or a frontend push
+# can never evict a waiting full scan (GitHub keeps only one pending run per
+# group). The 5-minute follow-check loop runs in parallel in its own group.
+# Publishing happens in deploy.yml (dispatched below).
 concurrency:
-  group: kalshi-scanner
+  group: kalshi-full-scan
   cancel-in-progress: false
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+  actions: write
 
 jobs:
   scan-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.pages.outputs.page_url }}
     env:
       KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
@@ -147,6 +141,14 @@ jobs:
               i=$((i + 1))
               git pull --rebase origin main && git push && break
               echo "push failed (attempt $i); retrying"
+              # A follow-check pushed while this scan ran. The full scan is the
+              # newer, complete picture: keep this run's data ("theirs" in a rebase).
+              if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+                git checkout --theirs -- data.json data 2>/dev/null || true
+                git add data.json
+                if [ -d data ]; then git add -A data; fi
+                if GIT_EDITOR=true git rebase --continue && git push; then break; fi
+              fi
               git rebase --abort 2>/dev/null || true
               sleep 8
             done
@@ -155,31 +157,8 @@ jobs:
             git log -1 --oneline origin/main || true
           fi
 
-      - name: Stage Pages
-        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
-        run: |
-          set -euo pipefail
-          mkdir -p _site
-          cp index.html app.js data.json robots.txt gate.json _site/
-          if [ -f config.js ]; then cp config.js _site/; fi
-          echo "nfm0984-png.github.io" > _site/CNAME
-
-      - name: Setup Pages
-        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      # deploy-pages@v4 can miss the artifact if it starts immediately after the upload.
-      - name: Wait for Pages artifact
-        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
-        run: sleep 20
-
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' || steps.changed.outputs.value == '1'
-        id: pages
-        uses: actions/deploy-pages@v4
+      - name: Publish (dispatch deploy.yml)
+        if: steps.changed.outputs.value == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main -R "${{ github.repository }}"

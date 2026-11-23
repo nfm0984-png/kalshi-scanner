@@ -1,9 +1,14 @@
 #!/bin/bash
-# Run followed-checks of every Best Capper about every 5 minutes until just
-# before the :20 UTC full scan, then stop so scanner.yml can start on time.
+# Run followed-checks of every Best Capper about every 5 minutes for the
+# length of the job (FOLLOW_LOOP_SECS). Runs alongside the hourly full scan.
+# Each pass that pushes data dispatches deploy.yml so the site updates now,
+# not only when the loop ends. If a full scan pushed during a pass, the scan
+# wins and this pass is redone from the scan's data on the next cycle.
 # Called from .github/workflows/follow-check.yml. Commits data only.
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# The workflow runs a copy from $RUNNER_TEMP (each pass resets the checkout to
+# the latest main, which may rewrite this file), so FOLLOW_ROOT points at the repo.
+ROOT="${FOLLOW_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 cd "$ROOT"
 
 git config user.name "kalshi-scanner"
@@ -31,17 +36,26 @@ now_pt = datetime.now(ZoneInfo("America/Los_Angeles"))
 if 0 <= now_pt.hour < 6:
     print("quiet hours — stopping the follow loop")
     sys.exit(0)
-utc = datetime.now(timezone.utc)
-# Yield just before the :20 UTC hourly full scan. A delayed loop that
-# starts at :21–:24 (after that scan should have begun) still does a pass.
-if 18 <= utc.minute <= 20:
-    print("near :20 UTC — stopping so the full scan can run")
-    sys.exit(0)
 sys.exit(1)
 PY
 }
 
+request_deploy() {
+  if [ -n "${GH_TOKEN:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
+    gh workflow run deploy.yml --ref main -R "$GITHUB_REPOSITORY" \
+      && echo "requested Pages deploy" \
+      || echo "could not dispatch deploy.yml"
+  fi
+}
+
+sync_main() {
+  # Start every pass from the latest pushed data (a full scan may have landed).
+  git rebase --abort 2>/dev/null || true
+  git fetch -q origin main && git reset -q --hard origin/main
+}
+
 run_once() {
+  sync_main || true
   export KALSHI_SCAN_MODE=follow
   python scanner/scan.py
   VAL=1
@@ -66,19 +80,16 @@ run_once() {
     if git pull --rebase origin main && git push; then
       CHANGED=1
       echo "pushed followed check $(git rev-parse --short HEAD)"
+      request_deploy
       return 0
     fi
-    echo "push failed (attempt $i); retrying"
-    # data.json often conflicts; keep this run's data ("theirs" during rebase).
+    echo "push failed (attempt $i)"
     if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
-      git checkout --theirs -- data.json data 2>/dev/null || true
-      git add data.json
-      if [ -d data ]; then git add -A data; fi
-      if GIT_EDITOR=true git rebase --continue && git push; then
-        CHANGED=1
-        echo "pushed followed check $(git rev-parse --short HEAD)"
-        return 0
-      fi
+      # data.json conflicted: a full scan landed mid-pass. Keep the scan's
+      # data and redo this check from it next cycle.
+      echo "full scan landed during this pass; keeping the scan's data"
+      sync_main || true
+      return 0
     fi
     git rebase --abort 2>/dev/null || true
     sleep 8

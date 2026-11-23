@@ -1,0 +1,69 @@
+name: Kalshi Pages deploy
+# The only workflow that publishes the site. Runs on frontend pushes and is
+# dispatched by the follow-check loop after every data push and by full scans
+# when they finish, so the live site updates within ~1 minute of new data.
+# Own concurrency group so deploys never evict a queued scan or follow-check.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "README.md"
+  workflow_dispatch:
+
+concurrency:
+  group: kalshi-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    env:
+      KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Encrypt published data
+        run: |
+          set -euo pipefail
+          pip install -q cryptography
+          # Leaves an already-wrapped data.json alone.
+          python scanner/gate_crypto.py encrypt
+
+      - name: Stage Pages
+        run: |
+          set -euo pipefail
+          git log -1 --format='deploying %h %ci %s'
+          mkdir -p _site
+          cp index.html app.js data.json robots.txt gate.json _site/
+          if [ -f config.js ]; then cp config.js _site/; fi
+          echo "nfm0984-png.github.io" > _site/CNAME
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      # deploy-pages@v4 can miss the artifact if it starts immediately after the upload.
+      - name: Wait for Pages artifact
+        run: sleep 20
+
+      - name: Deploy to GitHub Pages
+        id: pages
+        uses: actions/deploy-pages@v4

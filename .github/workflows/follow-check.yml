@@ -19,21 +19,20 @@ on:
         default: false
         type: boolean
 
+# Own group: runs alongside the hourly full scan (which has kalshi-full-scan)
+# so the site keeps refreshing every ~5 minutes while a 25-30 minute scan runs.
+# Each pass that changes data dispatches deploy.yml so it goes live right away.
 concurrency:
-  group: kalshi-scanner
+  group: kalshi-follow
   cancel-in-progress: false
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+  actions: write
 
 jobs:
   follow-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.pages.outputs.page_url }}
     env:
       KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
@@ -65,37 +64,10 @@ jobs:
         if: github.event_name != 'schedule' || steps.quiet.outputs.skip != '1'
         id: loop
         env:
+          GH_TOKEN: ${{ github.token }}
           FOLLOW_LOOP_SECS: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.once == 'true') && '1' || '2880' }}
         run: |
           set -euo pipefail
           pip install -q cryptography
-          bash scanner/follow_loop.sh
-
-      - name: Stage Pages
-        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
-        run: |
-          set -euo pipefail
-          git pull --ff-only origin main || true
-          mkdir -p _site
-          cp index.html app.js data.json robots.txt gate.json _site/
-          if [ -f config.js ]; then cp config.js _site/; fi
-          echo "nfm0984-png.github.io" > _site/CNAME
-
-      - name: Setup Pages
-        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - name: Wait for Pages artifact
-        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
-        run: sleep 20
-
-      - name: Deploy to GitHub Pages
-        if: (github.event_name != 'schedule' || steps.quiet.outputs.skip != '1') && steps.loop.outputs.value == '1'
-        id: pages
-        uses: actions/deploy-pages@v4
+          cp scanner/follow_loop.sh "$RUNNER_TEMP/follow_loop.sh"
+          FOLLOW_ROOT="$GITHUB_WORKSPACE" bash "$RUNNER_TEMP/follow_loop.sh"
