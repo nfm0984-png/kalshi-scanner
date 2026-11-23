@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 11:09 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4766,6 +4766,27 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
       "recordedTs": 1795414733,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXWT20MATCH-26NOV230000PAKSRI-SRI|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXWT20MATCH-26NOV230000PAKSRI-SRI",
+      "eventTicker": "KXWT20MATCH-26NOV230000PAKSRI",
+      "game": "Sri Lanka vs Pakistan",
+      "backing": "Sri Lanka",
+      "yesNo": "Yes",
+      "entry": 0.8496,
+      "price": 0.89,
+      "cost": 1978.76,
+      "contracts": 2329.0,
+      "startTs": 1795424400,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 11:09 PM PT",
+      "recordedTs": 1795417775,
       "status": "open",
       "result": null,
       "settledAt": null
