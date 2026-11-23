@@ -10,7 +10,6 @@ const PAGE = "#F0F7FF";
 const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
-const CARD_BUDGET = 40;
 const TARGET_FOLLOW = 100;
 function capperDatabase(): CapperDatabase {
   const fol = DATA.following || {};
@@ -32,8 +31,6 @@ function bestDbRank(backers: Backer[]): number {
   return best;
 }
 
-const CARD_MIN = 10;
-const CARD_MAX = 15;
 const ELITE_MIN_BETS = 10;
 const FRESH_SECS = 3 * 3600;
 const FRESH_MIN = 500;
@@ -1294,52 +1291,6 @@ function rankedLists(games: Game[]): { list: RankedCard[]; top: RankedCard[]; ot
   const list = rankedPicks(games);
   return { list, top: list, others: [], small: [], contested: list.filter((c: RankedCard) => c.contested), total: list.length };
 }
-interface CardPick { p: Pick; game: Game; n: number; stake: number }
-function todayCard(games: Game[], now: number): { picks: CardPick[]; total: number } {
-  const order = rankedPicks(games);
-  const eligible = (p: Pick, g: Game) => !g.live && g.startTs > now && p.view.price != null && !!p.view.yesNo && payoutOf(p) < 3 && !netOf(p, g).contested && !netOf(p, g).padded && !weakerSide(p, g);
-  const warned = (p: Pick, g: Game) => { const c = sideCompare(p, g); return !!(c && c.verdict === "other"); };
-  const rows: { p: Pick; game: Game; n: number }[] = [];
-  const seenG: Record<string, boolean> = {};
-  order.forEach((c: RankedCard) => {
-    if (seenG[c.game.id] || !eligible(c.p, c.game)) return;
-    seenG[c.game.id] = true;
-    rows.push({ p: c.p, game: c.game, n: c.my40 || c.p.backers.length });
-  });
-  const chosen: { p: Pick; game: Game; n: number }[] = [];
-  const take = (r: { p: Pick; game: Game; n: number }) => { chosen.push(r); };
-  rows.forEach((r) => { if (chosen.length < CARD_MAX && payoutOf(r.p) <= 1.8 && !warned(r.p, r.game)) take(r); });
-  rows.forEach((r) => { if (chosen.length < CARD_MIN && chosen.indexOf(r) < 0 && !warned(r.p, r.game)) take(r); });
-  rows.forEach((r) => { if (chosen.length < CARD_MIN && chosen.indexOf(r) < 0) take(r); });
-  const picks: CardPick[] = chosen.map((r) => ({ p: r.p, game: r.game, n: r.n, stake: r.n >= 3 ? 4 : r.n === 2 ? 3 : 2 }));
-  let total = picks.reduce((a: number, c: CardPick) => a + c.stake, 0);
-  while (total > CARD_BUDGET) {
-    let j = -1;
-    for (let i = picks.length - 1; i >= 0; i--) { if (picks[i].stake > 2) { j = i; break; } }
-    if (j < 0) break;
-    picks[j].stake -= 1; total -= 1;
-  }
-  for (let i = 0; i < picks.length && total < CARD_BUDGET; i++) { if (picks[i].stake < 4) { picks[i].stake += 1; total += 1; } }
-  return { picks, total };
-}
-function TodayCard(props: { games: Game[]; now: number }) {
-  const card = todayCard(props.games, props.now);
-  const freshN = card.picks.filter((c: CardPick) => freshOf(c.p, props.now).tag === "fresh").length;
-  return (
-    <div data-today-card="1" style={{ marginBottom: 18 }}>
-      <div style={{ borderRadius: 18, background: NAVY, color: "#FFFFFF", padding: "14px 16px", marginBottom: 12 }}>
-        <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.01em" }}>{"Today's $" + CARD_BUDGET + " card"}</div>
-        <div data-card-total="1" style={{ fontSize: 16, fontWeight: 800, marginTop: 4, fontVariantNumeric: "tabular-nums" }}>{card.picks.length + " picks · $2–4 each · total $" + card.total + " of $" + CARD_BUDGET}</div>
-        <div style={{ fontSize: 13, fontWeight: 650, opacity: 0.9, marginTop: 4 }}>{"Best ranked picks, $2–4 each. Nothing is placed for you." + (freshN ? " " + freshN + " fresh." : "")}</div>
-      </div>
-      {card.picks.length === 0 ? <EmptyState title="No picks fit the card right now" body={"Nothing upcoming pays under 3x with a public Kalshi capper on the same side. The Ranked games are below."} /> : card.picks.map((c: CardPick, i: number) => (
-        <UCard key={"card-" + c.p.key} p={c.p} game={c.game} now={props.now} stake={"$" + c.stake} stakeLine={"$" + c.stake + " · total $" + card.total + " of $" + CARD_BUDGET} rankNo={i + 1} />
-      ))}
-      <div style={{ fontSize: 12, fontWeight: 650, color: "#64748B", margin: "2px 2px 0" }}>{"Suggested stakes only. Nothing is placed for you. Combos are one card when the combo stake is $500+."}</div>
-    </div>
-  );
-}
-
 function gameMatchesQuery(g: Game, q: string): boolean {
   if (!q) return true;
   if ((g.game || "").toLowerCase().includes(q) || (g.league || "").toLowerCase().includes(q)) return true;
@@ -1394,7 +1345,6 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
           <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
       </Section>
-      {list.length ? <TodayCard games={games} now={props.now} /> : null}
       <BestCappersRoster />
     </div>
   );
