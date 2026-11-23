@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4325,9 +4325,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:01 PM PT",
       "recordedTs": 1795402903,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22INDNYK-NYK|Yes",
@@ -4346,9 +4346,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:01 PM PT",
       "recordedTs": 1795402903,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22INDNYK-IND|Yes",
@@ -4367,9 +4367,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22INDNYK-NYK10|No",
@@ -4388,9 +4388,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22INDNYK-NYK7|No",
@@ -4409,9 +4409,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22INDNYK-NYK8|No",
@@ -4430,9 +4430,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22INDNYK-NYK9|No",
@@ -4451,9 +4451,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV22INDNYK-IND105|Yes",
@@ -4472,9 +4472,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV22INDNYK-NYK115|Yes",
@@ -4493,9 +4493,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV22INDNYK-NYK117|Yes",
@@ -4514,9 +4514,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22BOSGSW-192|Yes",
@@ -4556,9 +4556,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22INDNYK-217|Yes",
@@ -4577,9 +4577,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22INDNYK-219|Yes",
@@ -4598,9 +4598,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV22INDNYK-221|Yes",
@@ -4619,9 +4619,9 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 7:40 PM PT"
     },
     {
       "id": "ustrader|KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
@@ -4640,6 +4640,69 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV22BOSGSW-BOS|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV22BOSGSW-BOS",
+      "eventTicker": "KXNBAGAME-26NOV22BOSGSW",
+      "game": "Boston vs Golden State",
+      "backing": "Boston",
+      "yesNo": "Yes",
+      "entry": 0.5458,
+      "price": 0.69,
+      "cost": 4810.44,
+      "contracts": 8814.0,
+      "startTs": 1795408200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
+      "recordedTs": 1795405252,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV22BOSGSW-GSW|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV22BOSGSW-GSW",
+      "eventTicker": "KXNBAGAME-26NOV22BOSGSW",
+      "game": "Boston vs Golden State",
+      "backing": "Golden State",
+      "yesNo": "No",
+      "entry": 0.4833,
+      "price": 0.7,
+      "cost": 1014.96,
+      "contracts": 2100.0,
+      "startTs": 1795408200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
+      "recordedTs": 1795405252,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBATOTAL-26NOV22BOSGSW-190|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBATOTAL-26NOV22BOSGSW-190",
+      "eventTicker": "KXNBATOTAL-26NOV22BOSGSW",
+      "game": "Boston vs Golden State: Total Points",
+      "backing": "Over 189.5 points",
+      "yesNo": "Yes",
+      "entry": 0.4628,
+      "price": 0.3,
+      "cost": 646.59,
+      "contracts": 1397.0,
+      "startTs": 1795408200,
+      "league": "NBA",
+      "bt": "Totals",
+      "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
+      "recordedTs": 1795405252,
       "status": "open",
       "result": null,
       "settledAt": null
