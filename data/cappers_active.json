@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:51 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -665,28 +665,28 @@
       "ageDays": 337,
       "graded": {
         "n": 400,
-        "w": 258,
-        "l": 142,
+        "w": 260,
+        "l": 140,
         "roi": null,
-        "profit": 96817.22,
+        "profit": 96907.76,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 258,
-        "l": 142,
+        "w": 260,
+        "l": 140,
         "roi": null,
-        "profit": 96817.22,
+        "profit": 96907.76,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "regine \u00b7 258-142 \u00b7 +$103.7k all",
+      "recordLine": "regine \u00b7 260-140 \u00b7 +$103.7k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 28,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6640,18 +6640,18 @@
       "ageDays": 180,
       "graded": {
         "n": 400,
-        "w": 316,
-        "l": 84,
+        "w": 315,
+        "l": 85,
         "roi": null,
-        "profit": 27598.26,
+        "profit": 28085.83,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 316,
-        "l": 84,
+        "w": 315,
+        "l": 85,
         "roi": null,
-        "profit": 27598.26,
+        "profit": 28085.83,
         "sample": "positions"
       },
       "sports": {
@@ -6671,7 +6671,7 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 316-84 \u00b7 Best at MLB \u00b7 +$13.6k all",
+      "recordLine": "dependent.snail8369 \u00b7 315-85 \u00b7 Best at MLB \u00b7 +$13.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -6679,7 +6679,7 @@
       "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "714Smith",
@@ -9505,18 +9505,18 @@
       "ageDays": 291,
       "graded": {
         "n": 400,
-        "w": 59,
+        "w": 61,
         "l": 51,
         "roi": null,
-        "profit": -822.77,
+        "profit": -820.86,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 59,
+        "w": 61,
         "l": 51,
         "roi": null,
-        "profit": -822.77,
+        "profit": -820.86,
         "sample": "positions"
       },
       "sports": {
@@ -9529,7 +9529,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 59-51 \u00b7 Best at Tennis \u00b7 +$382 all",
+      "recordLine": "emji.emji \u00b7 61-51 \u00b7 Best at Tennis \u00b7 +$382 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -10181,24 +10181,24 @@
       "tape30d": null,
       "ageDays": 337,
       "graded": {
-        "n": 107,
-        "w": 62,
+        "n": 108,
+        "w": 63,
         "l": 45,
         "roi": null,
-        "profit": 44712.81,
+        "profit": 46695.81,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 107,
-        "w": 62,
+        "n": 108,
+        "w": 63,
         "l": 45,
         "roi": null,
-        "profit": 44712.81,
+        "profit": 46695.81,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 62-45 \u00b7 +$44.4k all",
+      "recordLine": "fen.dachi \u00b7 63-45 \u00b7 +$44.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10257,10 +10257,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 3,
       "pickSource": "positions+posts",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "jackivouce",
@@ -11457,7 +11457,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 4,
       "followCount": 4

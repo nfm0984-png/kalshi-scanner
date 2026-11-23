@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:51 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3149,9 +3149,9 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 6:07 AM PT",
       "recordedTs": 1795356473,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:51 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNBAPTS-26NOV22DETATL-ATLNALEXANDERWALKER7-20|No",
@@ -4283,6 +4283,27 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
       "recordedTs": 1795402003,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXNFLGAME-26NOV22MINSF-SF|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNFLGAME-26NOV22MINSF-SF",
+      "eventTicker": "KXNFLGAME-26NOV22MINSF",
+      "game": "Minnesota vs San Francisco",
+      "backing": "San Francisco",
+      "yesNo": "Yes",
+      "entry": 0.96,
+      "price": 0.96,
+      "cost": 22066.56,
+      "contracts": 22986.0,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 6:51 PM PT",
+      "recordedTs": 1795402303,
       "status": "open",
       "result": null,
       "settledAt": null
