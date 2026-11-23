@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:54 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:59 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5123,6 +5123,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 12:54 PM PT",
       "recordedTs": 1795467245,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXSERIEAGAME-26NOV23MONFIO-FIO|No",
+      "nickname": "WorkerTrader",
+      "ticker": "KXSERIEAGAME-26NOV23MONFIO-FIO",
+      "eventTicker": "KXSERIEAGAME-26NOV23MONFIO",
+      "game": "Monza vs Fiorentina",
+      "backing": "Fiorentina",
+      "yesNo": "No",
+      "entry": 0.465,
+      "price": 0.95,
+      "cost": 536.61,
+      "contracts": 1154.0,
+      "startTs": 1795473900,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 12:59 PM PT",
+      "recordedTs": 1795467546,
       "status": "open",
       "result": null,
       "settledAt": null
