@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 9:12 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:17 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4892,6 +4892,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 8:52 AM PT",
       "recordedTs": 1795452751,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 9:17 AM PT"
+    },
+    {
+      "id": "king.45|KXT20MATCH-26NOV230930DESSW-DES|No",
+      "nickname": "king.45",
+      "ticker": "KXT20MATCH-26NOV230930DESSW-DES",
+      "eventTicker": "KXT20MATCH-26NOV230930DESSW",
+      "game": "Sharjah Warriorz vs Desert Vipers",
+      "backing": "Desert Vipers",
+      "yesNo": "No",
+      "entry": 0.6089,
+      "price": 0.11,
+      "cost": 3154.45,
+      "contracts": 5181.0,
+      "startTs": 1795458600,
+      "league": "Cricket",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 9:17 AM PT",
+      "recordedTs": 1795454252,
       "status": "open",
       "result": null,
       "settledAt": null
