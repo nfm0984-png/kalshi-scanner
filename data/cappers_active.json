@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:49 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:54 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6761,7 +6761,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9529,18 +9529,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 133,
-        "l": 106,
+        "w": 130,
+        "l": 110,
         "roi": null,
-        "profit": -813.01,
+        "profit": -820.35,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 133,
-        "l": 106,
+        "w": 130,
+        "l": 110,
         "roi": null,
-        "profit": -813.01,
+        "profit": -820.35,
         "sample": "positions"
       },
       "sports": {
@@ -9553,7 +9553,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 133-106 \u00b7 Best at Tennis \u00b7 +$2.07k all",
+      "recordLine": "emji.emji \u00b7 130-110 \u00b7 Best at Tennis \u00b7 +$2.07k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -10053,10 +10053,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 4,
+      "openPositions": 6,
       "pickSource": "positions",
-      "pickCount": 4,
-      "followCount": 4
+      "pickCount": 6,
+      "followCount": 6
     },
     {
       "nickname": "hedge123",
