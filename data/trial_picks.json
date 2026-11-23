@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 7:45 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4703,6 +4703,27 @@
       "bt": "Totals",
       "recordedAt": "Sun Nov 22 \u00b7 7:40 PM PT",
       "recordedTs": 1795405252,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV22BOSGSW-GSW|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV22BOSGSW-GSW",
+      "eventTicker": "KXNBAGAME-26NOV22BOSGSW",
+      "game": "Boston vs Golden State",
+      "backing": "Golden State",
+      "yesNo": "Yes",
+      "entry": 0.4996,
+      "price": 0.67,
+      "cost": 1833.98,
+      "contracts": 3671.0,
+      "startTs": 1795408200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 7:45 PM PT",
+      "recordedTs": 1795405552,
       "status": "open",
       "result": null,
       "settledAt": null
