@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 10:18 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 11:56 PM PT",
   "scans": [
+    {
+      "ts": 1795420607,
+      "at": "Sun Nov 22 \u00b7 11:56 PM PT",
+      "names": 370,
+      "newFollows": [
+        "Snoz3berries"
+      ],
+      "followed": 46,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
+        "KXWT20MATCH-26NOV230000PAKSRI-SRI|Yes",
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
+      ]
+    },
     {
       "ts": 1795414733,
       "at": "Sun Nov 22 \u00b7 10:18 PM PT",
