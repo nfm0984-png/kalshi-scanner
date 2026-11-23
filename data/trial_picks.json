@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:44 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:49 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4640,9 +4640,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 7:35 PM PT",
       "recordedTs": 1795404952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 12:49 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22BOSGSW-BOS|Yes",
