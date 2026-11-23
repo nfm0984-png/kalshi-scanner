@@ -2,27 +2,27 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
-<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0B1F33">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#1B1233">
 <title>Kalshi Scanner</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%8B%3C/text%3E%3C/svg%3E">
 <style>
-html,body{margin:0;background:#071422;min-height:100%;-webkit-text-size-adjust:100%}
+html,body{margin:0;background:#11081F;min-height:100%;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 button{touch-action:manipulation;font-family:inherit}
 ::-webkit-scrollbar{display:none}
 #lock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:
-  radial-gradient(ellipse at 50% 0%,rgba(37,99,235,0.35),transparent 55%),#071422;color:#fff;
+  radial-gradient(ellipse at 50% 0%,rgba(124,58,237,0.35),transparent 55%),#11081F;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif}
-#lock .card{width:100%;max-width:380px;background:#0B1F33;border-radius:24px;padding:28px 24px 24px;
-  box-shadow:0 0 80px rgba(37,99,235,0.25),0 18px 40px rgba(0,0,0,0.35);border:1px solid rgba(147,197,253,0.18)}
-#lock .icon{width:48px;height:48px;border-radius:14px;background:#1D4ED8;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+#lock .card{width:100%;max-width:380px;background:#1B1233;border-radius:24px;padding:28px 24px 24px;
+  box-shadow:0 0 80px rgba(124,58,237,0.25),0 18px 40px rgba(0,0,0,0.35);border:1px solid rgba(196,181,253,0.18)}
+#lock .icon{width:48px;height:48px;border-radius:14px;background:#6D28D9;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 #lock h1{margin:0;font-size:26px;letter-spacing:-0.03em}
-#lock p{margin:8px 0 18px;color:#93C5FD;font-size:14px;font-weight:650;line-height:1.4}
-#lock input{width:100%;min-height:48px;border:0;border-radius:12px;padding:0 14px;font-size:16px;background:#F0F7FF;color:#0B1F33}
-#lock button{width:100%;min-height:48px;margin-top:12px;border:0;border-radius:12px;background:#2563EB;color:#fff;font-weight:850;font-size:16px;cursor:pointer}
+#lock p{margin:8px 0 18px;color:#C4B5FD;font-size:14px;font-weight:650;line-height:1.4}
+#lock input{width:100%;min-height:48px;border:0;border-radius:12px;padding:0 14px;font-size:16px;background:#F5F3FF;color:#1B1233}
+#lock button{width:100%;min-height:48px;margin-top:12px;border:0;border-radius:12px;background:#7C3AED;color:#fff;font-weight:850;font-size:16px;cursor:pointer}
 #lock button:disabled{opacity:.7;cursor:default}
 #lock .err{min-height:20px;margin-top:10px;color:#FECACA;font-size:13px;font-weight:700}
-#boot{font:15px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#BFDBFE;text-align:center;padding:80px 20px}
+#boot{font:15px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#DDD6FE;text-align:center;padding:80px 20px}
 </style>
 </head><body>
 <div id="root"><div id="boot">Unlocking…</div></div>
@@ -125,8 +125,8 @@ function bootApp(data) {
     document.getElementById("root").innerHTML = '<div id="boot">Loading Kalshi picks…</div>';
   }
   var t = Date.now();
-  return loadScript("config.js?v=5f3144a652&t=" + t).catch(function () {}).then(function () {
-    return loadScript("app.js?v=5f3144a652&t=" + Date.now());
+  return loadScript("config.js?v=73270daade&t=" + t).catch(function () {}).then(function () {
+    return loadScript("app.js?v=73270daade&t=" + Date.now());
   });
 }
 function pageAssetUrl(name) {

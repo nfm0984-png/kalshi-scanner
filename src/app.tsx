@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState, type ReactNode } from "react";
 
-const NAVY = "#0B1F33";
-const NAVY_DEEP = "#071422";
-const BLUE = "#1D4ED8";
-const BLUE_BRIGHT = "#2563EB";
-const BLUE_SOFT = "#DBEAFE";
-const BLUE_INK = "#1E3A8A";
-const PAGE = "#F0F7FF";
+const NAVY = "#1B1233";
+const NAVY_DEEP = "#11081F";
+const BLUE = "#6D28D9";
+const BLUE_BRIGHT = "#7C3AED";
+const BLUE_SOFT = "#EDE9FE";
+const BLUE_INK = "#5B21B6";
+const PAGE = "#F5F3FF";
 const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
@@ -364,7 +364,7 @@ function Text(props: { children: ReactNode }) {
 }
 function EmptyState(props: { title: string; body: string }) {
   return (
-    <div style={{ padding: "18px 14px", borderRadius: 16, border: "1.5px dashed #93C5FD", background: "#FFFFFF", margin: "8px 0 12px" }}>
+    <div style={{ padding: "18px 14px", borderRadius: 16, border: "1.5px dashed #C4B5FD", background: "#FFFFFF", margin: "8px 0 12px" }}>
       <div style={{ fontSize: 16, fontWeight: 850, color: NAVY }}>{props.title}</div>
       <div style={{ fontSize: 14, color: "#475569", marginTop: 4 }}>{props.body}</div>
     </div>
@@ -420,7 +420,7 @@ function RecordPill(props: { w: number; l: number; roi?: number | null; label?: 
 }
 function StatTile(props: { label: string; value: string; color?: string; bg?: string; sub?: string }) {
   return (
-    <div style={{ flex: "1 1 72px", minWidth: 72, background: props.bg || "#F0F7FF", borderRadius: 14, padding: "10px 8px 9px", textAlign: "center", boxShadow: "0 1px 0 rgba(255,255,255,0.7) inset" }}>
+    <div style={{ flex: "1 1 72px", minWidth: 72, background: props.bg || "#F5F3FF", borderRadius: 14, padding: "10px 8px 9px", textAlign: "center", boxShadow: "0 1px 0 rgba(255,255,255,0.7) inset" }}>
       <div style={{ fontSize: 16, lineHeight: "20px", fontWeight: 850, color: props.color || NAVY, letterSpacing: "-0.02em", overflowWrap: "anywhere", fontVariantNumeric: "tabular-nums" }}>{props.value}</div>
       <div style={{ fontSize: 10, lineHeight: "13px", fontWeight: 750, color: "#64748B", marginTop: 3, letterSpacing: "0.05em", textTransform: "uppercase" }}>{props.label}</div>
       {props.sub ? <div style={{ fontSize: 10, lineHeight: "13px", fontWeight: 700, color: "#64748B", marginTop: 2 }}>{props.sub}</div> : null}
@@ -435,7 +435,7 @@ function WinRing(props: { pct: number; size?: number }) {
   return (
     <div data-win-ring="1" style={{ position: "relative", width: sz, height: sz, flex: "none" }}>
       <svg width={sz} height={sz} viewBox={"0 0 " + sz + " " + sz}>
-        <circle cx={sz / 2} cy={sz / 2} r={r} fill="none" stroke="#BFDBFE" strokeWidth="6" />
+        <circle cx={sz / 2} cy={sz / 2} r={r} fill="none" stroke="#DDD6FE" strokeWidth="6" />
         <circle cx={sz / 2} cy={sz / 2} r={r} fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" strokeDasharray={((len * Math.max(0, Math.min(100, props.pct))) / 100) + " " + len} transform={"rotate(-90 " + (sz / 2) + " " + (sz / 2) + ")"} />
       </svg>
       <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
@@ -446,9 +446,9 @@ function WinRing(props: { pct: number; size?: number }) {
   );
 }
 function CapperShell(props: { live?: boolean; followed?: boolean; children: ReactNode }) {
-  const accent = props.live ? "linear-gradient(90deg,#DC2626,#F97316)" : (props.followed ? "linear-gradient(90deg," + BLUE + "," + BLUE_BRIGHT + ")" : "linear-gradient(90deg," + BLUE + ",#38BDF8)");
+  const accent = props.live ? "linear-gradient(90deg,#DC2626,#F97316)" : (props.followed ? "linear-gradient(90deg," + BLUE + "," + BLUE_BRIGHT + ")" : "linear-gradient(90deg," + BLUE + ",#A78BFA)");
   return (
-    <div data-capper-shell={props.followed ? "followed" : "1"} style={{ borderRadius: 20, border: "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 6px 18px rgba(11,31,51,0.10)", overflow: "hidden", marginBottom: 14, fontFamily: "inherit" }}>
+    <div data-capper-shell={props.followed ? "followed" : "1"} style={{ borderRadius: 20, border: "1.5px solid #DDD6FE", background: "#FFFFFF", boxShadow: "0 6px 18px rgba(27,18,51,0.10)", overflow: "hidden", marginBottom: 14, fontFamily: "inherit" }}>
       <div style={{ height: 6, background: accent }} />
       <div style={{ padding: "12px 14px 14px" }}>{props.children}</div>
     </div>
@@ -497,7 +497,7 @@ function RankChips(props: { ranks?: Record<string, number> }) {
 function CapperStatRow(props: { c: Capper }) {
   const g = gradedWL(props.c);
   const settled = !!(g && (g.w + g.l) > 0);
-  const tone = settled ? recTone(g!.w, g!.l) : { fg: NAVY, bg: "#F0F7FF" };
+  const tone = settled ? recTone(g!.w, g!.l) : { fg: NAVY, bg: "#F5F3FF" };
   const tiles: ReactNode[] = [
     <StatTile key="rec" label="Record" value={settled ? (g!.w + "–" + g!.l) : "—"} color={tone.fg} bg={tone.bg} />,
     <StatTile key="wr" label="Win rate" value={settled ? pctText(g!.w / (g!.w + g!.l)) : "—"} color={tone.fg} bg={tone.bg} />,
@@ -539,7 +539,7 @@ function BackerRow(props: { b: Backer; now: number }) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
           {g ? <RecordPill w={g.w} l={g.l} roi={g.roi} /> : (cap && isLeaderboardEarner(cap) ? <RecordPill w={0} l={0} label="Leaderboard earner" /> : <RecordPill w={0} l={0} />)}
           {b.tier ? <TierChip tier={b.tier} /> : null}
-          {cap && cap.bestAt ? <Chip bg="#EFF6FF" color={BLUE_INK}>{"Best at " + cap.bestAt}</Chip> : null}
+          {cap && cap.bestAt ? <Chip bg="#F5F3FF" color={BLUE_INK}>{"Best at " + cap.bestAt}</Chip> : null}
         </div>
         <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 750, color: NAVY, marginTop: 3, overflowWrap: "anywhere" }}>
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
@@ -564,7 +564,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
   const mine = props.backerName ? p.backers.find((b: Backer) => (b.name || "").toLowerCase() === (props.backerName || "").toLowerCase()) : p.backers[0];
   const live = !!game.live || !!(p.startTs && p.startTs <= now);
   return (
-    <div data-capper-pick={p.key} style={{ marginTop: 10, padding: "10px 0 0", borderTop: "1px solid #DBEAFE" }}>
+    <div data-capper-pick={p.key} style={{ marginTop: 10, padding: "10px 0 0", borderTop: "1px solid #EDE9FE" }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
         {live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
         {game.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{game.league}</Chip> : null}
@@ -594,7 +594,7 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
     <span style={{ display: "inline-flex", alignItems: "baseline", gap: 5, padding: "3px 10px", borderRadius: 999, background: bg, color: fg, border: "1.5px solid " + fg, fontSize: 13, fontWeight: 850 }}>{text}{sub ? <span style={{ fontSize: 11, fontWeight: 700, opacity: 0.85 }}>{sub}</span> : null}</span>
   );
   return (
-    <div data-follow-pick={p.ticker} style={{ marginTop: 10, padding: "10px 0 0", borderTop: "1px solid #DBEAFE" }}>
+    <div data-follow-pick={p.ticker} style={{ marginTop: 10, padding: "10px 0 0", borderTop: "1px solid #EDE9FE" }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
         {live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
         {p.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{p.league}</Chip> : null}
@@ -1064,7 +1064,7 @@ function OnKalshiBox(props: { view: KalshiView }) {
   const url = kalshiUrlOf(v.ticker, v.comboUrl);
   const col = yes ? GREEN : RED;
   return (
-    <div data-on-kalshi="1" style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "1.5px dashed " + BLUE, background: "#EFF6FF" }}>
+    <div data-on-kalshi="1" style={{ marginTop: 10, padding: "10px 12px", borderRadius: 14, border: "1.5px dashed " + BLUE, background: "#F5F3FF" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
         <span style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: BLUE }}>On Kalshi</span>
         {url ? <a data-kalshi-link="1" href={url} target="_blank" rel="noreferrer" style={{ fontSize: 13, fontWeight: 800, color: BLUE, textDecoration: "none" }}>Open on Kalshi ↗</a> : null}
@@ -1080,7 +1080,7 @@ function OnKalshiBox(props: { view: KalshiView }) {
 function OtherSide(props: { p: Pick; opp: Pick[] }) {
   const p = props.p;
   if (!props.opp.length) {
-    return <div data-other-side="1" style={{ marginTop: 10, padding: "9px 12px", borderRadius: 14, background: "#EFF6FF", color: BLUE_INK }}><div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: BLUE }}>Other side</div><div style={{ fontSize: 14, fontWeight: 700, marginTop: 2 }}>No tracked cappers on the other side</div></div>;
+    return <div data-other-side="1" style={{ marginTop: 10, padding: "9px 12px", borderRadius: 14, background: "#F5F3FF", color: BLUE_INK }}><div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: BLUE }}>Other side</div><div style={{ fontSize: 14, fontWeight: 700, marginTop: 2 }}>No tracked cappers on the other side</div></div>;
   }
   const backers: (Backer & { pickBig: string })[] = [];
   props.opp.forEach((q: Pick) => q.backers.forEach((b: Backer) => backers.push({ ...b, pickBig: q.big })));
@@ -1159,9 +1159,9 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
   const net = netOf(p, props.game);
   const top = p.backers.slice(0, 3);
   const rest = p.backers.slice(3);
-  const colorOf = (x: string): string[] => (({ "Best Cappers": ["#FEF3C7", "#92400E"], "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#DBEAFE", "#1E3A8A"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
+  const colorOf = (x: string): string[] => (({ "Best Cappers": ["#FEF3C7", "#92400E"], "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#EDE9FE", "#5B21B6"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
   return (
-    <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(11,31,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
+    <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #DDD6FE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(27,18,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ padding: "12px 14px 12px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginBottom: 6 }}>
           {props.rankNo ? <span data-card-no="1" style={{ display: "inline-block", minWidth: 26, textAlign: "center", padding: "2px 8px", borderRadius: 999, background: BLUE, color: "#FFFFFF", fontSize: 13, fontWeight: 900 }}>{"#" + props.rankNo}</span> : null}
@@ -1208,7 +1208,7 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
   const cmp = sideCompare(p, props.game);
   const net = netOf(p, props.game);
   return (
-    <div data-alt-bet={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 14, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "10px 12px", marginBottom: 8 }}>
+    <div data-alt-bet={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 14, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #DDD6FE", background: "#FFFFFF", padding: "10px 12px", marginBottom: 8 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
         <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
@@ -1320,11 +1320,11 @@ function BestCappersRoster() {
   const caps = ((DATA.following || {}).cappers || []) as FollowCapper[];
   if (!caps.length) return null;
   return (
-    <details data-best-cappers-roster="1" style={{ marginTop: 18, marginBottom: 8, borderRadius: 14, border: "1.5px solid #BFDBFE", background: "#FFFFFF", padding: "8px 12px" }}>
+    <details data-best-cappers-roster="1" style={{ marginTop: 18, marginBottom: 8, borderRadius: 14, border: "1.5px solid #DDD6FE", background: "#FFFFFF", padding: "8px 12px" }}>
       <summary style={{ cursor: "pointer", fontWeight: 800, fontSize: 14, color: BLUE_INK }}>{"Best Cappers database · " + caps.length + " of " + ((capperDatabase().target) || TARGET_FOLLOW) + " · tap to expand"}</summary>
       <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 4 }}>
         {caps.map((c: FollowCapper, i: number) => (
-          <div key={c.nickname} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 13, fontWeight: 700, color: NAVY, padding: "4px 0", borderTop: i ? "1px solid #DBEAFE" : undefined }}>
+          <div key={c.nickname} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 13, fontWeight: 700, color: NAVY, padding: "4px 0", borderTop: i ? "1px solid #EDE9FE" : undefined }}>
             <span style={{ overflowWrap: "anywhere" }}>{(i + 1) + ". " + c.nickname}</span>
             <span style={{ color: "#64748B", fontVariantNumeric: "tabular-nums", flex: "none" }}>{((c.closedN || ((c.closedW || 0) + (c.closedL || 0))) ? ((c.closedW || 0) + "–" + (c.closedL || 0)) : (c.n ? ((c.w || 0) + "–" + (c.l || 0)) : "no W–L")) + (c.open ? " · " + c.open + " open" : "")}</span>
           </div>
@@ -1526,12 +1526,12 @@ const IconSearch = () => <Ico size={16}><circle cx="11" cy="11" r="7" /><path d=
 
 function DashStat(props: { label: string; value: string; sub?: string; color: string; icon: ReactNode }) {
   return (
-    <div data-dash-stat={props.label} style={{ background: NAVY, color: "#FFFFFF", borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, minHeight: 76, boxShadow: "0 10px 24px rgba(7,20,34,0.12)" }}>
+    <div data-dash-stat={props.label} style={{ background: NAVY, color: "#FFFFFF", borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, minHeight: 76, boxShadow: "0 10px 24px rgba(17,8,31,0.12)" }}>
       <div style={{ width: 40, height: 40, borderRadius: 12, background: props.color, display: "flex", alignItems: "center", justifyContent: "center", color: "#FFFFFF", flex: "0 0 auto" }}>{props.icon}</div>
       <div style={{ minWidth: 0 }}>
-        <div style={{ fontSize: 12, fontWeight: 700, color: "#93C5FD", letterSpacing: "0.02em" }}>{props.label}</div>
+        <div style={{ fontSize: 12, fontWeight: 700, color: "#C4B5FD", letterSpacing: "0.02em" }}>{props.label}</div>
         <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.03em", lineHeight: "30px", fontVariantNumeric: "tabular-nums" }}>{props.value}</div>
-        {props.sub ? <div style={{ fontSize: 11, fontWeight: 650, color: "#BFDBFE", marginTop: 1 }}>{props.sub}</div> : null}
+        {props.sub ? <div style={{ fontSize: 11, fontWeight: 650, color: "#DDD6FE", marginTop: 1 }}>{props.sub}</div> : null}
       </div>
     </div>
   );
@@ -1734,9 +1734,9 @@ export default function App() {
       <style>{`
         @keyframes ks-spin{to{transform:rotate(360deg)}}
         .ks-wrap{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
-        .ks-hero{position:relative;overflow:hidden;border-radius:24px;background:${NAVY_DEEP};color:#fff;padding:22px 24px 20px;box-shadow:0 0 80px rgba(37,99,235,0.22),0 18px 40px rgba(7,20,34,0.28)}
+        .ks-hero{position:relative;overflow:hidden;border-radius:24px;background:${NAVY_DEEP};color:#fff;padding:22px 24px 20px;box-shadow:0 0 80px rgba(124,58,237,0.22),0 18px 40px rgba(17,8,31,0.28)}
         .ks-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.045) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 30% 0%,#000 0%,transparent 70%);pointer-events:none}
-        .ks-hero::after{content:"";position:absolute;width:280px;height:280px;right:-60px;top:-80px;background:radial-gradient(circle,rgba(37,99,235,0.45),transparent 70%);pointer-events:none}
+        .ks-hero::after{content:"";position:absolute;width:280px;height:280px;right:-60px;top:-80px;background:radial-gradient(circle,rgba(124,58,237,0.45),transparent 70%);pointer-events:none}
         .ks-hero-row{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
         .ks-hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:0 0 auto}
         .ks-hero-btns{display:flex;align-items:center;gap:8px}
@@ -1745,8 +1745,8 @@ export default function App() {
         .ks-tabs::-webkit-scrollbar{display:none}
         .ks-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:18px}
         .ks-side{display:flex;flex-direction:column;gap:12px;position:sticky;top:16px}
-        .ks-side-card{background:${NAVY};color:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 10px 24px rgba(7,20,34,0.12)}
-        .ks-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#fff;border:1px solid #BFDBFE;border-radius:14px;padding:8px 10px;margin:0 0 14px}
+        .ks-side-card{background:${NAVY};color:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 10px 24px rgba(17,8,31,0.12)}
+        .ks-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#fff;border:1px solid #DDD6FE;border-radius:14px;padding:8px 10px;margin:0 0 14px}
         .ks-search{flex:1 1 180px;display:flex;align-items:center;gap:8px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:0 10px;min-height:38px;color:#64748B}
         .ks-search input{border:0;background:transparent;outline:none;width:100%;font:650 15px/1.2 inherit;color:${NAVY};padding:8px 0}
         @media (max-width: 800px){
@@ -1764,7 +1764,7 @@ export default function App() {
         <header className="ks-hero" data-header-actions="1">
           <div className="ks-hero-row">
             <div style={{ minWidth: 0 }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 700, color: "#93C5FD" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 700, color: "#C4B5FD" }}>
                 <IconCalendar />
                 <span>{formatLongDatePt()}</span>
               </div>
@@ -1774,15 +1774,15 @@ export default function App() {
             </div>
             <div className="ks-hero-actions">
               <div className="ks-hero-btns">
-                <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={refreshing} aria-busy={refreshing} aria-label="Refresh latest scan data" title="Reload the latest published data" style={{ ...iconBtn, border: "1.5px solid rgba(147,197,253,0.55)", background: "rgba(255,255,255,0.06)", color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
-                  {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 14, height: 14, border: "2px solid #BFDBFE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : <IconRefresh />}
+                <button type="button" data-refresh-btn="1" onClick={onRefresh} disabled={refreshing} aria-busy={refreshing} aria-label="Refresh latest scan data" title="Reload the latest published data" style={{ ...iconBtn, border: "1.5px solid rgba(196,181,253,0.55)", background: "rgba(255,255,255,0.06)", color: "#FFFFFF", opacity: refreshing ? 0.85 : 1 }}>
+                  {refreshing ? <span data-spinner="1" aria-hidden="true" style={{ width: 14, height: 14, border: "2px solid #DDD6FE", borderTopColor: "#FFFFFF", borderRadius: "50%", display: "inline-block", animation: "ks-spin 0.7s linear infinite" }} /> : <IconRefresh />}
                 </button>
-                <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...compactBtn, border: "0", background: "#93C5FD", color: NAVY_DEEP, opacity: scanBusy ? 0.85 : 1 }}>
+                <button type="button" data-scan-btn="1" onClick={onScanClick} disabled={scanBusy} aria-label={hasKey ? "Start a Kalshi scan" : "Open scan options"} title={hasKey ? "Starts a scan on GitHub (~2 min), then this page updates" : "Opens scan options. You can start a scan on GitHub, or save a key on this device."} style={{ ...compactBtn, border: "0", background: "#C4B5FD", color: NAVY_DEEP, opacity: scanBusy ? 0.85 : 1 }}>
                   <IconBolt />
                   {scanBusy ? "Scanning…" : "Run Scan"}
                 </button>
               </div>
-              <div style={{ fontSize: 12, fontWeight: 650, color: "#BFDBFE", textAlign: "right" }}>
+              <div style={{ fontSize: 12, fontWeight: 650, color: "#DDD6FE", textAlign: "right" }}>
                 {"Last scan " + (DATA.scannedAt || "—")}
                 {updatedAt ? <div data-updated-at="1" style={{ fontWeight: 800, color: "#FFFFFF" }}>{"Updated " + updatedAt}</div> : null}
                 {refreshErr ? <div data-refresh-err="1" style={{ color: "#FECACA" }}>{refreshErr}</div> : null}
@@ -1795,7 +1795,7 @@ export default function App() {
               {jobBusy ? <div style={{ marginTop: 8, height: 6, borderRadius: 999, background: "rgba(255,255,255,0.25)", overflow: "hidden" }}><div style={{ width: pct + "%", height: "100%", background: "#FFFFFF", transition: "width 1s linear" }} /></div> : null}
               {scanBusy ? <div style={{ marginTop: 6, color: "rgba(255,255,255,0.85)" }}>{"Scans take about 2 minutes. You can leave this page open, or come back later and tap Refresh."}</div> : null}
               {job.phase === "needs_github" ? (
-                <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Run scan on GitHub ↗</a>
+                <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #C4B5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Run scan on GitHub ↗</a>
               ) : job.url ? (
                 <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 6, color: "#FFFFFF", fontWeight: 700 }}>View run on GitHub ↗</a>
               ) : job.phase === "error" ? (
@@ -1808,7 +1808,7 @@ export default function App() {
             <div data-scan-sheet="1" style={{ position: "relative", zIndex: 1, marginTop: 12, borderRadius: 14, padding: 12, background: "rgba(0,0,0,0.28)", fontSize: 13, lineHeight: "19px", color: "#FFFFFF" }}>
               <div style={{ fontWeight: 800, fontSize: 14 }}>Start a scan</div>
               <div style={{ marginTop: 4, color: "rgba(255,255,255,0.9)" }}>{"Runs on GitHub (~2 min) with 20 new names, then tap Refresh. Hourly scans at :20 still run on their own."}</div>
-              <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #93C5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Open GitHub to run the workflow</a>
+              <a href={SCAN_WORKFLOW_URL} target="_blank" rel="noopener noreferrer" style={{ ...compactBtn, marginTop: 10, border: "1.5px solid #C4B5FD", background: BLUE_BRIGHT, color: "#FFFFFF" }}>Open GitHub to run the workflow</a>
               <div style={{ marginTop: 12, color: "rgba(255,255,255,0.9)" }}>{"Optional: save a fine-grained GitHub token on this device only (Actions access on this repo) to start scans from the button, like the whale scanner. The token is never stored in the public site."}</div>
               <input value={keyText} onChange={(ev) => setKeyText(ev.target.value)} placeholder="github_pat_…" autoComplete="off" style={{ marginTop: 8, width: "100%", boxSizing: "border-box", minHeight: 44, borderRadius: 12, border: "none", padding: "0 12px", fontSize: 16 }} />
               <button type="button" onClick={saveKey} disabled={!keyText.trim()} style={{ ...compactBtn, marginTop: 8, width: "100%", border: "0", background: keyText.trim() ? "#FFFFFF" : "rgba(255,255,255,0.5)", color: BLUE_INK }}>Save key on this device</button>
@@ -1818,7 +1818,7 @@ export default function App() {
 
         <div className="ks-stats">
           <DashStat label="Open picks" value={String(comingN)} sub="$500+ bets only" color={BLUE_BRIGHT} icon={<IconList />} />
-          <DashStat label="Best Cappers" value={followedN + "/" + ((capperDatabase().target) || TARGET_FOLLOW)} sub={followedN < ((capperDatabase().target) || TARGET_FOLLOW) ? "good-only (true count)" : "good-only database"} color="#0EA5E9" icon={<IconUsers />} />
+          <DashStat label="Best Cappers" value={followedN + "/" + ((capperDatabase().target) || TARGET_FOLLOW)} sub={followedN < ((capperDatabase().target) || TARGET_FOLLOW) ? "good-only (true count)" : "good-only database"} color="#8B5CF6" icon={<IconUsers />} />
           <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
           <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />
         </div>
@@ -1827,10 +1827,10 @@ export default function App() {
           {tabMeta.map((t) => {
             const on = tab === t.value;
             return (
-              <button key={t.value} type="button" onClick={() => changeTab(t.value)} style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 999, border: "0", background: on ? BLUE : "transparent", color: on ? "#FFFFFF" : "#BFDBFE", fontWeight: 800, fontSize: 14, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap", touchAction: "manipulation" }}>
+              <button key={t.value} type="button" onClick={() => changeTab(t.value)} style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 999, border: "0", background: on ? BLUE : "transparent", color: on ? "#FFFFFF" : "#DDD6FE", fontWeight: 800, fontSize: 14, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap", touchAction: "manipulation" }}>
                 {t.icon}
                 {t.label}
-                <span style={{ display: "inline-block", marginLeft: 2, padding: "1px 7px", borderRadius: 999, background: on ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)", color: on ? "#FFFFFF" : "#93C5FD", fontSize: 12 }}>{t.count}</span>
+                <span style={{ display: "inline-block", marginLeft: 2, padding: "1px 7px", borderRadius: 999, background: on ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)", color: on ? "#FFFFFF" : "#C4B5FD", fontSize: 12 }}>{t.count}</span>
               </button>
             );
           })}
@@ -1846,7 +1846,7 @@ export default function App() {
               {pills.map((p) => {
                 const on = filter === p.id;
                 return (
-                  <button key={p.id} type="button" onClick={() => setFilter(p.id)} style={{ padding: "6px 12px", borderRadius: 999, border: on ? "0" : "1.5px solid #BFDBFE", background: on ? BLUE : "#FFFFFF", color: on ? "#FFFFFF" : BLUE_INK, fontWeight: 800, fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>{p.label}</button>
+                  <button key={p.id} type="button" onClick={() => setFilter(p.id)} style={{ padding: "6px 12px", borderRadius: 999, border: on ? "0" : "1.5px solid #DDD6FE", background: on ? BLUE : "#FFFFFF", color: on ? "#FFFFFF" : BLUE_INK, fontWeight: 800, fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>{p.label}</button>
                 );
               })}
               <label className="ks-search">
