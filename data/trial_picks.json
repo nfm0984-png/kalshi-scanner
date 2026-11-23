@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 6:41 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3947,9 +3947,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 5:06 PM PT",
       "recordedTs": 1795395977,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026UZMRQDW4UAJBV3KS-I6MXOPAPO|Yes",
@@ -4052,9 +4052,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 5:50 PM PT",
       "recordedTs": 1795398655,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22DENCHI-DEN|No",
@@ -4073,9 +4073,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 5:55 PM PT",
       "recordedTs": 1795398954,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN7|No",
@@ -4094,9 +4094,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 5:55 PM PT",
       "recordedTs": 1795398954,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22DENCHI-CHI|Yes",
@@ -4115,9 +4115,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 6:00 PM PT",
       "recordedTs": 1795399254,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22DENCHI-CHI|No",
@@ -4136,9 +4136,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 6:05 PM PT",
       "recordedTs": 1795399554,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV22DENCHI-DEN|Yes",
@@ -4157,9 +4157,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 6:05 PM PT",
       "recordedTs": 1795399554,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN8|No",
@@ -4178,9 +4178,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:10 PM PT",
       "recordedTs": 1795399854,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV22DENCHI-DEN5|Yes",
@@ -4199,9 +4199,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:26 PM PT",
       "recordedTs": 1795400802,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
     },
     {
       "id": "parspectives|KXNFLSPREAD-26NOV22MINSF-SF7|Yes",
@@ -4241,6 +4241,48 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 6:41 PM PT",
       "recordedTs": 1795401702,
+      "status": "win",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 6:46 PM PT"
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S202677CUSBF7DP6JDNAX-FMWUDB6UZ|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S202677CUSBF7DP6JDNAX-FMWUDB6UZ",
+      "eventTicker": "KXMVECROSSCATEGORY-S202677CUSBF7DP6JDNAX",
+      "game": "MVE",
+      "backing": "yes Boston,yes New York wins by over 4.5 points",
+      "yesNo": "Yes",
+      "entry": 0.431,
+      "price": 0.416,
+      "cost": 3499.67,
+      "contracts": 8120.64,
+      "startTs": 1795406400,
+      "league": "NBA",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
+      "recordedTs": 1795402003,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "fen.dachi|KXMVECROSSCATEGORY-S2026U76JLMMFTHL46UF4-RJ2AVAIKX|Yes",
+      "nickname": "fen.dachi",
+      "ticker": "KXMVECROSSCATEGORY-S2026U76JLMMFTHL46UF4-RJ2AVAIKX",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026U76JLMMFTHL46UF4",
+      "game": "Minnesota vs San Francisco",
+      "backing": "yes Aaron Jones Sr.: 1+,yes Christian McCaffrey: 1+,yes Mike Evans: 1+",
+      "yesNo": "Yes",
+      "entry": 0.3785,
+      "price": 0.296,
+      "cost": 1966.31,
+      "contracts": 5195.0,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
+      "recordedTs": 1795402003,
       "status": "open",
       "result": null,
       "settledAt": null
