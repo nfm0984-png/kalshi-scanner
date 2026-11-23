@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 4:04 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:31 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3821,9 +3821,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
       "recordedTs": 1795392123,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:31 PM PT"
     },
     {
       "id": "truewonder|KXNFLGAME-26NOV22JACNYG-NYG|Yes",
@@ -3842,6 +3842,27 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 4:04 PM PT",
       "recordedTs": 1795392250,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026R25EU4Q4CPV7JMHH-NQFUFMAN6|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026R25EU4Q4CPV7JMHH-NQFUFMAN6",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026R25EU4Q4CPV7JMHH",
+      "game": "Minnesota vs San Francisco",
+      "backing": "yes Kirk Cousins: 175+,yes Justin Jefferson: 60+,yes Christian McCaffrey: 50+,yes T.J. Hockenson: 1+,yes Christian McCaffrey: 1+",
+      "yesNo": "Yes",
+      "entry": 0.09,
+      "price": 0.082,
+      "cost": 729.9,
+      "contracts": 8110.0,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Sun Nov 22 \u00b7 4:31 PM PT",
+      "recordedTs": 1795393877,
       "status": "open",
       "result": null,
       "settledAt": null
