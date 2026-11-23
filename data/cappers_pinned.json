@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sun Nov 22 \u00b7 11:56 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:51 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -242,6 +242,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "tru3f0rmr",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-23"
+    },
+    {
       "nickname": "truewonder",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -272,6 +278,12 @@
       "addedAt": "2026-11-21"
     },
     {
+      "nickname": "emji.emji",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "lebronthanos",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -279,12 +291,6 @@
     },
     {
       "nickname": "d.palombo",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "emji.emji",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -371,14 +377,15 @@
     "Muffat00",
     "fattii",
     "akamarino",
+    "tru3f0rmr",
     "truewonder",
     "Dimesy",
     "whig",
     "jakem12",
     "mild.fire",
+    "emji.emji",
     "lebronthanos",
     "d.palombo",
-    "emji.emji",
     "drib",
     "milesdavis",
     "bananastand21",
