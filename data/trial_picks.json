@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:13 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:18 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5021,6 +5021,27 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Mon Nov 23 \u00b7 12:08 PM PT"
+    },
+    {
+      "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3",
+      "game": "Milwaukee vs Toronto",
+      "backing": "no Tyler Herro: 6+,yes Memphis,yes Cincinnati",
+      "yesNo": "Yes",
+      "entry": 0.498,
+      "price": 0.496,
+      "cost": 965.62,
+      "contracts": 1939.0,
+      "startTs": 1795491000,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 12:18 PM PT",
+      "recordedTs": 1795465126,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

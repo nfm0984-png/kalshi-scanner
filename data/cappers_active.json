@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:13 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:18 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -34,18 +34,18 @@
       "ageDays": 257,
       "graded": {
         "n": 400,
-        "w": 351,
-        "l": 49,
+        "w": 350,
+        "l": 50,
         "roi": null,
-        "profit": 142464.44,
+        "profit": 141352.71,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 351,
-        "l": 49,
+        "w": 350,
+        "l": 50,
         "roi": null,
-        "profit": 142464.44,
+        "profit": 141352.71,
         "sample": "positions"
       },
       "sports": {
@@ -65,12 +65,12 @@
         }
       },
       "bestAt": "Soccer",
-      "recordLine": "WorkerTrader \u00b7 351-49 \u00b7 Best at Soccer \u00b7 +$1.4M all",
+      "recordLine": "WorkerTrader \u00b7 350-50 \u00b7 Best at Soccer \u00b7 +$1.4M all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -5939,29 +5939,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 72,
-        "w": 48,
+        "n": 73,
+        "w": 49,
         "l": 24,
         "roi": null,
-        "profit": 247.53,
+        "profit": 257.56,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 72,
-        "w": 48,
+        "n": 73,
+        "w": 49,
         "l": 24,
         "roi": null,
-        "profit": 247.53,
+        "profit": 257.56,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 48-24 \u00b7 +$208 all",
+      "recordLine": "brand.breeze \u00b7 49-24 \u00b7 +$208 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9482,18 +9482,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 131,
-        "l": 105,
+        "w": 132,
+        "l": 106,
         "roi": null,
-        "profit": -815.72,
+        "profit": -812.98,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 131,
-        "l": 105,
+        "w": 132,
+        "l": 106,
         "roi": null,
-        "profit": -815.72,
+        "profit": -812.98,
         "sample": "positions"
       },
       "sports": {
@@ -9506,12 +9506,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 131-105 \u00b7 Best at Tennis \u00b7 +$2.07k all",
+      "recordLine": "emji.emji \u00b7 132-106 \u00b7 Best at Tennis \u00b7 +$2.07k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 8,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9930,10 +9930,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "hedge123",
