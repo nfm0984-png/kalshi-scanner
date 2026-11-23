@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:03 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5000,6 +5000,27 @@
       "status": "open",
       "result": null,
       "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXAFCCLBTTS-26NOV23ITJPAK-BTTS|Yes",
+      "nickname": "WorkerTrader",
+      "ticker": "KXAFCCLBTTS-26NOV23ITJPAK-BTTS",
+      "eventTicker": "KXAFCCLBTTS-26NOV23ITJPAK",
+      "game": "Al-Ittihad vs Pakhtakor: BTTS",
+      "backing": "Both Teams To Score",
+      "yesNo": "Yes",
+      "entry": 0.8891,
+      "price": 0.01,
+      "cost": 8891.34,
+      "contracts": 10000.0,
+      "startTs": 1795472100,
+      "league": "Sports",
+      "bt": "Both teams to score",
+      "recordedAt": "Mon Nov 23 \u00b7 12:08 PM PT",
+      "recordedTs": 1795464526,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 12:08 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
