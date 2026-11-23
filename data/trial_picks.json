@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 3:40 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 3:45 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5231,6 +5231,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Mon Nov 23 \u00b7 1:54 PM PT"
+    },
+    {
+      "id": "Eibriham|KXNBAGAME-26NOV23PORPHI-PHI|Yes",
+      "nickname": "Eibriham",
+      "ticker": "KXNBAGAME-26NOV23PORPHI-PHI",
+      "eventTicker": "KXNBAGAME-26NOV23PORPHI",
+      "game": "Portland vs Philadelphia",
+      "backing": "Philadelphia",
+      "yesNo": "Yes",
+      "entry": 0.5,
+      "price": 0.5,
+      "cost": 966.0,
+      "contracts": 1932.0,
+      "startTs": 1795489200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 3:45 PM PT",
+      "recordedTs": 1795477503,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
