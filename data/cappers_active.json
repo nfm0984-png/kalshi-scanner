@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 7:45 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 7:50 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -9505,18 +9505,18 @@
       "ageDays": 291,
       "graded": {
         "n": 400,
-        "w": 63,
-        "l": 52,
+        "w": 65,
+        "l": 53,
         "roi": null,
-        "profit": -819.68,
+        "profit": -816.19,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 63,
-        "l": 52,
+        "w": 65,
+        "l": 53,
         "roi": null,
-        "profit": -819.68,
+        "profit": -816.19,
         "sample": "positions"
       },
       "sports": {
@@ -9529,7 +9529,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 63-52 \u00b7 Best at Tennis \u00b7 +$524 all",
+      "recordLine": "emji.emji \u00b7 65-53 \u00b7 Best at Tennis \u00b7 +$524 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -10181,24 +10181,24 @@
       "tape30d": null,
       "ageDays": 337,
       "graded": {
-        "n": 109,
+        "n": 110,
         "w": 63,
-        "l": 46,
+        "l": 47,
         "roi": null,
-        "profit": 41359.93,
+        "profit": 40782.66,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 109,
+        "n": 110,
         "w": 63,
-        "l": 46,
+        "l": 47,
         "roi": null,
-        "profit": 41359.93,
+        "profit": 40782.66,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 63-46 \u00b7 +$47.8k all",
+      "recordLine": "fen.dachi \u00b7 63-47 \u00b7 +$47.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10257,7 +10257,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1
