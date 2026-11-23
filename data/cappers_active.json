@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 5:55 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 6:00 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -686,10 +686,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 10,
+      "openPositions": 15,
       "pickSource": "positions",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 3,
+      "followCount": 3
     },
     {
       "nickname": "Ryqeux",
@@ -6707,7 +6707,7 @@
         "w": 231,
         "l": 169,
         "roi": null,
-        "profit": 38.59,
+        "profit": 37.91,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6715,7 +6715,7 @@
         "w": 231,
         "l": 169,
         "roi": null,
-        "profit": 38.59,
+        "profit": 37.91,
         "sample": "positions"
       },
       "sports": {},
@@ -6725,7 +6725,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 11,
+      "openPositions": 10,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -17288,27 +17288,27 @@
       "ageDays": 99,
       "graded": {
         "n": 400,
-        "w": 225,
-        "l": 173,
+        "w": 224,
+        "l": 174,
         "roi": null,
-        "profit": 6741.01,
+        "profit": 6353.21,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 225,
-        "l": 173,
+        "w": 224,
+        "l": 174,
         "roi": null,
-        "profit": 6741.01,
+        "profit": 6353.21,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 225-173 \u00b7 +$9.31k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 224-174 \u00b7 +$9.31k all",
       "addedAt": "2026-11-22",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
