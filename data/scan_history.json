@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 11:14 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:12 PM PT",
   "scans": [
+    {
+      "ts": 1795464775,
+      "at": "Mon Nov 23 \u00b7 12:12 PM PT",
+      "names": 448,
+      "newFollows": [
+        "Profitprofet"
+      ],
+      "followed": 52,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
+        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
+        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
+      ]
+    },
     {
       "ts": 1795461262,
       "at": "Mon Nov 23 \u00b7 11:14 AM PT",
@@ -1347,24 +1364,6 @@
         "KXNBATOTAL-26NOV20SACLAL-217|Yes",
         "KXNBATOTAL-26NOV20SACLAL-213|Yes",
         "KXNBATOTAL-26NOV20SACLAL-223|Yes"
-      ]
-    },
-    {
-      "ts": 1795235892,
-      "at": "Fri Nov 20 \u00b7 8:38 PM PT",
-      "names": 121,
-      "newFollows": [
-        "Ryqeux",
-        "TheGrinder"
-      ],
-      "followed": 6,
-      "target": 40,
-      "openPicks": 4,
-      "ids": [
-        "KXNCAAFTOTAL-26NOV20OREMSU-43|Yes",
-        "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes",
-        "KXNBAGAME-26NOV20HOUDEN-DEN|Yes",
-        "KXNBAGAME-26NOV20SACLAL-LAL|Yes"
       ]
     }
   ]
