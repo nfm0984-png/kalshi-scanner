@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 11:53 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 11:58 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -72,8 +72,8 @@
       "postsVisible": false,
       "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "BWmarkets",
@@ -273,7 +273,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9511,7 +9511,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 8,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -16389,29 +16389,29 @@
       "tape30d": -25.55,
       "ageDays": 878,
       "graded": {
-        "n": 232,
-        "w": 169,
+        "n": 233,
+        "w": 170,
         "l": 53,
         "roi": null,
-        "profit": 1614.56,
+        "profit": 1652.68,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 232,
-        "w": 169,
+        "n": 233,
+        "w": 170,
         "l": 53,
         "roi": null,
-        "profit": 1614.56,
+        "profit": 1652.68,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "yunktrader \u00b7 169-53 \u00b7 +$4.37k all",
+      "recordLine": "yunktrader \u00b7 170-53 \u00b7 +$4.37k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 85,
+      "openPositions": 84,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
