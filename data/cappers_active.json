@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 8:57 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:07 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -2574,8 +2574,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "bospredicts",
@@ -9465,18 +9465,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 125,
-        "l": 104,
+        "w": 126,
+        "l": 106,
         "roi": null,
-        "profit": -816.7,
+        "profit": -817.79,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 125,
-        "l": 104,
+        "w": 126,
+        "l": 106,
         "roi": null,
-        "profit": -816.7,
+        "profit": -817.79,
         "sample": "positions"
       },
       "sports": {
@@ -9489,7 +9489,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 125-104 \u00b7 Best at Tennis \u00b7 +$1.94k all",
+      "recordLine": "emji.emji \u00b7 126-106 \u00b7 Best at Tennis \u00b7 +$1.94k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -16407,7 +16407,7 @@
         "w": 221,
         "l": 178,
         "roi": null,
-        "profit": 5763.68,
+        "profit": 5455.76,
         "sample": "positions"
       },
       "gradedAll": {
@@ -16415,7 +16415,7 @@
         "w": 221,
         "l": 178,
         "roi": null,
-        "profit": 5763.68,
+        "profit": 5455.76,
         "sample": "positions"
       },
       "sports": {},
