@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:13 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4853,6 +4853,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Mon Nov 23 \u00b7 8:13 AM PT"
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE",
+      "game": "MVE",
+      "backing": "yes Cincinnati wins by over 3.5 points,yes Cincinnati wins by over 2.5 points,yes Cincinnati,yes Tee Higgins: 1+,yes Treylon Burks: 1+",
+      "yesNo": "Yes",
+      "entry": 0.0427,
+      "price": 0.035,
+      "cost": 999.71,
+      "contracts": 23419.2,
+      "startTs": 1795493700,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
+      "recordedTs": 1795451078,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

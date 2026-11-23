@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 7:19 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
   "scans": [
+    {
+      "ts": 1795451078,
+      "at": "Mon Nov 23 \u00b7 8:24 AM PT",
+      "names": 416,
+      "newFollows": [
+        "bullishkirby"
+      ],
+      "followed": 50,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXT20MATCH-26NOV230930DESSW-DES|Yes",
+        "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
+      ]
+    },
     {
       "ts": 1795447148,
       "at": "Mon Nov 23 \u00b7 7:19 AM PT",
@@ -1344,40 +1361,6 @@
       "target": 40,
       "openPicks": 2,
       "ids": [
-        "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
-        "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes"
-      ]
-    },
-    {
-      "ts": 1795229927,
-      "at": "Fri Nov 20 \u00b7 6:58 PM PT",
-      "names": 0,
-      "newFollows": [],
-      "followed": 0,
-      "target": 40,
-      "openPicks": 23,
-      "ids": [
-        "KXNBAGAME-26NOV20ORLBKN-BKN|Yes",
-        "KXNBAGAME-26NOV20ORLBKN-ORL|Yes",
-        "KXNBAGAME-26NOV20TORDET-TOR|Yes",
-        "KXNBAGAME-26NOV20TORDET-DET|Yes",
-        "KXNBASPREAD-26NOV20ORLBKN-ORL5|No",
-        "KXNBASPREAD-26NOV20ORLBKN-ORL4|No",
-        "KXNBASPREAD-26NOV20ORLBKN-ORL2|Yes",
-        "KXNBASPREAD-26NOV20TORDET-TOR2|No",
-        "KXNBASPREAD-26NOV20TORDET-DET4|No",
-        "KXNBATOTAL-26NOV20ORLBKN-224|Yes",
-        "KXNBATOTAL-26NOV20ORLBKN-222|Yes",
-        "KXNBATOTAL-26NOV20TORDET-200|Yes",
-        "KXNBATOTAL-26NOV20TORDET-198|Yes",
-        "KXNBAGAME-26NOV20WASCHI-WAS|Yes",
-        "KXNBAGAME-26NOV20WASCHI-CHI|Yes",
-        "KXNBASPREAD-26NOV20WASCHI-WAS7|No",
-        "KXNBASPREAD-26NOV20WASCHI-WAS9|No",
-        "KXNBASPREAD-26NOV20WASCHI-WAS2|No",
-        "KXNBASPREAD-26NOV20WASCHI-CHI2|No",
-        "KXNBATEAMTOTAL-26NOV20WASCHI-WAS102|Yes",
-        "KXNBATOTAL-26NOV20WASCHI-203|Yes",
         "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
         "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes"
       ]
