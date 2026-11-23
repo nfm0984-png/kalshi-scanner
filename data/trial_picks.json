@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 4:46 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:51 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -2897,9 +2897,9 @@
       "bt": "Player props",
       "recordedAt": "Sat Nov 21 \u00b7 11:24 PM PT",
       "recordedTs": 1795332263,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:51 PM PT"
     },
     {
       "id": "Billy.Hoyle|KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
@@ -3884,6 +3884,27 @@
       "bt": "Player props",
       "recordedAt": "Sun Nov 22 \u00b7 4:46 PM PT",
       "recordedTs": 1795394778,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV22MINSF-MIN|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV22MINSF-MIN",
+      "eventTicker": "KXNFLGAME-26NOV22MINSF",
+      "game": "MIN vs SF (Nov 22)",
+      "backing": "Minnesota",
+      "yesNo": "Yes",
+      "entry": 0.3659,
+      "price": 0.35,
+      "cost": 7999.99,
+      "contracts": 21862.4,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 4:51 PM PT",
+      "recordedTs": 1795395077,
       "status": "open",
       "result": null,
       "settledAt": null
