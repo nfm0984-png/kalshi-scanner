@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:59 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 1:09 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -72,8 +72,8 @@
       "postsVisible": false,
       "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "BWmarkets",
@@ -273,7 +273,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -5986,29 +5986,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 74,
-        "w": 49,
+        "n": 75,
+        "w": 50,
         "l": 25,
         "roi": null,
-        "profit": 246.56,
+        "profit": 256.62,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 74,
-        "w": 49,
+        "n": 75,
+        "w": 50,
         "l": 25,
         "roi": null,
-        "profit": 246.56,
+        "profit": 256.62,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 49-25 \u00b7 +$208 all",
+      "recordLine": "brand.breeze \u00b7 50-25 \u00b7 +$208 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9529,18 +9529,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 130,
-        "l": 110,
+        "w": 131,
+        "l": 106,
         "roi": null,
-        "profit": -820.35,
+        "profit": -815.49,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 130,
-        "l": 110,
+        "w": 131,
+        "l": 106,
         "roi": null,
-        "profit": -820.35,
+        "profit": -815.49,
         "sample": "positions"
       },
       "sports": {
@@ -9553,7 +9553,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 130-110 \u00b7 Best at Tennis \u00b7 +$2.07k all",
+      "recordLine": "emji.emji \u00b7 131-106 \u00b7 Best at Tennis \u00b7 +$2.07k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
