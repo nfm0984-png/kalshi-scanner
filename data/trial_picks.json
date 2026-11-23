@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 8:00 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:05 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4262,9 +4262,9 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 6:46 PM PT",
       "recordedTs": 1795402003,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 8:05 PM PT"
     },
     {
       "id": "fen.dachi|KXMVECROSSCATEGORY-S2026U76JLMMFTHL46UF4-RJ2AVAIKX|Yes",

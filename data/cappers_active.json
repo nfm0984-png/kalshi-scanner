@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Sun Nov 22 \u00b7 8:00 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 8:05 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -668,7 +668,7 @@
         "w": 260,
         "l": 140,
         "roi": null,
-        "profit": 98944.01,
+        "profit": 95064.84,
         "sample": "positions"
       },
       "gradedAll": {
@@ -676,7 +676,7 @@
         "w": 260,
         "l": 140,
         "roi": null,
-        "profit": 98944.01,
+        "profit": 95064.84,
         "sample": "positions"
       },
       "sports": {},
@@ -686,10 +686,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 28,
+      "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -6485,19 +6485,19 @@
       "tape30d": 1.2,
       "ageDays": 194,
       "graded": {
-        "n": 112,
+        "n": 114,
         "w": 69,
-        "l": 43,
+        "l": 45,
         "roi": null,
-        "profit": 3679.04,
+        "profit": 3687.78,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 112,
+        "n": 114,
         "w": 69,
-        "l": 43,
+        "l": 45,
         "roi": null,
-        "profit": 3679.04,
+        "profit": 3687.78,
         "sample": "positions"
       },
       "sports": {
@@ -6510,12 +6510,12 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Davmjxn \u00b7 69-43 \u00b7 Best at NFL \u00b7 +$3.39k all",
+      "recordLine": "Davmjxn \u00b7 69-45 \u00b7 Best at NFL \u00b7 +$3.39k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 4,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6725,7 +6725,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 7,
+      "openPositions": 6,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -10181,24 +10181,24 @@
       "tape30d": null,
       "ageDays": 337,
       "graded": {
-        "n": 110,
-        "w": 63,
-        "l": 47,
+        "n": 111,
+        "w": 65,
+        "l": 46,
         "roi": null,
-        "profit": 40782.66,
+        "profit": 42581.39,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 110,
-        "w": 63,
-        "l": 47,
+        "n": 111,
+        "w": 65,
+        "l": 46,
         "roi": null,
-        "profit": 40782.66,
+        "profit": 42581.39,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 63-47 \u00b7 +$47.8k all",
+      "recordLine": "fen.dachi \u00b7 65-46 \u00b7 +$47.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10257,7 +10257,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -11093,7 +11093,7 @@
         "w": 127,
         "l": 273,
         "roi": null,
-        "profit": 98872.13,
+        "profit": 96369.67,
         "sample": "positions"
       },
       "gradedAll": {
@@ -11101,7 +11101,7 @@
         "w": 127,
         "l": 273,
         "roi": null,
-        "profit": 98872.13,
+        "profit": 96369.67,
         "sample": "positions"
       },
       "sports": {},
@@ -11457,10 +11457,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "truewonder",
