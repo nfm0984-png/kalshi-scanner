@@ -2020,6 +2020,18 @@ def group_games(cappers, now, log=print):
                 "result": p.get("result"), "closeTs": p.get("closeTs") or 0,
                 "yesAsk": p.get("yesAsk"), "noAsk": p.get("noAsk"),
             })
+            # games[] cards used to drop combo legs, which made the site show
+            # "Combo · 0 legs" even when following.picks had the full ticket.
+            if p.get("isCombo") or p.get("legs") or p.get("comboUrl") or lib.is_combo_ticker(p.get("ticker")):
+                slot["isCombo"] = True
+                if p.get("legs") and len(p.get("legs") or []) >= len(slot.get("legs") or []):
+                    slot["legs"] = p.get("legs")
+                if p.get("comboUrl"):
+                    slot["comboUrl"] = p.get("comboUrl")
+                    if isinstance(slot.get("view"), dict):
+                        slot["view"]["comboUrl"] = p.get("comboUrl")
+                if p.get("payout") is not None:
+                    slot["payout"] = p.get("payout")
             sports = c.get("sports") or {}
             fam = lib.sport_family(p.get("league") or g.get("league") or "")
             srec = sports.get(fam) if fam else None

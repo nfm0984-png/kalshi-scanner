@@ -252,9 +252,11 @@ function ComboBlock(props: {
   const n = legs.length;
   const yes = (props.yesNo || "Yes") !== "No";
   const pay = props.payout && props.payout > 0 ? props.payout : (props.price && props.price > 0 ? 1 / Math.min(props.price, 1) : null);
+  // Never show "Combo · 0 legs" — if legs did not attach, say they are loading.
+  const comboLabel = n > 0 ? ("Combo · " + n + " legs") : "Combo · legs loading";
   return (
     <div data-combo-card="1" style={{ marginTop: 10, padding: "12px 14px 14px", borderRadius: 16, border: "1.5px solid #C4B5FD", background: "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 42%)" }}>
-      <div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{"Combo · " + n + " legs"}</div>
+      <div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{comboLabel}</div>
       {(props.backers || []).map((b: Backer) => {
         const cap = capperOf(b.name);
         const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap && cap.graded && cap.graded.roi != null ? cap.graded.roi : null) as number | null } : null;
@@ -719,10 +721,22 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
       const total = backer.cost || 0;
       pick = { key, ticker: fp.ticker, eventTicker: fp.eventTicker, mid: fp.ticker, bt: fp.bt || "Other", big: fp.backing || fp.label || fp.game, sub: fp.marketTitle && fp.marketTitle !== (fp.backing || fp.label) ? fp.game : "", view: { backing: fp.backing || fp.label || fp.game, marketTitle: fp.marketTitle || fp.game, outcome: fp.backing || fp.label || "", yesNo, price: fp.price ?? null, ticker: fp.ticker, comboUrl: fp.comboUrl || null }, backers: [backer], total, tags: [backer.tier || "Best Cappers"], slip: fp.slip, startTs: start, state: fp.state || (start <= now ? "live" : "upcoming"), status: fp.status, result: fp.result ?? null, closeTs: fp.closeTs, yesAsk: fp.yesAsk, noAsk: fp.noAsk, isCombo: isComboPick(fp), legs: fp.legs, comboUrl: fp.comboUrl || null, payout: fp.payout ?? null };
       g.picks = (g.picks || []).concat([pick]);
-    } else if (!(pick.backers || []).some((b: Backer) => (b.name || "").toLowerCase() === (fp.nickname || "").toLowerCase())) {
-      pick.backers = (pick.backers || []).concat([backer]);
-      pick.total = Math.round(pick.backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
-      if (backer.tier && (pick.tags || []).indexOf(backer.tier) < 0) pick.tags = (pick.tags || []).concat([backer.tier]);
+    } else {
+      // games[] combo cards are built without legs. Copy them from the follow pick
+      // so Ranked/Coming Up never render "Combo · 0 legs" on a known KXMVE market.
+      if (fp.legs && fp.legs.length && !(pick.legs && pick.legs.length)) pick.legs = fp.legs;
+      if (fp.isCombo || isComboPick(fp) || (pick.legs && pick.legs.length >= 2)) pick.isCombo = true;
+      if (fp.comboUrl && !pick.comboUrl) {
+        pick.comboUrl = fp.comboUrl;
+        if (pick.view) pick.view.comboUrl = fp.comboUrl;
+      }
+      if (fp.payout != null && pick.payout == null) pick.payout = fp.payout;
+      if (fp.bt === "Combo" && pick.bt !== "Combo") pick.bt = "Combo";
+      if (!(pick.backers || []).some((b: Backer) => (b.name || "").toLowerCase() === (fp.nickname || "").toLowerCase())) {
+        pick.backers = (pick.backers || []).concat([backer]);
+        pick.total = Math.round(pick.backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
+        if (backer.tier && (pick.tags || []).indexOf(backer.tier) < 0) pick.tags = (pick.tags || []).concat([backer.tier]);
+      }
     }
   });
   return order.map((id: string) => byId[id]).filter((g: Game) => (g.picks || []).length && !gameOver(g, now));
