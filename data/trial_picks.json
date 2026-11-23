@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 12:18 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 12:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5039,6 +5039,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 12:18 PM PT",
       "recordedTs": 1795465126,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXWTACHALLENGERMATCH-26NOV23PAPRIE-RIE|No",
+      "nickname": "iluminado",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV23PAPRIE-RIE",
+      "eventTicker": "KXWTACHALLENGERMATCH-26NOV23PAPRIE",
+      "game": "Papamichail vs Riera",
+      "backing": "Julia Riera",
+      "yesNo": "No",
+      "entry": 0.6734,
+      "price": 0.37,
+      "cost": 1035.69,
+      "contracts": 1538.0,
+      "startTs": 1795471200,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 12:28 PM PT",
+      "recordedTs": 1795465728,
       "status": "open",
       "result": null,
       "settledAt": null
