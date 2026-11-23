@@ -1,6 +1,26 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 12:12 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 1:01 PM PT",
   "scans": [
+    {
+      "ts": 1795467715,
+      "at": "Mon Nov 23 \u00b7 1:01 PM PT",
+      "names": 456,
+      "newFollows": [],
+      "followed": 52,
+      "target": 100,
+      "openPicks": 9,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
+        "KXSERIEAGAME-26NOV23MONFIO-FIO|No",
+        "KXMVECROSSCATEGORY-S20266Z4UUFVS6VK77KEY-MV54ON57S|Yes",
+        "KXMVECROSSCATEGORY-S2026A5R7AIKLWJUKWIXP-HIYRX24PA|Yes",
+        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
+        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
+        "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
+        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
+      ]
+    },
     {
       "ts": 1795464775,
       "at": "Mon Nov 23 \u00b7 12:12 PM PT",
@@ -1340,31 +1360,6 @@
       "target": 40,
       "openPicks": 0,
       "ids": []
-    },
-    {
-      "ts": 1795237578,
-      "at": "Fri Nov 20 \u00b7 9:06 PM PT",
-      "names": 34,
-      "newFollows": [],
-      "followed": 6,
-      "target": 40,
-      "openPicks": 14,
-      "ids": [
-        "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes",
-        "KXNBAGAME-26NOV20HOUDEN-DEN|Yes",
-        "KXNBAGAME-26NOV20SACLAL-LAL|No",
-        "KXNBAGAME-26NOV20SACLAL-SAC|No",
-        "KXNBAGAME-26NOV20SACLAL-LAL|Yes",
-        "KXNBASPREAD-26NOV20SACLAL-LAL9|No",
-        "KXNBASPREAD-26NOV20SACLAL-LAL11|No",
-        "KXNBASPREAD-26NOV20SACLAL-LAL7|No",
-        "KXNBATEAMTOTAL-26NOV20SACLAL-LAL113|Yes",
-        "KXNBATEAMTOTAL-26NOV20SACLAL-LAL115|Yes",
-        "KXNBATEAMTOTAL-26NOV20SACLAL-SAC105|Yes",
-        "KXNBATOTAL-26NOV20SACLAL-217|Yes",
-        "KXNBATOTAL-26NOV20SACLAL-213|Yes",
-        "KXNBATOTAL-26NOV20SACLAL-223|Yes"
-      ]
     }
   ]
 }
