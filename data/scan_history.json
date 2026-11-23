@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 10:14 AM PT",
   "scans": [
+    {
+      "ts": 1795457657,
+      "at": "Mon Nov 23 \u00b7 10:14 AM PT",
+      "names": 423,
+      "newFollows": [],
+      "followed": 50,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXT20MATCH-26NOV230930DESSW-DES|No",
+        "KXT20MATCH-26NOV230930DESSW-DES|Yes",
+        "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
+        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
+        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
+        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
+      ]
+    },
     {
       "ts": 1795451078,
       "at": "Mon Nov 23 \u00b7 8:24 AM PT",
@@ -1343,24 +1360,6 @@
       "openPicks": 3,
       "ids": [
         "KXATPCHALLENGERMATCH-26NOV20TROMAY-MAY|Yes",
-        "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
-        "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes"
-      ]
-    },
-    {
-      "ts": 1795231577,
-      "at": "Fri Nov 20 \u00b7 7:26 PM PT",
-      "names": 0,
-      "newFollows": [
-        "bama0037",
-        "BWmarkets",
-        "iluminado",
-        "past.grass"
-      ],
-      "followed": 4,
-      "target": 40,
-      "openPicks": 2,
-      "ids": [
         "KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
         "KXNCAAMBSPREAD-26NOV20NCSTHALL-NCST5|Yes"
       ]
