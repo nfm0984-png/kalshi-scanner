@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 3:57 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3782,6 +3782,48 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Sun Nov 22 \u00b7 3:47 PM PT"
+    },
+    {
+      "id": "BWmarkets|KXNFLSPREAD-26NOV22JACNYG-NYG8|Yes",
+      "nickname": "BWmarkets",
+      "ticker": "KXNFLSPREAD-26NOV22JACNYG-NYG8",
+      "eventTicker": "KXNFLSPREAD-26NOV22JACNYG",
+      "game": "Jacksonville vs New York G: Spread",
+      "backing": "New York G wins by over 7.5 points",
+      "yesNo": "Yes",
+      "entry": 0.4312,
+      "price": 0.41,
+      "cost": 137308.42,
+      "contracts": 318454.0,
+      "startTs": 1795393500,
+      "league": "NFL",
+      "bt": "Spread",
+      "recordedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
+      "recordedTs": 1795392123,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV22ZHUCOO-ZHU|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV22ZHUCOO-ZHU",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV22ZHUCOO",
+      "game": "Zhu vs Cook",
+      "backing": "Evan Zhu",
+      "yesNo": "Yes",
+      "entry": 0.9625,
+      "price": 0.95,
+      "cost": 19719.27,
+      "contracts": 20487.0,
+      "startTs": 1795401000,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Sun Nov 22 \u00b7 4:02 PM PT",
+      "recordedTs": 1795392123,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
