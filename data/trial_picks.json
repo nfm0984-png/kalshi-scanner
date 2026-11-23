@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 9:23 AM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:28 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4913,6 +4913,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 9:17 AM PT",
       "recordedTs": 1795454252,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXAFCCLBTTS-26NOV23SHMAAS-BTTS|Yes",
+      "nickname": "WorkerTrader",
+      "ticker": "KXAFCCLBTTS-26NOV23SHMAAS-BTTS",
+      "eventTicker": "KXAFCCLBTTS-26NOV23SHMAAS",
+      "game": "Al-Shamal vs Al Ahli Saudi: BTTS",
+      "backing": "Both Teams To Score",
+      "yesNo": "Yes",
+      "entry": 0.0521,
+      "price": 1.0,
+      "cost": 1502.27,
+      "contracts": 28816.0,
+      "startTs": 1795464000,
+      "league": "Sports",
+      "bt": "Both teams to score",
+      "recordedAt": "Mon Nov 23 \u00b7 9:28 AM PT",
+      "recordedTs": 1795454916,
       "status": "open",
       "result": null,
       "settledAt": null
