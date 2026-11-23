@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sun Nov 22 \u00b7 4:41 PM PT",
+  "updatedAt": "Sun Nov 22 \u00b7 4:46 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1007,9 +1007,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Sun Nov 22 \u00b7 4:46 PM PT"
     },
     {
       "id": "coachlord66|KXNFLGAME-26NOV22MIABUF-BUF|Yes",
@@ -2981,9 +2981,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Sun Nov 22 \u00b7 4:46 PM PT"
     },
     {
       "id": "LargeFarva|KXNFLGAME-26NOV22MIABUF-MIA|Yes",
@@ -3863,6 +3863,27 @@
       "bt": "Combo",
       "recordedAt": "Sun Nov 22 \u00b7 4:31 PM PT",
       "recordedTs": 1795393877,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "fen.dachi|KXNFLTDPROT-26NOV22MINSF-SFMEVANS5-1|Yes",
+      "nickname": "fen.dachi",
+      "ticker": "KXNFLTDPROT-26NOV22MINSF-SFMEVANS5-1",
+      "eventTicker": "KXNFLTDPROT-26NOV22MINSF",
+      "game": "Minnesota vs San Francisco: Touchdowns",
+      "backing": "Mike Evans: 1+",
+      "yesNo": "Yes",
+      "entry": 0.32,
+      "price": 0.33,
+      "cost": 954.56,
+      "contracts": 2983.0,
+      "startTs": 1795407600,
+      "league": "NFL",
+      "bt": "Player props",
+      "recordedAt": "Sun Nov 22 \u00b7 4:46 PM PT",
+      "recordedTs": 1795394778,
       "status": "open",
       "result": null,
       "settledAt": null
