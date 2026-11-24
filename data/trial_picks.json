@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 5:00 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 5:15 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5312,6 +5312,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 4:35 PM PT",
       "recordedTs": 1795480527,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBASPREAD-26NOV23CLECHI-CLE10|No",
+      "nickname": "falcon999",
+      "ticker": "KXNBASPREAD-26NOV23CLECHI-CLE10",
+      "eventTicker": "KXNBASPREAD-26NOV23CLECHI",
+      "game": "CLE vs CHI (Nov 23)",
+      "backing": "Cleveland wins by over 9.5 points",
+      "yesNo": "No",
+      "entry": 0.5366,
+      "price": 0.51,
+      "cost": 1996.0,
+      "contracts": 3719.52,
+      "startTs": 1795492800,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Mon Nov 23 \u00b7 5:15 PM PT",
+      "recordedTs": 1795482958,
       "status": "open",
       "result": null,
       "settledAt": null
