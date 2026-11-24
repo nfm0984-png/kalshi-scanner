@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:39 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5333,9 +5333,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 5:15 PM PT",
       "recordedTs": 1795482958,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "Profitprofet|KXNFLRSHYDS-26NOV23CINWAS-WASJCROSKEYMERRITT22-25|Yes",
@@ -5585,9 +5585,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-MIL|Yes",
@@ -5606,9 +5606,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-TOR|No",
@@ -5627,9 +5627,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23PORPHI-POR17|No",
@@ -5774,9 +5774,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:49 PM PT",
       "recordedTs": 1795488553,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23OKCIND-IND|Yes",
@@ -5816,9 +5816,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-TOR|Yes",
@@ -5837,9 +5837,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23MILTOR-TOR8|Yes",
@@ -5858,9 +5858,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV23UTALAL-LAL15|No",
@@ -5921,9 +5921,9 @@
       "bt": "Totals",
       "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
       "recordedTs": 1795489367,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     },
     {
       "id": "regine|KXNBATOTAL-26NOV23MILTOR-224|Yes",
@@ -5942,9 +5942,9 @@
       "bt": "Totals",
       "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
       "recordedTs": 1795489367,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
