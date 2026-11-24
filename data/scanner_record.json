@@ -2020,7 +2020,8 @@
       "startTs": 1795541400,
       "firstTs": 1795537548,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795551206
     },
     "iluminado|KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No": {
       "capper": "iluminado",
@@ -2073,5 +2074,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795550306
+  "updatedTs": 1795551206
 }

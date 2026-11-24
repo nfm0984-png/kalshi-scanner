@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 11:58 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 12:13 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6656,6 +6656,27 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 11:53 AM PT",
       "recordedTs": 1795550006,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 12:13 PM PT"
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24BOLAMB-AMB|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24BOLAMB-AMB",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24BOLAMB",
+      "game": "Bolivar Idarraga vs Ambrogi",
+      "backing": "Luciano Emanuel Ambrogi",
+      "yesNo": "Yes",
+      "entry": 0.9731,
+      "price": 0.96,
+      "cost": 11091.58,
+      "contracts": 11398.0,
+      "startTs": 1795551000,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 12:13 PM PT",
+      "recordedTs": 1795551206,
       "status": "open",
       "result": null,
       "settledAt": null
