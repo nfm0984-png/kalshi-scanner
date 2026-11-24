@@ -251,9 +251,28 @@
       "name": "Snoz3berries",
       "ts": 1795538062,
       "boost": false
+    },
+    "parspectives": {
+      "n": 4,
+      "w": 1,
+      "l": 3,
+      "pnl": -599.85,
+      "name": "parspectives",
+      "ts": 1795538362,
+      "boost": false
+    },
+    "ustrader": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "ustrader",
+      "ts": 1795538362,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795538062,
+  "updatedTs": 1795538362,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
