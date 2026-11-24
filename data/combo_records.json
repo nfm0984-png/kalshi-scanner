@@ -379,9 +379,28 @@
       "name": "mild.fire",
       "ts": 1795539869,
       "boost": false
+    },
+    "lebronthanos": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "lebronthanos",
+      "ts": 1795540469,
+      "boost": false
+    },
+    "d.palombo": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "d.palombo",
+      "ts": 1795540469,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795539869,
+  "updatedTs": 1795540469,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
