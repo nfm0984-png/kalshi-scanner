@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4871,9 +4871,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 8:24 AM PT",
       "recordedTs": 1795451078,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 6:08 PM PT"
     },
     {
       "id": "dependent.snail8369|KXITFWMATCH-26NOV23SHITRA-SHI|Yes",
@@ -5396,9 +5396,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
       "recordedTs": 1795485826,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 6:08 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNBAGAME-26NOV23BKNMIN-MIN|Yes",
@@ -5522,6 +5522,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
       "recordedTs": 1795485826,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV23PORPHI-POR|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV23PORPHI-POR",
+      "eventTicker": "KXNBAGAME-26NOV23PORPHI",
+      "game": "Portland vs Philadelphia",
+      "backing": "Portland",
+      "yesNo": "Yes",
+      "entry": 0.5725,
+      "price": 0.99,
+      "cost": 2001.38,
+      "contracts": 3496.0,
+      "startTs": 1795489200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 6:08 PM PT",
+      "recordedTs": 1795486127,
       "status": "open",
       "result": null,
       "settledAt": null

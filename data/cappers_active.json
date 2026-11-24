@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:08 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -275,8 +275,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "past.grass",
@@ -416,7 +416,7 @@
       "openPositions": 6,
       "pickSource": "positions+posts",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "breezy.panther",
@@ -690,10 +690,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 20,
+      "openPositions": 25,
       "pickSource": "positions",
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "Ryqeux",
@@ -6673,29 +6673,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 78,
-        "w": 51,
+        "n": 79,
+        "w": 52,
         "l": 27,
         "roi": null,
-        "profit": 243.21,
+        "profit": 253.2,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 78,
-        "w": 51,
+        "n": 79,
+        "w": 52,
         "l": 27,
         "roi": null,
-        "profit": 243.21,
+        "profit": 253.2,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 51-27 \u00b7 +$208 all",
+      "recordLine": "brand.breeze \u00b7 52-27 \u00b7 +$208 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 12,
+      "openPositions": 11,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -12144,23 +12144,23 @@
       "ageDays": 434,
       "graded": {
         "n": 400,
-        "w": 124,
-        "l": 276,
+        "w": 123,
+        "l": 277,
         "roi": null,
-        "profit": 81215.35,
+        "profit": 70892.22,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 124,
-        "l": 276,
+        "w": 123,
+        "l": 277,
         "roi": null,
-        "profit": 81215.35,
+        "profit": 70892.22,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "falcon999 \u00b7 124-276 \u00b7 +$61.6k all",
+      "recordLine": "falcon999 \u00b7 123-277 \u00b7 +$61.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -12525,10 +12525,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 8,
+      "openPositions": 6,
       "pickSource": "positions+posts",
-      "pickCount": 6,
-      "followCount": 6
+      "pickCount": 5,
+      "followCount": 5
     },
     {
       "nickname": "truewonder",
@@ -30337,28 +30337,28 @@
       "tape30d": 1.0,
       "ageDays": 390,
       "graded": {
-        "n": 88,
-        "w": 56,
+        "n": 89,
+        "w": 57,
         "l": 25,
         "roi": null,
-        "profit": -25.83,
+        "profit": -20.52,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 88,
-        "w": 56,
+        "n": 89,
+        "w": 57,
         "l": 25,
         "roi": null,
-        "profit": -25.83,
+        "profit": -20.52,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "gap.sauce \u00b7 56-25 \u00b7 +$263 all",
+      "recordLine": "gap.sauce \u00b7 57-25 \u00b7 +$263 all",
       "addedAt": "2026-11-23",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 52,
+      "openPositions": 51,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
