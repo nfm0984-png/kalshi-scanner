@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 12:23 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 12:33 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -70,10 +70,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 3,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "BWmarkets",
@@ -202,10 +202,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "iluminado",
@@ -239,7 +239,7 @@
         "w": 270,
         "l": 110,
         "roi": null,
-        "profit": 144068.51,
+        "profit": 147024.63,
         "sample": "positions"
       },
       "gradedAll": {
@@ -247,7 +247,7 @@
         "w": 270,
         "l": 110,
         "roi": null,
-        "profit": 144068.51,
+        "profit": 147024.63,
         "sample": "positions"
       },
       "sports": {
@@ -272,7 +272,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 4,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6516,7 +6516,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 19,
+      "openPositions": 21,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -11408,10 +11408,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 7,
       "pickSource": "positions+posts",
-      "pickCount": 4,
-      "followCount": 4
+      "pickCount": 5,
+      "followCount": 5
     },
     {
       "nickname": "truewonder",
@@ -29965,7 +29965,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -31681,29 +31681,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 43,
+        "n": 44,
         "w": 31,
-        "l": 11,
+        "l": 12,
         "roi": null,
-        "profit": 2671.31,
+        "profit": 2622.31,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 43,
+        "n": 44,
         "w": 31,
-        "l": 11,
+        "l": 12,
         "roi": null,
-        "profit": 2671.31,
+        "profit": 2622.31,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 31-11 \u00b7 +$2.53k all",
+      "recordLine": "kelab \u00b7 31-12 \u00b7 +$2.53k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -32490,7 +32490,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 10,
+      "openPositions": 13,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
