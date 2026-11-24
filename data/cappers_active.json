@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 8:49 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:54 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -11487,10 +11487,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions+posts",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 3,
+      "followCount": 3
     },
     {
       "nickname": "truewonder",
@@ -13603,11 +13603,11 @@
       },
       "sports": {
         "NBA": {
-          "n": 1,
-          "w": 1,
+          "n": 2,
+          "w": 2,
           "l": 0,
-          "roi": 112.9,
-          "profit": 107.7
+          "roi": 88.4,
+          "profit": 168.3
         },
         "NFL": {
           "n": 2,
@@ -13617,7 +13617,7 @@
           "profit": 58.71
         }
       },
-      "bestAt": "NFL",
+      "bestAt": "NBA",
       "recordLine": "Snoz3berries \u00b7 31-5 \u00b7 +46% \u00b7 Best at NFL \u00b7 +$577 all \u00b7 Best Cappers",
       "addedAt": "2026-11-22",
       "followingPicks": [],

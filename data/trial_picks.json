@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:49 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:54 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6131,6 +6131,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 8:49 PM PT",
       "recordedTs": 1795495763,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBAGAME-26NOV23UTALAL-UTA|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNBAGAME-26NOV23UTALAL-UTA",
+      "eventTicker": "KXNBAGAME-26NOV23UTALAL",
+      "game": "UTA vs LAL (Nov 23)",
+      "backing": "Utah",
+      "yesNo": "Yes",
+      "entry": 0.2941,
+      "price": 0.26,
+      "cost": 1199.99,
+      "contracts": 4080.07,
+      "startTs": 1795500000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 8:54 PM PT",
+      "recordedTs": 1795496063,
       "status": "open",
       "result": null,
       "settledAt": null
