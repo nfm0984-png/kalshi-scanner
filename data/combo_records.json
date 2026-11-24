@@ -361,9 +361,27 @@
       "name": "jakem12",
       "ts": 1795539743,
       "boost": false
+    },
+    "bdadams": {
+      "n": 6,
+      "w": 3,
+      "l": 3,
+      "pnl": 2.06,
+      "name": "bdadams",
+      "ts": 1795539869,
+      "boost": false
+    },
+    "mild.fire": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "mild.fire",
+      "ts": 1795539869,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795539743,
+  "updatedTs": 1795539869,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
