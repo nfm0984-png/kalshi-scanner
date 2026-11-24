@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 8:54 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:59 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6488,6 +6488,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:39 AM PT",
       "recordedTs": 1795538362,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "king.45|KXT20MATCH-26NOV240930EMIGUL-GUL|No",
+      "nickname": "king.45",
+      "ticker": "KXT20MATCH-26NOV240930EMIGUL-GUL",
+      "eventTicker": "KXT20MATCH-26NOV240930EMIGUL",
+      "game": "Gulf Giants vs Mi Emirates",
+      "backing": "Gulf Giants",
+      "yesNo": "No",
+      "entry": 0.9232,
+      "price": 0.09,
+      "cost": 2970.92,
+      "contracts": 3218.0,
+      "startTs": 1795530600,
+      "league": "Cricket",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 8:59 AM PT",
+      "recordedTs": 1795539562,
       "status": "open",
       "result": null,
       "settledAt": null

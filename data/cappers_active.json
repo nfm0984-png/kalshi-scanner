@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 8:54 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:59 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -2186,10 +2186,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 1,
-      "followCount": 1
+      "followCount": 2
     },
     {
       "nickname": "bospredicts",
@@ -6294,7 +6294,7 @@
         "w": 325,
         "l": 75,
         "roi": null,
-        "profit": 37308.12,
+        "profit": 37511.14,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6302,7 +6302,7 @@
         "w": 325,
         "l": 75,
         "roi": null,
-        "profit": 37308.12,
+        "profit": 37511.14,
         "sample": "positions"
       },
       "sports": {
@@ -6322,7 +6322,7 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 325-75 \u00b7 Best at MLB \u00b7 +$27.1k all",
+      "recordLine": "dependent.snail8369 \u00b7 325-75 \u00b7 Best at MLB \u00b7 +$27.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -6354,7 +6354,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -7462,7 +7462,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 12,
+      "openPositions": 11,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
