@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 10:02 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:43 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6446,9 +6446,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:25 AM PT",
       "recordedTs": 1795537548,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 10:43 AM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes",
@@ -6488,9 +6488,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 9:02 AM PT",
       "recordedTs": 1795539743,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 10:43 AM PT"
     },
     {
       "id": "king.45|KXT20MATCH-26NOV240930EMIGUL-GUL|No",
@@ -6509,9 +6509,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 9:02 AM PT",
       "recordedTs": 1795539743,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 10:43 AM PT"
     },
     {
       "id": "iluminado|KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No",
@@ -6575,6 +6575,27 @@
       "status": "loss",
       "result": "yes",
       "settledAt": "Tue Nov 24 \u00b7 10:02 AM PT"
+    },
+    {
+      "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4",
+      "game": "Dallas vs Denver",
+      "backing": "no Christian Braun: 15+,yes Arizona",
+      "yesNo": "Yes",
+      "entry": 0.478,
+      "price": 0.471,
+      "cost": 964.6,
+      "contracts": 2018.0,
+      "startTs": 1795557600,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 10:43 AM PT",
+      "recordedTs": 1795545833,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

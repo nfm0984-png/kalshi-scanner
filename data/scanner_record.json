@@ -2040,7 +2040,17 @@
       "firstTs": 1795542570,
       "combo": false,
       "status": "open"
+    },
+    "iknowballmorethanu|KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes": {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV",
+      "side": "Yes",
+      "price": 0.471,
+      "startTs": 1795557600,
+      "firstTs": 1795545833,
+      "combo": true,
+      "status": "open"
     }
   },
-  "updatedTs": 1795543359
+  "updatedTs": 1795545833
 }
