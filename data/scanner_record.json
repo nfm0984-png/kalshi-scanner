@@ -1857,8 +1857,9 @@
       "startTs": 1795505400,
       "firstTs": 1795495862,
       "combo": false,
-      "status": "open",
-      "seeded": true
+      "status": "win",
+      "seeded": true,
+      "gradedTs": 1795529166
     },
     "regine|KXNBAGAME-26NOV23UTALAL-LAL|No": {
       "capper": "regine",
@@ -1980,5 +1981,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795505639
+  "updatedTs": 1795529166
 }

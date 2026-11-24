@@ -17,9 +17,27 @@
       "name": "uuqoo",
       "ts": 1795507127,
       "boost": false
+    },
+    "bama0037": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "bama0037",
+      "ts": 1795529166,
+      "boost": false
+    },
+    "jackivouce": {
+      "n": 2999,
+      "w": 2952,
+      "l": 47,
+      "pnl": 1504.78,
+      "name": "jackivouce",
+      "ts": 1795529166,
+      "boost": true
     }
   },
   "minN": 30,
-  "updatedTs": 1795507127,
+  "updatedTs": 1795529166,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

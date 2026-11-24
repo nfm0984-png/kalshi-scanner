@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Mon Nov 23 \u00b7 11:33 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:06 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -63,6 +63,11 @@
       "nickname": "truewonder",
       "reason": "negative profit",
       "at": "Mon Nov 23 \u00b7 9:14 PM PT"
+    },
+    {
+      "nickname": "larrry33",
+      "reason": "negative profit",
+      "at": "Tue Nov 24 \u00b7 6:06 AM PT"
     }
   ],
   "cappers": [
@@ -182,12 +187,6 @@
     },
     {
       "nickname": "successful.koi2475",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "dear.bet",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -365,12 +364,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "larrry33",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
     },
     {
       "nickname": "BWmarkets",
