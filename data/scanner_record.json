@@ -2092,7 +2092,27 @@
       "firstTs": 1795554355,
       "combo": false,
       "status": "open"
+    },
+    "reluctant.fox5394|KXUCLGAME-26NOV24MCINAP-NAP|Yes": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24MCINAP-NAP",
+      "side": "Yes",
+      "price": 0.02,
+      "startTs": 1795561200,
+      "firstTs": 1795556903,
+      "combo": false,
+      "status": "open"
+    },
+    "reluctant.fox5394|KXUCLTOTAL-26NOV24MCINAP-5|No": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLTOTAL-26NOV24MCINAP-5",
+      "side": "No",
+      "price": 0.89,
+      "startTs": 1795564800,
+      "firstTs": 1795556903,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795556604
+  "updatedTs": 1795556903
 }
