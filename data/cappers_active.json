@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 9:14 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:19 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -37,7 +37,7 @@
         "w": 349,
         "l": 51,
         "roi": null,
-        "profit": 135489.44,
+        "profit": 135537.27,
         "sample": "positions"
       },
       "gradedAll": {
@@ -45,7 +45,7 @@
         "w": 349,
         "l": 51,
         "roi": null,
-        "profit": 135489.44,
+        "profit": 135537.27,
         "sample": "positions"
       },
       "sports": {
@@ -70,7 +70,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -2241,8 +2241,8 @@
       "postsVisible": false,
       "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "bospredicts",
@@ -9842,24 +9842,24 @@
       "tape30d": null,
       "ageDays": 339,
       "graded": {
-        "n": 146,
-        "w": 85,
-        "l": 61,
+        "n": 147,
+        "w": 84,
+        "l": 63,
         "roi": null,
-        "profit": 39053.19,
+        "profit": 38793.01,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 146,
-        "w": 85,
-        "l": 61,
+        "n": 147,
+        "w": 84,
+        "l": 63,
         "roi": null,
-        "profit": 39053.19,
+        "profit": 38793.01,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 85-61 \u00b7 +$36.7k all",
+      "recordLine": "fen.dachi \u00b7 84-63 \u00b7 +$36.7k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -16364,28 +16364,28 @@
       "ageDays": 101,
       "graded": {
         "n": 400,
-        "w": 224,
-        "l": 176,
+        "w": 225,
+        "l": 175,
         "roi": null,
-        "profit": 6350.9,
+        "profit": 6236.22,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 224,
-        "l": 176,
+        "w": 225,
+        "l": 175,
         "roi": null,
-        "profit": 6350.9,
+        "profit": 6236.22,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 224-176 \u00b7 +$7.53k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 225-175 \u00b7 +$7.53k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -23675,7 +23675,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 6,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -29138,23 +29138,23 @@
       "ageDays": 191,
       "graded": {
         "n": 400,
-        "w": 236,
-        "l": 124,
+        "w": 237,
+        "l": 123,
         "roi": null,
-        "profit": 9455.27,
+        "profit": 9643.06,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 236,
-        "l": 124,
+        "w": 237,
+        "l": 123,
         "roi": null,
-        "profit": 9455.27,
+        "profit": 9643.06,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 236-124 \u00b7 +$8.41k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 237-123 \u00b7 +$8.41k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
@@ -30757,7 +30757,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
