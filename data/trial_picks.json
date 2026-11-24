@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:04 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:14 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5987,6 +5987,48 @@
       "status": "loss",
       "result": "yes",
       "settledAt": "Mon Nov 23 \u00b7 7:54 PM PT"
+    },
+    {
+      "id": "dependent.snail8369|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNFLGAME-26NOV23CINWAS-CIN",
+      "eventTicker": "KXNFLGAME-26NOV23CINWAS",
+      "game": "Cincinnati vs Washington",
+      "backing": "Cincinnati",
+      "yesNo": "Yes",
+      "entry": 0.8,
+      "price": 0.73,
+      "cost": 2455.2,
+      "contracts": 3069.0,
+      "startTs": 1795493700,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 8:14 PM PT",
+      "recordedTs": 1795493662,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "truewonder|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
+      "nickname": "truewonder",
+      "ticker": "KXNFLGAME-26NOV23CINWAS-CIN",
+      "eventTicker": "KXNFLGAME-26NOV23CINWAS",
+      "game": "Cincinnati vs Washington",
+      "backing": "Cincinnati",
+      "yesNo": "Yes",
+      "entry": 0.45,
+      "price": 0.71,
+      "cost": 24072.75,
+      "contracts": 53495.0,
+      "startTs": 1795493700,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 8:14 PM PT",
+      "recordedTs": 1795493662,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
