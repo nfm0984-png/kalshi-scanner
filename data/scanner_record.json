@@ -2060,7 +2060,27 @@
       "firstTs": 1795546132,
       "combo": false,
       "status": "open"
+    },
+    "WorkerTrader|KXUCLGAME-26NOV24GALAVL-AVL|No": {
+      "capper": "WorkerTrader",
+      "ticker": "KXUCLGAME-26NOV24GALAVL-AVL",
+      "side": "No",
+      "price": 0.97,
+      "startTs": 1795553100,
+      "firstTs": 1795548216,
+      "combo": false,
+      "status": "open"
+    },
+    "reluctant.fox5394|KXUCLGAME-26NOV24GALAVL-GAL|Yes": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24GALAVL-GAL",
+      "side": "Yes",
+      "price": 0.73,
+      "startTs": 1795553100,
+      "firstTs": 1795548216,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795547917
+  "updatedTs": 1795548216
 }
