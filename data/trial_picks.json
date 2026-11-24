@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:54 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6386,6 +6386,48 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Tue Nov 24 \u00b7 7:54 AM PT"
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24RAQDEM-DEM|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24RAQDEM-DEM",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24RAQDEM",
+      "game": "Raquillet vs Demin",
+      "backing": "Yaroslav Demin",
+      "yesNo": "Yes",
+      "entry": 0.99,
+      "price": 0.96,
+      "cost": 12130.47,
+      "contracts": 12253.0,
+      "startTs": 1795530600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
+      "recordedTs": 1795535976,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBAGAME-26NOV24DETORL-ORL|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNBAGAME-26NOV24DETORL-ORL",
+      "eventTicker": "KXNBAGAME-26NOV24DETORL",
+      "game": "DET vs ORL (Nov 24)",
+      "backing": "Orlando",
+      "yesNo": "Yes",
+      "entry": 0.4673,
+      "price": 0.45,
+      "cost": 3999.99,
+      "contracts": 8559.35,
+      "startTs": 1795564800,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
+      "recordedTs": 1795535976,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
