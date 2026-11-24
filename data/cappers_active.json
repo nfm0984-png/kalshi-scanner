@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 11:33 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:38 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -202,10 +202,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "iluminado",
@@ -272,7 +272,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -7911,7 +7911,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 13442.9,
+      "pnl": 13546.9,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -7946,7 +7946,7 @@
         }
       },
       "bestAt": "WNBA",
-      "recordLine": "drib \u00b7 12-3 \u00b7 Best at WNBA \u00b7 +$13.4k all",
+      "recordLine": "drib \u00b7 12-3 \u00b7 Best at WNBA \u00b7 +$13.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -12802,7 +12802,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 15707.83,
+      "pnl": 15724.0,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -31370,7 +31370,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
