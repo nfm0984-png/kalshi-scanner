@@ -1,6 +1,24 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 9:20 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 11:33 PM PT",
   "scans": [
+    {
+      "ts": 1795505639,
+      "at": "Mon Nov 23 \u00b7 11:33 PM PT",
+      "names": 554,
+      "newFollows": [
+        "pogoburger",
+        "Watsons.burnerr"
+      ],
+      "followed": 53,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026EO6RRNP2KBXPIZUW-WFEUC5IFZ|Yes",
+        "KXATPCHALLENGERMATCH-26NOV23NOGJON-JON|Yes",
+        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
+      ]
+    },
     {
       "ts": 1795497626,
       "at": "Mon Nov 23 \u00b7 9:20 PM PT",
@@ -1417,21 +1435,6 @@
       "ids": [
         "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
         "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
-        "KXSB-27-MIN|Yes",
-        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
-        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
-      ]
-    },
-    {
-      "ts": 1795258665,
-      "at": "Sat Nov 21 \u00b7 2:57 AM PT",
-      "names": 48,
-      "newFollows": [],
-      "followed": 10,
-      "target": 40,
-      "openPicks": 2,
-      "ids": [
-        "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
         "KXSB-27-MIN|Yes",
         "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
         "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
