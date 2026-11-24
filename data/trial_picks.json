@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 12:12 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6635,9 +6635,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
       "recordedTs": 1795547016,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 12:53 PM PT"
     },
     {
       "id": "reluctant.fox5394|KXAFCCLTOTAL-26NOV24ALNSAD-4|Yes",
@@ -6659,6 +6659,69 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Tue Nov 24 \u00b7 12:12 PM PT"
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV24MISSBYU-MISS|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV24MISSBYU-MISS",
+      "eventTicker": "KXNCAAMBGAME-26NOV24MISSBYU",
+      "game": "MISS vs BYU (Nov 24)",
+      "backing": "Ole Miss",
+      "yesNo": "Yes",
+      "entry": 0.1484,
+      "price": 0.46,
+      "cost": 749.99,
+      "contracts": 5052.95,
+      "startTs": 1795548600,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
+      "recordedTs": 1795553609,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24TENNMD-TENN|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24TENNMD-TENN",
+      "eventTicker": "KXNCAAMBGAME-26NOV24TENNMD",
+      "game": "Tennessee vs Maryland",
+      "backing": "Tennessee",
+      "yesNo": "Yes",
+      "entry": 0.6414,
+      "price": 0.57,
+      "cost": 19510.22,
+      "contracts": 30417.0,
+      "startTs": 1795550400,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
+      "recordedTs": 1795553609,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "reluctant.fox5394|KXUCLGAME-26NOV24RMAPSV-RMA|Yes",
+      "nickname": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24RMAPSV-RMA",
+      "eventTicker": "KXUCLGAME-26NOV24RMAPSV",
+      "game": "Real Madrid vs Eindhoven",
+      "backing": "Real Madrid",
+      "yesNo": "Yes",
+      "entry": 0.4601,
+      "price": 0.54,
+      "cost": 10087.29,
+      "contracts": 21923.0,
+      "startTs": 1795561200,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
+      "recordedTs": 1795553609,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

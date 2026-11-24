@@ -2072,7 +2072,17 @@
       "firstTs": 1795550006,
       "combo": false,
       "status": "open"
+    },
+    "reluctant.fox5394|KXUCLGAME-26NOV24RMAPSV-RMA|Yes": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24RMAPSV-RMA",
+      "side": "Yes",
+      "price": 0.54,
+      "startTs": 1795561200,
+      "firstTs": 1795553609,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795551179
+  "updatedTs": 1795553609
 }
