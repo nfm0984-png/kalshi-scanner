@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 4:05 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 4:15 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5270,6 +5270,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 3:50 PM PT",
       "recordedTs": 1795477803,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBAGAME-26NOV23PORPHI-PHI|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNBAGAME-26NOV23PORPHI-PHI",
+      "eventTicker": "KXNBAGAME-26NOV23PORPHI",
+      "game": "POR vs PHI (Nov 23)",
+      "backing": "Philadelphia",
+      "yesNo": "Yes",
+      "entry": 0.5574,
+      "price": 0.58,
+      "cost": 4999.99,
+      "contracts": 8970.41,
+      "startTs": 1795489200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 4:15 PM PT",
+      "recordedTs": 1795479327,
       "status": "open",
       "result": null,
       "settledAt": null
