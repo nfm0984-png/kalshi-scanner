@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 1:48 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 1:53 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6677,9 +6677,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
       "recordedTs": 1795553609,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 1:53 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24TENNMD-TENN|Yes",
@@ -6719,9 +6719,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
       "recordedTs": 1795553609,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 1:53 PM PT"
     },
     {
       "id": "FFun|KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE|Yes",
@@ -6761,9 +6761,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 1:48 PM PT",
       "recordedTs": 1795556903,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 1:53 PM PT"
     },
     {
       "id": "reluctant.fox5394|KXUCLTOTAL-26NOV24MCINAP-5|No",
@@ -6782,9 +6782,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 1:48 PM PT",
       "recordedTs": 1795556903,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 1:53 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
