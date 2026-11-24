@@ -2050,7 +2050,17 @@
       "firstTs": 1795545833,
       "combo": true,
       "status": "open"
+    },
+    "falcon999|KXNBASPREAD-26NOV24DETORL-ORL4|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNBASPREAD-26NOV24DETORL-ORL4",
+      "side": "Yes",
+      "price": 0.39,
+      "startTs": 1795564800,
+      "firstTs": 1795546132,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795545833
+  "updatedTs": 1795546132
 }
