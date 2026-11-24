@@ -2133,7 +2133,17 @@
       "firstTs": 1795559291,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXITFMATCH-26NOV24SOLBRU-BRU|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXITFMATCH-26NOV24SOLBRU-BRU",
+      "side": "Yes",
+      "price": 0.98,
+      "startTs": 1795575600,
+      "firstTs": 1795559892,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795559591
+  "updatedTs": 1795559892
 }

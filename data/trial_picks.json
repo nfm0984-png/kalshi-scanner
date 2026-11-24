@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 2:33 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:38 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6845,6 +6845,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 2:33 PM PT",
       "recordedTs": 1795559591,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXITFMATCH-26NOV24SOLBRU-BRU|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXITFMATCH-26NOV24SOLBRU-BRU",
+      "eventTicker": "KXITFMATCH-26NOV24SOLBRU",
+      "game": "Solis Encinas vs Bruna",
+      "backing": "Nicolas Bruna",
+      "yesNo": "Yes",
+      "entry": 0.98,
+      "price": 0.98,
+      "cost": 11682.58,
+      "contracts": 11921.0,
+      "startTs": 1795575600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 2:38 PM PT",
+      "recordedTs": 1795559892,
       "status": "open",
       "result": null,
       "settledAt": null
