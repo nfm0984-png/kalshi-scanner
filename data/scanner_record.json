@@ -1979,7 +1979,17 @@
       "firstTs": 1795505224,
       "combo": true,
       "status": "open"
+    },
+    "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC",
+      "side": "Yes",
+      "price": 0.91,
+      "startTs": 1795532400,
+      "firstTs": 1795530066,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795529166
+  "updatedTs": 1795530066
 }

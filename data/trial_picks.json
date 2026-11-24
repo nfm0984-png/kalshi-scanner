@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:06 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:21 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6341,6 +6341,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
       "recordedTs": 1795504456,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24OVCTSI",
+      "game": "Ovcharenko vs Tsitsipas",
+      "backing": "Oleksandr Ovcharenko",
+      "yesNo": "Yes",
+      "entry": 0.9,
+      "price": 0.91,
+      "cost": 10823.4,
+      "contracts": 12026.0,
+      "startTs": 1795532400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:21 AM PT",
+      "recordedTs": 1795530066,
       "status": "open",
       "result": null,
       "settledAt": null
