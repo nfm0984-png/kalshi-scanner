@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:59 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:04 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5417,9 +5417,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
       "recordedTs": 1795485826,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 7:04 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV23CINWAS-WAS|Yes",
@@ -5858,6 +5858,48 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBATEAMTOTAL-26NOV23MILTOR-TOR110|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBATEAMTOTAL-26NOV23MILTOR-TOR110",
+      "eventTicker": "KXNBATEAMTOTAL-26NOV23MILTOR",
+      "game": "Milwaukee vs Toronto: Team Total",
+      "backing": "Toronto over 109.5 points",
+      "yesNo": "Yes",
+      "entry": 0.6498,
+      "price": 1.0,
+      "cost": 520.5,
+      "contracts": 801.0,
+      "startTs": 1795491000,
+      "league": "NBA",
+      "bt": "Totals",
+      "recordedAt": "Mon Nov 23 \u00b7 7:04 PM PT",
+      "recordedTs": 1795489455,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBATOTAL-26NOV23MILTOR-224|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBATOTAL-26NOV23MILTOR-224",
+      "eventTicker": "KXNBATOTAL-26NOV23MILTOR",
+      "game": "Milwaukee vs Toronto: Total Points",
+      "backing": "Over 223.5 points",
+      "yesNo": "Yes",
+      "entry": 0.9393,
+      "price": 1.0,
+      "cost": 1707.6,
+      "contracts": 1818.0,
+      "startTs": 1795491000,
+      "league": "NBA",
+      "bt": "Totals",
+      "recordedAt": "Mon Nov 23 \u00b7 7:04 PM PT",
+      "recordedTs": 1795489455,
       "status": "open",
       "result": null,
       "settledAt": null
