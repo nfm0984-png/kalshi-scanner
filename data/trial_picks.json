@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 7:29 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5419,7 +5419,7 @@
       "recordedTs": 1795485826,
       "status": "win",
       "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:04 PM PT"
+      "settledAt": "Mon Nov 23 \u00b7 7:02 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV23CINWAS-WAS|Yes",
@@ -5566,7 +5566,7 @@
       "recordedTs": 1795486726,
       "status": "loss",
       "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "settledAt": "Mon Nov 23 \u00b7 7:02 PM PT"
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV23MILTOR-MIL|Yes",
@@ -5585,9 +5585,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-MIL|Yes",
@@ -5606,9 +5606,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-TOR|No",
@@ -5627,9 +5627,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
-      "status": "win",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23PORPHI-POR17|No",
@@ -5774,9 +5774,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:49 PM PT",
       "recordedTs": 1795488553,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:29 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBAGAME-26NOV23OKCIND-IND|Yes",
@@ -5816,9 +5816,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 7:29 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBAGAME-26NOV23MILTOR-TOR|Yes",
@@ -5837,9 +5837,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23MILTOR-TOR8|Yes",
@@ -5858,9 +5858,51 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
       "recordedTs": 1795488854,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBASPREAD-26NOV23UTALAL-LAL15|No",
+      "nickname": "falcon999",
+      "ticker": "KXNBASPREAD-26NOV23UTALAL-LAL15",
+      "eventTicker": "KXNBASPREAD-26NOV23UTALAL",
+      "game": "Utah vs Los Angeles L: Spread",
+      "backing": "Los Angeles L wins by over 14.5 points",
+      "yesNo": "No",
+      "entry": 0.4329,
+      "price": 0.5,
+      "cost": 1481.26,
+      "contracts": 3422.0,
+      "startTs": 1795500000,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
+      "recordedTs": 1795489367,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNFLGAME-26NOV23CINWAS-CIN",
+      "eventTicker": "KXNFLGAME-26NOV23CINWAS",
+      "game": "Cincinnati vs Washington",
+      "backing": "Cincinnati",
+      "yesNo": "Yes",
+      "entry": 0.74,
+      "price": 0.7,
+      "cost": 4909.9,
+      "contracts": 6635.0,
+      "startTs": 1795493700,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
+      "recordedTs": 1795489367,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV23MILTOR-TOR110|Yes",
@@ -5877,11 +5919,11 @@
       "startTs": 1795491000,
       "league": "NBA",
       "bt": "Totals",
-      "recordedAt": "Mon Nov 23 \u00b7 7:04 PM PT",
-      "recordedTs": 1795489455,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
+      "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
+      "recordedTs": 1795489367,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBATOTAL-26NOV23MILTOR-224|Yes",
@@ -5898,113 +5940,8 @@
       "startTs": 1795491000,
       "league": "NBA",
       "bt": "Totals",
-      "recordedAt": "Mon Nov 23 \u00b7 7:04 PM PT",
-      "recordedTs": 1795489455,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 7:09 PM PT"
-    },
-    {
-      "id": "regine|KXNBASPREAD-26NOV23CLECHI-CHI5|No",
-      "nickname": "regine",
-      "ticker": "KXNBASPREAD-26NOV23CLECHI-CHI5",
-      "eventTicker": "KXNBASPREAD-26NOV23CLECHI",
-      "game": "Cleveland vs Chicago: Spread",
-      "backing": "Chicago wins by over 4.5 points",
-      "yesNo": "No",
-      "entry": 0.6552,
-      "price": 0.1,
-      "cost": 694.52,
-      "contracts": 1060.0,
-      "startTs": 1795492800,
-      "league": "NBA",
-      "bt": "Spread",
-      "recordedAt": "Mon Nov 23 \u00b7 7:14 PM PT",
-      "recordedTs": 1795490055,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "regine|KXNBASPREAD-26NOV23CLECHI-CLE4|Yes",
-      "nickname": "regine",
-      "ticker": "KXNBASPREAD-26NOV23CLECHI-CLE4",
-      "eventTicker": "KXNBASPREAD-26NOV23CLECHI",
-      "game": "Cleveland vs Chicago: Spread",
-      "backing": "Cleveland wins by over 3.5 points",
-      "yesNo": "Yes",
-      "entry": 0.7925,
-      "price": 0.01,
-      "cost": 535.73,
-      "contracts": 676.0,
-      "startTs": 1795492800,
-      "league": "NBA",
-      "bt": "Spread",
-      "recordedAt": "Mon Nov 23 \u00b7 7:14 PM PT",
-      "recordedTs": 1795490055,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "regine|KXNBATOTAL-26NOV23CLECHI-242|Yes",
-      "nickname": "regine",
-      "ticker": "KXNBATOTAL-26NOV23CLECHI-242",
-      "eventTicker": "KXNBATOTAL-26NOV23CLECHI",
-      "game": "Cleveland vs Chicago: Total Points",
-      "backing": "Over 241.5 points",
-      "yesNo": "Yes",
-      "entry": 0.5659,
-      "price": 0.61,
-      "cost": 713.58,
-      "contracts": 1261.0,
-      "startTs": 1795492800,
-      "league": "NBA",
-      "bt": "Totals",
-      "recordedAt": "Mon Nov 23 \u00b7 7:14 PM PT",
-      "recordedTs": 1795490055,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "falcon999|KXNBASPREAD-26NOV23UTALAL-LAL15|No",
-      "nickname": "falcon999",
-      "ticker": "KXNBASPREAD-26NOV23UTALAL-LAL15",
-      "eventTicker": "KXNBASPREAD-26NOV23UTALAL",
-      "game": "Utah vs Los Angeles L: Spread",
-      "backing": "Los Angeles L wins by over 14.5 points",
-      "yesNo": "No",
-      "entry": 0.4329,
-      "price": 0.52,
-      "cost": 1481.26,
-      "contracts": 3422.0,
-      "startTs": 1795500000,
-      "league": "NBA",
-      "bt": "Spread",
-      "recordedAt": "Mon Nov 23 \u00b7 7:17 PM PT",
-      "recordedTs": 1795490232,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "iknowballmorethanu|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
-      "nickname": "iknowballmorethanu",
-      "ticker": "KXNFLGAME-26NOV23CINWAS-CIN",
-      "eventTicker": "KXNFLGAME-26NOV23CINWAS",
-      "game": "Cincinnati vs Washington",
-      "backing": "Cincinnati",
-      "yesNo": "Yes",
-      "entry": 0.74,
-      "price": 0.82,
-      "cost": 4909.9,
-      "contracts": 6635.0,
-      "startTs": 1795493700,
-      "league": "NFL",
-      "bt": "Moneyline",
-      "recordedAt": "Mon Nov 23 \u00b7 7:17 PM PT",
-      "recordedTs": 1795490232,
+      "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
+      "recordedTs": 1795489367,
       "status": "open",
       "result": null,
       "settledAt": null
