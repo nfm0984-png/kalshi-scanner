@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 4:35 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 5:00 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5270,9 +5270,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 3:50 PM PT",
       "recordedTs": 1795477803,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 5:00 PM PT"
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV23PORPHI-PHI|Yes",
