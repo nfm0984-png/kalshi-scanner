@@ -233,9 +233,27 @@
       "name": "gap.sauce",
       "ts": 1795536577,
       "boost": false
+    },
+    "brand.breeze": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -19.99,
+      "name": "brand.breeze",
+      "ts": 1795538062,
+      "boost": false
+    },
+    "snoz3berries": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "Snoz3berries",
+      "ts": 1795538062,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795536577,
+  "updatedTs": 1795538062,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

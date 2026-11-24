@@ -2009,7 +2009,17 @@
       "firstTs": 1795535976,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1795541400,
+      "firstTs": 1795538062,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795536577
+  "updatedTs": 1795538062
 }
