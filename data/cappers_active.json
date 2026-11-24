@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -70,7 +70,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -272,7 +272,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9770,10 +9770,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "hedge123",
@@ -11212,7 +11212,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 5,
+      "openPositions": 6,
       "pickSource": "positions+posts",
       "pickCount": 4,
       "followCount": 4
@@ -24121,7 +24121,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 7,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -31143,24 +31143,24 @@
       "tape30d": null,
       "ageDays": 357,
       "graded": {
-        "n": 195,
-        "w": 106,
-        "l": 79,
+        "n": 197,
+        "w": 107,
+        "l": 80,
         "roi": null,
-        "profit": 1011.04,
+        "profit": 543.96,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 195,
-        "w": 106,
-        "l": 79,
+        "n": 197,
+        "w": 107,
+        "l": 80,
         "roi": null,
-        "profit": 1011.04,
+        "profit": 543.96,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "doll.breast \u00b7 106-79 \u00b7 +$577 all",
+      "recordLine": "doll.breast \u00b7 107-80 \u00b7 +$577 all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
@@ -31348,29 +31348,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 36,
-        "w": 26,
+        "n": 38,
+        "w": 28,
         "l": 9,
         "roi": null,
-        "profit": 2679.88,
+        "profit": 2721.82,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 36,
-        "w": 26,
+        "n": 38,
+        "w": 28,
         "l": 9,
         "roi": null,
-        "profit": 2679.88,
+        "profit": 2721.82,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 26-9 \u00b7 +$2.56k all",
+      "recordLine": "kelab \u00b7 28-9 \u00b7 +$2.56k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0

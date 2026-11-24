@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6614,6 +6614,27 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
       "recordedTs": 1795546132,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBTOTAL-26NOV24PITTOKLA-146",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV24PITTOKLA",
+      "game": "Pittsburgh vs Oklahoma: Point Total",
+      "backing": "Over 145.5 points",
+      "yesNo": "No",
+      "entry": 0.261,
+      "price": 0.67,
+      "cost": 2601.36,
+      "contracts": 9967.0,
+      "startTs": 1795545000,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
+      "recordedTs": 1795547016,
       "status": "open",
       "result": null,
       "settledAt": null
