@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 8:04 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:09 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -497,7 +497,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 484317.11,
+      "pnl": 484216.57,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -528,7 +528,7 @@
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "norrisfan \u00b7 11-2 \u00b7 +2% \u00b7 +$484.3k all \u00b7 +2%",
+      "recordLine": "norrisfan \u00b7 11-2 \u00b7 +2% \u00b7 +$484.2k all \u00b7 +2%",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "positionsVisible": true,
@@ -6294,7 +6294,7 @@
         "w": 325,
         "l": 75,
         "roi": null,
-        "profit": 37855.65,
+        "profit": 37308.12,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6302,7 +6302,7 @@
         "w": 325,
         "l": 75,
         "roi": null,
-        "profit": 37855.65,
+        "profit": 37308.12,
         "sample": "positions"
       },
       "sports": {
@@ -6354,7 +6354,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9129,9 +9129,9 @@
       "profileUrl": "https://kalshi.com/ideas/profiles/emji.emji",
       "joinedAt": "2026-02-04",
       "followers": 1,
-      "tier": "Best Cappers",
-      "pinned": true,
-      "tag": "Best Cappers",
+      "tier": "Board",
+      "pinned": false,
+      "tag": "",
       "heavy": true,
       "ranks": {
         "weekly": 44
@@ -9149,18 +9149,18 @@
       "ageDays": 293,
       "graded": {
         "n": 400,
-        "w": 140,
-        "l": 123,
+        "w": 138,
+        "l": 125,
         "roi": null,
-        "profit": -815.31,
+        "profit": -817.94,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 140,
-        "l": 123,
+        "w": 138,
+        "l": 125,
         "roi": null,
-        "profit": -815.31,
+        "profit": -817.94,
         "sample": "positions"
       },
       "sports": {
@@ -9173,7 +9173,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 140-123 \u00b7 Best at Tennis \u00b7 +$1.43k all",
+      "recordLine": "emji.emji \u00b7 138-125 \u00b7 Best at Tennis \u00b7 +$1.43k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -9792,29 +9792,29 @@
       "tape30d": null,
       "ageDays": 339,
       "graded": {
-        "n": 142,
+        "n": 143,
         "w": 82,
-        "l": 60,
+        "l": 61,
         "roi": null,
-        "profit": 37073.81,
+        "profit": 36436.06,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 142,
+        "n": 143,
         "w": 82,
-        "l": 60,
+        "l": 61,
         "roi": null,
-        "profit": 37073.81,
+        "profit": 36436.06,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 82-60 \u00b7 +$51.8k all",
+      "recordLine": "fen.dachi \u00b7 82-61 \u00b7 +$51.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -12537,7 +12537,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 15168.09,
+      "pnl": 15674.96,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -23535,7 +23535,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
