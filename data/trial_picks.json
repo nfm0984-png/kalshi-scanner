@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 3:23 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 3:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6866,6 +6866,27 @@
       "bt": "Player props",
       "recordedAt": "Tue Nov 24 \u00b7 3:23 PM PT",
       "recordedTs": 1795562582,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "BWmarkets|KXNCAAMBSPREAD-26NOV24PROVARIZ-ARIZ21|Yes",
+      "nickname": "BWmarkets",
+      "ticker": "KXNCAAMBSPREAD-26NOV24PROVARIZ-ARIZ21",
+      "eventTicker": "KXNCAAMBSPREAD-26NOV24PROVARIZ",
+      "game": "Providence vs Arizona: Spread",
+      "backing": "Arizona wins by over 20.5 points",
+      "yesNo": "Yes",
+      "entry": 0.4573,
+      "price": 0.46,
+      "cost": 9433.68,
+      "contracts": 20628.0,
+      "startTs": 1795557600,
+      "league": "NCAAB",
+      "bt": "Spread",
+      "recordedAt": "Tue Nov 24 \u00b7 3:28 PM PT",
+      "recordedTs": 1795562881,
       "status": "open",
       "result": null,
       "settledAt": null
