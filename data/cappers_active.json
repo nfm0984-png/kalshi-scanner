@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 11:32 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -34,18 +34,18 @@
       "ageDays": 257,
       "graded": {
         "n": 400,
-        "w": 355,
-        "l": 45,
+        "w": 352,
+        "l": 48,
         "roi": null,
-        "profit": 156930.14,
+        "profit": 154696.39,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 355,
-        "l": 45,
+        "w": 352,
+        "l": 48,
         "roi": null,
-        "profit": 156930.14,
+        "profit": 154696.39,
         "sample": "positions"
       },
       "sports": {
@@ -65,7 +65,7 @@
         }
       },
       "bestAt": "Soccer",
-      "recordLine": "WorkerTrader \u00b7 355-45 \u00b7 Best at Soccer \u00b7 +$1.41M all",
+      "recordLine": "WorkerTrader \u00b7 352-48 \u00b7 Best at Soccer \u00b7 +$1.41M all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "positionsVisible": true,
@@ -9411,18 +9411,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 142,
-        "l": 114,
+        "w": 141,
+        "l": 113,
         "roi": null,
-        "profit": -808.82,
+        "profit": -809.23,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 142,
-        "l": 114,
+        "w": 141,
+        "l": 113,
         "roi": null,
-        "profit": -808.82,
+        "profit": -809.23,
         "sample": "positions"
       },
       "sports": {
@@ -9435,7 +9435,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 142-114 \u00b7 Best at Tennis \u00b7 +$1.92k all",
+      "recordLine": "emji.emji \u00b7 141-113 \u00b7 Best at Tennis \u00b7 +$1.92k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -23506,7 +23506,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 23480.34,
+        "profit": 23347.1,
         "sample": "positions"
       },
       "gradedAll": {
@@ -23514,7 +23514,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 23480.34,
+        "profit": 23347.1,
         "sample": "positions"
       },
       "sports": {},
@@ -23551,7 +23551,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -28702,7 +28702,7 @@
       "addedAt": "2026-11-23",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
