@@ -2040,17 +2040,7 @@
       "firstTs": 1795542570,
       "combo": false,
       "status": "open"
-    },
-    "WorkerTrader|KXAFCCLGAME-26NOV24ALNSAD-ALN|Yes": {
-      "capper": "WorkerTrader",
-      "ticker": "KXAFCCLGAME-26NOV24ALNSAD-ALN",
-      "side": "Yes",
-      "price": 0.92,
-      "startTs": 1795554900,
-      "firstTs": 1795544932,
-      "combo": false,
-      "status": "open"
     }
   },
-  "updatedTs": 1795545233
+  "updatedTs": 1795543359
 }

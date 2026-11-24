@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 10:33 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:02 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6574,49 +6574,7 @@
       "recordedTs": 1795542570,
       "status": "loss",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 10:08 AM PT"
-    },
-    {
-      "id": "regine|KXNCAAWBGAME-26NOV24LASVILL-LAS|Yes",
-      "nickname": "regine",
-      "ticker": "KXNCAAWBGAME-26NOV24LASVILL-LAS",
-      "eventTicker": "KXNCAAWBGAME-26NOV24LASVILL",
-      "game": "La Salle vs Villanova",
-      "backing": "La Salle",
-      "yesNo": "Yes",
-      "entry": 0.4423,
-      "price": 0.57,
-      "cost": 1858.39,
-      "contracts": 4202.0,
-      "startTs": 1795537800,
-      "league": "NCAAW",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 10:13 AM PT",
-      "recordedTs": 1795544031,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 10:33 AM PT"
-    },
-    {
-      "id": "WorkerTrader|KXAFCCLGAME-26NOV24ALNSAD-ALN|Yes",
-      "nickname": "WorkerTrader",
-      "ticker": "KXAFCCLGAME-26NOV24ALNSAD-ALN",
-      "eventTicker": "KXAFCCLGAME-26NOV24ALNSAD",
-      "game": "Al Nassr vs Al Sadd",
-      "backing": "Al Nassr",
-      "yesNo": "Yes",
-      "entry": 0.92,
-      "price": 0.92,
-      "cost": 1403.0,
-      "contracts": 1525.0,
-      "startTs": 1795554900,
-      "league": "Sports",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 10:28 AM PT",
-      "recordedTs": 1795544932,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "settledAt": "Tue Nov 24 \u00b7 10:02 AM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

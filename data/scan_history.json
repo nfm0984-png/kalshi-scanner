@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 8:25 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:02 AM PT",
   "scans": [
+    {
+      "ts": 1795543359,
+      "at": "Tue Nov 24 \u00b7 10:02 AM PT",
+      "names": 581,
+      "newFollows": [
+        "Rev.Z"
+      ],
+      "followed": 53,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No",
+        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
+        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
+      ]
+    },
     {
       "ts": 1795537548,
       "at": "Tue Nov 24 \u00b7 8:25 AM PT",
@@ -1385,41 +1402,6 @@
         "KXSB-27-LAR|Yes",
         "iluminado|KXITFWMATCH-26NOV21RUSBOS-RUS|Yes",
         "iluminado|KXITFWMATCH-26NOV21JORDEF-JOR|Yes",
-        "black.catt|KXNFL1HSPREAD-26NOV22ARIKC-KC10|Yes",
-        "black.catt|KXNFLSPREAD-26NOV22ARIKC-KC17|Yes",
-        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
-        "black.catt|KXNBA-27-MIN|Yes",
-        "black.catt|KXNBA-27-NYK|Yes",
-        "black.catt|KXNBA-27-PHI|Yes",
-        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
-      ]
-    },
-    {
-      "ts": 1795270235,
-      "at": "Sat Nov 21 \u00b7 6:10 AM PT",
-      "names": 55,
-      "newFollows": [
-        "brick.one"
-      ],
-      "followed": 13,
-      "target": 40,
-      "openPicks": 14,
-      "ids": [
-        "KXEPLGAME-26NOV21MCIFUL-FUL|Yes",
-        "KXEPLTOTAL-26NOV21MCIFUL-3|No",
-        "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
-        "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
-        "KXNFLNFCCHAMP-27-GB|Yes",
-        "KXNFLNFCNORTH-27-GB|Yes",
-        "KXNFLPLAYOFF-27-LAR|No",
-        "KXSB-27-MIN|Yes",
-        "KXSB-27-SF|Yes",
-        "KXSB-27-CIN|Yes",
-        "KXSB-27-JAC|Yes",
-        "KXSB-27-KC|Yes",
-        "KXSB-27-BUF|Yes",
-        "KXSB-27-LAR|Yes",
-        "iluminado|KXITFWMATCH-26NOV21STOMIN-STO|Yes",
         "black.catt|KXNFL1HSPREAD-26NOV22ARIKC-KC10|Yes",
         "black.catt|KXNFLSPREAD-26NOV22ARIKC-KC17|Yes",
         "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
