@@ -2041,8 +2041,7 @@
       "startTs": 1795550400,
       "firstTs": 1795542570,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795559591
+      "status": "open"
     },
     "iknowballmorethanu|KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes": {
       "capper": "iknowballmorethanu",
@@ -2118,32 +2117,12 @@
       "capper": "FFun",
       "ticker": "KXITFMATCH-26NOV24VILROC-ROC",
       "side": "Yes",
-      "price": 0.75,
+      "price": 0.41,
       "startTs": 1795572000,
-      "firstTs": 1795558103,
-      "combo": false,
-      "status": "open"
-    },
-    "parspectives|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes": {
-      "capper": "parspectives",
-      "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
-      "side": "Yes",
-      "price": 0.32,
-      "startTs": 1795897800,
-      "firstTs": 1795559291,
-      "combo": false,
-      "status": "open"
-    },
-    "dependent.snail8369|KXITFMATCH-26NOV24SOLBRU-BRU|Yes": {
-      "capper": "dependent.snail8369",
-      "ticker": "KXITFMATCH-26NOV24SOLBRU-BRU",
-      "side": "Yes",
-      "price": 0.98,
-      "startTs": 1795575600,
-      "firstTs": 1795559892,
+      "firstTs": 1795558210,
       "combo": false,
       "status": "open"
     }
   },
-  "updatedTs": 1795559892
+  "updatedTs": 1795558210
 }
