@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 11:28 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:33 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -73,7 +73,7 @@
       "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "BWmarkets",
@@ -5864,7 +5864,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 6,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6620,7 +6620,7 @@
       "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -10023,24 +10023,24 @@
       "tape30d": null,
       "ageDays": 339,
       "graded": {
-        "n": 149,
-        "w": 87,
+        "n": 150,
+        "w": 88,
         "l": 62,
         "roi": null,
-        "profit": 40166.51,
+        "profit": 40780.8,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 149,
-        "w": 87,
+        "n": 150,
+        "w": 88,
         "l": 62,
         "roi": null,
-        "profit": 40166.51,
+        "profit": 40780.8,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 87-62 \u00b7 +$39.9k all",
+      "recordLine": "fen.dachi \u00b7 88-62 \u00b7 +$39.9k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -31348,29 +31348,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 39,
+        "n": 40,
         "w": 29,
-        "l": 9,
+        "l": 10,
         "roi": null,
-        "profit": 2794.62,
+        "profit": 2688.94,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 39,
+        "n": 40,
         "w": 29,
-        "l": 9,
+        "l": 10,
         "roi": null,
-        "profit": 2794.62,
+        "profit": 2688.94,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 29-9 \u00b7 +$2.60k all",
+      "recordLine": "kelab \u00b7 29-10 \u00b7 +$2.60k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0

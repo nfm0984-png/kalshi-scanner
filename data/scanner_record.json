@@ -1999,7 +1999,8 @@
       "startTs": 1795539600,
       "firstTs": 1795533365,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795548817
     },
     "falcon999|KXNBAGAME-26NOV24DETORL-ORL|Yes": {
       "capper": "falcon999",
@@ -2082,5 +2083,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795548517
+  "updatedTs": 1795548817
 }
