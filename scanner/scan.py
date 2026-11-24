@@ -1014,7 +1014,8 @@ def enrich_combo(http, info, ticker, now, mcache, ecache):
             "url": "https://kalshi.com/markets_by_ticker/" + ltk.upper(),
         })
     info["legs"] = legs
-    if starts and not info.get("start_ts"):
+    if starts:
+        # Legs carry the real (milestone) kickoff; the combo market's own occurrence time is an end time.
         info["start_ts"] = min(starts)
     ev = info.get("event_ticker") or ""
     if not ev and ticker and ticker.count("-"):
@@ -1944,6 +1945,9 @@ def _rec_grade(http, row, mcache, log=print):
     return "win" if done else None
 
 
+REC_GRADE_AFTER_SECS = 9000
+
+
 def update_scanner_record(http, games, now, mcache, ecache, log=print):
     """Record every $500+ pick the Ranked list can show (first price seen, pre-game only), grade it
     after the game, and keep a per-capper flat-$1 record. Feeds the cold-capper demotion (K1)."""
@@ -1969,8 +1973,9 @@ def update_scanner_record(http, games, now, mcache, ecache, log=print):
                              "startTs": st, "firstTs": now, "combo": bool(p.get("isCombo")), "status": "open"}
                 added += 1
     budget = 60
-    for row in rows.values():
-        if row.get("status") != "open" or (row.get("startTs") or 0) > now - 1800 or budget <= 0:
+    # startTs is now the real kickoff (milestones), so wait ~2.5h before polling for a result, oldest first.
+    for row in sorted(rows.values(), key=lambda r: r.get("startTs") or 0):
+        if row.get("status") != "open" or (row.get("startTs") or 0) > now - REC_GRADE_AFTER_SECS or budget <= 0:
             continue
         budget -= 1
         v = _rec_grade(http, row, mcache, log)
@@ -2002,6 +2007,88 @@ def update_scanner_record(http, games, now, mcache, ecache, log=print):
     save_json(SCANNER_REC_PATH, led)
     log("scanner record: +%d new, graded %d, total %d, cold %d" % (added, graded, len(rows), sum(1 for s in stats.values() if s["cold"])))
     return {"minN": COLD_MIN_N, "updatedTs": now, "cappers": stats}
+
+# Combo boost (Noel Nov 23): a capper's own settled Kalshi combo (KXMVE) record from public closed holdings.
+# Only cappers with COMBO_MIN_N+ settled combos and positive combo $ get a combo boost in the app.
+COMBO_REC_PATH = os.path.join(DATA_DIR, "combo_records.json")
+COMBO_MIN_N = 30
+COMBO_REC_TTL = 12 * 3600
+
+
+def _combo_record_for(http, nick):
+    vis, holds = lib.paginate_holdings(http, nick, closed=True, max_pages=30)
+    if vis == "hidden":
+        return {"hidden": True, "n": 0, "w": 0, "l": 0, "pnl": 0.0}
+    w = l = 0
+    pnl = 0.0
+    for e in holds or []:
+        for m in e.get("market_holdings") or []:
+            tk = (m.get("market_ticker") or "").upper()
+            if not tk.startswith("KXMVE"):
+                continue
+            v = (m.get("pnl") or 0) / 10000.0
+            if v > 0:
+                w += 1
+            elif v < 0:
+                l += 1
+            else:
+                continue
+            pnl += v
+    return {"n": w + l, "w": w, "l": l, "pnl": round(pnl, 2)}
+
+
+def update_combo_records(http, games, pinned, now, budget=12, log=print):
+    led = load_json(COMBO_REC_PATH, {"cappers": {}})
+    recs = led.setdefault("cappers", {})
+    names = {}
+    for g in games or []:
+        for p in g.get("picks") or []:
+            if not (p.get("isCombo") or lib.is_combo_ticker(p.get("ticker") or "")):
+                continue
+            for b in p.get("backers") or []:
+                if b.get("name"):
+                    names[nick_key(b["name"]).lower()] = b["name"]
+    for n in pinned_names(pinned):
+        names.setdefault(nick_key(n).lower(), n)
+    # On combo picks first, then stalest.
+    def prio(k):
+        r = recs.get(k) or {}
+        return (0 if r else -1, r.get("ts") or 0)
+    done = 0
+    for k in sorted(names, key=prio):
+        r = recs.get(k)
+        if r and now - (r.get("ts") or 0) < COMBO_REC_TTL:
+            continue
+        if done >= budget:
+            break
+        try:
+            rec = _combo_record_for(http, names[k])
+        except Exception as e:
+            log("combo record %s failed: %s" % (names[k], e))
+            continue
+        rec["name"] = names[k]
+        rec["ts"] = now
+        rec["boost"] = bool(rec["n"] >= COMBO_MIN_N and rec["pnl"] > 0)
+        recs[k] = rec
+        done += 1
+    led["minN"] = COMBO_MIN_N
+    led["updatedTs"] = now
+    led["note"] = ("Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). "
+                   "Combo boost only when %d+ settled combos and combo P&L is positive." % COMBO_MIN_N)
+    save_json(COMBO_REC_PATH, led)
+    log("combo records: refreshed %d, total %d, boost %d" % (done, len(recs), sum(1 for r in recs.values() if r.get("boost"))))
+    return {"minN": COMBO_MIN_N, "updatedTs": now,
+            "cappers": {k: {"name": r.get("name"), "n": r.get("n", 0), "w": r.get("w", 0), "l": r.get("l", 0), "pnl": r.get("pnl", 0), "boost": bool(r.get("boost"))} for k, r in recs.items()}}
+
+
+def safe_combo_records(http, games, pinned, now, budget=12, log=print):
+    try:
+        return update_combo_records(http, games, pinned, now, budget, log)
+    except Exception as e:
+        log("combo records skipped: %s" % e)
+        led = load_json(COMBO_REC_PATH, {"cappers": {}})
+        return {"minN": COMBO_MIN_N, "updatedTs": led.get("updatedTs") or 0,
+                "cappers": {k: {"name": r.get("name"), "n": r.get("n", 0), "w": r.get("w", 0), "l": r.get("l", 0), "pnl": r.get("pnl", 0), "boost": bool(r.get("boost"))} for k, r in (led.get("cappers") or {}).items()}}
 
 
 def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, log=print):
@@ -2890,6 +2977,7 @@ def build(now=None, log=print):
         "following": following,
         "scanHistory": record_scan_history(now, cov, games, following, prev),
         "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
+        "comboRecords": safe_combo_records(http, games, pinned, now, 12, log),
     }
     if used_carry_seed and os.path.exists(CARRY_SEED_PATH):
         try:
@@ -3188,6 +3276,7 @@ def build_follow_check(now=None, log=print):
         "following": following,
         "scanHistory": prev.get("scanHistory") or load_json(HISTORY_PATH, {"scans": []}).get("scans") or [],
         "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
+        "comboRecords": safe_combo_records(http, games, pinned, now, 2, log),
     }
     log(
         "follow-check refreshed {activeRefreshed}/{namesChecked} carried {carriedPicks} "
@@ -3304,6 +3393,10 @@ def main():
         stamp_added_times(data, prev)
     except Exception as e:
         print("added-times skipped: %s" % e)
+    try:
+        lib.save_milestone_starts()
+    except Exception as e:
+        print("milestone cache save skipped: %s" % e)
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
     open(out, "a").write(chr(10))

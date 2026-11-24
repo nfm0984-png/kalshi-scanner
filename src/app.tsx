@@ -57,7 +57,7 @@ interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; 
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number; database?: CapperDatabase }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
-interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean }> } }
+interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> } }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -595,6 +595,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
         {game.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{game.league}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{(live ? "Started " : "Starts ") + (p.startTs || game.startTs ? ptTime(p.startTs || game.startTs) : "—")}</Chip>
         <AddedChip backers={mine ? [mine] : p.backers} now={now} />
+        <PickFlags p={p} startTs={game.startTs} />
       </div>
       {isComboPick(p) ? (
         <ComboBlock legs={p.legs} now={now} ticker={p.ticker} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={mine ? mine.cost : p.total} backers={mine ? [mine] : p.backers} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
@@ -628,6 +629,7 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         {pickSourceLabel(p.source) ? <Chip bg="#EDE9FE" color="#5B21B6">{pickSourceLabel(p.source)}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{p.startTs ? ((live ? "Started " : "Starts ") + ptTime(p.startTs)) : "—"}</Chip>
         <AddedChip addedTs={p.addedTs} addedLastTs={p.addedLastTs} now={props.now} />
+        <FollowFlags p={p} />
       </div>
       {isComboPick(p) ? (
         <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl} yesNo={p.yesNo} price={p.price} payout={p.payout} stake={p.cost} backers={[{ name: p.nickname, cost: p.cost || 0, avg: p.entry ?? null, line: p.recordLine || p.nickname, tier: p.tier || "Best Cappers", pinned: true, lastTs: p.lastTs ?? null }]} copyPayload={comboLegsText(p)} />
@@ -984,7 +986,9 @@ function netOf(p: Pick, game: Game): NetInfo {
   if (own.proven && stake > 0) raw += Math.min(8, Math.log10(1 + stake) * 3);
   const px = pickPrice(p);
   const padded = isPaddedPrice(p);
-  const longshot = isLongshotPrice(p);
+  const comboBoost = !!comboBoostBacker(p);
+  const longshot = isLongshotPrice(p) && !comboBoost;
+  if (comboBoost) raw += 15;
   if (padded) raw -= 80;
   else if (longshot) raw -= 40;
   else if (tier >= 1 && px != null && px >= 0.55 && px <= 0.82) raw += 8;
@@ -1201,6 +1205,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
           <AddedChip backers={p.backers} now={props.now} />
           <ColdChip p={p} />
+          <PickFlags p={p} startTs={props.game.startTs} />
         </div>
         {isComboPick(p) ? (
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
@@ -1247,7 +1252,7 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
       </div>
-      <div style={{ marginTop: 4 }}><AddedChip backers={p.backers} now={props.now} /></div>
+      <div style={{ marginTop: 4, display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}><AddedChip backers={p.backers} now={props.now} /><PickFlags p={p} startTs={props.game.startTs} /></div>
       <MatchupLine matchup={matchupOf(p.view.marketTitle, p.sub, props.game.game)} startTs={p.startTs || props.game.startTs} now={props.now} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 6 }}>
         <span style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
@@ -1333,6 +1338,63 @@ function ColdChip(props: { p: Pick }): React.ReactElement | null {
   const txt = r ? "Cold on scanner " + r.w + "-" + r.l + " · " + (r.units >= 0 ? "+" : "") + r.units.toFixed(1) + "u" : "Cold on scanner";
   return <span data-cold="1" title="This capper's last 20+ graded scanner picks lost money at flat $1, so the pick is ranked at the bottom" style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: "#FEF3C7", color: "#92400E", border: "1.5px solid #F59E0B", fontSize: 12, fontWeight: 850 }}>{"🧊 " + txt}</span>;
 }
+// ---- Nov 23 (Noel): LIVE-added tag, Fading / You're late, combo boost ----
+// Fading: current price is 5c+ BELOW the $500+ cappers' average entry -> sorts below non-fading picks.
+// You're late: price is 5c+ ABOVE their entry -> label only, no downrank.
+const FADE_CENTS = 5;
+function entryGapCents(p: Pick): number | null {
+  const px = pickPrice(p);
+  if (px == null) return null;
+  const avgs = (p.backers || []).filter((b: Backer) => stakeOk(b.cost) && b.avg != null && (b.avg as number) > 0 && (b.avg as number) < 1).map((b: Backer) => b.avg as number);
+  if (!avgs.length) return null;
+  const avg = avgs.reduce((a: number, x: number) => a + x, 0) / avgs.length;
+  return Math.round((px - avg) * 100);
+}
+function isFadingPick(p: Pick): boolean { const g = entryGapCents(p); return g != null && g <= -FADE_CENTS; }
+function isLatePick(p: Pick): boolean { const g = entryGapCents(p); return g != null && g >= FADE_CENTS; }
+function firstAddedTs(p: Pick): number {
+  const xs = (p.backers || []).map((b: Backer) => b.addedTs || 0).filter((x: number) => x > 0);
+  return xs.length ? Math.min(...xs) : 0;
+}
+function addedAfterStart(p: Pick, startTs?: number | null): boolean {
+  const st = p.startTs || startTs || 0;
+  const first = firstAddedTs(p);
+  return !!(st && first && first > st);
+}
+function comboRecOf(name: string): { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean } | null {
+  const m = (DATA.comboRecords && DATA.comboRecords.cappers) || {};
+  const lk = (name || "").trim().toLowerCase();
+  if (m[lk]) return m[lk];
+  const hit = Object.keys(m).find((x: string) => x.toLowerCase() === lk);
+  return hit ? m[hit] : null;
+}
+// Combo boost only when a $500+ backer's own Kalshi combo record is positive over 30+ settled combos.
+function comboBoostBacker(p: Pick): Backer | null {
+  if (!isComboPick(p)) return null;
+  const b = (p.backers || []).find((x: Backer) => stakeOk(x.cost) && !!(comboRecOf(x.name) || { boost: false }).boost);
+  return b || null;
+}
+const flagChip = (bg: string, fg: string, border: string): React.CSSProperties => ({ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: bg, color: fg, border: "1.5px solid " + border, fontSize: 12, fontWeight: 850 });
+function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElement | null {
+  const p = props.p;
+  const out: React.ReactElement[] = [];
+  if (addedAfterStart(p, props.startTs)) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
+  const g = entryGapCents(p);
+  if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the cappers paid, so the market is moving against them. Ranked below non-fading picks." style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
+  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the cappers paid. Label only; ranking unchanged." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
+  const cb = comboBoostBacker(p);
+  if (cb) { const r = comboRecOf(cb.name); if (r) out.push(<span key="cb" data-combo-boost="1" title="This capper's own Kalshi combos are profitable over 30+ settled combos, so the combo gets a ranking boost" style={flagChip("#ECFDF5", "#047857", "#10B981")}>{"🔗 Combo pro " + r.w + "-" + r.l + " · " + (r.pnl >= 0 ? "+" : "-") + kMoney(Math.abs(r.pnl))}</span>); }
+  return out.length ? <>{out}</> : null;
+}
+function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
+  const p = props.p;
+  const out: React.ReactElement[] = [];
+  if (p.startTs && p.addedTs && p.addedTs > p.startTs) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
+  const g = p.price != null && p.entry != null && p.price > 0 && p.entry > 0 && p.entry < 1 ? Math.round((p.price - p.entry) * 100) : null;
+  if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the capper paid" style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
+  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the capper paid. Label only." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
+  return out.length ? <>{out}</> : null;
+}
 function rankedPicks(games: Game[]): RankedCard[] {
   const cards: RankedCard[] = [];
   games.forEach((game: Game) => {
@@ -1342,7 +1404,7 @@ function rankedPicks(games: Game[]): RankedCard[] {
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
 function pickRankMap(games: Game[]): Record<string, number> {
   const m: Record<string, number> = {};

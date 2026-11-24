@@ -611,6 +611,74 @@ def combo_leg_counts(legs):
             other += 1
     return sports, esports, other
 
+# Real game start (Noel Nov 23): Kalshi's market occurrence_datetime is the expected END of the game
+# (median ~3h after tip). /milestones?related_event_ticker=EV carries the real start_date. Game/match
+# milestones only (tournament milestones start days early). Cached in data/milestone_starts.json.
+MILESTONE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "milestone_starts.json")
+_MS_CACHE = None
+_MS_DIRTY = False
+MS_RETRY_SECS = 6 * 3600
+
+
+def _ms_load():
+    global _MS_CACHE
+    if _MS_CACHE is None:
+        try:
+            with open(MILESTONE_PATH) as f:
+                _MS_CACHE = json.load(f) or {}
+        except Exception:
+            _MS_CACHE = {}
+    return _MS_CACHE
+
+
+def save_milestone_starts(now=None):
+    """Write the milestone cache (drop entries older than 10 days)."""
+    global _MS_DIRTY
+    if _MS_CACHE is None or not _MS_DIRTY:
+        return
+    now = int(now or time.time())
+    keep = {}
+    for k, v in _MS_CACHE.items():
+        ts = (v or {}).get("start") or 0
+        chk = (v or {}).get("chk") or 0
+        if (ts and ts > now - 10 * 86400) or (not ts and chk > now - 2 * 86400):
+            keep[k] = v
+    try:
+        os.makedirs(os.path.dirname(MILESTONE_PATH), exist_ok=True)
+        tmp = MILESTONE_PATH + ".tmp"
+        with open(tmp, "w") as f:
+            json.dump(keep, f, separators=(",", ":"), sort_keys=True)
+        os.replace(tmp, MILESTONE_PATH)
+        _MS_DIRTY = False
+    except Exception as e:
+        print("milestone cache save failed:", e, flush=True)
+
+
+def milestone_start(http, event_ticker):
+    """Real start (epoch secs) of a game/match event from Kalshi milestones, or None."""
+    global _MS_DIRTY
+    ev = (event_ticker or "").strip()
+    if not ev or ev.upper().startswith("KXMVE"):
+        return None
+    cache = _ms_load()
+    hit = cache.get(ev)
+    now = int(time.time())
+    if hit is not None and (hit.get("start") or now - (hit.get("chk") or 0) < MS_RETRY_SECS):
+        return hit.get("start") or None
+    data = http.get(f"{TRADE}/milestones", {"related_event_ticker": ev, "limit": 5}) or {}
+    starts = []
+    for m in data.get("milestones") or []:
+        typ = (m.get("type") or "").lower()
+        if not (typ.endswith("_game") or typ.endswith("_match") or typ.endswith("_fight") or typ.endswith("_race")):
+            continue
+        ts = iso_ts(m.get("start_date"))
+        if ts:
+            starts.append(ts)
+    st = min(starts) if starts else None
+    cache[ev] = {"start": st, "chk": now}
+    _MS_DIRTY = True
+    return st
+
 
 def hydrate_market(http, ticker, mcache, ecache):
     m = market_quote(http, ticker, mcache)
@@ -635,6 +703,16 @@ def hydrate_market(http, ticker, mcache, ecache):
     start = iso_ts(m.get("occurrence_datetime") or m.get("occurrence_time") or m.get("event_time"))
     if not start:
         start = iso_ts(ev.get("occurrence_datetime") or ev.get("strike_date") or ev.get("target_datetime"))
+    expected_end = start
+    real = None
+    if ev_tk and not is_combo_ticker(ticker) and not (m.get("mve_selected_legs") or []):
+        try:
+            real = milestone_start(http, ev_tk)
+        except Exception:
+            real = None
+    # Sanity: the real start must be at or before the expected end (and not days earlier).
+    if real and (not expected_end or (expected_end - 2 * 86400 <= real <= expected_end + 3600)):
+        start = real
     close = iso_ts(m.get("close_time") or m.get("latest_expiration_time") or ev.get("close_time"))
     status = (m.get("status") or ev.get("status") or "").lower()
     series_ticker = m.get("series_ticker") or ev.get("series_ticker") or ""
@@ -670,6 +748,7 @@ def hydrate_market(http, ticker, mcache, ecache):
         "status": status,
         "category": category,
         "start_ts": start,
+        "start_src": "milestone" if (real and start == real) else "occurrence",
         "close_ts": close,
         "result": m.get("result"),
         "series_ticker": series_ticker,
