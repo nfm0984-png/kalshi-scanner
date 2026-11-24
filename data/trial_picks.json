@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 7:44 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:49 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5945,6 +5945,48 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Mon Nov 23 \u00b7 7:39 PM PT"
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV23LACHOU-HOU10|No",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV23LACHOU-HOU10",
+      "eventTicker": "KXNBASPREAD-26NOV23LACHOU",
+      "game": "Los Angeles C vs Houston: Spread",
+      "backing": "Houston wins by over 9.5 points",
+      "yesNo": "No",
+      "entry": 0.5642,
+      "price": 0.31,
+      "cost": 566.41,
+      "contracts": 1004.0,
+      "startTs": 1795494600,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Mon Nov 23 \u00b7 7:49 PM PT",
+      "recordedTs": 1795492155,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV23LACHOU-HOU11|No",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV23LACHOU-HOU11",
+      "eventTicker": "KXNBASPREAD-26NOV23LACHOU",
+      "game": "Los Angeles C vs Houston: Spread",
+      "backing": "Houston wins by over 10.5 points",
+      "yesNo": "No",
+      "entry": 0.5753,
+      "price": 0.59,
+      "cost": 618.49,
+      "contracts": 1075.0,
+      "startTs": 1795494600,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Mon Nov 23 \u00b7 7:49 PM PT",
+      "recordedTs": 1795492155,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
