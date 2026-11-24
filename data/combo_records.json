@@ -519,9 +519,18 @@
       "name": "Stiinzy",
       "ts": 1795558210,
       "boost": false
+    },
+    "bigbone69": {
+      "n": 2,
+      "w": 0,
+      "l": 2,
+      "pnl": -100.92,
+      "name": "Bigbone69",
+      "ts": 1795561822,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795563781,
+  "updatedTs": 1795561822,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
