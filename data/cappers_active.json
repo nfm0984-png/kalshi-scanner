@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 10:18 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:28 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -70,10 +70,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "BWmarkets",
@@ -690,8 +690,8 @@
       "postsVisible": false,
       "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -30757,7 +30757,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -30940,28 +30940,28 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 34,
-        "w": 24,
+        "n": 35,
+        "w": 25,
         "l": 9,
         "roi": null,
-        "profit": 2651.76,
+        "profit": 2660.68,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 34,
-        "w": 24,
+        "n": 35,
+        "w": 25,
         "l": 9,
         "roi": null,
-        "profit": 2651.76,
+        "profit": 2660.68,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 24-9 \u00b7 +$2.54k all",
+      "recordLine": "kelab \u00b7 25-9 \u00b7 +$2.54k all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 10:18 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:28 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6593,6 +6593,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 10:13 AM PT",
       "recordedTs": 1795544031,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXAFCCLGAME-26NOV24ALNSAD-ALN|Yes",
+      "nickname": "WorkerTrader",
+      "ticker": "KXAFCCLGAME-26NOV24ALNSAD-ALN",
+      "eventTicker": "KXAFCCLGAME-26NOV24ALNSAD",
+      "game": "Al Nassr vs Al Sadd",
+      "backing": "Al Nassr",
+      "yesNo": "Yes",
+      "entry": 0.92,
+      "price": 0.92,
+      "cost": 1403.0,
+      "contracts": 1525.0,
+      "startTs": 1795554900,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 10:28 AM PT",
+      "recordedTs": 1795544932,
       "status": "open",
       "result": null,
       "settledAt": null
