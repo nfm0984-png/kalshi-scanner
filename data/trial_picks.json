@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:18 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6635,6 +6635,27 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
       "recordedTs": 1795547016,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXDAVISCUPMATCH-26NOV24LEHAUG-LEH|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV24LEHAUG-LEH",
+      "eventTicker": "KXDAVISCUPMATCH-26NOV24LEHAUG",
+      "game": "Lehecka vs Auger-Aliassime",
+      "backing": "Jiri Lehecka",
+      "yesNo": "Yes",
+      "entry": 0.95,
+      "price": 0.96,
+      "cost": 10556.4,
+      "contracts": 11112.0,
+      "startTs": 1795547400,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 11:18 AM PT",
+      "recordedTs": 1795547917,
       "status": "open",
       "result": null,
       "settledAt": null
