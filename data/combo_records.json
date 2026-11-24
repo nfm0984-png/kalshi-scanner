@@ -435,9 +435,27 @@
       "name": "bullishkirby",
       "ts": 1795541370,
       "boost": false
+    },
+    "bananastand21": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "bananastand21",
+      "ts": 1795541669,
+      "boost": false
+    },
+    "norrisfan": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "norrisfan",
+      "ts": 1795541669,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795541370,
+  "updatedTs": 1795541669,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

@@ -1988,7 +1988,8 @@
       "startTs": 1795532400,
       "firstTs": 1795530066,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795541669
     },
     "dependent.snail8369|KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM|Yes": {
       "capper": "dependent.snail8369",
@@ -2031,5 +2032,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795541370
+  "updatedTs": 1795541669
 }
