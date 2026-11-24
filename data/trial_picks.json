@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 2:13 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6698,9 +6698,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
       "recordedTs": 1795553609,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 2:28 PM PT"
     },
     {
       "id": "reluctant.fox5394|KXUCLGAME-26NOV24RMAPSV-RMA|Yes",
@@ -6803,6 +6803,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 2:08 PM PT",
       "recordedTs": 1795558103,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "parspectives|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+      "nickname": "parspectives",
+      "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
+      "eventTicker": "KXNCAAFGAME-26NOV28USCUCLA",
+      "game": "USC vs UCLA",
+      "backing": "UCLA",
+      "yesNo": "Yes",
+      "entry": 0.3166,
+      "price": 0.32,
+      "cost": 1431.34,
+      "contracts": 4521.0,
+      "startTs": 1795897800,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 2:28 PM PT",
+      "recordedTs": 1795559291,
       "status": "open",
       "result": null,
       "settledAt": null
