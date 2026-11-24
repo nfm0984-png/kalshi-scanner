@@ -161,9 +161,27 @@
       "name": "opposite.dolphin8700",
       "ts": 1795533365,
       "boost": false
+    },
+    "nshrd": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -5.0,
+      "name": "nshrd",
+      "ts": 1795535677,
+      "boost": false
+    },
+    "younggriff": {
+      "n": 29,
+      "w": 17,
+      "l": 12,
+      "pnl": 7009.56,
+      "name": "YoungGriff",
+      "ts": 1795535677,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795533365,
+  "updatedTs": 1795535677,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
