@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 9:29 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:34 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -691,7 +691,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 24,
+      "openPositions": 25,
       "pickSource": "positions",
       "pickCount": 3,
       "followCount": 3
@@ -6770,19 +6770,19 @@
       "tape30d": 1.2,
       "ageDays": 195,
       "graded": {
-        "n": 129,
+        "n": 130,
         "w": 78,
-        "l": 51,
+        "l": 52,
         "roi": null,
-        "profit": 3397.3,
+        "profit": 3287.24,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 129,
+        "n": 130,
         "w": 78,
-        "l": 51,
+        "l": 52,
         "roi": null,
-        "profit": 3397.3,
+        "profit": 3287.24,
         "sample": "positions"
       },
       "sports": {
@@ -6795,12 +6795,12 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Davmjxn \u00b7 78-51 \u00b7 Best at NFL \u00b7 +$3.19k all",
+      "recordLine": "Davmjxn \u00b7 78-52 \u00b7 Best at NFL \u00b7 +$3.19k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9754,18 +9754,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 142,
-        "l": 111,
+        "w": 143,
+        "l": 113,
         "roi": null,
-        "profit": -802.77,
+        "profit": -804.18,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 142,
-        "l": 111,
+        "w": 143,
+        "l": 113,
         "roi": null,
-        "profit": -802.77,
+        "profit": -804.18,
         "sample": "positions"
       },
       "sports": {
@@ -9778,12 +9778,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 142-111 \u00b7 Best at Tennis \u00b7 +$2.12k all",
+      "recordLine": "emji.emji \u00b7 143-113 \u00b7 Best at Tennis \u00b7 +$2.12k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 8,
+      "openPositions": 6,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10576,29 +10576,29 @@
       "tape30d": null,
       "ageDays": 338,
       "graded": {
-        "n": 137,
-        "w": 79,
+        "n": 138,
+        "w": 80,
         "l": 58,
         "roi": null,
-        "profit": 51537.97,
+        "profit": 51887.38,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 137,
-        "w": 79,
+        "n": 138,
+        "w": 80,
         "l": 58,
         "roi": null,
-        "profit": 51537.97,
+        "profit": 51887.38,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 79-58 \u00b7 +$52.0k all",
+      "recordLine": "fen.dachi \u00b7 80-58 \u00b7 +$52.0k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -11415,7 +11415,7 @@
         "w": 122,
         "l": 278,
         "roi": null,
-        "profit": 71942.52,
+        "profit": 71665.75,
         "sample": "positions"
       },
       "gradedAll": {
@@ -11423,7 +11423,7 @@
         "w": 122,
         "l": 278,
         "roi": null,
-        "profit": 71942.52,
+        "profit": 71665.75,
         "sample": "positions"
       },
       "sports": {},
@@ -11487,10 +11487,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "truewonder",
