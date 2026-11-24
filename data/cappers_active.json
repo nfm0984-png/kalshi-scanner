@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 7:17 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:29 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -202,7 +202,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -690,10 +690,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 24,
+      "openPositions": 35,
       "pickSource": "positions",
-      "pickCount": 4,
-      "followCount": 4
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -12527,8 +12527,8 @@
       "postsVisible": true,
       "openPositions": 6,
       "pickSource": "positions+posts",
-      "pickCount": 5,
-      "followCount": 4
+      "pickCount": 4,
+      "followCount": 3
     },
     {
       "nickname": "truewonder",
