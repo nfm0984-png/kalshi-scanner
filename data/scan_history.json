@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 11:13 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 12:12 PM PT",
   "scans": [
+    {
+      "ts": 1795551179,
+      "at": "Tue Nov 24 \u00b7 12:12 PM PT",
+      "names": 604,
+      "newFollows": [
+        "VAAAAAAA.11"
+      ],
+      "followed": 54,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
+        "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
+        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
+        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
+        "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
+      ]
+    },
     {
       "ts": 1795547609,
       "at": "Tue Nov 24 \u00b7 11:13 AM PT",
@@ -1351,50 +1370,6 @@
         "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes",
         "coachlord66|KXNFLAFCCHAMP-27-DEN|Yes",
         "coachlord66|KXRECORDNFLBEST-27-DEN|Yes"
-      ]
-    },
-    {
-      "ts": 1795274585,
-      "at": "Sat Nov 21 \u00b7 7:23 AM PT",
-      "names": 101,
-      "newFollows": [
-        "coachlord66"
-      ],
-      "followed": 13,
-      "target": 40,
-      "openPicks": 23,
-      "ids": [
-        "KXWTAMATCH-26NOV21PARHUN-HUN|Yes",
-        "KXEPLGAME-26NOV21CFCLEE-CFC|No",
-        "KXBUNDESLIGATOTAL-26NOV21BMGBVB-3|No",
-        "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
-        "KXNCAAFSPREAD-26NOV21WISPUR-WIS6|Yes",
-        "KXNCAAFTOTAL-26NOV21UNTTULN-56|Yes",
-        "KXNBAGAME-26NOV21MILPHI-MIL|Yes",
-        "KXNBATOTAL-26NOV21MILPHI-230|Yes",
-        "KXNBASPREAD-26NOV21MEMMIN-MIN7|Yes",
-        "KXNBASPREAD-26NOV21BOSSAC-BOS14|Yes",
-        "KXNCAAF-27-UGA|Yes",
-        "KXNFLAFCCHAMP-27-CIN|Yes",
-        "KXNFLNFCCHAMP-27-GB|Yes",
-        "KXNFLNFCCHAMP-27-DET|Yes",
-        "KXNFLNFCNORTH-27-GB|Yes",
-        "KXNFLPLAYOFF-27-LAR|No",
-        "KXSB-27-MIN|Yes",
-        "KXSB-27-SF|Yes",
-        "KXSB-27-CIN|Yes",
-        "KXSB-27-JAC|Yes",
-        "KXSB-27-KC|Yes",
-        "KXSB-27-BUF|Yes",
-        "KXSB-27-LAR|Yes",
-        "iluminado|KXITFWMATCH-26NOV21JORDEF-JOR|Yes",
-        "black.catt|KXNFL1HSPREAD-26NOV22ARIKC-KC10|Yes",
-        "black.catt|KXNFLSPREAD-26NOV22ARIKC-KC17|Yes",
-        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
-        "black.catt|KXNBA-27-MIN|Yes",
-        "black.catt|KXNBA-27-NYK|Yes",
-        "black.catt|KXNBA-27-PHI|Yes",
-        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
       ]
     }
   ]

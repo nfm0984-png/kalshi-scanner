@@ -2021,7 +2021,7 @@
       "firstTs": 1795537548,
       "combo": false,
       "status": "win",
-      "gradedTs": 1795551206
+      "gradedTs": 1795551179
     },
     "iluminado|KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No": {
       "capper": "iluminado",
@@ -2072,27 +2072,7 @@
       "firstTs": 1795550006,
       "combo": false,
       "status": "open"
-    },
-    "WorkerTrader|KXUCLGAME-26NOV24RMAPSV-PSV|Yes": {
-      "capper": "WorkerTrader",
-      "ticker": "KXUCLGAME-26NOV24RMAPSV-PSV",
-      "side": "Yes",
-      "price": 0.24,
-      "startTs": 1795561200,
-      "firstTs": 1795552405,
-      "combo": false,
-      "status": "open"
-    },
-    "reluctant.fox5394|KXUCLGAME-26NOV24RMAPSV-RMA|Yes": {
-      "capper": "reluctant.fox5394",
-      "ticker": "KXUCLGAME-26NOV24RMAPSV-RMA",
-      "side": "Yes",
-      "price": 0.56,
-      "startTs": 1795561200,
-      "firstTs": 1795552405,
-      "combo": false,
-      "status": "open"
     }
   },
-  "updatedTs": 1795552708
+  "updatedTs": 1795551179
 }

@@ -6,7 +6,7 @@
       "l": 279,
       "pnl": 1314.55,
       "name": "falcon999",
-      "ts": 1795551206,
+      "ts": 1795551179,
       "boost": true
     },
     "uuqoo": {
@@ -15,7 +15,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "uuqoo",
-      "ts": 1795551206,
+      "ts": 1795551179,
       "boost": false
     },
     "bama0037": {
@@ -490,9 +490,19 @@
       "name": "Contango",
       "ts": 1795547609,
       "boost": false
+    },
+    "vaaaaaaa.11": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "VAAAAAAA.11",
+      "ts": 1795551179,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795552708,
+  "updatedTs": 1795551179,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
