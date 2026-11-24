@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 12:53 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 1:08 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -37,7 +37,7 @@
         "w": 348,
         "l": 52,
         "roi": null,
-        "profit": 135607.85,
+        "profit": 135562.05,
         "sample": "positions"
       },
       "gradedAll": {
@@ -45,7 +45,7 @@
         "w": 348,
         "l": 52,
         "roi": null,
-        "profit": 135607.85,
+        "profit": 135562.05,
         "sample": "positions"
       },
       "sports": {
@@ -70,7 +70,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -202,7 +202,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 1,
       "followCount": 1
@@ -272,7 +272,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -688,7 +688,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6120,29 +6120,29 @@
       "tape30d": null,
       "ageDays": 293,
       "graded": {
-        "n": 94,
+        "n": 96,
         "w": 58,
-        "l": 36,
+        "l": 38,
         "roi": null,
-        "profit": 196.47,
+        "profit": 175.27,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 94,
+        "n": 96,
         "w": 58,
-        "l": 36,
+        "l": 38,
         "roi": null,
-        "profit": 196.47,
+        "profit": 175.27,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 58-36 \u00b7 +$138 all",
+      "recordLine": "brand.breeze \u00b7 58-38 \u00b7 +$138 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6862,7 +6862,7 @@
         "w": 327,
         "l": 73,
         "roi": null,
-        "profit": 40849.78,
+        "profit": 39197.48,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6870,7 +6870,7 @@
         "w": 327,
         "l": 73,
         "roi": null,
-        "profit": 40849.78,
+        "profit": 39197.48,
         "sample": "positions"
       },
       "sports": {
@@ -6895,7 +6895,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10053,24 +10053,24 @@
       "tape30d": null,
       "ageDays": 42,
       "graded": {
-        "n": 115,
-        "w": 69,
-        "l": 46,
+        "n": 116,
+        "w": 68,
+        "l": 48,
         "roi": null,
-        "profit": 30758.51,
+        "profit": 22796.67,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 115,
-        "w": 69,
-        "l": 46,
+        "n": 116,
+        "w": 68,
+        "l": 48,
         "roi": null,
-        "profit": 30758.51,
+        "profit": 22796.67,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "iknowballmorethanu \u00b7 69-46 \u00b7 +$32.6k all",
+      "recordLine": "iknowballmorethanu \u00b7 68-48 \u00b7 +$32.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10163,9 +10163,9 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 3,
+      "pickCount": 2,
       "followCount": 2
     },
     {
@@ -13742,7 +13742,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -30323,23 +30323,23 @@
       "ageDays": 191,
       "graded": {
         "n": 400,
-        "w": 238,
-        "l": 122,
+        "w": 239,
+        "l": 121,
         "roi": null,
-        "profit": 9503.99,
+        "profit": 9487.46,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 238,
-        "l": 122,
+        "w": 239,
+        "l": 121,
         "roi": null,
-        "profit": 9503.99,
+        "profit": 9487.46,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 238-122 \u00b7 +$8.56k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 239-121 \u00b7 +$8.56k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
@@ -32067,29 +32067,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 44,
+        "n": 45,
         "w": 31,
-        "l": 12,
+        "l": 13,
         "roi": null,
-        "profit": 2622.31,
+        "profit": 2612.82,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 44,
+        "n": 45,
         "w": 31,
-        "l": 12,
+        "l": 13,
         "roi": null,
-        "profit": 2622.31,
+        "profit": 2612.82,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 31-12 \u00b7 +$2.54k all",
+      "recordLine": "kelab \u00b7 31-13 \u00b7 +$2.54k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
