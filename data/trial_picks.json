@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 2:58 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 3:23 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6845,6 +6845,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 2:48 PM PT",
       "recordedTs": 1795560493,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNBAREB-26NOV24DETORL-ORLWCARTER34-8|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNBAREB-26NOV24DETORL-ORLWCARTER34-8",
+      "eventTicker": "KXNBAREB-26NOV24DETORL",
+      "game": "Detroit vs Orlando: Rebounds",
+      "backing": "Wendell Carter Jr.: 8+",
+      "yesNo": "No",
+      "entry": 0.556,
+      "price": 0.44,
+      "cost": 1204.81,
+      "contracts": 2167.0,
+      "startTs": 1795564800,
+      "league": "NBA",
+      "bt": "Player props",
+      "recordedAt": "Tue Nov 24 \u00b7 3:23 PM PT",
+      "recordedTs": 1795562582,
       "status": "open",
       "result": null,
       "settledAt": null
