@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 4:15 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 4:25 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5291,6 +5291,27 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 4:15 PM PT",
       "recordedTs": 1795479327,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S20262GTUXP2NZW4CIE6S-TMRK34JEE|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S20262GTUXP2NZW4CIE6S-TMRK34JEE",
+      "eventTicker": "KXMVECROSSCATEGORY-S20262GTUXP2NZW4CIE6S",
+      "game": "MVE",
+      "backing": "yes Ty Jerome: 20+,yes Julius Randle: 15+,yes LaMelo Ball: 15+,yes Alperen Sengun: 15+,yes Pascal Siakam: 20+",
+      "yesNo": "Yes",
+      "entry": 0.2247,
+      "price": 0.21,
+      "cost": 1199.64,
+      "contracts": 5338.07,
+      "startTs": 1795489200,
+      "league": "NBA",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 4:25 PM PT",
+      "recordedTs": 1795479927,
       "status": "open",
       "result": null,
       "settledAt": null
