@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:04 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6357,7 +6357,7 @@
       "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -10954,7 +10954,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 4,
+      "openPositions": 5,
       "pickSource": "positions+posts",
       "pickCount": 3,
       "followCount": 3

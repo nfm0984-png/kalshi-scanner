@@ -197,9 +197,27 @@
       "name": "king.45",
       "ts": 1795535976,
       "boost": false
+    },
+    "davmjxn": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -9.96,
+      "name": "Davmjxn",
+      "ts": 1795536276,
+      "boost": false
+    },
+    "fen.dachi": {
+      "n": 13,
+      "w": 3,
+      "l": 10,
+      "pnl": 3369.51,
+      "name": "fen.dachi",
+      "ts": 1795536276,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795535976,
+  "updatedTs": 1795536276,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
