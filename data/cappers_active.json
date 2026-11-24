@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 10:13 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:18 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -688,7 +688,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 1,
       "followCount": 1
@@ -5627,7 +5627,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 5,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9842,29 +9842,29 @@
       "tape30d": null,
       "ageDays": 339,
       "graded": {
-        "n": 148,
-        "w": 85,
-        "l": 63,
+        "n": 149,
+        "w": 87,
+        "l": 62,
         "roi": null,
-        "profit": 39451.17,
+        "profit": 40166.51,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 148,
-        "w": 85,
-        "l": 63,
+        "n": 149,
+        "w": 87,
+        "l": 62,
         "roi": null,
-        "profit": 39451.17,
+        "profit": 40166.51,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 85-63 \u00b7 +$39.2k all",
+      "recordLine": "fen.dachi \u00b7 87-62 \u00b7 +$39.2k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9899,7 +9899,7 @@
         "w": 391,
         "l": 9,
         "roi": null,
-        "profit": -1930.69,
+        "profit": -1938.77,
         "sample": "positions"
       },
       "gradedAll": {
@@ -9907,7 +9907,7 @@
         "w": 391,
         "l": 9,
         "roi": null,
-        "profit": -1930.69,
+        "profit": -1938.77,
         "sample": "positions"
       },
       "sports": {},
@@ -23675,7 +23675,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -30736,24 +30736,24 @@
       "tape30d": null,
       "ageDays": 357,
       "graded": {
-        "n": 192,
-        "w": 105,
+        "n": 193,
+        "w": 106,
         "l": 77,
         "roi": null,
-        "profit": 2156.22,
+        "profit": 1957.24,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 192,
-        "w": 105,
+        "n": 193,
+        "w": 106,
         "l": 77,
         "roi": null,
-        "profit": 2156.22,
+        "profit": 1957.24,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "doll.breast \u00b7 105-77 \u00b7 +$1.19k all",
+      "recordLine": "doll.breast \u00b7 106-77 \u00b7 +$1.19k all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
@@ -30961,7 +30961,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
