@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:23 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5648,6 +5648,27 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:18 PM PT",
       "recordedTs": 1795486726,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBASPREAD-26NOV23PORPHI-POR19|No",
+      "nickname": "regine",
+      "ticker": "KXNBASPREAD-26NOV23PORPHI-POR19",
+      "eventTicker": "KXNBASPREAD-26NOV23PORPHI",
+      "game": "Portland vs Philadelphia: Spread",
+      "backing": "Portland wins by over 18.5 points",
+      "yesNo": "No",
+      "entry": 0.6547,
+      "price": 1.0,
+      "cost": 576.83,
+      "contracts": 881.0,
+      "startTs": 1795489200,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Mon Nov 23 \u00b7 6:23 PM PT",
+      "recordedTs": 1795487027,
       "status": "open",
       "result": null,
       "settledAt": null
