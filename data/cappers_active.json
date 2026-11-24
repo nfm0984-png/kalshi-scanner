@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 12:13 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 12:18 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -70,7 +70,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6674,7 +6674,7 @@
       "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -16751,23 +16751,23 @@
       "ageDays": 101,
       "graded": {
         "n": 400,
-        "w": 225,
-        "l": 175,
+        "w": 224,
+        "l": 176,
         "roi": null,
-        "profit": 6717.52,
+        "profit": 6625.87,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 225,
-        "l": 175,
+        "w": 224,
+        "l": 176,
         "roi": null,
-        "profit": 6717.52,
+        "profit": 6625.87,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 225-175 \u00b7 +$7.32k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 224-176 \u00b7 +$7.32k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
@@ -31681,29 +31681,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 42,
-        "w": 30,
+        "n": 43,
+        "w": 31,
         "l": 11,
         "roi": null,
-        "profit": 2643.89,
+        "profit": 2671.31,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 42,
-        "w": 30,
+        "n": 43,
+        "w": 31,
         "l": 11,
         "roi": null,
-        "profit": 2643.89,
+        "profit": 2671.31,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 30-11 \u00b7 +$2.53k all",
+      "recordLine": "kelab \u00b7 31-11 \u00b7 +$2.53k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
