@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 2:28 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:33 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6824,6 +6824,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 2:28 PM PT",
       "recordedTs": 1795559291,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24PROVARIZ-ARIZ|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24PROVARIZ-ARIZ",
+      "eventTicker": "KXNCAAMBGAME-26NOV24PROVARIZ",
+      "game": "Providence vs Arizona",
+      "backing": "Arizona",
+      "yesNo": "Yes",
+      "entry": 0.8923,
+      "price": 0.91,
+      "cost": 19450.42,
+      "contracts": 21797.0,
+      "startTs": 1795557600,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 2:33 PM PT",
+      "recordedTs": 1795559591,
       "status": "open",
       "result": null,
       "settledAt": null

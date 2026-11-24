@@ -2041,7 +2041,8 @@
       "startTs": 1795550400,
       "firstTs": 1795542570,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795559591
     },
     "iknowballmorethanu|KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes": {
       "capper": "iknowballmorethanu",
@@ -2134,5 +2135,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795559291
+  "updatedTs": 1795559591
 }

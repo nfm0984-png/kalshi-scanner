@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 2:28 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:33 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -10254,10 +10254,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "hedge123",
@@ -17064,28 +17064,28 @@
       "ageDays": 101,
       "graded": {
         "n": 400,
-        "w": 225,
-        "l": 175,
+        "w": 222,
+        "l": 178,
         "roi": null,
-        "profit": 6469.1,
+        "profit": 6174.68,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 225,
-        "l": 175,
+        "w": 222,
+        "l": 178,
         "roi": null,
-        "profit": 6469.1,
+        "profit": 6174.68,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 225-175 \u00b7 +$7.09k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 222-178 \u00b7 +$7.09k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -30719,7 +30719,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
