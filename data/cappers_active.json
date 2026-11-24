@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 3:33 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 3:38 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6750,10 +6750,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "714Smith",
@@ -9967,8 +9967,8 @@
       "postsVisible": false,
       "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 3,
+      "followCount": 3
     },
     {
       "nickname": "hedge123",
@@ -23940,7 +23940,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 5,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -32939,24 +32939,24 @@
       "tape30d": null,
       "ageDays": 141,
       "graded": {
-        "n": 290,
-        "w": 191,
+        "n": 291,
+        "w": 192,
         "l": 87,
         "roi": null,
-        "profit": 9751.73,
+        "profit": 10008.24,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 290,
-        "w": 191,
+        "n": 291,
+        "w": 192,
         "l": 87,
         "roi": null,
-        "profit": 9751.73,
+        "profit": 10008.24,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 191-87 \u00b7 +$8.79k all",
+      "recordLine": "FFun \u00b7 192-87 \u00b7 +$8.79k all",
       "addedAt": "2026-11-24",
       "followingPicks": [
         {
@@ -32988,7 +32988,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
