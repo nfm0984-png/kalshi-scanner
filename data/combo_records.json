@@ -500,9 +500,18 @@
       "name": "VAAAAAAA.11",
       "ts": 1795551179,
       "boost": false
+    },
+    "ffun": {
+      "n": 5,
+      "w": 1,
+      "l": 4,
+      "pnl": 117.28,
+      "name": "FFun",
+      "ts": 1795554355,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795556303,
+  "updatedTs": 1795554355,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

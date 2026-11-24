@@ -2082,7 +2082,17 @@
       "firstTs": 1795553609,
       "combo": false,
       "status": "open"
+    },
+    "FFun|KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE|Yes": {
+      "capper": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE",
+      "side": "Yes",
+      "price": 0.23,
+      "startTs": 1795555200,
+      "firstTs": 1795554355,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795556303
+  "updatedTs": 1795554355
 }
