@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 1:58 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:03 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6740,9 +6740,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 1:05 PM PT",
       "recordedTs": 1795554355,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 2:03 PM PT"
     },
     {
       "id": "reluctant.fox5394|KXUCLGAME-26NOV24MCINAP-NAP|Yes",
