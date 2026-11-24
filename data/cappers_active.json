@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:59 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -669,31 +669,31 @@
       "ageDays": 338,
       "graded": {
         "n": 400,
-        "w": 258,
-        "l": 142,
+        "w": 255,
+        "l": 145,
         "roi": null,
-        "profit": 91221.1,
+        "profit": 83836.88,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 258,
-        "l": 142,
+        "w": 255,
+        "l": 145,
         "roi": null,
-        "profit": 91221.1,
+        "profit": 83836.88,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "regine \u00b7 258-142 \u00b7 +$91.6k all",
+      "recordLine": "regine \u00b7 255-145 \u00b7 +$91.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 65,
+      "openPositions": 62,
       "pickSource": "positions",
-      "pickCount": 8,
-      "followCount": 9
+      "pickCount": 4,
+      "followCount": 5
     },
     {
       "nickname": "Ryqeux",
@@ -26005,7 +26005,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 13,
+      "openPositions": 14,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1

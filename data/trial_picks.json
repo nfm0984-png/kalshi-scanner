@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:54 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:59 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5711,9 +5711,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:39 PM PT",
       "recordedTs": 1795487952,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 6:59 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23OKCIND-IND2|No",
@@ -5732,9 +5732,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:44 PM PT",
       "recordedTs": 1795488252,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 6:59 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23OKCIND-IND3|No",
@@ -5753,9 +5753,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:44 PM PT",
       "recordedTs": 1795488252,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 6:59 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23CLECHI-CHI|Yes",
