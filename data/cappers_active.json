@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 9:34 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:39 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -691,10 +691,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 25,
+      "openPositions": 27,
       "pickSource": "positions",
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -7013,7 +7013,7 @@
         "w": 230,
         "l": 170,
         "roi": null,
-        "profit": 27.01,
+        "profit": 27.23,
         "sample": "positions"
       },
       "gradedAll": {
@@ -7021,7 +7021,7 @@
         "w": 230,
         "l": 170,
         "roi": null,
-        "profit": 27.01,
+        "profit": 27.23,
         "sample": "positions"
       },
       "sports": {},
@@ -7031,7 +7031,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -10118,24 +10118,24 @@
       "tape30d": null,
       "ageDays": 41,
       "graded": {
-        "n": 114,
-        "w": 68,
+        "n": 115,
+        "w": 69,
         "l": 46,
         "roi": null,
-        "profit": 31475.07,
+        "profit": 30758.51,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 114,
-        "w": 68,
+        "n": 115,
+        "w": 69,
         "l": 46,
         "roi": null,
-        "profit": 31475.07,
+        "profit": 30758.51,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "iknowballmorethanu \u00b7 68-46 \u00b7 +$33.4k all",
+      "recordLine": "iknowballmorethanu \u00b7 69-46 \u00b7 +$33.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10319,10 +10319,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "hedge123",
@@ -11412,23 +11412,23 @@
       "ageDays": 434,
       "graded": {
         "n": 400,
-        "w": 122,
-        "l": 278,
+        "w": 121,
+        "l": 279,
         "roi": null,
-        "profit": 71665.75,
+        "profit": 68706.76,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 122,
-        "l": 278,
+        "w": 121,
+        "l": 279,
         "roi": null,
-        "profit": 71665.75,
+        "profit": 68706.76,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "falcon999 \u00b7 122-278 \u00b7 +$65.5k all",
+      "recordLine": "falcon999 \u00b7 121-279 \u00b7 +$65.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -11487,10 +11487,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "truewonder",
