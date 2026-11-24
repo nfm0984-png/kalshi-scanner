@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 8:57 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 9:04 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -691,10 +691,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 8,
       "pickSource": "positions",
-      "pickCount": 2,
-      "followCount": 2
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "Ryqeux",
@@ -6180,29 +6180,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 91,
-        "w": 56,
+        "n": 92,
+        "w": 57,
         "l": 35,
         "roi": null,
-        "profit": 196.32,
+        "profit": 206.4,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 91,
-        "w": 56,
+        "n": 92,
+        "w": 57,
         "l": 35,
         "roi": null,
-        "profit": 196.32,
+        "profit": 206.4,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 56-35 \u00b7 +$186 all",
+      "recordLine": "brand.breeze \u00b7 57-35 \u00b7 +$186 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9754,18 +9754,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 141,
+        "w": 142,
         "l": 111,
         "roi": null,
-        "profit": -803.65,
+        "profit": -803.0,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 141,
+        "w": 142,
         "l": 111,
         "roi": null,
-        "profit": -803.65,
+        "profit": -803.0,
         "sample": "positions"
       },
       "sports": {
@@ -9778,7 +9778,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 141-111 \u00b7 Best at Tennis \u00b7 +$2.09k all",
+      "recordLine": "emji.emji \u00b7 142-111 \u00b7 Best at Tennis \u00b7 +$2.09k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
