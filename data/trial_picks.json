@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 9:39 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:49 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6551,6 +6551,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 9:34 AM PT",
       "recordedTs": 1795541669,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "WorkerTrader|KXAFCCLTOTAL-26NOV24SAHQAD-6|No",
+      "nickname": "WorkerTrader",
+      "ticker": "KXAFCCLTOTAL-26NOV24SAHQAD-6",
+      "eventTicker": "KXAFCCLTOTAL-26NOV24SAHQAD",
+      "game": "Shabab Al-Ahli vs Al Qadsiah: Total Goals",
+      "backing": "Over 5.5 goals scored",
+      "yesNo": "No",
+      "entry": 0.7643,
+      "price": 0.01,
+      "cost": 5628.82,
+      "contracts": 7365.0,
+      "startTs": 1795550400,
+      "league": "Sports",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 9:49 AM PT",
+      "recordedTs": 1795542570,
       "status": "open",
       "result": null,
       "settledAt": null

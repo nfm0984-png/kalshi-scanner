@@ -2030,7 +2030,17 @@
       "firstTs": 1795541370,
       "combo": false,
       "status": "open"
+    },
+    "WorkerTrader|KXAFCCLTOTAL-26NOV24SAHQAD-6|No": {
+      "capper": "WorkerTrader",
+      "ticker": "KXAFCCLTOTAL-26NOV24SAHQAD-6",
+      "side": "No",
+      "price": 0.01,
+      "startTs": 1795550400,
+      "firstTs": 1795542570,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795541969
+  "updatedTs": 1795542570
 }
