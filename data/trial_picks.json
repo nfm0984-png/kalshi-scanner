@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:34 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:12 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -1175,9 +1175,9 @@
       "bt": "Moneyline",
       "recordedAt": "Sat Nov 21 \u00b7 7:29 AM PT",
       "recordedTs": 1795274994,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "coachlord66|KXNFLMATCHUP-27AFC-DENHOU|Yes",
@@ -3086,9 +3086,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "win",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "parspectives|KXNFLGAME-26NOV22TBDET-DET|Yes",
@@ -5081,9 +5081,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 12:44 PM PT",
       "recordedTs": 1795466646,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:29 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S20266Z4UUFVS6VK77KEY-MV54ON57S|Yes",
@@ -5314,7 +5314,7 @@
       "recordedTs": 1795480527,
       "status": "win",
       "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
+      "settledAt": "Mon Nov 23 \u00b7 8:12 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV23CLECHI-CLE10|No",
@@ -5356,7 +5356,7 @@
       "recordedTs": 1795483630,
       "status": "win",
       "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
+      "settledAt": "Mon Nov 23 \u00b7 8:12 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026GF4MUELQBL54JBOX-T35UHLIIN|Yes",
@@ -5377,7 +5377,7 @@
       "recordedTs": 1795483630,
       "status": "win",
       "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 8:29 PM PT"
+      "settledAt": "Mon Nov 23 \u00b7 8:12 PM PT"
     },
     {
       "id": "autofade|KXNFL1QSPREAD-26NOV23CINWAS-CIN3|No",
@@ -5438,9 +5438,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
       "recordedTs": 1795485826,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iluminado|KXITFWMATCH-26NOV23ALAPAN-ALA|Yes",
@@ -5690,9 +5690,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:29 PM PT",
       "recordedTs": 1795487353,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23OKCIND-IND5|No",
@@ -5900,9 +5900,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 7:02 PM PT",
       "recordedTs": 1795489367,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "regine|KXNBATEAMTOTAL-26NOV23MILTOR-TOR110|Yes",
@@ -5989,25 +5989,25 @@
       "settledAt": "Mon Nov 23 \u00b7 7:54 PM PT"
     },
     {
-      "id": "dependent.snail8369|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
+      "id": "dependent.snail8369|KXNFLGAME-26NOV23CINWAS-WAS|Yes",
       "nickname": "dependent.snail8369",
-      "ticker": "KXNFLGAME-26NOV23CINWAS-CIN",
+      "ticker": "KXNFLGAME-26NOV23CINWAS-WAS",
       "eventTicker": "KXNFLGAME-26NOV23CINWAS",
       "game": "Cincinnati vs Washington",
-      "backing": "Cincinnati",
+      "backing": "Washington",
       "yesNo": "Yes",
-      "entry": 0.8,
-      "price": 0.73,
-      "cost": 2455.2,
-      "contracts": 3069.0,
+      "entry": 0.96,
+      "price": 0.31,
+      "cost": 8119.68,
+      "contracts": 8458.0,
       "startTs": 1795493700,
       "league": "NFL",
       "bt": "Moneyline",
-      "recordedAt": "Mon Nov 23 \u00b7 8:14 PM PT",
-      "recordedTs": 1795493662,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
+      "recordedAt": "Mon Nov 23 \u00b7 8:12 PM PT",
+      "recordedTs": 1795493565,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "truewonder|KXNFLGAME-26NOV23CINWAS-CIN|Yes",
@@ -6018,56 +6018,14 @@
       "backing": "Cincinnati",
       "yesNo": "Yes",
       "entry": 0.45,
-      "price": 0.71,
+      "price": 0.72,
       "cost": 24072.75,
       "contracts": 53495.0,
       "startTs": 1795493700,
       "league": "NFL",
       "bt": "Moneyline",
-      "recordedAt": "Mon Nov 23 \u00b7 8:14 PM PT",
-      "recordedTs": 1795493662,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Mon Nov 23 \u00b7 8:19 PM PT"
-    },
-    {
-      "id": "dependent.snail8369|KXMVECROSSCATEGORY-S202673OJNC4BLWCUNC5N-7Z633D6ER|Yes",
-      "nickname": "dependent.snail8369",
-      "ticker": "KXMVECROSSCATEGORY-S202673OJNC4BLWCUNC5N-7Z633D6ER",
-      "eventTicker": "KXMVECROSSCATEGORY-S202673OJNC4BLWCUNC5N",
-      "game": "Utah vs Los Angeles L",
-      "backing": "yes Los Angeles L,yes Arizona,yes UNLV",
-      "yesNo": "Yes",
-      "entry": 0.803,
-      "price": 0.799,
-      "cost": 8342.37,
-      "contracts": 10389.0,
-      "startTs": 1795500000,
-      "league": "Combo",
-      "bt": "Combo",
-      "recordedAt": "Mon Nov 23 \u00b7 8:29 PM PT",
-      "recordedTs": 1795494562,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "falcon999|KXMVECROSSCATEGORY-S2026PVX2VRKSZ23RQPDK-LTMUPVCI2|Yes",
-      "nickname": "falcon999",
-      "ticker": "KXMVECROSSCATEGORY-S2026PVX2VRKSZ23RQPDK-LTMUPVCI2",
-      "eventTicker": "KXMVECROSSCATEGORY-S2026PVX2VRKSZ23RQPDK",
-      "game": "MVE",
-      "backing": "yes Los Angeles L,yes Darius Acuff Jr.: 15+,yes Keegan Murray: 15+,yes Ace Bailey: 15+,yes Darryn Peterson: 15+",
-      "yesNo": "Yes",
-      "entry": 0.1484,
-      "price": 0.119,
-      "cost": 776.62,
-      "contracts": 5232.32,
-      "startTs": 1795500000,
-      "league": "NBA",
-      "bt": "Combo",
-      "recordedAt": "Mon Nov 23 \u00b7 8:29 PM PT",
-      "recordedTs": 1795494562,
+      "recordedAt": "Mon Nov 23 \u00b7 8:12 PM PT",
+      "recordedTs": 1795493565,
       "status": "open",
       "result": null,
       "settledAt": null
