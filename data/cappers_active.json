@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 9:52 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:08 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -34,18 +34,18 @@
       "ageDays": 258,
       "graded": {
         "n": 400,
-        "w": 349,
-        "l": 51,
+        "w": 348,
+        "l": 52,
         "roi": null,
-        "profit": 135537.27,
+        "profit": 135607.85,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 349,
-        "l": 51,
+        "w": 348,
+        "l": 52,
         "roi": null,
-        "profit": 135537.27,
+        "profit": 135607.85,
         "sample": "positions"
       },
       "sports": {
@@ -65,15 +65,15 @@
         }
       },
       "bestAt": "Soccer",
-      "recordLine": "WorkerTrader \u00b7 349-51 \u00b7 Best at Soccer \u00b7 +$1.41M all",
+      "recordLine": "WorkerTrader \u00b7 348-52 \u00b7 Best at Soccer \u00b7 +$1.41M all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "BWmarkets",
@@ -688,7 +688,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6225,7 +6225,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 9,
+      "openPositions": 19,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6344,18 +6344,18 @@
       "ageDays": 182,
       "graded": {
         "n": 400,
-        "w": 325,
-        "l": 75,
+        "w": 328,
+        "l": 72,
         "roi": null,
-        "profit": 37511.14,
+        "profit": 40831.68,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 325,
-        "l": 75,
+        "w": 328,
+        "l": 72,
         "roi": null,
-        "profit": 37511.14,
+        "profit": 40831.68,
         "sample": "positions"
       },
       "sports": {
@@ -6375,7 +6375,7 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 325-75 \u00b7 Best at MLB \u00b7 +$27.5k all",
+      "recordLine": "dependent.snail8369 \u00b7 328-72 \u00b7 Best at MLB \u00b7 +$27.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -6407,7 +6407,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9864,7 +9864,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9899,7 +9899,7 @@
         "w": 391,
         "l": 9,
         "roi": null,
-        "profit": -1938.77,
+        "profit": -1930.69,
         "sample": "positions"
       },
       "gradedAll": {
@@ -9907,7 +9907,7 @@
         "w": 391,
         "l": 9,
         "roi": null,
-        "profit": -1938.77,
+        "profit": -1930.69,
         "sample": "positions"
       },
       "sports": {},
@@ -30736,24 +30736,24 @@
       "tape30d": null,
       "ageDays": 357,
       "graded": {
-        "n": 190,
-        "w": 104,
-        "l": 76,
+        "n": 192,
+        "w": 105,
+        "l": 77,
         "roi": null,
-        "profit": 2458.61,
+        "profit": 2156.22,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 190,
-        "w": 104,
-        "l": 76,
+        "n": 192,
+        "w": 105,
+        "l": 77,
         "roi": null,
-        "profit": 2458.61,
+        "profit": 2156.22,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "doll.breast \u00b7 104-76 \u00b7 +$1.12k all",
+      "recordLine": "doll.breast \u00b7 105-77 \u00b7 +$1.12k all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
@@ -30940,19 +30940,19 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 33,
+        "n": 34,
         "w": 24,
         "l": 9,
         "roi": null,
-        "profit": 2651.92,
+        "profit": 2651.76,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 33,
+        "n": 34,
         "w": 24,
         "l": 9,
         "roi": null,
-        "profit": 2651.92,
+        "profit": 2651.76,
         "sample": "positions"
       },
       "sports": {},
