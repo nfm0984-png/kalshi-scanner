@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 10:28 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 10:33 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6593,9 +6593,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 10:13 AM PT",
       "recordedTs": 1795544031,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 10:33 AM PT"
     },
     {
       "id": "WorkerTrader|KXAFCCLGAME-26NOV24ALNSAD-ALN|Yes",
