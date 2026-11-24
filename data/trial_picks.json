@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 11:09 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6047,9 +6047,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 8:49 PM PT",
       "recordedTs": 1795495763,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 11:14 PM PT"
     },
     {
       "id": "dependent.snail8369|KXMVECROSSCATEGORY-S202673OJNC4BLWCUNC5N-7Z633D6ER|Yes",
@@ -6320,6 +6320,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:44 PM PT",
       "recordedTs": 1795502655,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXATPCHALLENGERMATCH-26NOV23NOGJON-JON|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV23NOGJON-JON",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV23NOGJON",
+      "game": "Noguchi vs Jones",
+      "backing": "Maximus Jones",
+      "yesNo": "Yes",
+      "entry": 0.1025,
+      "price": 0.09,
+      "cost": 762.17,
+      "contracts": 7433.0,
+      "startTs": 1795505400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
+      "recordedTs": 1795504456,
       "status": "open",
       "result": null,
       "settledAt": null
