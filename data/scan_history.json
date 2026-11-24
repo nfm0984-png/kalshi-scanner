@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 7:16 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:25 AM PT",
   "scans": [
+    {
+      "ts": 1795537548,
+      "at": "Tue Nov 24 \u00b7 8:25 AM PT",
+      "names": 573,
+      "newFollows": [
+        "doll.breast",
+        "kelab"
+      ],
+      "followed": 52,
+      "target": 100,
+      "openPicks": 5,
+      "ids": [
+        "KXT20MATCH-26NOV240930EMIGUL-GUL|Yes",
+        "KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes",
+        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
+        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
+      ]
+    },
     {
       "ts": 1795533365,
       "at": "Tue Nov 24 \u00b7 7:16 AM PT",
@@ -1407,34 +1426,6 @@
         "black.catt|KXNBA-27-MIN|Yes",
         "black.catt|KXNBA-27-NYK|Yes",
         "black.catt|KXNBA-27-PHI|Yes",
-        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
-      ]
-    },
-    {
-      "ts": 1795266622,
-      "at": "Sat Nov 21 \u00b7 5:10 AM PT",
-      "names": 52,
-      "newFollows": [
-        "Billy.Hoyle",
-        "black.catt"
-      ],
-      "followed": 12,
-      "target": 40,
-      "openPicks": 12,
-      "ids": [
-        "KXBUNDESLIGA2GAME-26NOV21WOBHOK-WOB|Yes",
-        "KXEPLGAME-26NOV21MCIFUL-FUL|Yes",
-        "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
-        "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
-        "KXNFLPLAYOFF-27-LAR|No",
-        "KXSB-27-MIN|Yes",
-        "KXSB-27-SF|Yes",
-        "KXSB-27-CIN|Yes",
-        "KXSB-27-JAC|Yes",
-        "KXSB-27-KC|Yes",
-        "KXSB-27-BUF|Yes",
-        "KXSB-27-LAR|Yes",
-        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
         "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
       ]
     }

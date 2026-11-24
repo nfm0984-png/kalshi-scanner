@@ -234,13 +234,22 @@
       "ts": 1795536577,
       "boost": false
     },
+    "doll.breast": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "doll.breast",
+      "ts": 1795537548,
+      "boost": false
+    },
     "brand.breeze": {
       "n": 1,
       "w": 0,
       "l": 1,
       "pnl": -19.99,
       "name": "brand.breeze",
-      "ts": 1795538062,
+      "ts": 1795537548,
       "boost": false
     },
     "snoz3berries": {
@@ -249,7 +258,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Snoz3berries",
-      "ts": 1795538062,
+      "ts": 1795537548,
       "boost": false
     },
     "parspectives": {
@@ -258,7 +267,7 @@
       "l": 3,
       "pnl": -599.85,
       "name": "parspectives",
-      "ts": 1795538362,
+      "ts": 1795537548,
       "boost": false
     },
     "ustrader": {
@@ -268,7 +277,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ustrader",
-      "ts": 1795538362,
+      "ts": 1795537548,
       "boost": false
     },
     "coolness77": {
@@ -277,7 +286,7 @@
       "l": 19,
       "pnl": 3.81,
       "name": "coolness77",
-      "ts": 1795539263,
+      "ts": 1795537548,
       "boost": false
     },
     "muffat00": {
@@ -286,7 +295,7 @@
       "l": 0,
       "pnl": 1684.82,
       "name": "Muffat00",
-      "ts": 1795539263,
+      "ts": 1795537548,
       "boost": false
     },
     "fattii": {
@@ -295,7 +304,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795539562,
+      "ts": 1795537548,
       "boost": false
     },
     "eibriham": {
@@ -304,11 +313,39 @@
       "l": 19,
       "pnl": -55.65,
       "name": "Eibriham",
-      "ts": 1795539562,
+      "ts": 1795537548,
+      "boost": false
+    },
+    "tru3f0rmr": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "tru3f0rmr",
+      "ts": 1795537548,
+      "boost": false
+    },
+    "kelab": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "kelab",
+      "ts": 1795537548,
+      "boost": false
+    },
+    "dimesy": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "Dimesy",
+      "ts": 1795537548,
       "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795539562,
+  "updatedTs": 1795537548,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
