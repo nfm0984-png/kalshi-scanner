@@ -2092,7 +2092,8 @@
       "startTs": 1795555200,
       "firstTs": 1795554355,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795564382
     },
     "reluctant.fox5394|KXUCLGAME-26NOV24MCINAP-NAP|Yes": {
       "capper": "reluctant.fox5394",
@@ -2155,5 +2156,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795561822
+  "updatedTs": 1795564382
 }
