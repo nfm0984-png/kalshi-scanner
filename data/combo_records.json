@@ -453,9 +453,27 @@
       "name": "norrisfan",
       "ts": 1795541669,
       "boost": false
+    },
+    "kevin702": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "kevin702",
+      "ts": 1795541969,
+      "boost": false
+    },
+    "bwmarkets": {
+      "n": 33,
+      "w": 6,
+      "l": 27,
+      "pnl": -303498.06,
+      "name": "BWmarkets",
+      "ts": 1795541969,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795541669,
+  "updatedTs": 1795541969,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
