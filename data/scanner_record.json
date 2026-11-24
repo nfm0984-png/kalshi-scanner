@@ -2112,7 +2112,17 @@
       "firstTs": 1795556903,
       "combo": false,
       "status": "open"
+    },
+    "FFun|KXITFMATCH-26NOV24VILROC-ROC|Yes": {
+      "capper": "FFun",
+      "ticker": "KXITFMATCH-26NOV24VILROC-ROC",
+      "side": "Yes",
+      "price": 0.75,
+      "startTs": 1795572000,
+      "firstTs": 1795558103,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795557803
+  "updatedTs": 1795558103
 }

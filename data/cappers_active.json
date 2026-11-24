@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 2:03 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 2:08 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -173,18 +173,18 @@
       "ageDays": 48,
       "graded": {
         "n": 400,
-        "w": 286,
-        "l": 114,
+        "w": 287,
+        "l": 113,
         "roi": null,
-        "profit": 298458.0,
+        "profit": 302749.38,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 286,
-        "l": 114,
+        "w": 287,
+        "l": 113,
         "roi": null,
-        "profit": 298458.0,
+        "profit": 302749.38,
         "sample": "positions"
       },
       "sports": {
@@ -197,7 +197,7 @@
         }
       },
       "bestAt": "Soccer",
-      "recordLine": "reluctant.fox5394 \u00b7 286-114 \u00b7 Best at Soccer \u00b7 +$401.9k all",
+      "recordLine": "reluctant.fox5394 \u00b7 287-113 \u00b7 Best at Soccer \u00b7 +$401.9k all",
       "addedAt": "2026-11-20",
       "followingPicks": [
         {
@@ -229,7 +229,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6950,18 +6950,18 @@
       "ageDays": 182,
       "graded": {
         "n": 400,
-        "w": 327,
-        "l": 73,
+        "w": 328,
+        "l": 72,
         "roi": null,
-        "profit": 39197.48,
+        "profit": 39567.2,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 327,
-        "l": 73,
+        "w": 328,
+        "l": 72,
         "roi": null,
-        "profit": 39197.48,
+        "profit": 39567.2,
         "sample": "positions"
       },
       "sports": {
@@ -6981,12 +6981,12 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 327-73 \u00b7 Best at MLB \u00b7 +$28.9k all",
+      "recordLine": "dependent.snail8369 \u00b7 328-72 \u00b7 Best at MLB \u00b7 +$28.9k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -12822,7 +12822,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 6,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -34203,31 +34203,31 @@
       "tape30d": null,
       "ageDays": 141,
       "graded": {
-        "n": 289,
+        "n": 290,
         "w": 191,
-        "l": 86,
+        "l": 87,
         "roi": null,
-        "profit": 18051.72,
+        "profit": 9751.73,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 289,
+        "n": 290,
         "w": 191,
-        "l": 86,
+        "l": 87,
         "roi": null,
-        "profit": 18051.72,
+        "profit": 9751.73,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 191-86 \u00b7 +$17.8k all",
+      "recordLine": "FFun \u00b7 191-87 \u00b7 +$17.8k all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": true,
       "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "checkm8",
