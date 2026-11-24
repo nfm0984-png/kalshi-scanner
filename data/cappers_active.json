@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 7:54 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 7:59 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -849,7 +849,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 11,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -7232,19 +7232,19 @@
       "tape30d": 1.2,
       "ageDays": 195,
       "graded": {
-        "n": 126,
+        "n": 128,
         "w": 77,
-        "l": 49,
+        "l": 51,
         "roi": null,
-        "profit": 3807.05,
+        "profit": 3448.72,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 126,
+        "n": 128,
         "w": 77,
-        "l": 49,
+        "l": 51,
         "roi": null,
-        "profit": 3807.05,
+        "profit": 3448.72,
         "sample": "positions"
       },
       "sports": {
@@ -7257,12 +7257,12 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Davmjxn \u00b7 77-49 \u00b7 Best at NFL \u00b7 +$3.92k all",
+      "recordLine": "Davmjxn \u00b7 77-51 \u00b7 Best at NFL \u00b7 +$3.92k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -25376,7 +25376,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 14,
+      "openPositions": 13,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1
