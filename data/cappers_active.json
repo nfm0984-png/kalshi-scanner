@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 9:19 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:29 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -272,10 +272,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "past.grass",
@@ -688,7 +688,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6407,7 +6407,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -30736,28 +30736,28 @@
       "tape30d": null,
       "ageDays": 357,
       "graded": {
-        "n": 187,
-        "w": 103,
+        "n": 188,
+        "w": 104,
         "l": 74,
         "roi": null,
-        "profit": 2622.19,
+        "profit": 2743.31,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 187,
-        "w": 103,
+        "n": 188,
+        "w": 104,
         "l": 74,
         "roi": null,
-        "profit": 2622.19,
+        "profit": 2743.31,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "doll.breast \u00b7 103-74 \u00b7 +$928 all",
+      "recordLine": "doll.breast \u00b7 104-74 \u00b7 +$928 all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0

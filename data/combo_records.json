@@ -417,9 +417,27 @@
       "name": "Watsons.burnerr",
       "ts": 1795540769,
       "boost": false
+    },
+    "milesdavis": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "milesdavis",
+      "ts": 1795541370,
+      "boost": false
+    },
+    "bullishkirby": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "bullishkirby",
+      "ts": 1795541370,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795540769,
+  "updatedTs": 1795541370,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
