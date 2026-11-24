@@ -1999,8 +1999,7 @@
       "startTs": 1795539600,
       "firstTs": 1795533365,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795548817
+      "status": "open"
     },
     "falcon999|KXNBAGAME-26NOV24DETORL-ORL|Yes": {
       "capper": "falcon999",
@@ -2061,27 +2060,7 @@
       "firstTs": 1795546132,
       "combo": false,
       "status": "open"
-    },
-    "WorkerTrader|KXUCLGAME-26NOV24GALAVL-AVL|No": {
-      "capper": "WorkerTrader",
-      "ticker": "KXUCLGAME-26NOV24GALAVL-AVL",
-      "side": "No",
-      "price": 0.97,
-      "startTs": 1795553100,
-      "firstTs": 1795548216,
-      "combo": false,
-      "status": "open"
-    },
-    "reluctant.fox5394|KXUCLGAME-26NOV24GALAVL-GAL|Yes": {
-      "capper": "reluctant.fox5394",
-      "ticker": "KXUCLGAME-26NOV24GALAVL-GAL",
-      "side": "Yes",
-      "price": 0.73,
-      "startTs": 1795553100,
-      "firstTs": 1795548216,
-      "combo": false,
-      "status": "open"
     }
   },
-  "updatedTs": 1795549597
+  "updatedTs": 1795547609
 }
