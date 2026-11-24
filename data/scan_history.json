@@ -1,6 +1,20 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 11:33 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:16 AM PT",
   "scans": [
+    {
+      "ts": 1795533365,
+      "at": "Tue Nov 24 \u00b7 7:16 AM PT",
+      "names": 566,
+      "newFollows": [],
+      "followed": 51,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM|Yes",
+        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
+      ]
+    },
     {
       "ts": 1795505639,
       "at": "Mon Nov 23 \u00b7 11:33 PM PT",
@@ -1420,22 +1434,6 @@
         "KXSB-27-KC|Yes",
         "KXSB-27-BUF|Yes",
         "KXSB-27-LAR|Yes",
-        "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
-        "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
-      ]
-    },
-    {
-      "ts": 1795262143,
-      "at": "Sat Nov 21 \u00b7 3:55 AM PT",
-      "names": 48,
-      "newFollows": [],
-      "followed": 10,
-      "target": 40,
-      "openPicks": 3,
-      "ids": [
-        "KXEPLTOTAL-26NOV21MCIFUL-2|Yes",
-        "KXNCAAFSPREAD-26NOV21OSUNEB-OSU4|Yes",
-        "KXSB-27-MIN|Yes",
         "ambitious.dandelion1189|KXNFLMVP-27-KCOUSINS8|Yes",
         "ambitious.dandelion1189|KXNFLNFCEAST-27-DAL|Yes"
       ]

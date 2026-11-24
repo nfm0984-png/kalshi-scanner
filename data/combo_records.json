@@ -60,16 +60,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795533877,
+      "ts": 1795533365,
       "boost": false
     },
     "profitprofet": {
       "n": 356,
       "w": 132,
       "l": 224,
-      "pnl": 264.91,
+      "pnl": 259.5,
       "name": "Profitprofet",
-      "ts": 1795533877,
+      "ts": 1795533365,
       "boost": true
     },
     "dependent.snail8369": {
@@ -78,7 +78,7 @@
       "l": 59,
       "pnl": 2361.82,
       "name": "dependent.snail8369",
-      "ts": 1795535077,
+      "ts": 1795533365,
       "boost": true
     },
     "pogoburger": {
@@ -87,11 +87,83 @@
       "l": 0,
       "pnl": 0.0,
       "name": "pogoburger",
-      "ts": 1795535077,
+      "ts": 1795533365,
+      "boost": false
+    },
+    "door.whale": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "door.whale",
+      "ts": 1795533365,
+      "boost": false
+    },
+    "reluctant.fox5394": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "reluctant.fox5394",
+      "ts": 1795533365,
+      "boost": false
+    },
+    "yunktrader": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "yunktrader",
+      "ts": 1795533365,
+      "boost": false
+    },
+    "iluminado": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "iluminado",
+      "ts": 1795533365,
+      "boost": false
+    },
+    "regine": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "regine",
+      "ts": 1795533365,
+      "boost": false
+    },
+    "allhunnsno20sr10s": {
+      "n": 61,
+      "w": 15,
+      "l": 46,
+      "pnl": 486.57,
+      "name": "AllHunnsNo20sR10s",
+      "ts": 1795533365,
+      "boost": true
+    },
+    "714smith": {
+      "n": 373,
+      "w": 201,
+      "l": 172,
+      "pnl": 100.59,
+      "name": "714Smith",
+      "ts": 1795533365,
+      "boost": true
+    },
+    "opposite.dolphin8700": {
+      "n": 105,
+      "w": 23,
+      "l": 82,
+      "pnl": -1050.63,
+      "name": "opposite.dolphin8700",
+      "ts": 1795533365,
       "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795535077,
+  "updatedTs": 1795533365,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
