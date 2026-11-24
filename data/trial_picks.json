@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 11:13 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:53 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6635,6 +6635,27 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 11:03 AM PT",
       "recordedTs": 1795547016,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "reluctant.fox5394|KXAFCCLTOTAL-26NOV24ALNSAD-4|Yes",
+      "nickname": "reluctant.fox5394",
+      "ticker": "KXAFCCLTOTAL-26NOV24ALNSAD-4",
+      "eventTicker": "KXAFCCLTOTAL-26NOV24ALNSAD",
+      "game": "Al Nassr vs Al Sadd: Total Goals",
+      "backing": "Over 3.5 goals scored",
+      "yesNo": "Yes",
+      "entry": 0.3251,
+      "price": 0.6,
+      "cost": 4686.18,
+      "contracts": 14416.0,
+      "startTs": 1795558500,
+      "league": "Sports",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 11:53 AM PT",
+      "recordedTs": 1795550006,
       "status": "open",
       "result": null,
       "settledAt": null

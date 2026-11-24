@@ -1999,7 +1999,8 @@
       "startTs": 1795539600,
       "firstTs": 1795533365,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795550006
     },
     "falcon999|KXNBAGAME-26NOV24DETORL-ORL|Yes": {
       "capper": "falcon999",
@@ -2060,7 +2061,17 @@
       "firstTs": 1795546132,
       "combo": false,
       "status": "open"
+    },
+    "reluctant.fox5394|KXAFCCLTOTAL-26NOV24ALNSAD-4|Yes": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXAFCCLTOTAL-26NOV24ALNSAD-4",
+      "side": "Yes",
+      "price": 0.6,
+      "startTs": 1795558500,
+      "firstTs": 1795550006,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795547609
+  "updatedTs": 1795550006
 }
