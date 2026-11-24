@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 9:53 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 10:03 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6667,28 +6667,28 @@
       "ageDays": 399,
       "graded": {
         "n": 400,
-        "w": 229,
-        "l": 171,
+        "w": 227,
+        "l": 173,
         "roi": null,
-        "profit": 7.03,
+        "profit": -72.57,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 229,
-        "l": 171,
+        "w": 227,
+        "l": 173,
         "roi": null,
-        "profit": 7.03,
+        "profit": -72.57,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "714Smith \u00b7 229-171 \u00b7 +$192 all",
+      "recordLine": "714Smith \u00b7 227-173 \u00b7 +$192 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9414,7 +9414,7 @@
         "w": 142,
         "l": 113,
         "roi": null,
-        "profit": -806.01,
+        "profit": -806.5,
         "sample": "positions"
       },
       "gradedAll": {
@@ -9422,7 +9422,7 @@
         "w": 142,
         "l": 113,
         "roi": null,
-        "profit": -806.01,
+        "profit": -806.5,
         "sample": "positions"
       },
       "sports": {
@@ -9440,7 +9440,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 8,
+      "openPositions": 6,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -13169,7 +13169,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
