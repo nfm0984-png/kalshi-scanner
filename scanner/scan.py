@@ -1910,6 +1910,100 @@ def enrich_follow_cappers(following, live_cappers):
     return following
 
 
+SCANNER_REC_PATH = os.path.join(DATA_DIR, "scanner_record.json")
+COLD_MIN_N = 20  # K1 (Noel Nov 23): 20+ graded scanner picks and net negative -> sorted to the bottom
+COLD_EXEMPT = ("falcon999", "bwmarkets")
+
+
+def _rec_grade(http, row, mcache, log=print):
+    """Grade one scanner-record row from Kalshi's official result. Combos lose as soon as a leg loses."""
+    try:
+        m = lib.market_quote(http, row["ticker"], mcache) or {}
+    except Exception as e:
+        log("scanner record grade skip %s: %s" % (row.get("ticker"), e))
+        return None
+    v = trial_grade(m, row.get("side"))
+    if v or (row.get("side") or "").lower() != "yes":
+        return v
+    legs = m.get("mve_selected_legs") or []
+    if not legs:
+        return None
+    done = True
+    for lg in legs:
+        try:
+            lm = lib.market_quote(http, lg.get("market_ticker"), mcache) or {}
+        except Exception:
+            done = False
+            continue
+        r = (lm.get("result") or "").lower()
+        if r in ("yes", "no"):
+            if r != (lg.get("side") or "").lower():
+                return "loss"
+        else:
+            done = False
+    return "win" if done else None
+
+
+def update_scanner_record(http, games, now, mcache, ecache, log=print):
+    """Record every $500+ pick the Ranked list can show (first price seen, pre-game only), grade it
+    after the game, and keep a per-capper flat-$1 record. Feeds the cold-capper demotion (K1)."""
+    led = load_json(SCANNER_REC_PATH, {"note": "", "picks": {}})
+    rows = led.setdefault("picks", {})
+    added = graded = 0
+    for g in games or []:
+        for p in g.get("picks") or []:
+            st = p.get("startTs") or g.get("startTs") or 0
+            if not st or st <= now:
+                continue
+            view = p.get("view") or {}
+            px = view.get("price")
+            side = view.get("yesNo") or (p.get("key") or "|").split("|")[-1]
+            for b in p.get("backers") or []:
+                if (b.get("cost") or 0) < MIN_BET or not b.get("name"):
+                    continue
+                rid = "%s|%s" % (nick_key(b.get("name")), p.get("key"))
+                if rid in rows:
+                    continue
+                price = px if isinstance(px, (int, float)) and 0 < px < 1 else b.get("avg")
+                rows[rid] = {"capper": b.get("name"), "ticker": p.get("ticker"), "side": side, "price": price,
+                             "startTs": st, "firstTs": now, "combo": bool(p.get("isCombo")), "status": "open"}
+                added += 1
+    budget = 60
+    for row in rows.values():
+        if row.get("status") != "open" or (row.get("startTs") or 0) > now - 1800 or budget <= 0:
+            continue
+        budget -= 1
+        v = _rec_grade(http, row, mcache, log)
+        if v:
+            row["status"] = v
+            row["gradedTs"] = now
+            graded += 1
+    stats = {}
+    for row in rows.values():
+        if row.get("status") not in ("win", "loss"):
+            continue
+        k = nick_key(row.get("capper"))
+        s = stats.setdefault(k, {"name": row.get("capper"), "n": 0, "w": 0, "l": 0, "units": 0.0})
+        px = row.get("price") or 0
+        s["n"] += 1
+        if row["status"] == "win":
+            s["w"] += 1
+            s["units"] += (1.0 / px - 1.0) if 0 < px < 1 else 0.0
+        else:
+            s["l"] += 1
+            s["units"] -= 1.0
+    for k, s in stats.items():
+        s["units"] = round(s["units"], 2)
+        s["roi"] = round(100.0 * s["units"] / s["n"], 1) if s["n"] else None
+        s["cold"] = bool(s["n"] >= COLD_MIN_N and s["units"] < 0 and k.lower() not in COLD_EXEMPT)
+    led["note"] = ("Scanner-shown $500+ picks per capper (pre-game, first price seen), graded from official Kalshi results. "
+                   "Flat $1 at the first shown price. A capper with %d+ graded picks and negative units is 'cold' and sorts to the bottom of Ranked Picks (falcon999 and BWmarkets exempt)." % COLD_MIN_N)
+    led["updatedTs"] = now
+    save_json(SCANNER_REC_PATH, led)
+    log("scanner record: +%d new, graded %d, total %d, cold %d" % (added, graded, len(rows), sum(1 for s in stats.values() if s["cold"])))
+    return {"minN": COLD_MIN_N, "updatedTs": now, "cappers": stats}
+
+
 def update_trial_ledger(http, open_picks, pinned, hidden, now, mcache, ecache, log=print):
     """Record each followed pick once; grade open ledger rows when Kalshi has a result."""
     ledger = load_json(TRIAL_PATH, {"startedAt": "", "startedTs": 0, "updatedAt": "", "picks": []})
@@ -2795,6 +2889,7 @@ def build(now=None, log=print):
         "games": games,
         "following": following,
         "scanHistory": record_scan_history(now, cov, games, following, prev),
+        "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
     }
     if used_carry_seed and os.path.exists(CARRY_SEED_PATH):
         try:
@@ -3092,6 +3187,7 @@ def build_follow_check(now=None, log=print):
         "games": games,
         "following": following,
         "scanHistory": prev.get("scanHistory") or load_json(HISTORY_PATH, {"scans": []}).get("scans") or [],
+        "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
     }
     log(
         "follow-check refreshed {activeRefreshed}/{namesChecked} carried {carriedPicks} "

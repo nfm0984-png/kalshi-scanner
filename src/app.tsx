@@ -57,7 +57,7 @@ interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; 
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number; database?: CapperDatabase }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
-interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[] }
+interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean }> } }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -1200,6 +1200,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           {props.game.live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
           <AddedChip backers={p.backers} now={props.now} />
+          <ColdChip p={p} />
         </div>
         {isComboPick(p) ? (
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
@@ -1305,6 +1306,33 @@ function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boo
 }
 
 interface RankedCard { p: Pick; game: Game; rec: WL; cappers: number; net: number; raw: number; contested: boolean; proven: boolean; padded: boolean; my40: number; tier: number; bestN: number }
+// K1 (Noel Nov 23): a capper with 20+ graded scanner picks and negative flat-$1 units is "cold".
+// A pick whose $500+ backers are all cold sorts below every other pick. falcon999/BWmarkets never go cold.
+function scannerRecOf(name: string): { n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean } | null {
+  const m = (DATA.scannerRecord && DATA.scannerRecord.cappers) || {};
+  const k = (name || "").trim();
+  if (m[k]) return m[k];
+  const lk = k.toLowerCase();
+  const hit = Object.keys(m).find((x: string) => x.toLowerCase() === lk);
+  return hit ? m[hit] : null;
+}
+function isColdBacker(name: string): boolean {
+  const k = (name || "").trim().toLowerCase();
+  if (k === "falcon999" || k === "bwmarkets") return false;
+  const r = scannerRecOf(name);
+  return !!(r && r.cold);
+}
+function isColdPick(p: Pick): boolean {
+  const bs = (p.backers || []).filter((b: Backer) => stakeOk(b.cost));
+  return bs.length > 0 && bs.every((b: Backer) => isColdBacker(b.name));
+}
+function ColdChip(props: { p: Pick }): React.ReactElement | null {
+  if (!isColdPick(props.p)) return null;
+  const b = (props.p.backers || []).find((x: Backer) => isColdBacker(x.name));
+  const r = b ? scannerRecOf(b.name) : null;
+  const txt = r ? "Cold on scanner " + r.w + "-" + r.l + " · " + (r.units >= 0 ? "+" : "") + r.units.toFixed(1) + "u" : "Cold on scanner";
+  return <span data-cold="1" title="This capper's last 20+ graded scanner picks lost money at flat $1, so the pick is ranked at the bottom" style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: "#FEF3C7", color: "#92400E", border: "1.5px solid #F59E0B", fontSize: 12, fontWeight: 850 }}>{"🧊 " + txt}</span>;
+}
 function rankedPicks(games: Game[]): RankedCard[] {
   const cards: RankedCard[] = [];
   games.forEach((game: Game) => {
@@ -1314,7 +1342,7 @@ function rankedPicks(games: Game[]): RankedCard[] {
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  return cards.sort((a: RankedCard, b: RankedCard) => rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
 function pickRankMap(games: Game[]): Record<string, number> {
   const m: Record<string, number> = {};
