@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:21 AM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:24 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6362,6 +6362,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:21 AM PT",
       "recordedTs": 1795530066,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 7:24 AM PT"
+    },
+    {
+      "id": "dependent.snail8369|KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM",
+      "eventTicker": "KXWTACHALLENGERMATCH-26NOV24BOSSAM",
+      "game": "Bosio vs Samson",
+      "backing": "Laura Samson",
+      "yesNo": "Yes",
+      "entry": 0.99,
+      "price": 0.99,
+      "cost": 12017.61,
+      "contracts": 12139.0,
+      "startTs": 1795539600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 7:24 AM PT",
+      "recordedTs": 1795533877,
       "status": "open",
       "result": null,
       "settledAt": null

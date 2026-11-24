@@ -1989,7 +1989,17 @@
       "firstTs": 1795530066,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1795539600,
+      "firstTs": 1795533877,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795530066
+  "updatedTs": 1795533877
 }
