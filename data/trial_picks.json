@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 10:33 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 10:44 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6299,6 +6299,27 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:33 PM PT",
       "recordedTs": 1795502032,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR",
+      "game": "MVE",
+      "backing": "no Matthew Stafford: 300+,no Jared Goff: 300+,no Dak Prescott: 300+,yes Jordan Love: 200+,yes Caleb Williams: 200+,yes Matthew Golden: 60+,yes Tyler Higbee: 25+,yes Blake Corum: 40+,yes Colston Loveland: 1+,yes Amon-Ra St. Brown: 1+,yes Jahmyr Gibbs: 1+,yes Khalil Shakir: 1+,yes Emmett Johnson: 1+",
+      "yesNo": "Yes",
+      "entry": 0.0053,
+      "price": 0.0041,
+      "cost": 659.61,
+      "contracts": 123333.33,
+      "startTs": 1795665600,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Mon Nov 23 \u00b7 10:44 PM PT",
+      "recordedTs": 1795502655,
       "status": "open",
       "result": null,
       "settledAt": null
