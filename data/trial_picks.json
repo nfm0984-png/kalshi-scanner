@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 6:23 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 6:26 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -5165,9 +5165,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 1:34 PM PT",
       "recordedTs": 1795469664,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 6:26 PM PT"
     },
     {
       "id": "fen.dachi|KXNBASPREAD-26NOV23SASSAC-SAS17|No",
@@ -5249,9 +5249,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 3:45 PM PT",
       "recordedTs": 1795477503,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 6:26 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV23DELDEL2-DEL2|Yes",
@@ -5291,9 +5291,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 4:00 PM PT",
       "recordedTs": 1795478407,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 6:26 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S20262GTUXP2NZW4CIE6S-TMRK34JEE|Yes",
@@ -5522,9 +5522,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:03 PM PT",
       "recordedTs": 1795485826,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 6:26 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV23PORPHI-POR|Yes",
@@ -5543,9 +5543,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 6:08 PM PT",
       "recordedTs": 1795486127,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 6:26 PM PT"
     },
     {
       "id": "Eibriham|KXMVECROSSCATEGORY-S2026LW6VTANK7KYBHPO4-E5ACQHFPK|Yes",
