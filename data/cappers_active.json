@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 7:59 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:04 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -415,7 +415,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 7,
+      "openPositions": 8,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -849,7 +849,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10216,18 +10216,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 140,
-        "l": 112,
+        "w": 138,
+        "l": 114,
         "roi": null,
-        "profit": -805.3,
+        "profit": -807.74,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 140,
-        "l": 112,
+        "w": 138,
+        "l": 114,
         "roi": null,
-        "profit": -805.3,
+        "profit": -807.74,
         "sample": "positions"
       },
       "sports": {
@@ -10240,12 +10240,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 140-112 \u00b7 Best at Tennis \u00b7 +$1.99k all",
+      "recordLine": "emji.emji \u00b7 138-114 \u00b7 Best at Tennis \u00b7 +$1.99k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 8,
+      "openPositions": 7,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -12057,8 +12057,8 @@
       "postsVisible": true,
       "openPositions": 5,
       "pickSource": "positions+posts",
-      "pickCount": 4,
-      "followCount": 3
+      "pickCount": 3,
+      "followCount": 2
     },
     {
       "nickname": "truewonder",
