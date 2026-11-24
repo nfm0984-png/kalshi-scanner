@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 8:19 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:24 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -415,7 +415,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 10,
+      "openPositions": 11,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -6642,29 +6642,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 80,
-        "w": 53,
+        "n": 81,
+        "w": 54,
         "l": 27,
         "roi": null,
-        "profit": 263.28,
+        "profit": 273.31,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 80,
-        "w": 53,
+        "n": 81,
+        "w": 54,
         "l": 27,
         "roi": null,
-        "profit": 263.28,
+        "profit": 273.31,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 53-27 \u00b7 +$198 all",
+      "recordLine": "brand.breeze \u00b7 54-27 \u00b7 +$198 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 12,
+      "openPositions": 11,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -7417,7 +7417,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10216,18 +10216,18 @@
       "ageDays": 292,
       "graded": {
         "n": 400,
-        "w": 138,
-        "l": 114,
+        "w": 140,
+        "l": 111,
         "roi": null,
-        "profit": -807.74,
+        "profit": -803.83,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 138,
-        "l": 114,
+        "w": 140,
+        "l": 111,
         "roi": null,
-        "profit": -807.74,
+        "profit": -803.83,
         "sample": "positions"
       },
       "sports": {
@@ -10240,7 +10240,7 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "emji.emji \u00b7 138-114 \u00b7 Best at Tennis \u00b7 +$1.95k all",
+      "recordLine": "emji.emji \u00b7 140-111 \u00b7 Best at Tennis \u00b7 +$1.95k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -13316,7 +13316,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 45,
+      "openPositions": 41,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -14169,6 +14169,13 @@
         "sample": "full"
       },
       "sports": {
+        "NBA": {
+          "n": 1,
+          "w": 1,
+          "l": 0,
+          "roi": 112.9,
+          "profit": 107.7
+        },
         "NFL": {
           "n": 2,
           "w": 2,
@@ -14183,7 +14190,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -25331,7 +25338,7 @@
         "w": 328,
         "l": 72,
         "roi": null,
-        "profit": 23262.29,
+        "profit": 23205.43,
         "sample": "positions"
       },
       "gradedAll": {
@@ -25339,7 +25346,7 @@
         "w": 328,
         "l": 72,
         "roi": null,
-        "profit": 23262.29,
+        "profit": 23205.43,
         "sample": "positions"
       },
       "sports": {},
@@ -25376,9 +25383,9 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 13,
+      "openPositions": 8,
       "pickSource": "positions+posts",
-      "pickCount": 1,
+      "pickCount": 0,
       "followCount": 0
     },
     {

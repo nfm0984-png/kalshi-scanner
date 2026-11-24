@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Mon Nov 23 \u00b7 8:19 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 8:24 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -3086,9 +3086,9 @@
       "bt": "Spread",
       "recordedAt": "Sun Nov 22 \u00b7 12:24 AM PT",
       "recordedTs": 1795335891,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
     },
     {
       "id": "parspectives|KXNFLGAME-26NOV22TBDET-DET|Yes",
@@ -5354,9 +5354,9 @@
       "bt": "Player props",
       "recordedAt": "Mon Nov 23 \u00b7 5:27 PM PT",
       "recordedTs": 1795483630,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026GF4MUELQBL54JBOX-T35UHLIIN|Yes",
@@ -5690,9 +5690,9 @@
       "bt": "Spread",
       "recordedAt": "Mon Nov 23 \u00b7 6:29 PM PT",
       "recordedTs": 1795487353,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Mon Nov 23 \u00b7 8:24 PM PT"
     },
     {
       "id": "regine|KXNBASPREAD-26NOV23OKCIND-IND5|No",
