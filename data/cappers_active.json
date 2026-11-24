@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Mon Nov 23 \u00b7 5:30 PM PT",
+  "updatedAt": "Mon Nov 23 \u00b7 5:38 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6281,29 +6281,29 @@
       "tape30d": null,
       "ageDays": 292,
       "graded": {
-        "n": 77,
-        "w": 50,
+        "n": 78,
+        "w": 51,
         "l": 27,
         "roi": null,
-        "profit": 233.22,
+        "profit": 243.21,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 77,
-        "w": 50,
+        "n": 78,
+        "w": 51,
         "l": 27,
         "roi": null,
-        "profit": 233.22,
+        "profit": 243.21,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 50-27 \u00b7 +$211 all",
+      "recordLine": "brand.breeze \u00b7 51-27 \u00b7 +$211 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 13,
+      "openPositions": 12,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9858,7 +9858,7 @@
         "w": 136,
         "l": 114,
         "roi": null,
-        "profit": -813.7,
+        "profit": -813.53,
         "sample": "positions"
       },
       "gradedAll": {
@@ -9866,7 +9866,7 @@
         "w": 136,
         "l": 114,
         "roi": null,
-        "profit": -813.7,
+        "profit": -813.53,
         "sample": "positions"
       },
       "sports": {
@@ -9884,7 +9884,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 8,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -11970,10 +11970,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 7,
       "pickSource": "positions+posts",
-      "pickCount": 4,
-      "followCount": 4
+      "pickCount": 5,
+      "followCount": 5
     },
     {
       "nickname": "truewonder",
@@ -13386,7 +13386,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 38,
+      "openPositions": 42,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -25119,10 +25119,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 11,
+      "openPositions": 12,
       "pickSource": "positions+posts",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "quintessential.kiwi",
