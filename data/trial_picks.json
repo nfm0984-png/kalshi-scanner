@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:13 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:18 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7139,6 +7139,27 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
       "recordedTs": 1795572224,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ",
+      "game": "Alabama A&M vs North Alabama",
+      "backing": "yes North Alabama,yes Air Force,yes Cornell,yes Washington,yes Green Bay,yes Texas Tech,yes Mount St. Mary's,yes Oral Roberts,yes Purdue Fort Wayne",
+      "yesNo": "Yes",
+      "entry": 0.088,
+      "price": 0.078,
+      "cost": 469.57,
+      "contracts": 5336.0,
+      "startTs": 1795564800,
+      "league": "NCAAB",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 6:18 PM PT",
+      "recordedTs": 1795573123,
       "status": "open",
       "result": null,
       "settledAt": null
