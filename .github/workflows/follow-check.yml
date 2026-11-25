@@ -1,16 +1,26 @@
 name: Kalshi follow-check
-# Starts at :25 and :50 UTC each hour (same minute in PT while the offset is
-# whole hours) and re-checks every Best Capper's public book about every 5
-# minutes until just before the :20 full scan. A second cron recovers when
+# Starts at :25 and :50 UTC in hours when 6:30 AM–midnight PT can fall,
+# and re-checks every Best Capper's public book about every 5 minutes until
+# just before the :20 full scan. A second cron in the hour recovers when
 # GitHub delays the first job past the :18–:20 yield window (a late :30
 # start was often doing only one pass). GitHub's */5 cron is too often
-# delayed or dropped. Scheduled runs no-op from midnight–6 AM
-# America/Los_Angeles (DST-safe). Manual dispatch is always allowed,
-# including overnight (one pass, or a loop).
+# delayed or dropped.
+# Quiet window: 12:00 AM–6:30 AM America/Los_Angeles (do not run). Cron is
+# written for PT = UTC-8 (current PST) and also fires 13:50 UTC so 6:50 AM
+# PDT is still covered after DST; an in-job America/Los_Angeles guard
+# no-ops any fire that lands inside the quiet window. Manual dispatch is
+# always allowed, including overnight (one pass, or a loop).
 on:
   schedule:
-    - cron: "25 * * * *"
-    - cron: "50 * * * *"
+    # 6:50 AM PDT (13:50 UTC). 13:25 UTC is 6:25 AM PDT / 5:25 AM PST, still quiet.
+    - cron: "50 13 * * *"
+    # 6:50 AM PST (14:50 UTC). 14:25 UTC is 6:25 AM PST (quiet, no-op by the
+    # in-job guard) and 7:25 AM PDT (allowed).
+    - cron: "25,50 14 * * *"
+    # 7:25 AM–3:50 PM PST (15:25–23:50 UTC)
+    - cron: "25,50 15-23 * * *"
+    # 4:25 PM–11:50 PM PST (00:25–07:50 UTC)
+    - cron: "25,50 0-7 * * *"
   workflow_dispatch:
     inputs:
       once:
@@ -36,7 +46,7 @@ jobs:
     env:
       KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
-      - name: Quiet hours (midnight–6 AM PT)
+      - name: Quiet hours (midnight–6:30 AM PT)
         id: quiet
         if: github.event_name == 'schedule'
         run: |
@@ -46,8 +56,8 @@ jobs:
           from datetime import datetime
           from zoneinfo import ZoneInfo
           now = datetime.now(ZoneInfo("America/Los_Angeles"))
-          skip = 0 <= now.hour < 6
-          print("PT now %s hour=%d quiet=%s" % (now.strftime("%a %b %-d %-I:%M %p %Z"), now.hour, skip))
+          skip = now.hour < 6 or (now.hour == 6 and now.minute < 30)
+          print("PT now %s hour=%d minute=%d quiet=%s" % (now.strftime("%a %b %-d %-I:%M %p %Z"), now.hour, now.minute, skip))
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write("skip=%s\n" % ("1" if skip else "0"))
           PY

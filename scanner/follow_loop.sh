@@ -33,8 +33,8 @@ import sys
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 now_pt = datetime.now(ZoneInfo("America/Los_Angeles"))
-if 0 <= now_pt.hour < 6:
-    print("quiet hours — stopping the follow loop")
+if now_pt.hour < 6 or (now_pt.hour == 6 and now_pt.minute < 30):
+    print("quiet hours (midnight-6:30 AM PT) — stopping the follow loop")
     sys.exit(0)
 sys.exit(1)
 PY
