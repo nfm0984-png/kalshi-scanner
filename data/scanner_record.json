@@ -2130,7 +2130,8 @@
       "startTs": 1795572000,
       "firstTs": 1795558210,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795581870
     },
     "dependent.snail8369|KXITFMATCH-26NOV24SOLBRU-BRU|Yes": {
       "capper": "dependent.snail8369",
@@ -2171,7 +2172,8 @@
       "startTs": 1795572000,
       "firstTs": 1795567702,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795581870
     },
     "VeryLucky888|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
       "capper": "VeryLucky888",
@@ -2734,5 +2736,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795579257
+  "updatedTs": 1795581870
 }
