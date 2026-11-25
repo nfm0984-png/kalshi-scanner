@@ -187,7 +187,7 @@
       "l": 5,
       "pnl": -17227.31,
       "name": "successful.koi2475",
-      "ts": 1795584869,
+      "ts": 1795628305,
       "boost": false
     },
     "king.45": {
@@ -196,7 +196,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "king.45",
-      "ts": 1795584869,
+      "ts": 1795628305,
       "boost": false
     },
     "davmjxn": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795628005,
+  "updatedTs": 1795628305,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
