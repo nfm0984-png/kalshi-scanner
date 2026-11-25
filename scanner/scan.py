@@ -19,6 +19,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
 import lib_cappers as lib
+from write_last20 import last20_map
 
 PT = lib.PT
 MIN_BET_SINGLE = 1000  # show a capper's single when their stake on that side is $1,000+
@@ -1407,6 +1408,120 @@ def capper_quality_ok(cap, now, pick=None, stats=None):
     return True
 
 
+LAST20_MIN_WINS = 6
+LAST20_MIN_N = 6
+SPORT_MIN_N = 5
+MIN_PAYOUT = 1.2
+_LAST20_CACHE = None
+
+
+def last20_rec(cap, pick=None):
+    global _LAST20_CACHE
+    if _LAST20_CACHE is None:
+        try:
+            _LAST20_CACHE = last20_map() or {}
+        except Exception:
+            _LAST20_CACHE = {}
+    nick = nick_key((cap or {}).get("nickname") or (pick or {}).get("nickname") or (pick or {}).get("name") or "")
+    if not nick:
+        return None
+    rec = _LAST20_CACHE.get(nick) or _LAST20_CACHE.get(nick.lower())
+    if rec:
+        return rec
+    for k, v in _LAST20_CACHE.items():
+        if (k or "").lower() == nick.lower():
+            return v
+    return None
+
+
+def capper_form_ok(cap, pick=None, stats=None):
+    """Drop a capper with fewer than 6 wins in their last-20 settled picks. Missing last-20: keep."""
+    rec = last20_rec(cap, pick)
+    if not rec or not rec.get("n"):
+        return True
+    if rec.get("n", 0) >= LAST20_MIN_N and rec.get("w", 0) < LAST20_MIN_WINS:
+        if stats is not None:
+            stats["droppedForm"] = stats.get("droppedForm", 0) + 1
+            stats.setdefault("droppedNames", set()).add(nick_key((cap or {}).get("nickname") or (pick or {}).get("name") or ""))
+        return False
+    return True
+
+
+def _sport_rec_for(cap, league):
+    sports = (cap or {}).get("sports") or {}
+    if not sports:
+        return None, False
+    fam = lib.sport_family(league or "") or (league or "")
+    if not fam:
+        return None, True
+    rec = sports.get(fam) or sports.get((league or "").upper()) or sports.get(league or "")
+    if rec:
+        return rec, True
+    for k, v in sports.items():
+        if (k or "").lower() == fam.lower() or (k or "").lower() == (league or "").lower():
+            return v, True
+    return None, True
+
+
+def capper_sport_ok(cap, pick=None, stats=None, league=None):
+    """Keep only if this pick is in one of the capper's best sports (positive $ PnL, else W-L). Missing data: keep."""
+    lg = league or (pick or {}).get("league") or (pick or {}).get("sport") or ""
+    rec, has_map = _sport_rec_for(cap, lg)
+    if not has_map:
+        return True
+    if rec is None:
+        n = 0
+    else:
+        n = rec.get("n") or 0
+    if n < SPORT_MIN_N:
+        # No reasonable sample in this sport: keep if they have no other best-sport bar, else drop only when a sample exists and failed.
+        return True if rec is None else True  # thin sample: keep
+    profit = _quality_num(rec.get("profit"))
+    if profit is not None:
+        ok = profit > 0
+    else:
+        roi = _quality_num(rec.get("roi"))
+        if roi is not None:
+            ok = roi > 0
+        else:
+            ok = (rec.get("w") or 0) > (rec.get("l") or 0)
+    if not ok and stats is not None:
+        stats["droppedSport"] = stats.get("droppedSport", 0) + 1
+        stats.setdefault("droppedNames", set()).add(nick_key((cap or {}).get("nickname") or (pick or {}).get("name") or ""))
+    return ok
+
+
+def capper_shown_ok(cap, now, pick=None, stats=None, league=None):
+    """Quality + last-20 form + best-sport. Used wherever a capper is shown on a pick."""
+    if not capper_quality_ok(cap, now, pick, stats):
+        return False
+    if not capper_form_ok(cap, pick, stats):
+        return False
+    if not capper_sport_ok(cap, pick, stats, league=league or (pick or {}).get("league")):
+        return False
+    return True
+
+
+def pick_payout_ok(p):
+    """Hide picks priced as heavy favorites under 1.2x. Missing price: keep."""
+    if not p:
+        return True
+    pay = p.get("payout")
+    try:
+        if pay is not None and float(pay) > 0:
+            return float(pay) >= MIN_PAYOUT
+    except (TypeError, ValueError):
+        pass
+    view = p.get("view") or {}
+    px = view.get("price")
+    if px is None:
+        px = p.get("price")
+    if not isinstance(px, (int, float)) or not (0 < px < 1):
+        return True
+    return (1.0 / px) >= MIN_PAYOUT - 1e-12
+
+
+
 def capper_map(cappers):
     out = {}
     for c in cappers or []:
@@ -2405,7 +2520,7 @@ def picks_for_slate(c, now=None):
     fol = list(c.get("followingPicks") or [])
     use = fol if fol else list(c.get("picks") or [])
     ts = now if now is not None else time.time()
-    return [p for p in use if is_near_term_pick(p, ts) and stake_ok(p) and capper_quality_ok(c, ts, p)]
+    return [p for p in use if is_near_term_pick(p, ts) and stake_ok(p) and capper_shown_ok(c, ts, p) and pick_payout_ok(p)]
 
 
 def followed_slate_cappers(cappers, pinned, now=None):
@@ -2413,7 +2528,10 @@ def followed_slate_cappers(cappers, pinned, now=None):
     rows = []
     for c in cappers or []:
         nick = nick_key(c.get("nickname"))
-        if not nick or nick.lower() not in pinset:
+        if not nick:
+            continue
+        # Best Cappers plus other official-board names so Ranked can show more qualifying $1,000+ picks.
+        if nick.lower() not in pinset and not on_profit_leaderboard(c):
             continue
         rows.append(dict(c, picks=picks_for_slate(c, now=now)))
     return rows
@@ -2427,7 +2545,7 @@ def group_games(cappers, now, log=print):
     for c in cappers:
         rec = c.get("graded")
         for p in c.get("picks") or []:
-            if not stake_ok(p) or not capper_quality_ok(c, now, p, qstats):
+            if not stake_ok(p) or not capper_shown_ok(c, now, p, qstats) or not pick_payout_ok(p):
                 continue
             gid = p.get("eventTicker") or (p.get("game") + "|" + str(p.get("startTs") or 0))
             if gid not in by:
@@ -2510,8 +2628,8 @@ def group_games(cappers, now, log=print):
             if done:
                 dropped.append("%s · %s (%s)" % (g["game"], p.get("big") or "", why))
                 continue
-            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost"), "isCombo": p.get("isCombo"), "legs": p.get("legs"), "ticker": p.get("ticker"), "bt": p.get("bt"), "comboUrl": p.get("comboUrl")}) and capper_quality_ok(cmap.get(nick_key(b.get("name")).lower()), now, b, qstats)]
-            if not p["backers"]:
+            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost"), "isCombo": p.get("isCombo"), "legs": p.get("legs"), "ticker": p.get("ticker"), "bt": p.get("bt"), "comboUrl": p.get("comboUrl")}) and capper_shown_ok(cmap.get(nick_key(b.get("name")).lower()), now, b, qstats, league=g.get("league") or p.get("league"))]
+            if not p["backers"] or not pick_payout_ok(p):
                 continue
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
             p["total"] = round(sum(b.get("cost") or 0 for b in p["backers"]), 2)
@@ -2764,7 +2882,7 @@ def carry_forward_following(new_picks, prev, now, http, mcache, ecache, log=prin
         if not stake_ok(p):
             return False
         cap = prev_caps.get(nick_key(p.get("nickname")).lower())
-        if cap is not None and not capper_quality_ok(cap, now, p):
+        if cap is not None and not capper_shown_ok(cap, now, p):
             return False
         return is_near_term_pick(p, now)
     seen = {fid(p) for p in (new_picks or []) if allowed(p)}
@@ -3078,7 +3196,7 @@ def build(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_quality_ok(c, now, p):
+            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_shown_ok(c, now, p) or not pick_payout_ok(p):
                 continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
@@ -3352,7 +3470,7 @@ def build_follow_check(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_quality_ok(c, now, p):
+            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_shown_ok(c, now, p) or not pick_payout_ok(p):
                 continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)

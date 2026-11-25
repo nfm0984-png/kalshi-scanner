@@ -468,6 +468,41 @@ function capperQualityOk(name: string | undefined, now: number, lastMap?: Record
   if (last != null && last < now - QUALITY_SEVEN_SECS) return false;
   return true;
 }
+
+const LAST20_MIN_WINS = 6;
+const LAST20_MIN_N = 6;
+const SPORT_MIN_N = 5;
+const MIN_PAYOUT = 1.2;
+function capperFormOk(name?: string): boolean {
+  const r = last20Of(name || "");
+  if (!r || !r.n) return true;
+  return !(r.n >= LAST20_MIN_N && r.w < LAST20_MIN_WINS);
+}
+function capperSportOk(name: string | undefined, league?: string | null): boolean {
+  const c = capperOf(name || "");
+  const sports = c && c.sports;
+  if (!sports || !Object.keys(sports).length) return true;
+  const fam = sportFamilyOf(league);
+  if (!fam) return true;
+  const rec = sports[fam] || sports[(league || "")] || sports[(league || "").toUpperCase()] || (Object.keys(sports).map((k: string) => sports[k] && k.toLowerCase() === fam.toLowerCase() ? sports[k] : null).find(Boolean) as SportRec | undefined);
+  if (!rec || !(rec.n >= SPORT_MIN_N)) return true;
+  const profit = qualityNum(rec.profit);
+  if (profit != null) return profit > 0;
+  const roi = qualityNum(rec.roi);
+  if (roi != null) return roi > 0;
+  return (rec.w || 0) > (rec.l || 0);
+}
+function capperShownOk(name: string | undefined, now: number, lastMap?: Record<string, number>, league?: string | null): boolean {
+  return capperQualityOk(name, now, lastMap) && capperFormOk(name) && capperSportOk(name, league);
+}
+function pickPayoutOk(p: { payout?: number | null; view?: { price?: number | null }; price?: number | null } | null | undefined): boolean {
+  if (!p) return true;
+  if (p.payout != null && p.payout > 0) return p.payout >= MIN_PAYOUT;
+  const px = (p.view && p.view.price != null) ? p.view.price : (p.price != null ? p.price : null);
+  if (px == null || !(px > 0 && px < 1)) return true;
+  return (1 / px) >= MIN_PAYOUT;
+}
+
 function gradedWL(c?: Capper | null): { w: number; l: number; n: number; roi: number | null; profit: number | null; sample?: string } | null {
   const g = c && c.graded;
   if (!g || !(g.n > 0)) return null;
@@ -793,10 +828,10 @@ function filterMinStakeGames(games: Game[], now?: number): Game[] {
   const lastMap = capperLastTsMap(ts);
   return games.map((g: Game) => {
     const picks = (g.picks || []).map((p: Pick) => {
-      const backers = (p.backers || []).filter((b: Backer) => stakeOk(b.cost, p) && capperQualityOk(b.name, ts, lastMap));
+      const backers = (p.backers || []).filter((b: Backer) => stakeOk(b.cost, p) && capperShownOk(b.name, ts, lastMap, g.league));
       const total = Math.round(backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
       return { ...p, backers, total };
-    }).filter((p: Pick) => p.backers.length);
+    }).filter((p: Pick) => p.backers.length && pickPayoutOk(p));
     return { ...g, picks };
   }).filter((g: Game) => (g.picks || []).length);
 }
@@ -831,7 +866,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
   const fps = ((DATA.following || {}).picks || []) as FollowPick[];
   fps.forEach((fp: FollowPick) => {
     if (followPickIsFinished(fp, now)) return;
-    if (!stakeOk(fp.cost, fp) || !capperQualityOk(fp.nickname, now)) return;
+    if (!stakeOk(fp.cost, fp) || !capperShownOk(fp.nickname, now, undefined, fp.league) || !pickPayoutOk(fp)) return;
     const start = fp.startTs || (fp.legs && fp.legs.reduce((m: number, l: ComboLeg) => (l.startTs && (!m || l.startTs < m) ? (l.startTs as number) : m), 0)) || fp.closeTs || 0;
     if (!start || start > now + 30 * 24 * 3600) return;
     const yesNo = (fp.yesNo === "No" ? "No" : "Yes") as "Yes" | "No";
@@ -1531,6 +1566,8 @@ function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElem
   else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the cappers paid. Label only; ranking unchanged." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
   const cb = comboBoostBacker(p);
   if (cb) { const r = comboRecOf(cb.name); if (r) out.push(<span key="cb" data-combo-boost="1" title="This capper's own Kalshi combos are profitable over 30+ settled combos, so the combo gets a ranking boost" style={flagChip("#ECFDF5", "#047857", "#10B981")}>{"🔗 Combo pro " + r.w + "-" + r.l + " · " + (r.pnl >= 0 ? "+$" : "-$") + (Math.abs(r.pnl) >= 1000 ? (Math.abs(r.pnl) / 1000).toFixed(1) + "k" : String(Math.round(Math.abs(r.pnl))))}</span>); }
+  const agreeN = (p.backers || []).length;
+  if (agreeN >= 2) out.push(<span key="ag" data-agree="1" title="Two or more cappers who pass the quality filter are on this pick. Label only; ranking unchanged." style={flagChip("#EEF2FF", "#3730A3", "#818CF8")}>{agreeN + " agree"}</span>);
   return out.length ? <>{out}</> : null;
 }
 function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
@@ -1608,6 +1645,47 @@ function BestCappersRoster() {
     </details>
   );
 }
+
+interface ScorecardPick { result?: string; pnl?: number | null; capper?: string; label?: string; q?: string; side?: string; ticker?: string; combo?: boolean }
+interface Scorecard { date?: string; label?: string; updatedAt?: string; w?: number; l?: number; pending?: number; pnl?: number | null; pnlNote?: string; pnlPartial?: boolean; picks?: ScorecardPick[] }
+function moneyAbs(n: number): string {
+  const a = Math.abs(n);
+  if (a >= 1000) return (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
+  return String(Math.round(a));
+}
+function ScorecardBlock(): React.ReactElement | null {
+  const [sc, setSc] = useState<Scorecard | null>(null);
+  useEffect(() => {
+    fetch("scorecard.json?t=" + Date.now()).then((r) => r.ok ? r.json() : null).then((d: Scorecard) => { if (d && (d.date || d.label)) setSc(d); }).catch(() => {});
+  }, []);
+  if (!sc) return null;
+  const w = sc.w || 0, l = sc.l || 0, pending = sc.pending || 0;
+  const pnl = sc.pnl;
+  const pnlStr = (pnl == null) ? "" : ((pnl >= 0 ? "+$" : "-$") + moneyAbs(pnl));
+  const heading = "Yesterday · " + w + "–" + l + (pending ? " · " + pending + " pending" : "") + (pnlStr ? " · " + pnlStr : "") + (sc.pnlPartial ? " (partial $)" : "");
+  return (
+    <Section heading={heading} caption={(sc.label || "Yesterday") + (sc.pnlNote ? " · " + sc.pnlNote : "") + (sc.updatedAt ? " · updated " + sc.updatedAt : "")}>
+      {(sc.picks || []).length === 0 ? <Text>No scanner picks started yesterday.</Text> : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6 }}>
+          {(sc.picks || []).map((row: ScorecardPick, i: number) => {
+            const res = row.result || "pending";
+            const title = row.label || row.q || row.ticker || row.capper || ("Pick " + (i + 1));
+            const who = row.capper || row.side || "";
+            const dol = row.pnl == null ? "" : ((row.pnl >= 0 ? "+$" : "-$") + moneyAbs(row.pnl));
+            const color = res === "W" ? "#047857" : res === "L" ? "#B91C1C" : "#64748B";
+            return (
+              <div key={i} style={{ display: "flex", justifyContent: "space-between", gap: 10, fontSize: 13, fontWeight: 700, color: "#0F172A" }}>
+                <span style={{ overflowWrap: "anywhere" }}><span style={{ color, fontWeight: 850, marginRight: 6 }}>{res}</span>{title}{who && title !== who ? " · " + who : ""}</span>
+                {dol ? <span style={{ color, flex: "none", fontVariantNumeric: "tabular-nums" }}>{dol}</span> : null}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </Section>
+  );
+}
+
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
@@ -1616,6 +1694,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const singleN = list.length - comboN;
   return (
     <div>
+      <ScorecardBlock />
       <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
@@ -1629,7 +1708,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
 function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   const F = DATA.following || { cappers: [], picks: [], startedAt: "", recorded: 0, graded: 0 };
   const caps = F.cappers || [];
-  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now) && stakeOk(fp.cost, fp) && capperQualityOk(fp.nickname, props.now));
+  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now) && stakeOk(fp.cost, fp) && capperShownOk(fp.nickname, props.now, undefined, fp.league) && pickPayoutOk(fp));
   const byName: Record<string, FollowPick[]> = {};
   picks.forEach((fp: FollowPick) => { (byName[fp.nickname] = byName[fp.nickname] || []).push(fp); });
   Object.keys(byName).forEach((k: string) => {
@@ -1852,7 +1931,7 @@ export default function App() {
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
-  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp) && capperQualityOk(fp.nickname, now)).length;
+  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp) && capperShownOk(fp.nickname, now, undefined, fp.league) && pickPayoutOk(fp)).length;
   const applyData = (data: Data) => {
     DATA = data;
     (window as any).__DATA = data;

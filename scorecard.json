@@ -1,0 +1,392 @@
+{
+  "date": "2026-11-24",
+  "label": "Tue Nov 24, 2026 PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:59 AM PT",
+  "w": 20,
+  "l": 18,
+  "pending": 0,
+  "pnl": -3.17,
+  "pnlNote": "Flat $1 at the first shown price",
+  "picks": [
+    {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.91,
+      "startTs": 1795532400,
+      "result": "W",
+      "pnl": 0.1
+    },
+    {
+      "capper": "dependent.snail8369",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.98,
+      "startTs": 1795539600,
+      "result": "W",
+      "pnl": 0.02
+    },
+    {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.99,
+      "startTs": 1795541400,
+      "result": "W",
+      "pnl": 0.01
+    },
+    {
+      "capper": "iluminado",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24LADLF-LA",
+      "side": "No",
+      "combo": false,
+      "price": 0.1,
+      "startTs": 1795545600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "WorkerTrader",
+      "ticker": "KXAFCCLTOTAL-26NOV24SAHQAD-6",
+      "side": "No",
+      "combo": false,
+      "price": 0.01,
+      "startTs": 1795550400,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.23,
+      "startTs": 1795555200,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV",
+      "side": "Yes",
+      "combo": true,
+      "price": 0.471,
+      "startTs": 1795557600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXAFCCLTOTAL-26NOV24ALNSAD-4",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.6,
+      "startTs": 1795558500,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24RMAPSV-RMA",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.54,
+      "startTs": 1795561200,
+      "result": "W",
+      "pnl": 0.85
+    },
+    {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV24MCINAP-NAP",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.02,
+      "startTs": 1795561200,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "falcon999",
+      "ticker": "KXNBAGAME-26NOV24DETORL-ORL",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.45,
+      "startTs": 1795564800,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "falcon999",
+      "ticker": "KXNBASPREAD-26NOV24DETORL-ORL4",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.39,
+      "startTs": 1795564800,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXNBAREB-26NOV24DETORL-ORLWCARTER34-8",
+      "side": "No",
+      "combo": false,
+      "price": 0.44,
+      "startTs": 1795564800,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLTOTAL-26NOV24MCINAP-5",
+      "side": "No",
+      "combo": false,
+      "price": 0.89,
+      "startTs": 1795564800,
+      "result": "W",
+      "pnl": 0.12
+    },
+    {
+      "capper": "FFun",
+      "ticker": "KXITFMATCH-26NOV24VILROC-ROC",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.41,
+      "startTs": 1795572000,
+      "result": "W",
+      "pnl": 1.44
+    },
+    {
+      "capper": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.97,
+      "startTs": 1795572000,
+      "result": "W",
+      "pnl": 0.03
+    },
+    {
+      "capper": "AmphibiousCaldwellPope",
+      "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.39,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 1.56
+    },
+    {
+      "capper": "BigRabbit",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DAL",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.29,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 2.45
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.72,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN7",
+      "side": "No",
+      "combo": false,
+      "price": 0.46,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 1.17
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN8",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.51,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "dependent.snail8369",
+      "ticker": "KXITFMATCH-26NOV24SOLBRU-BRU",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.98,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 0.02
+    },
+    {
+      "capper": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S",
+      "side": "Yes",
+      "combo": true,
+      "price": 0.168,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "ic4cream",
+      "ticker": "KXNBATOTAL-26NOV24DALDEN-234",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.53,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.54,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.39,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 1.56
+    },
+    {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.52,
+      "startTs": 1795575600,
+      "result": "W",
+      "pnl": 0.92
+    },
+    {
+      "capper": "toottoot",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.72,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "wapol",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.72,
+      "startTs": 1795575600,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "Irresponsible-Autumn",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.63,
+      "startTs": 1795577400,
+      "result": "W",
+      "pnl": 0.59
+    },
+    {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.68,
+      "startTs": 1795577400,
+      "result": "W",
+      "pnl": 0.47
+    },
+    {
+      "capper": "ic4cream",
+      "ticker": "KXNCAAMBSPREAD-26NOV24SJUORE-SJU11",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.53,
+      "startTs": 1795577400,
+      "result": "W",
+      "pnl": 0.89
+    },
+    {
+      "capper": "Irresponsible-Autumn",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24UCHLEO-UCH",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.8,
+      "startTs": 1795582800,
+      "result": "W",
+      "pnl": 0.25
+    },
+    {
+      "capper": "NordhavenCap",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.51,
+      "startTs": 1795586400,
+      "result": "W",
+      "pnl": 0.96
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "No",
+      "combo": false,
+      "price": 0.5,
+      "startTs": 1795586400,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "toottoot",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "No",
+      "combo": false,
+      "price": 0.5,
+      "startTs": 1795586400,
+      "result": "L",
+      "pnl": -1.0
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24IMACHU-IMA",
+      "side": "Yes",
+      "combo": false,
+      "price": 0.53,
+      "startTs": 1795586700,
+      "result": "W",
+      "pnl": 0.89
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXMLSTOTAL-26NOV24SJHOU-4",
+      "side": "No",
+      "combo": false,
+      "price": 0.66,
+      "startTs": 1795590000,
+      "result": "W",
+      "pnl": 0.52
+    }
+  ]
+}
