@@ -7,7 +7,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "falcon999",
-      "ts": 1795620250,
+      "ts": 1795620045,
       "boost": false
     },
     "uuqoo": {
@@ -16,7 +16,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "uuqoo",
-      "ts": 1795620250,
+      "ts": 1795620045,
       "boost": false
     },
     "bama0037": {
@@ -25,17 +25,17 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795574648,
+      "ts": 1795620045,
       "boost": false
     },
     "jackivouce": {
       "n": 2999,
-      "w": 2952,
-      "l": 47,
-      "pnl": 1504.78,
+      "w": 2951,
+      "l": 48,
+      "pnl": -21.96,
       "name": "jackivouce",
-      "ts": 1795574648,
-      "boost": true
+      "ts": 1795620045,
+      "boost": false
     },
     "autofade": {
       "n": 0,
@@ -43,7 +43,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "autofade",
-      "ts": 1795575248,
+      "ts": 1795620045,
       "boost": false
     },
     "loyal.lion9691": {
@@ -499,7 +499,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "VAAAAAAA.11",
-      "ts": 1795621160,
+      "ts": 1795620045,
       "boost": false
     },
     "ffun": {
@@ -508,7 +508,7 @@
       "l": 4,
       "pnl": 117.28,
       "name": "FFun",
-      "ts": 1795621160,
+      "ts": 1795620045,
       "boost": false
     },
     "stiinzy": {
@@ -518,7 +518,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Stiinzy",
-      "ts": 1795622060,
+      "ts": 1795620045,
       "boost": false
     },
     "bigbone69": {
@@ -527,7 +527,7 @@
       "l": 2,
       "pnl": -100.92,
       "name": "Bigbone69",
-      "ts": 1795622060,
+      "ts": 1795620045,
       "boost": false
     },
     "888max": {
@@ -536,7 +536,7 @@
       "l": 2,
       "pnl": -6.99,
       "name": "888max",
-      "ts": 1795622661,
+      "ts": 1795620045,
       "boost": false
     },
     "deadpoet086": {
@@ -545,7 +545,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "deadpoet086",
-      "ts": 1795571564,
+      "ts": 1795620045,
       "boost": false
     },
     "beaudane": {
@@ -554,7 +554,7 @@
       "l": 29,
       "pnl": 1.53,
       "name": "beaudane",
-      "ts": 1795622661,
+      "ts": 1795620045,
       "boost": true
     },
     "absolute.turtle7508": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795622661,
+  "updatedTs": 1795620045,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

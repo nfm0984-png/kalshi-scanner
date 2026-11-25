@@ -1,6 +1,37 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:20 AM PT",
   "scans": [
+    {
+      "ts": 1795620045,
+      "at": "Wed Nov 25 \u00b7 7:20 AM PT",
+      "names": 796,
+      "newFollows": [],
+      "followed": 67,
+      "target": 100,
+      "openPicks": 20,
+      "ids": [
+        "KXNCAAMBGAME-26NOV25SBONBEL-BEL|Yes",
+        "KXNCAAMBGAME-26NOV25SBONBEL-SBON|Yes",
+        "KXITFWMATCH-26NOV25KOVBRO-BRO|Yes",
+        "KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
+        "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
+        "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNFLTOTAL-26NOV26PHIDAL-49|Yes",
+        "KXNFLTOTAL-26NOV26KCBUF-48|Yes",
+        "KXNCAAFSPREAD-26NOV27MINNWIS-WIS8|No",
+        "KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
+        "KXNCAAFGAME-26NOV28MICHOSU-OSU|Yes",
+        "KXNCAAFTOTAL-26NOV28MICHOSU-38|Yes",
+        "KXNCAAFSPREAD-26NOV28CCARJMU-JMU18|No",
+        "KXNCAAFSPREAD-26NOV28KSUISU-ISU5|No",
+        "KXNCAAFSPREAD-26NOV28LIBMOSU-LIB18|No",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "KXNCAAFSPREAD-26NOV28ASUARIZ-ARIZ8|Yes",
+        "KXNFLGAME-26NOV29SEASF-SF|Yes"
+      ]
+    },
     {
       "ts": 1795592293,
       "at": "Tue Nov 24 \u00b7 11:38 PM PT",
@@ -1138,25 +1169,6 @@
         "KXNBATEAMTOTAL-26NOV21BOSSAC-SAC95|Yes",
         "KXNBATEAMTOTAL-26NOV21BOSSAC-BOS99|Yes",
         "KXNBATEAMTOTAL-26NOV21BOSSAC-BOS103|Yes"
-      ]
-    },
-    {
-      "ts": 1795321414,
-      "at": "Sat Nov 21 \u00b7 8:23 PM PT",
-      "names": 220,
-      "newFollows": [
-        "dopesayles",
-        "jakem12",
-        "Kali.Kiddd.007"
-      ],
-      "followed": 15,
-      "target": 40,
-      "openPicks": 4,
-      "ids": [
-        "KXNBAGAME-26NOV21BOSSAC-BOS|Yes",
-        "KXNBAGAME-26NOV21BOSSAC-SAC|No",
-        "KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
-        "KXNBAPTS-26NOV21BOSSAC-SACDACUFF5-25|Yes"
       ]
     }
   ]
