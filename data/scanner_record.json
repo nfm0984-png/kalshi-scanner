@@ -1968,7 +1968,8 @@
       "startTs": 1795505400,
       "firstTs": 1795505224,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795572224
     },
     "falcon999|KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes": {
       "capper": "falcon999",
@@ -2169,5 +2170,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795571924
+  "updatedTs": 1795572224
 }

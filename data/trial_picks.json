@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:58 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6299,9 +6299,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:33 PM PT",
       "recordedTs": 1795502032,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:03 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
@@ -6341,9 +6341,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
       "recordedTs": 1795504456,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:03 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes",
@@ -7118,6 +7118,27 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 5:53 PM PT",
       "recordedTs": 1795571624,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF-6VYKYONUW|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF-6VYKYONUW",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF",
+      "game": "MVE",
+      "backing": "yes Daniss Jenkins: 2+,yes Kevin Huerter: 2+,yes Payton Pritchard: 4+,yes John Collins: 6+",
+      "yesNo": "Yes",
+      "entry": 0.0395,
+      "price": 0.036,
+      "cost": 999.85,
+      "contracts": 25316.45,
+      "startTs": 1795564800,
+      "league": "NBA",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
+      "recordedTs": 1795572224,
       "status": "open",
       "result": null,
       "settledAt": null
