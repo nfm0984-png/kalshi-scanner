@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 5:13 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:18 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -690,7 +690,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6009,28 +6009,28 @@
       "ageDays": 293,
       "graded": {
         "n": 100,
-        "w": 58,
-        "l": 42,
+        "w": 57,
+        "l": 43,
         "roi": null,
-        "profit": 115.25,
+        "profit": 95.46,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 100,
-        "w": 58,
-        "l": 42,
+        "w": 57,
+        "l": 43,
         "roi": null,
-        "profit": 115.25,
+        "profit": 95.46,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 58-42 \u00b7 +$95 all",
+      "recordLine": "brand.breeze \u00b7 57-43 \u00b7 +$95 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 5,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6750,7 +6750,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 40351.44,
+        "profit": 40508.75,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6758,7 +6758,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 40351.44,
+        "profit": 40508.75,
         "sample": "positions"
       },
       "sports": {
@@ -6783,7 +6783,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10026,7 +10026,7 @@
       "postsVisible": false,
       "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 2,
+      "pickCount": 1,
       "followCount": 1
     },
     {
@@ -16857,7 +16857,7 @@
         "w": 222,
         "l": 178,
         "roi": null,
-        "profit": 6174.68,
+        "profit": 6408.96,
         "sample": "positions"
       },
       "gradedAll": {
@@ -16865,7 +16865,7 @@
         "w": 222,
         "l": 178,
         "roi": null,
-        "profit": 6174.68,
+        "profit": 6408.96,
         "sample": "positions"
       },
       "sports": {},
@@ -30049,7 +30049,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
