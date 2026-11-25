@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 1:42 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:47 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8192,6 +8192,27 @@
       "status": "loss",
       "result": "yes",
       "settledAt": "Wed Nov 25 \u00b7 1:42 PM PT"
+    },
+    {
+      "id": "FFun|KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE|Yes",
+      "nickname": "FFun",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE",
+      "eventTicker": "KXWTACHALLENGERMATCH-26NOV25IPERIE",
+      "game": "Oz vs Riera",
+      "backing": "Julia Riera",
+      "yesNo": "Yes",
+      "entry": 0.9685,
+      "price": 1.0,
+      "cost": 1895.28,
+      "contracts": 1957.0,
+      "startTs": 1795644600,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 1:47 PM PT",
+      "recordedTs": 1795643265,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

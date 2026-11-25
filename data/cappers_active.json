@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 1:42 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:47 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -195,10 +195,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "iluminado",
@@ -6252,7 +6252,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9648,29 +9648,29 @@
       "tape30d": null,
       "ageDays": 340,
       "graded": {
-        "n": 166,
+        "n": 167,
         "w": 98,
-        "l": 68,
+        "l": 69,
         "roi": null,
-        "profit": 43069.81,
+        "profit": 42966.08,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 166,
+        "n": 167,
         "w": 98,
-        "l": 68,
+        "l": 69,
         "roi": null,
-        "profit": 43069.81,
+        "profit": 42966.08,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 98-68 \u00b7 +$44.1k all",
+      "recordLine": "fen.dachi \u00b7 98-69 \u00b7 +$44.1k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -15911,7 +15911,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -28062,7 +28062,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -39204,28 +39204,28 @@
       "ageDays": 227,
       "graded": {
         "n": 400,
-        "w": 192,
+        "w": 193,
         "l": 161,
         "roi": null,
-        "profit": 3885.34,
+        "profit": 3889.95,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 192,
+        "w": 193,
         "l": 161,
         "roi": null,
-        "profit": 3885.34,
+        "profit": 3889.95,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FRANKCASH \u00b7 192-161 \u00b7 +$4.39k all",
+      "recordLine": "FRANKCASH \u00b7 193-161 \u00b7 +$4.39k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -45717,7 +45717,7 @@
       "addedAt": "2026-11-25",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 313,
+      "openPositions": 314,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
