@@ -24,7 +24,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795572523,
+      "ts": 1795529166,
       "boost": false
     },
     "jackivouce": {
@@ -33,7 +33,7 @@
       "l": 47,
       "pnl": 1504.78,
       "name": "jackivouce",
-      "ts": 1795572523,
+      "ts": 1795529166,
       "boost": true
     },
     "autofade": {
@@ -42,7 +42,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "autofade",
-      "ts": 1795573424,
+      "ts": 1795530066,
       "boost": false
     },
     "loyal.lion9691": {
@@ -51,7 +51,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "loyal.lion9691",
-      "ts": 1795573424,
+      "ts": 1795530066,
       "boost": false
     },
     "workertrader": {
@@ -537,9 +537,27 @@
       "name": "888max",
       "ts": 1795568361,
       "boost": false
+    },
+    "deadpoet086": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "deadpoet086",
+      "ts": 1795571564,
+      "boost": false
+    },
+    "beaudane": {
+      "n": 62,
+      "w": 33,
+      "l": 29,
+      "pnl": 1.53,
+      "name": "beaudane",
+      "ts": 1795571564,
+      "boost": true
     }
   },
   "minN": 30,
-  "updatedTs": 1795573903,
+  "updatedTs": 1795571564,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

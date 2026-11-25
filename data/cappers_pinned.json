@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Tue Nov 24 \u00b7 6:31 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:52 PM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -216,13 +216,13 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "king.45",
+      "nickname": "Davmjxn",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "Davmjxn",
+      "nickname": "king.45",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -264,12 +264,6 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "Muffat00",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
       "nickname": "ustrader",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -277,6 +271,12 @@
     },
     {
       "nickname": "coolness77",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "Muffat00",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -378,10 +378,22 @@
       "addedAt": "2026-11-23"
     },
     {
+      "nickname": "deadpoet086",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
+    },
+    {
       "nickname": "milesdavis",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "beaudane",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "bullishkirby",
@@ -474,7 +486,9 @@
     "VAAAAAAA.11",
     "drib",
     "Watsons.burnerr",
+    "deadpoet086",
     "milesdavis",
+    "beaudane",
     "bullishkirby",
     "bananastand21",
     "norrisfan",

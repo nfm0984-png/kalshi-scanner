@@ -1,5 +1,5 @@
 {
-  "updatedTs": 1795573903,
+  "updatedTs": 1795571564,
   "minN": 20,
   "lenses": {
     "smart|7d": {
@@ -192,6 +192,778 @@
       "boost": 0.0
     }
   },
-  "picks": {},
+  "picks": {
+    "VeryLucky888|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "price": 0.72,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "toottoot|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
+      "capper": "toottoot",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "price": 0.72,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "wapol|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
+      "capper": "wapol",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "Yes",
+      "price": 0.72,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "BigRabbit|KXNBAGAME-26NOV24DALDEN-DAL|Yes": {
+      "capper": "BigRabbit",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DAL",
+      "side": "Yes",
+      "price": 0.29,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "MrDouche|KXUCLGAME-26NOV25SBHBAR-BAR|No": {
+      "capper": "MrDouche",
+      "ticker": "KXUCLGAME-26NOV25SBHBAR-BAR",
+      "side": "No",
+      "price": 0.1,
+      "startTs": 1795639500,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "proven|7d",
+        "proven|30d",
+        "proven|All",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "ic4cream|KXNBATOTAL-26NOV24DALDEN-234|Yes": {
+      "capper": "ic4cream",
+      "ticker": "KXNBATOTAL-26NOV24DALDEN-234",
+      "side": "Yes",
+      "price": 0.53,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "proven|7d",
+        "smart|30d",
+        "proven|30d",
+        "proven|All",
+        "holds|7d",
+        "holds|30d"
+      ],
+      "status": "open"
+    },
+    "ic4cream|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
+      "capper": "ic4cream",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-LAR",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "proven|7d",
+        "smart|30d",
+        "proven|30d",
+        "proven|All",
+        "holds|7d",
+        "holds|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-LAR",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "lightotunnel35|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
+      "capper": "lightotunnel35",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-LAR",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "proven|7d"
+      ],
+      "status": "open"
+    },
+    "MillyFilly|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
+      "capper": "MillyFilly",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-LAR",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d"
+      ],
+      "status": "open"
+    },
+    "ic4cream|KXNCAAMBSPREAD-26NOV24SJUORE-SJU11|Yes": {
+      "capper": "ic4cream",
+      "ticker": "KXNCAAMBSPREAD-26NOV24SJUORE-SJU11",
+      "side": "Yes",
+      "price": 0.53,
+      "startTs": 1795577400,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "proven|7d",
+        "smart|30d",
+        "proven|30d",
+        "proven|All",
+        "holds|7d",
+        "holds|30d"
+      ],
+      "status": "open"
+    },
+    "Irresponsible-Autumn|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes": {
+      "capper": "Irresponsible-Autumn",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "side": "Yes",
+      "price": 0.63,
+      "startTs": 1795577400,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "smart|All",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "darkumbreon88|KXUCLGAME-26NOV25PSGROM-PSG|Yes": {
+      "capper": "darkumbreon88",
+      "ticker": "KXUCLGAME-26NOV25PSGROM-PSG",
+      "side": "Yes",
+      "price": 0.68,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25PSGROM-PSG|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25PSGROM-PSG",
+      "side": "No",
+      "price": 0.33,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25PSGROM-PSG|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25PSGROM-PSG",
+      "side": "No",
+      "price": 0.33,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25PSGROM-ROM|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25PSGROM-ROM",
+      "side": "No",
+      "price": 0.86,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25PSGROM-ROM|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25PSGROM-ROM",
+      "side": "No",
+      "price": 0.86,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25SPOMUN-SPO|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25SPOMUN-SPO",
+      "side": "No",
+      "price": 0.63,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25SPOMUN-SPO|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25SPOMUN-SPO",
+      "side": "No",
+      "price": 0.63,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25SPOMUN-MUN|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25SPOMUN-MUN",
+      "side": "No",
+      "price": 0.63,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25SPOMUN-MUN|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25SPOMUN-MUN",
+      "side": "No",
+      "price": 0.63,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXNFLSPREAD-26NOV25GBLAR-LAR3|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNFLSPREAD-26NOV25GBLAR-LAR3",
+      "side": "No",
+      "price": 0.5,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "lightotunnel35|KXNFLSPREAD-26NOV25GBLAR-LAR3|Yes": {
+      "capper": "lightotunnel35",
+      "ticker": "KXNFLSPREAD-26NOV25GBLAR-LAR3",
+      "side": "Yes",
+      "price": 0.51,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "proven|7d"
+      ],
+      "status": "open"
+    },
+    "JAMJAMJAM4|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
+      "capper": "JAMJAMJAM4",
+      "ticker": "KXUCLGAME-26NOV25SLAVIL-VIL",
+      "side": "No",
+      "price": 0.56,
+      "startTs": 1795639500,
+      "firstTs": 1795571564,
+      "lenses": [
+        "holds|7d",
+        "holds|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25SLAVIL-VIL",
+      "side": "No",
+      "price": 0.56,
+      "startTs": 1795639500,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "toottoot|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
+      "capper": "toottoot",
+      "ticker": "KXUCLGAME-26NOV25SLAVIL-VIL",
+      "side": "No",
+      "price": 0.56,
+      "startTs": 1795639500,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25SLAVIL-VIL",
+      "side": "No",
+      "price": 0.56,
+      "startTs": 1795639500,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25BRULFC-BRU|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25BRULFC-BRU",
+      "side": "No",
+      "price": 0.79,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25BRULFC-LFC|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25BRULFC-LFC",
+      "side": "No",
+      "price": 0.41,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXNBASPREAD-26NOV24DALDEN-DEN7|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN7",
+      "side": "No",
+      "price": 0.46,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXNBASPREAD-26NOV24DALDEN-DEN8|Yes": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN8",
+      "side": "Yes",
+      "price": 0.51,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLGAME-26NOV25INTVFB-VFB|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLGAME-26NOV25INTVFB-VFB",
+      "side": "No",
+      "price": 0.86,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25INTVFB-INT|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25INTVFB-INT",
+      "side": "No",
+      "price": 0.32,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLTOTAL-26NOV25SPOMUN-4|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLTOTAL-26NOV25SPOMUN-4",
+      "side": "No",
+      "price": 0.59,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXUCLTOTAL-26NOV25SPOMUN-3|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXUCLTOTAL-26NOV25SPOMUN-3",
+      "side": "No",
+      "price": 0.37,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "ax2026|KXUCLTOTAL-26NOV25SPOMUN-3|Yes": {
+      "capper": "ax2026",
+      "ticker": "KXUCLTOTAL-26NOV25SPOMUN-3",
+      "side": "Yes",
+      "price": 0.64,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "holds|7d"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXMLSGAME-26NOV24SJHOU-SJ|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "No",
+      "price": 0.5,
+      "startTs": 1795586400,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "toottoot|KXMLSGAME-26NOV24SJHOU-SJ|No": {
+      "capper": "toottoot",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "No",
+      "price": 0.5,
+      "startTs": 1795586400,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "VeryLucky888|KXMLSTOTAL-26NOV24SJHOU-4|No": {
+      "capper": "VeryLucky888",
+      "ticker": "KXMLSTOTAL-26NOV24SJHOU-4",
+      "side": "No",
+      "price": 0.66,
+      "startTs": 1795590000,
+      "firstTs": 1795571564,
+      "lenses": [
+        "smart|7d",
+        "smart|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "C63AMG|KXUCLGAME-26NOV25LILBMU-TIE|No": {
+      "capper": "C63AMG",
+      "ticker": "KXUCLGAME-26NOV25LILBMU-TIE",
+      "side": "No",
+      "price": 0.78,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "niche|7d",
+        "niche|30d",
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25LILBMU-LIL|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25LILBMU-LIL",
+      "side": "No",
+      "price": 0.82,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "Kch-Temp|KXNFLTOTAL-26NOV25GBLAR-45|Yes": {
+      "capper": "Kch-Temp",
+      "ticker": "KXNFLTOTAL-26NOV25GBLAR-45",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "Siddhartha1|KXUCLSPREAD-26NOV25PSGROM-PSG2|No": {
+      "capper": "Siddhartha1",
+      "ticker": "KXUCLSPREAD-26NOV25PSGROM-PSG2",
+      "side": "No",
+      "price": 0.55,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "JAMJAMJAM4|KXUCLSPREAD-26NOV25PSGROM-PSG2|Yes": {
+      "capper": "JAMJAMJAM4",
+      "ticker": "KXUCLSPREAD-26NOV25PSGROM-PSG2",
+      "side": "Yes",
+      "price": 0.46,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "holds|7d",
+        "holds|30d"
+      ],
+      "status": "open"
+    },
+    "AmphibiousCaldwellPope|KXNBASPREAD-26NOV25PHXHOU-HOU10|No": {
+      "capper": "AmphibiousCaldwellPope",
+      "ticker": "KXNBASPREAD-26NOV25PHXHOU-HOU10",
+      "side": "No",
+      "price": 0.54,
+      "startTs": 1795656600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "niche|7d"
+      ],
+      "status": "open"
+    },
+    "mde4life1986|KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6|Yes": {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
+      "side": "Yes",
+      "price": 0.39,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "AmphibiousCaldwellPope|KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6|Yes": {
+      "capper": "AmphibiousCaldwellPope",
+      "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
+      "side": "Yes",
+      "price": 0.39,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "niche|7d"
+      ],
+      "status": "open"
+    },
+    "BigRabbit|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
+      "capper": "BigRabbit",
+      "ticker": "KXNBAGAME-26NOV25MINOKC-MIN",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795653000,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "mde4life1986|KXNBAGAME-26NOV25MIAPHI-MIA|Yes": {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAGAME-26NOV25MIAPHI-MIA",
+      "side": "Yes",
+      "price": 0.5,
+      "startTs": 1795644000,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "mde4life1986|KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10|Yes": {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10",
+      "side": "Yes",
+      "price": 0.52,
+      "startTs": 1795575600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "royalestake|KXNHLGAME-26NOV25OTTFLA-FLA|Yes": {
+      "capper": "royalestake",
+      "ticker": "KXNHLGAME-26NOV25OTTFLA-FLA",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795651200,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "royalestake|KXNHLGAME-26NOV25UTAMIN-MIN|Yes": {
+      "capper": "royalestake",
+      "ticker": "KXNHLGAME-26NOV25UTAMIN-MIN",
+      "side": "Yes",
+      "price": 0.59,
+      "startTs": 1795654800,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    },
+    "GC-P|KXUCLGAME-26NOV25SHAFEN-FEN|No": {
+      "capper": "GC-P",
+      "ticker": "KXUCLGAME-26NOV25SHAFEN-FEN",
+      "side": "No",
+      "price": 0.6,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "maker|7d",
+        "maker|30d"
+      ],
+      "status": "open"
+    },
+    "toottoot|KXUCLGAME-26NOV25SHAFEN-FEN|No": {
+      "capper": "toottoot",
+      "ticker": "KXUCLGAME-26NOV25SHAFEN-FEN",
+      "side": "No",
+      "price": 0.6,
+      "startTs": 1795647600,
+      "firstTs": 1795571564,
+      "lenses": [
+        "radar|7d",
+        "radar|30d",
+        "radar|All"
+      ],
+      "status": "open"
+    }
+  },
   "missing": []
 }

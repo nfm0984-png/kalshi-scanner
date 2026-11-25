@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:31 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:52 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6278,9 +6278,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:28 PM PT",
       "recordedTs": 1795501732,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026EO6RRNP2KBXPIZUW-WFEUC5IFZ|Yes",
@@ -6301,7 +6301,7 @@
       "recordedTs": 1795502032,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:03 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 5:52 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
@@ -6341,9 +6341,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
       "recordedTs": 1795504456,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:03 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes",
@@ -6425,9 +6425,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
       "recordedTs": 1795535976,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "Profitprofet|KXT20MATCH-26NOV240930EMIGUL-GUL|Yes",
@@ -6614,9 +6614,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
       "recordedTs": 1795546132,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
@@ -7055,9 +7055,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 6:08 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV24BOSWAS-BOS13|No",
@@ -7110,98 +7110,14 @@
       "backing": "Over 139.5 points",
       "yesNo": "No",
       "entry": 0.2664,
-      "price": 0.57,
+      "price": 0.53,
       "cost": 1950.63,
       "contracts": 7321.0,
       "startTs": 1795564800,
       "league": "NCAAB",
       "bt": "Totals",
-      "recordedAt": "Tue Nov 24 \u00b7 5:53 PM PT",
-      "recordedTs": 1795571624,
-      "status": "win",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:13 PM PT"
-    },
-    {
-      "id": "falcon999|KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF-6VYKYONUW|Yes",
-      "nickname": "falcon999",
-      "ticker": "KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF-6VYKYONUW",
-      "eventTicker": "KXMVECROSSCATEGORY-S2026IZXJ6OSFZPYORTMF",
-      "game": "MVE",
-      "backing": "yes Daniss Jenkins: 2+,yes Kevin Huerter: 2+,yes Payton Pritchard: 4+,yes John Collins: 6+",
-      "yesNo": "Yes",
-      "entry": 0.0395,
-      "price": 0.036,
-      "cost": 999.85,
-      "contracts": 25316.45,
-      "startTs": 1795564800,
-      "league": "NBA",
-      "bt": "Combo",
-      "recordedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
-      "recordedTs": 1795572224,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
-    },
-    {
-      "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
-      "nickname": "falcon999",
-      "ticker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H",
-      "eventTicker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ",
-      "game": "Alabama A&M vs North Alabama",
-      "backing": "yes North Alabama,yes Air Force,yes Cornell,yes Washington,yes Green Bay,yes Texas Tech,yes Mount St. Mary's,yes Oral Roberts,yes Purdue Fort Wayne",
-      "yesNo": "Yes",
-      "entry": 0.088,
-      "price": 0.078,
-      "cost": 469.57,
-      "contracts": 5336.0,
-      "startTs": 1795564800,
-      "league": "NCAAB",
-      "bt": "Combo",
-      "recordedAt": "Tue Nov 24 \u00b7 6:18 PM PT",
-      "recordedTs": 1795573123,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
-      "nickname": "dependent.snail8369",
-      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
-      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24MORDEL",
-      "game": "Moriya vs Dellavedova",
-      "backing": "Matthew Dellavedova",
-      "yesNo": "Yes",
-      "entry": 0.9226,
-      "price": 0.94,
-      "cost": 9884.23,
-      "contracts": 10713.0,
-      "startTs": 1795577400,
-      "league": "Tennis",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
-      "recordedTs": 1795573424,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
-      "nickname": "iknowballmorethanu",
-      "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
-      "eventTicker": "KXNCAAMBGAME-26NOV24BAYALA",
-      "game": "Baylor vs Alabama",
-      "backing": "Alabama",
-      "yesNo": "Yes",
-      "entry": 0.54,
-      "price": 0.54,
-      "cost": 4843.8,
-      "contracts": 8970.0,
-      "startTs": 1795575600,
-      "league": "NCAAB",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 6:28 PM PT",
-      "recordedTs": 1795573725,
+      "recordedAt": "Tue Nov 24 \u00b7 5:52 PM PT",
+      "recordedTs": 1795571564,
       "status": "open",
       "result": null,
       "settledAt": null
