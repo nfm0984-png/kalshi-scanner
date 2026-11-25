@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 9:12 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:17 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7979,6 +7979,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:07 AM PT",
       "recordedTs": 1795626434,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV25UVAMARQ-MARQ|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV25UVAMARQ-MARQ",
+      "eventTicker": "KXNCAAMBGAME-26NOV25UVAMARQ",
+      "game": "UVA vs MARQ (Nov 25)",
+      "backing": "Marquette",
+      "yesNo": "Yes",
+      "entry": 0.1589,
+      "price": 0.22,
+      "cost": 499.99,
+      "contracts": 3146.13,
+      "startTs": 1795626000,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 9:17 AM PT",
+      "recordedTs": 1795627033,
       "status": "open",
       "result": null,
       "settledAt": null

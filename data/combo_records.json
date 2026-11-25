@@ -155,12 +155,12 @@
       "boost": true
     },
     "opposite.dolphin8700": {
-      "n": 109,
-      "w": 24,
+      "n": 108,
+      "w": 23,
       "l": 85,
-      "pnl": -1801.77,
+      "pnl": -1812.38,
       "name": "opposite.dolphin8700",
-      "ts": 1795581788,
+      "ts": 1795627033,
       "boost": false
     },
     "nshrd": {
@@ -572,7 +572,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "FRANKCASH",
-      "ts": 1795581788,
+      "ts": 1795627033,
       "boost": false
     },
     "djcheecake": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795626734,
+  "updatedTs": 1795627033,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
