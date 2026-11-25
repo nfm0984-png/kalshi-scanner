@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 1:18 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:23 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -682,7 +682,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9648,24 +9648,24 @@
       "tape30d": null,
       "ageDays": 340,
       "graded": {
-        "n": 164,
-        "w": 98,
+        "n": 165,
+        "w": 99,
         "l": 66,
         "roi": null,
-        "profit": 44170.55,
+        "profit": 44388.25,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 164,
-        "w": 98,
+        "n": 165,
+        "w": 99,
         "l": 66,
         "roi": null,
-        "profit": 44170.55,
+        "profit": 44388.25,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 98-66 \u00b7 +$43.8k all",
+      "recordLine": "fen.dachi \u00b7 99-66 \u00b7 +$43.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
