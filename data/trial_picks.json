@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:54 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:10 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6950,9 +6950,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:37 PM PT",
       "recordedTs": 1795567051,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:39 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
@@ -7013,9 +7013,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 4:59 PM PT",
       "recordedTs": 1795568361,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 7:34 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026WDD24CKDNKEJYVIC-AZTDUAZIJ|Yes",
@@ -7034,9 +7034,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:59 PM PT",
       "recordedTs": 1795568361,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "BWmarkets|KXNCAAMBSPREAD-26NOV24SAMGT-SAM7|Yes",
@@ -7076,9 +7076,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "loss",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 7:39 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24CLEMWASH-CLEM|Yes",
@@ -7099,7 +7099,7 @@
       "recordedTs": 1795571324,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:09 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 7:10 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24VANOSU-140|No",
@@ -7139,9 +7139,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "loss",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 7:44 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
@@ -7162,7 +7162,7 @@
       "recordedTs": 1795574648,
       "status": "win",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 7:09 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 7:10 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
@@ -7181,9 +7181,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
@@ -7223,9 +7223,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
       "recordedTs": 1795575248,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:44 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "pogoburger|KXNCAAFGAME-26NOV24KENTEMU-KENT|Yes",
@@ -7244,48 +7244,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:59 PM PT",
       "recordedTs": 1795575549,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:19 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24LOUTTU-TTU|Yes",
       "nickname": "falcon999",
       "ticker": "KXNCAAMBGAME-26NOV24LOUTTU-TTU",
       "eventTicker": "KXNCAAMBGAME-26NOV24LOUTTU",
-      "game": "Louisville vs Texas Tech",
+      "game": "LOU vs TTU (Nov 24)",
       "backing": "Texas Tech",
       "yesNo": "Yes",
-      "entry": 0.2023,
-      "price": 0.18,
-      "cost": 4208.96,
-      "contracts": 20808.0,
+      "entry": 0.2136,
+      "price": 0.22,
+      "cost": 4443.98,
+      "contracts": 20808.16,
       "startTs": 1795568400,
       "league": "NCAAB",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
-      "recordedTs": 1795576748,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
-    },
-    {
-      "id": "iluminado|KXITFWMATCH-26NOV24SIDYAM-SID|Yes",
-      "nickname": "iluminado",
-      "ticker": "KXITFWMATCH-26NOV24SIDYAM-SID",
-      "eventTicker": "KXITFWMATCH-26NOV24SIDYAM",
-      "game": "Sidorova vs Yamaguchi",
-      "backing": "Kristiana Sidorova",
-      "yesNo": "Yes",
-      "entry": 0.4595,
-      "price": 0.99,
-      "cost": 698.38,
-      "contracts": 1520.0,
-      "startTs": 1795588200,
-      "league": "Tennis",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 7:39 PM PT",
-      "recordedTs": 1795577979,
+      "recordedAt": "Tue Nov 24 \u00b7 7:10 PM PT",
+      "recordedTs": 1795576217,
       "status": "open",
       "result": null,
       "settledAt": null

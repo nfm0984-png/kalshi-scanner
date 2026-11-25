@@ -2733,16 +2733,76 @@
       "combo": false,
       "status": "open"
     },
-    "iluminado|KXITFWMATCH-26NOV24SIDYAM-SID|Yes": {
-      "capper": "iluminado",
-      "ticker": "KXITFWMATCH-26NOV24SIDYAM-SID",
+    "VeryLucky888|KXATPCHALLENGERMATCH-26NOV24IMACHU-IMA|Yes": {
+      "capper": "VeryLucky888",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24IMACHU-IMA",
       "side": "Yes",
-      "price": 0.99,
-      "startTs": 1795588200,
-      "firstTs": 1795577979,
+      "price": 0.53,
+      "startTs": 1795586700,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "VeryLucky888|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBAGAME-26NOV25MINOKC-MIN",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795653000,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "NordhavenCap|KXMLSGAME-26NOV24SJHOU-SJ|Yes": {
+      "capper": "NordhavenCap",
+      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
+      "side": "Yes",
+      "price": 0.51,
+      "startTs": 1795586400,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "Irresponsible-Autumn|KXATPCHALLENGERMATCH-26NOV24UCHLEO-UCH|Yes": {
+      "capper": "Irresponsible-Autumn",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24UCHLEO-UCH",
+      "side": "Yes",
+      "price": 0.8,
+      "startTs": 1795582800,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "Siddhartha1|KXNFLTOTAL-26NOV25GBLAR-45|Yes": {
+      "capper": "Siddhartha1",
+      "ticker": "KXNFLTOTAL-26NOV25GBLAR-45",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795654800,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "mde4life1986|KXNBAGAME-26NOV25SACGSW-SAC|Yes": {
+      "capper": "mde4life1986",
+      "ticker": "KXNBAGAME-26NOV25SACGSW-SAC",
+      "side": "Yes",
+      "price": 0.33,
+      "startTs": 1795662000,
+      "firstTs": 1795576217,
+      "combo": false,
+      "status": "open"
+    },
+    "royalestake|KXNHLGAME-26NOV25MTLCOL-MTL|Yes": {
+      "capper": "royalestake",
+      "ticker": "KXNHLGAME-26NOV25MTLCOL-MTL",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795660200,
+      "firstTs": 1795576217,
       "combo": false,
       "status": "open"
     }
   },
-  "updatedTs": 1795578878
+  "updatedTs": 1795576217
 }
