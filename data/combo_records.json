@@ -223,7 +223,7 @@
       "l": 21,
       "pnl": 14285.8,
       "name": "iknowballmorethanu",
-      "ts": 1795585769,
+      "ts": 1795629204,
       "boost": true
     },
     "gap.sauce": {
@@ -232,7 +232,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "gap.sauce",
-      "ts": 1795585769,
+      "ts": 1795629204,
       "boost": false
     },
     "doll.breast": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795628905,
+  "updatedTs": 1795629204,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 9:48 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:53 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -133,12 +133,12 @@
       "recordLine": "BWmarkets \u00b7 72-85 \u00b7 Best at Tennis \u00b7 +$717.6k all",
       "addedAt": "2026-11-20",
       "followingPicks": [],
-      "positionsVisible": true,
+      "positionsVisible": false,
       "postsVisible": true,
-      "openPositions": 1,
-      "pickSource": "positions+posts",
-      "pickCount": 1,
-      "followCount": 1
+      "openPositions": 0,
+      "pickSource": "posts",
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -31354,7 +31354,7 @@
         "w": 258,
         "l": 105,
         "roi": null,
-        "profit": 13229.41,
+        "profit": 13215.75,
         "sample": "positions"
       },
       "gradedAll": {
@@ -31362,7 +31362,7 @@
         "w": 258,
         "l": 105,
         "roi": null,
-        "profit": 13229.41,
+        "profit": 13215.75,
         "sample": "positions"
       },
       "sports": {},
@@ -31372,7 +31372,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -34802,7 +34802,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -43032,23 +43032,23 @@
       "ageDays": 227,
       "graded": {
         "n": 400,
-        "w": 186,
-        "l": 158,
+        "w": 185,
+        "l": 159,
         "roi": null,
-        "profit": 3466.42,
+        "profit": 3404.13,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 186,
-        "l": 158,
+        "w": 185,
+        "l": 159,
         "roi": null,
-        "profit": 3466.42,
+        "profit": 3404.13,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FRANKCASH \u00b7 186-158 \u00b7 +$4.07k all",
+      "recordLine": "FRANKCASH \u00b7 185-159 \u00b7 +$4.08k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
