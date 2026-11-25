@@ -343,6 +343,7 @@ function ComboBlock(props: {
                 {pnl != null ? <Chip bg={pnl >= 0 ? "#DCFCE7" : "#FEE2E2"} color={pnl >= 0 ? GREEN : RED}>{(pnl >= 0 ? "+" : "") + kMoney(pnl)}</Chip> : null}
                 {b.tier ? <TierChip tier={b.tier} /> : null}
               </div>
+              <Last20Dots name={b.name} />
             </div>
           </div>
         );
