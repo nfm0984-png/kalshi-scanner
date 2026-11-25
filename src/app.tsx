@@ -314,8 +314,8 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   });
   return lines.filter((x) => x !== "").join("\n");
 }
-// iPhone/iPad: the Kalshi app's universal link drops the combo's legs, so open the web
-// combo page in Safari instead (x-safari-https:// works on iOS 17+).
+// iPhone/iPad: the Kalshi app's universal link drops the combo's legs. A link pasted into
+// Safari's address bar never hands off to the app, so iPhone gets a Copy combo link button.
 const IOS = typeof navigator !== "undefined" && (/iPhone|iPad|iPod/.test(navigator.userAgent || "") || (navigator.platform === "MacIntel" && (navigator as any).maxTouchPoints > 1));
 function ComboBlock(props: {
   legs?: ComboLeg[];
@@ -388,12 +388,9 @@ function ComboBlock(props: {
       </div>
       {href ? (
         <>
-        <a data-combo-link="1" href={IOS ? "x-safari-" + href : href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>{IOS ? "Open combo in Safari ↗" : "Open combo on Kalshi ↗"}</a>
-        {IOS ? (
-          <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>{"The Kalshi app opens combos empty, so this opens kalshi.com in Safari with every leg loaded (log in there once). "}<a data-combo-app="1" href={href} target="_blank" rel="noreferrer" style={{ color: "#5B21B6", fontWeight: 800 }}>Try the app instead</a></div>
-        ) : (
-          <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>If the combo doesn’t load, tap each leg’s “Open leg ↗” above and add it to your combo ticket.</div>
-        )}
+        <a data-combo-link="1" href={href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>Open combo on Kalshi ↗</a>
+        <button type="button" data-copy-combo="1" onClick={(ev) => { copyText(href); try { (ev.currentTarget as HTMLButtonElement).textContent = "Copied ✓ Now paste it in Safari’s address bar"; } catch (e) {} }} style={{ display: "block", width: "100%", marginTop: 8, padding: "10px 14px", borderRadius: 14, border: "1.5px solid #5B21B6", background: "#FFFFFF", color: "#5B21B6", fontSize: 15, fontWeight: 900, cursor: "pointer" }}>Copy combo link</button>
+        <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>{IOS ? "iPhone: the Kalshi app opens combos empty. Tap Copy combo link, open Safari, paste it in the address bar and go — every leg loads (log in to kalshi.com once)." : "If the combo doesn’t load, tap each leg’s “Open leg ↗” above and add it to your combo ticket."}</div>
         </>
       ) : (
         <div style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>
