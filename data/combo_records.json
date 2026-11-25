@@ -96,7 +96,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "door.whale",
-      "ts": 1795533365,
+      "ts": 1795577678,
       "boost": false
     },
     "reluctant.fox5394": {
@@ -105,7 +105,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "reluctant.fox5394",
-      "ts": 1795533365,
+      "ts": 1795577678,
       "boost": false
     },
     "yunktrader": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795577378,
+  "updatedTs": 1795577678,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
