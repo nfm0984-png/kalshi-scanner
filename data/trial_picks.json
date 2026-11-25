@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:08 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:13 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6929,9 +6929,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 3:53 PM PT",
       "recordedTs": 1795564382,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 5:13 PM PT"
     },
     {
       "id": "parspectives|KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB-KVECWHVHK|Yes",
@@ -6995,6 +6995,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Tue Nov 24 \u00b7 5:03 PM PT"
+    },
+    {
+      "id": "FFun|KXNCAAFGAME-26NOV24MOHWMU-MOH|Yes",
+      "nickname": "FFun",
+      "ticker": "KXNCAAFGAME-26NOV24MOHWMU-MOH",
+      "eventTicker": "KXNCAAFGAME-26NOV24MOHWMU",
+      "game": "Miami (OH) vs Western Michigan",
+      "backing": "Miami (OH)",
+      "yesNo": "Yes",
+      "entry": 0.67,
+      "price": 0.67,
+      "cost": 586.25,
+      "contracts": 875.0,
+      "startTs": 1795564800,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 5:13 PM PT",
+      "recordedTs": 1795569201,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
