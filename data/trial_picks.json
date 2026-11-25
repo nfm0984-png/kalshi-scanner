@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:36 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:43 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7034,6 +7034,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 5:28 PM PT",
       "recordedTs": 1795570101,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNBASPREAD-26NOV24BOSWAS-BOS13|No",
+      "nickname": "falcon999",
+      "ticker": "KXNBASPREAD-26NOV24BOSWAS-BOS13",
+      "eventTicker": "KXNBASPREAD-26NOV24BOSWAS",
+      "game": "BOS vs WAS (Nov 24)",
+      "backing": "Boston wins by over 12.5 points",
+      "yesNo": "No",
+      "entry": 0.5157,
+      "price": 0.48,
+      "cost": 2499.99,
+      "contracts": 4847.34,
+      "startTs": 1795568400,
+      "league": "NBA",
+      "bt": "Spread",
+      "recordedAt": "Tue Nov 24 \u00b7 5:43 PM PT",
+      "recordedTs": 1795571023,
       "status": "open",
       "result": null,
       "settledAt": null
