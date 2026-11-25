@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 1:47 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:52 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -169,7 +169,7 @@
         "w": 288,
         "l": 112,
         "roi": null,
-        "profit": 309152.9,
+        "profit": 309655.41,
         "sample": "positions"
       },
       "gradedAll": {
@@ -177,7 +177,7 @@
         "w": 288,
         "l": 112,
         "roi": null,
-        "profit": 309152.9,
+        "profit": 309655.41,
         "sample": "positions"
       },
       "sports": {
@@ -195,10 +195,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 4,
+      "openPositions": 3,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "iluminado",
@@ -682,7 +682,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6252,7 +6252,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -9670,7 +9670,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -28044,7 +28044,7 @@
         "w": 261,
         "l": 102,
         "roi": null,
-        "profit": 14215.59,
+        "profit": 14305.54,
         "sample": "positions"
       },
       "gradedAll": {
@@ -28052,7 +28052,7 @@
         "w": 261,
         "l": 102,
         "roi": null,
-        "profit": 14215.59,
+        "profit": 14305.54,
         "sample": "positions"
       },
       "sports": {},
@@ -28062,7 +28062,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
