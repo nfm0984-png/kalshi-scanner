@@ -277,7 +277,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ustrader",
-      "ts": 1795537548,
+      "ts": 1795583968,
       "boost": false
     },
     "coolness77": {
@@ -286,7 +286,7 @@
       "l": 19,
       "pnl": 3.81,
       "name": "coolness77",
-      "ts": 1795537548,
+      "ts": 1795583968,
       "boost": false
     },
     "muffat00": {
@@ -576,6 +576,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795583668,
+  "updatedTs": 1795583968,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
