@@ -406,7 +406,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "drib",
-      "ts": 1795592293,
+      "ts": 1795637731,
       "boost": false
     },
     "watsons.burnerr": {
@@ -416,7 +416,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Watsons.burnerr",
-      "ts": 1795592293,
+      "ts": 1795637731,
       "boost": false
     },
     "milesdavis": {
@@ -631,6 +631,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795637430,
+  "updatedTs": 1795637731,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
