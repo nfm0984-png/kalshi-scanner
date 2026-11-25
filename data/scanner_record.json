@@ -2083,8 +2083,7 @@
       "startTs": 1795561200,
       "firstTs": 1795553609,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795570401
+      "status": "open"
     },
     "FFun|KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE|Yes": {
       "capper": "FFun",
@@ -2105,8 +2104,7 @@
       "startTs": 1795561200,
       "firstTs": 1795556903,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795570401
+      "status": "open"
     },
     "reluctant.fox5394|KXUCLTOTAL-26NOV24MCINAP-5|No": {
       "capper": "reluctant.fox5394",
@@ -2169,5 +2167,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795571023
+  "updatedTs": 1795568361
 }

@@ -528,9 +528,18 @@
       "name": "Bigbone69",
       "ts": 1795561822,
       "boost": false
+    },
+    "888max": {
+      "n": 2,
+      "w": 0,
+      "l": 2,
+      "pnl": -6.99,
+      "name": "888max",
+      "ts": 1795568361,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795571023,
+  "updatedTs": 1795568361,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
