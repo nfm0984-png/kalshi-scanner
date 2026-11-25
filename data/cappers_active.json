@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:54 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -1221,8 +1221,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reach.draft",
@@ -11034,7 +11034,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 3,
       "followCount": 3
@@ -29189,27 +29189,27 @@
       "graded": {
         "n": 400,
         "w": 249,
-        "l": 112,
+        "l": 111,
         "roi": null,
-        "profit": 10548.23,
+        "profit": 10780.41,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
         "w": 249,
-        "l": 112,
+        "l": 111,
         "roi": null,
-        "profit": 10548.23,
+        "profit": 10780.41,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 249-112 \u00b7 +$9.45k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 249-111 \u00b7 +$9.45k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -30894,29 +30894,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 51,
+        "n": 52,
         "w": 35,
-        "l": 15,
+        "l": 16,
         "roi": null,
-        "profit": 2574.64,
+        "profit": 2563.55,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 51,
+        "n": 52,
         "w": 35,
-        "l": 15,
+        "l": 16,
         "roi": null,
-        "profit": 2574.64,
+        "profit": 2563.55,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 35-15 \u00b7 +$2.46k all",
+      "recordLine": "kelab \u00b7 35-16 \u00b7 +$2.46k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -39201,7 +39201,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0

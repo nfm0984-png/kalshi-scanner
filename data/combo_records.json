@@ -204,7 +204,7 @@
       "l": 1,
       "pnl": -9.96,
       "name": "Davmjxn",
-      "ts": 1795536276,
+      "ts": 1795582470,
       "boost": false
     },
     "fen.dachi": {
@@ -213,7 +213,7 @@
       "l": 10,
       "pnl": 3369.51,
       "name": "fen.dachi",
-      "ts": 1795536276,
+      "ts": 1795582470,
       "boost": false
     },
     "iknowballmorethanu": {
@@ -576,6 +576,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795581870,
+  "updatedTs": 1795582470,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
