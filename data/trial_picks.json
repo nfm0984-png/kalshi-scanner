@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 9:24 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6952,7 +6952,7 @@
       "recordedTs": 1795567051,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
@@ -7015,7 +7015,7 @@
       "recordedTs": 1795568361,
       "status": "win",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026WDD24CKDNKEJYVIC-AZTDUAZIJ|Yes",
@@ -7036,7 +7036,7 @@
       "recordedTs": 1795568361,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "BWmarkets|KXNCAAMBSPREAD-26NOV24SAMGT-SAM7|Yes",
@@ -7078,7 +7078,7 @@
       "recordedTs": 1795571324,
       "status": "loss",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24CLEMWASH-CLEM|Yes",
@@ -7099,7 +7099,7 @@
       "recordedTs": 1795571324,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:09 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 7:10 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24VANOSU-140|No",
@@ -7141,7 +7141,7 @@
       "recordedTs": 1795574648,
       "status": "loss",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
@@ -7162,7 +7162,7 @@
       "recordedTs": 1795574648,
       "status": "win",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 7:09 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 7:10 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
@@ -7183,7 +7183,7 @@
       "recordedTs": 1795574648,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
@@ -7202,9 +7202,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 9:24 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "opposite.dolphin8700|KXMVECROSSCATEGORY-S2026PQGTQPBNZYGKYS3O-LUSBJAD6I|Yes",
@@ -7225,7 +7225,7 @@
       "recordedTs": 1795575248,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "pogoburger|KXNCAAFGAME-26NOV24KENTEMU-KENT|Yes",
@@ -7246,28 +7246,28 @@
       "recordedTs": 1795575549,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 7:19 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24LOUTTU-TTU|Yes",
       "nickname": "falcon999",
       "ticker": "KXNCAAMBGAME-26NOV24LOUTTU-TTU",
       "eventTicker": "KXNCAAMBGAME-26NOV24LOUTTU",
-      "game": "Louisville vs Texas Tech",
+      "game": "LOU vs TTU (Nov 24)",
       "backing": "Texas Tech",
       "yesNo": "Yes",
-      "entry": 0.2023,
-      "price": 0.18,
-      "cost": 4208.96,
-      "contracts": 20808.0,
+      "entry": 0.2136,
+      "price": 0.22,
+      "cost": 4443.98,
+      "contracts": 20808.16,
       "startTs": 1795568400,
       "league": "NCAAB",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
-      "recordedTs": 1795576748,
+      "recordedAt": "Tue Nov 24 \u00b7 7:10 PM PT",
+      "recordedTs": 1795576217,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 8:00 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026REX4RRV5MYO3ZGNN-BSP2Q2YWE|Yes",
@@ -7278,14 +7278,14 @@
       "backing": "yes Yun Seong Chung,yes Kaichi Uchida,yes St. John's,yes Saint Louis,yes VCU,yes Stanford",
       "yesNo": "Yes",
       "entry": 0.082,
-      "price": 0.039,
+      "price": 0.073,
       "cost": 776.76,
       "contracts": 9475.6,
       "startTs": 1795573800,
       "league": "Combo",
       "bt": "Combo",
-      "recordedAt": "Tue Nov 24 \u00b7 8:00 PM PT",
-      "recordedTs": 1795579257,
+      "recordedAt": "Tue Nov 24 \u00b7 8:04 PM PT",
+      "recordedTs": 1795579480,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7299,14 +7299,14 @@
       "backing": "Dallas",
       "yesNo": "Yes",
       "entry": 0.29,
-      "price": 0.59,
+      "price": 0.67,
       "cost": 95.12,
       "contracts": 328.0,
       "startTs": 1795575600,
       "league": "NBA",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7326,8 +7326,8 @@
       "startTs": 1795639500,
       "league": "Soccer",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7341,14 +7341,14 @@
       "backing": "Denver",
       "yesNo": "No",
       "entry": 0.71,
-      "price": 0.6,
+      "price": 0.67,
       "cost": 227.91,
       "contracts": 321.0,
       "startTs": 1795575600,
       "league": "NBA",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7362,14 +7362,14 @@
       "backing": "Over 233.5 points",
       "yesNo": "Yes",
       "entry": 0.52,
-      "price": 0.16,
+      "price": 0.14,
       "cost": 61.88,
       "contracts": 119.0,
       "startTs": 1795575600,
       "league": "NBA",
       "bt": "Totals",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7389,8 +7389,8 @@
       "startTs": 1795885200,
       "league": "NCAAF",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7410,8 +7410,8 @@
       "startTs": 1795885200,
       "league": "NCAAF",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7431,8 +7431,8 @@
       "startTs": 1795825800,
       "league": "NCAAF",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7452,8 +7452,8 @@
       "startTs": 1795917600,
       "league": "NCAAF",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7473,8 +7473,8 @@
       "startTs": 1795892400,
       "league": "NCAAF",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7494,8 +7494,8 @@
       "startTs": 1795892400,
       "league": "NCAAF",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7515,8 +7515,8 @@
       "startTs": 1795892400,
       "league": "NCAAF",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7536,8 +7536,8 @@
       "startTs": 1795885200,
       "league": "NCAAF",
       "bt": "Totals",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7557,8 +7557,8 @@
       "startTs": 1795654800,
       "league": "NFL",
       "bt": "Spread",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7578,8 +7578,8 @@
       "startTs": 1795742400,
       "league": "NFL",
       "bt": "Totals",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7599,8 +7599,8 @@
       "startTs": 1795728600,
       "league": "NFL",
       "bt": "Totals",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7620,11 +7620,32 @@
       "startTs": 1795582800,
       "league": "Tennis",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 8:54 PM PT"
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "djcheecake|KXNBAGAME-26NOV24DALDEN-DAL|Yes",
+      "nickname": "djcheecake",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DAL",
+      "eventTicker": "KXNBAGAME-26NOV24DALDEN",
+      "game": "DAL vs DEN (Nov 24)",
+      "backing": "Dallas",
+      "yesNo": "Yes",
+      "entry": 0.3044,
+      "price": 0.67,
+      "cost": 4999.99,
+      "contracts": 16425.05,
+      "startTs": 1795575600,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV24DALDEN-DEN|Yes",
@@ -7635,14 +7656,14 @@
       "backing": "Denver",
       "yesNo": "Yes",
       "entry": 0.5275,
-      "price": 0.41,
+      "price": 0.34,
       "cost": 1999.99,
       "contracts": 3791.51,
       "startTs": 1795575600,
       "league": "NBA",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7662,8 +7683,8 @@
       "startTs": 1795885200,
       "league": "NCAAF",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
@@ -7683,8 +7704,8 @@
       "startTs": 1795987500,
       "league": "NFL",
       "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 8:44 PM PT",
-      "recordedTs": 1795581870,
+      "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+      "recordedTs": 1795581788,
       "status": "open",
       "result": null,
       "settledAt": null
