@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:23 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7013,6 +7013,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 5:13 PM PT",
       "recordedTs": 1795569201,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV24CLEMWASH-CLEM|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV24CLEMWASH-CLEM",
+      "eventTicker": "KXNCAAMBGAME-26NOV24CLEMWASH",
+      "game": "Clemson vs Washington",
+      "backing": "Clemson",
+      "yesNo": "Yes",
+      "entry": 0.27,
+      "price": 0.22,
+      "cost": 665.82,
+      "contracts": 2466.0,
+      "startTs": 1795568400,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 5:28 PM PT",
+      "recordedTs": 1795570101,
       "status": "open",
       "result": null,
       "settledAt": null
