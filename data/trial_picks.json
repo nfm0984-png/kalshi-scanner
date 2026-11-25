@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 12:58 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:13 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8147,6 +8147,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 11:55 AM PT",
       "recordedTs": 1795636530,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "reluctant.fox5394|KXUCLGAME-26NOV25INTVFB-INT|Yes",
+      "nickname": "reluctant.fox5394",
+      "ticker": "KXUCLGAME-26NOV25INTVFB-INT",
+      "eventTicker": "KXUCLGAME-26NOV25INTVFB",
+      "game": "Inter vs Stuttgart",
+      "backing": "Inter",
+      "yesNo": "Yes",
+      "entry": 0.59,
+      "price": 0.81,
+      "cost": 1603.1,
+      "contracts": 2717.0,
+      "startTs": 1795647600,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 1:13 PM PT",
+      "recordedTs": 1795641225,
       "status": "open",
       "result": null,
       "settledAt": null
