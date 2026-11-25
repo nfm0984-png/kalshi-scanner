@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Wed Nov 25 \u00b7 12:53 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 12:07 PM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -168,6 +168,12 @@
       "addedAt": "2026-11-23"
     },
     {
+      "nickname": "controlled.rook2872",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
+    },
+    {
       "nickname": "FFun",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -214,6 +220,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "grooy",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
     },
     {
       "nickname": "Bigbone69",
@@ -264,16 +276,16 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "888max",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "brand.breeze",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "888max",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "Snoz3berries",
@@ -328,6 +340,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-23"
+    },
+    {
+      "nickname": "bird.pointer",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
     },
     {
       "nickname": "tru3f0rmr",
@@ -487,6 +505,7 @@
     "yunktrader",
     "Contango",
     "AllHunnsNo20sR10s",
+    "controlled.rook2872",
     "FFun",
     "regine",
     "714Smith",
@@ -495,6 +514,7 @@
     "YoungGriff",
     "dear.bet",
     "successful.koi2475",
+    "grooy",
     "Bigbone69",
     "fen.dachi",
     "king.45",
@@ -514,6 +534,7 @@
     "Bobbyoracle",
     "fattii",
     "Eibriham",
+    "bird.pointer",
     "tru3f0rmr",
     "Rev.Z",
     "HawkeyeMug",

@@ -1,6 +1,38 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 11:07 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 12:07 PM PT",
   "scans": [
+    {
+      "ts": 1795637279,
+      "at": "Wed Nov 25 \u00b7 12:07 PM PT",
+      "names": 849,
+      "newFollows": [
+        "controlled.rook2872",
+        "grooy",
+        "bird.pointer"
+      ],
+      "followed": 69,
+      "target": 100,
+      "openPicks": 17,
+      "ids": [
+        "KXNCAAMBGAME-26NOV25UVAMARQ-MARQ|Yes",
+        "KXNCAAMBSPREAD-26NOV25UVAMARQ-UVA7|Yes",
+        "KXNCAAMBTOTAL-26NOV25UVAMARQ-133|No",
+        "KXMVECROSSCATEGORY-S20265J7N37LJ3CWV4BNR-25FWFUFIK|Yes",
+        "KXMVECROSSCATEGORY-S2026T2SUBIIENLUDKS47-AZMF7MT76|Yes",
+        "KXNCAAMBGAME-26NOV25MISSARIZ-ARIZ|Yes",
+        "KXNCAAMBGAME-26NOV25MISSARIZ-MISS|Yes",
+        "KXNCAAMBTOTAL-26NOV25MISSARIZ-148|No",
+        "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
+        "KXUCLGAME-26NOV25SPOMUN-MUN|Yes",
+        "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
+        "KXNBAGAME-26NOV25MINOKC-MIN|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+        "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes",
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
+      ]
+    },
     {
       "ts": 1795633627,
       "at": "Wed Nov 25 \u00b7 11:07 AM PT",
@@ -1148,23 +1180,6 @@
         "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
         "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
         "KXNFLSPREAD-26NOV23CINWAS-CIN8|No"
-      ]
-    },
-    {
-      "ts": 1795332263,
-      "at": "Sat Nov 21 \u00b7 11:24 PM PT",
-      "names": 225,
-      "newFollows": [
-        "mild.fire",
-        "ministuh"
-      ],
-      "followed": 22,
-      "target": 50,
-      "openPicks": 3,
-      "ids": [
-        "KXNFLREC-26NOV22TBDET-DETJGIBBS0-4|No",
-        "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
-        "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes"
       ]
     }
   ]
