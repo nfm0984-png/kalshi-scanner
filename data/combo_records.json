@@ -168,7 +168,7 @@
       "l": 1,
       "pnl": -5.0,
       "name": "nshrd",
-      "ts": 1795535677,
+      "ts": 1795584569,
       "boost": false
     },
     "younggriff": {
@@ -177,7 +177,7 @@
       "l": 12,
       "pnl": 7009.56,
       "name": "YoungGriff",
-      "ts": 1795535677,
+      "ts": 1795584569,
       "boost": false
     },
     "successful.koi2475": {
@@ -594,6 +594,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795581788,
+  "updatedTs": 1795584569,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
