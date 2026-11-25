@@ -2231,7 +2231,8 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795649769
     },
     "ic4cream|KXNBATOTAL-26NOV24DALDEN-234|Yes": {
       "capper": "ic4cream",
@@ -2424,7 +2425,8 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795649769
     },
     "VeryLucky888|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "VeryLucky888",
@@ -2434,7 +2436,8 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795649769
     },
     "toottoot|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "toottoot",
@@ -2444,7 +2447,8 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795649769
     },
     "GC-P|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "GC-P",
@@ -2454,7 +2458,8 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795649769
     },
     "VeryLucky888|KXUCLGAME-26NOV25BRULFC-BRU|No": {
       "capper": "VeryLucky888",
@@ -2921,7 +2926,8 @@
       "startTs": 1795640400,
       "firstTs": 1795632766,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795649769
     },
     "jspana99|KXUCLGAME-26NOV25SPOMUN-MUN|Yes": {
       "capper": "jspana99",
@@ -3004,5 +3010,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795647899
+  "updatedTs": 1795649769
 }
