@@ -21,7 +21,9 @@ sys.path.insert(0, HERE)
 import lib_cappers as lib
 
 PT = lib.PT
-MIN_BET = 500  # only show a capper's pick when their stake on that side is $500+
+MIN_BET_SINGLE = 50  # show a capper's single when their stake on that side is $50+
+MIN_BET_COMBO = 500  # combos stay at $500+
+MIN_BET = MIN_BET_SINGLE  # default collect floor; stake_ok raises combos to MIN_BET_COMBO
 MAX_ENTRY = 0.90
 WINDOW_SECS = 24 * 3600
 DECIDED_PX = 0.97
@@ -1111,7 +1113,10 @@ def collect_picks(http, holdings, trades, inv_map, now, mcache, ecache, min_bet=
                     cost = abs(signed) * entry
             if max_entry is not None and entry is not None and entry >= max_entry:
                 continue
-            if min_bet and (cost is None or cost < min_bet):
+            floor = min_bet
+            if min_bet and (lib.is_combo_ticker(tk) or info.get("mve_selected_legs")):
+                floor = max(min_bet, MIN_BET_COMBO)
+            if min_bet and (cost is None or cost < floor):
                 continue
             if cost is None:
                 cost = 0.0
@@ -1292,10 +1297,20 @@ def merge_preserved_record(new_cap, old_cap):
     return new_cap
 
 
+def is_combo_pick(p):
+    p = p or {}
+    if p.get("isCombo") or p.get("legs") or p.get("comboUrl"):
+        return True
+    if (p.get("bt") or "").lower() == "combo":
+        return True
+    tk = p.get("ticker") or ""
+    return bool(tk) and lib.is_combo_ticker(tk)
+
+
 def stake_ok(p, floor=None):
-    """True when this capper's stake on that side of the market meets the $500 minimum."""
+    """True when this capper's stake meets the $50 singles / $500 combo minimum."""
     if floor is None:
-        floor = MIN_BET
+        floor = MIN_BET_COMBO if is_combo_pick(p) else MIN_BET_SINGLE
     try:
         return float((p or {}).get("cost") or 0) >= float(floor)
     except (TypeError, ValueError):
@@ -1636,7 +1651,7 @@ def grade_from_posts(posts, now=None, form_days=14):
 
 
 def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
-    """Open $500+ sports ideas from profile posts, newest post wins a ticker|side."""
+    """Open $50+ singles / $500+ combo sports ideas from profile posts, newest post wins a ticker|side."""
     latest = {}
     for p in posts or []:
         tk = p.get("market_ticker") or ""
@@ -1645,7 +1660,10 @@ def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
         if lib.is_esports(tk):
             continue
         cost = lib.post_cost_dollars(p)
-        if min_bet and (cost is None or cost < min_bet):
+        floor = min_bet
+        if min_bet and lib.is_combo_ticker(tk):
+            floor = max(min_bet, MIN_BET_COMBO)
+        if min_bet and (cost is None or cost < floor):
             continue
         if not post_ticker_in_window(tk, now) and not lib.is_combo_ticker(tk):
             continue
@@ -1852,7 +1870,7 @@ def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=8
     row["pickSource"] = "+".join(srcs) if srcs else ("hidden" if positions_hidden else "")
     if positions_hidden and posts_visible:
         row["rejectNote"] = None
-        log("posts used for hidden book %s: %d posts, %d open $%d+ picks" % (nick, len(posts), len(follow), MIN_BET))
+        log("posts used for hidden book %s: %d posts, %d open $%d+ singles / $%d+ combos" % (nick, len(posts), len(follow), MIN_BET_SINGLE, MIN_BET_COMBO))
     return "active", row, ""
 
 
@@ -1963,7 +1981,7 @@ def update_scanner_record(http, games, now, mcache, ecache, log=print):
             px = view.get("price")
             side = view.get("yesNo") or (p.get("key") or "|").split("|")[-1]
             for b in p.get("backers") or []:
-                if (b.get("cost") or 0) < MIN_BET or not b.get("name"):
+                if (b.get("cost") or 0) < 500 or not b.get("name"):  # grading floor stays $500
                     continue
                 rid = "%s|%s" % (nick_key(b.get("name")), p.get("key"))
                 if rid in rows:
@@ -2372,7 +2390,7 @@ def group_games(cappers, now, log=print):
             if done:
                 dropped.append("%s · %s (%s)" % (g["game"], p.get("big") or "", why))
                 continue
-            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost")})]
+            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost"), "isCombo": p.get("isCombo"), "legs": p.get("legs"), "ticker": p.get("ticker"), "bt": p.get("bt"), "comboUrl": p.get("comboUrl")})]
             if not p["backers"]:
                 continue
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
@@ -2748,7 +2766,8 @@ def build(now=None, log=print):
         "calls": 0,
         "retries429": 0,
         "secs": 0,
-        "minBet": MIN_BET,
+        "minBet": MIN_BET_SINGLE,
+        "minBetCombo": MIN_BET_COMBO,
     }
     live_cappers = []
     pinned_hidden = set()
@@ -2962,7 +2981,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching pool is not displayed. Best Cappers is a persistent good-only database (target 100), reranked about every 5 minutes by closed-position grade, veterans first. If fewer than 100 qualify, the true count is shown. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $%d. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented." % MIN_BET,
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching pool is not displayed. Best Cappers is a persistent good-only database (target 100), reranked about every 5 minutes by closed-position grade, veterans first. If fewer than 100 qualify, the true count is shown. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $50 for a single or $500 for a combo. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented.",
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
@@ -3075,13 +3094,14 @@ def build_follow_check(now=None, log=print):
         "calls": 0,
         "retries429": 0,
         "secs": 0,
-        "minBet": MIN_BET,
+        "minBet": MIN_BET_SINGLE,
+        "minBetCombo": MIN_BET_COMBO,
         "namesChecked": 0,
     }
     live_cappers = []
     pinned_hidden = set()
     names = pinned_names(pinned)
-    log("follow-check: refreshing %d pinned cappers (all books, $%d+ stakes, %d workers)" % (len(names), MIN_BET, FOLLOW_WORKERS))
+    log("follow-check: refreshing %d pinned cappers (all books, $%d+ singles / $%d+ combo stakes, %d workers)" % (len(names), MIN_BET_SINGLE, MIN_BET_COMBO, FOLLOW_WORKERS))
     prev_caps = {nick_key(c.get("nickname")): c for c in (prev.get("cappers") or [])}
 
     def _inspect_one(nick):
