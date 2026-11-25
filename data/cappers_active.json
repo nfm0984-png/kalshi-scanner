@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:28 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6317,24 +6317,24 @@
       "tape30d": null,
       "ageDays": 293,
       "graded": {
-        "n": 101,
-        "w": 58,
+        "n": 102,
+        "w": 59,
         "l": 43,
         "roi": null,
-        "profit": 105.42,
+        "profit": 113.08,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 101,
-        "w": 58,
+        "n": 102,
+        "w": 59,
         "l": 43,
         "roi": null,
-        "profit": 105.42,
+        "profit": 113.08,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 58-43 \u00b7 +$84 all",
+      "recordLine": "brand.breeze \u00b7 59-43 \u00b7 +$84 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
@@ -7044,19 +7044,19 @@
       "tape30d": 1.2,
       "ageDays": 196,
       "graded": {
-        "n": 133,
-        "w": 80,
-        "l": 53,
+        "n": 136,
+        "w": 79,
+        "l": 57,
         "roi": null,
-        "profit": 3310.24,
+        "profit": 2750.08,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 133,
-        "w": 80,
-        "l": 53,
+        "n": 136,
+        "w": 79,
+        "l": 57,
         "roi": null,
-        "profit": 3310.24,
+        "profit": 2750.08,
         "sample": "positions"
       },
       "sports": {
@@ -7069,12 +7069,12 @@
         }
       },
       "bestAt": "NFL",
-      "recordLine": "Davmjxn \u00b7 80-53 \u00b7 Best at NFL \u00b7 +$2.83k all",
+      "recordLine": "Davmjxn \u00b7 79-57 \u00b7 Best at NFL \u00b7 +$2.83k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 21,
+      "openPositions": 18,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10440,10 +10440,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "hedge123",
@@ -12106,9 +12106,9 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 9,
+      "openPositions": 7,
       "pickSource": "positions+posts",
-      "pickCount": 6,
+      "pickCount": 5,
       "followCount": 4
     },
     {
@@ -14509,7 +14509,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 3,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7181,6 +7181,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
       "recordedTs": 1795573424,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
+      "eventTicker": "KXNCAAMBGAME-26NOV24BAYALA",
+      "game": "Baylor vs Alabama",
+      "backing": "Alabama",
+      "yesNo": "Yes",
+      "entry": 0.54,
+      "price": 0.54,
+      "cost": 4843.8,
+      "contracts": 8970.0,
+      "startTs": 1795575600,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:28 PM PT",
+      "recordedTs": 1795573725,
       "status": "open",
       "result": null,
       "settledAt": null
