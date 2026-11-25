@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 8:27 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 8:37 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -135,10 +135,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "reluctant.fox5394",
@@ -17024,7 +17024,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 1,
       "followCount": 1
@@ -25632,8 +25632,8 @@
       "postsVisible": true,
       "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "quintessential.kiwi",
@@ -29076,29 +29076,29 @@
       "tape30d": 1.0,
       "ageDays": 392,
       "graded": {
-        "n": 97,
-        "w": 62,
+        "n": 98,
+        "w": 63,
         "l": 28,
         "roi": null,
-        "profit": -13.71,
+        "profit": -8.37,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 97,
-        "w": 62,
+        "n": 98,
+        "w": 63,
         "l": 28,
         "roi": null,
-        "profit": -13.71,
+        "profit": -8.37,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "gap.sauce \u00b7 62-28 \u00b7 +$384 all",
+      "recordLine": "gap.sauce \u00b7 63-28 \u00b7 +$384 all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 68,
+      "openPositions": 67,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -34780,19 +34780,19 @@
       "tape30d": null,
       "ageDays": 142,
       "graded": {
-        "n": 300,
+        "n": 301,
         "w": 197,
         "l": 91,
         "roi": null,
-        "profit": 8315.82,
+        "profit": 7606.78,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 300,
+        "n": 301,
         "w": 197,
         "l": 91,
         "roi": null,
-        "profit": 8315.82,
+        "profit": 7606.78,
         "sample": "positions"
       },
       "sports": {},
@@ -43032,23 +43032,23 @@
       "ageDays": 227,
       "graded": {
         "n": 400,
-        "w": 185,
+        "w": 186,
         "l": 157,
         "roi": null,
-        "profit": 3465.54,
+        "profit": 3380.63,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 185,
+        "w": 186,
         "l": 157,
         "roi": null,
-        "profit": 3465.54,
+        "profit": 3380.63,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FRANKCASH \u00b7 185-157 \u00b7 +$4.00k all",
+      "recordLine": "FRANKCASH \u00b7 186-157 \u00b7 +$4.00k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
