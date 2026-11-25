@@ -1317,6 +1317,123 @@ def stake_ok(p, floor=None):
         return False
 
 
+QUALITY_SEVEN_SECS = 7 * 86400
+
+
+def _quality_num(v):
+    try:
+        if v is None:
+            return None
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _quality_ts(v, now):
+    try:
+        t = float(v)
+    except (TypeError, ValueError):
+        return None
+    if t > 1e12:
+        t = t / 1000.0
+    if t < 1e9 or (now is not None and t > float(now) + 86400):
+        return None
+    return t
+
+
+def attach_capper_last_ts(cappers, now):
+    """Copy the newest already-pulled trade/pick time onto each capper as lastTs."""
+    for c in cappers or []:
+        best = _quality_ts(c.get("lastTs"), now)
+        for p in list(c.get("picks") or []) + list(c.get("followingPicks") or []):
+            for key in ("lastTs", "lastSeenTs"):
+                t = _quality_ts(p.get(key), now)
+                if t is not None and (best is None or t > best):
+                    best = t
+        if best is not None:
+            c["lastTs"] = best
+    return cappers
+
+
+def capper_quality_ok(cap, now, pick=None, stats=None):
+    """Keep unless all-time or year dollar PnL is negative, month dollar PnL is not positive, or there are no bets in 7 days.
+
+    If a needed field is missing, keep the capper and count them on stats['missing*'].
+    """
+    cap = cap or {}
+    stats = stats if stats is not None else {}
+    nick = nick_key(cap.get("nickname") or (pick or {}).get("nickname") or (pick or {}).get("name") or "")
+
+    def miss(key):
+        seen = stats.setdefault("_seen_" + key, set())
+        if nick and nick.lower() in seen:
+            return
+        if nick:
+            seen.add(nick.lower())
+        stats[key] = stats.get(key, 0) + 1
+
+    # Dollar PnL only — never W-L or graded-record profit.
+    pnl = _quality_num(cap.get("pnl"))
+    year = _quality_num(cap.get("yearlyPnl"))
+    if pnl is None and year is None:
+        miss("missingAllTime")
+    else:
+        if pnl is not None and pnl < 0:
+            stats["dropped"] = stats.get("dropped", 0) + 1
+            stats.setdefault("droppedNames", set()).add(nick)
+            return False
+        if year is not None and year < 0:
+            stats["dropped"] = stats.get("dropped", 0) + 1
+            stats.setdefault("droppedNames", set()).add(nick)
+            return False
+
+    month = _quality_num(cap.get("monthlyPnl"))
+    if month is None:
+        month = _quality_num(cap.get("tape30d"))
+    if month is None:
+        miss("missingMonth")
+    elif month <= 0:
+        stats["dropped"] = stats.get("dropped", 0) + 1
+        stats.setdefault("droppedNames", set()).add(nick)
+        return False
+
+    last = _quality_ts((pick or {}).get("lastTs") or (pick or {}).get("lastSeenTs") or cap.get("lastTs"), now)
+    if last is None:
+        miss("missingLastBet")
+    elif now is not None and last < float(now) - QUALITY_SEVEN_SECS:
+        stats["dropped"] = stats.get("dropped", 0) + 1
+        stats.setdefault("droppedNames", set()).add(nick)
+        return False
+    return True
+
+
+def capper_map(cappers):
+    out = {}
+    for c in cappers or []:
+        k = nick_key(c.get("nickname")).lower()
+        if k:
+            out[k] = c
+    return out
+
+
+def log_quality_stats(log, stats, now=None):
+    dropped = stats.get("dropped", 0)
+    names = sorted(stats.get("droppedNames") or [])
+    miss_n = len(set().union(
+        stats.get("_seen_missingAllTime") or [],
+        stats.get("_seen_missingMonth") or [],
+        stats.get("_seen_missingLastBet") or [],
+    ))
+    log("quality filter: dropped %d cappers, kept %d with a missing field (all-time/year %d, month %d, last bet %d)%s" % (
+        len(names) or dropped,
+        miss_n,
+        stats.get("missingAllTime") or 0,
+        stats.get("missingMonth") or 0,
+        stats.get("missingLastBet") or 0,
+        (": " + ", ".join(names[:20]) + ("…" if len(names) > 20 else "")) if names else "",
+    ))
+
+
 def follow_fail_reason(cap):
     """Why this capper must not be (or stay) in Best Cappers. None means every gate passed.
 
@@ -2288,7 +2405,7 @@ def picks_for_slate(c, now=None):
     fol = list(c.get("followingPicks") or [])
     use = fol if fol else list(c.get("picks") or [])
     ts = now if now is not None else time.time()
-    return [p for p in use if is_near_term_pick(p, ts) and stake_ok(p)]
+    return [p for p in use if is_near_term_pick(p, ts) and stake_ok(p) and capper_quality_ok(c, ts, p)]
 
 
 def followed_slate_cappers(cappers, pinned, now=None):
@@ -2304,10 +2421,13 @@ def followed_slate_cappers(cappers, pinned, now=None):
 
 def group_games(cappers, now, log=print):
     by, order, dropped = {}, [], []
+    qstats = {}
+    attach_capper_last_ts(cappers, now)
+    cmap = capper_map(cappers)
     for c in cappers:
         rec = c.get("graded")
         for p in c.get("picks") or []:
-            if not stake_ok(p):
+            if not stake_ok(p) or not capper_quality_ok(c, now, p, qstats):
                 continue
             gid = p.get("eventTicker") or (p.get("game") + "|" + str(p.get("startTs") or 0))
             if gid not in by:
@@ -2390,7 +2510,7 @@ def group_games(cappers, now, log=print):
             if done:
                 dropped.append("%s · %s (%s)" % (g["game"], p.get("big") or "", why))
                 continue
-            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost"), "isCombo": p.get("isCombo"), "legs": p.get("legs"), "ticker": p.get("ticker"), "bt": p.get("bt"), "comboUrl": p.get("comboUrl")})]
+            p["backers"] = [b for b in (p.get("backers") or []) if stake_ok({"cost": b.get("cost"), "isCombo": p.get("isCombo"), "legs": p.get("legs"), "ticker": p.get("ticker"), "bt": p.get("bt"), "comboUrl": p.get("comboUrl")}) and capper_quality_ok(cmap.get(nick_key(b.get("name")).lower()), now, b, qstats)]
             if not p["backers"]:
                 continue
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
@@ -2405,6 +2525,7 @@ def group_games(cappers, now, log=print):
     games.sort(key=lambda g: (0 if g["live"] else 1, g["startTs"] or 10**12, g["id"]))
     if dropped:
         log("finished games removed: %d: %s" % (len(dropped), "; ".join(dropped[:12])))
+    log_quality_stats(log, qstats, now)
     return games, dropped
 
 
@@ -2636,10 +2757,14 @@ def carry_forward_following(new_picks, prev, now, http, mcache, ecache, log=prin
     def fid(p):
         return _backer_key(p.get("nickname"), p.get("ticker"), p.get("yesNo"))
     pinset = {n.lower() for n in pinned_names(pinned)} if pinned is not None else None
+    prev_caps = capper_map(((prev or {}).get("cappers") if isinstance(prev, dict) else None) or [])
     def allowed(p):
         if pinset is not None and nick_key(p.get("nickname")).lower() not in pinset:
             return False
         if not stake_ok(p):
+            return False
+        cap = prev_caps.get(nick_key(p.get("nickname")).lower())
+        if cap is not None and not capper_quality_ok(cap, now, p):
             return False
         return is_near_term_pick(p, now)
     seen = {fid(p) for p in (new_picks or []) if allowed(p)}
@@ -2953,7 +3078,7 @@ def build(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p):
+            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_quality_ok(c, now, p):
                 continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
@@ -3227,7 +3352,7 @@ def build_follow_check(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p):
+            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_quality_ok(c, now, p):
                 continue
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)

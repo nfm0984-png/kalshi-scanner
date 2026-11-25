@@ -52,7 +52,7 @@ interface SportRec { n: number; w: number; l: number; roi?: number | null; profi
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null }
 interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
-interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number }
+interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number; lastTs?: number | null }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
 interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; addedTs?: number | null; addedLastTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string; rank?: number; manual?: boolean }
@@ -430,6 +430,44 @@ function capperOf(name: string): Capper | undefined {
   const k = (name || "").toLowerCase();
   return (DATA.cappers || []).find((c: Capper) => (c.nickname || "").toLowerCase() === k);
 }
+const QUALITY_SEVEN_SECS = 7 * 86400;
+function qualityNum(v: unknown): number | null {
+  return typeof v === "number" && isFinite(v) ? v : null;
+}
+function qualityTs(v: unknown, now: number): number | null {
+  let n = typeof v === "number" && isFinite(v) ? v : null;
+  if (n == null) return null;
+  if (n > 1e12) n = n / 1000;
+  if (n < 1e9 || n > now + 86400) return null;
+  return n;
+}
+function capperLastTsMap(now: number): Record<string, number> {
+  const m: Record<string, number> = {};
+  const bump = (name: string | undefined, ts: unknown) => {
+    const k = (name || "").toLowerCase();
+    const t = qualityTs(ts, now);
+    if (!k || t == null) return;
+    if (m[k] == null || t > m[k]) m[k] = t;
+  };
+  (DATA.cappers || []).forEach((c: Capper) => bump(c.nickname, c.lastTs));
+  (DATA.games || []).forEach((g: Game) => (g.picks || []).forEach((p: Pick) => (p.backers || []).forEach((b: Backer) => { bump(b.name, b.lastTs); bump(b.name, b.lastSeenTs); })));
+  ((DATA.following && DATA.following.picks) || []).forEach((fp: FollowPick) => bump(fp.nickname, fp.lastTs));
+  return m;
+}
+function capperQualityOk(name: string | undefined, now: number, lastMap?: Record<string, number>): boolean {
+  const c = capperOf(name || "");
+  // Dollar PnL only — never W-L or graded-record profit.
+  const pnl = c ? qualityNum(c.pnl) : null;
+  const year = c ? qualityNum(c.yearlyPnl) : null;
+  if (pnl != null && pnl < 0) return false;
+  if (year != null && year < 0) return false;
+  const month = c ? qualityNum(c.monthlyPnl) : null;
+  const d30 = month != null ? month : (c ? qualityNum(c.tape30d) : null);
+  if (d30 != null && d30 <= 0) return false;
+  const last = (lastMap || capperLastTsMap(now))[(name || "").toLowerCase()];
+  if (last != null && last < now - QUALITY_SEVEN_SECS) return false;
+  return true;
+}
 function gradedWL(c?: Capper | null): { w: number; l: number; n: number; roi: number | null; profit: number | null; sample?: string } | null {
   const g = c && c.graded;
   if (!g || !(g.n > 0)) return null;
@@ -750,10 +788,12 @@ function stakeOk(cost?: number | null, pick?: { isCombo?: boolean; ticker?: stri
   const floor = isComboPick(pick || {}) ? MIN_STAKE_COMBO : MIN_STAKE;
   return (cost || 0) >= floor;
 }
-function filterMinStakeGames(games: Game[]): Game[] {
+function filterMinStakeGames(games: Game[], now?: number): Game[] {
+  const ts = now ?? Math.floor(Date.now() / 1000);
+  const lastMap = capperLastTsMap(ts);
   return games.map((g: Game) => {
     const picks = (g.picks || []).map((p: Pick) => {
-      const backers = (p.backers || []).filter((b: Backer) => stakeOk(b.cost, p));
+      const backers = (p.backers || []).filter((b: Backer) => stakeOk(b.cost, p) && capperQualityOk(b.name, ts, lastMap));
       const total = Math.round(backers.reduce((sum: number, b: Backer) => sum + (b.cost || 0), 0) * 100) / 100;
       return { ...p, backers, total };
     }).filter((p: Pick) => p.backers.length);
@@ -791,7 +831,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
   const fps = ((DATA.following || {}).picks || []) as FollowPick[];
   fps.forEach((fp: FollowPick) => {
     if (followPickIsFinished(fp, now)) return;
-    if (!stakeOk(fp.cost, fp)) return;
+    if (!stakeOk(fp.cost, fp) || !capperQualityOk(fp.nickname, now)) return;
     const start = fp.startTs || (fp.legs && fp.legs.reduce((m: number, l: ComboLeg) => (l.startTs && (!m || l.startTs < m) ? (l.startTs as number) : m), 0)) || fp.closeTs || 0;
     if (!start || start > now + 30 * 24 * 3600) return;
     const yesNo = (fp.yesNo === "No" ? "No" : "Yes") as "Yes" | "No";
@@ -836,7 +876,7 @@ function mergeFollowPicks(games: Game[], now: number): Game[] {
 function openGames(now: number): Game[] {
   const horizon = now + 30 * 24 * 3600;
   const base = (DATA.games || []).map((g: Game) => ({ ...g, picks: (g.picks || []).filter((p: Pick) => hasMy40Backer(p) && !!(p.startTs || g.startTs) && (p.startTs || g.startTs) <= horizon && !gamePickIsFinished(p, g, now)) })).filter((g: Game) => g.picks.length && !gameOver(g, now));
-  return filterMinStakeGames(mergeFollowPicks(base, now));
+  return filterMinStakeGames(mergeFollowPicks(base, now), now);
 }
 function uniqueSide(backers: Backer[]): { rec: WL; n: number } {
   const seen: Record<string, boolean> = {};
@@ -1364,13 +1404,69 @@ function last20Shrink(name: string): number {
   if (!r || !r.n) return -1;
   return (r.w + 0.5 * LAST20_PRIOR) / (r.n + LAST20_PRIOR);
 }
-function pickHotScore(p: { backers?: Backer[] }): number {
-  let best = -1;
-  (p.backers || []).forEach((b: Backer) => { const s = last20Shrink(b.name); if (s > best) best = s; });
-  return best;
+function longTermPnlOf(name: string): number | null {
+  const c = capperOf(name);
+  if (!c) return null;
+  const all = qualityNum(c.pnl);
+  if (all != null) return all;
+  return qualityNum(c.yearlyPnl);
+}
+function boardRankOf(name: string): number | null {
+  const c = capperOf(name);
+  if (!c) return null;
+  const r = c.ranks || {};
+  const nums: number[] = [];
+  ["all_time", "yearly", "monthly", "weekly"].forEach((k: string) => {
+    const v = r[k];
+    if (typeof v === "number" && v > 0) nums.push(v);
+  });
+  const pr = c.profitRanks || {};
+  Object.keys(pr).forEach((board: string) => {
+    const row = pr[board];
+    if (row && typeof row === "object") {
+      Object.keys(row).forEach((k: string) => {
+        const v = (row as Record<string, unknown>)[k];
+        if (typeof v === "number" && v > 0) nums.push(v);
+      });
+    } else if (typeof row === "number" && row > 0) nums.push(row);
+  });
+  return nums.length ? Math.min.apply(null, nums) : null;
+}
+function veteranDaysOf(name: string): number {
+  const c = capperOf(name);
+  return c && c.ageDays != null && isFinite(c.ageDays) ? c.ageDays : 0;
+}
+function last20PnlOf(name: string): number | null {
+  const r = last20Of(name);
+  return r && r.n ? r.pnl : null;
+}
+function cmpCapperHistory(a: string, b: string): number {
+  const pa = longTermPnlOf(a), pb = longTermPnlOf(b);
+  if (pa == null && pb != null) return 1;
+  if (pb == null && pa != null) return -1;
+  if (pa != null && pb != null && pa !== pb) return pb - pa;
+  const ra = boardRankOf(a), rb = boardRankOf(b);
+  if (ra == null && rb != null) return 1;
+  if (rb == null && ra != null) return -1;
+  if (ra != null && rb != null && ra !== rb) return ra - rb;
+  const va = veteranDaysOf(a), vb = veteranDaysOf(b);
+  if (va !== vb) return vb - va;
+  const la = last20PnlOf(a), lb = last20PnlOf(b);
+  if (la == null && lb != null) return 1;
+  if (lb == null && la != null) return -1;
+  if (la != null && lb != null && la !== lb) return lb - la;
+  return 0;
+}
+function bestHistoryBacker(p: { backers?: { name: string }[] }): string {
+  const bs = p.backers || [];
+  if (!bs.length) return "";
+  return bs.slice().sort((x, y) => cmpCapperHistory(x.name, y.name))[0].name;
+}
+function pickHistoryCmp(a: { backers?: { name: string }[] }, b: { backers?: { name: string }[] }): number {
+  return cmpCapperHistory(bestHistoryBacker(a), bestHistoryBacker(b));
 }
 function sortBackersByLast20<T extends { name: string }>(backers: T[]): T[] {
-  return backers.slice().sort((a: T, b: T) => last20Shrink(b.name) - last20Shrink(a.name));
+  return backers.slice().sort((a: T, b: T) => cmpCapperHistory(a.name, b.name));
 }
 function isColdBacker(name: string): boolean {
   const k = (name || "").trim().toLowerCase();
@@ -1448,15 +1544,18 @@ function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
 }
 function rankedPicks(games: Game[]): RankedCard[] {
   const cards: RankedCard[] = [];
+  const seen: Record<string, boolean> = {};
   games.forEach((game: Game) => {
     (game.picks || []).forEach((p: Pick) => {
-      if (!hasMy40Backer(p)) return;
+      if (!hasMy40Backer(p) || !(p.backers || []).length) return;
+      if (seen[p.key]) return;
+      seen[p.key] = true;
       const n = netOf(p, game);
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  // Ranked: keep every pick; cappers with a hotter shrunk last-20 (so 16-4 beats 3-0) rise first. Unknown/cold last-20 go lower.
-  return cards.sort((a: RankedCard, b: RankedCard) => (pickHotScore(b.p) - pickHotScore(a.p)) || (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  // Ranked: keep every pick. Long-term dollar PnL and leaderboard rank first, veterans above newbies. Last-20 dollar PnL (not raw W-L, so short-odds grinders don't float) is only a tiebreaker.
+  return cards.sort((a: RankedCard, b: RankedCard) => pickHistoryCmp(a.p, b.p) || (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
 function pickRankMap(games: Game[]): Record<string, number> {
   const m: Record<string, number> = {};
@@ -1513,7 +1612,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const list = rankedPicks(games);
-  const comboN = list.filter((p: Pick) => isComboPick(p)).length;
+  const comboN = list.filter((c: RankedCard) => isComboPick(c.p)).length;
   const singleN = list.length - comboN;
   return (
     <div>
@@ -1530,7 +1629,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
 function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   const F = DATA.following || { cappers: [], picks: [], startedAt: "", recorded: 0, graded: 0 };
   const caps = F.cappers || [];
-  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now) && stakeOk(fp.cost, fp));
+  const picks = (F.picks || []).filter((fp: FollowPick) => !followPickIsFinished(fp, props.now) && stakeOk(fp.cost, fp) && capperQualityOk(fp.nickname, props.now));
   const byName: Record<string, FollowPick[]> = {};
   picks.forEach((fp: FollowPick) => { (byName[fp.nickname] = byName[fp.nickname] || []).push(fp); });
   Object.keys(byName).forEach((k: string) => {
@@ -1753,7 +1852,7 @@ export default function App() {
   const games = useMemo(() => openGames(now), [now, tick]);
   const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
-  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp)).length;
+  const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp) && capperQualityOk(fp.nickname, now)).length;
   const applyData = (data: Data) => {
     DATA = data;
     (window as any).__DATA = data;
