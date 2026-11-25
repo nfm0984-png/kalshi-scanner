@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:49 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6530,9 +6530,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 9:29 AM PT",
       "recordedTs": 1795541370,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 6:49 AM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24ALCVIL-ALC|Yes",
@@ -7748,6 +7748,27 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
       "recordedTs": 1795592293,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "pogoburger|KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
+      "nickname": "pogoburger",
+      "ticker": "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2",
+      "eventTicker": "KXNCAAMBSPREAD-26NOV25CONNDUKE",
+      "game": "UConn vs Duke: Spread",
+      "backing": "Duke wins by over 1.5 points",
+      "yesNo": "No",
+      "entry": 0.423,
+      "price": 0.59,
+      "cost": 620.53,
+      "contracts": 1467.0,
+      "startTs": 1795651200,
+      "league": "NCAAB",
+      "bt": "Spread",
+      "recordedAt": "Wed Nov 25 \u00b7 6:49 AM PT",
+      "recordedTs": 1795618150,
       "status": "open",
       "result": null,
       "settledAt": null
