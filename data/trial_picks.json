@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 9:34 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:39 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6593,9 +6593,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 10:43 AM PT",
       "recordedTs": 1795545833,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
@@ -7307,9 +7307,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "Bigbone69|KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
@@ -7349,9 +7349,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "Davmjxn|KXNBATOTAL-26NOV24DALDEN-234|Yes",
@@ -7370,9 +7370,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "Davmjxn|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
@@ -7643,9 +7643,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV24DALDEN-DEN|Yes",
@@ -7664,9 +7664,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
     },
     {
       "id": "parspectives|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",

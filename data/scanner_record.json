@@ -2055,7 +2055,8 @@
       "startTs": 1795557600,
       "firstTs": 1795545833,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "falcon999|KXNBASPREAD-26NOV24DETORL-ORL4|Yes": {
       "capper": "falcon999",
@@ -2185,7 +2186,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "toottoot|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
       "capper": "toottoot",
@@ -2195,7 +2197,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "wapol|KXNBAGAME-26NOV24DALDEN-DEN|Yes": {
       "capper": "wapol",
@@ -2205,7 +2208,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "BigRabbit|KXNBAGAME-26NOV24DALDEN-DAL|Yes": {
       "capper": "BigRabbit",
@@ -2215,7 +2219,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795585168
     },
     "MrDouche|KXUCLGAME-26NOV25SBHBAR-BAR|No": {
       "capper": "MrDouche",
@@ -2235,7 +2240,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "ic4cream|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
       "capper": "ic4cream",
@@ -2475,7 +2481,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795585168
     },
     "VeryLucky888|KXNBASPREAD-26NOV24DALDEN-DEN8|Yes": {
       "capper": "VeryLucky888",
@@ -2485,7 +2492,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795585168
     },
     "VeryLucky888|KXUCLGAME-26NOV25INTVFB-VFB|No": {
       "capper": "VeryLucky888",
@@ -2810,5 +2818,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795584869
+  "updatedTs": 1795585168
 }
