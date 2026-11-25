@@ -249,7 +249,7 @@
       "l": 1,
       "pnl": -19.99,
       "name": "brand.breeze",
-      "ts": 1795537548,
+      "ts": 1795585948,
       "boost": false
     },
     "snoz3berries": {
@@ -258,7 +258,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Snoz3berries",
-      "ts": 1795537548,
+      "ts": 1795585948,
       "boost": false
     },
     "parspectives": {
@@ -594,6 +594,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795585769,
+  "updatedTs": 1795585948,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
