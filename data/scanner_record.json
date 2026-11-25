@@ -2231,8 +2231,7 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "ic4cream|KXNBATOTAL-26NOV24DALDEN-234|Yes": {
       "capper": "ic4cream",
@@ -2425,8 +2424,7 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "VeryLucky888|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "VeryLucky888",
@@ -2436,8 +2434,7 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "toottoot|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "toottoot",
@@ -2447,8 +2444,7 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "GC-P|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "GC-P",
@@ -2458,8 +2454,7 @@
       "startTs": 1795639500,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "VeryLucky888|KXUCLGAME-26NOV25BRULFC-BRU|No": {
       "capper": "VeryLucky888",
@@ -2926,8 +2921,7 @@
       "startTs": 1795640400,
       "firstTs": 1795632766,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795649769
+      "status": "open"
     },
     "jspana99|KXUCLGAME-26NOV25SPOMUN-MUN|Yes": {
       "capper": "jspana99",
@@ -3008,7 +3002,17 @@
       "firstTs": 1795644510,
       "combo": true,
       "status": "open"
+    },
+    "jspana99|KXNFL1HTEAMTOTAL-26NOV25GBLAR-LAR11|No": {
+      "capper": "jspana99",
+      "ticker": "KXNFL1HTEAMTOTAL-26NOV25GBLAR-LAR11",
+      "side": "No",
+      "price": 0.53,
+      "startTs": 1795654800,
+      "firstTs": 1795647960,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795650669
+  "updatedTs": 1795647960
 }
