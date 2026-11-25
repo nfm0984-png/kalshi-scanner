@@ -286,7 +286,7 @@
       "l": 19,
       "pnl": 3.81,
       "name": "coolness77",
-      "ts": 1795537548,
+      "ts": 1795587875,
       "boost": false
     },
     "muffat00": {
@@ -332,7 +332,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "kelab",
-      "ts": 1795537548,
+      "ts": 1795587875,
       "boost": false
     },
     "dimesy": {
@@ -621,6 +621,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795585073,
+  "updatedTs": 1795587875,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
