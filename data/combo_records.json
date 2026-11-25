@@ -132,7 +132,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "regine",
-      "ts": 1795533365,
+      "ts": 1795578278,
       "boost": false
     },
     "allhunnsno20sr10s": {
@@ -141,7 +141,7 @@
       "l": 46,
       "pnl": 486.57,
       "name": "AllHunnsNo20sR10s",
-      "ts": 1795533365,
+      "ts": 1795578278,
       "boost": true
     },
     "714smith": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795577979,
+  "updatedTs": 1795578278,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

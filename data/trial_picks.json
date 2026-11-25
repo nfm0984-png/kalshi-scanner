@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:39 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:44 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7139,9 +7139,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 7:44 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
@@ -7223,9 +7223,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
       "recordedTs": 1795575248,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:44 PM PT"
     },
     {
       "id": "pogoburger|KXNCAAFGAME-26NOV24KENTEMU-KENT|Yes",
