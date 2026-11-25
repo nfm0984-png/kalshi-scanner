@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:10 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 8:04 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6950,9 +6950,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:37 PM PT",
       "recordedTs": 1795567051,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
@@ -7013,9 +7013,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 4:59 PM PT",
       "recordedTs": 1795568361,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026WDD24CKDNKEJYVIC-AZTDUAZIJ|Yes",
@@ -7034,9 +7034,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:59 PM PT",
       "recordedTs": 1795568361,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "BWmarkets|KXNCAAMBSPREAD-26NOV24SAMGT-SAM7|Yes",
@@ -7076,9 +7076,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24CLEMWASH-CLEM|Yes",
@@ -7139,9 +7139,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
@@ -7181,9 +7181,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
@@ -7223,9 +7223,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
       "recordedTs": 1795575248,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "pogoburger|KXNCAAFGAME-26NOV24KENTEMU-KENT|Yes",
@@ -7244,9 +7244,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:59 PM PT",
       "recordedTs": 1795575549,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24LOUTTU-TTU|Yes",
@@ -7265,6 +7265,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:10 PM PT",
       "recordedTs": 1795576217,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 8:04 PM PT"
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026REX4RRV5MYO3ZGNN-BSP2Q2YWE|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026REX4RRV5MYO3ZGNN-BSP2Q2YWE",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026REX4RRV5MYO3ZGNN",
+      "game": "MVE",
+      "backing": "yes Yun Seong Chung,yes Kaichi Uchida,yes St. John's,yes Saint Louis,yes VCU,yes Stanford",
+      "yesNo": "Yes",
+      "entry": 0.082,
+      "price": 0.073,
+      "cost": 776.76,
+      "contracts": 9475.6,
+      "startTs": 1795573800,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 8:04 PM PT",
+      "recordedTs": 1795579480,
       "status": "open",
       "result": null,
       "settledAt": null
