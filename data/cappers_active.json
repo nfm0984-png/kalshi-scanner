@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 11:55 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 12:05 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -682,7 +682,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -6254,8 +6254,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -15971,28 +15971,28 @@
       "ageDays": 102,
       "graded": {
         "n": 400,
-        "w": 221,
-        "l": 179,
+        "w": 218,
+        "l": 182,
         "roi": null,
-        "profit": 6105.66,
+        "profit": 4800.25,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 221,
-        "l": 179,
+        "w": 218,
+        "l": 182,
         "roi": null,
-        "profit": 6105.66,
+        "profit": 4800.25,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "opposite.dolphin8700 \u00b7 221-179 \u00b7 +$6.40k all",
+      "recordLine": "opposite.dolphin8700 \u00b7 218-182 \u00b7 +$6.40k all",
       "addedAt": "2026-11-22",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -26279,7 +26279,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 68,
+      "openPositions": 70,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0

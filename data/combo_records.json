@@ -378,7 +378,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "mild.fire",
-      "ts": 1795592293,
+      "ts": 1795637130,
       "boost": false
     },
     "lebronthanos": {
@@ -617,7 +617,7 @@
       "l": 1,
       "pnl": 169.98,
       "name": "dear.bet",
-      "ts": 1795592293,
+      "ts": 1795637130,
       "boost": false
     },
     "ggmate111": {
@@ -631,6 +631,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795636530,
+  "updatedTs": 1795637130,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
