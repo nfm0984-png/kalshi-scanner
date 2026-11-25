@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 10:02 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 10:52 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8105,6 +8105,27 @@
       "bt": "Totals",
       "recordedAt": "Wed Nov 25 \u00b7 9:48 AM PT",
       "recordedTs": 1795628905,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ",
+      "eventTicker": "KXWTACHALLENGERMATCH-26NOV25TREERJ",
+      "game": "Trevisan vs Erjavec",
+      "backing": "Veronika Erjavec",
+      "yesNo": "Yes",
+      "entry": 0.9729,
+      "price": 1.0,
+      "cost": 100028.93,
+      "contracts": 102818.0,
+      "startTs": 1795640400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 10:52 AM PT",
+      "recordedTs": 1795632766,
       "status": "open",
       "result": null,
       "settledAt": null

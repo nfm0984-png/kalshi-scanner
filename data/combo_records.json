@@ -268,7 +268,7 @@
       "l": 4,
       "pnl": -1099.82,
       "name": "parspectives",
-      "ts": 1795587809,
+      "ts": 1795632766,
       "boost": false
     },
     "ustrader": {
@@ -296,7 +296,7 @@
       "l": 0,
       "pnl": 1684.82,
       "name": "Muffat00",
-      "ts": 1795587809,
+      "ts": 1795632766,
       "boost": false
     },
     "fattii": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795629753,
+  "updatedTs": 1795632766,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
