@@ -64,12 +64,12 @@
       "boost": false
     },
     "profitprofet": {
-      "n": 356,
+      "n": 357,
       "w": 132,
-      "l": 224,
-      "pnl": 259.5,
+      "l": 225,
+      "pnl": 329.87,
       "name": "Profitprofet",
-      "ts": 1795533365,
+      "ts": 1795580671,
       "boost": true
     },
     "dependent.snail8369": {
@@ -87,7 +87,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "pogoburger",
-      "ts": 1795533365,
+      "ts": 1795580671,
       "boost": false
     },
     "door.whale": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795579480,
+  "updatedTs": 1795580671,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
