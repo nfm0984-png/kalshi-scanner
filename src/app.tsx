@@ -1230,6 +1230,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
       <div style={{ padding: "12px 14px 12px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginBottom: 6 }}>
           {props.rankNo ? <span data-card-no="1" style={{ display: "inline-block", minWidth: 26, textAlign: "center", padding: "2px 8px", borderRadius: 999, background: BLUE, color: "#FFFFFF", fontSize: 13, fontWeight: 900 }}>{"#" + props.rankNo}</span> : null}
+          <HitChip p={p} game={props.game} />
           {props.game.live ? <Chip bg={RED} color="#FFFFFF">LIVE</Chip> : null}
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
           <AddedChip backers={p.backers} now={props.now} />
@@ -1394,7 +1395,8 @@ function ColdChip(props: { p: Pick }): React.ReactElement | null {
 }
 // ---- Nov 23 (Noel): LIVE-added tag, Fading / You're late, combo boost ----
 // Fading: current price is 5c+ BELOW the $500+ cappers' average entry -> sorts below non-fading picks.
-// You're late: price is 5c+ ABOVE their entry -> label only, no downrank.
+// Nov 24 (Noel): started (LIVE) games rank below all pregame picks. You're late (5c+ ABOVE entry)
+// also ranks below fair-price pregame picks; bigger lateness = lower. Labels stay. Cold still last.
 const FADE_CENTS = 5;
 function entryGapCents(p: Pick): number | null {
   const px = pickPrice(p);
@@ -1406,6 +1408,58 @@ function entryGapCents(p: Pick): number | null {
 }
 function isFadingPick(p: Pick): boolean { const g = entryGapCents(p); return g != null && g <= -FADE_CENTS; }
 function isLatePick(p: Pick): boolean { const g = entryGapCents(p); return g != null && g >= FADE_CENTS; }
+function lateCents(p: Pick): number { const g = entryGapCents(p); return g != null && g >= FADE_CENTS ? g : 0; }
+function isStartedPick(p: Pick, game: Game, now: number): boolean {
+  if (game.live) return true;
+  const start = p.startTs || game.startTs || 0;
+  return !!(start && start <= now);
+}
+// Nov 24 (Noel): Ranked primary key is estimated hit chance — market implied prob (price)
+// blended with the capper's shrunk win rate. More settled bets and more cappers (consensus)
+// weight the track record more. Stake size is only a final tiebreak.
+function shrunkHitRate(w: number, n: number): number {
+  if (n <= 0) return 0.5;
+  return (w + 2) / (n + 4);
+}
+function backerHitRate(b: Backer, p: Pick, game: Game): { rate: number; n: number } {
+  if (isComboPick(p)) {
+    const cr = comboRecOf(b.name);
+    if (cr && cr.n >= 8) return { rate: shrunkHitRate(cr.w, cr.n), n: cr.n };
+  }
+  const rec = recForCapper(capperOf(b.name), game.league, b.sportRec || b.rec || null);
+  if (rec && rec.n >= 5) return { rate: shrunkHitRate(rec.w, rec.n), n: rec.n };
+  const scan = scannerRecOf(b.name);
+  if (scan && (scan.w + scan.l) >= 5) return { rate: shrunkHitRate(scan.w, scan.w + scan.l), n: scan.w + scan.l };
+  if (rec && rec.n > 0) return { rate: shrunkHitRate(rec.w, rec.n), n: rec.n };
+  return { rate: 0.5, n: 0 };
+}
+function hitProb(p: Pick, game: Game): number {
+  const px = pickPrice(p);
+  const market = px != null && px > 0 ? Math.min(Math.max(px, 0.01), 0.99) : 0.5;
+  const seen: Record<string, boolean> = {};
+  let rateW = 0, nTot = 0, nCaps = 0;
+  (p.backers || []).filter((b: Backer) => stakeOk(b.cost, isComboPick(p))).forEach((b: Backer) => {
+    const k = (b.name || "").trim().toLowerCase();
+    if (!k || seen[k]) return;
+    seen[k] = true;
+    const r = backerHitRate(b, p, game);
+    const ww = Math.max(r.n, 1);
+    rateW += r.rate * ww;
+    nTot += r.n;
+    nCaps += 1;
+  });
+  const capperRate = nCaps ? rateW / Math.max(nTot, nCaps) : 0.5;
+  const w = nTot / (nTot + (nCaps >= 2 ? 10 : 18));
+  // Market price is the base. Track record only nudges it a little (max 8c), so a hot
+  // capper on a longshot cannot outrank a heavy favorite on hit chance.
+  const shift = Math.max(-0.08, Math.min(0.08, (capperRate - market) * w * 0.4));
+  return Math.min(0.99, Math.max(0.01, market + shift));
+}
+function pickStake(p: Pick): number { return p.total || 0; }
+function hitPctText(p: Pick, game: Game): string { return Math.round(hitProb(p, game) * 100) + "% hit"; }
+function HitChip(props: { p: Pick; game: Game }): React.ReactElement {
+  return <span data-hit-pct="1" title="Estimated chance this hits: current Kalshi price, adjusted by the capper's graded win rate. More cappers on the same side counts as consensus." style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: "#ECFDF5", color: "#047857", border: "1.5px solid #10B981", fontSize: 12, fontWeight: 850 }}>{hitPctText(props.p, props.game)}</span>;
+}
 function firstAddedTs(p: Pick): number {
   const xs = (p.backers || []).map((b: Backer) => b.addedTs || 0).filter((x: number) => x > 0);
   return xs.length ? Math.min(...xs) : 0;
@@ -1435,7 +1489,7 @@ function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElem
   if (addedAfterStart(p, props.startTs)) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
   const g = entryGapCents(p);
   if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the cappers paid, so the market is moving against them. Ranked below non-fading picks." style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
-  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the cappers paid. Label only; ranking unchanged." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
+  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the cappers paid. Ranked below fair-price pregame picks; more late = lower." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
   const cb = comboBoostBacker(p);
   if (cb) { const r = comboRecOf(cb.name); if (r) out.push(<span key="cb" data-combo-boost="1" title="This capper's own Kalshi combos are profitable over 30+ settled combos, so the combo gets a ranking boost" style={flagChip("#ECFDF5", "#047857", "#10B981")}>{"🔗 Combo pro " + r.w + "-" + r.l + " · " + (r.pnl >= 0 ? "+$" : "-$") + (Math.abs(r.pnl) >= 1000 ? (Math.abs(r.pnl) / 1000).toFixed(1) + "k" : String(Math.round(Math.abs(r.pnl))))}</span>); }
   return out.length ? <>{out}</> : null;
@@ -1446,10 +1500,10 @@ function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
   if (p.startTs && p.addedTs && p.addedTs > p.startTs) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
   const g = p.price != null && p.entry != null && p.price > 0 && p.entry > 0 && p.entry < 1 ? Math.round((p.price - p.entry) * 100) : null;
   if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the capper paid" style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
-  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the capper paid. Label only." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
+  else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the capper paid. Ranked below fair-price pregame picks; more late = lower." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
   return out.length ? <>{out}</> : null;
 }
-function rankedPicks(games: Game[]): RankedCard[] {
+function rankedPicks(games: Game[], now: number): RankedCard[] {
   const cards: RankedCard[] = [];
   games.forEach((game: Game) => {
     (game.picks || []).forEach((p: Pick) => {
@@ -1458,15 +1512,15 @@ function rankedPicks(games: Game[]): RankedCard[] {
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isStartedPick(a.p, a.game, now)) - Number(isStartedPick(b.p, b.game, now))) || (lateCents(a.p) - lateCents(b.p)) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || (hitProb(b.p, b.game) - hitProb(a.p, a.game)) || (pickStake(b.p) - pickStake(a.p)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
-function pickRankMap(games: Game[]): Record<string, number> {
+function pickRankMap(games: Game[], now: number): Record<string, number> {
   const m: Record<string, number> = {};
-  rankedPicks(games).forEach((c: RankedCard, i: number) => { m[c.p.key] = i + 1; });
+  rankedPicks(games, now).forEach((c: RankedCard, i: number) => { m[c.p.key] = i + 1; });
   return m;
 }
-function rankedLists(games: Game[]): { list: RankedCard[]; top: RankedCard[]; others: RankedCard[]; small: RankedCard[]; contested: RankedCard[]; total: number } {
-  const list = rankedPicks(games);
+function rankedLists(games: Game[], now: number): { list: RankedCard[]; top: RankedCard[]; others: RankedCard[]; small: RankedCard[]; contested: RankedCard[]; total: number } {
+  const list = rankedPicks(games, now);
   return { list, top: list, others: [], small: [], contested: list.filter((c: RankedCard) => c.contested), total: list.length };
 }
 function gameMatchesQuery(g: Game, q: string): boolean {
@@ -1476,7 +1530,7 @@ function gameMatchesQuery(g: Game, q: string): boolean {
 }
 function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
-  const ranks = pickRankMap(props.games);
+  const ranks = pickRankMap(props.games, props.now);
   const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const live = games.filter((g: Game) => g.live).sort((a, b) => (a.startTs || 0) - (b.startTs || 0) || (a.id < b.id ? -1 : 1));
   const up = games.filter((g: Game) => !g.live).sort((a, b) => (a.startTs || 1e12) - (b.startTs || 1e12) || (a.id < b.id ? -1 : 1));
@@ -1514,7 +1568,7 @@ function BestCappersRoster() {
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
-  const list = rankedPicks(games);
+  const list = rankedPicks(games, props.now);
   const comboN = list.filter((p: Pick) => isComboPick(p)).length;
   const singleN = list.length - comboN;
   return (
@@ -1896,7 +1950,7 @@ export default function App() {
   const db = (DATA.source && DATA.source.db) || {};
   const dbActive = db.active != null ? db.active : (DATA.cappers || []).length;
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
-  const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
+  const rankedN = useMemo(() => rankedPicks(todayGames(games, now), now).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$500+ singles · $50+ sports combos · next 24 hours · best to worst" },
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$500+ singles · $50+ sports combos, soonest first · live first" },
