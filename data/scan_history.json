@@ -1,6 +1,34 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 12:07 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 1:08 PM PT",
   "scans": [
+    {
+      "ts": 1795640926,
+      "at": "Wed Nov 25 \u00b7 1:08 PM PT",
+      "names": 874,
+      "newFollows": [
+        "empiremaker70",
+        "Confubae",
+        "Onepunchpanda"
+      ],
+      "followed": 72,
+      "target": 100,
+      "openPicks": 13,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026T2SUBIIENLUDKS47-AZMF7MT76|Yes",
+        "KXNCAAMBGAME-26NOV25MISSARIZ-ARIZ|Yes",
+        "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
+        "KXNCAAMBSPREAD-26NOV25MEMPSU-MEM4|No",
+        "KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE|Yes",
+        "KXUCLGAME-26NOV25SPOMUN-MUN|Yes",
+        "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
+        "KXNBAGAME-26NOV25MINOKC-MIN|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+        "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes",
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
+      ]
+    },
     {
       "ts": 1795637279,
       "at": "Wed Nov 25 \u00b7 12:07 PM PT",
@@ -1152,34 +1180,6 @@
         "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
         "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
         "KXNBAPTS-26NOV22DENCHI-CHIIOKORO35-10|No"
-      ]
-    },
-    {
-      "ts": 1795335891,
-      "at": "Sun Nov 22 \u00b7 12:24 AM PT",
-      "names": 262,
-      "newFollows": [
-        "nettinyahoo",
-        "bananastand21",
-        "LargeFarva",
-        "parspectives"
-      ],
-      "followed": 26,
-      "target": 50,
-      "openPicks": 12,
-      "ids": [
-        "KXNFLGAME-26NOV22ARIKC-ARI|Yes",
-        "KXNFLGAME-26NOV22MIABUF-MIA|Yes",
-        "KXNFLGAME-26NOV22NOCHI-NO|Yes",
-        "KXNFLGAME-26NOV22TBDET-DET|Yes",
-        "KXNFLGAME-26NOV22TBDET-TB|Yes",
-        "KXNFLREC-26NOV22TBDET-DETJGIBBS0-4|No",
-        "KXNFLRECYDS-26NOV22TBDET-DETJGIBBS0-30|No",
-        "KXNFLSPREAD-26NOV22TBDET-DET8|No",
-        "KXNFLGAME-26NOV22LVDEN-LV|Yes",
-        "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
-        "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes",
-        "KXNFLSPREAD-26NOV23CINWAS-CIN8|No"
       ]
     }
   ]

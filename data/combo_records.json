@@ -665,9 +665,37 @@
       "name": "bird.pointer",
       "ts": 1795637279,
       "boost": false
+    },
+    "empiremaker70": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "empiremaker70",
+      "ts": 1795640926,
+      "boost": false
+    },
+    "confubae": {
+      "n": 20,
+      "w": 5,
+      "l": 15,
+      "pnl": 112.8,
+      "name": "Confubae",
+      "ts": 1795640926,
+      "boost": false
+    },
+    "onepunchpanda": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "Onepunchpanda",
+      "ts": 1795640926,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795643564,
+  "updatedTs": 1795640926,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

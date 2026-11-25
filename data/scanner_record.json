@@ -2890,8 +2890,7 @@
       "startTs": 1795634400,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795643564
+      "status": "open"
     },
     "iknowballmorethanu|KXUCLTOTAL-26NOV25SBHBAR-5|No": {
       "capper": "iknowballmorethanu",
@@ -2953,23 +2952,13 @@
       "combo": false,
       "status": "open"
     },
-    "reluctant.fox5394|KXUCLGAME-26NOV25INTVFB-INT|Yes": {
-      "capper": "reluctant.fox5394",
-      "ticker": "KXUCLGAME-26NOV25INTVFB-INT",
-      "side": "Yes",
-      "price": 0.81,
-      "startTs": 1795647600,
-      "firstTs": 1795641225,
-      "combo": false,
-      "status": "open"
-    },
-    "reluctant.fox5394|KXUCLTOTAL-26NOV25INTVFB-1|No": {
-      "capper": "reluctant.fox5394",
-      "ticker": "KXUCLTOTAL-26NOV25INTVFB-1",
+    "DTWD|KXNCAAMBSPREAD-26NOV25MEMPSU-MEM4|No": {
+      "capper": "DTWD",
+      "ticker": "KXNCAAMBSPREAD-26NOV25MEMPSU-MEM4",
       "side": "No",
-      "price": 0.01,
-      "startTs": 1795651200,
-      "firstTs": 1795641525,
+      "price": 0.49,
+      "startTs": 1795644000,
+      "firstTs": 1795640926,
       "combo": false,
       "status": "open"
     },
@@ -2977,12 +2966,12 @@
       "capper": "FFun",
       "ticker": "KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE",
       "side": "Yes",
-      "price": 0.9685,
+      "price": 0.7,
       "startTs": 1795644600,
-      "firstTs": 1795643265,
+      "firstTs": 1795640926,
       "combo": false,
       "status": "open"
     }
   },
-  "updatedTs": 1795643564
+  "updatedTs": 1795640926
 }
