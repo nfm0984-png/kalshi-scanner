@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 9:17 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:20 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8000,6 +8000,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:17 AM PT",
       "recordedTs": 1795627033,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "Profitprofet|KXT20MATCH-26NOV250930DESDUB-DUB|Yes",
+      "nickname": "Profitprofet",
+      "ticker": "KXT20MATCH-26NOV250930DESDUB-DUB",
+      "eventTicker": "KXT20MATCH-26NOV250930DESDUB",
+      "game": "Dubai Capitals vs Desert Vipers",
+      "backing": "Dubai Capitals",
+      "yesNo": "Yes",
+      "entry": 0.89,
+      "price": 0.88,
+      "cost": 992.35,
+      "contracts": 1115.0,
+      "startTs": 1795617000,
+      "league": "Cricket",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 9:20 AM PT",
+      "recordedTs": 1795627213,
       "status": "open",
       "result": null,
       "settledAt": null

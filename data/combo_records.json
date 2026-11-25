@@ -581,7 +581,7 @@
       "l": 1,
       "pnl": -549.92,
       "name": "djcheecake",
-      "ts": 1795581788,
+      "ts": 1795627213,
       "boost": false
     },
     "bobbyoracle": {
@@ -590,7 +590,7 @@
       "l": 1,
       "pnl": -10.0,
       "name": "Bobbyoracle",
-      "ts": 1795581788,
+      "ts": 1795627213,
       "boost": false
     },
     "gbaby50": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795627033,
+  "updatedTs": 1795627213,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
