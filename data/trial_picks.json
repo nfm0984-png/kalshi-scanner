@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 11:19 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7730,6 +7730,27 @@
       "status": "win",
       "result": "yes",
       "settledAt": "Tue Nov 24 \u00b7 9:52 PM PT"
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ",
+      "eventTicker": "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4",
+      "game": "MVE",
+      "backing": "yes Brooklyn,yes Chicago,yes New York,yes Memphis,yes Philadelphia,yes Minnesota,yes Houston,yes Sacramento,yes San Antonio",
+      "yesNo": "Yes",
+      "entry": 0.0037,
+      "price": 0.017,
+      "cost": 765.57,
+      "contracts": 204473.68,
+      "startTs": 1795644000,
+      "league": "NBA",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
+      "recordedTs": 1795592293,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

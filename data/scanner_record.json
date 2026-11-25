@@ -2790,7 +2790,8 @@
       "startTs": 1795582800,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795592293
     },
     "Siddhartha1|KXNFLTOTAL-26NOV25GBLAR-45|Yes": {
       "capper": "Siddhartha1",
@@ -2821,7 +2822,17 @@
       "firstTs": 1795576217,
       "combo": false,
       "status": "open"
+    },
+    "falcon999|KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ",
+      "side": "Yes",
+      "price": 0.017,
+      "startTs": 1795644000,
+      "firstTs": 1795592293,
+      "combo": true,
+      "status": "open"
     }
   },
-  "updatedTs": 1795591152
+  "updatedTs": 1795592293
 }
