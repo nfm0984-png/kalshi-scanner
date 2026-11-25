@@ -4,7 +4,7 @@ Includes the Nov 24 spread fix: a Polymarket YES on a dog (e.g. Real Madrid +1.5
 maps to BUY NO on the favorite winning by more than the line. Do not "simplify"
 that invert. This module is side-effect free on import (no network).
 """
-import json, re, time, urllib.request, datetime as dt
+import collections, json, re, time, urllib.request, datetime as dt
 
 try:
     import kalshi_names as _knames
