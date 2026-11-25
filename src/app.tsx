@@ -274,9 +274,19 @@ function matchupOf(...vals: Array<string | null | undefined>): string {
   }
   return "";
 }
+// Kalshi wording for a combo leg, same as the single-pick "On Kalshi" box:
+// the Kalshi market title, then the option row to tap, then Yes/No.
+// e.g. "Boston vs Washington: Points" · Tap "Anthony Davis: 20+" → Yes
+function legKalshiTitle(leg: ComboLeg): string {
+  return (leg.marketTitle || leg.game || leg.matchup || "").trim();
+}
+function legKalshiOption(leg: ComboLeg): string {
+  return (leg.backing || leg.contractTitle || leg.ticker || "").trim();
+}
 function legPickLabel(leg: ComboLeg): string {
-  const line = (leg.contractTitle || leg.backing || leg.ticker || "").trim();
-  return ((leg.yesNo || "") + (line ? " · " + line : "")).trim();
+  const title = legKalshiTitle(leg);
+  const opt = legKalshiOption(leg);
+  return ((title ? title + " · " : "") + (opt ? "Tap “" + opt + "” → " : "") + (leg.yesNo || "")).trim();
 }
 function MatchupLine(props: { matchup?: string; startTs?: number; now?: number }): React.ReactElement | null {
   const mu = props.matchup || "";
@@ -290,7 +300,7 @@ function MatchupLine(props: { matchup?: string; startTs?: number; now?: number }
 function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cost?: number | null; price?: number | null; comboUrl?: string | null; ticker?: string; legs?: ComboLeg[] }): string {
   const legs = p.legs || [];
   const lines: string[] = [
-    "Kalshi combo" + (p.game ? (" · " + p.game) : ""),
+    "Kalshi combo" + (p.game && p.game !== "MVE" ? (" · " + p.game) : ""),
     (p.backing || "") + (p.yesNo ? (" · " + p.yesNo) : ""),
     p.cost != null ? ("Stake $" + Math.round(p.cost * 100) / 100) : "",
     p.price != null ? ("Price " + p.price + " · pays " + cents(p.price)) : "",
@@ -300,8 +310,7 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   ];
   legs.forEach((leg: ComboLeg, i: number) => {
     const start = leg.startTs ? ptTime(leg.startTs) : "";
-    const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
-    lines.push((i + 1) + ". " + legPickLabel(leg) + (mu ? (" · " + mu) : "") + (start ? (" · " + start) : "") + (legUrlOf(leg) ? (" · " + legUrlOf(leg)) : ""));
+    lines.push((i + 1) + ". " + legPickLabel(leg) + (start ? (" · " + start) : "") + (legUrlOf(leg) ? (" · " + legUrlOf(leg)) : ""));
   });
   return lines.filter((x) => x !== "").join("\n");
 }
@@ -355,8 +364,14 @@ function ComboBlock(props: {
             const mu = matchupOf(leg.matchup, leg.game, leg.marketTitle);
             return (
               <li key={(leg.ticker || "leg") + "|" + i} style={{ marginTop: 8, fontSize: 14, lineHeight: "19px", color: NAVY }}>
-                <div style={{ fontWeight: 800 }}>{legPickLabel(leg)}</div>
-                <MatchupLine matchup={mu} startTs={leg.startTs} now={props.now} />
+                {legKalshiTitle(leg) ? <div data-leg-title="1" style={{ fontWeight: 750, overflowWrap: "anywhere" }}>{legKalshiTitle(leg)}</div> : null}
+                <div data-leg-tap="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6, marginTop: 3, fontSize: 14, fontWeight: 700, color: "#475569" }}>
+                  <span>{"Tap"}</span>
+                  <b data-leg-option="1" style={{ color: NAVY, overflowWrap: "anywhere" }}>{"“" + legKalshiOption(leg) + "”"}</b>
+                  <span>{"→"}</span>
+                  <span data-leg-side={leg.yesNo} style={{ display: "inline-block", padding: "0 10px", borderRadius: 999, background: leg.yesNo === "No" ? RED : GREEN, color: "#FFFFFF", fontWeight: 850, fontSize: 14 }}>{leg.yesNo || "Yes"}</span>
+                </div>
+                <MatchupLine matchup={legKalshiTitle(leg).toLowerCase().indexOf(mu.toLowerCase()) === 0 ? "" : mu} startTs={leg.startTs} now={props.now} />
                 {legHref ? <a data-leg-link="1" href={legHref} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 4, padding: "4px 10px", borderRadius: 999, border: "1.5px solid #C4B5FD", background: "#FFFFFF", fontSize: 13, fontWeight: 800, color: "#5B21B6", textDecoration: "none" }}>Open leg ↗</a> : null}
               </li>
             );
