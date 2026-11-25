@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 5:53 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:58 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -142,7 +142,7 @@
       "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 1,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "reluctant.fox5394",
@@ -7196,7 +7196,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 40508.75,
+        "profit": 39954.06,
         "sample": "positions"
       },
       "gradedAll": {
@@ -7204,7 +7204,7 @@
         "w": 329,
         "l": 71,
         "roi": null,
-        "profit": 40508.75,
+        "profit": 39954.06,
         "sample": "positions"
       },
       "sports": {
@@ -7229,7 +7229,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -12109,7 +12109,7 @@
       "openPositions": 10,
       "pickSource": "positions+posts",
       "pickCount": 8,
-      "followCount": 5
+      "followCount": 4
     },
     {
       "nickname": "truewonder",
@@ -38629,7 +38629,7 @@
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
