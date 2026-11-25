@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 7:24 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:39 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7811,6 +7811,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 7:24 AM PT",
       "recordedTs": 1795620250,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "opposite.dolphin8700|KXNCAAMBGAME-26NOV25SBONBEL-SBON|Yes",
+      "nickname": "opposite.dolphin8700",
+      "ticker": "KXNCAAMBGAME-26NOV25SBONBEL-SBON",
+      "eventTicker": "KXNCAAMBGAME-26NOV25SBONBEL",
+      "game": "St. Bonaventure vs Belmont",
+      "backing": "St. Bonaventure",
+      "yesNo": "Yes",
+      "entry": 0.25,
+      "price": 0.25,
+      "cost": 95.0,
+      "contracts": 380.0,
+      "startTs": 1795618800,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 7:39 AM PT",
+      "recordedTs": 1795621160,
       "status": "open",
       "result": null,
       "settledAt": null
