@@ -314,7 +314,7 @@
       "l": 19,
       "pnl": -55.65,
       "name": "Eibriham",
-      "ts": 1795587809,
+      "ts": 1795634444,
       "boost": false
     },
     "tru3f0rmr": {
@@ -324,7 +324,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "tru3f0rmr",
-      "ts": 1795587809,
+      "ts": 1795634444,
       "boost": false
     },
     "kelab": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795633965,
+  "updatedTs": 1795634444,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
