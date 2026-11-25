@@ -693,9 +693,46 @@
       "name": "Onepunchpanda",
       "ts": 1795640926,
       "boost": false
+    },
+    "ryqeux": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "Ryqeux",
+      "ts": 1795644510,
+      "boost": false
+    },
+    "classic.toucan": {
+      "n": 2,
+      "w": 1,
+      "l": 1,
+      "pnl": 25.28,
+      "name": "classic.toucan",
+      "ts": 1795644510,
+      "boost": false
+    },
+    "firm.tip": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "firm.tip",
+      "ts": 1795644510,
+      "boost": false
+    },
+    "clintmyers": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "clintmyers",
+      "ts": 1795644510,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795644166,
+  "updatedTs": 1795644510,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
