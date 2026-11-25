@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState, type ReactNode } from "react";
+import BAKED_LAST20 from "./last20.json";
 
 const NAVY = "#1B1233";
 const NAVY_DEEP = "#11081F";
@@ -11,6 +12,7 @@ const GREEN = "#15803D";
 const RED = "#B91C1C";
 const AMBER = "#B45309";
 const TARGET_FOLLOW = 100;
+interface Last20 { dots: string; w: number; l: number; n: number; pnl: number }
 function capperDatabase(): CapperDatabase {
   const fol = DATA.following || {};
   const db = fol.database || {};
@@ -58,7 +60,7 @@ interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; 
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number; database?: CapperDatabase }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
-interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> } }
+interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> } }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -570,6 +572,7 @@ function BackerRow(props: { b: Backer; now: number }) {
         <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 750, color: NAVY, marginTop: 3, overflowWrap: "anywhere" }}>
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
         </div>
+        <Last20Dots name={b.name} />
         {b.lastSeen ? <div data-last-seen="1" style={{ marginTop: 4 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + b.lastSeen}</Chip></div> : null}
       </div>
     </div>
@@ -1324,13 +1327,38 @@ function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boo
 interface RankedCard { p: Pick; game: Game; rec: WL; cappers: number; net: number; raw: number; contested: boolean; proven: boolean; padded: boolean; my40: number; tier: number; bestN: number }
 // K1 (Noel Nov 23): a capper with 20+ graded scanner picks and negative flat-$1 units is "cold".
 // A pick whose $500+ backers are all cold sorts below every other pick. falcon999/BWmarkets never go cold.
-function scannerRecOf(name: string): { n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean } | null {
+function scannerRecOf(name: string): { n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 } | null {
   const m = (DATA.scannerRecord && DATA.scannerRecord.cappers) || {};
   const k = (name || "").trim();
   if (m[k]) return m[k];
   const lk = k.toLowerCase();
   const hit = Object.keys(m).find((x: string) => x.toLowerCase() === lk);
   return hit ? m[hit] : null;
+}
+function last20Of(name: string): Last20 | null {
+  const rec = scannerRecOf(name);
+  if (rec && rec.last20 && rec.last20.n && rec.last20.dots) return rec.last20;
+  const baked = BAKED_LAST20 as Record<string, Last20>;
+  const k = (name || "").trim();
+  if (baked[k] && baked[k].n) return baked[k];
+  const lk = k.toLowerCase();
+  const hit = Object.keys(baked).find((x: string) => x.toLowerCase() === lk);
+  return hit && baked[hit] && baked[hit].n ? baked[hit] : null;
+}
+function Last20Dots(props: { name: string }): React.ReactElement | null {
+  const r = last20Of(props.name);
+  if (!r || !r.n || !r.dots) return null;
+  const pnl = (r.pnl >= 0 ? "+" : "") + kMoney(r.pnl);
+  return (
+    <div data-last20="1" title="Oldest left, newest right · flat $1 at first shown price" style={{ marginTop: 4, maxWidth: "100%" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 3, alignItems: "center" }}>
+        {r.dots.split("").map((d, i) => (
+          <span key={i} title={d === "W" ? "Hit" : "Miss"} style={{ width: 7, height: 7, borderRadius: 999, background: d === "W" ? GREEN : RED, flex: "none", display: "inline-block" }} />
+        ))}
+      </div>
+      <div style={{ fontSize: 11, lineHeight: "15px", fontWeight: 750, color: r.pnl >= 0 ? GREEN : RED, marginTop: 3, fontVariantNumeric: "tabular-nums" }}>{"Last " + r.n + " settled: " + r.w + "W-" + r.l + "L · " + pnl}</div>
+    </div>
+  );
 }
 function isColdBacker(name: string): boolean {
   const k = (name || "").trim().toLowerCase();
@@ -1610,6 +1638,7 @@ function CapperCard(props: { c: Capper; now: number; rank: number; filter?: stri
             <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, overflowWrap: "anywhere" }}>{c.nickname}</div>
           )}
           <div style={{ fontSize: 13, fontWeight: 800, color: head.color, marginTop: 2, fontVariantNumeric: "tabular-nums" }}>{(c.pnl != null ? ((c.pnl >= 0 ? "+" : "") + kMoney(c.pnl) + " official profit · ") : "") + "Closed " + closed}</div>
+          <Last20Dots name={c.nickname} />
         </div>
         {wr != null ? <WinRing pct={wr} /> : null}
         <Chip bg={picks.length ? GREEN : "#F1F5F9"} color={picks.length ? "#FFFFFF" : "#475569"}>{picks.length === 1 ? "1 pick" : picks.length + " picks"}</Chip>
