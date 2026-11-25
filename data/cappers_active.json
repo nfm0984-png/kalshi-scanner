@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:08 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -141,7 +141,7 @@
       "postsVisible": true,
       "openPositions": 1,
       "pickSource": "positions+posts",
-      "pickCount": 1,
+      "pickCount": 0,
       "followCount": 0
     },
     {
@@ -6317,29 +6317,29 @@
       "tape30d": null,
       "ageDays": 293,
       "graded": {
-        "n": 100,
-        "w": 57,
+        "n": 101,
+        "w": 58,
         "l": 43,
         "roi": null,
-        "profit": 95.46,
+        "profit": 105.42,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 100,
-        "w": 57,
+        "n": 101,
+        "w": 58,
         "l": 43,
         "roi": null,
-        "profit": 95.46,
+        "profit": 105.42,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "brand.breeze \u00b7 57-43 \u00b7 +$83 all",
+      "recordLine": "brand.breeze \u00b7 58-43 \u00b7 +$83 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10443,7 +10443,7 @@
       "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 1,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "hedge123",
@@ -10715,7 +10715,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -12109,7 +12109,7 @@
       "openPositions": 8,
       "pickSource": "positions+posts",
       "pickCount": 7,
-      "followCount": 4
+      "followCount": 3
     },
     {
       "nickname": "truewonder",
@@ -33544,24 +33544,24 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 48,
-        "w": 33,
+        "n": 49,
+        "w": 34,
         "l": 14,
         "roi": null,
-        "profit": 2620.87,
+        "profit": 2633.68,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 48,
-        "w": 33,
+        "n": 49,
+        "w": 34,
         "l": 14,
         "roi": null,
-        "profit": 2620.87,
+        "profit": 2633.68,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 33-14 \u00b7 +$2.47k all",
+      "recordLine": "kelab \u00b7 34-14 \u00b7 +$2.47k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
@@ -35299,24 +35299,24 @@
       "tape30d": null,
       "ageDays": 141,
       "graded": {
-        "n": 293,
+        "n": 294,
         "w": 193,
-        "l": 88,
+        "l": 89,
         "roi": null,
-        "profit": 9008.23,
+        "profit": 8951.53,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 293,
+        "n": 294,
         "w": 193,
-        "l": 88,
+        "l": 89,
         "roi": null,
-        "profit": 9008.23,
+        "profit": 8951.53,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 193-88 \u00b7 +$8.81k all",
+      "recordLine": "FFun \u00b7 193-89 \u00b7 +$8.81k all",
       "addedAt": "2026-11-24",
       "followingPicks": [
         {
@@ -35348,7 +35348,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7055,9 +7055,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 6:08 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV24BOSWAS-BOS13|No",
