@@ -693,10 +693,16 @@ function pickIsFinished(p: { status?: string; state?: string; result?: string | 
   }
   return false;
 }
+function comboHasFinishedLeg(p: { isCombo?: boolean; ticker?: string; legs?: ComboLeg[]; bt?: string; comboUrl?: string | null }, now: number, league?: string): boolean {
+  if (!isComboPick(p)) return false;
+  return (p.legs || []).some((leg: ComboLeg) => pickIsFinished({ startTs: leg.startTs, closeTs: leg.closeTs }, now, leg.league || league, leg.closeTs, leg.startTs));
+}
 function gamePickIsFinished(p: Pick, g: Game, now: number): boolean {
+  if (comboHasFinishedLeg(p, now, g.league)) return true;
   return pickIsFinished(p, now, g.league, g.closeTs, g.startTs);
 }
 function followPickIsFinished(p: FollowPick, now: number): boolean {
+  if (comboHasFinishedLeg(p, now, p.league)) return true;
   return pickIsFinished({ status: p.status, state: p.state, result: p.result, closeTs: p.closeTs, startTs: p.startTs, yesAsk: p.yesAsk, noAsk: p.noAsk, price: p.price, bt: p.bt }, now, p.league, undefined, p.startTs);
 }
 function gameOver(g: Game, now: number): boolean {
