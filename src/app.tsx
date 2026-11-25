@@ -314,6 +314,9 @@ function comboLegsText(p: { backing?: string; game?: string; yesNo?: string; cos
   });
   return lines.filter((x) => x !== "").join("\n");
 }
+// iPhone/iPad: the Kalshi app's universal link drops the combo's legs, so open the web
+// combo page in Safari instead (x-safari-https:// works on iOS 17+).
+const IOS = typeof navigator !== "undefined" && (/iPhone|iPad|iPod/.test(navigator.userAgent || "") || (navigator.platform === "MacIntel" && (navigator as any).maxTouchPoints > 1));
 function ComboBlock(props: {
   legs?: ComboLeg[];
   now: number;
@@ -385,8 +388,12 @@ function ComboBlock(props: {
       </div>
       {href ? (
         <>
-        <a data-combo-link="1" href={href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>Open combo on Kalshi ↗</a>
-        <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>On iPhone, if the combo doesn’t load in the Kalshi app, tap each leg’s “Open leg ↗” above and add it to your combo ticket.</div>
+        <a data-combo-link="1" href={IOS ? "x-safari-" + href : href} target="_blank" rel="noreferrer" style={{ display: "block", marginTop: 12, textAlign: "center", padding: "12px 14px", borderRadius: 14, background: "#5B21B6", color: "#FFFFFF", fontSize: 16, fontWeight: 900, textDecoration: "none" }}>{IOS ? "Open combo in Safari ↗" : "Open combo on Kalshi ↗"}</a>
+        {IOS ? (
+          <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>{"The Kalshi app opens combos empty, so this opens kalshi.com in Safari with every leg loaded (log in there once). "}<a data-combo-app="1" href={href} target="_blank" rel="noreferrer" style={{ color: "#5B21B6", fontWeight: 800 }}>Try the app instead</a></div>
+        ) : (
+          <div style={{ marginTop: 8, fontSize: 12, fontWeight: 650, color: "#6B21A8", textAlign: "center", lineHeight: "16px" }}>If the combo doesn’t load, tap each leg’s “Open leg ↗” above and add it to your combo ticket.</div>
+        )}
         </>
       ) : (
         <div style={{ marginTop: 10, fontSize: 12, fontWeight: 650, color: "#6B21A8" }}>
