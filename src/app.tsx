@@ -1356,6 +1356,20 @@ function Last20Dots(props: { name: string }): React.ReactElement | null {
     </div>
   );
 }
+const LAST20_PRIOR = 10;
+function last20Shrink(name: string): number {
+  const r = last20Of(name);
+  if (!r || !r.n) return -1;
+  return (r.w + 0.5 * LAST20_PRIOR) / (r.n + LAST20_PRIOR);
+}
+function pickHotScore(p: { backers?: Backer[] }): number {
+  let best = -1;
+  (p.backers || []).forEach((b: Backer) => { const s = last20Shrink(b.name); if (s > best) best = s; });
+  return best;
+}
+function sortBackersByLast20<T extends { name: string }>(backers: T[]): T[] {
+  return backers.slice().sort((a: T, b: T) => last20Shrink(b.name) - last20Shrink(a.name));
+}
 function isColdBacker(name: string): boolean {
   const k = (name || "").trim().toLowerCase();
   if (k === "falcon999" || k === "bwmarkets") return false;
@@ -1439,7 +1453,8 @@ function rankedPicks(games: Game[]): RankedCard[] {
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  return cards.sort((a: RankedCard, b: RankedCard) => (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  // Ranked: keep every pick; cappers with a hotter shrunk last-20 (so 16-4 beats 3-0) rise first. Unknown/cold last-20 go lower.
+  return cards.sort((a: RankedCard, b: RankedCard) => (pickHotScore(b.p) - pickHotScore(a.p)) || (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
 function pickRankMap(games: Game[]): Record<string, number> {
   const m: Record<string, number> = {};
@@ -1503,7 +1518,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
       <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $500+ pick, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $500+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
-          <UCard key={c.p.key} p={c.p} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
+          <UCard key={c.p.key} p={{ ...c.p, backers: sortBackersByLast20(c.p.backers || []) }} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
       </Section>
       <BestCappersRoster />
