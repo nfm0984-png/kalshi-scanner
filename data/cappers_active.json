@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 9:02 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:04 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -11037,7 +11037,7 @@
       "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 3,
-      "followCount": 2
+      "followCount": 3
     },
     {
       "nickname": "truewonder",
@@ -39181,23 +39181,23 @@
       "ageDays": 226,
       "graded": {
         "n": 400,
-        "w": 182,
-        "l": 157,
+        "w": 185,
+        "l": 156,
         "roi": null,
-        "profit": 3272.22,
+        "profit": 3436.61,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 182,
-        "l": 157,
+        "w": 185,
+        "l": 156,
         "roi": null,
-        "profit": 3272.22,
+        "profit": 3436.61,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FRANKCASH \u00b7 182-157 \u00b7 +$3.88k all",
+      "recordLine": "FRANKCASH \u00b7 185-156 \u00b7 +$3.88k all",
       "addedAt": "2026-11-24",
       "positionsVisible": true,
       "postsVisible": false,
