@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 4:42 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 4:48 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6971,6 +6971,27 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 4:42 PM PT",
       "recordedTs": 1795567374,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "FFun|KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG|Yes",
+      "nickname": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24COVMIG",
+      "game": "Covato vs Miguel",
+      "backing": "Luis Guto Miguel",
+      "yesNo": "Yes",
+      "entry": 0.97,
+      "price": 0.97,
+      "cost": 698.4,
+      "contracts": 720.0,
+      "startTs": 1795572000,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 4:48 PM PT",
+      "recordedTs": 1795567702,
       "status": "open",
       "result": null,
       "settledAt": null

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 4:42 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 4:48 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -690,7 +690,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -29549,28 +29549,28 @@
       "ageDays": 191,
       "graded": {
         "n": 400,
-        "w": 242,
-        "l": 118,
+        "w": 244,
+        "l": 116,
         "roi": null,
-        "profit": 9818.56,
+        "profit": 9812.57,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 242,
-        "l": 118,
+        "w": 244,
+        "l": 116,
         "roi": null,
-        "profit": 9818.56,
+        "profit": 9812.57,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 242-118 \u00b7 +$8.95k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 244-116 \u00b7 +$8.95k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -31325,7 +31325,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -33083,10 +33083,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions+posts",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "checkm8",

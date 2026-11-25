@@ -2072,7 +2072,8 @@
       "startTs": 1795558500,
       "firstTs": 1795550006,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795567702
     },
     "reluctant.fox5394|KXUCLGAME-26NOV24RMAPSV-RMA|Yes": {
       "capper": "reluctant.fox5394",
@@ -2154,7 +2155,17 @@
       "firstTs": 1795561822,
       "combo": false,
       "status": "open"
+    },
+    "FFun|KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG|Yes": {
+      "capper": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG",
+      "side": "Yes",
+      "price": 0.97,
+      "startTs": 1795572000,
+      "firstTs": 1795567702,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795567374
+  "updatedTs": 1795567702
 }
