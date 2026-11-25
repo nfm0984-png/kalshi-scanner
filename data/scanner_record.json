@@ -2168,7 +2168,17 @@
       "firstTs": 1795567702,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "side": "Yes",
+      "price": 0.94,
+      "startTs": 1795577400,
+      "firstTs": 1795573424,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795573123
+  "updatedTs": 1795573424
 }

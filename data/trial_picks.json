@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:18 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6278,9 +6278,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:28 PM PT",
       "recordedTs": 1795501732,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026EO6RRNP2KBXPIZUW-WFEUC5IFZ|Yes",
@@ -6425,9 +6425,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
       "recordedTs": 1795535976,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
     },
     {
       "id": "Profitprofet|KXT20MATCH-26NOV240930EMIGUL-GUL|Yes",
@@ -6614,9 +6614,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
       "recordedTs": 1795546132,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
@@ -7139,9 +7139,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:03 PM PT",
       "recordedTs": 1795572224,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:23 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
@@ -7160,6 +7160,27 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:18 PM PT",
       "recordedTs": 1795573123,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24MORDEL",
+      "game": "Moriya vs Dellavedova",
+      "backing": "Matthew Dellavedova",
+      "yesNo": "Yes",
+      "entry": 0.9226,
+      "price": 0.94,
+      "cost": 9884.23,
+      "contracts": 10713.0,
+      "startTs": 1795577400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:23 PM PT",
+      "recordedTs": 1795573424,
       "status": "open",
       "result": null,
       "settledAt": null
