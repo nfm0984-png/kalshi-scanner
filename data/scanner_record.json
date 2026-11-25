@@ -2868,7 +2868,17 @@
       "firstTs": 1795623260,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXDAVISCUPMATCH-26NOV25MUSHON-MUS|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV25MUSHON-MUS",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1795629600,
+      "firstTs": 1795623860,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795623260
+  "updatedTs": 1795623860
 }

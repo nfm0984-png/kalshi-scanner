@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 8:14 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 8:24 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7853,9 +7853,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 8:14 AM PT",
       "recordedTs": 1795623260,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 8:24 AM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV25SBONBEL-SBON|Yes",
@@ -7874,6 +7874,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 8:14 AM PT",
       "recordedTs": 1795623260,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXDAVISCUPMATCH-26NOV25MUSHON-MUS|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV25MUSHON-MUS",
+      "eventTicker": "KXDAVISCUPMATCH-26NOV25MUSHON",
+      "game": "Musetti vs Hong",
+      "backing": "Lorenzo Musetti",
+      "yesNo": "Yes",
+      "entry": 0.99,
+      "price": 0.99,
+      "cost": 12116.61,
+      "contracts": 12239.0,
+      "startTs": 1795629600,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 8:24 AM PT",
+      "recordedTs": 1795623860,
       "status": "open",
       "result": null,
       "settledAt": null

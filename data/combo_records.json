@@ -74,12 +74,12 @@
       "boost": true
     },
     "dependent.snail8369": {
-      "n": 126,
+      "n": 125,
       "w": 66,
-      "l": 60,
-      "pnl": 2203.56,
+      "l": 59,
+      "pnl": 2379.97,
       "name": "dependent.snail8369",
-      "ts": 1795579480,
+      "ts": 1795623860,
       "boost": true
     },
     "pogoburger": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795623260,
+  "updatedTs": 1795623860,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
