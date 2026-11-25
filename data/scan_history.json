@@ -1,6 +1,33 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 10:02 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 11:07 AM PT",
   "scans": [
+    {
+      "ts": 1795633627,
+      "at": "Wed Nov 25 \u00b7 11:07 AM PT",
+      "names": 832,
+      "newFollows": [],
+      "followed": 66,
+      "target": 100,
+      "openPicks": 16,
+      "ids": [
+        "KXNCAAMBGAME-26NOV25UVAMARQ-MARQ|Yes",
+        "KXNCAAMBSPREAD-26NOV25UVAMARQ-UVA7|Yes",
+        "KXNCAAMBTOTAL-26NOV25UVAMARQ-152|Yes",
+        "KXNCAAMBTOTAL-26NOV25UVAMARQ-133|No",
+        "KXDAVISCUPMATCH-26NOV25COBKWON-COB|Yes",
+        "KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
+        "KXUCLTOTAL-26NOV25SBHBAR-5|No",
+        "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
+        "KXUCLGAME-26NOV25SPOMUN-MUN|Yes",
+        "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
+        "KXNBAGAME-26NOV25MINOKC-MIN|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+        "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes",
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
+      ]
+    },
     {
       "ts": 1795629753,
       "at": "Wed Nov 25 \u00b7 10:02 AM PT",
@@ -1138,31 +1165,6 @@
         "KXNFLREC-26NOV22TBDET-DETJGIBBS0-4|No",
         "KXNFLRECYDS-26NOV22LVDEN-DENJWADDLE17-40|Yes",
         "KXNFLRSHYDS-26NOV22JACNYG-JACCRODRIGUEZ24-20|Yes"
-      ]
-    },
-    {
-      "ts": 1795327317,
-      "at": "Sat Nov 21 \u00b7 10:01 PM PT",
-      "names": 246,
-      "newFollows": [
-        "regine",
-        "BWmarkets",
-        "nettinyahoo",
-        "bama0037",
-        "dopesayles",
-        "falcon999",
-        "jackivouce",
-        "loff123",
-        "long.whale",
-        "loyal.lion9691",
-        "past.grass"
-      ],
-      "followed": 26,
-      "target": 40,
-      "openPicks": 2,
-      "ids": [
-        "KXNBLGAME-26NOV212300CARSEM-CAR|Yes",
-        "KXNBLGAME-26NOV212300CARSEM-SEM|No"
       ]
     }
   ]

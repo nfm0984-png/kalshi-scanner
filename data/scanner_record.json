@@ -2919,16 +2919,36 @@
       "combo": false,
       "status": "open"
     },
-    "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-NONE|Yes": {
-      "capper": "jackivouce",
-      "ticker": "KXNEXTTEAMNFL-26ARODGERS8-NONE",
+    "jspana99|KXUCLGAME-26NOV25SPOMUN-MUN|Yes": {
+      "capper": "jspana99",
+      "ticker": "KXUCLGAME-26NOV25SPOMUN-MUN",
       "side": "Yes",
-      "price": 0.54,
-      "startTs": 1796137200,
-      "firstTs": 1795635631,
+      "price": 0.39,
+      "startTs": 1795647600,
+      "firstTs": 1795633627,
+      "combo": false,
+      "status": "open"
+    },
+    "GGmate111|KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes": {
+      "capper": "GGmate111",
+      "ticker": "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB",
+      "side": "Yes",
+      "price": 0.125,
+      "startTs": 1795654800,
+      "firstTs": 1795633627,
+      "combo": true,
+      "status": "open"
+    },
+    "catdaddy369|KXNFLGAME-26NOV27DENPIT-DEN|Yes": {
+      "capper": "catdaddy369",
+      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
+      "side": "Yes",
+      "price": 0.63,
+      "startTs": 1795809600,
+      "firstTs": 1795633627,
       "combo": false,
       "status": "open"
     }
   },
-  "updatedTs": 1795636231
+  "updatedTs": 1795633627
 }

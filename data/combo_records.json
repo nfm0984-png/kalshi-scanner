@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795633965,
+      "ts": 1795633627,
       "boost": false
     },
     "eibriham": {
@@ -314,7 +314,7 @@
       "l": 19,
       "pnl": -55.65,
       "name": "Eibriham",
-      "ts": 1795634444,
+      "ts": 1795633627,
       "boost": false
     },
     "tru3f0rmr": {
@@ -324,7 +324,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "tru3f0rmr",
-      "ts": 1795634444,
+      "ts": 1795633627,
       "boost": false
     },
     "kelab": {
@@ -333,7 +333,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "kelab",
-      "ts": 1795633965,
+      "ts": 1795633627,
       "boost": false
     },
     "dimesy": {
@@ -342,7 +342,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Dimesy",
-      "ts": 1795635631,
+      "ts": 1795633627,
       "boost": false
     },
     "whig": {
@@ -351,7 +351,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "whig",
-      "ts": 1795635930,
+      "ts": 1795633627,
       "boost": false
     },
     "jakem12": {
@@ -360,7 +360,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "jakem12",
-      "ts": 1795635930,
+      "ts": 1795591152,
       "boost": false
     },
     "bdadams": {
@@ -369,7 +369,7 @@
       "l": 3,
       "pnl": 2.06,
       "name": "bdadams",
-      "ts": 1795636231,
+      "ts": 1795591152,
       "boost": false
     },
     "mild.fire": {
@@ -608,7 +608,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "HawkeyeMug",
-      "ts": 1795635631,
+      "ts": 1795633627,
       "boost": false
     },
     "dear.bet": {
@@ -617,11 +617,20 @@
       "l": 1,
       "pnl": 169.98,
       "name": "dear.bet",
-      "ts": 1795636231,
+      "ts": 1795592293,
       "boost": false
+    },
+    "ggmate111": {
+      "n": 74,
+      "w": 23,
+      "l": 51,
+      "pnl": 29192.28,
+      "name": "GGmate111",
+      "ts": 1795633627,
+      "boost": true
     }
   },
   "minN": 30,
-  "updatedTs": 1795636231,
+  "updatedTs": 1795633627,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
