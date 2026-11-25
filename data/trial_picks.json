@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 9:38 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:48 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8084,6 +8084,27 @@
       "bt": "Totals",
       "recordedAt": "Wed Nov 25 \u00b7 9:33 AM PT",
       "recordedTs": 1795628005,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV25UVAMARQ-133|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBTOTAL-26NOV25UVAMARQ-133",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV25UVAMARQ",
+      "game": "Virginia vs Marquette: Point Total",
+      "backing": "Over 132.5 points",
+      "yesNo": "No",
+      "entry": 0.4044,
+      "price": 0.7,
+      "cost": 3207.76,
+      "contracts": 7932.0,
+      "startTs": 1795626000,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Wed Nov 25 \u00b7 9:48 AM PT",
+      "recordedTs": 1795628905,
       "status": "open",
       "result": null,
       "settledAt": null
