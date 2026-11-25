@@ -60,7 +60,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795579480,
+      "ts": 1795576748,
       "boost": false
     },
     "profitprofet": {
@@ -69,7 +69,7 @@
       "l": 225,
       "pnl": 329.87,
       "name": "Profitprofet",
-      "ts": 1795580671,
+      "ts": 1795577378,
       "boost": true
     },
     "dependent.snail8369": {
@@ -78,7 +78,7 @@
       "l": 60,
       "pnl": 2203.56,
       "name": "dependent.snail8369",
-      "ts": 1795579480,
+      "ts": 1795576748,
       "boost": true
     },
     "pogoburger": {
@@ -87,7 +87,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "pogoburger",
-      "ts": 1795580671,
+      "ts": 1795577378,
       "boost": false
     },
     "door.whale": {
@@ -96,7 +96,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "door.whale",
-      "ts": 1795580970,
+      "ts": 1795579257,
       "boost": false
     },
     "reluctant.fox5394": {
@@ -105,7 +105,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "reluctant.fox5394",
-      "ts": 1795580970,
+      "ts": 1795579257,
       "boost": false
     },
     "yunktrader": {
@@ -114,7 +114,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "yunktrader",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": false
     },
     "iluminado": {
@@ -123,7 +123,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "iluminado",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": false
     },
     "regine": {
@@ -132,7 +132,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "regine",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": false
     },
     "allhunnsno20sr10s": {
@@ -141,25 +141,25 @@
       "l": 46,
       "pnl": 486.57,
       "name": "AllHunnsNo20sR10s",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": true
     },
     "714smith": {
-      "n": 373,
-      "w": 201,
-      "l": 172,
-      "pnl": 100.59,
+      "n": 376,
+      "w": 205,
+      "l": 171,
+      "pnl": 193.41,
       "name": "714Smith",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": true
     },
     "opposite.dolphin8700": {
-      "n": 105,
-      "w": 23,
-      "l": 82,
-      "pnl": -1050.63,
+      "n": 109,
+      "w": 24,
+      "l": 85,
+      "pnl": -1801.77,
       "name": "opposite.dolphin8700",
-      "ts": 1795533365,
+      "ts": 1795579257,
       "boost": false
     },
     "nshrd": {
@@ -168,7 +168,7 @@
       "l": 1,
       "pnl": -5.0,
       "name": "nshrd",
-      "ts": 1795535677,
+      "ts": 1795579257,
       "boost": false
     },
     "younggriff": {
@@ -177,7 +177,7 @@
       "l": 12,
       "pnl": 7009.56,
       "name": "YoungGriff",
-      "ts": 1795535677,
+      "ts": 1795579257,
       "boost": false
     },
     "successful.koi2475": {
@@ -555,9 +555,27 @@
       "name": "beaudane",
       "ts": 1795571564,
       "boost": true
+    },
+    "frankcash": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "FRANKCASH",
+      "ts": 1795579257,
+      "boost": false
+    },
+    "best.spy": {
+      "n": 16,
+      "w": 8,
+      "l": 8,
+      "pnl": 20.22,
+      "name": "best.spy",
+      "ts": 1795579257,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795580970,
+  "updatedTs": 1795579257,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
