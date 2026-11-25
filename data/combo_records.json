@@ -60,7 +60,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795533365,
+      "ts": 1795576748,
       "boost": false
     },
     "profitprofet": {
@@ -74,11 +74,11 @@
     },
     "dependent.snail8369": {
       "n": 126,
-      "w": 67,
-      "l": 59,
-      "pnl": 2361.82,
+      "w": 66,
+      "l": 60,
+      "pnl": 2203.56,
       "name": "dependent.snail8369",
-      "ts": 1795533365,
+      "ts": 1795576748,
       "boost": true
     },
     "pogoburger": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795576449,
+  "updatedTs": 1795576748,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

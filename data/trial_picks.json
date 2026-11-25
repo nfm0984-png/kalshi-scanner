@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:14 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7244,6 +7244,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:59 PM PT",
       "recordedTs": 1795575549,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:19 PM PT"
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV24LOUTTU-TTU|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV24LOUTTU-TTU",
+      "eventTicker": "KXNCAAMBGAME-26NOV24LOUTTU",
+      "game": "Louisville vs Texas Tech",
+      "backing": "Texas Tech",
+      "yesNo": "Yes",
+      "entry": 0.2023,
+      "price": 0.18,
+      "cost": 4208.96,
+      "contracts": 20808.0,
+      "startTs": 1795568400,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
+      "recordedTs": 1795576748,
       "status": "open",
       "result": null,
       "settledAt": null
