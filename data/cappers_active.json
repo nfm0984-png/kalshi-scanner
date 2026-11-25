@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 5:28 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:33 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -274,7 +274,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -690,7 +690,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10026,8 +10026,8 @@
       "postsVisible": false,
       "openPositions": 3,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "hedge123",
@@ -29549,28 +29549,28 @@
       "ageDays": 191,
       "graded": {
         "n": 400,
-        "w": 243,
-        "l": 116,
+        "w": 245,
+        "l": 114,
         "roi": null,
-        "profit": 9811.03,
+        "profit": 10095.85,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 243,
-        "l": 116,
+        "w": 245,
+        "l": 114,
         "roi": null,
-        "profit": 9811.03,
+        "profit": 10095.85,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 243-116 \u00b7 +$9.01k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 245-114 \u00b7 +$9.01k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -31325,7 +31325,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
