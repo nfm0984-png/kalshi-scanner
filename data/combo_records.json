@@ -145,21 +145,21 @@
       "boost": true
     },
     "714smith": {
-      "n": 373,
-      "w": 201,
-      "l": 172,
-      "pnl": 100.59,
+      "n": 376,
+      "w": 205,
+      "l": 171,
+      "pnl": 193.41,
       "name": "714Smith",
-      "ts": 1795533365,
+      "ts": 1795578878,
       "boost": true
     },
     "opposite.dolphin8700": {
-      "n": 105,
-      "w": 23,
-      "l": 82,
-      "pnl": -1050.63,
+      "n": 109,
+      "w": 24,
+      "l": 85,
+      "pnl": -1801.77,
       "name": "opposite.dolphin8700",
-      "ts": 1795533365,
+      "ts": 1795578878,
       "boost": false
     },
     "nshrd": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795578278,
+  "updatedTs": 1795578878,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

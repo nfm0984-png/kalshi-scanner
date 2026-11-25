@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:44 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:54 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7034,9 +7034,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:59 PM PT",
       "recordedTs": 1795568361,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
     },
     {
       "id": "BWmarkets|KXNCAAMBSPREAD-26NOV24SAMGT-SAM7|Yes",
@@ -7181,9 +7181,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
@@ -7265,9 +7265,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
       "recordedTs": 1795576748,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:54 PM PT"
     },
     {
       "id": "iluminado|KXITFWMATCH-26NOV24SIDYAM-SID|Yes",
