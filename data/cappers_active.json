@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 4:12 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 4:17 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -1583,7 +1583,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -10278,29 +10278,29 @@
       "tape30d": null,
       "ageDays": 339,
       "graded": {
-        "n": 154,
+        "n": 155,
         "w": 91,
-        "l": 63,
+        "l": 64,
         "roi": null,
-        "profit": 42161.48,
+        "profit": 41957.59,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 154,
+        "n": 155,
         "w": 91,
-        "l": 63,
+        "l": 64,
         "roi": null,
-        "profit": 42161.48,
+        "profit": 41957.59,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 91-63 \u00b7 +$41.8k all",
+      "recordLine": "fen.dachi \u00b7 91-64 \u00b7 +$41.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -11494,7 +11494,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 6,
+      "openPositions": 7,
       "pickSource": "positions+posts",
       "pickCount": 4,
       "followCount": 4
@@ -29549,28 +29549,28 @@
       "ageDays": 191,
       "graded": {
         "n": 400,
-        "w": 243,
-        "l": 117,
+        "w": 242,
+        "l": 118,
         "roi": null,
-        "profit": 9690.76,
+        "profit": 9818.56,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 243,
-        "l": 117,
+        "w": 242,
+        "l": 118,
         "roi": null,
-        "profit": 9690.76,
+        "profit": 9818.56,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "AllHunnsNo20sR10s \u00b7 243-117 \u00b7 +$8.88k all",
+      "recordLine": "AllHunnsNo20sR10s \u00b7 242-118 \u00b7 +$8.88k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
