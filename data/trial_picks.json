@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 9:39 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:49 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7706,6 +7706,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNCAAMBGAME-26NOV24VCUCSU-VCU|Yes",
+      "nickname": "regine",
+      "ticker": "KXNCAAMBGAME-26NOV24VCUCSU-VCU",
+      "eventTicker": "KXNCAAMBGAME-26NOV24VCUCSU",
+      "game": "VCU vs Colorado St.",
+      "backing": "VCU",
+      "yesNo": "Yes",
+      "entry": 0.8144,
+      "price": 0.68,
+      "cost": 101.8,
+      "contracts": 125.0,
+      "startTs": 1795577400,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 9:49 PM PT",
+      "recordedTs": 1795585769,
       "status": "open",
       "result": null,
       "settledAt": null

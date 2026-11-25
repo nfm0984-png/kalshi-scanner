@@ -2643,7 +2643,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795585769
     },
     "AmphibiousCaldwellPope|KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6|Yes": {
       "capper": "AmphibiousCaldwellPope",
@@ -2653,7 +2654,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795585769
     },
     "BigRabbit|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
       "capper": "BigRabbit",
@@ -2818,5 +2820,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795585168
+  "updatedTs": 1795585769
 }
