@@ -1,0 +1,197 @@
+{
+  "updatedTs": 1795568601,
+  "minN": 20,
+  "lenses": {
+    "smart|7d": {
+      "label": "Smart only \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "proven|7d": {
+      "label": "Proven only \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "copyable|7d": {
+      "label": "Copyable scale + Sports \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "niche|7d": {
+      "label": "Niche specialist + Sports \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "radar|7d": {
+      "label": "Under the radar \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "smart|30d": {
+      "label": "Smart only \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "proven|30d": {
+      "label": "Proven only \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "copyable|30d": {
+      "label": "Copyable scale + Sports \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "niche|30d": {
+      "label": "Niche specialist + Sports \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "radar|30d": {
+      "label": "Under the radar \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "smart|All": {
+      "label": "Smart only \u00b7 All",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "proven|All": {
+      "label": "Proven only \u00b7 All",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "copyable|All": {
+      "label": "Copyable scale + Sports \u00b7 All",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "niche|All": {
+      "label": "Niche specialist + Sports \u00b7 All",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "radar|All": {
+      "label": "Under the radar \u00b7 All",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "maker|7d": {
+      "label": "Style: Maker \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "holds|7d": {
+      "label": "Habit: Holds to resolution \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "favorites|7d": {
+      "label": "Habit: Buys favorites \u00b7 7d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "maker|30d": {
+      "label": "Style: Maker \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "holds|30d": {
+      "label": "Habit: Holds to resolution \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    },
+    "favorites|30d": {
+      "label": "Habit: Buys favorites \u00b7 30d",
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "units": 0.0,
+      "roi": null,
+      "boost": 0.0
+    }
+  },
+  "picks": {},
+  "missing": []
+}

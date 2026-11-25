@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 4:48 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:03 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -10027,7 +10027,7 @@
       "openPositions": 5,
       "pickSource": "positions",
       "pickCount": 3,
-      "followCount": 3
+      "followCount": 2
     },
     {
       "nickname": "hedge123",
@@ -29570,7 +29570,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -31303,29 +31303,29 @@
       "tape30d": null,
       "ageDays": 128,
       "graded": {
-        "n": 45,
-        "w": 31,
+        "n": 46,
+        "w": 32,
         "l": 13,
         "roi": null,
-        "profit": 2612.82,
+        "profit": 2618.89,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 45,
-        "w": 31,
+        "n": 46,
+        "w": 32,
         "l": 13,
         "roi": null,
-        "profit": 2612.82,
+        "profit": 2618.89,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "kelab \u00b7 31-13 \u00b7 +$2.50k all",
+      "recordLine": "kelab \u00b7 32-13 \u00b7 +$2.50k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -33061,32 +33061,32 @@
       "tape30d": null,
       "ageDays": 141,
       "graded": {
-        "n": 292,
-        "w": 191,
-        "l": 89,
+        "n": 293,
+        "w": 193,
+        "l": 88,
         "roi": null,
-        "profit": 8932.86,
+        "profit": 9008.23,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 292,
-        "w": 191,
-        "l": 89,
+        "n": 293,
+        "w": 193,
+        "l": 88,
         "roi": null,
-        "profit": 8932.86,
+        "profit": 9008.23,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 191-89 \u00b7 +$9.27k all",
+      "recordLine": "FFun \u00b7 193-88 \u00b7 +$9.27k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "checkm8",
