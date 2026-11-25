@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 4:22 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 3:58 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6887,9 +6887,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 3:53 PM PT",
       "recordedTs": 1795564382,
-      "status": "loss",
-      "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 4:22 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "FFun|KXATPCHALLENGERMATCH-26NOV24WILALV-ALV|Yes",
@@ -6929,48 +6929,6 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 3:53 PM PT",
       "recordedTs": 1795564382,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "opposite.dolphin8700|KXMVECROSSCATEGORY-S20263B2Q4BRFG3JTMSCS-MQGDBTLE5|Yes",
-      "nickname": "opposite.dolphin8700",
-      "ticker": "KXMVECROSSCATEGORY-S20263B2Q4BRFG3JTMSCS-MQGDBTLE5",
-      "eventTicker": "KXMVECROSSCATEGORY-S20263B2Q4BRFG3JTMSCS",
-      "game": "Michigan vs Creighton",
-      "backing": "yes Creighton,yes Iowa St.",
-      "yesNo": "Yes",
-      "entry": 0.394,
-      "price": 0.756,
-      "cost": 143.02,
-      "contracts": 363.0,
-      "startTs": 1795559400,
-      "league": "NCAAB",
-      "bt": "Combo",
-      "recordedAt": "Tue Nov 24 \u00b7 4:12 PM PT",
-      "recordedTs": 1795565573,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "parspectives|KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB-KVECWHVHK|Yes",
-      "nickname": "parspectives",
-      "ticker": "KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB-KVECWHVHK",
-      "eventTicker": "KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB",
-      "game": "Kent St. vs Eastern Michigan",
-      "backing": "yes Eastern Michigan,yes Western Michigan",
-      "yesNo": "Yes",
-      "entry": 0.432,
-      "price": 0.429,
-      "cost": 480.82,
-      "contracts": 1113.0,
-      "startTs": 1795564800,
-      "league": "NCAAF",
-      "bt": "Combo",
-      "recordedAt": "Tue Nov 24 \u00b7 4:12 PM PT",
-      "recordedTs": 1795565573,
       "status": "open",
       "result": null,
       "settledAt": null
