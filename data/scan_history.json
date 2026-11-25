@@ -1,6 +1,36 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:37 PM PT",
   "scans": [
+    {
+      "ts": 1795585073,
+      "at": "Tue Nov 24 \u00b7 9:37 PM PT",
+      "names": 797,
+      "newFollows": [
+        "child.cop",
+        "Gbaby50",
+        "HawkeyeMug"
+      ],
+      "followed": 67,
+      "target": 100,
+      "openPicks": 15,
+      "ids": [
+        "KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
+        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNFLTOTAL-26NOV26PHIDAL-49|Yes",
+        "KXNFLTOTAL-26NOV26KCBUF-48|Yes",
+        "KXNCAAFSPREAD-26NOV27MINNWIS-WIS8|No",
+        "KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
+        "KXNCAAFGAME-26NOV28MICHOSU-OSU|Yes",
+        "KXNCAAFTOTAL-26NOV28MICHOSU-38|Yes",
+        "KXNCAAFSPREAD-26NOV28CCARJMU-JMU18|No",
+        "KXNCAAFSPREAD-26NOV28KSUISU-ISU5|No",
+        "KXNCAAFSPREAD-26NOV28LIBMOSU-LIB18|No",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "KXNCAAFSPREAD-26NOV28ASUARIZ-ARIZ8|Yes",
+        "KXNFLGAME-26NOV29SEASF-SF|Yes"
+      ]
+    },
     {
       "ts": 1795581788,
       "at": "Tue Nov 24 \u00b7 8:43 PM PT",
@@ -1132,29 +1162,6 @@
         "KXNBATOTAL-26NOV21MEMMIN-203|Yes",
         "KXNBATOTAL-26NOV21MEMMIN-197|Yes",
         "KXNBATOTAL-26NOV21MEMMIN-199|Yes",
-        "KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
-        "KXNBAPTS-26NOV21BOSSAC-SACDACUFF5-25|Yes"
-      ]
-    },
-    {
-      "ts": 1795310571,
-      "at": "Sat Nov 21 \u00b7 5:22 PM PT",
-      "names": 192,
-      "newFollows": [
-        "majebettor123",
-        "regine"
-      ],
-      "followed": 16,
-      "target": 40,
-      "openPicks": 9,
-      "ids": [
-        "KXNBA1HSPREAD-26NOV21PORNYK-NYK17|No",
-        "KXNBAGAME-26NOV21PORNYK-NYK|Yes",
-        "KXNBAGAME-26NOV21PORNYK-POR|No",
-        "KXNCAAF1HSPREAD-26NOV21UKMIZZ-MIZZ4|No",
-        "KXNBA3PT-26NOV21MEMMIN-MINADOSUNMU13-2|No",
-        "KXNBAGAME-26NOV21MEMMIN-MEM|Yes",
-        "KXNBAGAME-26NOV21MEMMIN-MIN|No",
         "KXNBAGAME-26NOV21BOSSAC-SAC|Yes",
         "KXNBAPTS-26NOV21BOSSAC-SACDACUFF5-25|Yes"
       ]

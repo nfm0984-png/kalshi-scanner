@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 9:52 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 9:37 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6595,7 +6595,7 @@
       "recordedTs": 1795545833,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
@@ -7309,7 +7309,7 @@
       "recordedTs": 1795581788,
       "status": "win",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "Bigbone69|KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
@@ -7351,7 +7351,7 @@
       "recordedTs": 1795581788,
       "status": "win",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "Davmjxn|KXNBATOTAL-26NOV24DALDEN-234|Yes",
@@ -7372,7 +7372,7 @@
       "recordedTs": 1795581788,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "Davmjxn|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
@@ -7645,7 +7645,7 @@
       "recordedTs": 1795581788,
       "status": "win",
       "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "falcon999|KXNBAGAME-26NOV24DALDEN-DEN|Yes",
@@ -7666,7 +7666,7 @@
       "recordedTs": 1795581788,
       "status": "loss",
       "result": "no",
-      "settledAt": "Tue Nov 24 \u00b7 9:39 PM PT"
+      "settledAt": "Tue Nov 24 \u00b7 9:37 PM PT"
     },
     {
       "id": "parspectives|KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
@@ -7709,27 +7709,6 @@
       "status": "open",
       "result": null,
       "settledAt": null
-    },
-    {
-      "id": "regine|KXNCAAMBGAME-26NOV24VCUCSU-VCU|Yes",
-      "nickname": "regine",
-      "ticker": "KXNCAAMBGAME-26NOV24VCUCSU-VCU",
-      "eventTicker": "KXNCAAMBGAME-26NOV24VCUCSU",
-      "game": "VCU vs Colorado St.",
-      "backing": "VCU",
-      "yesNo": "Yes",
-      "entry": 0.8144,
-      "price": 0.68,
-      "cost": 101.8,
-      "contracts": 125.0,
-      "startTs": 1795577400,
-      "league": "NCAAB",
-      "bt": "Moneyline",
-      "recordedAt": "Tue Nov 24 \u00b7 9:49 PM PT",
-      "recordedTs": 1795585769,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Tue Nov 24 \u00b7 9:52 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
