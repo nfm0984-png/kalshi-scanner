@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795587809,
+      "ts": 1795633965,
       "boost": false
     },
     "eibriham": {
@@ -333,7 +333,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "kelab",
-      "ts": 1795587809,
+      "ts": 1795633965,
       "boost": false
     },
     "dimesy": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795633065,
+  "updatedTs": 1795633965,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 10:57 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 11:12 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7937,9 +7937,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 8:37 AM PT",
       "recordedTs": 1795624634,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 11:12 AM PT"
     },
     {
       "id": "BWmarkets|KXNCAAMBSPREAD-26NOV25UVAMARQ-UVA7|Yes",
@@ -8021,9 +8021,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:20 AM PT",
       "recordedTs": 1795627213,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 11:12 AM PT"
     },
     {
       "id": "dependent.snail8369|KXDAVISCUPMATCH-26NOV25COBKWON-COB|Yes",
