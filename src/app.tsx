@@ -36,8 +36,8 @@ function bestDbRank(backers: Backer[]): number {
 const ELITE_MIN_BETS = 10;
 const FRESH_SECS = 3 * 3600;
 const FRESH_MIN = 500;
-const MIN_STAKE = 50;
-const MIN_STAKE_COMBO = 500;
+const MIN_STAKE = 1000;
+const MIN_STAKE_COMBO = 1000;
 const DECIDED_PX = 0.97;
 const KFINAL = ["finalized", "determined", "settled"];
 const FINISH_GRACE_SECS = 30 * 60;
@@ -818,7 +818,7 @@ function pickSourceLabel(src?: string | null): string {
 function bookHiddenMessage(c?: Capper | FollowCapper | null): string {
   const posts = !!(c && ((c as FollowCapper).postsVisible || (c as Capper).postsVisible));
   const pos = !!(c && ((c as FollowCapper).positionsVisible || (c as Capper).positionsVisible));
-  if (posts || pos) return "No open $50+ singles or $500+ combo traditional-sports picks from this capper right now.";
+  if (posts || pos) return "No open $1,000+ traditional-sports picks from this capper right now.";
   return "Positions are hidden and there are no public posts to copy.";
 }
 function mergeFollowPicks(games: Game[], now: number): Game[] {
@@ -1061,7 +1061,7 @@ function weakerSide(p: Pick, game: Game): boolean {
 function rankCmpNet(a: NetInfo, b: NetInfo): number {
   // Experience first: veterans, then big leaderboard earners, then thin samples.
   // Within a tier, longshots and 90c+ padding sort down; then net, then sample size.
-  // Best Cappers database rank (1 = best) surfaces those $500+ picks first, after tier and price-quality.
+  // Best Cappers database rank (1 = best) surfaces those $1,000+ picks first, after tier and price-quality.
   return (b.tier - a.tier) || (Number(a.longshot) - Number(b.longshot)) || (Number(a.padded) - Number(b.padded)) || ((a.dbRank || 9999) - (b.dbRank || 9999)) || (b.net - a.net) || (b.bestN - a.bestN) || (b.raw - a.raw) || (b.my40 - a.my40);
 }
 function bestPickFirst(picks: Pick[], game: Game): Pick[] {
@@ -1364,7 +1364,7 @@ function GameBlock(props: { g: Game; now: number; stake: string; showStart?: boo
 
 interface RankedCard { p: Pick; game: Game; rec: WL; cappers: number; net: number; raw: number; contested: boolean; proven: boolean; padded: boolean; my40: number; tier: number; bestN: number }
 // K1 (Noel Nov 23): a capper with 20+ graded scanner picks and negative flat-$1 units is "cold".
-// A pick whose $500+ backers are all cold sorts below every other pick. falcon999/BWmarkets never go cold.
+// A pick whose $1,000+ backers are all cold sorts below every other pick. falcon999/BWmarkets never go cold.
 function scannerRecOf(name: string): { n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 } | null {
   const m = (DATA.scannerRecord && DATA.scannerRecord.cappers) || {};
   const k = (name || "").trim();
@@ -1486,7 +1486,7 @@ function ColdChip(props: { p: Pick }): React.ReactElement | null {
   return <span data-cold="1" title="This capper's last 20+ graded scanner picks lost money at flat $1, so the pick is ranked at the bottom" style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: "#FEF3C7", color: "#92400E", border: "1.5px solid #F59E0B", fontSize: 12, fontWeight: 850 }}>{"🧊 " + txt}</span>;
 }
 // ---- Nov 23 (Noel): LIVE-added tag, Fading / You're late, combo boost ----
-// Fading: current price is 5c+ BELOW the $500+ cappers' average entry -> sorts below non-fading picks.
+// Fading: current price is 5c+ BELOW the $1,000+ cappers' average entry -> sorts below non-fading picks.
 // You're late: price is 5c+ ABOVE their entry -> label only, no downrank.
 const FADE_CENTS = 5;
 function entryGapCents(p: Pick): number | null {
@@ -1515,7 +1515,7 @@ function comboRecOf(name: string): { name?: string; n: number; w: number; l: num
   const hit = Object.keys(m).find((x: string) => x.toLowerCase() === lk);
   return hit ? m[hit] : null;
 }
-// Combo boost only when a $500+ backer's own Kalshi combo record is positive over 30+ settled combos.
+// Combo boost only when a $1,000+ backer's own Kalshi combo record is positive over 30+ settled combos.
 function comboBoostBacker(p: Pick): Backer | null {
   if (!isComboPick(p)) return null;
   const b = (p.backers || []).find((x: Backer) => stakeOk(x.cost, p) && !!(comboRecOf(x.name) || { boost: false }).boost);
@@ -1583,7 +1583,7 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   };
   return (
     <div>
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the trackable cappers has a $50+ single or $500+ combo open sports position or profile post starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the trackable cappers has a $1,000+ open sports position or profile post starting within 24 hours." : "Try another search or clear the filter."} /> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
       {up.length ? <div data-all-today="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
@@ -1616,8 +1616,8 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const singleN = list.length - comboN;
   return (
     <div>
-      <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $50+ single and $500+ combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
-        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $50+ single or $500+ combo trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+      <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={{ ...c.p, backers: sortBackersByLast20(c.p.backers || []) }} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
@@ -1664,7 +1664,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
           {F.startedAt ? ("Since " + F.startedAt + ((F.graded || 0) ? " · " + F.graded + " graded" : (F.recorded || 0) ? " · " + F.recorded + " recorded" : "")) : "Starts when the first followed pick is recorded."}
         </span>
       </div>
-      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Followed cappers don’t have an open $50+ single or $500+ combo traditional-sports position or profile post in this window. Finished games drop off; the trial still grades what was already recorded."} /> : null}
+      {picks.length === 0 && caps.length ? <EmptyState title="No open followed picks right now" body={"Followed cappers don’t have an open $1,000+ traditional-sports position or profile post in this window. Finished games drop off; the trial still grades what was already recorded."} /> : null}
       {picks.length === 0 && !caps.length ? <EmptyState title="Best Cappers is waiting on followed cappers" body={"The followed-capper list is empty. Seed data/cappers_pinned.json or drop /workspace/kalshi-top10-cappers.json and the next scan will fill this tab."} /> : null}
       {shown.length === 0 && (q || props.filter) && caps.length ? <EmptyState title="No followed cappers match that filter" body="Try another search or clear the filter." /> : null}
       {shown.map((c: FollowCapper) => {
@@ -1764,7 +1764,7 @@ function CapperCard(props: { c: Capper; now: number; rank: number; filter?: stri
         <RankChips ranks={c.ranks} />
       </div>
       <CapperStatRow c={c} />
-      {isHiddenBook(c) ? <div style={{ fontSize: 13, fontWeight: 700, color: AMBER, marginTop: 10 }}>{bookHiddenMessage(c)}</div> : picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $50 singles / $500 combo minimum, already started and dropped, or outside today’s window." : "No open $50+ single or $500+ combo in the window."}</div>}
+      {isHiddenBook(c) ? <div style={{ fontSize: 13, fontWeight: 700, color: AMBER, marginTop: 10 }}>{bookHiddenMessage(c)}</div> : picks.length ? picks.map((x) => <CapperPickMini key={c.nickname + "|" + x.p.key} p={x.p} game={x.game} now={props.now} backerName={c.nickname} />) : <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", marginTop: 10 }}>{c.pickCount ? "Open picks are under the $1,000 minimum, already started and dropped, or outside today’s window." : "No open $1,000+ single or combo in the window."}</div>}
     </CapperShell>
   );
 }
@@ -1995,8 +1995,8 @@ export default function App() {
   const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$50+ singles, $500+ combos · best to worst · today in PT, after 7pm + tomorrow" },
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$50+ singles, $500+ combos, soonest first · live first" },
+    { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$1,000+ singles and combos · best to worst · today in PT, after 7pm + tomorrow" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$1,000+ singles and combos, soonest first · live first" },
     { value: "cappers", label: "Best Cappers", count: followedN, icon: <IconUsers />, title: "Best Cappers", caption: "Persistent good-only database (target 100) · rechecked every 5 minutes · official profit and closed record" },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
@@ -2048,7 +2048,7 @@ export default function App() {
               </div>
               <h1 style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.03em", margin: "8px 0 0", lineHeight: 1.1 }}>Kalshi Scanner</h1>
               <div style={{ fontSize: 15, fontWeight: 600, color: "#94A3B8", marginTop: 6 }}>Kalshi whale picks, best first — public books and trade tape.</div>
-              <div data-min-stake="1" style={{ display: "inline-block", marginTop: 8, padding: "4px 10px", borderRadius: 999, background: "rgba(21,128,61,0.2)", border: "1px solid rgba(134,239,172,0.45)", color: "#BBF7D0", fontSize: 13, fontWeight: 800 }}>$50+ singles · $500+ combos</div>
+              <div data-min-stake="1" style={{ display: "inline-block", marginTop: 8, padding: "4px 10px", borderRadius: 999, background: "rgba(21,128,61,0.2)", border: "1px solid rgba(134,239,172,0.45)", color: "#BBF7D0", fontSize: 13, fontWeight: 800 }}>$1,000+ singles and combos</div>
             </div>
             <div className="ks-hero-actions">
               <div className="ks-hero-btns">
@@ -2096,7 +2096,7 @@ export default function App() {
         </header>
 
         <div className="ks-stats">
-          <DashStat label="Open picks" value={String(comingN)} sub="$50+ singles · $500+ combos" color={BLUE_BRIGHT} icon={<IconList />} />
+          <DashStat label="Open picks" value={String(comingN)} sub="$1,000+ singles and combos" color={BLUE_BRIGHT} icon={<IconList />} />
           <DashStat label="Best Cappers" value={followedN + "/" + ((capperDatabase().target) || TARGET_FOLLOW)} sub={followedN < ((capperDatabase().target) || TARGET_FOLLOW) ? "good-only (true count)" : "good-only database"} color="#8B5CF6" icon={<IconUsers />} />
           <DashStat label="Cappers in database" value={String(dbActive)} sub={(db.queue != null ? db.queue + " in queue" : "visible sports books")} color="#6366F1" icon={<IconStack />} />
           <DashStat label="Trial record" value={trialN ? (trialW + "–" + trialL) : "—"} sub={trialN ? (((DATA.following && DATA.following.graded) || trialN) + " graded") : "No settled sports W–L yet"} color={trialN ? (trialW > trialL ? GREEN : trialW < trialL ? RED : AMBER) : "#64748B"} icon={<IconChart />} />

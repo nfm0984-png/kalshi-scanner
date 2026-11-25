@@ -21,8 +21,8 @@ sys.path.insert(0, HERE)
 import lib_cappers as lib
 
 PT = lib.PT
-MIN_BET_SINGLE = 50  # show a capper's single when their stake on that side is $50+
-MIN_BET_COMBO = 500  # combos stay at $500+
+MIN_BET_SINGLE = 1000  # show a capper's single when their stake on that side is $1,000+
+MIN_BET_COMBO = 1000  # combos also $1,000+
 MIN_BET = MIN_BET_SINGLE  # default collect floor; stake_ok raises combos to MIN_BET_COMBO
 MAX_ENTRY = 0.90
 WINDOW_SECS = 24 * 3600
@@ -1308,7 +1308,7 @@ def is_combo_pick(p):
 
 
 def stake_ok(p, floor=None):
-    """True when this capper's stake meets the $50 singles / $500 combo minimum."""
+    """True when this capper's stake meets the $1,000 singles / combo minimum."""
     if floor is None:
         floor = MIN_BET_COMBO if is_combo_pick(p) else MIN_BET_SINGLE
     try:
@@ -1768,7 +1768,7 @@ def grade_from_posts(posts, now=None, form_days=14):
 
 
 def picks_from_posts(http, posts, now, mcache, ecache, min_bet=MIN_BET):
-    """Open $50+ singles / $500+ combo sports ideas from profile posts, newest post wins a ticker|side."""
+    """Open $1,000+ singles / combo sports ideas from profile posts, newest post wins a ticker|side."""
     latest = {}
     for p in posts or []:
         tk = p.get("market_ticker") or ""
@@ -3106,7 +3106,7 @@ def build(now=None, log=print):
         "scannedAt": pt(now),
         "ts": now,
         "source": {
-            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching pool is not displayed. Best Cappers is a persistent good-only database (target 100), reranked about every 5 minutes by closed-position grade, veterans first. If fewer than 100 qualify, the true count is shown. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $50 for a single or $500 for a combo. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented.",
+            "note": "Kalshi public social + trade APIs. No official profit time series and no 30-day leaderboard exist; monthly Sports projected P&L is the stand-in for a 30-day window, weekly for 7 days. All-time profit is the profile metrics PnL (never invented). 7d/30d sports-tape profit is reconstructed only from settled public sports trades. Names come from Sports, Politics, Economics, Crypto and Mentions boards (all-time, monthly, weekly, yearly; projected PnL and volume, top 100) plus traders seen on active traditional-sports series tapes. Picks are traditional sports singles and sports combos only — esports is excluded. Hidden books, market makers, and traders with no traditional-sports activity are rejected and never rechecked, except followed Best Cappers, who stay in the active db. Visible sports traders stay in the active db even with no open pick today. Open picks come from public positions and, when the book is hidden, from public profile posts/ideas. Closed-position or settled-post W–L, ROI, and official profile-metrics profit are shown. The page lists only cappers whose positions or posts we can actually view — the watching pool is not displayed. Best Cappers is a persistent good-only database (target 100), reranked about every 5 minutes by closed-position grade, veterans first. If fewer than 100 qualify, the true count is shown. Near-term traditional-sports picks (starting within 30 days; long-dated futures are excluded) are copied when that capper’s total stake on that side of that market is at least $1,000 for a single or a combo. They are graded from official Kalshi results after settlement. New viewable cappers are still discovered every hour. Negative official profit is added to doNotPin and can never re-enter. W-L is never invented.",
             "periodUsed": "monthly (no 30-day board exists)",
             "coverage": cov,
             "db": {
