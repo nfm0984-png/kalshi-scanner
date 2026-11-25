@@ -1957,8 +1957,9 @@
       "startTs": 1795575600,
       "firstTs": 1795501825,
       "combo": true,
-      "status": "open",
-      "seeded": true
+      "status": "loss",
+      "seeded": true,
+      "gradedTs": 1795584869
     },
     "falcon999|KXATPCHALLENGERMATCH-26NOV23NOGJON-JON|Yes": {
       "capper": "falcon999",
@@ -2141,7 +2142,8 @@
       "startTs": 1795575600,
       "firstTs": 1795560493,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795584869
     },
     "parspectives|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes": {
       "capper": "parspectives",
@@ -2673,7 +2675,8 @@
       "startTs": 1795575600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795584869
     },
     "royalestake|KXNHLGAME-26NOV25OTTFLA-FLA|Yes": {
       "capper": "royalestake",
@@ -2723,7 +2726,8 @@
       "startTs": 1795575600,
       "firstTs": 1795574648,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795584869
     },
     "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes": {
       "capper": "dependent.snail8369",
@@ -2806,5 +2810,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795584569
+  "updatedTs": 1795584869
 }
