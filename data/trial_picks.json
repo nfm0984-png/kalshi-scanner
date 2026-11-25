@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:53 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7097,6 +7097,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24VANOSU-140|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBTOTAL-26NOV24VANOSU-140",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV24VANOSU",
+      "game": "Vanderbilt vs Ohio St.: Point Total",
+      "backing": "Over 139.5 points",
+      "yesNo": "No",
+      "entry": 0.2664,
+      "price": 0.57,
+      "cost": 1950.63,
+      "contracts": 7321.0,
+      "startTs": 1795564800,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 5:53 PM PT",
+      "recordedTs": 1795571624,
       "status": "open",
       "result": null,
       "settledAt": null
