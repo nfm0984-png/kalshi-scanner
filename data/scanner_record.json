@@ -2898,7 +2898,17 @@
       "firstTs": 1795626833,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXDAVISCUPMATCH-26NOV25COBKWON-COB|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV25COBKWON-COB",
+      "side": "Yes",
+      "price": 0.76,
+      "startTs": 1795634400,
+      "firstTs": 1795630706,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795630106
+  "updatedTs": 1795630706
 }

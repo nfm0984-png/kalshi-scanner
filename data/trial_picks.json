@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 10:08 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 10:18 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8105,6 +8105,27 @@
       "bt": "Other",
       "recordedAt": "Wed Nov 25 \u00b7 9:13 AM PT",
       "recordedTs": 1795626833,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXDAVISCUPMATCH-26NOV25COBKWON-COB|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV25COBKWON-COB",
+      "eventTicker": "KXDAVISCUPMATCH-26NOV25COBKWON",
+      "game": "Cobolli vs Kwon",
+      "backing": "Flavio Cobolli",
+      "yesNo": "Yes",
+      "entry": 0.8496,
+      "price": 0.76,
+      "cost": 6174.99,
+      "contracts": 7268.0,
+      "startTs": 1795634400,
+      "league": "Sports",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 10:18 AM PT",
+      "recordedTs": 1795630706,
       "status": "open",
       "result": null,
       "settledAt": null
