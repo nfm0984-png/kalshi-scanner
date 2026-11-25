@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7202,6 +7202,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
       "recordedTs": 1795574648,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "opposite.dolphin8700|KXMVECROSSCATEGORY-S2026PQGTQPBNZYGKYS3O-LUSBJAD6I|Yes",
+      "nickname": "opposite.dolphin8700",
+      "ticker": "KXMVECROSSCATEGORY-S2026PQGTQPBNZYGKYS3O-LUSBJAD6I",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026PQGTQPBNZYGKYS3O",
+      "game": "Baylor vs Alabama",
+      "backing": "yes Alabama,yes Louisville,no Vegas wins by over 1.5 goals",
+      "yesNo": "Yes",
+      "entry": 0.241,
+      "price": 0.241,
+      "cost": 347.76,
+      "contracts": 1443.0,
+      "startTs": 1795568400,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
+      "recordedTs": 1795575248,
       "status": "open",
       "result": null,
       "settledAt": null
