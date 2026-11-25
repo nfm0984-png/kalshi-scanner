@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 12:05 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 12:10 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -265,7 +265,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -12215,7 +12215,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 15608.96,
+      "pnl": 15626.36,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
