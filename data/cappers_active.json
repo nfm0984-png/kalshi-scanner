@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 6:28 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:31 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -11532,7 +11532,7 @@
         "w": 123,
         "l": 277,
         "roi": null,
-        "profit": 83741.25,
+        "profit": 83399.26,
         "sample": "positions"
       },
       "gradedAll": {
@@ -11540,7 +11540,7 @@
         "w": 123,
         "l": 277,
         "roi": null,
-        "profit": 83741.25,
+        "profit": 83399.26,
         "sample": "positions"
       },
       "sports": {},
@@ -12106,7 +12106,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 7,
+      "openPositions": 6,
       "pickSource": "positions+posts",
       "pickCount": 5,
       "followCount": 4

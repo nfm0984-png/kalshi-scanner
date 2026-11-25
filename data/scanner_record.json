@@ -2011,7 +2011,8 @@
       "startTs": 1795564800,
       "firstTs": 1795535976,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795573903
     },
     "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes": {
       "capper": "dependent.snail8369",
@@ -2063,7 +2064,8 @@
       "startTs": 1795564800,
       "firstTs": 1795546132,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795573903
     },
     "reluctant.fox5394|KXAFCCLTOTAL-26NOV24ALNSAD-4|Yes": {
       "capper": "reluctant.fox5394",
@@ -2117,7 +2119,8 @@
       "startTs": 1795564800,
       "firstTs": 1795556903,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795573903
     },
     "FFun|KXITFMATCH-26NOV24VILROC-ROC|Yes": {
       "capper": "FFun",
@@ -2157,7 +2160,8 @@
       "startTs": 1795564800,
       "firstTs": 1795561822,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795573903
     },
     "FFun|KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG|Yes": {
       "capper": "FFun",
@@ -2190,5 +2194,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795573725
+  "updatedTs": 1795573903
 }
