@@ -2848,7 +2848,17 @@
       "firstTs": 1795618150,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXITFWMATCH-26NOV25KOVBRO-BRO|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXITFWMATCH-26NOV25KOVBRO-BRO",
+      "side": "Yes",
+      "price": 0.95,
+      "startTs": 1795629600,
+      "firstTs": 1795620250,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795618150
+  "updatedTs": 1795620250
 }
