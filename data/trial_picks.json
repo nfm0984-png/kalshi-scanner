@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:59 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7223,6 +7223,27 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 6:54 PM PT",
       "recordedTs": 1795575248,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "pogoburger|KXNCAAFGAME-26NOV24KENTEMU-KENT|Yes",
+      "nickname": "pogoburger",
+      "ticker": "KXNCAAFGAME-26NOV24KENTEMU-KENT",
+      "eventTicker": "KXNCAAFGAME-26NOV24KENTEMU",
+      "game": "Kent St. vs Eastern Michigan",
+      "backing": "Kent St.",
+      "yesNo": "Yes",
+      "entry": 0.07,
+      "price": 0.16,
+      "cost": 1061.62,
+      "contracts": 15166.0,
+      "startTs": 1795564800,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:59 PM PT",
+      "recordedTs": 1795575549,
       "status": "open",
       "result": null,
       "settledAt": null
