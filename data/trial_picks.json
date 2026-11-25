@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 9:02 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:07 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7790,9 +7790,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 7:20 AM PT",
       "recordedTs": 1795620045,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 9:07 AM PT"
     },
     {
       "id": "dependent.snail8369|KXITFWMATCH-26NOV25KOVBRO-BRO|Yes",
@@ -7832,9 +7832,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 7:20 AM PT",
       "recordedTs": 1795620045,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 9:07 AM PT"
     },
     {
       "id": "dependent.snail8369|KXITFWMATCH-26NOV25KUZPAV-KUZ|Yes",
@@ -7874,9 +7874,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 8:14 AM PT",
       "recordedTs": 1795623260,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 9:07 AM PT"
     },
     {
       "id": "dependent.snail8369|KXDAVISCUPMATCH-26NOV25MUSHON-MUS|Yes",
@@ -7958,6 +7958,27 @@
       "bt": "Spread",
       "recordedAt": "Wed Nov 25 \u00b7 9:02 AM PT",
       "recordedTs": 1795626133,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "opposite.dolphin8700|KXNCAAMBGAME-26NOV25RICEOHIO-RICE|Yes",
+      "nickname": "opposite.dolphin8700",
+      "ticker": "KXNCAAMBGAME-26NOV25RICEOHIO-RICE",
+      "eventTicker": "KXNCAAMBGAME-26NOV25RICEOHIO",
+      "game": "Rice vs Ohio",
+      "backing": "Rice",
+      "yesNo": "Yes",
+      "entry": 0.42,
+      "price": 0.42,
+      "cost": 292.74,
+      "contracts": 697.0,
+      "startTs": 1795622400,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 9:07 AM PT",
+      "recordedTs": 1795626434,
       "status": "open",
       "result": null,
       "settledAt": null

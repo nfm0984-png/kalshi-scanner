@@ -124,7 +124,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "iluminado",
-      "ts": 1795581788,
+      "ts": 1795626434,
       "boost": false
     },
     "regine": {
@@ -142,7 +142,7 @@
       "l": 46,
       "pnl": 486.57,
       "name": "AllHunnsNo20sR10s",
-      "ts": 1795581788,
+      "ts": 1795626434,
       "boost": true
     },
     "714smith": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795626133,
+  "updatedTs": 1795626434,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

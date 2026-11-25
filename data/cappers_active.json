@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 9:02 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:07 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -237,18 +237,18 @@
       "ageDays": 140,
       "graded": {
         "n": 400,
-        "w": 273,
-        "l": 107,
+        "w": 274,
+        "l": 106,
         "roi": null,
-        "profit": 147182.21,
+        "profit": 147230.34,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 273,
-        "l": 107,
+        "w": 274,
+        "l": 106,
         "roi": null,
-        "profit": 147182.21,
+        "profit": 147230.34,
         "sample": "positions"
       },
       "sports": {
@@ -268,12 +268,12 @@
         }
       },
       "bestAt": "Tennis",
-      "recordLine": "iluminado \u00b7 273-107 \u00b7 Best at Tennis \u00b7 +$145.6k all",
+      "recordLine": "iluminado \u00b7 274-106 \u00b7 Best at Tennis \u00b7 +$145.6k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -16979,7 +16979,7 @@
         "w": 221,
         "l": 179,
         "roi": null,
-        "profit": 5471.03,
+        "profit": 5813.53,
         "sample": "positions"
       },
       "gradedAll": {
@@ -16987,7 +16987,7 @@
         "w": 221,
         "l": 179,
         "roi": null,
-        "profit": 5471.03,
+        "profit": 5813.53,
         "sample": "positions"
       },
       "sports": {},
@@ -17026,8 +17026,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "zerorequiem",
@@ -40142,7 +40142,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
