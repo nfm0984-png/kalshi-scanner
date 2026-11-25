@@ -2961,7 +2961,17 @@
       "firstTs": 1795641225,
       "combo": false,
       "status": "open"
+    },
+    "reluctant.fox5394|KXUCLTOTAL-26NOV25INTVFB-1|No": {
+      "capper": "reluctant.fox5394",
+      "ticker": "KXUCLTOTAL-26NOV25INTVFB-1",
+      "side": "No",
+      "price": 0.01,
+      "startTs": 1795651200,
+      "firstTs": 1795641525,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795641225
+  "updatedTs": 1795641525
 }
