@@ -536,7 +536,7 @@
       "l": 2,
       "pnl": -6.99,
       "name": "888max",
-      "ts": 1795568361,
+      "ts": 1795622661,
       "boost": false
     },
     "deadpoet086": {
@@ -554,7 +554,7 @@
       "l": 29,
       "pnl": 1.53,
       "name": "beaudane",
-      "ts": 1795571564,
+      "ts": 1795622661,
       "boost": true
     },
     "absolute.turtle7508": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795622060,
+  "updatedTs": 1795622661,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
