@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 7:34 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:39 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6950,9 +6950,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:37 PM PT",
       "recordedTs": 1795567051,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 7:39 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
@@ -7076,9 +7076,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 7:39 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV24CLEMWASH-CLEM|Yes",
@@ -7265,6 +7265,27 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:19 PM PT",
       "recordedTs": 1795576748,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iluminado|KXITFWMATCH-26NOV24SIDYAM-SID|Yes",
+      "nickname": "iluminado",
+      "ticker": "KXITFWMATCH-26NOV24SIDYAM-SID",
+      "eventTicker": "KXITFWMATCH-26NOV24SIDYAM",
+      "game": "Sidorova vs Yamaguchi",
+      "backing": "Kristiana Sidorova",
+      "yesNo": "Yes",
+      "entry": 0.4595,
+      "price": 0.99,
+      "cost": 698.38,
+      "contracts": 1520.0,
+      "startTs": 1795588200,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 7:39 PM PT",
+      "recordedTs": 1795577979,
       "status": "open",
       "result": null,
       "settledAt": null

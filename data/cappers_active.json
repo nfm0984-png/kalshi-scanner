@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 7:34 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 7:39 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -97,7 +97,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 697573.89,
+      "pnl": 686827.87,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -302,10 +302,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "past.grass",
@@ -11749,8 +11749,8 @@
       "postsVisible": true,
       "openPositions": 5,
       "pickSource": "positions+posts",
-      "pickCount": 4,
-      "followCount": 3
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "truewonder",
@@ -12881,24 +12881,24 @@
       "tape30d": null,
       "ageDays": 361,
       "graded": {
-        "n": 70,
+        "n": 71,
         "w": 45,
-        "l": 25,
+        "l": 26,
         "roi": null,
-        "profit": 3663.63,
+        "profit": 3163.66,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 70,
+        "n": 71,
         "w": 45,
-        "l": 25,
+        "l": 26,
         "roi": null,
-        "profit": 3663.63,
+        "profit": 3163.66,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "parspectives \u00b7 45-25 \u00b7 +$3.28k all",
+      "recordLine": "parspectives \u00b7 45-26 \u00b7 +$3.28k all",
       "addedAt": "2026-11-22",
       "followingPicks": [
         {
@@ -12991,9 +12991,9 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 6,
+      "openPositions": 5,
       "pickSource": "positions",
-      "pickCount": 1,
+      "pickCount": 0,
       "followCount": 1
     },
     {
@@ -13506,7 +13506,7 @@
         }
       },
       "onProfitBoard": true,
-      "pnl": 15583.28,
+      "pnl": 15129.1,
       "pnlSource": "kalshi_profile_metrics",
       "weeklyPnl": null,
       "monthlyPnl": null,
@@ -17404,8 +17404,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "zerorequiem",
@@ -31555,17 +31555,17 @@
       "graded": {
         "n": 400,
         "w": 297,
-        "l": 95,
+        "l": 96,
         "roi": null,
-        "profit": -35227.53,
+        "profit": -42309.68,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
         "w": 297,
-        "l": 95,
+        "l": 96,
         "roi": null,
-        "profit": -35227.53,
+        "profit": -42309.68,
         "sample": "positions"
       },
       "sports": {
@@ -31592,12 +31592,12 @@
         }
       },
       "bestAt": "NBA",
-      "recordLine": "pogoburger \u00b7 297-95 \u00b7 Best at NBA \u00b7 +$213.3k all",
+      "recordLine": "pogoburger \u00b7 297-96 \u00b7 Best at NBA \u00b7 +$213.3k all",
       "addedAt": "2026-11-23",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 4,
+      "openPositions": 3,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -34601,24 +34601,24 @@
       "tape30d": null,
       "ageDays": 141,
       "graded": {
-        "n": 294,
-        "w": 193,
+        "n": 295,
+        "w": 194,
         "l": 89,
         "roi": null,
-        "profit": 8951.53,
+        "profit": 9311.71,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 294,
-        "w": 193,
+        "n": 295,
+        "w": 194,
         "l": 89,
         "roi": null,
-        "profit": 8951.53,
+        "profit": 9311.71,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 193-89 \u00b7 +$8.75k all",
+      "recordLine": "FFun \u00b7 194-89 \u00b7 +$8.75k all",
       "addedAt": "2026-11-24",
       "followingPicks": [
         {
@@ -34650,7 +34650,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0

@@ -2732,7 +2732,17 @@
       "firstTs": 1795574648,
       "combo": false,
       "status": "open"
+    },
+    "iluminado|KXITFWMATCH-26NOV24SIDYAM-SID|Yes": {
+      "capper": "iluminado",
+      "ticker": "KXITFWMATCH-26NOV24SIDYAM-SID",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1795588200,
+      "firstTs": 1795577979,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795577678
+  "updatedTs": 1795577979
 }
