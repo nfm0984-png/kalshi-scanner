@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Tue Nov 24 \u00b7 5:03 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 5:08 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -274,7 +274,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 2,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -9914,24 +9914,24 @@
       "tape30d": null,
       "ageDays": 42,
       "graded": {
-        "n": 118,
-        "w": 71,
-        "l": 47,
+        "n": 119,
+        "w": 70,
+        "l": 49,
         "roi": null,
-        "profit": 37328.83,
+        "profit": 35346.59,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 118,
-        "w": 71,
-        "l": 47,
+        "n": 119,
+        "w": 70,
+        "l": 49,
         "roi": null,
-        "profit": 37328.83,
+        "profit": 35346.59,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "iknowballmorethanu \u00b7 71-47 \u00b7 +$38.5k all",
+      "recordLine": "iknowballmorethanu \u00b7 70-49 \u00b7 +$38.5k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -10024,9 +10024,9 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions",
-      "pickCount": 3,
+      "pickCount": 2,
       "followCount": 2
     },
     {
@@ -29552,7 +29552,7 @@
         "w": 244,
         "l": 116,
         "roi": null,
-        "profit": 9812.57,
+        "profit": 9812.51,
         "sample": "positions"
       },
       "gradedAll": {
@@ -29560,7 +29560,7 @@
         "w": 244,
         "l": 116,
         "roi": null,
-        "profit": 9812.57,
+        "profit": 9812.51,
         "sample": "positions"
       },
       "sports": {},
@@ -29570,7 +29570,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -31325,7 +31325,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
