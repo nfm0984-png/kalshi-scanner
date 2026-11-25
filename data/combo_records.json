@@ -425,7 +425,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "milesdavis",
-      "ts": 1795592293,
+      "ts": 1795640025,
       "boost": false
     },
     "bullishkirby": {
@@ -434,7 +434,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bullishkirby",
-      "ts": 1795592293,
+      "ts": 1795640025,
       "boost": false
     },
     "bananastand21": {
@@ -631,6 +631,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795637731,
+  "updatedTs": 1795640025,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
