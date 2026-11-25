@@ -2291,7 +2291,8 @@
       "startTs": 1795577400,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795591152
     },
     "Irresponsible-Autumn|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes": {
       "capper": "Irresponsible-Autumn",
@@ -2822,5 +2823,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795587809
+  "updatedTs": 1795591152
 }
