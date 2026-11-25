@@ -598,14 +598,19 @@ def series_info(http, series_ticker, cache):
 def combo_leg_counts(legs):
     sports = esports = other = 0
     for leg in legs or []:
-        ltk = (leg.get("market_ticker") if isinstance(leg, dict) else "") or ""
-        if is_esports(ltk) or league_of(ltk) == "Esports":
+        if not isinstance(leg, dict):
+            other += 1
+            continue
+        ltk = leg.get("market_ticker") or leg.get("ticker") or ""
+        if is_esports(ltk, leg) or league_of(ltk, leg.get("category") or leg.get("league")) == "Esports":
             esports += 1
         elif is_non_sport_ticker(ltk):
             other += 1
-        elif league_of(ltk):
+        elif league_of(ltk) and league_of(ltk) != "Esports":
             sports += 1
-        elif (ltk or "").upper().startswith("KX"):
+        elif (ltk or "").upper().startswith("KX") and not is_non_sport_ticker(ltk):
+            # Unknown KX series: treat as sports so all sports leagues are kept.
+            # Non-sport prefixes are caught above.
             sports += 1
         else:
             other += 1
@@ -794,11 +799,13 @@ def is_sports_market(info, ticker):
     not be dropped as non-sports. Esports-only combos are still excluded.
     """
     info = info or {}
-    if is_combo_ticker(ticker) or info.get("mve_selected_legs"):
+    if is_combo_ticker(ticker) or info.get("mve_selected_legs") or info.get("legs"):
         legs = info.get("mve_selected_legs") or info.get("legs") or []
         if legs:
-            sports, esports, _other = combo_leg_counts(legs)
-            return sports > 0 and sports >= esports
+            sports, esports, other = combo_leg_counts(legs)
+            # Sports-only combos: every leg must be a sport (any league). Mixed
+            # crypto/politics/esports parlays are dropped.
+            return sports > 0 and esports == 0 and other == 0
         if is_esports(ticker, info):
             return False
         cat = (info.get("category") or "").strip().lower()
