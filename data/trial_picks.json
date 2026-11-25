@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 5:52 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6278,9 +6278,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 10:28 PM PT",
       "recordedTs": 1795501732,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
     },
     {
       "id": "falcon999|KXMVECROSSCATEGORY-S2026EO6RRNP2KBXPIZUW-WFEUC5IFZ|Yes",
@@ -6341,9 +6341,9 @@
       "bt": "Moneyline",
       "recordedAt": "Mon Nov 23 \u00b7 11:14 PM PT",
       "recordedTs": 1795504456,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes",
@@ -6425,9 +6425,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 7:59 AM PT",
       "recordedTs": 1795535976,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
     },
     {
       "id": "Profitprofet|KXT20MATCH-26NOV240930EMIGUL-GUL|Yes",
@@ -6614,9 +6614,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 10:48 AM PT",
       "recordedTs": 1795546132,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
@@ -7055,9 +7055,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 5:48 PM PT",
       "recordedTs": 1795571324,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
     },
     {
       "id": "falcon999|KXNBASPREAD-26NOV24BOSWAS-BOS13|No",
@@ -7118,6 +7118,90 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 5:52 PM PT",
       "recordedTs": 1795571564,
+      "status": "win",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 6:44 PM PT"
+    },
+    {
+      "id": "BWmarkets|KXNHLTOTAL-26NOV24VGKEDM-6|No",
+      "nickname": "BWmarkets",
+      "ticker": "KXNHLTOTAL-26NOV24VGKEDM-6",
+      "eventTicker": "KXNHLTOTAL-26NOV24VGKEDM",
+      "game": "Vegas vs Edmonton: Total Goals",
+      "backing": "Over 5.5 goals scored",
+      "yesNo": "No",
+      "entry": 0.5218,
+      "price": 0.31,
+      "cost": 16991.79,
+      "contracts": 32563.0,
+      "startTs": 1795568400,
+      "league": "NHL",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
+      "recordedTs": 1795574648,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV24MORDEL",
+      "game": "Moriya vs Dellavedova",
+      "backing": "Matthew Dellavedova",
+      "yesNo": "Yes",
+      "entry": 0.9226,
+      "price": 0.68,
+      "cost": 9884.23,
+      "contracts": 10713.0,
+      "startTs": 1795577400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
+      "recordedTs": 1795574648,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ-Z3DB6F56H",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026CELGS4DTSBKW4OMQ",
+      "game": "Alabama A&M vs North Alabama",
+      "backing": "yes North Alabama,yes Air Force,yes Cornell,yes Washington,yes Green Bay,yes Texas Tech,yes Mount St. Mary's,yes Oral Roberts,yes Purdue Fort Wayne",
+      "yesNo": "Yes",
+      "entry": 0.088,
+      "price": 0.068,
+      "cost": 469.57,
+      "contracts": 5336.0,
+      "startTs": 1795564800,
+      "league": "NCAAB",
+      "bt": "Combo",
+      "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
+      "recordedTs": 1795574648,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
+      "eventTicker": "KXNCAAMBGAME-26NOV24BAYALA",
+      "game": "Baylor vs Alabama",
+      "backing": "Alabama",
+      "yesNo": "Yes",
+      "entry": 0.54,
+      "price": 0.54,
+      "cost": 4843.8,
+      "contracts": 8970.0,
+      "startTs": 1795575600,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Tue Nov 24 \u00b7 6:44 PM PT",
+      "recordedTs": 1795574648,
       "status": "open",
       "result": null,
       "settledAt": null

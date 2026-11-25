@@ -1968,7 +1968,8 @@
       "startTs": 1795505400,
       "firstTs": 1795505224,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795574648
     },
     "falcon999|KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes": {
       "capper": "falcon999",
@@ -2010,7 +2011,8 @@
       "startTs": 1795564800,
       "firstTs": 1795535976,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795574648
     },
     "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes": {
       "capper": "dependent.snail8369",
@@ -2062,7 +2064,8 @@
       "startTs": 1795564800,
       "firstTs": 1795546132,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795574648
     },
     "reluctant.fox5394|KXAFCCLTOTAL-26NOV24ALNSAD-4|Yes": {
       "capper": "reluctant.fox5394",
@@ -2116,7 +2119,8 @@
       "startTs": 1795564800,
       "firstTs": 1795556903,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795574648
     },
     "FFun|KXITFMATCH-26NOV24VILROC-ROC|Yes": {
       "capper": "FFun",
@@ -2156,7 +2160,8 @@
       "startTs": 1795564800,
       "firstTs": 1795561822,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795574648
     },
     "FFun|KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG|Yes": {
       "capper": "FFun",
@@ -2707,7 +2712,27 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "open"
+    },
+    "iknowballmorethanu|KXNCAAMBGAME-26NOV24BAYALA-ALA|Yes": {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
+      "side": "Yes",
+      "price": 0.54,
+      "startTs": 1795575600,
+      "firstTs": 1795574648,
+      "combo": false,
+      "status": "open"
+    },
+    "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
+      "side": "Yes",
+      "price": 0.68,
+      "startTs": 1795577400,
+      "firstTs": 1795574648,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795571564
+  "updatedTs": 1795574648
 }

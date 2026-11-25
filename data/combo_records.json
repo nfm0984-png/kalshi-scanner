@@ -24,7 +24,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795529166,
+      "ts": 1795574648,
       "boost": false
     },
     "jackivouce": {
@@ -33,7 +33,7 @@
       "l": 47,
       "pnl": 1504.78,
       "name": "jackivouce",
-      "ts": 1795529166,
+      "ts": 1795574648,
       "boost": true
     },
     "autofade": {
@@ -558,6 +558,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795571564,
+  "updatedTs": 1795574648,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
