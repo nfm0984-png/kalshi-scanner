@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Tue Nov 24 \u00b7 4:37 PM PT",
+  "updatedAt": "Tue Nov 24 \u00b7 4:42 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -6908,9 +6908,9 @@
       "bt": "Moneyline",
       "recordedAt": "Tue Nov 24 \u00b7 3:53 PM PT",
       "recordedTs": 1795564382,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Tue Nov 24 \u00b7 4:42 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNCAAMBGAME-26NOV24SDSUISU-ISU|Yes",
@@ -6950,6 +6950,27 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 4:37 PM PT",
       "recordedTs": 1795567051,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBTOTAL-26NOV24DEPPUR-138",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV24DEPPUR",
+      "game": "DePaul vs Purdue: Point Total",
+      "backing": "Over 137.5 points",
+      "yesNo": "No",
+      "entry": 0.2375,
+      "price": 0.78,
+      "cost": 1684.75,
+      "contracts": 7095.0,
+      "startTs": 1795561200,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Tue Nov 24 \u00b7 4:42 PM PT",
+      "recordedTs": 1795567374,
       "status": "open",
       "result": null,
       "settledAt": null
