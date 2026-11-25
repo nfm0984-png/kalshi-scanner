@@ -2858,7 +2858,17 @@
       "firstTs": 1795620045,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXITFWMATCH-26NOV25KUZPAV-KUZ|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXITFWMATCH-26NOV25KUZPAV-KUZ",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1795629600,
+      "firstTs": 1795623260,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795620045
+  "updatedTs": 1795623260
 }

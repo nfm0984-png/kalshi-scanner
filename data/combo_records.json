@@ -52,7 +52,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "loyal.lion9691",
-      "ts": 1795575248,
+      "ts": 1795623260,
       "boost": false
     },
     "workertrader": {
@@ -61,7 +61,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795579480,
+      "ts": 1795623260,
       "boost": false
     },
     "profitprofet": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795620045,
+  "updatedTs": 1795623260,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
