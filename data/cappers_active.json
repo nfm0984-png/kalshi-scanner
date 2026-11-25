@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 8:57 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:02 AM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -135,10 +135,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions+posts",
-      "pickCount": 1,
-      "followCount": 0
+      "pickCount": 2,
+      "followCount": 1
     },
     {
       "nickname": "reluctant.fox5394",
@@ -1161,8 +1161,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "reach.draft",
@@ -2085,10 +2085,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 0,
-      "followCount": 0
+      "pickCount": 1,
+      "followCount": 1
     },
     {
       "nickname": "bospredicts",
@@ -6770,7 +6770,7 @@
         "w": 333,
         "l": 67,
         "roi": null,
-        "profit": 43398.45,
+        "profit": 43448.77,
         "sample": "positions"
       },
       "gradedAll": {
@@ -6778,7 +6778,7 @@
         "w": 333,
         "l": 67,
         "roi": null,
-        "profit": 43398.45,
+        "profit": 43448.77,
         "sample": "positions"
       },
       "sports": {
@@ -6830,7 +6830,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -11495,8 +11495,8 @@
       "openPositions": 0,
       "pickSource": "posts",
       "rejectNote": null,
-      "pickCount": 3,
-      "followCount": 3
+      "pickCount": 2,
+      "followCount": 2
     },
     {
       "nickname": "truewonder",
@@ -17026,8 +17026,8 @@
       "postsVisible": false,
       "openPositions": 1,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "zerorequiem",
@@ -25630,7 +25630,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 2,
+      "openPositions": 3,
       "pickSource": "positions+posts",
       "pickCount": 1,
       "followCount": 1

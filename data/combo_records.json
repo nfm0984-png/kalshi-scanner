@@ -106,7 +106,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "reluctant.fox5394",
-      "ts": 1795581788,
+      "ts": 1795626133,
       "boost": false
     },
     "yunktrader": {
@@ -115,7 +115,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "yunktrader",
-      "ts": 1795581788,
+      "ts": 1795626133,
       "boost": false
     },
     "iluminado": {
@@ -622,6 +622,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795625834,
+  "updatedTs": 1795626133,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
