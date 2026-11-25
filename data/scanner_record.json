@@ -2878,7 +2878,37 @@
       "firstTs": 1795623860,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXDAVISCUPMATCH-26NOV25COBKWON-COB|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXDAVISCUPMATCH-26NOV25COBKWON-COB",
+      "side": "Yes",
+      "price": 0.81,
+      "startTs": 1795634400,
+      "firstTs": 1795628005,
+      "combo": false,
+      "status": "open"
+    },
+    "iknowballmorethanu|KXUCLTOTAL-26NOV25SBHBAR-5|No": {
+      "capper": "iknowballmorethanu",
+      "ticker": "KXUCLTOTAL-26NOV25SBHBAR-5",
+      "side": "No",
+      "price": 0.47,
+      "startTs": 1795643100,
+      "firstTs": 1795628005,
+      "combo": false,
+      "status": "open"
+    },
+    "djcheecake|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
+      "capper": "djcheecake",
+      "ticker": "KXNBAGAME-26NOV25MINOKC-MIN",
+      "side": "Yes",
+      "price": 0.46,
+      "startTs": 1795653000,
+      "firstTs": 1795628005,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795627213
+  "updatedTs": 1795628005
 }
