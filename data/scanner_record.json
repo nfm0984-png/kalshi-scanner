@@ -2890,7 +2890,8 @@
       "startTs": 1795634400,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795644166
     },
     "iknowballmorethanu|KXUCLTOTAL-26NOV25SBHBAR-5|No": {
       "capper": "iknowballmorethanu",
@@ -2973,5 +2974,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795640926
+  "updatedTs": 1795644166
 }

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 1:08 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 2:02 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8147,9 +8147,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 11:55 AM PT",
       "recordedTs": 1795636530,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 2:02 PM PT"
     },
     {
       "id": "FFun|KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE|Yes",
@@ -8168,6 +8168,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 1:08 PM PT",
       "recordedTs": 1795640926,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 2:02 PM PT"
+    },
+    {
+      "id": "falcon999|KXNBAGAME-26NOV25MIAPHI-PHI|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNBAGAME-26NOV25MIAPHI-PHI",
+      "eventTicker": "KXNBAGAME-26NOV25MIAPHI",
+      "game": "MIA vs PHI (Nov 25)",
+      "backing": "Philadelphia",
+      "yesNo": "Yes",
+      "entry": 0.5275,
+      "price": 0.51,
+      "cost": 2499.99,
+      "contracts": 4739.39,
+      "startTs": 1795644000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 2:02 PM PT",
+      "recordedTs": 1795644166,
       "status": "open",
       "result": null,
       "settledAt": null
