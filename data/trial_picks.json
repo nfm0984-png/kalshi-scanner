@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 12:07 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 12:58 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7958,9 +7958,9 @@
       "bt": "Spread",
       "recordedAt": "Wed Nov 25 \u00b7 9:02 AM PT",
       "recordedTs": 1795626133,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 12:58 PM PT"
     },
     {
       "id": "opposite.dolphin8700|KXNCAAMBGAME-26NOV25RICEOHIO-RICE|Yes",
@@ -8000,9 +8000,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:17 AM PT",
       "recordedTs": 1795627033,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 12:58 PM PT"
     },
     {
       "id": "Profitprofet|KXT20MATCH-26NOV250930DESDUB-DUB|Yes",
@@ -8105,9 +8105,9 @@
       "bt": "Totals",
       "recordedAt": "Wed Nov 25 \u00b7 9:48 AM PT",
       "recordedTs": 1795628905,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 12:58 PM PT"
     },
     {
       "id": "iluminado|KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ|Yes",
