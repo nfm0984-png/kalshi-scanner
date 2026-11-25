@@ -49,8 +49,8 @@ interface WL { w: number; l: number; n?: number }
 interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; matchup?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null; comboUrl?: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
-interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null }
-interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
+interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null; orca?: boolean; lenses?: string[]; lensLabels?: string[] }
+interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null; orca?: boolean; orcaBoost?: number | null; orcaLenses?: string[] }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
@@ -60,7 +60,7 @@ interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; 
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
 interface Following { startedAt?: string; startedTs?: number; cappers?: FollowCapper[]; picks?: FollowPick[]; recorded?: number; graded?: number; database?: CapperDatabase }
 interface ScanHist { ts: number; at: string; names?: number; newFollows?: string[]; followed?: number; target?: number; openPicks?: number; ids?: string[] }
-interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> } }
+interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> }; orcaLenses?: { ts?: number; minN?: number; lenses?: Record<string, { label?: string; n: number; w: number; l: number; units: number; roi?: number | null; boost?: number }>; missing?: string[] } }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
@@ -518,6 +518,7 @@ function displayTier(tier: string): string {
 }
 function tierColors(tier: string): { bg: string; fg: string } {
   if (tier === "My 40" || tier === "Top 10" || tier === "Following" || tier === "Best Cappers") return { bg: "#FEF3C7", fg: "#92400E" };
+  if (tier === "Orca") return { bg: "#CFFAFE", fg: "#0E7490" };
   if (tier === "Core") return { bg: BLUE_SOFT, fg: BLUE_INK };
   if (tier === "Top 50") return { bg: "#E0E7FF", fg: "#3730A3" };
   return { bg: "#F1F5F9", fg: "#334155" };
@@ -588,6 +589,12 @@ function BackerRow(props: { b: Backer; now: number }) {
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
         </div>
         <Last20Dots name={b.name} />
+        {b.orca || (b.lensLabels && b.lensLabels.length) ? (
+          <div data-orca-lenses="1" style={{ marginTop: 4, display: "flex", flexWrap: "wrap", gap: 4 }}>
+            <Chip bg="#CFFAFE" color="#0E7490">Orca</Chip>
+            {(b.lensLabels || []).slice(0, 4).map((x: string) => <Chip key={x} bg="#ECFEFF" color="#155E75">{x}</Chip>)}
+          </div>
+        ) : null}
         {b.lastSeen ? <div data-last-seen="1" style={{ marginTop: 4 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + b.lastSeen}</Chip></div> : null}
       </div>
     </div>
@@ -1028,8 +1035,15 @@ function netOf(p: Pick, game: Game): NetInfo {
   const contested = oppNBets >= ELITE_MIN_BETS && (wlRate(opp.rec) >= NET_OPP_WR || net < NET_CLOSE || (opp.proven && opp.score > ownScore + 1e-6));
   return { net, raw, own: ownScore, opp: opp.score, ownRec: own.rec, oppRec: opp.rec, ownN: own.n, oppN: opp.n, my40: own.my40, contested, proven: own.proven, padded, longshot, tier, bestN: own.bestN, dbRank: bestDbRank(ownAll) };
 }
+function isOrcaBacker(b: Backer): boolean {
+  return !!(b.orca || (b.lenses && b.lenses.length) || b.tier === "Orca");
+}
+function isOrcaPick(p: Pick): boolean {
+  return !!(p.orca || (p.backers || []).some(isOrcaBacker));
+}
 function hasMy40Backer(p: Pick): boolean {
-  return (p.backers || []).some(isFollowedBacker);
+  // Followed Best Cappers or an OrcaLayer-mapped sports pick (Noel Nov 24).
+  return (p.backers || []).some((b: Backer) => isFollowedBacker(b) || isOrcaBacker(b));
 }
 function weakerSide(p: Pick, game: Game): boolean {
   const mine = netOf(p, game).net;
@@ -1224,7 +1238,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
   const net = netOf(p, props.game);
   const top = p.backers.slice(0, 3);
   const rest = p.backers.slice(3);
-  const colorOf = (x: string): string[] => (({ "Best Cappers": ["#FEF3C7", "#92400E"], "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Core: ["#EDE9FE", "#5B21B6"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
+  const colorOf = (x: string): string[] => (({ "Best Cappers": ["#FEF3C7", "#92400E"], "My 40": ["#FEF3C7", "#92400E"], "Top 10": ["#FEF3C7", "#92400E"], Following: ["#FEF3C7", "#92400E"], Orca: ["#CFFAFE", "#0E7490"], Core: ["#EDE9FE", "#5B21B6"], "Top 50": ["#E0E7FF", "#3730A3"], Board: ["#F1F5F9", "#334155"], Weekly: ["#F1F5F9", "#334155"] } as Record<string, string[]>)[x] || ["#F1F5F9", "#334155"]);
   return (
     <div data-ucard={p.key} data-contested={net.contested ? "1" : "0"} style={{ borderRadius: 18, border: net.contested ? "2px solid #F59E0B" : "1.5px solid #DDD6FE", background: "#FFFFFF", boxShadow: "0 4px 14px rgba(27,18,51,0.08)", overflow: "hidden", marginBottom: 10, fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ padding: "12px 14px 12px" }}>
@@ -1453,7 +1467,9 @@ function hitProb(p: Pick, game: Game): number {
   // Market price is the base. Track record only nudges it a little (max 8c), so a hot
   // capper on a longshot cannot outrank a heavy favorite on hit chance.
   const shift = Math.max(-0.08, Math.min(0.08, (capperRate - market) * w * 0.4));
-  return Math.min(0.99, Math.max(0.01, market + shift));
+  // Self-learning Orca lens weight: 0 until a lens has ~20 graded picks, then ±5c max.
+  const orca = typeof p.orcaBoost === "number" ? Math.max(-0.05, Math.min(0.05, p.orcaBoost)) : 0;
+  return Math.min(0.99, Math.max(0.01, market + shift + orca));
 }
 function pickStake(p: Pick): number { return p.total || 0; }
 function hitPctText(p: Pick, game: Game): string { return Math.round(hitProb(p, game) * 100) + "% hit"; }
@@ -1483,9 +1499,22 @@ function comboBoostBacker(p: Pick): Backer | null {
   return b || null;
 }
 const flagChip = (bg: string, fg: string, border: string): React.CSSProperties => ({ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: bg, color: fg, border: "1.5px solid " + border, fontSize: 12, fontWeight: 850 });
+function OrcaChip(props: { p: Pick }): React.ReactElement | null {
+  const p = props.p;
+  if (!isOrcaPick(p)) return null;
+  const labels: string[] = [];
+  (p.backers || []).forEach((b: Backer) => {
+    (b.lensLabels || []).forEach((x: string) => { if (x && labels.indexOf(x) < 0) labels.push(x); });
+  });
+  const short = labels.map((x: string) => x.replace(/ · (7d|30d|All)$/, "")).filter((x: string, i: number, a: string[]) => a.indexOf(x) === i);
+  const text = short.length ? "Orca · " + short.slice(0, 3).join(" · ") : "Orca";
+  const title = short.length ? ("Mapped from OrcaLayer lenses: " + short.join(", ")) : "Mapped from an OrcaLayer sports capper onto this Kalshi market";
+  return <span data-orca="1" title={title} style={flagChip("#CFFAFE", "#0E7490", "#22D3EE")}>{text}</span>;
+}
 function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElement | null {
   const p = props.p;
   const out: React.ReactElement[] = [];
+  out.push(<OrcaChip key="orca" p={p} />);
   if (addedAfterStart(p, props.startTs)) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
   const g = entryGapCents(p);
   if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the cappers paid, so the market is moving against them. Ranked below non-fading picks." style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);

@@ -78,6 +78,7 @@ jobs:
           NEW_PER_SCAN: ${{ github.event.inputs.new_names || '30' }}
           REVIEW_NEW: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode != 'follow-check' && github.event.inputs.review_new) && '1' || '' }}
           KALSHI_SCAN_MODE: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'follow-check') && 'follow' || (github.event_name == 'schedule' && github.event.schedule == '*/5 * * * *') && 'follow' || 'scan' }}
+          ORCA_API_KEY: ${{ secrets.ORCA_API_KEY }}
         run: |
           set -euo pipefail
           if [ "${KALSHI_SCAN_MODE}" = "follow" ] && [ "${{ github.event_name }}" = "schedule" ]; then

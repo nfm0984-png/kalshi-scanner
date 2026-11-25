@@ -2753,6 +2753,31 @@ def record_scan_history(now, cov, games, following, prev):
     return scans
 
 
+
+def orca_lenses_payload(games=None, now=None, log=print):
+    """Lens board membership + self-learning W-L for the page. Never raises.
+
+    Called after update_scanner_record so new grades are copied in the same scan.
+    """
+    try:
+        import orca_lenses as _ol
+        import orca_picks as _op
+        if games is not None and now is not None:
+            rec = _op.update_records(games, now, log)
+            _op.attach_boosts(games, rec)
+        else:
+            rec = _op._load_rec()
+        return {
+            "ts": rec.get("updatedTs") or 0,
+            "minN": rec.get("minN") or _op.MIN_LENS_N,
+            "lenses": rec.get("lenses") or {},
+            "missing": rec.get("missing") or [],
+            "boards": _ol.payload(),
+        }
+    except Exception:
+        return {"ts": 0, "lenses": {}, "missing": [], "boards": {}}
+
+
 def build(now=None, log=print):
     now = int(now or time.time())
     t0 = time.time()
@@ -2967,6 +2992,13 @@ def build(now=None, log=print):
     cov["finishedDropped"] = len(dropped)
     cov["finishedNames"] = dropped
     cov["shown"] = sum(1 for c in followed_slate_cappers(cappers, pinned) if c.get("picks"))
+    try:
+        import orca_picks as _op
+        games, orca_stats = _op.merge(games, http, now, mcache, ecache, prev=prev, refresh=True, log=log)
+        cov["orca"] = orca_stats
+    except Exception as _e:
+        log("orca picks failed: %s" % _e)
+        cov["orca"] = {"error": type(_e).__name__}
     cov["picks"] = sum(len(g["picks"]) for g in games)
     cov["games"] = len(games)
     following_open = []
@@ -3018,6 +3050,7 @@ def build(now=None, log=print):
         "scanHistory": record_scan_history(now, cov, games, following, prev),
         "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
         "comboRecords": safe_combo_records(http, games, pinned, now, 12, log),
+        "orcaLenses": orca_lenses_payload(games, now, log),
     }
     if used_carry_seed and os.path.exists(CARRY_SEED_PATH):
         try:
@@ -3028,7 +3061,9 @@ def build(now=None, log=print):
     log(
         "scan active {dbActive} queue {dbQueue} rejected {dbRejected} shown {shown} "
         "picks {picks} games {games} follow {followingOpen} trial {trialRecorded} "
-        "finished {finishedDropped} calls {calls} 429s {retries429} secs {secs}".format(**cov)
+        "finished {finishedDropped} orca {orcaPicks} calls {calls} 429s {retries429} secs {secs}".format(
+            orcaPicks=(cov.get("orca") or {}).get("rankPicks") or (cov.get("orca") or {}).get("added") or 0, **cov
+        )
     )
     return payload
 
@@ -3240,6 +3275,13 @@ def build_follow_check(now=None, log=print):
     cov["finishedDropped"] = len(dropped)
     cov["finishedNames"] = dropped
     cov["shown"] = sum(1 for c in live_cappers if c.get("picks"))
+    try:
+        import orca_picks as _op
+        games, orca_stats = _op.merge(games, http, now, mcache, ecache, prev=prev, refresh=False, log=log)
+        cov["orca"] = orca_stats
+    except Exception as _e:
+        log("orca picks failed: %s" % _e)
+        cov["orca"] = {"error": type(_e).__name__}
     cov["picks"] = sum(len(g["picks"]) for g in games)
     cov["games"] = len(games)
 
@@ -3318,6 +3360,7 @@ def build_follow_check(now=None, log=print):
         "scanHistory": prev.get("scanHistory") or load_json(HISTORY_PATH, {"scans": []}).get("scans") or [],
         "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
         "comboRecords": safe_combo_records(http, games, pinned, now, 2, log),
+        "orcaLenses": orca_lenses_payload(games, now, log),
     }
     log(
         "follow-check refreshed {activeRefreshed}/{namesChecked} carried {carriedPicks} "

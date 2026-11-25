@@ -6,3 +6,6 @@ node_modules/
 .cache/
 .trigger_token
 scanner/.follow_changed
+scanner/.orca_api_key
+scanner/orca_lenses.json
+scanner/.cache/
