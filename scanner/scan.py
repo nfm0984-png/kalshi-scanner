@@ -2220,7 +2220,10 @@ def update_scanner_record(http, games, now, mcache, ecache, log=print):
                     continue
                 price = px if isinstance(px, (int, float)) and 0 < px < 1 else b.get("avg")
                 rows[rid] = {"capper": b.get("name"), "ticker": p.get("ticker"), "side": side, "price": price,
-                             "startTs": st, "firstTs": now, "combo": bool(p.get("isCombo")), "status": "open"}
+                             "startTs": st, "firstTs": now, "combo": bool(p.get("isCombo")), "status": "open",
+                             "game": g.get("game") or p.get("sub") or "",
+                             "label": (p.get("view") or {}).get("backing") or p.get("big") or "",
+                             "league": g.get("league") or p.get("league") or ""}
                 added += 1
     budget = 60
     # startTs is now the real kickoff (milestones), so wait ~2.5h before polling for a result, oldest first.

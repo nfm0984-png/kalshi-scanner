@@ -33,8 +33,11 @@ on:
 # can never evict a waiting full scan (GitHub keeps only one pending run per
 # group). The 5-minute follow-check loop runs in parallel in its own group.
 # Publishing happens in deploy.yml (dispatched below).
+# Manual and scheduled full scans use separate groups so a new hourly cron
+# cannot cancel a waiting workflow_dispatch (GitHub keeps only one pending
+# run per group). Rebase-on-push still serializes data commits.
 concurrency:
-  group: kalshi-full-scan
+  group: kalshi-full-scan-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'scheduled' }}
   cancel-in-progress: false
 
 permissions:
@@ -44,6 +47,7 @@ permissions:
 jobs:
   scan-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 70
     env:
       KALSHI_SCANNER_PASSCODE: ${{ secrets.KALSHI_SCANNER_PASSCODE }}
     steps:
@@ -161,4 +165,16 @@ jobs:
         if: steps.changed.outputs.value == '1'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main -R "${{ github.repository }}"
+        run: |
+          set -euo pipefail
+          i=0
+          while [ $i -lt 5 ]; do
+            i=$((i + 1))
+            if gh workflow run deploy.yml --ref main -R "${{ github.repository }}"; then
+              exit 0
+            fi
+            echo "deploy dispatch failed (attempt $i); retrying"
+            sleep $((i * 8))
+          done
+          echo "deploy dispatch failed after retries" >&2
+          exit 1

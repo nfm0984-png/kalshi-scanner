@@ -1653,29 +1653,31 @@ function moneyAbs(n: number): string {
   if (a >= 1000) return (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
   return String(Math.round(a));
 }
-function ScorecardBlock(): React.ReactElement | null {
-  const [sc, setSc] = useState<Scorecard | null>(null);
+function ScorecardBlock(): React.ReactElement {
+  const [sc, setSc] = useState<Scorecard | null | undefined>(undefined);
   useEffect(() => {
-    fetch("scorecard.json?t=" + Date.now()).then((r) => r.ok ? r.json() : null).then((d: Scorecard) => { if (d && (d.date || d.label)) setSc(d); }).catch(() => {});
+    fetch("scorecard.json?t=" + Date.now()).then((r) => r.ok ? r.json() : null).then((d: Scorecard) => { setSc(d && (d.date || d.label) ? d : null); }).catch(() => { setSc(null); });
   }, []);
-  if (!sc) return null;
+  if (sc === undefined) return <Section heading="Scorecard" caption="Loading yesterday’s scanner picks…"><Text>Loading…</Text></Section>;
+  if (!sc) return <EmptyState title="No scorecard yet" body="Yesterday’s scanner picks will show here after the daily scorecard job runs (about 6:35 AM PT)." />;
   const w = sc.w || 0, l = sc.l || 0, pending = sc.pending || 0;
   const pnl = sc.pnl;
-  const pnlStr = (pnl == null) ? "" : ((pnl >= 0 ? "+$" : "-$") + moneyAbs(pnl));
+  const pnlStr = (pnl == null || Math.abs(pnl) < 0.005) ? "" : ((pnl >= 0 ? "+$" : "-$") + moneyAbs(pnl));
   const heading = "Yesterday · " + w + "–" + l + (pending ? " · " + pending + " pending" : "") + (pnlStr ? " · " + pnlStr : "") + (sc.pnlPartial ? " (partial $)" : "");
   return (
     <Section heading={heading} caption={(sc.label || "Yesterday") + (sc.pnlNote ? " · " + sc.pnlNote : "") + (sc.updatedAt ? " · updated " + sc.updatedAt : "")}>
-      {(sc.picks || []).length === 0 ? <Text>No scanner picks started yesterday.</Text> : (
+      {(sc.picks || []).length === 0 ? <EmptyState title="No scanner picks yesterday" body="No scanner picks started yesterday in PT." /> : (
         <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6 }}>
           {(sc.picks || []).map((row: ScorecardPick, i: number) => {
             const res = row.result || "pending";
-            const title = row.label || row.q || row.ticker || row.capper || ("Pick " + (i + 1));
+            const rawTitle = row.label || row.q || row.capper || ("Pick " + (i + 1));
+            const title = rawTitle.indexOf("KX") === 0 ? (row.q || row.capper || rawTitle) : rawTitle;
             const who = row.capper || row.side || "";
-            const dol = row.pnl == null ? "" : ((row.pnl >= 0 ? "+$" : "-$") + moneyAbs(row.pnl));
+            const dol = (row.pnl == null || Math.abs(row.pnl) < 0.005) ? "" : ((row.pnl >= 0 ? "+$" : "-$") + moneyAbs(row.pnl));
             const color = res === "W" ? "#047857" : res === "L" ? "#B91C1C" : "#64748B";
             return (
               <div key={i} style={{ display: "flex", justifyContent: "space-between", gap: 10, fontSize: 13, fontWeight: 700, color: "#0F172A" }}>
-                <span style={{ overflowWrap: "anywhere" }}><span style={{ color, fontWeight: 850, marginRight: 6 }}>{res}</span>{title}{who && title !== who ? " · " + who : ""}</span>
+                <span style={{ overflowWrap: "anywhere" }}><span style={{ color, fontWeight: 850, marginRight: 8 }}>{res + " "}</span>{title}{who && title !== who ? " · " + who : ""}</span>
                 {dol ? <span style={{ color, flex: "none", fontVariantNumeric: "tabular-nums" }}>{dol}</span> : null}
               </div>
             );
@@ -1684,6 +1686,9 @@ function ScorecardBlock(): React.ReactElement | null {
       )}
     </Section>
   );
+}
+function ScorecardTab(): React.ReactElement {
+  return <ScorecardBlock />;
 }
 
 function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
@@ -1694,7 +1699,6 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const singleN = list.length - comboN;
   return (
     <div>
-      <ScorecardBlock />
       <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
@@ -1905,10 +1909,10 @@ function StatusRow(props: { label: string; status: string; tone: "ok" | "public"
 }
 
 export default function App() {
-  const [tab, setTab] = useState<"coming" | "following" | "ranked" | "cappers">(() => {
+  const [tab, setTab] = useState<"coming" | "following" | "ranked" | "cappers" | "scorecard">(() => {
     try {
       const t = new URLSearchParams(window.location.search).get("tab");
-      if (t === "coming" || t === "following" || t === "ranked" || t === "cappers") return t;
+      if (t === "coming" || t === "following" || t === "ranked" || t === "cappers" || t === "scorecard") return t;
     } catch (e) {}
     return "ranked";
   });
@@ -2071,18 +2075,21 @@ export default function App() {
   const followedN = followCaps.length;
   const db = (DATA.source && DATA.source.db) || {};
   const dbActive = db.active != null ? db.active : (DATA.cappers || []).length;
-  const changeTab = (t: "coming" | "following" | "ranked" | "cappers") => { setTab(t); setFilter("all"); };
+  const changeTab = (t: "coming" | "following" | "ranked" | "cappers" | "scorecard") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
-  const tabMeta: { value: "coming" | "following" | "ranked" | "cappers"; label: string; count: number; icon: ReactNode; title: string; caption: string }[] = [
+  const tabMeta: { value: "coming" | "following" | "ranked" | "cappers" | "scorecard"; label: string; count?: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$1,000+ singles and combos · best to worst · today in PT, after 7pm + tomorrow" },
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$1,000+ singles and combos, soonest first · live first" },
     { value: "cappers", label: "Best Cappers", count: followedN, icon: <IconUsers />, title: "Best Cappers", caption: "Persistent good-only database (target 100) · rechecked every 5 minutes · official profit and closed record" },
+    { value: "scorecard", label: "Scorecard", icon: <IconChart />, title: "Scorecard", caption: "Yesterday’s scanner picks · W–L and flat $1" },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
   const pills = tab === "coming" || tab === "ranked"
     ? [{ id: "all", label: "All" }, { id: "live", label: "Live" }, { id: "upcoming", label: "Upcoming" }]
     : tab === "following"
     ? [{ id: "all", label: "All" }, { id: "graded", label: "Graded" }, { id: "open", label: "Open picks" }]
+    : tab === "scorecard"
+    ? []
     : [{ id: "all", label: "All" }, { id: "wl", label: "With a W–L" }, { id: "open", label: "Open picks" }];
   const compactBtn: React.CSSProperties = { minHeight: 36, padding: "0 14px", borderRadius: 10, fontWeight: 800, fontSize: 13, fontFamily: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, textDecoration: "none", boxSizing: "border-box", touchAction: "manipulation", whiteSpace: "nowrap" };
   const iconBtn: React.CSSProperties = { ...compactBtn, width: 36, padding: 0, flex: "0 0 36px" };
@@ -2188,7 +2195,7 @@ export default function App() {
               <button key={t.value} type="button" onClick={() => changeTab(t.value)} style={{ flex: "0 0 auto", display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 999, border: "0", background: on ? BLUE : "transparent", color: on ? "#FFFFFF" : "#DDD6FE", fontWeight: 800, fontSize: 14, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap", touchAction: "manipulation" }}>
                 {t.icon}
                 {t.label}
-                <span style={{ display: "inline-block", marginLeft: 2, padding: "1px 7px", borderRadius: 999, background: on ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)", color: on ? "#FFFFFF" : "#C4B5FD", fontSize: 12 }}>{t.count}</span>
+                {t.count != null ? <span style={{ display: "inline-block", marginLeft: 2, padding: "1px 7px", borderRadius: 999, background: on ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)", color: on ? "#FFFFFF" : "#C4B5FD", fontSize: 12 }}>{t.count}</span> : null}
               </button>
             );
           })}
@@ -2200,7 +2207,7 @@ export default function App() {
               <h2 style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.03em", margin: 0 }}>{active.title}</h2>
               <div style={{ fontSize: 14, fontWeight: 600, color: "#64748B", marginTop: 4 }}>{active.caption}</div>
             </div>
-            <div className="ks-filters">
+            {pills.length ? <div className="ks-filters">
               {pills.map((p) => {
                 const on = filter === p.id;
                 return (
@@ -2211,11 +2218,12 @@ export default function App() {
                 <IconSearch />
                 <input type="search" value={query} onChange={(ev) => setQuery(ev.target.value)} placeholder="Search cappers or games" aria-label="Search cappers or games" />
               </label>
-            </div>
+            </div> : null}
             {tab === "coming" ? <ComingUpTab games={games} now={now} query={query} filter={filter} /> : null}
             {tab === "following" ? <FollowingTab now={now} query={query} filter={filter} /> : null}
             {tab === "ranked" ? <RankedTab games={games} now={now} query={query} filter={filter} /> : null}
             {tab === "cappers" ? <CappersTab now={now} query={query} filter={filter} /> : null}
+            {tab === "scorecard" ? <ScorecardTab /> : null}
             <p style={{ margin: "16px 0 0", fontSize: 13, fontWeight: 650, color: "#64748B" }}>Public Kalshi leaderboards, profiles, and the sports trade tape. Records are never invented.</p>
             <details data-how-it-works="1" style={{ marginTop: 16, padding: "8px 0", fontSize: 13, color: "#475569" }}>
               <summary style={{ cursor: "pointer", fontWeight: 800, color: BLUE, listStyle: "none" }}>How it works</summary>

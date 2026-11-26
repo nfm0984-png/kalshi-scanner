@@ -1,7 +1,7 @@
 {
   "date": "2026-11-24",
   "label": "Tue Nov 24, 2026 PT",
-  "updatedAt": "Wed Nov 25 \u00b7 9:59 AM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:41 PM PT",
   "w": 20,
   "l": 18,
   "pending": 0,
@@ -15,6 +15,7 @@
       "combo": false,
       "price": 0.91,
       "startTs": 1795532400,
+      "label": "Oleksandr Ovcharenko \u00b7 Ovcharenko vs Tsitsipas",
       "result": "W",
       "pnl": 0.1
     },
@@ -25,6 +26,7 @@
       "combo": false,
       "price": 0.98,
       "startTs": 1795539600,
+      "label": "Laura Samson \u00b7 Bosio vs Samson",
       "result": "W",
       "pnl": 0.02
     },
@@ -35,6 +37,7 @@
       "combo": false,
       "price": 0.99,
       "startTs": 1795541400,
+      "label": "Ryan Nijboer \u00b7 Nijboer vs Fernandez",
       "result": "W",
       "pnl": 0.01
     },
@@ -45,6 +48,7 @@
       "combo": false,
       "price": 0.1,
       "startTs": 1795545600,
+      "label": "Juan Manuel La Serna \u00b7 La Serna vs De la Fuente",
       "result": "L",
       "pnl": -1.0
     },
@@ -55,6 +59,7 @@
       "combo": false,
       "price": 0.01,
       "startTs": 1795550400,
+      "label": "Over 5.5 goals scored \u00b7 Shabab Al-Ahli vs Al Qadsiah: Total Goals",
       "result": "L",
       "pnl": -1.0
     },
@@ -65,6 +70,7 @@
       "combo": false,
       "price": 0.23,
       "startTs": 1795555200,
+      "label": "Juan Carlos Fuentes Vasquez \u00b7 Fuentes Vasquez vs Vales",
       "result": "L",
       "pnl": -1.0
     },
@@ -75,6 +81,7 @@
       "combo": true,
       "price": 0.471,
       "startTs": 1795557600,
+      "label": "no Christian Braun: 15+,yes Arizona \u00b7 Dallas vs Denver",
       "result": "L",
       "pnl": -1.0
     },
@@ -85,6 +92,7 @@
       "combo": false,
       "price": 0.6,
       "startTs": 1795558500,
+      "label": "Over 3.5 goals scored \u00b7 Al Nassr vs Al Sadd: Total Goals",
       "result": "L",
       "pnl": -1.0
     },
@@ -95,6 +103,7 @@
       "combo": false,
       "price": 0.54,
       "startTs": 1795561200,
+      "label": "Real Madrid \u00b7 Real Madrid vs Eindhoven",
       "result": "W",
       "pnl": 0.85
     },
@@ -105,6 +114,7 @@
       "combo": false,
       "price": 0.02,
       "startTs": 1795561200,
+      "label": "Napoli \u00b7 Manchester City vs Napoli",
       "result": "L",
       "pnl": -1.0
     },
@@ -115,6 +125,7 @@
       "combo": false,
       "price": 0.45,
       "startTs": 1795564800,
+      "label": "Orlando \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
       "pnl": -1.0
     },
@@ -125,6 +136,7 @@
       "combo": false,
       "price": 0.39,
       "startTs": 1795564800,
+      "label": "Orlando wins by over 3.5 points \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
       "pnl": -1.0
     },
@@ -135,6 +147,7 @@
       "combo": false,
       "price": 0.44,
       "startTs": 1795564800,
+      "label": "Wendell Carter Jr.: 8+ \u00b7 Detroit vs Orlando: Rebounds",
       "result": "L",
       "pnl": -1.0
     },
@@ -145,6 +158,7 @@
       "combo": false,
       "price": 0.89,
       "startTs": 1795564800,
+      "label": "Over 4.5 goals scored \u00b7 Manchester City vs Napoli: Total Goals",
       "result": "W",
       "pnl": 0.12
     },
@@ -155,6 +169,7 @@
       "combo": false,
       "price": 0.41,
       "startTs": 1795572000,
+      "label": "Lautaro Rocha \u00b7 Villalon Valdes vs Rocha",
       "result": "W",
       "pnl": 1.44
     },
@@ -165,6 +180,7 @@
       "combo": false,
       "price": 0.97,
       "startTs": 1795572000,
+      "label": "Luis Guto Miguel \u00b7 Covato vs Miguel",
       "result": "W",
       "pnl": 0.03
     },
@@ -175,6 +191,7 @@
       "combo": false,
       "price": 0.39,
       "startTs": 1795575600,
+      "label": "P.J. Washington: 6+ rebounds",
       "result": "W",
       "pnl": 1.56
     },
@@ -185,6 +202,7 @@
       "combo": false,
       "price": 0.29,
       "startTs": 1795575600,
+      "label": "Dallas \u00b7 Dallas vs Denver",
       "result": "W",
       "pnl": 2.45
     },
@@ -195,6 +213,7 @@
       "combo": false,
       "price": 0.72,
       "startTs": 1795575600,
+      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
       "pnl": -1.0
     },
@@ -205,6 +224,7 @@
       "combo": false,
       "price": 0.46,
       "startTs": 1795575600,
+      "label": "Denver wins by over 6.5 points",
       "result": "W",
       "pnl": 1.17
     },
@@ -215,6 +235,7 @@
       "combo": false,
       "price": 0.51,
       "startTs": 1795575600,
+      "label": "Denver wins by over 7.5 points",
       "result": "L",
       "pnl": -1.0
     },
@@ -225,6 +246,7 @@
       "combo": false,
       "price": 0.98,
       "startTs": 1795575600,
+      "label": "Nicolas Bruna \u00b7 Solis Encinas vs Bruna",
       "result": "W",
       "pnl": 0.02
     },
@@ -235,6 +257,7 @@
       "combo": true,
       "price": 0.168,
       "startTs": 1795575600,
+      "label": "yes Denver,yes Orlando,no Boston wins by over 10.5 points \u00b7 Dallas vs Denver",
       "result": "L",
       "pnl": -1.0
     },
@@ -245,6 +268,7 @@
       "combo": false,
       "price": 0.53,
       "startTs": 1795575600,
+      "label": "Over 233.5 points \u00b7 Dallas vs Denver: Total Points",
       "result": "L",
       "pnl": -1.0
     },
@@ -255,6 +279,7 @@
       "combo": false,
       "price": 0.54,
       "startTs": 1795575600,
+      "label": "Alabama \u00b7 Baylor vs Alabama",
       "result": "L",
       "pnl": -1.0
     },
@@ -265,6 +290,7 @@
       "combo": false,
       "price": 0.39,
       "startTs": 1795575600,
+      "label": "P.J. Washington: 6+ rebounds",
       "result": "W",
       "pnl": 1.56
     },
@@ -275,6 +301,7 @@
       "combo": false,
       "price": 0.52,
       "startTs": 1795575600,
+      "label": "Naji Marshall: 10+ points",
       "result": "W",
       "pnl": 0.92
     },
@@ -285,6 +312,7 @@
       "combo": false,
       "price": 0.72,
       "startTs": 1795575600,
+      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
       "pnl": -1.0
     },
@@ -295,6 +323,7 @@
       "combo": false,
       "price": 0.72,
       "startTs": 1795575600,
+      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
       "pnl": -1.0
     },
@@ -305,6 +334,7 @@
       "combo": false,
       "price": 0.63,
       "startTs": 1795577400,
+      "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
       "result": "W",
       "pnl": 0.59
     },
@@ -315,6 +345,7 @@
       "combo": false,
       "price": 0.68,
       "startTs": 1795577400,
+      "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
       "result": "W",
       "pnl": 0.47
     },
@@ -325,6 +356,7 @@
       "combo": false,
       "price": 0.53,
       "startTs": 1795577400,
+      "label": "St. John's wins by over 10.5 points",
       "result": "W",
       "pnl": 0.89
     },
@@ -335,6 +367,7 @@
       "combo": false,
       "price": 0.8,
       "startTs": 1795582800,
+      "label": "Kaichi Uchida \u00b7 Uchida vs Leong",
       "result": "W",
       "pnl": 0.25
     },
@@ -345,6 +378,7 @@
       "combo": false,
       "price": 0.51,
       "startTs": 1795586400,
+      "label": "San Jose wins",
       "result": "W",
       "pnl": 0.96
     },
@@ -355,6 +389,7 @@
       "combo": false,
       "price": 0.5,
       "startTs": 1795586400,
+      "label": "San Jose wins",
       "result": "L",
       "pnl": -1.0
     },
@@ -365,6 +400,7 @@
       "combo": false,
       "price": 0.5,
       "startTs": 1795586400,
+      "label": "San Jose wins",
       "result": "L",
       "pnl": -1.0
     },
@@ -375,6 +411,7 @@
       "combo": false,
       "price": 0.53,
       "startTs": 1795586700,
+      "label": "Masamichi Imamura wins",
       "result": "W",
       "pnl": 0.89
     },
@@ -385,6 +422,7 @@
       "combo": false,
       "price": 0.66,
       "startTs": 1795590000,
+      "label": "Will over 3.5 goals be scored?",
       "result": "W",
       "pnl": 0.52
     }
