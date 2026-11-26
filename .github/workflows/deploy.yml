@@ -51,6 +51,7 @@ jobs:
           cp index.html app.js data.json robots.txt gate.json _site/
           if [ -f config.js ]; then cp config.js _site/; fi
           if [ -f scorecard.json ]; then cp scorecard.json _site/; fi
+          if [ -f public_slate.json ]; then cp public_slate.json _site/; fi
           echo "nfm0984-png.github.io" > _site/CNAME
 
       - name: Setup Pages

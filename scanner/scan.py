@@ -3669,6 +3669,11 @@ def main():
     print("wrote", out, "games", len(data["games"]), "cappers", len(data["cappers"]),
           "following", len((data.get("following") or {}).get("picks") or []),
           "db", data["source"]["db"])
+    try:
+        from public_slate import write_from_data as write_public_slate
+        write_public_slate(data)
+    except Exception as e:
+        print("public_slate skipped: %s" % e)
     if follow:
         trial_after = significant_trial()
         changed = significant_state(data) != significant_state(prev) or trial_before != trial_after

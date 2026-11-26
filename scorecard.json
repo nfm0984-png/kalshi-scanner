@@ -1,12 +1,62 @@
 {
   "date": "2026-11-24",
   "label": "Tue Nov 24, 2026 PT",
-  "updatedAt": "Wed Nov 25 \u00b7 7:41 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 8:10 PM PT",
   "w": 20,
   "l": 18,
   "pending": 0,
   "pnl": -3.17,
   "pnlNote": "Flat $1 at the first shown price",
+  "breakdown": [
+    {
+      "w": 4,
+      "l": 5,
+      "pending": 0,
+      "pnl": -0.82,
+      "n": 9,
+      "label": "2+ agree"
+    },
+    {
+      "w": 16,
+      "l": 13,
+      "pending": 0,
+      "pnl": -2.36,
+      "n": 29,
+      "label": "Single capper"
+    },
+    {
+      "w": 20,
+      "l": 16,
+      "pending": 0,
+      "pnl": -1.18,
+      "n": 36,
+      "label": "Singles"
+    },
+    {
+      "w": 0,
+      "l": 2,
+      "pending": 0,
+      "pnl": -2.0,
+      "n": 2,
+      "label": "Combos"
+    },
+    {
+      "w": 5,
+      "l": 11,
+      "pending": 0,
+      "pnl": -2.82,
+      "n": 16,
+      "label": "Underdogs (\u22652.0x)"
+    },
+    {
+      "w": 15,
+      "l": 7,
+      "pending": 0,
+      "pnl": -0.36,
+      "n": 22,
+      "label": "Favorites (<2.0x)"
+    }
+  ],
   "picks": [
     {
       "capper": "dependent.snail8369",
@@ -14,10 +64,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.91,
+      "payout": 1.1,
       "startTs": 1795532400,
       "label": "Oleksandr Ovcharenko \u00b7 Ovcharenko vs Tsitsipas",
       "result": "W",
-      "pnl": 0.1
+      "pnl": 0.1,
+      "agree": 1
     },
     {
       "capper": "dependent.snail8369",
@@ -25,10 +77,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.98,
+      "payout": 1.02,
       "startTs": 1795539600,
       "label": "Laura Samson \u00b7 Bosio vs Samson",
       "result": "W",
-      "pnl": 0.02
+      "pnl": 0.02,
+      "agree": 1
     },
     {
       "capper": "dependent.snail8369",
@@ -36,10 +90,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.99,
+      "payout": 1.01,
       "startTs": 1795541400,
       "label": "Ryan Nijboer \u00b7 Nijboer vs Fernandez",
       "result": "W",
-      "pnl": 0.01
+      "pnl": 0.01,
+      "agree": 1
     },
     {
       "capper": "iluminado",
@@ -47,10 +103,12 @@
       "side": "No",
       "combo": false,
       "price": 0.1,
+      "payout": 10.0,
       "startTs": 1795545600,
       "label": "Juan Manuel La Serna \u00b7 La Serna vs De la Fuente",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "WorkerTrader",
@@ -58,10 +116,12 @@
       "side": "No",
       "combo": false,
       "price": 0.01,
+      "payout": 100.0,
       "startTs": 1795550400,
       "label": "Over 5.5 goals scored \u00b7 Shabab Al-Ahli vs Al Qadsiah: Total Goals",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "FFun",
@@ -69,10 +129,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.23,
+      "payout": 4.35,
       "startTs": 1795555200,
       "label": "Juan Carlos Fuentes Vasquez \u00b7 Fuentes Vasquez vs Vales",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "iknowballmorethanu",
@@ -80,10 +142,12 @@
       "side": "Yes",
       "combo": true,
       "price": 0.471,
+      "payout": 2.12,
       "startTs": 1795557600,
       "label": "no Christian Braun: 15+,yes Arizona \u00b7 Dallas vs Denver",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "reluctant.fox5394",
@@ -91,10 +155,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.6,
+      "payout": 1.67,
       "startTs": 1795558500,
       "label": "Over 3.5 goals scored \u00b7 Al Nassr vs Al Sadd: Total Goals",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "reluctant.fox5394",
@@ -102,10 +168,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.54,
+      "payout": 1.85,
       "startTs": 1795561200,
       "label": "Real Madrid \u00b7 Real Madrid vs Eindhoven",
       "result": "W",
-      "pnl": 0.85
+      "pnl": 0.85,
+      "agree": 1
     },
     {
       "capper": "reluctant.fox5394",
@@ -113,10 +181,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.02,
+      "payout": 50.0,
       "startTs": 1795561200,
       "label": "Napoli \u00b7 Manchester City vs Napoli",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "falcon999",
@@ -124,10 +194,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.45,
+      "payout": 2.22,
       "startTs": 1795564800,
       "label": "Orlando \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "falcon999",
@@ -135,10 +207,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.39,
+      "payout": 2.56,
       "startTs": 1795564800,
       "label": "Orlando wins by over 3.5 points \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "iknowballmorethanu",
@@ -146,10 +220,12 @@
       "side": "No",
       "combo": false,
       "price": 0.44,
+      "payout": 2.27,
       "startTs": 1795564800,
       "label": "Wendell Carter Jr.: 8+ \u00b7 Detroit vs Orlando: Rebounds",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "reluctant.fox5394",
@@ -157,10 +233,12 @@
       "side": "No",
       "combo": false,
       "price": 0.89,
+      "payout": 1.12,
       "startTs": 1795564800,
       "label": "Over 4.5 goals scored \u00b7 Manchester City vs Napoli: Total Goals",
       "result": "W",
-      "pnl": 0.12
+      "pnl": 0.12,
+      "agree": 1
     },
     {
       "capper": "FFun",
@@ -168,10 +246,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.41,
+      "payout": 2.44,
       "startTs": 1795572000,
       "label": "Lautaro Rocha \u00b7 Villalon Valdes vs Rocha",
       "result": "W",
-      "pnl": 1.44
+      "pnl": 1.44,
+      "agree": 1
     },
     {
       "capper": "FFun",
@@ -179,10 +259,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.97,
+      "payout": 1.03,
       "startTs": 1795572000,
       "label": "Luis Guto Miguel \u00b7 Covato vs Miguel",
       "result": "W",
-      "pnl": 0.03
+      "pnl": 0.03,
+      "agree": 1
     },
     {
       "capper": "AmphibiousCaldwellPope",
@@ -190,10 +272,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.39,
+      "payout": 2.56,
       "startTs": 1795575600,
       "label": "P.J. Washington: 6+ rebounds",
       "result": "W",
-      "pnl": 1.56
+      "pnl": 1.56,
+      "agree": 2
     },
     {
       "capper": "BigRabbit",
@@ -201,10 +285,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.29,
+      "payout": 3.45,
       "startTs": 1795575600,
       "label": "Dallas \u00b7 Dallas vs Denver",
       "result": "W",
-      "pnl": 2.45
+      "pnl": 2.45,
+      "agree": 1
     },
     {
       "capper": "VeryLucky888",
@@ -212,10 +298,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.72,
+      "payout": 1.39,
       "startTs": 1795575600,
       "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 3
     },
     {
       "capper": "VeryLucky888",
@@ -223,10 +311,12 @@
       "side": "No",
       "combo": false,
       "price": 0.46,
+      "payout": 2.17,
       "startTs": 1795575600,
       "label": "Denver wins by over 6.5 points",
       "result": "W",
-      "pnl": 1.17
+      "pnl": 1.17,
+      "agree": 1
     },
     {
       "capper": "VeryLucky888",
@@ -234,10 +324,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.51,
+      "payout": 1.96,
       "startTs": 1795575600,
       "label": "Denver wins by over 7.5 points",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "dependent.snail8369",
@@ -245,10 +337,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.98,
+      "payout": 1.02,
       "startTs": 1795575600,
       "label": "Nicolas Bruna \u00b7 Solis Encinas vs Bruna",
       "result": "W",
-      "pnl": 0.02
+      "pnl": 0.02,
+      "agree": 1
     },
     {
       "capper": "falcon999",
@@ -256,10 +350,12 @@
       "side": "Yes",
       "combo": true,
       "price": 0.168,
+      "payout": 5.95,
       "startTs": 1795575600,
       "label": "yes Denver,yes Orlando,no Boston wins by over 10.5 points \u00b7 Dallas vs Denver",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "ic4cream",
@@ -267,10 +363,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.53,
+      "payout": 1.89,
       "startTs": 1795575600,
       "label": "Over 233.5 points \u00b7 Dallas vs Denver: Total Points",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "iknowballmorethanu",
@@ -278,10 +376,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.54,
+      "payout": 1.85,
       "startTs": 1795575600,
       "label": "Alabama \u00b7 Baylor vs Alabama",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 1
     },
     {
       "capper": "mde4life1986",
@@ -289,10 +389,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.39,
+      "payout": 2.56,
       "startTs": 1795575600,
       "label": "P.J. Washington: 6+ rebounds",
       "result": "W",
-      "pnl": 1.56
+      "pnl": 1.56,
+      "agree": 2
     },
     {
       "capper": "mde4life1986",
@@ -300,10 +402,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.52,
+      "payout": 1.92,
       "startTs": 1795575600,
       "label": "Naji Marshall: 10+ points",
       "result": "W",
-      "pnl": 0.92
+      "pnl": 0.92,
+      "agree": 1
     },
     {
       "capper": "toottoot",
@@ -311,10 +415,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.72,
+      "payout": 1.39,
       "startTs": 1795575600,
       "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 3
     },
     {
       "capper": "wapol",
@@ -322,10 +428,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.72,
+      "payout": 1.39,
       "startTs": 1795575600,
       "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 3
     },
     {
       "capper": "Irresponsible-Autumn",
@@ -333,10 +441,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.63,
+      "payout": 1.59,
       "startTs": 1795577400,
       "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
       "result": "W",
-      "pnl": 0.59
+      "pnl": 0.59,
+      "agree": 2
     },
     {
       "capper": "dependent.snail8369",
@@ -344,10 +454,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.68,
+      "payout": 1.47,
       "startTs": 1795577400,
       "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
       "result": "W",
-      "pnl": 0.47
+      "pnl": 0.47,
+      "agree": 2
     },
     {
       "capper": "ic4cream",
@@ -355,10 +467,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.53,
+      "payout": 1.89,
       "startTs": 1795577400,
       "label": "St. John's wins by over 10.5 points",
       "result": "W",
-      "pnl": 0.89
+      "pnl": 0.89,
+      "agree": 1
     },
     {
       "capper": "Irresponsible-Autumn",
@@ -366,10 +480,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.8,
+      "payout": 1.25,
       "startTs": 1795582800,
       "label": "Kaichi Uchida \u00b7 Uchida vs Leong",
       "result": "W",
-      "pnl": 0.25
+      "pnl": 0.25,
+      "agree": 1
     },
     {
       "capper": "NordhavenCap",
@@ -377,10 +493,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.51,
+      "payout": 1.96,
       "startTs": 1795586400,
       "label": "San Jose wins",
       "result": "W",
-      "pnl": 0.96
+      "pnl": 0.96,
+      "agree": 1
     },
     {
       "capper": "VeryLucky888",
@@ -388,10 +506,12 @@
       "side": "No",
       "combo": false,
       "price": 0.5,
+      "payout": 2.0,
       "startTs": 1795586400,
       "label": "San Jose wins",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 2
     },
     {
       "capper": "toottoot",
@@ -399,10 +519,12 @@
       "side": "No",
       "combo": false,
       "price": 0.5,
+      "payout": 2.0,
       "startTs": 1795586400,
       "label": "San Jose wins",
       "result": "L",
-      "pnl": -1.0
+      "pnl": -1.0,
+      "agree": 2
     },
     {
       "capper": "VeryLucky888",
@@ -410,10 +532,12 @@
       "side": "Yes",
       "combo": false,
       "price": 0.53,
+      "payout": 1.89,
       "startTs": 1795586700,
       "label": "Masamichi Imamura wins",
       "result": "W",
-      "pnl": 0.89
+      "pnl": 0.89,
+      "agree": 1
     },
     {
       "capper": "VeryLucky888",
@@ -421,10 +545,12 @@
       "side": "No",
       "combo": false,
       "price": 0.66,
+      "payout": 1.52,
       "startTs": 1795590000,
       "label": "Will over 3.5 goals be scored?",
       "result": "W",
-      "pnl": 0.52
+      "pnl": 0.52,
+      "agree": 1
     }
   ]
 }

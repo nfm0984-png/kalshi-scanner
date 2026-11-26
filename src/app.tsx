@@ -330,7 +330,7 @@ function ComboBlock(props: {
       <div style={{ fontSize: 11, fontWeight: 850, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5B21B6" }}>{comboLabel}</div>
       {(props.backers || []).map((b: Backer) => {
         const cap = capperOf(b.name);
-        const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap && cap.graded && cap.graded.roi != null ? cap.graded.roi : null) as number | null } : null;
+        const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap ? (cap.graded && cap.graded.roi != null ? cap.graded.roi : capperRoiPct(cap.nickname).roi) : null) as number | null } : null;
         const fromDb = gradedWL(cap);
         const g = fromBacker || (fromDb && (fromDb.w + fromDb.l) > 0 ? { w: fromDb.w, l: fromDb.l, roi: fromDb.roi } : null);
         const pnl = cap && cap.pnl != null ? cap.pnl : null;
@@ -631,7 +631,7 @@ function sportsHeadline(c?: Capper | null): { text: string; color: string } {
 function BackerRow(props: { b: Backer; now: number }) {
   const b = props.b;
   const cap = capperOf(b.name);
-  const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap && cap.graded && cap.graded.roi != null ? cap.graded.roi : null) as number | null } : null;
+  const fromBacker = b.rec && (b.rec.w + b.rec.l) > 0 ? { w: b.rec.w, l: b.rec.l, roi: (cap ? (cap.graded && cap.graded.roi != null ? cap.graded.roi : capperRoiPct(cap.nickname).roi) : null) as number | null } : null;
   const fromDb = gradedWL(cap);
   const g = fromBacker || (fromDb && (fromDb.w + fromDb.l) > 0 ? { w: fromDb.w, l: fromDb.l, roi: fromDb.roi } : null);
   return (
@@ -673,7 +673,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
         {game.league ? <Chip bg={BLUE_SOFT} color={BLUE_INK}>{game.league}</Chip> : null}
         <Chip bg="#F8FAFC" color="#334155">{(live ? "Started " : "Starts ") + (p.startTs || game.startTs ? ptTime(p.startTs || game.startTs) : "—")}</Chip>
         <AddedChip backers={mine ? [mine] : p.backers} now={now} />
-        <PickFlags p={p} startTs={game.startTs} />
+        <PickFlags p={p} startTs={game.startTs} game={game} />
       </div>
       {isComboPick(p) ? (
         <ComboBlock legs={p.legs} now={now} ticker={p.ticker} comboUrl={p.comboUrl || (p.view && p.view.comboUrl)} yesNo={p.view.yesNo} price={p.view.price} payout={p.payout} stake={mine ? mine.cost : p.total} backers={mine ? [mine] : p.backers} copyPayload={comboLegsText({ backing: p.big, game: game.game, yesNo: (p.view && p.view.yesNo) || undefined, cost: mine ? mine.cost : p.total, price: p.view && p.view.price, comboUrl: p.comboUrl || (p.view && p.view.comboUrl), ticker: p.ticker, legs: p.legs })} />
@@ -1292,7 +1292,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           <span style={{ fontSize: 12, fontWeight: 700, color: "#64748B" }}>{props.game.league + " · " + (props.game.startTs ? ptTime(props.game.startTs) : "") + (p.bt ? " · " + p.bt : "")}</span>
           <AddedChip backers={p.backers} now={props.now} />
           <ColdChip p={p} />
-          <PickFlags p={p} startTs={props.game.startTs} />
+          <PickFlags p={p} startTs={props.game.startTs} game={props.game} />
         </div>
         {isComboPick(p) ? (
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
@@ -1339,7 +1339,7 @@ function AltBet(props: { p: Pick; game: Game; now: number }) {
         <div style={{ fontSize: 18, lineHeight: "22px", fontWeight: 850, overflowWrap: "anywhere", flex: 1, minWidth: 0, color: NAVY }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
         <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 10, background: BLUE_BRIGHT, color: "#FFFFFF", fontSize: 18, fontWeight: 900, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.total)}</span>
       </div>
-      <div style={{ marginTop: 4, display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}><AddedChip backers={p.backers} now={props.now} /><PickFlags p={p} startTs={props.game.startTs} /></div>
+      <div style={{ marginTop: 4, display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}><AddedChip backers={p.backers} now={props.now} /><PickFlags p={p} startTs={props.game.startTs} game={props.game} /></div>
       <MatchupLine matchup={matchupOf(p.view.marketTitle, p.sub, props.game.game)} startTs={p.startTs || props.game.startTs} now={props.now} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginTop: 6 }}>
         <span style={{ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: BLUE_SOFT, color: BLUE_INK, fontSize: 13, fontWeight: 850 }}>{p.backers.length + " capper" + (p.backers.length === 1 ? "" : "s")}</span>
@@ -1475,7 +1475,37 @@ function last20PnlOf(name: string): number | null {
   const r = last20Of(name);
   return r && r.n ? r.pnl : null;
 }
+function capperRoiPct(name: string): { roi: number | null; reliable: boolean; n: number } {
+  const c = capperOf(name);
+  const g = c && c.graded;
+  const n = (g && g.n) || 0;
+  const vol = c && c.volumeUsd != null && isFinite(c.volumeUsd) ? c.volumeUsd : 0;
+  let roi: number | null = null;
+  if (g && g.roi != null && n >= 5) roi = g.roi;
+  else if (c && vol >= 1000 && c.pnl != null) roi = 100 * c.pnl / vol;
+  const reliable = n >= 20 || vol >= 25000 || (n >= 10 && vol >= 10000);
+  return { roi, reliable, n };
+}
+function historyVeteran(name: string): boolean {
+  const r = capperRoiPct(name);
+  const pnl = longTermPnlOf(name);
+  return r.reliable || veteranDaysOf(name) >= 60 || r.n >= 10 || (pnl != null && Math.abs(pnl) >= 50000);
+}
+function historyScore(name: string): number | null {
+  const pnl = longTermPnlOf(name);
+  if (pnl == null) return null;
+  const logp = Math.log10(1 + Math.max(0, pnl));
+  const r = capperRoiPct(name);
+  if (r.roi != null && r.reliable) return logp * (1 + Math.max(-0.5, r.roi) / 8);
+  return logp;
+}
 function cmpCapperHistory(a: string, b: string): number {
+  const va = historyVeteran(a), vb = historyVeteran(b);
+  if (va !== vb) return va ? -1 : 1;
+  const sa = historyScore(a), sb = historyScore(b);
+  if (sa == null && sb != null) return 1;
+  if (sb == null && sa != null) return -1;
+  if (sa != null && sb != null && Math.abs(sa - sb) > 1e-9) return sb - sa;
   const pa = longTermPnlOf(a), pb = longTermPnlOf(b);
   if (pa == null && pb != null) return 1;
   if (pb == null && pa != null) return -1;
@@ -1484,8 +1514,8 @@ function cmpCapperHistory(a: string, b: string): number {
   if (ra == null && rb != null) return 1;
   if (rb == null && ra != null) return -1;
   if (ra != null && rb != null && ra !== rb) return ra - rb;
-  const va = veteranDaysOf(a), vb = veteranDaysOf(b);
-  if (va !== vb) return vb - va;
+  const da = veteranDaysOf(a), db = veteranDaysOf(b);
+  if (da !== db) return db - da;
   const la = last20PnlOf(a), lb = last20PnlOf(b);
   if (la == null && lb != null) return 1;
   if (lb == null && la != null) return -1;
@@ -1557,7 +1587,64 @@ function comboBoostBacker(p: Pick): Backer | null {
   return b || null;
 }
 const flagChip = (bg: string, fg: string, border: string): React.CSSProperties => ({ display: "inline-block", padding: "2px 9px", borderRadius: 999, background: bg, color: fg, border: "1.5px solid " + border, fontSize: 12, fontWeight: 850 });
-function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElement | null {
+interface PublicSlatePick { ticker?: string; yesNo?: string; side?: string; game?: string; startTs?: number; bt?: string; n?: number }
+let OTHER_SLATE: PublicSlatePick[] = [];
+let OTHER_SLATE_STARTED = false;
+const OTHER_SLATE_LISTENERS: Array<() => void> = [];
+function useOtherSlate(): PublicSlatePick[] {
+  const [rows, setRows] = useState<PublicSlatePick[]>(OTHER_SLATE);
+  useEffect(() => {
+    const bump = () => setRows(OTHER_SLATE.slice());
+    OTHER_SLATE_LISTENERS.push(bump);
+    if (!OTHER_SLATE_STARTED) {
+      OTHER_SLATE_STARTED = true;
+      fetch("https://nfm0984-png.github.io/whale-scanner-kexg2auz/public_slate.json?t=" + Date.now()).then((r) => r.ok ? r.json() : null).then((d: { picks?: PublicSlatePick[] }) => {
+        if (d && Array.isArray(d.picks)) { OTHER_SLATE = d.picks; OTHER_SLATE_LISTENERS.forEach((fn) => fn()); }
+      }).catch(() => {});
+    }
+    return () => { const i = OTHER_SLATE_LISTENERS.indexOf(bump); if (i >= 0) OTHER_SLATE_LISTENERS.splice(i, 1); };
+  }, []);
+  return rows;
+}
+function normTicker(t?: string | null): string { return (t || "").toUpperCase().replace(/[^A-Z0-9-]/g, ""); }
+function normYesNo(y?: string | null): string {
+  const u = (y || "").trim().toUpperCase();
+  if (u === "Y" || u === "YES" || u.indexOf("BUY YES") >= 0 || /\bYES$/.test(u)) return "YES";
+  if (u === "N" || u === "NO" || u.indexOf("BUY NO") >= 0 || /\bNO$/.test(u)) return "NO";
+  return u;
+}
+function slateHitForPick(p: Pick): PublicSlatePick | null {
+  const tk = normTicker(p.ticker || (p.view && p.view.ticker));
+  if (!tk) return null;
+  const hits = OTHER_SLATE.filter((s) => normTicker(s.ticker) === tk);
+  if (!hits.length) return null;
+  const yn = normYesNo(p.view && p.view.yesNo);
+  if (yn) {
+    const same = hits.find((s) => normYesNo(s.yesNo) === yn);
+    if (same) return same;
+  }
+  return hits.length === 1 ? hits[0] : null;
+}
+function gameOfPick(p: Pick): Game | undefined {
+  return (DATA.games || []).find((g: Game) => (g.picks || []).some((q: Pick) => q.key === p.key));
+}
+function splitInfo(p: Pick, game?: Game | null): { oppN: number; oppLabel: string } | null {
+  const g = game || gameOfPick(p);
+  if (!g) return null;
+  const opp = oppositionPicks(p, g);
+  let oppN = 0;
+  let oppLabel = "";
+  opp.forEach((q: Pick) => {
+    const n = (q.backers || []).length;
+    if (!n) return;
+    oppN += n;
+    if (!oppLabel) oppLabel = q.big || (q.view && q.view.backing) || "other side";
+  });
+  if (oppN < 1 || !(p.backers || []).length) return null;
+  return { oppN, oppLabel };
+}
+function PickFlags(props: { p: Pick; startTs?: number | null; game?: Game }): React.ReactElement | null {
+  useOtherSlate();
   const p = props.p;
   const out: React.ReactElement[] = [];
   if (addedAfterStart(p, props.startTs)) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
@@ -1568,6 +1655,10 @@ function PickFlags(props: { p: Pick; startTs?: number | null }): React.ReactElem
   if (cb) { const r = comboRecOf(cb.name); if (r) out.push(<span key="cb" data-combo-boost="1" title="This capper's own Kalshi combos are profitable over 30+ settled combos, so the combo gets a ranking boost" style={flagChip("#ECFDF5", "#047857", "#10B981")}>{"🔗 Combo pro " + r.w + "-" + r.l + " · " + (r.pnl >= 0 ? "+$" : "-$") + (Math.abs(r.pnl) >= 1000 ? (Math.abs(r.pnl) / 1000).toFixed(1) + "k" : String(Math.round(Math.abs(r.pnl))))}</span>); }
   const agreeN = (p.backers || []).length;
   if (agreeN >= 2) out.push(<span key="ag" data-agree="1" title="Two or more cappers who pass the quality filter are on this pick. Label only; ranking unchanged." style={flagChip("#EEF2FF", "#3730A3", "#818CF8")}>{agreeN + " agree"}</span>);
+  const split = splitInfo(p, props.game);
+  if (split) out.push(<span key="sp" data-split="1" title={"Quality cappers are on both sides of this market — sharp-vs-sharp coin flip. " + split.oppN + " on " + split.oppLabel + "."} style={flagChip("#FFFBEB", "#B45309", "#F59E0B")}>{"Split · vs " + split.oppN + (split.oppLabel ? " on " + split.oppLabel : "")}</span>);
+  const both = slateHitForPick(p);
+  if (both) out.push(<span key="bo" data-both-scanners="1" title={"A top Polymarket whale is also on this same Kalshi contract" + (both.n ? " (" + both.n + " whale" + (both.n === 1 ? "" : "s") + ")" : "") + "."} style={flagChip("#ECFDF5", "#047857", "#34D399")}>{"Both scanners"}</span>);
   return out.length ? <>{out}</> : null;
 }
 function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
@@ -1647,7 +1738,8 @@ function BestCappersRoster() {
 }
 
 interface ScorecardPick { result?: string; pnl?: number | null; capper?: string; label?: string; q?: string; side?: string; ticker?: string; combo?: boolean }
-interface Scorecard { date?: string; label?: string; updatedAt?: string; w?: number; l?: number; pending?: number; pnl?: number | null; pnlNote?: string; pnlPartial?: boolean; picks?: ScorecardPick[] }
+interface ScorecardBucket { label: string; w?: number; l?: number; pending?: number; pnl?: number | null; n?: number }
+interface Scorecard { date?: string; label?: string; updatedAt?: string; w?: number; l?: number; pending?: number; pnl?: number | null; pnlNote?: string; pnlPartial?: boolean; breakdown?: ScorecardBucket[]; picks?: ScorecardPick[] }
 function moneyAbs(n: number): string {
   const a = Math.abs(n);
   if (a >= 1000) return (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
@@ -1659,6 +1751,23 @@ function scorecardMoney(n: number | null | undefined): string {
   const a = Math.abs(n);
   if (a >= 1000) return sign + (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
   return sign + a.toFixed(2).replace(/\.00$/, "");
+}
+function ScorecardBreakdown(props: { sc: Scorecard }): React.ReactElement | null {
+  const rows = props.sc.breakdown || [];
+  if (!rows.length) return null;
+  return (
+    <div data-scorecard-breakdown="1" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "10px 0 8px" }}>
+      {rows.map((b: ScorecardBucket) => {
+        const dol = scorecardMoney(b.pnl);
+        return (
+          <div key={b.label} style={{ flex: "1 1 150px", minWidth: 140, border: "1.5px solid #DDD6FE", borderRadius: 12, padding: "8px 10px", background: "#FAF8FF" }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "#64748B", letterSpacing: "0.04em", textTransform: "uppercase" }}>{b.label}</div>
+            <div style={{ fontSize: 15, fontWeight: 850, color: NAVY, marginTop: 2, fontVariantNumeric: "tabular-nums" }}>{(b.w || 0) + "–" + (b.l || 0)}{(b.pending ? " · " + b.pending + " pend" : "") + (dol ? " · " + dol : "")}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 function ScorecardBlock(): React.ReactElement {
   const [sc, setSc] = useState<Scorecard | null | undefined>(undefined);
@@ -1673,6 +1782,7 @@ function ScorecardBlock(): React.ReactElement {
   const heading = "Yesterday · " + w + "–" + l + (pending ? " · " + pending + " pending" : "") + (pnlStr ? " · " + pnlStr : "") + (sc.pnlPartial ? " (partial $)" : "");
   return (
     <Section heading={heading} caption={(sc.label || "Yesterday") + (sc.pnlNote ? " · " + sc.pnlNote : "") + (sc.updatedAt ? " · updated " + sc.updatedAt : "")}>
+      <ScorecardBreakdown sc={sc} />
       {(sc.picks || []).length === 0 ? <EmptyState title="No scanner picks yesterday" body="No scanner picks started yesterday in PT." /> : (
         <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6 }}>
           {(sc.picks || []).map((row: ScorecardPick, i: number) => {

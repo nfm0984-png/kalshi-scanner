@@ -31,6 +31,63 @@ def _px_units(status, px):
     return None
 
 
+
+def _payout(px):
+    if isinstance(px, (int, float)) and 0 < px < 1:
+        return 1.0 / px
+    return None
+
+
+def _bucket_stats(rows):
+    w = l = pending = 0
+    pnl = 0.0
+    for r in rows:
+        res = r.get("result")
+        if res == "W":
+            w += 1
+        elif res == "L":
+            l += 1
+        elif res == "pending":
+            pending += 1
+        u = r.get("pnl")
+        if isinstance(u, (int, float)):
+            pnl += u
+    return {"w": w, "l": l, "pending": pending, "pnl": round(pnl, 2), "n": len(rows)}
+
+
+def signal_breakdown(picks):
+    agree, single, singles, combos, dogs, favs = [], [], [], [], [], []
+    for p in picks:
+        if (p.get("agree") or 1) >= 2:
+            agree.append(p)
+        else:
+            single.append(p)
+        if p.get("combo"):
+            combos.append(p)
+        else:
+            singles.append(p)
+        pay = p.get("payout")
+        if pay is None:
+            pay = _payout(p.get("price"))
+        if isinstance(pay, (int, float)):
+            (dogs if pay >= 2.0 else favs).append(p)
+    out = []
+    for label, rows in (
+        ("2+ agree", agree),
+        ("Single capper", single),
+        ("Singles", singles),
+        ("Combos", combos),
+        ("Underdogs (≥2.0x)", dogs),
+        ("Favorites (<2.0x)", favs),
+    ):
+        if not rows:
+            continue
+        st = _bucket_stats(rows)
+        st["label"] = label
+        out.append(st)
+    return out
+
+
 def yesterday_date(now=None):
     now = now or datetime.now(PT)
     return (now.astimezone(PT) - timedelta(days=1)).date()
@@ -128,6 +185,7 @@ def build(now=None):
             "side": row.get("side") or "",
             "combo": bool(row.get("combo")),
             "price": row.get("price"),
+            "payout": None if _payout(row.get("price")) is None else round(_payout(row.get("price")), 2),
             "startTs": st,
             "label": label,
             "result": "W" if status == "win" else ("L" if status == "loss" else "pending"),
@@ -145,6 +203,10 @@ def build(now=None):
         else:
             pending += 1
     picks.sort(key=lambda r: (r.get("startTs") or 0, r.get("capper") or ""))
+    from collections import Counter
+    agree_n = Counter((p.get("ticker") or "", (p.get("side") or "").title()) for p in picks)
+    for p in picks:
+        p["agree"] = agree_n[(p.get("ticker") or "", (p.get("side") or "").title())]
     label = datetime(day.year, day.month, day.day, tzinfo=PT).strftime("%a %b %-d, %Y") + " PT"
     return {
         "date": day.isoformat(),
@@ -155,6 +217,7 @@ def build(now=None):
         "pending": pending,
         "pnl": round(pnl, 2),
         "pnlNote": "Flat $1 at the first shown price",
+        "breakdown": signal_breakdown(picks),
         "picks": picks,
     }
 

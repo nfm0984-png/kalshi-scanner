@@ -1,0 +1,70 @@
+{
+  "source": "kalshi",
+  "ts": 1795666233,
+  "updatedAt": "Wed Nov 25 \u00b7 8:10 PM PT",
+  "picks": [
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP",
+      "yesNo": "Yes",
+      "side": "no Matthew Stafford: 300+,no Jared Goff: 300+,no Dak Prescott: 300+,yes Jordan Love: 200+,yes Caleb Williams: 200+,yes Matthew Golden: 60+,yes Tyler Higbee: 25+,yes Blake Corum: 40+,yes Colston Loveland: 1+,yes Amon-Ra St. Brown: 1+,yes Jahmyr Gibbs: 1+,yes Khalil Shakir: 1+,yes Emmett Johnson: 1+ \u00b7 13-leg combo",
+      "game": "MVE",
+      "startTs": 1795654800,
+      "bt": "Combo",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "yesNo": "Yes",
+      "side": "Green Bay",
+      "game": "Green Bay vs Los Angeles R",
+      "startTs": 1795654800,
+      "bt": "Moneyline",
+      "n": 2
+    },
+    {
+      "ticker": "KXNFLSPREAD-26NOV25GBLAR-LAR3",
+      "yesNo": "No",
+      "side": "Los Angeles R wins by over 2.5 points",
+      "game": "Green Bay vs Los Angeles R: Spread",
+      "startTs": 1795654800,
+      "bt": "Spread",
+      "n": 1
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV25PHXHOU-PHX",
+      "yesNo": "Yes",
+      "side": "Phoenix",
+      "game": "Phoenix vs Houston",
+      "startTs": 1795656600,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV25PHXHOU-HOU",
+      "yesNo": "No",
+      "side": "Houston",
+      "game": "Phoenix vs Houston",
+      "startTs": 1795656600,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNBATOTAL-26NOV25PHXHOU-224",
+      "yesNo": "Yes",
+      "side": "Over 223.5 points",
+      "game": "Phoenix vs Houston: Total Points",
+      "startTs": 1795656600,
+      "bt": "Totals",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
+      "yesNo": "Yes",
+      "side": "UCLA",
+      "game": "USC vs UCLA",
+      "startTs": 1795897800,
+      "bt": "Moneyline",
+      "n": 1
+    }
+  ]
+}

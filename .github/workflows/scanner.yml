@@ -129,7 +129,7 @@ jobs:
           set -euo pipefail
           git config user.name "kalshi-scanner"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json public_slate.json
           if [ -d data ]; then git add -A data; fi
           # Do not add app.js/index.html — a stale checkout would revert frontend commits.
           if git diff --cached --quiet; then
@@ -148,8 +148,8 @@ jobs:
               # A follow-check pushed while this scan ran. The full scan is the
               # newer, complete picture: keep this run's data ("theirs" in a rebase).
               if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
-                git checkout --theirs -- data.json data 2>/dev/null || true
-                git add data.json
+                git checkout --theirs -- data.json data public_slate.json 2>/dev/null || true
+                git add data.json public_slate.json
                 if [ -d data ]; then git add -A data; fi
                 if GIT_EDITOR=true git rebase --continue && git push; then break; fi
               fi
