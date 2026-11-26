@@ -3081,7 +3081,17 @@
       "firstTs": 1795654630,
       "combo": false,
       "status": "open"
+    },
+    "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS|Yes": {
+      "capper": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS",
+      "side": "Yes",
+      "price": 0.83,
+      "startTs": 1795663800,
+      "firstTs": 1795655531,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795654931
+  "updatedTs": 1795655531
 }

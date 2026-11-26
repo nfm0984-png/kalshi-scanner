@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 5:02 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 5:12 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8273,6 +8273,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
       "recordedTs": 1795654630,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV25JASTUL",
+      "game": "Jasika vs Tu",
+      "backing": "Omar Jasika",
+      "yesNo": "Yes",
+      "entry": 0.8205,
+      "price": 0.83,
+      "cost": 16792.31,
+      "contracts": 20465.0,
+      "startTs": 1795663800,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 5:12 PM PT",
+      "recordedTs": 1795655531,
       "status": "open",
       "result": null,
       "settledAt": null
