@@ -1,26 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795666233,
-  "updatedAt": "Wed Nov 25 \u00b7 8:10 PM PT",
+  "ts": 1795669812,
+  "updatedAt": "Wed Nov 25 \u00b7 9:10 PM PT",
   "picks": [
-    {
-      "ticker": "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP",
-      "yesNo": "Yes",
-      "side": "no Matthew Stafford: 300+,no Jared Goff: 300+,no Dak Prescott: 300+,yes Jordan Love: 200+,yes Caleb Williams: 200+,yes Matthew Golden: 60+,yes Tyler Higbee: 25+,yes Blake Corum: 40+,yes Colston Loveland: 1+,yes Amon-Ra St. Brown: 1+,yes Jahmyr Gibbs: 1+,yes Khalil Shakir: 1+,yes Emmett Johnson: 1+ \u00b7 13-leg combo",
-      "game": "MVE",
-      "startTs": 1795654800,
-      "bt": "Combo",
-      "n": 1
-    },
-    {
-      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
-      "yesNo": "Yes",
-      "side": "Green Bay",
-      "game": "Green Bay vs Los Angeles R",
-      "startTs": 1795654800,
-      "bt": "Moneyline",
-      "n": 2
-    },
     {
       "ticker": "KXNFLSPREAD-26NOV25GBLAR-LAR3",
       "yesNo": "No",
@@ -31,30 +13,21 @@
       "n": 1
     },
     {
-      "ticker": "KXNBAGAME-26NOV25PHXHOU-PHX",
+      "ticker": "KXNBAGAME-26NOV25SACGSW-SAC",
       "yesNo": "Yes",
-      "side": "Phoenix",
-      "game": "Phoenix vs Houston",
-      "startTs": 1795656600,
+      "side": "Sacramento",
+      "game": "SAC vs GSW (Nov 25)",
+      "startTs": 1795662000,
       "bt": "Moneyline",
       "n": 1
     },
     {
-      "ticker": "KXNBAGAME-26NOV25PHXHOU-HOU",
-      "yesNo": "No",
-      "side": "Houston",
-      "game": "Phoenix vs Houston",
-      "startTs": 1795656600,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNBATOTAL-26NOV25PHXHOU-224",
+      "ticker": "KXMVECROSSCATEGORY-S2026ZUE265OUV2S6QLHV-734SIHOSX",
       "yesNo": "Yes",
-      "side": "Over 223.5 points",
-      "game": "Phoenix vs Houston: Total Points",
-      "startTs": 1795656600,
-      "bt": "Totals",
+      "side": "yes Hawai'i,yes Saint Louis \u00b7 2-leg combo",
+      "game": "Incarnate Word vs Hawai'i",
+      "startTs": 1795669200,
+      "bt": "Combo",
       "n": 1
     },
     {

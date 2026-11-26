@@ -1,34 +1,49 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 7:45 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 8:16 PM PT",
   "scans": [
     {
-      "ts": 1795664755,
-      "at": "Wed Nov 25 \u00b7 7:45 PM PT",
-      "names": 1030,
+      "ts": 1795666595,
+      "at": "Wed Nov 25 \u00b7 8:16 PM PT",
+      "names": 1019,
+      "newFollows": [
+        "spot.ship"
+      ],
+      "followed": 83,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
+        "KXNBAGAME-26NOV25SACGSW-SAC|Yes",
+        "KXMVECROSSCATEGORY-S2026ZUE265OUV2S6QLHV-734SIHOSX|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
+    {
+      "ts": 1795662496,
+      "at": "Wed Nov 25 \u00b7 7:08 PM PT",
+      "names": 1001,
       "newFollows": [
         "fit.shirt",
         "arbitrary.lovebird6719",
         "PreciseScalper",
         "BucksFader",
         "clintmyers",
-        "jeffpaulIA",
-        "flying.hare7791"
+        "jeffpaulIA"
       ],
-      "followed": 84,
+      "followed": 83,
       "target": 100,
-      "openPicks": 12,
+      "openPicks": 10,
       "ids": [
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
         "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes",
+        "KXNBAGAME-26NOV25BKNMIL-MIL|Yes",
         "KXNFLGAME-26NOV25GBLAR-GB|Yes",
-        "KXNFLGAME-26NOV25GBLAR-LAR|Yes",
         "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
         "KXNFLTOTAL-26NOV25GBLAR-44|No",
         "KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes",
         "KXMVECROSSCATEGORY-S2026IMEXQNUCNMYNCR2F-2JRARNROM|Yes",
-        "KXNBAGAME-26NOV25PHXHOU-PHX|Yes",
-        "KXNBAGAME-26NOV25PHXHOU-HOU|No",
-        "KXNBATOTAL-26NOV25PHXHOU-224|Yes",
+        "KXNBAGAME-26NOV25SACGSW-SAC|Yes",
         "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
       ]
     },
@@ -1151,32 +1166,6 @@
         "KXNFLGAME-26NOV22PITPHI-PIT|Yes",
         "KXNFLGAME-26NOV22TBDET-DET|Yes",
         "KXNFLSPREAD-26NOV22PITPHI-PHI7|Yes",
-        "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
-      ]
-    },
-    {
-      "ts": 1795377447,
-      "at": "Sun Nov 22 \u00b7 11:57 AM PT",
-      "names": 267,
-      "newFollows": [
-        "jreit123",
-        "emji.emji"
-      ],
-      "followed": 50,
-      "target": 50,
-      "openPicks": 12,
-      "ids": [
-        "KXLNBELITEGAME-26NOV221300JLBASV-JLB|Yes",
-        "KXNFLGAME-26NOV22BALCAR-CAR|Yes",
-        "KXNFLGAME-26NOV22BALCAR-BAL|Yes",
-        "KXNFLGAME-26NOV22NOCHI-CHI|Yes",
-        "KXNFLGAME-26NOV22PITPHI-PIT|Yes",
-        "KXNFLGAME-26NOV22TBDET-DET|Yes",
-        "KXNFLSPREAD-26NOV22MIABUF-BUF24|No",
-        "KXNFLSPREAD-26NOV22PITPHI-PHI7|Yes",
-        "KXNFLTDPROT-26NOV22TBDET-DETJGIBBS0-1|Yes",
-        "KXNFLTOTAL-26NOV22ARIKC-48|No",
-        "KXNFLTOTAL-26NOV22ARIKC-41|No",
         "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
       ]
     }
