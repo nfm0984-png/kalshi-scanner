@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 5:30 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:25 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7769,9 +7769,9 @@
       "bt": "Spread",
       "recordedAt": "Wed Nov 25 \u00b7 6:49 AM PT",
       "recordedTs": 1795618150,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 6:25 PM PT"
     },
     {
       "id": "Muffat00|KXNCAAMBGAME-26NOV25SBONBEL-BEL|Yes",
@@ -8210,9 +8210,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 3:58 PM PT",
       "recordedTs": 1795651119,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 6:25 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25MIAPHI-PHI|No",
@@ -8252,9 +8252,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
       "recordedTs": 1795654630,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 6:25 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes",
@@ -8294,6 +8294,69 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 5:12 PM PT",
       "recordedTs": 1795655531,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 6:25 PM PT"
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25CHICHA-CHA|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25CHICHA-CHA",
+      "eventTicker": "KXNBAGAME-26NOV25CHICHA",
+      "game": "Chicago vs Charlotte",
+      "backing": "Charlotte",
+      "yesNo": "Yes",
+      "entry": 0.4706,
+      "price": 0.27,
+      "cost": 1797.34,
+      "contracts": 3819.0,
+      "startTs": 1795651200,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:25 PM PT",
+      "recordedTs": 1795659949,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25CLENYK-CLE|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25CLENYK-CLE",
+      "eventTicker": "KXNBAGAME-26NOV25CLENYK",
+      "game": "Cleveland vs New York",
+      "backing": "Cleveland",
+      "yesNo": "No",
+      "entry": 0.5721,
+      "price": 0.52,
+      "cost": 2794.87,
+      "contracts": 4885.0,
+      "startTs": 1795653000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:25 PM PT",
+      "recordedTs": 1795659949,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25CLENYK-NYK|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25CLENYK-NYK",
+      "eventTicker": "KXNBAGAME-26NOV25CLENYK",
+      "game": "Cleveland vs New York",
+      "backing": "New York",
+      "yesNo": "Yes",
+      "entry": 0.4278,
+      "price": 0.52,
+      "cost": 2097.22,
+      "contracts": 4902.0,
+      "startTs": 1795653000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:25 PM PT",
+      "recordedTs": 1795659949,
       "status": "open",
       "result": null,
       "settledAt": null

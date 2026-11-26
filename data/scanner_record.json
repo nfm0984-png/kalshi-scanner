@@ -2987,7 +2987,8 @@
       "startTs": 1795644000,
       "firstTs": 1795640926,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795659949
     },
     "FFun|KXWTACHALLENGERMATCH-26NOV25IPERIE-RIE|Yes": {
       "capper": "FFun",
@@ -3111,5 +3112,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795656619
+  "updatedTs": 1795659949
 }
