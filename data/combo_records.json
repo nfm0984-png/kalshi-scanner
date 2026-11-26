@@ -739,9 +739,28 @@
       "name": "djm975",
       "ts": 1795651119,
       "boost": false
+    },
+    "chasingunits": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "ChasingUnits",
+      "ts": 1795656619,
+      "boost": false
+    },
+    "don.tony": {
+      "n": 11,
+      "w": 7,
+      "l": 4,
+      "pnl": 57.03,
+      "name": "don.tony",
+      "ts": 1795656619,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795659648,
+  "updatedTs": 1795656619,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
