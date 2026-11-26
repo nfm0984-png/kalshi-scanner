@@ -2544,7 +2544,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795660248
     },
     "VeryLucky888|KXUCLTOTAL-26NOV25SPOMUN-3|No": {
       "capper": "VeryLucky888",
@@ -2554,7 +2555,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795660248
     },
     "ax2026|KXUCLTOTAL-26NOV25SPOMUN-3|Yes": {
       "capper": "ax2026",
@@ -2564,7 +2566,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795660248
     },
     "VeryLucky888|KXMLSGAME-26NOV24SJHOU-SJ|No": {
       "capper": "VeryLucky888",
@@ -2639,7 +2642,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795660248
     },
     "JAMJAMJAM4|KXUCLSPREAD-26NOV25PSGROM-PSG2|Yes": {
       "capper": "JAMJAMJAM4",
@@ -2649,7 +2653,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795660248
     },
     "AmphibiousCaldwellPope|KXNBASPREAD-26NOV25PHXHOU-HOU10|No": {
       "capper": "AmphibiousCaldwellPope",
@@ -2870,7 +2875,8 @@
       "startTs": 1795651200,
       "firstTs": 1795618150,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795660248
     },
     "dependent.snail8369|KXITFWMATCH-26NOV25KOVBRO-BRO|Yes": {
       "capper": "dependent.snail8369",
@@ -3049,7 +3055,8 @@
       "startTs": 1795651200,
       "firstTs": 1795651119,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795660248
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026X5ERVPFH2ABJHI5I-CFISWS4UH|Yes": {
       "capper": "Ryqeux",
@@ -3112,5 +3119,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795659949
+  "updatedTs": 1795660248
 }
