@@ -1980,7 +1980,8 @@
       "startTs": 1795665600,
       "firstTs": 1795505224,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795678589
     },
     "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC|Yes": {
       "capper": "dependent.snail8369",
@@ -2858,7 +2859,8 @@
       "startTs": 1795662000,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795678589
     },
     "royalestake|KXNHLGAME-26NOV25MTLCOL-MTL|Yes": {
       "capper": "royalestake",
@@ -3098,7 +3100,8 @@
       "startTs": 1795656600,
       "firstTs": 1795651119,
       "combo": true,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795678589
     },
     "FFun|KXATPCHALLENGERMATCH-26NOV25BONMIG-BON|Yes": {
       "capper": "FFun",
@@ -3119,7 +3122,8 @@
       "startTs": 1795662000,
       "firstTs": 1795651119,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795678589
     },
     "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes": {
       "capper": "falcon999",
@@ -3140,7 +3144,8 @@
       "startTs": 1795663800,
       "firstTs": 1795655531,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795678589
     },
     "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No": {
       "capper": "jackivouce",
@@ -3180,7 +3185,20 @@
       "game": "Washington vs Arizona: Spread",
       "label": "Washington wins by over 6.5 points",
       "league": "NFL"
+    },
+    "Ryqeux|KXMVECROSSCATEGORY-S2026E7X5H33MBIGKX7LU-XZYQRN5JD|Yes": {
+      "capper": "Ryqeux",
+      "ticker": "KXMVECROSSCATEGORY-S2026E7X5H33MBIGKX7LU-XZYQRN5JD",
+      "side": "Yes",
+      "price": 0.342,
+      "startTs": 1795690800,
+      "firstTs": 1795678589,
+      "combo": true,
+      "status": "open",
+      "game": "MVE",
+      "label": "yes Daniel Rincon,yes Anna-Lena Friedsam,yes Suzan Lamens",
+      "league": "Tennis"
     }
   },
-  "updatedTs": 1795670726
+  "updatedTs": 1795678589
 }

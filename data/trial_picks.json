@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 11:36 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8462,9 +8462,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
       "recordedTs": 1795670726,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 11:36 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25SASPOR-SAS|Yes",
@@ -8483,9 +8483,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
       "recordedTs": 1795670726,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 11:36 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."

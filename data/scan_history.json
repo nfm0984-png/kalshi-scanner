@@ -1,6 +1,24 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 11:36 PM PT",
   "scans": [
+    {
+      "ts": 1795678589,
+      "at": "Wed Nov 25 \u00b7 11:36 PM PT",
+      "names": 1042,
+      "newFollows": [
+        "dant"
+      ],
+      "followed": 87,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026ZUE265OUV2S6QLHV-734SIHOSX|Yes",
+        "KXMVECROSSCATEGORY-S2026E7X5H33MBIGKX7LU-XZYQRN5JD|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "KXNFLSPREAD-26NOV29WASARI-WAS7|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795670726,
       "at": "Wed Nov 25 \u00b7 9:25 PM PT",
@@ -1148,26 +1166,6 @@
         "KXNFLGAME-26NOV22NYJLAC-LAC|Yes",
         "KXNFLGAME-26NOV22JACNYG-NYG|Yes",
         "KXNFLGAME-26NOV22JACNYG-JAC|Yes",
-        "KXNFLTOTAL-26NOV22LVDEN-40|No",
-        "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
-      ]
-    },
-    {
-      "ts": 1795384494,
-      "at": "Sun Nov 22 \u00b7 1:54 PM PT",
-      "names": 286,
-      "newFollows": [
-        "uuqoo",
-        "Weedkage",
-        "ustrader",
-        "larrry33"
-      ],
-      "followed": 50,
-      "target": 50,
-      "openPicks": 4,
-      "ids": [
-        "KXNBAGAME-26NOV22DETATL-DET|Yes",
-        "KXNFLGAME-26NOV22NYJLAC-LAC|Yes",
         "KXNFLTOTAL-26NOV22LVDEN-40|No",
         "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes"
       ]

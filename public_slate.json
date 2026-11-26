@@ -1,32 +1,23 @@
 {
   "source": "kalshi",
-  "ts": 1795674041,
-  "updatedAt": "Wed Nov 25 \u00b7 10:20 PM PT",
+  "ts": 1795682756,
+  "updatedAt": "Thu Nov 26 \u00b7 12:45 AM PT",
   "picks": [
-    {
-      "ticker": "KXNBAGAME-26NOV25SASPOR-SAS",
-      "yesNo": "Yes",
-      "side": "San Antonio",
-      "game": "San Antonio vs Portland",
-      "startTs": 1795662000,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV25SASPOR-POR",
-      "yesNo": "No",
-      "side": "Portland",
-      "game": "San Antonio vs Portland",
-      "startTs": 1795662000,
-      "bt": "Moneyline",
-      "n": 1
-    },
     {
       "ticker": "KXMVECROSSCATEGORY-S2026ZUE265OUV2S6QLHV-734SIHOSX",
       "yesNo": "Yes",
       "side": "yes Hawai'i,yes Saint Louis \u00b7 2-leg combo",
       "game": "Incarnate Word vs Hawai'i",
       "startTs": 1795669200,
+      "bt": "Combo",
+      "n": 1
+    },
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026E7X5H33MBIGKX7LU-XZYQRN5JD",
+      "yesNo": "Yes",
+      "side": "yes Daniel Rincon,yes Anna-Lena Friedsam,yes Suzan Lamens \u00b7 3-leg combo",
+      "game": "MVE",
+      "startTs": 1795690800,
       "bt": "Combo",
       "n": 1
     },
