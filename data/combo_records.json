@@ -43,7 +43,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "autofade",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "loyal.lion9691": {
@@ -52,7 +52,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "loyal.lion9691",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "workertrader": {
@@ -61,7 +61,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "profitprofet": {
@@ -500,7 +500,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "VAAAAAAA.11",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "ffun": {
@@ -509,7 +509,7 @@
       "l": 4,
       "pnl": 117.28,
       "name": "FFun",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "stiinzy": {
@@ -519,7 +519,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Stiinzy",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "bigbone69": {
@@ -528,7 +528,7 @@
       "l": 2,
       "pnl": -100.92,
       "name": "Bigbone69",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "888max": {
@@ -537,7 +537,7 @@
       "l": 2,
       "pnl": -6.99,
       "name": "888max",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "deadpoet086": {
@@ -546,7 +546,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "deadpoet086",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "beaudane": {
@@ -555,7 +555,7 @@
       "l": 29,
       "pnl": 1.53,
       "name": "beaudane",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": true
     },
     "absolute.turtle7508": {
@@ -810,7 +810,7 @@
       "l": 1,
       "pnl": 94647.08,
       "name": "spot.ship",
-      "ts": 1795666595,
+      "ts": 1795724160,
       "boost": false
     },
     "getabrainclown": {
@@ -923,9 +923,18 @@
       "name": "biscuitshooker",
       "ts": 1795713926,
       "boost": false
+    },
+    "caughtintheusa": {
+      "n": 100,
+      "w": 48,
+      "l": 52,
+      "pnl": -804.37,
+      "name": "caughtintheusa",
+      "ts": 1795724160,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795720406,
+  "updatedTs": 1795724160,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

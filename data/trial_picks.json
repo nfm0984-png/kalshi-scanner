@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 12:16 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8630,6 +8630,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
       "recordedTs": 1795720406,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "FFun|KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF|Yes",
+      "nickname": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV26NEFWIL",
+      "game": "Nefve vs Willwerth",
+      "backing": "Axel Nefve",
+      "yesNo": "Yes",
+      "entry": 0.7339,
+      "price": 1.0,
+      "cost": 1030.34,
+      "contracts": 1404.0,
+      "startTs": 1795727400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 12:16 PM PT",
+      "recordedTs": 1795724160,
       "status": "open",
       "result": null,
       "settledAt": null

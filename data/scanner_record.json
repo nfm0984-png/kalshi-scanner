@@ -3239,7 +3239,20 @@
       "game": "CHI vs DET (Nov 26)",
       "label": "Chicago",
       "league": "NFL"
+    },
+    "FFun|KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF|Yes": {
+      "capper": "FFun",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF",
+      "side": "Yes",
+      "price": 0.7339,
+      "startTs": 1795727400,
+      "firstTs": 1795724160,
+      "combo": false,
+      "status": "open",
+      "game": "Nefve vs Willwerth",
+      "label": "Axel Nefve",
+      "league": "Tennis"
     }
   },
-  "updatedTs": 1795720406
+  "updatedTs": 1795724160
 }
