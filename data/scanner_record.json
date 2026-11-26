@@ -2906,7 +2906,8 @@
       "startTs": 1795643100,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795652170
     },
     "djcheecake|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
       "capper": "djcheecake",
@@ -3030,5 +3031,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795651871
+  "updatedTs": 1795652170
 }
