@@ -3226,7 +3226,20 @@
       "game": "Kansas City vs Buffalo: Touchdowns",
       "label": "Josh Allen: 1+",
       "league": "NFL"
+    },
+    "falcon999|KXNFLGAME-26NOV26CHIDET-CHI|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNFLGAME-26NOV26CHIDET-CHI",
+      "side": "Yes",
+      "price": 0.51,
+      "startTs": 1795716000,
+      "firstTs": 1795713926,
+      "combo": false,
+      "status": "open",
+      "game": "CHI vs DET (Nov 26)",
+      "label": "Chicago",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795709940
+  "updatedTs": 1795713926
 }

@@ -1,6 +1,28 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 8:19 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
   "scans": [
+    {
+      "ts": 1795713926,
+      "at": "Thu Nov 26 \u00b7 9:25 AM PT",
+      "names": 170,
+      "newFollows": [
+        "basquetipster",
+        "ChopChopHTX",
+        "biscuitshooker"
+      ],
+      "followed": 92,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNCAAMBGAME-26NOV26UGACIN-CIN|Yes",
+        "KXNCAAMBGAME-26NOV26UGACIN-UGA|Yes",
+        "KXNCAAMBGAME-26NOV26OKLAPUR-PUR|Yes",
+        "KXNFLGAME-26NOV26CHIDET-CHI|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795709940,
       "at": "Thu Nov 26 \u00b7 8:19 AM PT",
@@ -1142,22 +1164,6 @@
       "ids": [
         "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
         "KXWT20MATCH-26NOV230000PAKSRI-SRI|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
-      ]
-    },
-    {
-      "ts": 1795414733,
-      "at": "Sun Nov 22 \u00b7 10:18 PM PT",
-      "names": 353,
-      "newFollows": [
-        "lebronthanos"
-      ],
-      "followed": 45,
-      "target": 100,
-      "openPicks": 3,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
-        "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
       ]
     }
