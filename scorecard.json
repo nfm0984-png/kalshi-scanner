@@ -1,35 +1,36 @@
 {
   "date": "2026-11-24",
   "label": "Tue Nov 24, 2026 PT",
-  "updatedAt": "Wed Nov 25 \u00b7 8:10 PM PT",
-  "w": 20,
-  "l": 18,
+  "updatedAt": "Wed Nov 25 \u00b7 9:08 PM PT",
+  "w": 17,
+  "l": 14,
   "pending": 0,
-  "pnl": -3.17,
-  "pnlNote": "Flat $1 at the first shown price",
+  "pnl": -2.17,
+  "pnlNote": "Flat $1 at the first shown price \u00b7 unique contracts only",
+  "hiddenSplits": 1,
   "breakdown": [
     {
-      "w": 4,
-      "l": 5,
+      "w": 2,
+      "l": 1,
       "pending": 0,
-      "pnl": -0.82,
-      "n": 9,
+      "pnl": 1.15,
+      "n": 3,
       "label": "2+ agree"
     },
     {
-      "w": 16,
+      "w": 15,
       "l": 13,
       "pending": 0,
-      "pnl": -2.36,
-      "n": 29,
+      "pnl": -3.32,
+      "n": 28,
       "label": "Single capper"
     },
     {
-      "w": 20,
-      "l": 16,
+      "w": 17,
+      "l": 12,
       "pending": 0,
-      "pnl": -1.18,
-      "n": 36,
+      "pnl": -0.17,
+      "n": 29,
       "label": "Singles"
     },
     {
@@ -41,19 +42,19 @@
       "label": "Combos"
     },
     {
-      "w": 5,
-      "l": 11,
+      "w": 4,
+      "l": 9,
       "pending": 0,
-      "pnl": -2.82,
-      "n": 16,
+      "pnl": -2.38,
+      "n": 13,
       "label": "Underdogs (\u22652.0x)"
     },
     {
-      "w": 15,
-      "l": 7,
+      "w": 13,
+      "l": 5,
       "pending": 0,
-      "pnl": -0.36,
-      "n": 22,
+      "pnl": 0.21,
+      "n": 18,
       "label": "Favorites (<2.0x)"
     }
   ],
@@ -61,7 +62,7 @@
     {
       "capper": "dependent.snail8369",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24OVCTSI-OVC",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.91,
       "payout": 1.1,
@@ -69,12 +70,17 @@
       "label": "Oleksandr Ovcharenko \u00b7 Ovcharenko vs Tsitsipas",
       "result": "W",
       "pnl": 0.1,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "dependent.snail8369"
+      ],
+      "capperNote": "dependent.snail8369"
     },
     {
       "capper": "dependent.snail8369",
       "ticker": "KXWTACHALLENGERMATCH-26NOV24BOSSAM-SAM",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.98,
       "payout": 1.02,
@@ -82,12 +88,17 @@
       "label": "Laura Samson \u00b7 Bosio vs Samson",
       "result": "W",
       "pnl": 0.02,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "dependent.snail8369"
+      ],
+      "capperNote": "dependent.snail8369"
     },
     {
       "capper": "dependent.snail8369",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.99,
       "payout": 1.01,
@@ -95,12 +106,17 @@
       "label": "Ryan Nijboer \u00b7 Nijboer vs Fernandez",
       "result": "W",
       "pnl": 0.01,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "dependent.snail8369"
+      ],
+      "capperNote": "dependent.snail8369"
     },
     {
       "capper": "iluminado",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24LADLF-LA",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.1,
       "payout": 10.0,
@@ -108,12 +124,17 @@
       "label": "Juan Manuel La Serna \u00b7 La Serna vs De la Fuente",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "iluminado"
+      ],
+      "capperNote": "iluminado"
     },
     {
       "capper": "WorkerTrader",
       "ticker": "KXAFCCLTOTAL-26NOV24SAHQAD-6",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.01,
       "payout": 100.0,
@@ -121,12 +142,17 @@
       "label": "Over 5.5 goals scored \u00b7 Shabab Al-Ahli vs Al Qadsiah: Total Goals",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "WorkerTrader"
+      ],
+      "capperNote": "WorkerTrader"
     },
     {
       "capper": "FFun",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.23,
       "payout": 4.35,
@@ -134,12 +160,17 @@
       "label": "Juan Carlos Fuentes Vasquez \u00b7 Fuentes Vasquez vs Vales",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "FFun"
+      ],
+      "capperNote": "FFun"
     },
     {
       "capper": "iknowballmorethanu",
       "ticker": "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV",
-      "side": "Yes",
+      "side": "YES",
       "combo": true,
       "price": 0.471,
       "payout": 2.12,
@@ -147,12 +178,17 @@
       "label": "no Christian Braun: 15+,yes Arizona \u00b7 Dallas vs Denver",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "iknowballmorethanu"
+      ],
+      "capperNote": "iknowballmorethanu"
     },
     {
       "capper": "reluctant.fox5394",
       "ticker": "KXAFCCLTOTAL-26NOV24ALNSAD-4",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.6,
       "payout": 1.67,
@@ -160,12 +196,17 @@
       "label": "Over 3.5 goals scored \u00b7 Al Nassr vs Al Sadd: Total Goals",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "reluctant.fox5394"
+      ],
+      "capperNote": "reluctant.fox5394"
     },
     {
       "capper": "reluctant.fox5394",
       "ticker": "KXUCLGAME-26NOV24RMAPSV-RMA",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.54,
       "payout": 1.85,
@@ -173,12 +214,17 @@
       "label": "Real Madrid \u00b7 Real Madrid vs Eindhoven",
       "result": "W",
       "pnl": 0.85,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "reluctant.fox5394"
+      ],
+      "capperNote": "reluctant.fox5394"
     },
     {
       "capper": "reluctant.fox5394",
       "ticker": "KXUCLGAME-26NOV24MCINAP-NAP",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.02,
       "payout": 50.0,
@@ -186,12 +232,17 @@
       "label": "Napoli \u00b7 Manchester City vs Napoli",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "reluctant.fox5394"
+      ],
+      "capperNote": "reluctant.fox5394"
     },
     {
       "capper": "falcon999",
       "ticker": "KXNBAGAME-26NOV24DETORL-ORL",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.45,
       "payout": 2.22,
@@ -199,12 +250,17 @@
       "label": "Orlando \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "falcon999"
+      ],
+      "capperNote": "falcon999"
     },
     {
       "capper": "falcon999",
       "ticker": "KXNBASPREAD-26NOV24DETORL-ORL4",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.39,
       "payout": 2.56,
@@ -212,12 +268,17 @@
       "label": "Orlando wins by over 3.5 points \u00b7 DET vs ORL (Nov 24)",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "falcon999"
+      ],
+      "capperNote": "falcon999"
     },
     {
       "capper": "iknowballmorethanu",
       "ticker": "KXNBAREB-26NOV24DETORL-ORLWCARTER34-8",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.44,
       "payout": 2.27,
@@ -225,12 +286,17 @@
       "label": "Wendell Carter Jr.: 8+ \u00b7 Detroit vs Orlando: Rebounds",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "iknowballmorethanu"
+      ],
+      "capperNote": "iknowballmorethanu"
     },
     {
       "capper": "reluctant.fox5394",
       "ticker": "KXUCLTOTAL-26NOV24MCINAP-5",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.89,
       "payout": 1.12,
@@ -238,12 +304,17 @@
       "label": "Over 4.5 goals scored \u00b7 Manchester City vs Napoli: Total Goals",
       "result": "W",
       "pnl": 0.12,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "reluctant.fox5394"
+      ],
+      "capperNote": "reluctant.fox5394"
     },
     {
       "capper": "FFun",
       "ticker": "KXITFMATCH-26NOV24VILROC-ROC",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.41,
       "payout": 2.44,
@@ -251,12 +322,17 @@
       "label": "Lautaro Rocha \u00b7 Villalon Valdes vs Rocha",
       "result": "W",
       "pnl": 1.44,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "FFun"
+      ],
+      "capperNote": "FFun"
     },
     {
       "capper": "FFun",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24COVMIG-MIG",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.97,
       "payout": 1.03,
@@ -264,12 +340,17 @@
       "label": "Luis Guto Miguel \u00b7 Covato vs Miguel",
       "result": "W",
       "pnl": 0.03,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "FFun"
+      ],
+      "capperNote": "FFun"
     },
     {
-      "capper": "AmphibiousCaldwellPope",
+      "capper": "mde4life1986",
       "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.39,
       "payout": 2.56,
@@ -277,12 +358,38 @@
       "label": "P.J. Washington: 6+ rebounds",
       "result": "W",
       "pnl": 1.56,
-      "agree": 2
+      "yesNo": "YES",
+      "agree": 2,
+      "cappers": [
+        "mde4life1986",
+        "AmphibiousCaldwellPope"
+      ],
+      "capperNote": "2 cappers"
+    },
+    {
+      "capper": "VeryLucky888",
+      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
+      "side": "YES",
+      "combo": false,
+      "price": 0.72,
+      "payout": 1.39,
+      "startTs": 1795575600,
+      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
+      "result": "L",
+      "pnl": -1.0,
+      "yesNo": "YES",
+      "agree": 3,
+      "cappers": [
+        "VeryLucky888",
+        "toottoot",
+        "wapol"
+      ],
+      "capperNote": "3 cappers"
     },
     {
       "capper": "BigRabbit",
       "ticker": "KXNBAGAME-26NOV24DALDEN-DAL",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.29,
       "payout": 3.45,
@@ -290,25 +397,17 @@
       "label": "Dallas \u00b7 Dallas vs Denver",
       "result": "W",
       "pnl": 2.45,
-      "agree": 1
-    },
-    {
-      "capper": "VeryLucky888",
-      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.72,
-      "payout": 1.39,
-      "startTs": 1795575600,
-      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
-      "result": "L",
-      "pnl": -1.0,
-      "agree": 3
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "BigRabbit"
+      ],
+      "capperNote": "BigRabbit"
     },
     {
       "capper": "VeryLucky888",
       "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN7",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.46,
       "payout": 2.17,
@@ -316,12 +415,17 @@
       "label": "Denver wins by over 6.5 points",
       "result": "W",
       "pnl": 1.17,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "VeryLucky888"
+      ],
+      "capperNote": "VeryLucky888"
     },
     {
       "capper": "VeryLucky888",
       "ticker": "KXNBASPREAD-26NOV24DALDEN-DEN8",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.51,
       "payout": 1.96,
@@ -329,12 +433,17 @@
       "label": "Denver wins by over 7.5 points",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "VeryLucky888"
+      ],
+      "capperNote": "VeryLucky888"
     },
     {
       "capper": "dependent.snail8369",
       "ticker": "KXITFMATCH-26NOV24SOLBRU-BRU",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.98,
       "payout": 1.02,
@@ -342,12 +451,17 @@
       "label": "Nicolas Bruna \u00b7 Solis Encinas vs Bruna",
       "result": "W",
       "pnl": 0.02,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "dependent.snail8369"
+      ],
+      "capperNote": "dependent.snail8369"
     },
     {
       "capper": "falcon999",
       "ticker": "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S",
-      "side": "Yes",
+      "side": "YES",
       "combo": true,
       "price": 0.168,
       "payout": 5.95,
@@ -355,12 +469,17 @@
       "label": "yes Denver,yes Orlando,no Boston wins by over 10.5 points \u00b7 Dallas vs Denver",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "falcon999"
+      ],
+      "capperNote": "falcon999"
     },
     {
       "capper": "ic4cream",
       "ticker": "KXNBATOTAL-26NOV24DALDEN-234",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.53,
       "payout": 1.89,
@@ -368,12 +487,17 @@
       "label": "Over 233.5 points \u00b7 Dallas vs Denver: Total Points",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "ic4cream"
+      ],
+      "capperNote": "ic4cream"
     },
     {
       "capper": "iknowballmorethanu",
       "ticker": "KXNCAAMBGAME-26NOV24BAYALA-ALA",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.54,
       "payout": 1.85,
@@ -381,25 +505,17 @@
       "label": "Alabama \u00b7 Baylor vs Alabama",
       "result": "L",
       "pnl": -1.0,
-      "agree": 1
-    },
-    {
-      "capper": "mde4life1986",
-      "ticker": "KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.39,
-      "payout": 2.56,
-      "startTs": 1795575600,
-      "label": "P.J. Washington: 6+ rebounds",
-      "result": "W",
-      "pnl": 1.56,
-      "agree": 2
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "iknowballmorethanu"
+      ],
+      "capperNote": "iknowballmorethanu"
     },
     {
       "capper": "mde4life1986",
       "ticker": "KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.52,
       "payout": 1.92,
@@ -407,38 +523,17 @@
       "label": "Naji Marshall: 10+ points",
       "result": "W",
       "pnl": 0.92,
-      "agree": 1
-    },
-    {
-      "capper": "toottoot",
-      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.72,
-      "payout": 1.39,
-      "startTs": 1795575600,
-      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
-      "result": "L",
-      "pnl": -1.0,
-      "agree": 3
-    },
-    {
-      "capper": "wapol",
-      "ticker": "KXNBAGAME-26NOV24DALDEN-DEN",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.72,
-      "payout": 1.39,
-      "startTs": 1795575600,
-      "label": "Denver \u00b7 DAL vs DEN (Nov 24)",
-      "result": "L",
-      "pnl": -1.0,
-      "agree": 3
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "mde4life1986"
+      ],
+      "capperNote": "mde4life1986"
     },
     {
       "capper": "Irresponsible-Autumn",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.63,
       "payout": 1.59,
@@ -446,25 +541,18 @@
       "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
       "result": "W",
       "pnl": 0.59,
-      "agree": 2
-    },
-    {
-      "capper": "dependent.snail8369",
-      "ticker": "KXATPCHALLENGERMATCH-26NOV24MORDEL-DEL",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.68,
-      "payout": 1.47,
-      "startTs": 1795577400,
-      "label": "Matthew Dellavedova \u00b7 Moriya vs Dellavedova",
-      "result": "W",
-      "pnl": 0.47,
-      "agree": 2
+      "yesNo": "YES",
+      "agree": 2,
+      "cappers": [
+        "Irresponsible-Autumn",
+        "dependent.snail8369"
+      ],
+      "capperNote": "2 cappers"
     },
     {
       "capper": "ic4cream",
       "ticker": "KXNCAAMBSPREAD-26NOV24SJUORE-SJU11",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.53,
       "payout": 1.89,
@@ -472,12 +560,17 @@
       "label": "St. John's wins by over 10.5 points",
       "result": "W",
       "pnl": 0.89,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "ic4cream"
+      ],
+      "capperNote": "ic4cream"
     },
     {
       "capper": "Irresponsible-Autumn",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24UCHLEO-UCH",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.8,
       "payout": 1.25,
@@ -485,51 +578,17 @@
       "label": "Kaichi Uchida \u00b7 Uchida vs Leong",
       "result": "W",
       "pnl": 0.25,
-      "agree": 1
-    },
-    {
-      "capper": "NordhavenCap",
-      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
-      "side": "Yes",
-      "combo": false,
-      "price": 0.51,
-      "payout": 1.96,
-      "startTs": 1795586400,
-      "label": "San Jose wins",
-      "result": "W",
-      "pnl": 0.96,
-      "agree": 1
-    },
-    {
-      "capper": "VeryLucky888",
-      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
-      "side": "No",
-      "combo": false,
-      "price": 0.5,
-      "payout": 2.0,
-      "startTs": 1795586400,
-      "label": "San Jose wins",
-      "result": "L",
-      "pnl": -1.0,
-      "agree": 2
-    },
-    {
-      "capper": "toottoot",
-      "ticker": "KXMLSGAME-26NOV24SJHOU-SJ",
-      "side": "No",
-      "combo": false,
-      "price": 0.5,
-      "payout": 2.0,
-      "startTs": 1795586400,
-      "label": "San Jose wins",
-      "result": "L",
-      "pnl": -1.0,
-      "agree": 2
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "Irresponsible-Autumn"
+      ],
+      "capperNote": "Irresponsible-Autumn"
     },
     {
       "capper": "VeryLucky888",
       "ticker": "KXATPCHALLENGERMATCH-26NOV24IMACHU-IMA",
-      "side": "Yes",
+      "side": "YES",
       "combo": false,
       "price": 0.53,
       "payout": 1.89,
@@ -537,12 +596,17 @@
       "label": "Masamichi Imamura wins",
       "result": "W",
       "pnl": 0.89,
-      "agree": 1
+      "yesNo": "YES",
+      "agree": 1,
+      "cappers": [
+        "VeryLucky888"
+      ],
+      "capperNote": "VeryLucky888"
     },
     {
       "capper": "VeryLucky888",
       "ticker": "KXMLSTOTAL-26NOV24SJHOU-4",
-      "side": "No",
+      "side": "NO",
       "combo": false,
       "price": 0.66,
       "payout": 1.52,
@@ -550,7 +614,23 @@
       "label": "Will over 3.5 goals be scored?",
       "result": "W",
       "pnl": 0.52,
-      "agree": 1
+      "yesNo": "NO",
+      "agree": 1,
+      "cappers": [
+        "VeryLucky888"
+      ],
+      "capperNote": "VeryLucky888"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-24",
+      "label": "Tue Nov 24, 2026 PT",
+      "w": 17,
+      "l": 14,
+      "pending": 0,
+      "pnl": -2.17,
+      "n": 31
     }
   ]
 }

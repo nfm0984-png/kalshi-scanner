@@ -1670,12 +1670,30 @@ function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
   else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the capper paid. Label only." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
   return out.length ? <>{out}</> : null;
 }
+function hideSplitsOnGames(games: Game[]): { games: Game[]; hidden: number } {
+  const hidden: Record<string, boolean> = {};
+  const out = games.map((g: Game) => {
+    const picks = (g.picks || []).filter((p: Pick) => !splitInfo(p, g));
+    if (picks.length !== (g.picks || []).length) hidden[g.id] = true;
+    return { ...g, picks };
+  }).filter((g: Game) => (g.picks || []).length > 0);
+  return { games: out, hidden: Object.keys(hidden).length };
+}
+function splitHiddenNote(n: number): string {
+  return n ? (n + " split game" + (n === 1 ? "" : "s") + " hidden") : "";
+}
+function hiddenSplitGames(games: Game[]): number {
+  const ids: Record<string, boolean> = {};
+  games.forEach((g: Game) => (g.picks || []).forEach((p: Pick) => { if (splitInfo(p, g)) ids[g.id] = true; }));
+  return Object.keys(ids).length;
+}
 function rankedPicks(games: Game[]): RankedCard[] {
   const cards: RankedCard[] = [];
   const seen: Record<string, boolean> = {};
   games.forEach((game: Game) => {
     (game.picks || []).forEach((p: Pick) => {
       if (!hasMy40Backer(p) || !(p.backers || []).length) return;
+      if (splitInfo(p, game)) return;
       if (seen[p.key]) return;
       seen[p.key] = true;
       const n = netOf(p, game);
@@ -1701,8 +1719,10 @@ function gameMatchesQuery(g: Game, q: string): boolean {
 }
 function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
-  const ranks = pickRankMap(props.games);
-  const games = props.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
+  const split = hideSplitsOnGames(props.games);
+  const ranks = pickRankMap(split.games);
+  const games = split.games.filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
+  const splitNote = splitHiddenNote(split.hidden);
   const live = games.filter((g: Game) => g.live).sort((a, b) => (a.startTs || 0) - (b.startTs || 0) || (a.id < b.id ? -1 : 1));
   const up = games.filter((g: Game) => !g.live).sort((a, b) => (a.startTs || 1e12) - (b.startTs || 1e12) || (a.id < b.id ? -1 : 1));
   const rankOf = (g: Game) => {
@@ -1711,7 +1731,8 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   };
   return (
     <div>
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 ? "None of the trackable cappers has a $1,000+ open sports position or profile post starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? "None of the trackable cappers has a $1,000+ open sports position or profile post starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {splitNote ? <div data-splits-hidden="1" style={{ fontSize: 13, fontWeight: 700, color: "#B45309", margin: "0 2px 8px" }}>{splitNote}</div> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
       {up.length ? <div data-all-today="1" style={{ fontSize: 18, fontWeight: 900, margin: "10px 2px 2px", color: NAVY }}>{"Upcoming (" + up.length + ")"}</div> : null}
@@ -1737,9 +1758,10 @@ function BestCappersRoster() {
   );
 }
 
-interface ScorecardPick { result?: string; pnl?: number | null; capper?: string; label?: string; q?: string; side?: string; ticker?: string; combo?: boolean }
+interface ScorecardPick { result?: string; pnl?: number | null; capper?: string; capperNote?: string; cappers?: string[]; agree?: number; yesNo?: string; label?: string; q?: string; side?: string; ticker?: string; combo?: boolean }
 interface ScorecardBucket { label: string; w?: number; l?: number; pending?: number; pnl?: number | null; n?: number }
-interface Scorecard { date?: string; label?: string; updatedAt?: string; w?: number; l?: number; pending?: number; pnl?: number | null; pnlNote?: string; pnlPartial?: boolean; breakdown?: ScorecardBucket[]; picks?: ScorecardPick[] }
+interface ScorecardDay { date?: string; label?: string; w?: number; l?: number; pending?: number; pnl?: number | null; n?: number }
+interface Scorecard { date?: string; label?: string; updatedAt?: string; w?: number; l?: number; pending?: number; pnl?: number | null; pnlNote?: string; pnlPartial?: boolean; hiddenSplits?: number; breakdown?: ScorecardBucket[]; history?: ScorecardDay[]; picks?: ScorecardPick[] }
 function moneyAbs(n: number): string {
   const a = Math.abs(n);
   if (a >= 1000) return (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
@@ -1751,6 +1773,32 @@ function scorecardMoney(n: number | null | undefined): string {
   const a = Math.abs(n);
   if (a >= 1000) return sign + (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k";
   return sign + a.toFixed(2).replace(/\.00$/, "");
+}
+function scorecardYesNo(row: ScorecardPick): string {
+  const u = ((row.yesNo || row.side || "") + "").trim().toUpperCase();
+  if (u === "Y" || u === "YES" || u.indexOf("BUY YES") >= 0) return "YES";
+  if (u === "N" || u === "NO" || u.indexOf("BUY NO") >= 0) return "NO";
+  return "";
+}
+function ScorecardHistory(props: { sc: Scorecard }): React.ReactElement | null {
+  const days = props.sc.history || [];
+  if (!days.length) return null;
+  return (
+    <div data-scorecard-history="1" style={{ marginTop: 14, paddingTop: 10, borderTop: "1.5px solid #EDE9FE" }}>
+      <div style={{ fontSize: 13, fontWeight: 850, color: "#475569", marginBottom: 6 }}>{"Last 7 days (" + days.length + " day" + (days.length === 1 ? "" : "s") + " tracked)"}</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        {days.slice().reverse().map((d: ScorecardDay) => {
+          const dol = scorecardMoney(d.pnl);
+          return (
+            <div key={d.date || d.label} style={{ display: "flex", justifyContent: "space-between", gap: 10, fontSize: 13, fontWeight: 750, color: "#0F172A" }}>
+              <span>{d.label || d.date || ""}</span>
+              <span style={{ flex: "none", fontVariantNumeric: "tabular-nums" }}>{(d.w || 0) + "–" + (d.l || 0) + (d.pending ? " · " + d.pending + " pend" : "") + (dol ? " · " + dol : "")}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 function ScorecardBreakdown(props: { sc: Scorecard }): React.ReactElement | null {
   const rows = props.sc.breakdown || [];
@@ -1783,24 +1831,27 @@ function ScorecardBlock(): React.ReactElement {
   return (
     <Section heading={heading} caption={(sc.label || "Yesterday") + (sc.pnlNote ? " · " + sc.pnlNote : "") + (sc.updatedAt ? " · updated " + sc.updatedAt : "")}>
       <ScorecardBreakdown sc={sc} />
+      {sc.hiddenSplits ? <div data-splits-hidden="1" style={{ fontSize: 13, fontWeight: 700, color: "#B45309", margin: "0 0 8px" }}>{splitHiddenNote(sc.hiddenSplits)}</div> : null}
       {(sc.picks || []).length === 0 ? <EmptyState title="No scanner picks yesterday" body="No scanner picks started yesterday in PT." /> : (
         <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6 }}>
           {(sc.picks || []).map((row: ScorecardPick, i: number) => {
             const res = row.result || "pending";
             const rawTitle = row.label || row.q || row.capper || ("Pick " + (i + 1));
             const title = rawTitle.indexOf("KX") === 0 ? (row.q || row.capper || rawTitle) : rawTitle;
-            const who = row.capper || row.side || "";
+            const yn = scorecardYesNo(row);
+            const who = row.capperNote || (row.agree && row.agree > 1 ? (row.agree + " cappers") : (row.capper || ""));
             const dol = scorecardMoney(row.pnl);
             const color = res === "W" ? "#047857" : res === "L" ? "#B91C1C" : "#64748B";
             return (
               <div key={i} style={{ display: "flex", justifyContent: "space-between", gap: 10, fontSize: 13, fontWeight: 700, color: "#0F172A" }}>
-                <span style={{ overflowWrap: "anywhere" }}><span style={{ color, fontWeight: 850, marginRight: 8 }}>{res + " "}</span>{title}{who && title !== who ? " · " + who : ""}</span>
+                <span style={{ overflowWrap: "anywhere" }}><span style={{ color, fontWeight: 850, marginRight: 8 }}>{res + " "}</span>{yn ? <span data-yesno={yn} style={{ display: "inline-block", marginRight: 6, padding: "0 6px", borderRadius: 6, background: yn === "YES" ? "#ECFDF5" : "#F1F5F9", color: yn === "YES" ? "#047857" : "#334155", fontWeight: 900, fontSize: 11, letterSpacing: "0.04em" }}>{yn}</span> : null}{title}{who && title !== who ? " · " + who : ""}</span>
                 {dol ? <span style={{ color, flex: "none", fontVariantNumeric: "tabular-nums" }}>{dol}</span> : null}
               </div>
             );
           })}
         </div>
       )}
+      <ScorecardHistory sc={sc} />
     </Section>
   );
 }
@@ -1814,9 +1865,10 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const list = rankedPicks(games);
   const comboN = list.filter((c: RankedCard) => isComboPick(c.p)).length;
   const singleN = list.length - comboN;
+  const splitNote = splitHiddenNote(hiddenSplitGames(games));
   return (
     <div>
-      <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption="Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included.">
+      <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption={"Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included." + (splitNote ? " · " + splitNote : "")}>
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={{ ...c.p, backers: sortBackersByLast20(c.p.backers || []) }} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
