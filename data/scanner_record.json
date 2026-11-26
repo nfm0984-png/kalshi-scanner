@@ -2740,7 +2740,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795665048
     },
     "GC-P|KXUCLGAME-26NOV25SHAFEN-FEN|No": {
       "capper": "GC-P",
@@ -3125,5 +3126,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795664747
+  "updatedTs": 1795665048
 }

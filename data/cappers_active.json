@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 7:45 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:50 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -6607,10 +6607,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 0
+      "followCount": 1
     },
     {
       "nickname": "714Smith",
@@ -6656,7 +6656,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 5,
+      "openPositions": 4,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -10113,29 +10113,29 @@
       "tape30d": null,
       "ageDays": 340,
       "graded": {
-        "n": 175,
+        "n": 176,
         "w": 104,
-        "l": 71,
+        "l": 72,
         "roi": null,
-        "profit": 43707.2,
+        "profit": 43873.72,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 175,
+        "n": 176,
         "w": 104,
-        "l": 71,
+        "l": 72,
         "roi": null,
-        "profit": 43707.2,
+        "profit": 43873.72,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "fen.dachi \u00b7 104-71 \u00b7 +$43.4k all",
+      "recordLine": "fen.dachi \u00b7 104-72 \u00b7 +$43.4k all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 0,
+      "openPositions": 1,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
