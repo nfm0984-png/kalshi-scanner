@@ -2232,7 +2232,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "loss",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "ic4cream|KXNBATOTAL-26NOV24DALDEN-234|Yes": {
       "capper": "ic4cream",
@@ -2426,7 +2426,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "loss",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "VeryLucky888|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "VeryLucky888",
@@ -2437,7 +2437,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "loss",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "toottoot|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "toottoot",
@@ -2448,7 +2448,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "loss",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "GC-P|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "GC-P",
@@ -2459,7 +2459,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "loss",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "VeryLucky888|KXUCLGAME-26NOV25BRULFC-BRU|No": {
       "capper": "VeryLucky888",
@@ -2686,8 +2686,7 @@
       "startTs": 1795644000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795653430
+      "status": "open"
     },
     "mde4life1986|KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10|Yes": {
       "capper": "mde4life1986",
@@ -2907,8 +2906,7 @@
       "startTs": 1795643100,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795652170
+      "status": "open"
     },
     "djcheecake|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
       "capper": "djcheecake",
@@ -2929,7 +2927,7 @@
       "firstTs": 1795632766,
       "combo": false,
       "status": "win",
-      "gradedTs": 1795651270
+      "gradedTs": 1795651119
     },
     "jspana99|KXUCLGAME-26NOV25SPOMUN-MUN|Yes": {
       "capper": "jspana99",
@@ -2979,8 +2977,7 @@
       "startTs": 1795644600,
       "firstTs": 1795640926,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795654031
+      "status": "open"
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026NCW2R4S56X4RPXQ7-OOG6F24EE|Yes": {
       "capper": "Ryqeux",
@@ -3022,26 +3019,56 @@
       "combo": false,
       "status": "open"
     },
+    "GGmate111|KXMVECROSSCATEGORY-S2026H6YEIBDRONIHNKPD-LIYG46Z6D|Yes": {
+      "capper": "GGmate111",
+      "ticker": "KXMVECROSSCATEGORY-S2026H6YEIBDRONIHNKPD-LIYG46Z6D",
+      "side": "Yes",
+      "price": 0.439,
+      "startTs": 1795651200,
+      "firstTs": 1795651119,
+      "combo": true,
+      "status": "open"
+    },
+    "Ryqeux|KXMVECROSSCATEGORY-S2026X5ERVPFH2ABJHI5I-CFISWS4UH|Yes": {
+      "capper": "Ryqeux",
+      "ticker": "KXMVECROSSCATEGORY-S2026X5ERVPFH2ABJHI5I-CFISWS4UH",
+      "side": "Yes",
+      "price": 0.294,
+      "startTs": 1795653000,
+      "firstTs": 1795651119,
+      "combo": true,
+      "status": "open"
+    },
+    "Ryqeux|KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes": {
+      "capper": "Ryqeux",
+      "ticker": "KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX",
+      "side": "Yes",
+      "price": 0.348,
+      "startTs": 1795656600,
+      "firstTs": 1795651119,
+      "combo": true,
+      "status": "open"
+    },
     "FFun|KXATPCHALLENGERMATCH-26NOV25BONMIG-BON|Yes": {
       "capper": "FFun",
       "ticker": "KXATPCHALLENGERMATCH-26NOV25BONMIG-BON",
       "side": "Yes",
       "price": 0.69,
       "startTs": 1795658400,
-      "firstTs": 1795651270,
+      "firstTs": 1795651119,
       "combo": false,
       "status": "open"
     },
-    "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes": {
-      "capper": "falcon999",
-      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+    "Ryqeux|KXNBAGAME-26NOV25SACGSW-SAC|Yes": {
+      "capper": "Ryqeux",
+      "ticker": "KXNBAGAME-26NOV25SACGSW-SAC",
       "side": "Yes",
-      "price": 0.45,
-      "startTs": 1795654800,
-      "firstTs": 1795654031,
+      "price": 0.27,
+      "startTs": 1795662000,
+      "firstTs": 1795651119,
       "combo": false,
       "status": "open"
     }
   },
-  "updatedTs": 1795654031
+  "updatedTs": 1795651119
 }
