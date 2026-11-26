@@ -1628,20 +1628,38 @@ function slateHitForPick(p: Pick): PublicSlatePick | null {
 function gameOfPick(p: Pick): Game | undefined {
   return (DATA.games || []).find((g: Game) => (g.picks || []).some((q: Pick) => q.key === p.key));
 }
-function splitInfo(p: Pick, game?: Game | null): { oppN: number; oppLabel: string } | null {
+const SPLIT_CAP_RATIO = 2;
+const SPLIT_USD_RATIO = 2.5;
+function isLopsidedMajority(ownN: number, ownUsd: number, oppN: number, oppUsd: number): boolean {
+  if (!(ownN >= 1) || !(oppN >= 1)) return false;
+  if (ownN >= 3 && oppN === 1) return true;
+  return ownN >= SPLIT_CAP_RATIO * oppN && ownUsd >= SPLIT_USD_RATIO * (oppUsd || 0);
+}
+function isCoinFlipSplit(aN: number, aUsd: number, bN: number, bUsd: number): boolean {
+  return !isLopsidedMajority(aN, aUsd, bN, bUsd) && !isLopsidedMajority(bN, bUsd, aN, aUsd);
+}
+function backersUsd(backers: { cost?: number }[] | null | undefined): number {
+  return (backers || []).reduce((s, b) => s + (b.cost || 0), 0);
+}
+function splitInfo(p: Pick, game?: Game | null): { oppN: number; oppLabel: string; ownN: number; ownUsd: number; oppUsd: number; stance: "majority" | "hide" } | null {
   const g = game || gameOfPick(p);
   if (!g) return null;
   const opp = oppositionPicks(p, g);
   let oppN = 0;
+  let oppUsd = 0;
   let oppLabel = "";
   opp.forEach((q: Pick) => {
     const n = (q.backers || []).length;
     if (!n) return;
     oppN += n;
+    oppUsd += backersUsd(q.backers);
     if (!oppLabel) oppLabel = q.big || (q.view && q.view.backing) || "other side";
   });
-  if (oppN < 1 || !(p.backers || []).length) return null;
-  return { oppN, oppLabel };
+  const ownN = (p.backers || []).length;
+  const ownUsd = backersUsd(p.backers);
+  if (oppN < 1 || !ownN) return null;
+  const stance: "majority" | "hide" = isLopsidedMajority(ownN, ownUsd, oppN, oppUsd) ? "majority" : "hide";
+  return { oppN, oppLabel, ownN, ownUsd, oppUsd, stance };
 }
 function PickFlags(props: { p: Pick; startTs?: number | null; game?: Game }): React.ReactElement | null {
   useOtherSlate();
@@ -1656,7 +1674,7 @@ function PickFlags(props: { p: Pick; startTs?: number | null; game?: Game }): Re
   const agreeN = (p.backers || []).length;
   if (agreeN >= 2) out.push(<span key="ag" data-agree="1" title="Two or more cappers who pass the quality filter are on this pick. Label only; ranking unchanged." style={flagChip("#EEF2FF", "#3730A3", "#818CF8")}>{agreeN + " agree"}</span>);
   const split = splitInfo(p, props.game);
-  if (split) out.push(<span key="sp" data-split="1" title={"Quality cappers are on both sides of this market — sharp-vs-sharp coin flip. " + split.oppN + " on " + split.oppLabel + "."} style={flagChip("#FFFBEB", "#B45309", "#F59E0B")}>{"Split · vs " + split.oppN + (split.oppLabel ? " on " + split.oppLabel : "")}</span>);
+  if (split && split.stance === "majority") out.push(<span key="sp" data-split="1" title={"Lopsided split: " + split.ownN + " quality cappers on this side vs " + split.oppN + " on " + split.oppLabel + ". Showing the heavy majority."} style={flagChip("#FFFBEB", "#B45309", "#F59E0B")}>{"Split · " + split.ownN + "–" + split.oppN}</span>);
   const both = slateHitForPick(p);
   if (both) out.push(<span key="bo" data-both-scanners="1" title={"A top Polymarket whale is also on this same Kalshi contract" + (both.n ? " (" + both.n + " whale" + (both.n === 1 ? "" : "s") + ")" : "") + "."} style={flagChip("#ECFDF5", "#047857", "#34D399")}>{"Both scanners"}</span>);
   return out.length ? <>{out}</> : null;
@@ -1673,18 +1691,31 @@ function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
 function hideSplitsOnGames(games: Game[]): { games: Game[]; hidden: number } {
   const hidden: Record<string, boolean> = {};
   const out = games.map((g: Game) => {
-    const picks = (g.picks || []).filter((p: Pick) => !splitInfo(p, g));
-    if (picks.length !== (g.picks || []).length) hidden[g.id] = true;
+    const picks = (g.picks || []).filter((p: Pick) => {
+      const info = splitInfo(p, g);
+      return !info || info.stance === "majority";
+    });
+    const coinFlip = (g.picks || []).some((p: Pick) => {
+      const info = splitInfo(p, g);
+      return !!(info && info.stance === "hide");
+    }) && picks.length === 0;
+    if (coinFlip) hidden[g.id] = true;
     return { ...g, picks };
   }).filter((g: Game) => (g.picks || []).length > 0);
   return { games: out, hidden: Object.keys(hidden).length };
 }
 function splitHiddenNote(n: number): string {
-  return n ? (n + " split game" + (n === 1 ? "" : "s") + " hidden") : "";
+  return n ? (n + " coin-flip split game" + (n === 1 ? "" : "s") + " hidden") : "";
 }
 function hiddenSplitGames(games: Game[]): number {
   const ids: Record<string, boolean> = {};
-  games.forEach((g: Game) => (g.picks || []).forEach((p: Pick) => { if (splitInfo(p, g)) ids[g.id] = true; }));
+  games.forEach((g: Game) => {
+    const vis = (g.picks || []).filter((p: Pick) => {
+      const info = splitInfo(p, g);
+      return !info || info.stance === "majority";
+    });
+    if ((g.picks || []).length && vis.length === 0) ids[g.id] = true;
+  });
   return Object.keys(ids).length;
 }
 function rankedPicks(games: Game[]): RankedCard[] {
@@ -1693,7 +1724,7 @@ function rankedPicks(games: Game[]): RankedCard[] {
   games.forEach((game: Game) => {
     (game.picks || []).forEach((p: Pick) => {
       if (!hasMy40Backer(p) || !(p.backers || []).length) return;
-      if (splitInfo(p, game)) return;
+      const _sp = splitInfo(p, game); if (_sp && _sp.stance !== "majority") return;
       if (seen[p.key]) return;
       seen[p.key] = true;
       const n = netOf(p, game);
@@ -1732,7 +1763,7 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   };
   return (
     <div>
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? "None of the trackable cappers has a $1,000+ open sports position or profile post starting within 24 hours." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? "None of the trackable cappers has a $1,000+ open sports position or profile post on the upcoming slate." : "Try another search or clear the filter."} /> : null}
       {splitNote ? <div data-splits-hidden="1" style={{ fontSize: 13, fontWeight: 700, color: "#B45309", margin: "0 2px 8px" }}>{splitNote}</div> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
@@ -2103,7 +2134,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
   const games = useMemo(() => openGames(now), [now, tick]);
-  const comingN = games.reduce((n: number, g: Game) => n + g.picks.length, 0);
+  const comingN = hideSplitsOnGames(games).games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
   const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp) && capperShownOk(fp.nickname, now, undefined, fp.league) && pickPayoutOk(fp)).length;
   const applyData = (data: Data) => {
