@@ -2696,7 +2696,8 @@
       "startTs": 1795653000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795665947
     },
     "mde4life1986|KXNBAGAME-26NOV25MIAPHI-MIA|Yes": {
       "capper": "mde4life1986",
@@ -2739,7 +2740,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795665947
     },
     "GC-P|KXUCLGAME-26NOV25SHAFEN-FEN|No": {
       "capper": "GC-P",
@@ -2804,7 +2806,8 @@
       "startTs": 1795653000,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795665947
     },
     "NordhavenCap|KXMLSGAME-26NOV24SJHOU-SJ|Yes": {
       "capper": "NordhavenCap",
@@ -2942,7 +2945,8 @@
       "startTs": 1795653000,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795665947
     },
     "iluminado|KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ|Yes": {
       "capper": "iluminado",
@@ -3046,7 +3050,8 @@
       "startTs": 1795654800,
       "firstTs": 1795647960,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795665947
     },
     "GGmate111|KXMVECROSSCATEGORY-S2026H6YEIBDRONIHNKPD-LIYG46Z6D|Yes": {
       "capper": "GGmate111",
@@ -3067,7 +3072,8 @@
       "startTs": 1795653000,
       "firstTs": 1795651119,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795665947
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes": {
       "capper": "Ryqeux",
@@ -3118,7 +3124,20 @@
       "firstTs": 1795655531,
       "combo": false,
       "status": "open"
+    },
+    "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No": {
+      "capper": "jackivouce",
+      "ticker": "KXNEXTTEAMNFL-26ARODGERS8-PIT",
+      "side": "No",
+      "price": 0.645,
+      "startTs": 1796137200,
+      "firstTs": 1795665947,
+      "combo": false,
+      "status": "open",
+      "game": "Aaron Rodgers Next Team",
+      "label": "Pittsburgh",
+      "league": "Sports"
     }
   },
-  "updatedTs": 1795662496
+  "updatedTs": 1795665947
 }

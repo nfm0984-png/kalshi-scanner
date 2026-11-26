@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 7:08 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 8:05 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8063,9 +8063,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:33 AM PT",
       "recordedTs": 1795628005,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 8:05 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXUCLTOTAL-26NOV25SBHBAR-5|No",
@@ -8399,6 +8399,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 7:08 PM PT",
       "recordedTs": 1795662496,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 8:05 PM PT"
+    },
+    {
+      "id": "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No",
+      "nickname": "jackivouce",
+      "ticker": "KXNEXTTEAMNFL-26ARODGERS8-PIT",
+      "eventTicker": "KXNEXTTEAMNFL-26ARODGERS8",
+      "game": "Aaron Rodgers Next Team",
+      "backing": "Pittsburgh",
+      "yesNo": "No",
+      "entry": 0.645,
+      "price": 1.0,
+      "cost": 1353.21,
+      "contracts": 2098.0,
+      "startTs": 1796137200,
+      "league": "Sports",
+      "bt": "Other",
+      "recordedAt": "Wed Nov 25 \u00b7 8:05 PM PT",
+      "recordedTs": 1795665947,
       "status": "open",
       "result": null,
       "settledAt": null
