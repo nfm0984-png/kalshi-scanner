@@ -1,22 +1,22 @@
 {
   "source": "kalshi",
-  "ts": 1795669812,
-  "updatedAt": "Wed Nov 25 \u00b7 9:10 PM PT",
+  "ts": 1795674041,
+  "updatedAt": "Wed Nov 25 \u00b7 10:20 PM PT",
   "picks": [
     {
-      "ticker": "KXNFLSPREAD-26NOV25GBLAR-LAR3",
-      "yesNo": "No",
-      "side": "Los Angeles R wins by over 2.5 points",
-      "game": "Green Bay vs Los Angeles R: Spread",
-      "startTs": 1795654800,
-      "bt": "Spread",
+      "ticker": "KXNBAGAME-26NOV25SASPOR-SAS",
+      "yesNo": "Yes",
+      "side": "San Antonio",
+      "game": "San Antonio vs Portland",
+      "startTs": 1795662000,
+      "bt": "Moneyline",
       "n": 1
     },
     {
-      "ticker": "KXNBAGAME-26NOV25SACGSW-SAC",
-      "yesNo": "Yes",
-      "side": "Sacramento",
-      "game": "SAC vs GSW (Nov 25)",
+      "ticker": "KXNBAGAME-26NOV25SASPOR-POR",
+      "yesNo": "No",
+      "side": "Portland",
+      "game": "San Antonio vs Portland",
       "startTs": 1795662000,
       "bt": "Moneyline",
       "n": 1
@@ -37,6 +37,15 @@
       "game": "USC vs UCLA",
       "startTs": 1795897800,
       "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLSPREAD-26NOV29WASARI-WAS7",
+      "yesNo": "Yes",
+      "side": "Washington wins by over 6.5 points",
+      "game": "Washington vs Arizona: Spread",
+      "startTs": 1795987500,
+      "bt": "Spread",
       "n": 1
     }
   ]

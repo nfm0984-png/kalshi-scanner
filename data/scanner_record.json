@@ -2253,7 +2253,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "VeryLucky888|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
       "capper": "VeryLucky888",
@@ -2263,7 +2264,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "lightotunnel35|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
       "capper": "lightotunnel35",
@@ -2273,7 +2275,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "MillyFilly|KXNFLGAME-26NOV25GBLAR-LAR|Yes": {
       "capper": "MillyFilly",
@@ -2283,7 +2286,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "ic4cream|KXNCAAMBSPREAD-26NOV24SJUORE-SJU11|Yes": {
       "capper": "ic4cream",
@@ -2414,7 +2418,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795670726
     },
     "lightotunnel35|KXNFLSPREAD-26NOV25GBLAR-LAR3|Yes": {
       "capper": "lightotunnel35",
@@ -2424,7 +2429,8 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "JAMJAMJAM4|KXUCLGAME-26NOV25SLAVIL-VIL|No": {
       "capper": "JAMJAMJAM4",
@@ -2862,7 +2868,8 @@
       "startTs": 1795660200,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795670726
     },
     "falcon999|KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes": {
       "capper": "falcon999",
@@ -2872,7 +2879,8 @@
       "startTs": 1795644000,
       "firstTs": 1795592293,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795670726
     },
     "pogoburger|KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No": {
       "capper": "pogoburger",
@@ -3035,7 +3043,8 @@
       "startTs": 1795654800,
       "firstTs": 1795644510,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026IMEXQNUCNMYNCR2F-2JRARNROM|Yes": {
       "capper": "Ryqeux",
@@ -3045,7 +3054,8 @@
       "startTs": 1795656600,
       "firstTs": 1795644510,
       "combo": true,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795670726
     },
     "jspana99|KXNFL1HTEAMTOTAL-26NOV25GBLAR-LAR11|No": {
       "capper": "jspana99",
@@ -3098,7 +3108,8 @@
       "startTs": 1795658400,
       "firstTs": 1795651119,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795670726
     },
     "Ryqeux|KXNBAGAME-26NOV25SACGSW-SAC|Yes": {
       "capper": "Ryqeux",
@@ -3118,7 +3129,8 @@
       "startTs": 1795654800,
       "firstTs": 1795654630,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795670726
     },
     "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS|Yes": {
       "capper": "dependent.snail8369",
@@ -3155,7 +3167,20 @@
       "game": "Incarnate Word vs Hawai'i",
       "label": "yes Hawai'i,yes Saint Louis",
       "league": "NCAAB"
+    },
+    "jo.ca|KXNFLSPREAD-26NOV29WASARI-WAS7|Yes": {
+      "capper": "jo.ca",
+      "ticker": "KXNFLSPREAD-26NOV29WASARI-WAS7",
+      "side": "Yes",
+      "price": 0.54,
+      "startTs": 1795987500,
+      "firstTs": 1795670726,
+      "combo": false,
+      "status": "open",
+      "game": "Washington vs Arizona: Spread",
+      "label": "Washington wins by over 6.5 points",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795666595
+  "updatedTs": 1795670726
 }

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 8:16 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7559,9 +7559,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 9:25 PM PT"
     },
     {
       "id": "Davmjxn|KXNFLTOTAL-26NOV26KCBUF-48|Yes",
@@ -7748,9 +7748,9 @@
       "bt": "Combo",
       "recordedAt": "Tue Nov 24 \u00b7 11:38 PM PT",
       "recordedTs": 1795592293,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 9:25 PM PT"
     },
     {
       "id": "pogoburger|KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
@@ -8273,9 +8273,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
       "recordedTs": 1795654630,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 9:25 PM PT"
     },
     {
       "id": "dependent.snail8369|KXATPCHALLENGERMATCH-26NOV25JASTUL-JAS|Yes",
@@ -8378,9 +8378,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 6:38 PM PT",
       "recordedTs": 1795660727,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 9:25 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25BKNMIL-MIL|Yes",
@@ -8441,6 +8441,48 @@
       "bt": "Combo",
       "recordedAt": "Wed Nov 25 \u00b7 8:16 PM PT",
       "recordedTs": 1795666595,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25SASPOR-POR|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25SASPOR-POR",
+      "eventTicker": "KXNBAGAME-26NOV25SASPOR",
+      "game": "San Antonio vs Portland",
+      "backing": "Portland",
+      "yesNo": "No",
+      "entry": 0.5289,
+      "price": 0.31,
+      "cost": 1947.56,
+      "contracts": 3682.0,
+      "startTs": 1795662000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
+      "recordedTs": 1795670726,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25SASPOR-SAS|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25SASPOR-SAS",
+      "eventTicker": "KXNBAGAME-26NOV25SASPOR",
+      "game": "San Antonio vs Portland",
+      "backing": "San Antonio",
+      "yesNo": "Yes",
+      "entry": 0.447,
+      "price": 0.5,
+      "cost": 4601.38,
+      "contracts": 10295.0,
+      "startTs": 1795662000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 9:25 PM PT",
+      "recordedTs": 1795670726,
       "status": "open",
       "result": null,
       "settledAt": null
