@@ -3266,7 +3266,20 @@
       "game": "BAY vs GONZ (Nov 26)",
       "label": "Baylor",
       "league": "NCAAB"
+    },
+    "FFun|KXITFWMATCH-26NOV26ROUALV-ROU|Yes": {
+      "capper": "FFun",
+      "ticker": "KXITFWMATCH-26NOV26ROUALV-ROU",
+      "side": "Yes",
+      "price": 0.82,
+      "startTs": 1795748400,
+      "firstTs": 1795734582,
+      "combo": false,
+      "status": "open",
+      "game": "Roura Llaverias vs Alves",
+      "label": "Ruth Roura Llaverias",
+      "league": "Tennis"
     }
   },
-  "updatedTs": 1795730815
+  "updatedTs": 1795734582
 }

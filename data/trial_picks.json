@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 3:09 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8714,6 +8714,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
       "recordedTs": 1795730815,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "FFun|KXITFWMATCH-26NOV26ROUALV-ROU|Yes",
+      "nickname": "FFun",
+      "ticker": "KXITFWMATCH-26NOV26ROUALV-ROU",
+      "eventTicker": "KXITFWMATCH-26NOV26ROUALV",
+      "game": "Roura Llaverias vs Alves",
+      "backing": "Ruth Roura Llaverias",
+      "yesNo": "Yes",
+      "entry": 0.8667,
+      "price": 0.82,
+      "cost": 3467.75,
+      "contracts": 4001.0,
+      "startTs": 1795748400,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 3:09 PM PT",
+      "recordedTs": 1795734582,
       "status": "open",
       "result": null,
       "settledAt": null
