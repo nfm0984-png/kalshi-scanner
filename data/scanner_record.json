@@ -2664,7 +2664,8 @@
       "startTs": 1795656600,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795666247
     },
     "mde4life1986|KXNBAREB-26NOV24DALDEN-DALPWASHINGTON25-6|Yes": {
       "capper": "mde4life1986",
@@ -3139,5 +3140,5 @@
       "league": "Sports"
     }
   },
-  "updatedTs": 1795665947
+  "updatedTs": 1795666247
 }
