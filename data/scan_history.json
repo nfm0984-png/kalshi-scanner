@@ -1,31 +1,34 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 7:08 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:45 PM PT",
   "scans": [
     {
-      "ts": 1795662496,
-      "at": "Wed Nov 25 \u00b7 7:08 PM PT",
-      "names": 1001,
+      "ts": 1795664755,
+      "at": "Wed Nov 25 \u00b7 7:45 PM PT",
+      "names": 1030,
       "newFollows": [
         "fit.shirt",
         "arbitrary.lovebird6719",
         "PreciseScalper",
         "BucksFader",
         "clintmyers",
-        "jeffpaulIA"
+        "jeffpaulIA",
+        "flying.hare7791"
       ],
-      "followed": 83,
+      "followed": 84,
       "target": 100,
-      "openPicks": 10,
+      "openPicks": 12,
       "ids": [
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
         "KXMVECROSSCATEGORY-S2026CZZGGFKBLHD5QAKN-WK5FZXCNB|Yes",
-        "KXNBAGAME-26NOV25BKNMIL-MIL|Yes",
         "KXNFLGAME-26NOV25GBLAR-GB|Yes",
+        "KXNFLGAME-26NOV25GBLAR-LAR|Yes",
         "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
         "KXNFLTOTAL-26NOV25GBLAR-44|No",
         "KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes",
         "KXMVECROSSCATEGORY-S2026IMEXQNUCNMYNCR2F-2JRARNROM|Yes",
-        "KXNBAGAME-26NOV25SACGSW-SAC|Yes",
+        "KXNBAGAME-26NOV25PHXHOU-PHX|Yes",
+        "KXNBAGAME-26NOV25PHXHOU-HOU|No",
+        "KXNBATOTAL-26NOV25PHXHOU-224|Yes",
         "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
       ]
     },

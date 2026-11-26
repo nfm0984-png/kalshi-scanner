@@ -7,7 +7,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "falcon999",
-      "ts": 1795665947,
+      "ts": 1795664446,
       "boost": false
     },
     "uuqoo": {
@@ -16,7 +16,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "uuqoo",
-      "ts": 1795665947,
+      "ts": 1795664446,
       "boost": false
     },
     "bama0037": {
@@ -25,7 +25,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795666247,
+      "ts": 1795664755,
       "boost": false
     },
     "jackivouce": {
@@ -34,7 +34,7 @@
       "l": 48,
       "pnl": -21.96,
       "name": "jackivouce",
-      "ts": 1795666247,
+      "ts": 1795664755,
       "boost": false
     },
     "autofade": {
@@ -43,7 +43,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "autofade",
-      "ts": 1795620045,
+      "ts": 1795664755,
       "boost": false
     },
     "loyal.lion9691": {
@@ -481,7 +481,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Rev.Z",
-      "ts": 1795662496,
+      "ts": 1795663547,
       "boost": false
     },
     "contango": {
@@ -490,7 +490,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Contango",
-      "ts": 1795662496,
+      "ts": 1795663547,
       "boost": false
     },
     "vaaaaaaa.11": {
@@ -509,7 +509,7 @@
       "l": 4,
       "pnl": 117.28,
       "name": "FFun",
-      "ts": 1795620045,
+      "ts": 1795664755,
       "boost": false
     },
     "stiinzy": {
@@ -528,7 +528,7 @@
       "l": 2,
       "pnl": -100.92,
       "name": "Bigbone69",
-      "ts": 1795620045,
+      "ts": 1795664755,
       "boost": false
     },
     "888max": {
@@ -537,7 +537,7 @@
       "l": 2,
       "pnl": -6.99,
       "name": "888max",
-      "ts": 1795620045,
+      "ts": 1795664755,
       "boost": false
     },
     "deadpoet086": {
@@ -765,16 +765,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fit.shirt",
-      "ts": 1795662496,
+      "ts": 1795664755,
       "boost": false
     },
     "arbitrary.lovebird6719": {
-      "n": 148,
+      "n": 149,
       "w": 35,
-      "l": 113,
-      "pnl": 15.66,
+      "l": 114,
+      "pnl": 15.04,
       "name": "arbitrary.lovebird6719",
-      "ts": 1795662496,
+      "ts": 1795664755,
       "boost": true
     },
     "precisescalper": {
@@ -783,7 +783,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "PreciseScalper",
-      "ts": 1795662496,
+      "ts": 1795664755,
       "boost": false
     },
     "bucksfader": {
@@ -792,7 +792,7 @@
       "l": 13,
       "pnl": -479.8,
       "name": "BucksFader",
-      "ts": 1795662496,
+      "ts": 1795664755,
       "boost": false
     },
     "jeffpaulia": {
@@ -801,11 +801,21 @@
       "l": 7,
       "pnl": -10375.94,
       "name": "jeffpaulIA",
-      "ts": 1795662496,
+      "ts": 1795664755,
+      "boost": false
+    },
+    "flying.hare7791": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "flying.hare7791",
+      "ts": 1795664755,
       "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795666247,
+  "updatedTs": 1795664755,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
