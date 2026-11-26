@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 4:16 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 4:21 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -682,10 +682,10 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 14,
+      "openPositions": 16,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 2
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "Ryqeux",
@@ -6292,7 +6292,7 @@
       "openPositions": 1,
       "pickSource": "positions",
       "pickCount": 0,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -6317,28 +6317,28 @@
       "ageDays": 401,
       "graded": {
         "n": 400,
-        "w": 228,
-        "l": 172,
+        "w": 229,
+        "l": 171,
         "roi": null,
-        "profit": -41.48,
+        "profit": -14.62,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 228,
-        "l": 172,
+        "w": 229,
+        "l": 171,
         "roi": null,
-        "profit": -41.48,
+        "profit": -14.62,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "714Smith \u00b7 228-172 \u00b7 +$170 all",
+      "recordLine": "714Smith \u00b7 229-171 \u00b7 +$170 all",
       "addedAt": "2026-11-21",
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 8,
+      "openPositions": 9,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
@@ -28257,7 +28257,7 @@
         "w": 264,
         "l": 99,
         "roi": null,
-        "profit": 14912.24,
+        "profit": 15104.35,
         "sample": "positions"
       },
       "gradedAll": {
@@ -28265,7 +28265,7 @@
         "w": 264,
         "l": 99,
         "roi": null,
-        "profit": 14912.24,
+        "profit": 15104.35,
         "sample": "positions"
       },
       "sports": {},
@@ -28275,7 +28275,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -33392,7 +33392,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -39388,23 +39388,23 @@
       "ageDays": 227,
       "graded": {
         "n": 400,
-        "w": 194,
-        "l": 162,
+        "w": 193,
+        "l": 164,
         "roi": null,
-        "profit": 4086.62,
+        "profit": 3968.83,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 194,
-        "l": 162,
+        "w": 193,
+        "l": 164,
         "roi": null,
-        "profit": 4086.62,
+        "profit": 3968.83,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FRANKCASH \u00b7 194-162 \u00b7 +$4.61k all",
+      "recordLine": "FRANKCASH \u00b7 193-164 \u00b7 +$4.61k all",
       "addedAt": "2026-11-24",
       "followingPicks": [],
       "positionsVisible": true,

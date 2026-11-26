@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 4:16 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 4:21 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8252,6 +8252,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:06 PM PT",
       "recordedTs": 1795651570,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV25CONNDUKE-CONN|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV25CONNDUKE-CONN",
+      "eventTicker": "KXNCAAMBGAME-26NOV25CONNDUKE",
+      "game": "CONN vs DUKE (Nov 25)",
+      "backing": "UConn",
+      "yesNo": "Yes",
+      "entry": 0.5888,
+      "price": 0.58,
+      "cost": 2499.98,
+      "contracts": 4246.23,
+      "startTs": 1795651200,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 4:21 PM PT",
+      "recordedTs": 1795652470,
       "status": "open",
       "result": null,
       "settledAt": null
