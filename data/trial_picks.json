@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 6:35 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:38 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8357,6 +8357,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 6:25 PM PT",
       "recordedTs": 1795659949,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "Muffat00|KXNFLGAME-26NOV25GBLAR-GB|Yes",
+      "nickname": "Muffat00",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "eventTicker": "KXNFLGAME-26NOV25GBLAR",
+      "game": "Green Bay vs Los Angeles R",
+      "backing": "Green Bay",
+      "yesNo": "Yes",
+      "entry": 0.43,
+      "price": 0.43,
+      "cost": 2826.82,
+      "contracts": 6574.0,
+      "startTs": 1795654800,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:38 PM PT",
+      "recordedTs": 1795660727,
       "status": "open",
       "result": null,
       "settledAt": null
