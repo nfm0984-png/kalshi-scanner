@@ -2686,7 +2686,8 @@
       "startTs": 1795644000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795653430
     },
     "mde4life1986|KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10|Yes": {
       "capper": "mde4life1986",
@@ -3031,5 +3032,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795652470
+  "updatedTs": 1795653430
 }

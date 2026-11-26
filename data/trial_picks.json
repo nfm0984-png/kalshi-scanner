@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 4:21 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 4:37 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8189,9 +8189,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 2:02 PM PT",
       "recordedTs": 1795644166,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 4:37 PM PT"
     },
     {
       "id": "FFun|KXATPCHALLENGERMATCH-26NOV25BONMIG-BON|Yes",
@@ -8231,9 +8231,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:01 PM PT",
       "recordedTs": 1795651270,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 4:37 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25MIAPHI-MIA|Yes",
@@ -8252,9 +8252,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:06 PM PT",
       "recordedTs": 1795651570,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 4:37 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV25CONNDUKE-CONN|Yes",
