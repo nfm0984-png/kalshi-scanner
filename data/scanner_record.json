@@ -2696,7 +2696,8 @@
       "startTs": 1795653000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795663547
     },
     "mde4life1986|KXNBAGAME-26NOV25MIAPHI-MIA|Yes": {
       "capper": "mde4life1986",
@@ -2728,7 +2729,8 @@
       "startTs": 1795651200,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795663547
     },
     "royalestake|KXNHLGAME-26NOV25UTAMIN-MIN|Yes": {
       "capper": "royalestake",
@@ -2803,7 +2805,8 @@
       "startTs": 1795653000,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795663547
     },
     "NordhavenCap|KXMLSGAME-26NOV24SJHOU-SJ|Yes": {
       "capper": "NordhavenCap",
@@ -2941,7 +2944,8 @@
       "startTs": 1795653000,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795663547
     },
     "iluminado|KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ|Yes": {
       "capper": "iluminado",
@@ -3119,5 +3123,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795660727
+  "updatedTs": 1795663547
 }

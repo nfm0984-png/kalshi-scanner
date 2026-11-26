@@ -481,7 +481,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Rev.Z",
-      "ts": 1795618150,
+      "ts": 1795663547,
       "boost": false
     },
     "contango": {
@@ -490,7 +490,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Contango",
-      "ts": 1795618150,
+      "ts": 1795663547,
       "boost": false
     },
     "vaaaaaaa.11": {
@@ -761,6 +761,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795660727,
+  "updatedTs": 1795663547,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
