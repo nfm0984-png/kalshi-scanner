@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 4:37 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 4:47 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8273,6 +8273,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:21 PM PT",
       "recordedTs": 1795652470,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "eventTicker": "KXNFLGAME-26NOV25GBLAR",
+      "game": "GB vs LAR (Nov 25)",
+      "backing": "Green Bay",
+      "yesNo": "Yes",
+      "entry": 0.4673,
+      "price": 0.45,
+      "cost": 1999.99,
+      "contracts": 4279.67,
+      "startTs": 1795654800,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 4:47 PM PT",
+      "recordedTs": 1795654031,
       "status": "open",
       "result": null,
       "settledAt": null

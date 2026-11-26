@@ -2979,7 +2979,8 @@
       "startTs": 1795644600,
       "firstTs": 1795640926,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795654031
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026NCW2R4S56X4RPXQ7-OOG6F24EE|Yes": {
       "capper": "Ryqeux",
@@ -3030,7 +3031,17 @@
       "firstTs": 1795651270,
       "combo": false,
       "status": "open"
+    },
+    "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "side": "Yes",
+      "price": 0.45,
+      "startTs": 1795654800,
+      "firstTs": 1795654031,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795653430
+  "updatedTs": 1795654031
 }
