@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 6:10 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:15 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8210,9 +8210,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 3:58 PM PT",
       "recordedTs": 1795651119,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 6:15 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25MIAPHI-PHI|No",
@@ -8294,9 +8294,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 5:12 PM PT",
       "recordedTs": 1795655531,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 6:15 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25CHICHA-CHI|Yes",
