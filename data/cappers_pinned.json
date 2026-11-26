@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -138,16 +138,16 @@
       "addedAt": "2026-11-26"
     },
     {
-      "nickname": "absolute.turtle7508",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "pogoburger",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-23"
+    },
+    {
+      "nickname": "absolute.turtle7508",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "reluctant.fox5394",
@@ -210,7 +210,7 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "gavguy",
+      "nickname": "HolmesWand",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
@@ -220,6 +220,18 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "gavguy",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "governing.dinosaur",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
     },
     {
       "nickname": "nshrd",
@@ -240,13 +252,13 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "dear.bet",
+      "nickname": "FRANKCASH",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-24"
     },
     {
-      "nickname": "FRANKCASH",
+      "nickname": "dear.bet",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-24"
@@ -294,16 +306,22 @@
       "addedAt": "2026-11-24"
     },
     {
+      "nickname": "wet.ape",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
+    },
+    {
       "nickname": "fen.dachi",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "wet.ape",
+      "nickname": "king.45",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-25"
+      "addedAt": "2026-11-22"
     },
     {
       "nickname": "caughtintheusa",
@@ -312,7 +330,19 @@
       "addedAt": "2026-11-26"
     },
     {
-      "nickname": "king.45",
+      "nickname": "gap.sauce",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-23"
+    },
+    {
+      "nickname": "classic.toucan",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
+    },
+    {
+      "nickname": "iknowballmorethanu",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -322,24 +352,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "gap.sauce",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-23"
-    },
-    {
-      "nickname": "iknowballmorethanu",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "classic.toucan",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-25"
     },
     {
       "nickname": "brand.breeze",
@@ -366,16 +378,16 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "BucksFader",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-25"
-    },
-    {
       "nickname": "djcheecake",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-24"
+    },
+    {
+      "nickname": "BucksFader",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-25"
     },
     {
       "nickname": "don.tony",
@@ -384,13 +396,19 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "parspectives",
+      "nickname": "gradysue",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "ustrader",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "ustrader",
+      "nickname": "parspectives",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -406,12 +424,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-23"
-    },
-    {
-      "nickname": "gradysue",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-26"
     },
     {
       "nickname": "firm.tip",
@@ -432,16 +444,28 @@
       "addedAt": "2026-11-25"
     },
     {
+      "nickname": "Bobbyoracle",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
+    },
+    {
       "nickname": "fattii",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
     },
     {
-      "nickname": "Bobbyoracle",
+      "nickname": "clintmyers",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-24"
+      "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "biscuitshooker",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
     },
     {
       "nickname": "Rev.Z",
@@ -456,16 +480,16 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "biscuitshooker",
+      "nickname": "harsh.aid",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
     },
     {
-      "nickname": "Eibriham",
+      "nickname": "djm975",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-23"
+      "addedAt": "2026-11-25"
     },
     {
       "nickname": "Confubae",
@@ -481,12 +505,6 @@
     },
     {
       "nickname": "jeffpaulIA",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-25"
-    },
-    {
-      "nickname": "djm975",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
@@ -550,12 +568,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-24"
-    },
-    {
-      "nickname": "Watsons.burnerr",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-23"
     },
     {
       "nickname": "milesdavis",
@@ -644,8 +656,8 @@
     "her.king.091519",
     "Profitprofet",
     "basquetipster",
-    "absolute.turtle7508",
     "pogoburger",
+    "absolute.turtle7508",
     "reluctant.fox5394",
     "door.whale",
     "iluminado",
@@ -656,13 +668,15 @@
     "fit.shirt",
     "FFun",
     "regine",
-    "gavguy",
+    "HolmesWand",
     "714Smith",
+    "gavguy",
+    "governing.dinosaur",
     "nshrd",
     "opposite.dolphin8700",
     "YoungGriff",
-    "dear.bet",
     "FRANKCASH",
+    "dear.bet",
     "grooy",
     "successful.koi2475",
     "ChopChopHTX",
@@ -670,39 +684,40 @@
     "arbitrary.lovebird6719",
     "ChasingUnits",
     "Bigbone69",
-    "fen.dachi",
     "wet.ape",
-    "caughtintheusa",
+    "fen.dachi",
     "king.45",
-    "Davmjxn",
+    "caughtintheusa",
     "gap.sauce",
-    "iknowballmorethanu",
     "classic.toucan",
+    "iknowballmorethanu",
+    "Davmjxn",
     "brand.breeze",
     "Muffat00",
     "888max",
     "Snoz3berries",
-    "BucksFader",
     "djcheecake",
+    "BucksFader",
     "don.tony",
-    "parspectives",
+    "gradysue",
     "ustrader",
+    "parspectives",
     "coolness77",
     "tru3f0rmr",
-    "gradysue",
     "firm.tip",
     "kelab",
     "empiremaker70",
-    "fattii",
     "Bobbyoracle",
+    "fattii",
+    "clintmyers",
+    "biscuitshooker",
     "Rev.Z",
     "bird.pointer",
-    "biscuitshooker",
-    "Eibriham",
+    "harsh.aid",
+    "djm975",
     "Confubae",
     "whig",
     "jeffpaulIA",
-    "djm975",
     "Dimesy",
     "jakem12",
     "Onepunchpanda",
@@ -713,7 +728,6 @@
     "lebronthanos",
     "drib",
     "VAAAAAAA.11",
-    "Watsons.burnerr",
     "milesdavis",
     "beaudane",
     "deadpoet086",

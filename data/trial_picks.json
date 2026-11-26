@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8588,9 +8588,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
       "recordedTs": 1795713926,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 2:06 PM PT"
     },
     {
       "id": "Eibriham|KXNFLGAME-26NOV26CHIDET-DET|Yes",
@@ -8609,9 +8609,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
       "recordedTs": 1795720406,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 2:06 PM PT"
     },
     {
       "id": "djcheecake|KXNFLGAME-26NOV26CHIDET-DET|Yes",
@@ -8630,9 +8630,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
       "recordedTs": 1795720406,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 2:06 PM PT"
     },
     {
       "id": "FFun|KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF|Yes",
@@ -8672,6 +8672,48 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
       "recordedTs": 1795727154,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 2:06 PM PT"
+    },
+    {
+      "id": "falcon999|KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT-VFSODX444|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT-VFSODX444",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT",
+      "game": "MVE",
+      "backing": "yes Dallas,yes George Pickens: 1+,yes Javonte Williams: 1+",
+      "yesNo": "Yes",
+      "entry": 0.2683,
+      "price": 0.377,
+      "cost": 1999.98,
+      "contracts": 7454.34,
+      "startTs": 1795728600,
+      "league": "NFL",
+      "bt": "Combo",
+      "recordedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
+      "recordedTs": 1795730815,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV26BAYGONZ-BAY",
+      "eventTicker": "KXNCAAMBGAME-26NOV26BAYGONZ",
+      "game": "BAY vs GONZ (Nov 26)",
+      "backing": "Baylor",
+      "yesNo": "Yes",
+      "entry": 0.4106,
+      "price": 0.4,
+      "cost": 1999.99,
+      "contracts": 4870.81,
+      "startTs": 1795753800,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
+      "recordedTs": 1795730815,
       "status": "open",
       "result": null,
       "settledAt": null

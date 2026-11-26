@@ -3235,10 +3235,11 @@
       "startTs": 1795716000,
       "firstTs": 1795713926,
       "combo": false,
-      "status": "open",
+      "status": "win",
       "game": "CHI vs DET (Nov 26)",
       "label": "Chicago",
-      "league": "NFL"
+      "league": "NFL",
+      "gradedTs": 1795730815
     },
     "FFun|KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF|Yes": {
       "capper": "FFun",
@@ -3252,7 +3253,20 @@
       "game": "Nefve vs Willwerth",
       "label": "Axel Nefve",
       "league": "Tennis"
+    },
+    "falcon999|KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV26BAYGONZ-BAY",
+      "side": "Yes",
+      "price": 0.4,
+      "startTs": 1795753800,
+      "firstTs": 1795730815,
+      "combo": false,
+      "status": "open",
+      "game": "BAY vs GONZ (Nov 26)",
+      "label": "Baylor",
+      "league": "NCAAB"
     }
   },
-  "updatedTs": 1795727154
+  "updatedTs": 1795730815
 }

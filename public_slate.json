@@ -1,24 +1,15 @@
 {
   "source": "kalshi",
-  "ts": 1795728223,
-  "updatedAt": "Thu Nov 26 \u00b7 1:23 PM PT",
+  "ts": 1795731896,
+  "updatedAt": "Thu Nov 26 \u00b7 2:24 PM PT",
   "picks": [
     {
-      "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
+      "ticker": "KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT-VFSODX444",
       "yesNo": "Yes",
-      "side": "Detroit",
-      "game": "Chicago vs Detroit",
-      "startTs": 1795716000,
-      "bt": "Moneyline",
-      "n": 3
-    },
-    {
-      "ticker": "KXNFLGAME-26NOV26CHIDET-CHI",
-      "yesNo": "Yes",
-      "side": "Chicago",
-      "game": "Chicago vs Detroit",
-      "startTs": 1795716000,
-      "bt": "Moneyline",
+      "side": "yes Dallas,yes George Pickens: 1+,yes Javonte Williams: 1+ \u00b7 3-leg combo",
+      "game": "MVE",
+      "startTs": 1795728600,
+      "bt": "Combo",
       "n": 1
     },
     {
@@ -28,6 +19,15 @@
       "game": "Kansas City vs Buffalo: Touchdowns",
       "startTs": 1795742400,
       "bt": "Player props",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAMBGAME-26NOV26BAYGONZ-BAY",
+      "yesNo": "Yes",
+      "side": "Baylor",
+      "game": "BAY vs GONZ (Nov 26)",
+      "startTs": 1795753800,
+      "bt": "Moneyline",
       "n": 1
     },
     {

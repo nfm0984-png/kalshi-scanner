@@ -133,7 +133,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "regine",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "allhunnsno20sr10s": {
@@ -146,21 +146,21 @@
       "boost": false
     },
     "714smith": {
-      "n": 388,
+      "n": 387,
       "w": 211,
-      "l": 177,
-      "pnl": 128.91,
+      "l": 176,
+      "pnl": 161.56,
       "name": "714Smith",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": true
     },
     "opposite.dolphin8700": {
       "n": 108,
       "w": 24,
       "l": 84,
-      "pnl": -1977.05,
+      "pnl": -2192.17,
       "name": "opposite.dolphin8700",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "nshrd": {
@@ -169,7 +169,7 @@
       "l": 1,
       "pnl": -5.0,
       "name": "nshrd",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "younggriff": {
@@ -178,7 +178,7 @@
       "l": 12,
       "pnl": 7009.56,
       "name": "YoungGriff",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "successful.koi2475": {
@@ -187,7 +187,7 @@
       "l": 5,
       "pnl": -17227.31,
       "name": "successful.koi2475",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "king.45": {
@@ -573,7 +573,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "FRANKCASH",
-      "ts": 1795678589,
+      "ts": 1795730815,
       "boost": false
     },
     "djcheecake": {
@@ -728,7 +728,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "clintmyers",
-      "ts": 1795644510,
+      "ts": 1795730815,
       "boost": false
     },
     "djm975": {
@@ -838,7 +838,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "flying.hare7791",
-      "ts": 1795670726,
+      "ts": 1795730815,
       "boost": false
     },
     "dant": {
@@ -941,9 +941,36 @@
       "name": "gradysue",
       "ts": 1795727154,
       "boost": false
+    },
+    "holmeswand": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -19.99,
+      "name": "HolmesWand",
+      "ts": 1795730815,
+      "boost": false
+    },
+    "governing.dinosaur": {
+      "n": 17,
+      "w": 10,
+      "l": 7,
+      "pnl": 33.09,
+      "name": "governing.dinosaur",
+      "ts": 1795730815,
+      "boost": false
+    },
+    "harsh.aid": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -10.67,
+      "name": "harsh.aid",
+      "ts": 1795730815,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795727154,
+  "updatedTs": 1795730815,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
