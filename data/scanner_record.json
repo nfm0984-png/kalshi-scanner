@@ -2696,8 +2696,7 @@
       "startTs": 1795653000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795663547
+      "status": "open"
     },
     "mde4life1986|KXNBAGAME-26NOV25MIAPHI-MIA|Yes": {
       "capper": "mde4life1986",
@@ -2730,7 +2729,7 @@
       "firstTs": 1795571564,
       "combo": false,
       "status": "win",
-      "gradedTs": 1795663547
+      "gradedTs": 1795662496
     },
     "royalestake|KXNHLGAME-26NOV25UTAMIN-MIN|Yes": {
       "capper": "royalestake",
@@ -2740,8 +2739,7 @@
       "startTs": 1795654800,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795665048
+      "status": "open"
     },
     "GC-P|KXUCLGAME-26NOV25SHAFEN-FEN|No": {
       "capper": "GC-P",
@@ -2806,8 +2804,7 @@
       "startTs": 1795653000,
       "firstTs": 1795576217,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795663547
+      "status": "open"
     },
     "NordhavenCap|KXMLSGAME-26NOV24SJHOU-SJ|Yes": {
       "capper": "NordhavenCap",
@@ -2945,8 +2942,7 @@
       "startTs": 1795653000,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "win",
-      "gradedTs": 1795663547
+      "status": "open"
     },
     "iluminado|KXWTACHALLENGERMATCH-26NOV25TREERJ-ERJ|Yes": {
       "capper": "iluminado",
@@ -3050,8 +3046,7 @@
       "startTs": 1795654800,
       "firstTs": 1795647960,
       "combo": false,
-      "status": "loss",
-      "gradedTs": 1795664446
+      "status": "open"
     },
     "GGmate111|KXMVECROSSCATEGORY-S2026H6YEIBDRONIHNKPD-LIYG46Z6D|Yes": {
       "capper": "GGmate111",
@@ -3072,8 +3067,7 @@
       "startTs": 1795653000,
       "firstTs": 1795651119,
       "combo": true,
-      "status": "loss",
-      "gradedTs": 1795664446
+      "status": "open"
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes": {
       "capper": "Ryqeux",
@@ -3126,5 +3120,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795665348
+  "updatedTs": 1795662496
 }

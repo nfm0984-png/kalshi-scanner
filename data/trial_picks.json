@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 7:55 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8063,9 +8063,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 9:33 AM PT",
       "recordedTs": 1795628005,
-      "status": "win",
-      "result": "yes",
-      "settledAt": "Wed Nov 25 \u00b7 7:25 PM PT"
+      "status": "open",
+      "result": null,
+      "settledAt": null
     },
     {
       "id": "iknowballmorethanu|KXUCLTOTAL-26NOV25SBHBAR-5|No",
@@ -8338,7 +8338,7 @@
       "recordedTs": 1795659949,
       "status": "win",
       "result": "no",
-      "settledAt": "Wed Nov 25 \u00b7 7:25 PM PT"
+      "settledAt": "Wed Nov 25 \u00b7 7:08 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV25CLENYK-NYK|Yes",
@@ -8359,7 +8359,7 @@
       "recordedTs": 1795659949,
       "status": "win",
       "result": "yes",
-      "settledAt": "Wed Nov 25 \u00b7 7:25 PM PT"
+      "settledAt": "Wed Nov 25 \u00b7 7:08 PM PT"
     },
     {
       "id": "Muffat00|KXNFLGAME-26NOV25GBLAR-GB|Yes",
@@ -8383,64 +8383,22 @@
       "settledAt": null
     },
     {
-      "id": "regine|KXNBAGAME-26NOV25PHXHOU-HOU|No",
+      "id": "regine|KXNBAGAME-26NOV25BKNMIL-MIL|Yes",
       "nickname": "regine",
-      "ticker": "KXNBAGAME-26NOV25PHXHOU-HOU",
-      "eventTicker": "KXNBAGAME-26NOV25PHXHOU",
-      "game": "Phoenix vs Houston",
-      "backing": "Houston",
-      "yesNo": "No",
-      "entry": 0.7708,
-      "price": 0.13,
-      "cost": 2635.26,
-      "contracts": 3419.0,
-      "startTs": 1795656600,
+      "ticker": "KXNBAGAME-26NOV25BKNMIL-MIL",
+      "eventTicker": "KXNBAGAME-26NOV25BKNMIL",
+      "game": "Brooklyn vs Milwaukee",
+      "backing": "Milwaukee",
+      "yesNo": "Yes",
+      "entry": 0.4264,
+      "price": 0.1,
+      "cost": 1237.86,
+      "contracts": 2903.0,
+      "startTs": 1795654800,
       "league": "NBA",
       "bt": "Moneyline",
-      "recordedAt": "Wed Nov 25 \u00b7 7:40 PM PT",
-      "recordedTs": 1795664446,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "regine|KXNBAGAME-26NOV25PHXHOU-PHX|Yes",
-      "nickname": "regine",
-      "ticker": "KXNBAGAME-26NOV25PHXHOU-PHX",
-      "eventTicker": "KXNBAGAME-26NOV25PHXHOU",
-      "game": "Phoenix vs Houston",
-      "backing": "Phoenix",
-      "yesNo": "Yes",
-      "entry": 0.3466,
-      "price": 0.14,
-      "cost": 1445.61,
-      "contracts": 4171.0,
-      "startTs": 1795656600,
-      "league": "NBA",
-      "bt": "Moneyline",
-      "recordedAt": "Wed Nov 25 \u00b7 7:45 PM PT",
-      "recordedTs": 1795664747,
-      "status": "open",
-      "result": null,
-      "settledAt": null
-    },
-    {
-      "id": "regine|KXNBATOTAL-26NOV25PHXHOU-224|Yes",
-      "nickname": "regine",
-      "ticker": "KXNBATOTAL-26NOV25PHXHOU-224",
-      "eventTicker": "KXNBATOTAL-26NOV25PHXHOU",
-      "game": "Phoenix vs Houston: Total Points",
-      "backing": "Over 223.5 points",
-      "yesNo": "Yes",
-      "entry": 0.3897,
-      "price": 0.47,
-      "cost": 1042.85,
-      "contracts": 2676.0,
-      "startTs": 1795656600,
-      "league": "NBA",
-      "bt": "Totals",
-      "recordedAt": "Wed Nov 25 \u00b7 7:45 PM PT",
-      "recordedTs": 1795664747,
+      "recordedAt": "Wed Nov 25 \u00b7 7:08 PM PT",
+      "recordedTs": 1795662496,
       "status": "open",
       "result": null,
       "settledAt": null
