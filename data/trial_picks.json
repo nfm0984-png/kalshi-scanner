@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 7:25 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 7:40 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8378,6 +8378,27 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 6:38 PM PT",
       "recordedTs": 1795660727,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25PHXHOU-HOU|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25PHXHOU-HOU",
+      "eventTicker": "KXNBAGAME-26NOV25PHXHOU",
+      "game": "Phoenix vs Houston",
+      "backing": "Houston",
+      "yesNo": "No",
+      "entry": 0.7708,
+      "price": 0.13,
+      "cost": 2635.26,
+      "contracts": 3419.0,
+      "startTs": 1795656600,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 7:40 PM PT",
+      "recordedTs": 1795664446,
       "status": "open",
       "result": null,
       "settledAt": null

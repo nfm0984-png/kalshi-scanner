@@ -3049,7 +3049,8 @@
       "startTs": 1795654800,
       "firstTs": 1795647960,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795664446
     },
     "GGmate111|KXMVECROSSCATEGORY-S2026H6YEIBDRONIHNKPD-LIYG46Z6D|Yes": {
       "capper": "GGmate111",
@@ -3070,7 +3071,8 @@
       "startTs": 1795653000,
       "firstTs": 1795651119,
       "combo": true,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795664446
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026IA2QOL4IDGWV7GYD-44SN7YOUX|Yes": {
       "capper": "Ryqeux",
@@ -3123,5 +3125,5 @@
       "status": "open"
     }
   },
-  "updatedTs": 1795663547
+  "updatedTs": 1795664446
 }
