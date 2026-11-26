@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 6:15 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:20 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7769,9 +7769,9 @@
       "bt": "Spread",
       "recordedAt": "Wed Nov 25 \u00b7 6:49 AM PT",
       "recordedTs": 1795618150,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 6:20 PM PT"
     },
     {
       "id": "Muffat00|KXNCAAMBGAME-26NOV25SBONBEL-BEL|Yes",
@@ -8252,9 +8252,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
       "recordedTs": 1795654630,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Wed Nov 25 \u00b7 6:20 PM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes",
@@ -8357,6 +8357,48 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 5:55 PM PT",
       "recordedTs": 1795658148,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25CLENYK-CLE|Yes",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25CLENYK-CLE",
+      "eventTicker": "KXNBAGAME-26NOV25CLENYK",
+      "game": "Cleveland vs New York",
+      "backing": "Cleveland",
+      "yesNo": "Yes",
+      "entry": 0.49,
+      "price": 0.67,
+      "cost": 2011.25,
+      "contracts": 4105.0,
+      "startTs": 1795653000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:20 PM PT",
+      "recordedTs": 1795659648,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV25CLENYK-NYK|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV25CLENYK-NYK",
+      "eventTicker": "KXNBAGAME-26NOV25CLENYK",
+      "game": "Cleveland vs New York",
+      "backing": "New York",
+      "yesNo": "No",
+      "entry": 0.5102,
+      "price": 0.64,
+      "cost": 2087.32,
+      "contracts": 4091.0,
+      "startTs": 1795653000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 6:20 PM PT",
+      "recordedTs": 1795659648,
       "status": "open",
       "result": null,
       "settledAt": null

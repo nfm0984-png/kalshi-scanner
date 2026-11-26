@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Wed Nov 25 \u00b7 6:15 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 6:20 PM PT",
   "cappers": [
     {
       "nickname": "WorkerTrader",
@@ -197,7 +197,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 3,
+      "openPositions": 4,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -267,7 +267,7 @@
       "followingPicks": [],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
       "pickCount": 0,
       "followCount": 0
@@ -709,10 +709,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 29,
+      "openPositions": 32,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 3,
+      "followCount": 3
     },
     {
       "nickname": "Ryqeux",
@@ -6634,18 +6634,18 @@
       "ageDays": 183,
       "graded": {
         "n": 400,
-        "w": 335,
-        "l": 65,
+        "w": 334,
+        "l": 66,
         "roi": null,
-        "profit": 39471.7,
+        "profit": 41568.27,
         "sample": "positions"
       },
       "gradedAll": {
         "n": 400,
-        "w": 335,
-        "l": 65,
+        "w": 334,
+        "l": 66,
         "roi": null,
-        "profit": 39471.7,
+        "profit": 41568.27,
         "sample": "positions"
       },
       "sports": {
@@ -6665,7 +6665,7 @@
         }
       },
       "bestAt": "MLB",
-      "recordLine": "dependent.snail8369 \u00b7 335-65 \u00b7 Best at MLB \u00b7 +$25.8k all",
+      "recordLine": "dependent.snail8369 \u00b7 334-66 \u00b7 Best at MLB \u00b7 +$25.8k all",
       "addedAt": "2026-11-21",
       "followingPicks": [
         {
@@ -6697,10 +6697,10 @@
       ],
       "positionsVisible": true,
       "postsVisible": false,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions",
-      "pickCount": 1,
-      "followCount": 1
+      "pickCount": 0,
+      "followCount": 0
     },
     {
       "nickname": "714Smith",
@@ -29133,7 +29133,7 @@
       "openPositions": 2,
       "pickSource": "positions",
       "pickCount": 1,
-      "followCount": 1
+      "followCount": 0
     },
     {
       "nickname": "benfranklin",
@@ -31940,24 +31940,24 @@
       "tape30d": null,
       "ageDays": 142,
       "graded": {
-        "n": 307,
+        "n": 308,
         "w": 203,
-        "l": 91,
+        "l": 92,
         "roi": null,
-        "profit": 8574.2,
+        "profit": 6350.92,
         "sample": "positions"
       },
       "gradedAll": {
-        "n": 307,
+        "n": 308,
         "w": 203,
-        "l": 91,
+        "l": 92,
         "roi": null,
-        "profit": 8574.2,
+        "profit": 6350.92,
         "sample": "positions"
       },
       "sports": {},
       "bestAt": null,
-      "recordLine": "FFun \u00b7 203-91 \u00b7 +$7.54k all",
+      "recordLine": "FFun \u00b7 203-92 \u00b7 +$7.54k all",
       "addedAt": "2026-11-24",
       "followingPicks": [
         {
@@ -31989,7 +31989,7 @@
       ],
       "positionsVisible": true,
       "postsVisible": true,
-      "openPositions": 1,
+      "openPositions": 0,
       "pickSource": "positions+posts",
       "pickCount": 0,
       "followCount": 0
