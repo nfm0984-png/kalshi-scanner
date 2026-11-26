@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 1:30 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 7:16 AM PT",
   "scans": [
+    {
+      "ts": 1795706167,
+      "at": "Thu Nov 26 \u00b7 7:16 AM PT",
+      "names": 167,
+      "newFollows": [
+        "her.king.091519",
+        "TheRealJag",
+        "blond.class"
+      ],
+      "followed": 90,
+      "target": 100,
+      "openPicks": 1,
+      "ids": [
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795685411,
       "at": "Thu Nov 26 \u00b7 1:30 AM PT",
@@ -1140,27 +1157,6 @@
       "ids": [
         "KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
         "KXATPCHALLENGERMATCH-26NOV22HOLSAN-HOL|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
-      ]
-    },
-    {
-      "ts": 1795397286,
-      "at": "Sun Nov 22 \u00b7 5:28 PM PT",
-      "names": 314,
-      "newFollows": [
-        "opposite.dolphin8700"
-      ],
-      "followed": 38,
-      "target": 200,
-      "openPicks": 8,
-      "ids": [
-        "KXMVECROSSCATEGORY-S20265Z2I5TVRBK6VIKWV-N4WWIYT57|Yes",
-        "KXMVECROSSCATEGORY-S2026R25EU4Q4CPV7JMHH-NQFUFMAN6|Yes",
-        "KXMVECROSSCATEGORY-S2026UZMRQDW4UAJBV3KS-I6MXOPAPO|Yes",
-        "KXNFLGAME-26NOV22MINSF-SF|Yes",
-        "KXNFLGAME-26NOV22MINSF-MIN|Yes",
-        "KXNFLTDPROT-26NOV22MINSF-SFMEVANS5-1|Yes",
-        "KXNFLTDPROT-26NOV22MINSF-SFCMCCAFFREY23-1|Yes",
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
       ]
     }

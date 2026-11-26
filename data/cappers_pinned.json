@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Thu Nov 26 \u00b7 1:30 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 7:16 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -120,6 +120,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "her.king.091519",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
+    },
+    {
       "nickname": "Profitprofet",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -180,16 +186,16 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "FFun",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "fit.shirt",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
+    },
+    {
+      "nickname": "FFun",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "regine",
@@ -252,13 +258,13 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "ChasingUnits",
+      "nickname": "FRANKCASH",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-25"
+      "addedAt": "2026-11-24"
     },
     {
-      "nickname": "PreciseScalper",
+      "nickname": "ChasingUnits",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
@@ -270,10 +276,10 @@
       "addedAt": "2026-11-24"
     },
     {
-      "nickname": "FRANKCASH",
+      "nickname": "PreciseScalper",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-24"
+      "addedAt": "2026-11-25"
     },
     {
       "nickname": "fen.dachi",
@@ -318,13 +324,13 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "Muffat00",
+      "nickname": "brand.breeze",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "brand.breeze",
+      "nickname": "Muffat00",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -576,10 +582,22 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "TheRealJag",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
+    },
+    {
       "nickname": "kevin702",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
+    },
+    {
+      "nickname": "blond.class",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
     },
     {
       "nickname": "BWmarkets",
@@ -605,6 +623,7 @@
     "loyal.lion9691",
     "WorkerTrader",
     "dependent.snail8369",
+    "her.king.091519",
     "Profitprofet",
     "absolute.turtle7508",
     "pogoburger",
@@ -615,8 +634,8 @@
     "AllHunnsNo20sR10s",
     "Contango",
     "controlled.rook2872",
-    "FFun",
     "fit.shirt",
+    "FFun",
     "regine",
     "714Smith",
     "nshrd",
@@ -627,10 +646,10 @@
     "successful.koi2475",
     "dant",
     "arbitrary.lovebird6719",
-    "ChasingUnits",
-    "PreciseScalper",
-    "Bigbone69",
     "FRANKCASH",
+    "ChasingUnits",
+    "Bigbone69",
+    "PreciseScalper",
     "fen.dachi",
     "wet.ape",
     "king.45",
@@ -638,8 +657,8 @@
     "gap.sauce",
     "iknowballmorethanu",
     "classic.toucan",
-    "Muffat00",
     "brand.breeze",
+    "Muffat00",
     "888max",
     "Snoz3berries",
     "BucksFader",
@@ -681,7 +700,9 @@
     "spot.ship",
     "flying.hare7791",
     "norrisfan",
+    "TheRealJag",
     "kevin702",
+    "blond.class",
     "BWmarkets",
     "falcon999"
   ]

@@ -314,7 +314,7 @@
       "l": 19,
       "pnl": -55.65,
       "name": "Eibriham",
-      "ts": 1795633627,
+      "ts": 1795706167,
       "boost": false
     },
     "tru3f0rmr": {
@@ -324,7 +324,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "tru3f0rmr",
-      "ts": 1795633627,
+      "ts": 1795706167,
       "boost": false
     },
     "kelab": {
@@ -342,7 +342,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Dimesy",
-      "ts": 1795633627,
+      "ts": 1795706167,
       "boost": false
     },
     "whig": {
@@ -351,7 +351,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "whig",
-      "ts": 1795633627,
+      "ts": 1795706167,
       "boost": false
     },
     "jakem12": {
@@ -360,16 +360,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "jakem12",
-      "ts": 1795636530,
+      "ts": 1795706167,
       "boost": false
     },
     "bdadams": {
-      "n": 6,
-      "w": 3,
+      "n": 5,
+      "w": 2,
       "l": 3,
-      "pnl": 2.06,
+      "pnl": -5.56,
       "name": "bdadams",
-      "ts": 1795636530,
+      "ts": 1795706167,
       "boost": false
     },
     "mild.fire": {
@@ -378,7 +378,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "mild.fire",
-      "ts": 1795637130,
+      "ts": 1795706167,
       "boost": false
     },
     "lebronthanos": {
@@ -609,7 +609,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "HawkeyeMug",
-      "ts": 1795633627,
+      "ts": 1795706167,
       "boost": false
     },
     "dear.bet": {
@@ -618,7 +618,7 @@
       "l": 1,
       "pnl": 169.98,
       "name": "dear.bet",
-      "ts": 1795637130,
+      "ts": 1795706167,
       "boost": false
     },
     "ggmate111": {
@@ -859,9 +859,37 @@
       "name": "powerful.terrier4093",
       "ts": 1795685411,
       "boost": false
+    },
+    "her.king.091519": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "her.king.091519",
+      "ts": 1795706167,
+      "boost": false
+    },
+    "therealjag": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "TheRealJag",
+      "ts": 1795706167,
+      "boost": false
+    },
+    "blond.class": {
+      "n": 3,
+      "w": 1,
+      "l": 2,
+      "pnl": -0.91,
+      "name": "blond.class",
+      "ts": 1795706167,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795685411,
+  "updatedTs": 1795706167,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
