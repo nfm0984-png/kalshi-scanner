@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
   "scans": [
+    {
+      "ts": 1795720406,
+      "at": "Thu Nov 26 \u00b7 11:13 AM PT",
+      "names": 172,
+      "newFollows": [],
+      "followed": 92,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXNFLGAME-26NOV26CHIDET-DET|Yes",
+        "KXNFLGAME-26NOV26CHIDET-CHI|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795713926,
       "at": "Thu Nov 26 \u00b7 9:25 AM PT",
@@ -1148,22 +1164,6 @@
       "openPicks": 2,
       "ids": [
         "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
-      ]
-    },
-    {
-      "ts": 1795420607,
-      "at": "Sun Nov 22 \u00b7 11:56 PM PT",
-      "names": 370,
-      "newFollows": [
-        "Snoz3berries"
-      ],
-      "followed": 46,
-      "target": 100,
-      "openPicks": 3,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
-        "KXWT20MATCH-26NOV230000PAKSRI-SRI|Yes",
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
       ]
     }

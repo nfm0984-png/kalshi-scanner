@@ -7,7 +7,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "falcon999",
-      "ts": 1795665947,
+      "ts": 1795720406,
       "boost": false
     },
     "uuqoo": {
@@ -16,7 +16,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "uuqoo",
-      "ts": 1795665947,
+      "ts": 1795720406,
       "boost": false
     },
     "bama0037": {
@@ -25,16 +25,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795666247,
+      "ts": 1795720406,
       "boost": false
     },
     "jackivouce": {
       "n": 2999,
       "w": 2951,
       "l": 48,
-      "pnl": -21.96,
+      "pnl": -191.64,
       "name": "jackivouce",
-      "ts": 1795666247,
+      "ts": 1795720406,
       "boost": false
     },
     "autofade": {
@@ -481,7 +481,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Rev.Z",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "contango": {
@@ -490,7 +490,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Contango",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "vaaaaaaa.11": {
@@ -756,7 +756,7 @@
       "l": 4,
       "pnl": 57.03,
       "name": "don.tony",
-      "ts": 1795656619,
+      "ts": 1795720406,
       "boost": false
     },
     "fit.shirt": {
@@ -765,16 +765,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fit.shirt",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "arbitrary.lovebird6719": {
-      "n": 148,
-      "w": 35,
-      "l": 113,
-      "pnl": 15.66,
+      "n": 153,
+      "w": 38,
+      "l": 115,
+      "pnl": 24.43,
       "name": "arbitrary.lovebird6719",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": true
     },
     "precisescalper": {
@@ -783,7 +783,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "PreciseScalper",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "bucksfader": {
@@ -792,16 +792,16 @@
       "l": 13,
       "pnl": -479.8,
       "name": "BucksFader",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "jeffpaulia": {
-      "n": 8,
-      "w": 1,
+      "n": 9,
+      "w": 2,
       "l": 7,
-      "pnl": -10375.94,
+      "pnl": -6960.05,
       "name": "jeffpaulIA",
-      "ts": 1795662496,
+      "ts": 1795720406,
       "boost": false
     },
     "spot.ship": {
@@ -926,6 +926,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795713926,
+  "updatedTs": 1795720406,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

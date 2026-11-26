@@ -1,40 +1,22 @@
 {
   "source": "kalshi",
-  "ts": 1795715093,
-  "updatedAt": "Thu Nov 26 \u00b7 9:44 AM PT",
+  "ts": 1795721560,
+  "updatedAt": "Thu Nov 26 \u00b7 11:32 AM PT",
   "picks": [
     {
-      "ticker": "KXNCAAMBGAME-26NOV26UGACIN-CIN",
+      "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
       "yesNo": "Yes",
-      "side": "Cincinnati",
-      "game": "Georgia vs Cincinnati",
-      "startTs": 1795708800,
+      "side": "Detroit",
+      "game": "Chicago vs Detroit",
+      "startTs": 1795716000,
       "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNCAAMBGAME-26NOV26UGACIN-UGA",
-      "yesNo": "Yes",
-      "side": "Georgia",
-      "game": "Georgia vs Cincinnati",
-      "startTs": 1795708800,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNCAAMBGAME-26NOV26OKLAPUR-PUR",
-      "yesNo": "Yes",
-      "side": "Purdue",
-      "game": "OKLA vs PUR (Nov 26)",
-      "startTs": 1795712400,
-      "bt": "Moneyline",
-      "n": 1
+      "n": 2
     },
     {
       "ticker": "KXNFLGAME-26NOV26CHIDET-CHI",
       "yesNo": "Yes",
       "side": "Chicago",
-      "game": "CHI vs DET (Nov 26)",
+      "game": "Chicago vs Detroit",
       "startTs": 1795716000,
       "bt": "Moneyline",
       "n": 1

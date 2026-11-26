@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8504,9 +8504,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 8:19 AM PT",
       "recordedTs": 1795709940,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 11:13 AM PT"
     },
     {
       "id": "spot.ship|KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
@@ -8546,9 +8546,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
       "recordedTs": 1795713926,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 11:13 AM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV26OKLAPUR-PUR|Yes",
@@ -8567,9 +8567,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
       "recordedTs": 1795713926,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 11:13 AM PT"
     },
     {
       "id": "falcon999|KXNFLGAME-26NOV26CHIDET-CHI|Yes",
@@ -8588,6 +8588,48 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
       "recordedTs": 1795713926,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "Eibriham|KXNFLGAME-26NOV26CHIDET-DET|Yes",
+      "nickname": "Eibriham",
+      "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
+      "eventTicker": "KXNFLGAME-26NOV26CHIDET",
+      "game": "Chicago vs Detroit",
+      "backing": "Detroit",
+      "yesNo": "Yes",
+      "entry": 0.5,
+      "price": 0.43,
+      "cost": 2028.5,
+      "contracts": 4057.0,
+      "startTs": 1795716000,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
+      "recordedTs": 1795720406,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "djcheecake|KXNFLGAME-26NOV26CHIDET-DET|Yes",
+      "nickname": "djcheecake",
+      "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
+      "eventTicker": "KXNFLGAME-26NOV26CHIDET",
+      "game": "Chicago vs Detroit",
+      "backing": "Detroit",
+      "yesNo": "Yes",
+      "entry": 0.59,
+      "price": 0.43,
+      "cost": 1944.05,
+      "contracts": 3295.0,
+      "startTs": 1795716000,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
+      "recordedTs": 1795720406,
       "status": "open",
       "result": null,
       "settledAt": null

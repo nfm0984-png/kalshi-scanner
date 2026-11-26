@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Thu Nov 26 \u00b7 9:25 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 11:13 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -210,16 +210,16 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "714Smith",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
       "nickname": "gavguy",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "714Smith",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
     },
     {
       "nickname": "nshrd",
@@ -288,16 +288,16 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "Bigbone69",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "PreciseScalper",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
+    },
+    {
+      "nickname": "Bigbone69",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "wet.ape",
@@ -444,16 +444,16 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "Eibriham",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-23"
-    },
-    {
       "nickname": "biscuitshooker",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "Eibriham",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-23"
     },
     {
       "nickname": "Rev.Z",
@@ -650,8 +650,8 @@
     "fit.shirt",
     "FFun",
     "regine",
-    "714Smith",
     "gavguy",
+    "714Smith",
     "nshrd",
     "opposite.dolphin8700",
     "YoungGriff",
@@ -663,8 +663,8 @@
     "FRANKCASH",
     "arbitrary.lovebird6719",
     "ChasingUnits",
-    "Bigbone69",
     "PreciseScalper",
+    "Bigbone69",
     "wet.ape",
     "fen.dachi",
     "king.45",
@@ -689,8 +689,8 @@
     "fattii",
     "Bobbyoracle",
     "bird.pointer",
-    "Eibriham",
     "biscuitshooker",
+    "Eibriham",
     "Rev.Z",
     "Confubae",
     "whig",
