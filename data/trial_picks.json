@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 12:16 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8651,6 +8651,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 12:16 PM PT",
       "recordedTs": 1795724160,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 1:05 PM PT"
+    },
+    {
+      "id": "dependent.snail8369|KXNFLGAME-26NOV26CHIDET-DET|Yes",
+      "nickname": "dependent.snail8369",
+      "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
+      "eventTicker": "KXNFLGAME-26NOV26CHIDET",
+      "game": "Chicago vs Detroit",
+      "backing": "Detroit",
+      "yesNo": "Yes",
+      "entry": 0.87,
+      "price": 0.83,
+      "cost": 24962.04,
+      "contracts": 28692.0,
+      "startTs": 1795716000,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
+      "recordedTs": 1795727154,
       "status": "open",
       "result": null,
       "settledAt": null

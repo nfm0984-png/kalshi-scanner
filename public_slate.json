@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795725308,
-  "updatedAt": "Thu Nov 26 \u00b7 12:35 PM PT",
+  "ts": 1795728223,
+  "updatedAt": "Thu Nov 26 \u00b7 1:23 PM PT",
   "picks": [
     {
       "ticker": "KXNFLGAME-26NOV26CHIDET-DET",
@@ -10,7 +10,7 @@
       "game": "Chicago vs Detroit",
       "startTs": 1795716000,
       "bt": "Moneyline",
-      "n": 2
+      "n": 3
     },
     {
       "ticker": "KXNFLGAME-26NOV26CHIDET-CHI",
@@ -18,15 +18,6 @@
       "side": "Chicago",
       "game": "Chicago vs Detroit",
       "startTs": 1795716000,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXATPCHALLENGERMATCH-26NOV26NEFWIL-NEF",
-      "yesNo": "Yes",
-      "side": "Axel Nefve",
-      "game": "Nefve vs Willwerth",
-      "startTs": 1795727400,
       "bt": "Moneyline",
       "n": 1
     },

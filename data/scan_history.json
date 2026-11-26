@@ -1,6 +1,24 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 12:16 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 1:05 PM PT",
   "scans": [
+    {
+      "ts": 1795727154,
+      "at": "Thu Nov 26 \u00b7 1:05 PM PT",
+      "names": 173,
+      "newFollows": [
+        "gradysue"
+      ],
+      "followed": 93,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXNFLGAME-26NOV26CHIDET-DET|Yes",
+        "KXNFLGAME-26NOV26CHIDET-CHI|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795724160,
       "at": "Thu Nov 26 \u00b7 12:16 PM PT",
@@ -1152,23 +1170,6 @@
         "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
         "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
-      ]
-    },
-    {
-      "ts": 1795447148,
-      "at": "Mon Nov 23 \u00b7 7:19 AM PT",
-      "names": 402,
-      "newFollows": [
-        "Eibriham",
-        "bdadams"
-      ],
-      "followed": 49,
-      "target": 100,
-      "openPicks": 3,
-      "ids": [
-        "KXT20MATCH-26NOV230930DESSW-DES|Yes",
-        "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
       ]
     }
   ]
