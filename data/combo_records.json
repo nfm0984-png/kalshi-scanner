@@ -388,7 +388,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "lebronthanos",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "d.palombo": {
@@ -397,7 +397,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "d.palombo",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "drib": {
@@ -406,7 +406,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "drib",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "watsons.burnerr": {
@@ -416,7 +416,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Watsons.burnerr",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "milesdavis": {
@@ -425,7 +425,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "milesdavis",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "bullishkirby": {
@@ -434,7 +434,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bullishkirby",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "bananastand21": {
@@ -443,7 +443,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bananastand21",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "norrisfan": {
@@ -452,7 +452,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "norrisfan",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "kevin702": {
@@ -645,7 +645,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "controlled.rook2872",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "grooy": {
@@ -654,7 +654,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "grooy",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "bird.pointer": {
@@ -663,7 +663,7 @@
       "l": 2,
       "pnl": 20.01,
       "name": "bird.pointer",
-      "ts": 1795637279,
+      "ts": 1795709940,
       "boost": false
     },
     "empiremaker70": {
@@ -887,9 +887,18 @@
       "name": "blond.class",
       "ts": 1795706167,
       "boost": false
+    },
+    "gavguy": {
+      "n": 29,
+      "w": 2,
+      "l": 27,
+      "pnl": 42.72,
+      "name": "gavguy",
+      "ts": 1795709940,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795706167,
+  "updatedTs": 1795709940,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

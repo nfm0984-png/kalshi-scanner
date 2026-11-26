@@ -1,8 +1,26 @@
 {
   "source": "kalshi",
-  "ts": 1795707212,
-  "updatedAt": "Thu Nov 26 \u00b7 7:33 AM PT",
+  "ts": 1795711027,
+  "updatedAt": "Thu Nov 26 \u00b7 8:37 AM PT",
   "picks": [
+    {
+      "ticker": "KXNCAAMBGAME-26NOV26UGACIN-UGA",
+      "yesNo": "Yes",
+      "side": "Georgia",
+      "game": "UGA vs CIN (Nov 26)",
+      "startTs": 1795708800,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1",
+      "yesNo": "Yes",
+      "side": "Josh Allen: 1+",
+      "game": "Kansas City vs Buffalo: Touchdowns",
+      "startTs": 1795742400,
+      "bt": "Player props",
+      "n": 1
+    },
     {
       "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
       "yesNo": "Yes",

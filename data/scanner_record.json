@@ -3213,7 +3213,20 @@
       "game": "MVE",
       "label": "yes Dallas,yes Detroit over 20.5 points,yes Dallas over 24.5 points",
       "league": "NFL"
+    },
+    "spot.ship|KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes": {
+      "capper": "spot.ship",
+      "ticker": "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1",
+      "side": "Yes",
+      "price": 0.52,
+      "startTs": 1795742400,
+      "firstTs": 1795709940,
+      "combo": false,
+      "status": "open",
+      "game": "Kansas City vs Buffalo: Touchdowns",
+      "label": "Josh Allen: 1+",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795706167
+  "updatedTs": 1795709940
 }

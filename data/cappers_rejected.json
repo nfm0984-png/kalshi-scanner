@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 7:16 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 8:19 AM PT",
   "cappers": [
     {
       "nickname": "clis41",
@@ -13733,6 +13733,48 @@
       "reason": "hidden book",
       "date": "2026-11-26",
       "ts": 1795706167,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "fromcatopa",
+      "reason": "market-maker",
+      "date": "2026-11-26",
+      "ts": 1795709940,
+      "detail": "many fills in minutes, lots of 99\u00a2 size; open=233 trades=8000"
+    },
+    {
+      "nickname": "limited.angelfish0725",
+      "reason": "hidden book",
+      "date": "2026-11-26",
+      "ts": 1795709940,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "numbersguy",
+      "reason": "hidden book",
+      "date": "2026-11-26",
+      "ts": 1795709940,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "obedient.canary7612",
+      "reason": "hidden book",
+      "date": "2026-11-26",
+      "ts": 1795709940,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "objective.panther2837",
+      "reason": "hidden book",
+      "date": "2026-11-26",
+      "ts": 1795709940,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "obvious.parrotfish2538",
+      "reason": "hidden book",
+      "date": "2026-11-26",
+      "ts": 1795709940,
       "detail": "hidden"
     }
   ]

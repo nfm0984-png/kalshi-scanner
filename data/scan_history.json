@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 7:16 AM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 8:19 AM PT",
   "scans": [
+    {
+      "ts": 1795709940,
+      "at": "Thu Nov 26 \u00b7 8:19 AM PT",
+      "names": 170,
+      "newFollows": [
+        "gavguy"
+      ],
+      "followed": 90,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXNCAAMBGAME-26NOV26UGACIN-UGA|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795706167,
       "at": "Thu Nov 26 \u00b7 7:16 AM PT",
@@ -1141,22 +1158,6 @@
       "ids": [
         "KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
         "KXMVECROSSCATEGORY-S2026NY3QLJMOY6HJSV4A-ZI7ABMQJY|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
-      ]
-    },
-    {
-      "ts": 1795407706,
-      "at": "Sun Nov 22 \u00b7 8:21 PM PT",
-      "names": 331,
-      "newFollows": [
-        "coolness77"
-      ],
-      "followed": 39,
-      "target": 200,
-      "openPicks": 3,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026XA7AIKRNA6B47A3A-6ZDI4UPDO|Yes",
-        "KXATPCHALLENGERMATCH-26NOV22HOLSAN-HOL|Yes",
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes"
       ]
     }
