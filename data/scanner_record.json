@@ -3198,7 +3198,20 @@
       "game": "MVE",
       "label": "yes Daniel Rincon,yes Anna-Lena Friedsam,yes Suzan Lamens",
       "league": "Tennis"
+    },
+    "powerful.terrier4093|KXMVECROSSCATEGORY-S202674VMVOW3KB2FZLDE-MB6BBVWXY|Yes": {
+      "capper": "powerful.terrier4093",
+      "ticker": "KXMVECROSSCATEGORY-S202674VMVOW3KB2FZLDE-MB6BBVWXY",
+      "side": "Yes",
+      "price": 0.491,
+      "startTs": 1795716000,
+      "firstTs": 1795685411,
+      "combo": true,
+      "status": "open",
+      "game": "MVE",
+      "label": "yes Dallas,yes Detroit over 20.5 points,yes Dallas over 24.5 points",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795678589
+  "updatedTs": 1795685411
 }

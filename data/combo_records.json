@@ -205,7 +205,7 @@
       "l": 1,
       "pnl": -9.96,
       "name": "Davmjxn",
-      "ts": 1795628905,
+      "ts": 1795685411,
       "boost": false
     },
     "fen.dachi": {
@@ -218,12 +218,12 @@
       "boost": false
     },
     "iknowballmorethanu": {
-      "n": 39,
-      "w": 18,
-      "l": 21,
-      "pnl": 14285.8,
+      "n": 46,
+      "w": 23,
+      "l": 23,
+      "pnl": 18198.16,
       "name": "iknowballmorethanu",
-      "ts": 1795629204,
+      "ts": 1795685411,
       "boost": true
     },
     "gap.sauce": {
@@ -232,7 +232,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "gap.sauce",
-      "ts": 1795629204,
+      "ts": 1795685411,
       "boost": false
     },
     "doll.breast": {
@@ -250,7 +250,7 @@
       "l": 1,
       "pnl": -19.99,
       "name": "brand.breeze",
-      "ts": 1795629753,
+      "ts": 1795685411,
       "boost": false
     },
     "snoz3berries": {
@@ -259,7 +259,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Snoz3berries",
-      "ts": 1795629753,
+      "ts": 1795685411,
       "boost": false
     },
     "parspectives": {
@@ -268,7 +268,7 @@
       "l": 4,
       "pnl": -1099.82,
       "name": "parspectives",
-      "ts": 1795632766,
+      "ts": 1795685411,
       "boost": false
     },
     "ustrader": {
@@ -278,7 +278,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ustrader",
-      "ts": 1795633065,
+      "ts": 1795685411,
       "boost": false
     },
     "coolness77": {
@@ -287,7 +287,7 @@
       "l": 19,
       "pnl": 3.81,
       "name": "coolness77",
-      "ts": 1795633065,
+      "ts": 1795685411,
       "boost": false
     },
     "muffat00": {
@@ -296,7 +296,7 @@
       "l": 0,
       "pnl": 1684.82,
       "name": "Muffat00",
-      "ts": 1795632766,
+      "ts": 1795685411,
       "boost": false
     },
     "fattii": {
@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795633627,
+      "ts": 1795685411,
       "boost": false
     },
     "eibriham": {
@@ -333,7 +333,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "kelab",
-      "ts": 1795633627,
+      "ts": 1795685411,
       "boost": false
     },
     "dimesy": {
@@ -849,9 +849,19 @@
       "name": "dant",
       "ts": 1795678589,
       "boost": false
+    },
+    "powerful.terrier4093": {
+      "hidden": true,
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "powerful.terrier4093",
+      "ts": 1795685411,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795678589,
+  "updatedTs": 1795685411,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

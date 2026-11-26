@@ -1,23 +1,14 @@
 {
   "source": "kalshi",
-  "ts": 1795682756,
-  "updatedAt": "Thu Nov 26 \u00b7 12:45 AM PT",
+  "ts": 1795686527,
+  "updatedAt": "Thu Nov 26 \u00b7 1:48 AM PT",
   "picks": [
     {
-      "ticker": "KXMVECROSSCATEGORY-S2026ZUE265OUV2S6QLHV-734SIHOSX",
+      "ticker": "KXMVECROSSCATEGORY-S202674VMVOW3KB2FZLDE-MB6BBVWXY",
       "yesNo": "Yes",
-      "side": "yes Hawai'i,yes Saint Louis \u00b7 2-leg combo",
-      "game": "Incarnate Word vs Hawai'i",
-      "startTs": 1795669200,
-      "bt": "Combo",
-      "n": 1
-    },
-    {
-      "ticker": "KXMVECROSSCATEGORY-S2026E7X5H33MBIGKX7LU-XZYQRN5JD",
-      "yesNo": "Yes",
-      "side": "yes Daniel Rincon,yes Anna-Lena Friedsam,yes Suzan Lamens \u00b7 3-leg combo",
+      "side": "yes Dallas,yes Detroit over 20.5 points,yes Dallas over 24.5 points \u00b7 3-leg combo",
       "game": "MVE",
-      "startTs": 1795690800,
+      "startTs": 1795716000,
       "bt": "Combo",
       "n": 1
     },
@@ -28,15 +19,6 @@
       "game": "USC vs UCLA",
       "startTs": 1795897800,
       "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNFLSPREAD-26NOV29WASARI-WAS7",
-      "yesNo": "Yes",
-      "side": "Washington wins by over 6.5 points",
-      "game": "Washington vs Arizona: Spread",
-      "startTs": 1795987500,
-      "bt": "Spread",
       "n": 1
     }
   ]
