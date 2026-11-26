@@ -2686,7 +2686,8 @@
       "startTs": 1795644000,
       "firstTs": 1795571564,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795654630
     },
     "mde4life1986|KXNBAPTS-26NOV24DALDEN-DALNMARSHALL3-10|Yes": {
       "capper": "mde4life1986",
@@ -2906,7 +2907,8 @@
       "startTs": 1795643100,
       "firstTs": 1795628005,
       "combo": false,
-      "status": "open"
+      "status": "loss",
+      "gradedTs": 1795654630
     },
     "djcheecake|KXNBAGAME-26NOV25MINOKC-MIN|Yes": {
       "capper": "djcheecake",
@@ -2977,7 +2979,8 @@
       "startTs": 1795644600,
       "firstTs": 1795640926,
       "combo": false,
-      "status": "open"
+      "status": "win",
+      "gradedTs": 1795654630
     },
     "Ryqeux|KXMVECROSSCATEGORY-S2026NCW2R4S56X4RPXQ7-OOG6F24EE|Yes": {
       "capper": "Ryqeux",
@@ -3068,7 +3071,17 @@
       "firstTs": 1795651119,
       "combo": false,
       "status": "open"
+    },
+    "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "side": "Yes",
+      "price": 0.45,
+      "startTs": 1795654800,
+      "firstTs": 1795654630,
+      "combo": false,
+      "status": "open"
     }
   },
-  "updatedTs": 1795651119
+  "updatedTs": 1795654630
 }

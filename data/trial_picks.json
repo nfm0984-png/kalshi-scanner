@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Wed Nov 25 \u00b7 3:58 PM PT",
+  "updatedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8189,9 +8189,9 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 2:02 PM PT",
       "recordedTs": 1795644166,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 4:57 PM PT"
     },
     {
       "id": "FFun|KXATPCHALLENGERMATCH-26NOV25BONMIG-BON|Yes",
@@ -8231,6 +8231,48 @@
       "bt": "Moneyline",
       "recordedAt": "Wed Nov 25 \u00b7 3:58 PM PT",
       "recordedTs": 1795651119,
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Wed Nov 25 \u00b7 4:57 PM PT"
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV25CONNDUKE-CONN|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV25CONNDUKE-CONN",
+      "eventTicker": "KXNCAAMBGAME-26NOV25CONNDUKE",
+      "game": "CONN vs DUKE (Nov 25)",
+      "backing": "UConn",
+      "yesNo": "Yes",
+      "entry": 0.5888,
+      "price": 0.49,
+      "cost": 2499.98,
+      "contracts": 4246.23,
+      "startTs": 1795651200,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
+      "recordedTs": 1795654630,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV25GBLAR-GB|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV25GBLAR-GB",
+      "eventTicker": "KXNFLGAME-26NOV25GBLAR",
+      "game": "GB vs LAR (Nov 25)",
+      "backing": "Green Bay",
+      "yesNo": "Yes",
+      "entry": 0.4673,
+      "price": 0.45,
+      "cost": 1999.99,
+      "contracts": 4279.67,
+      "startTs": 1795654800,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Wed Nov 25 \u00b7 4:57 PM PT",
+      "recordedTs": 1795654630,
       "status": "open",
       "result": null,
       "settledAt": null
