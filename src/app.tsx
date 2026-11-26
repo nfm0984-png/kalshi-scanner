@@ -1700,8 +1700,9 @@ function rankedPicks(games: Game[]): RankedCard[] {
       cards.push({ p, game, rec: n.ownRec, cappers: n.my40 || n.ownN, net: n.net, raw: n.raw, contested: n.contested, proven: n.proven, padded: n.padded, my40: n.my40, tier: n.tier, bestN: n.bestN });
     });
   });
-  // Ranked: keep every pick. Long-term dollar PnL and leaderboard rank first, veterans above newbies. Last-20 dollar PnL (not raw W-L, so short-odds grinders don't float) is only a tiebreaker.
-  return cards.sort((a: RankedCard, b: RankedCard) => pickHistoryCmp(a.p, b.p) || (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
+  // Ranked: 2+ agree first, then long-term dollar PnL / board rank / veteran. Last-20 dollar PnL is only a tiebreaker (Noel, Nov 25).
+  const agreeOf = (c: RankedCard) => ((c.p.backers || []).length >= 2 ? 1 : 0);
+  return cards.sort((a: RankedCard, b: RankedCard) => (agreeOf(b) - agreeOf(a)) || pickHistoryCmp(a.p, b.p) || (Number(isColdPick(a.p)) - Number(isColdPick(b.p))) || (Number(isFadingPick(a.p)) - Number(isFadingPick(b.p))) || rankCmpNet(netOf(a.p, a.game), netOf(b.p, b.game)) || ((a.p.key < b.p.key) ? -1 : 1));
 }
 function pickRankMap(games: Game[]): Record<string, number> {
   const m: Record<string, number> = {};

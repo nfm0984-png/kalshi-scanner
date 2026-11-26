@@ -204,7 +204,8 @@ FOLLOW_WORKERS = 10  # parallel inspect in follow-check so 100 names finish in ~
 MIN_FOLLOW_PNL_EARNER = 100000.0  # unused for follows; no-trade earners are Watching
 FOLLOW_HORIZON_DAYS = 30  # Best Cappers keeps near-term sports only, not months-out futures
 FOLLOW_HORIZON_SECS = FOLLOW_HORIZON_DAYS * 86400
-NEW_PER_SCAN_DEFAULT = 30  # hourly cron; stay under Actions time with 0 429s
+NEW_PER_SCAN_DEFAULT = 40  # hourly cron: new official-board + tape names get first claim on the candidate batch
+HOURLY_CANDIDATE_BATCH_DEFAULT = 80  # new/unreviewed + rotating actives (Best Cappers are always refreshed on top of this)
 
 
 def _env_int(name, default, lo=0, hi=200):
@@ -218,6 +219,7 @@ def _env_int(name, default, lo=0, hi=200):
 
 
 NEW_PER_SCAN = _env_int("NEW_PER_SCAN", _env_int("NEW_NAMES", NEW_PER_SCAN_DEFAULT))
+HOURLY_CANDIDATE_BATCH = _env_int("HOURLY_CANDIDATE_BATCH", HOURLY_CANDIDATE_BATCH_DEFAULT, lo=20, hi=200)
 REVIEW_NEW = os.environ.get("REVIEW_NEW", "").strip().lower() in ("1", "true", "yes")
 SCAN_MODE = os.environ.get("KALSHI_SCAN_MODE", "scan").strip().lower()  # "scan" | "follow"
 
@@ -2488,7 +2490,7 @@ def remove_nick(lst, nick):
     return [r for r in lst if nick_key(r.get("nickname")) != k]
 
 
-def enqueue_new(queue, people, known, n, now, log=print):
+def enqueue_new(queue, people, known, n, now, log=print, front=False):
     """Add up to n unseen leaderboard names to the queue. Prefer Sports, then better ranks."""
     def sort_key(nick):
         rec = people.get(nick) or {}
@@ -2497,21 +2499,26 @@ def enqueue_new(queue, people, known, n, now, log=print):
         sports = 0 if r else 1
         best = min([r.get(p) or 9999 for p in BOARD_PERIODS] or [9999])
         return (profit, sports, best, nick.lower())
-    added = []
+    added, items = [], []
     for nick in sorted(people.keys(), key=sort_key):
         if len(added) >= n:
             break
         if nick in known:
             continue
         src = ", ".join(((people[nick].get("sources") or [])[:3]) or ["leaderboard"])
-        queue.setdefault("cappers", []).append({
+        items.append({
             "nickname": nick,
             "addedAt": today_pt(now),
             "source": src,
         })
         known.add(nick)
         added.append(nick)
-    log("queued %d new cappers: %s" % (len(added), ", ".join(added) if added else "(none)"))
+    q = queue.setdefault("cappers", [])
+    if front:
+        queue["cappers"] = items + q
+    else:
+        q.extend(items)
+    log("queued %d new cappers%s: %s" % (len(added), " (front of queue)" if front and added else "", ", ".join(added) if added else "(none)"))
     return added
 
 
@@ -2650,12 +2657,20 @@ def group_games(cappers, now, log=print):
     return games, dropped
 
 
-def review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log=print):
-    """Move queued names to active or rejected. Returns how many were reviewed this call."""
+def review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log=print, limit=None):
+    """Move queued names to active or rejected. Returns how many were reviewed this call.
+
+    `limit` caps actual inspects (not cheap already-known skips) so an hourly run can
+    review a bounded batch, with leftover names staying on the queue for later hours.
+    """
     pending = list(queue.get("cappers") or [])
     leftover = []
     reviewed = 0
-    for item in pending:
+    inspected = 0
+    for i, item in enumerate(pending):
+        if limit is not None and inspected >= limit:
+            leftover.extend(pending[i:])
+            break
         nick = nick_key(item.get("nickname"))
         if not nick:
             continue
@@ -2664,6 +2679,7 @@ def review_queue(http, queue, active, rejected, live_cappers, people, now, mcach
             reviewed += 1
             continue
         try:
+            inspected += 1
             verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=80)
         except Exception as e:
             log("queue review failed %s: %s — leaving in queue" % (nick, e))
@@ -2690,11 +2706,13 @@ def review_queue(http, queue, active, rejected, live_cappers, people, now, mcach
             log("queue → rejected %s (%s: %s)" % (nick, reason, detail))
             continue
         _v, cap, _ = verdict
+        cap["lastChecked"] = int(now)
         upsert_active(active, cap)
         live_cappers.append(cap)
         cov["queueToActive"] += 1
         log("queue → active %s picks=%d" % (nick, len(cap.get("picks") or [])))
     queue["cappers"] = leftover
+    cov["queueInspected"] = (cov.get("queueInspected") or 0) + inspected
     return reviewed
 
 
@@ -2978,6 +2996,74 @@ def record_scan_history(now, cov, games, following, prev):
     return scans
 
 
+
+def best_capper_nicks(pinned, active=None):
+    """Best Cappers: pinned file names, last good follows, and currently pinned active rows."""
+    names, seen = [], set()
+    def add(n):
+        k = nick_key(n)
+        kl = k.lower()
+        if k and kl not in seen:
+            seen.add(kl)
+            names.append(k)
+    for n in pinned_names(pinned):
+        add(n)
+    if isinstance(pinned, dict):
+        for n in (pinned.get("lastGoodFollows") or []):
+            add(n)
+    if active:
+        for r in active.get("cappers") or []:
+            if r.get("pinned") or is_pin_tag(r.get("tag")) or is_pin_tag(r.get("tier")):
+                add(r.get("nickname"))
+    return names
+
+
+def refresh_active_row(http, row, people, now, mcache, ecache, log, rejected, pinned_hidden, live_cappers, cov):
+    """Refresh one active-db row. Returns ('keep', stored, live_cap) or ('drop', None, None)."""
+    nick = nick_key(row.get("nickname"))
+    if not nick:
+        return "skip", None, None
+    if nick in rejected_set(rejected) and not is_pinned(nick):
+        return "drop", None, None
+    try:
+        pages = 80 if is_pinned(nick) else 20
+        verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=pages, old=row)
+    except Exception as e:
+        log("active refresh failed %s: %s — keeping in active" % (nick, e))
+        if is_pinned(nick):
+            row = dict(row, pinned=True, tag=PINNED_TAG, tier=row.get("tier") or PINNED_TAG)
+        live_cappers.append(dict(row, picks=row.get("picks") or []))
+        return "keep", row, None
+    if verdict[0] == "rejected":
+        _v, reason, detail = verdict
+        if is_pinned(nick):
+            log("pinned kept in active despite %s (%s): %s" % (reason, nick, detail))
+            if reason == "hidden book":
+                pinned_hidden.add(nick.lower())
+            kept = dict(row, pinned=True, tag=PINNED_TAG, tier=PINNED_TAG, rejectNote="%s: %s" % (reason, detail), picks=[], followingPicks=[], lastChecked=int(now))
+            stored = {k: v for k, v in kept.items() if k not in ("picks", "followingPicks")} | {"pickCount": 0, "followCount": 0, "lastChecked": int(now)}
+            live_cappers.append(kept)
+            return "keep", stored, kept
+        reject(rejected, nick, reason, detail, now)
+        if reason == "hidden book":
+            cov["hiddenRejected"] += 1
+        elif reason == "market-maker":
+            cov["mmDropped"] += 1
+        elif reason == "no sports activity":
+            cov["noSportsRejected"] += 1
+        log("active → rejected %s (%s: %s)" % (nick, reason, detail))
+        return "drop", None, None
+    _v, cap, _ = verdict
+    cap["addedAt"] = row.get("addedAt") or cap.get("addedAt")
+    cap["lastChecked"] = int(now)
+    stored = {k: v for k, v in cap.items() if k != "picks"}
+    stored["pickCount"] = len(cap.get("picks") or [])
+    stored["lastChecked"] = int(now)
+    live_cappers.append(cap)
+    cov["activeRefreshed"] += 1
+    return "keep", stored, cap
+
+
 def build(now=None, log=print):
     now = int(now or time.time())
     t0 = time.time()
@@ -3018,130 +3104,120 @@ def build(now=None, log=print):
     live_cappers = []
     pinned_hidden = set()
 
-    # 1) Refresh the active db first.
-    still_active = []
+    # Hourly full scan (Noel, Nov 25 / t1071u): always refresh Best Cappers, then spend a
+    # bounded candidate batch on NEW / unreviewed official-board + sports-tape names first,
+    # then leftover queue, then the oldest-checked non-followed actives. Unrefreshed actives
+    # are carried forward. Target ~5–15 min instead of refreshing all ~992 actives (~54 min).
+    still_by = {}
     for row in list(active.get("cappers") or []):
         nick = nick_key(row.get("nickname"))
         if not nick:
             continue
         if nick in rejected_set(rejected) and not is_pinned(nick):
             continue
-        try:
-            pages = 80 if is_pinned(nick) else 20
-            verdict = inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=pages, old=row)
-        except Exception as e:
-            log("active refresh failed %s: %s — keeping in active" % (nick, e))
-            if is_pinned(nick):
-                row = dict(row, pinned=True, tag=PINNED_TAG, tier=row.get("tier") or PINNED_TAG)
-            still_active.append(row)
-            live_cappers.append(dict(row, picks=row.get("picks") or []))
-            continue
-        if verdict[0] == "rejected":
-            _v, reason, detail = verdict
-            if is_pinned(nick):
-                log("pinned kept in active despite %s (%s): %s" % (reason, nick, detail))
-                if reason == "hidden book":
-                    pinned_hidden.add(nick.lower())
-                kept = dict(row, pinned=True, tag=PINNED_TAG, tier=PINNED_TAG, rejectNote="%s: %s" % (reason, detail), picks=[], followingPicks=[])
-                still_active.append({k: v for k, v in kept.items() if k not in ("picks", "followingPicks")} | {"pickCount": 0, "followCount": 0})
-                live_cappers.append(kept)
-                continue
-            reject(rejected, nick, reason, detail, now)
-            if reason == "hidden book":
-                cov["hiddenRejected"] += 1
-            elif reason == "market-maker":
-                cov["mmDropped"] += 1
-            elif reason == "no sports activity":
-                cov["noSportsRejected"] += 1
-            log("active → rejected %s (%s: %s)" % (nick, reason, detail))
-            continue
-        _v, cap, _ = verdict
-        cap["addedAt"] = row.get("addedAt") or cap.get("addedAt")
-        stored = {k: v for k, v in cap.items() if k != "picks"}
-        stored["pickCount"] = len(cap.get("picks") or [])
-        still_active.append(stored)
-        live_cappers.append(cap)
-        cov["activeRefreshed"] += 1
-    active["cappers"] = still_active
+        still_by[nick_key(nick)] = row
+
+    best_nicks = best_capper_nicks(pinned, active)
+    best_set = {nick_key(n).lower() for n in best_nicks}
+    for nick in best_nicks:
+        k = nick_key(nick)
+        if k not in still_by:
+            still_by[k] = {"nickname": nick, "pinned": True, "tag": PINNED_TAG, "tier": PINNED_TAG, "addedAt": today_pt(now)}
+
+    # 1) Always refresh Best Cappers (fast; the 5-min follow-check path is unchanged).
+    for nick in best_nicks:
+        k = nick_key(nick)
+        row = still_by.get(k) or {"nickname": nick}
+        status, stored, _cap = refresh_active_row(http, row, people, now, mcache, ecache, log, rejected, pinned_hidden, live_cappers, cov)
+        if status == "keep" and stored is not None:
+            still_by[k] = stored
+        elif status == "drop":
+            still_by.pop(k, None)
+    active["cappers"] = list(still_by.values())
     save_dbs(active, queue, rejected, now)
-    log("phase 1: refreshed %d active" % cov["activeRefreshed"])
+    log("phase 1: refreshed %d Best Cappers (activeRefreshed=%d)" % (len(best_nicks), cov["activeRefreshed"]))
 
-    # If the queue is empty at the start of this cycle (first run), seed 10 so they get reviewed now.
+    # 2) Discover first: enqueue new official-board / tape names at the FRONT of the queue
+    # so they are reviewed this hour, ahead of leftover older queue names and rotating actives.
     known = known_nicks(active, queue, rejected)
-    seeded = False
-    if not (queue.get("cappers") or []):
-        enqueue_new(queue, people, known, NEW_PER_SCAN, now, log)
-        seeded = True
-        save_dbs(active, queue, rejected, now)
-
-    # 2) Review the queue: move each name to active or rejected.
-    review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log)
-    save_dbs(active, queue, rejected, now)
-    log("phase 2: reviewed %d queue (%d active, %d rejected)" % (cov["queueReviewed"], cov["queueToActive"], cov["queueRejected"]))
-
-    # 3) Add NEW_PER_SCAN new leaderboard names not already in active/rejected/queue.
-    # On a manual big pass (REVIEW_NEW=1), review those names in this same run, then
-    # leave the default 20 on the queue for the next hourly cron.
-    known = known_nicks(active, queue, rejected)
-    added = enqueue_new(queue, people, known, NEW_PER_SCAN, now, log)
+    added = enqueue_new(queue, people, known, NEW_PER_SCAN, now, log, front=True)
     cov["queuedNew"] = len(added)
     save_dbs(active, queue, rejected, now)
-    if REVIEW_NEW and added:
-        log("phase 3: reviewing %d newly queued names in this run" % len(added))
-        review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log)
-        save_dbs(active, queue, rejected, now)
-        log("phase 3: reviewed %d total (%d active, %d rejected)" % (cov["queueReviewed"], cov["queueToActive"], cov["queueRejected"]))
-        known = known_nicks(active, queue, rejected)
-        leftover = enqueue_new(queue, people, known, NEW_PER_SCAN_DEFAULT, now, log)
-        cov["queuedNextHour"] = len(leftover)
-        save_dbs(active, queue, rejected, now)
-    cov["namesChecked"] = (cov.get("activeRefreshed") or 0) + (cov.get("queueReviewed") or 0)
+
+    batch = HOURLY_CANDIDATE_BATCH
+    review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log, limit=batch)
+    save_dbs(active, queue, rejected, now)
+    queue_inspected = cov.get("queueInspected") or 0
+    log("phase 2: reviewed %d queue (%d inspected, %d active, %d rejected); %d new names were queued first" % (
+        cov["queueReviewed"], queue_inspected, cov["queueToActive"], cov["queueRejected"], len(added)))
+
+    # Sync actives created by queue review, then spend leftover batch on oldest-checked non-followed actives.
+    for row in active.get("cappers") or []:
+        n = nick_key(row.get("nickname"))
+        if n:
+            still_by[n] = row
+    # Drop rejected (non-pinned) that review/refresh may have moved out.
+    rej = rejected_set(rejected)
+    for n in list(still_by):
+        if n in rej and not is_pinned(n):
+            still_by.pop(n, None)
+
+    rotate_budget = max(0, batch - queue_inspected)
+    cov["candidateBatch"] = batch
+    cov["queueInspected"] = queue_inspected
+    cov["rotateBudget"] = rotate_budget
+    rotated = 0
+    if rotate_budget:
+        rot_candidates = []
+        for row in still_by.values():
+            n = nick_key(row.get("nickname"))
+            if not n or n.lower() in best_set:
+                continue
+            if (row.get("lastChecked") or 0) == int(now):
+                continue
+            rot_candidates.append(row)
+        rot_candidates.sort(key=lambda r: (r.get("lastChecked") or 0, (r.get("nickname") or "").lower()))
+        for row in rot_candidates[:rotate_budget]:
+            k = nick_key(row.get("nickname"))
+            status, stored, _cap = refresh_active_row(http, row, people, now, mcache, ecache, log, rejected, pinned_hidden, live_cappers, cov)
+            if status == "keep" and stored is not None:
+                still_by[k] = stored
+            elif status == "drop":
+                still_by.pop(k, None)
+            rotated += 1
+        # Re-drop any newly rejected
+        rej = rejected_set(rejected)
+        for n in list(still_by):
+            if n in rej and not is_pinned(n):
+                still_by.pop(n, None)
+    cov["rotatedActives"] = rotated
+    active["cappers"] = list(still_by.values())
+    save_dbs(active, queue, rejected, now)
+    carried = sum(1 for r in still_by.values() if (r.get("lastChecked") or 0) != int(now))
+    cov["carriedUnrefreshed"] = carried
+    cov["fillRounds"] = 0
+    cov["namesChecked"] = (cov.get("activeRefreshed") or 0) + (cov.get("queueInspected") or 0)
     cov["newPerScan"] = NEW_PER_SCAN
     cov["reviewNew"] = bool(REVIEW_NEW)
+    log("hourly batch: Best Cappers %d, new/queue inspected %d (queued new %d), rotated actives %d, carried unrefreshed %d (budget %d)" % (
+        len(best_nicks), queue_inspected, len(added), rotated, carried, batch))
 
-    # If Best Cappers is short of 50, keep reviewing official profit-board names
-    # in this same run. Hidden books fail on the first holdings call (cheap).
-    fill_deadline = t0 + 18 * 60
-    fill_rounds = 0
-    while time.time() < fill_deadline:
-        qualifying = 0
-        seen_q = set()
-        skip_q = do_not_pin_set(pinned)
-        for nick in pinned_names(pinned):
-            k = nick.lower()
-            if not k or k in skip_q:
-                continue
-            cap = next((c for c in live_cappers if nick_key(c.get("nickname")).lower() == k), None)
-            if is_manual_pin({}, nick) or (cap and can_follow(cap)):
-                qualifying += 1
-                seen_q.add(k)
-        for cap in live_cappers:
-            k = nick_key(cap.get("nickname")).lower()
-            if not k or k in seen_q or k in skip_q:
-                continue
-            if can_follow(cap):
-                qualifying += 1
-                seen_q.add(k)
-        cov["qualifyingFollows"] = qualifying
-        if qualifying >= TARGET_FOLLOW:
-            break
-        known = known_nicks(active, queue, rejected)
-        if not (queue.get("cappers") or []):
-            more = enqueue_new(queue, people, known, 40, now, log)
-            cov["queuedNew"] = (cov.get("queuedNew") or 0) + len(more)
-            save_dbs(active, queue, rejected, now)
-            if not more:
-                log("fill: no more official-board names to review (%d/%d qualifying)" % (qualifying, TARGET_FOLLOW))
-                break
-        before_rev = cov.get("queueReviewed") or 0
-        log("fill: %d/%d qualifying; reviewing more leaderboard names" % (qualifying, TARGET_FOLLOW))
-        review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log)
+    # Manual REVIEW_NEW=1 can finish the rest of the queue in this run (not used by hourly cron).
+    if REVIEW_NEW and (queue.get("cappers") or []):
+        log("REVIEW_NEW: reviewing remaining %d queued names in this run" % len(queue.get("cappers") or []))
+        review_queue(http, queue, active, rejected, live_cappers, people, now, mcache, ecache, cov, log, limit=None)
         save_dbs(active, queue, rejected, now)
-        fill_rounds += 1
-        if (cov.get("queueReviewed") or 0) == before_rev:
-            break
-    cov["fillRounds"] = fill_rounds
-    cov["namesChecked"] = (cov.get("activeRefreshed") or 0) + (cov.get("queueReviewed") or 0)
+        for row in active.get("cappers") or []:
+            n = nick_key(row.get("nickname"))
+            if n:
+                still_by[n] = row
+        active["cappers"] = list(still_by.values())
+        save_dbs(active, queue, rejected, now)
+        known = known_nicks(active, queue, rejected)
+        leftover = enqueue_new(queue, people, known, NEW_PER_SCAN_DEFAULT, now, log, front=False)
+        cov["queuedNextHour"] = len(leftover)
+        save_dbs(active, queue, rejected, now)
+        cov["namesChecked"] = (cov.get("activeRefreshed") or 0) + (cov.get("queueInspected") or 0)
 
     # Dedup live cappers (active refresh + newly activated)
     byn = {}
