@@ -1,24 +1,24 @@
 {
   "source": "kalshi",
-  "ts": 1795814928,
-  "updatedAt": "Fri Nov 27 \u00b7 1:28 PM PT",
+  "ts": 1795818445,
+  "updatedAt": "Fri Nov 27 \u00b7 2:27 PM PT",
   "picks": [
     {
-      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
-      "yesNo": "No",
-      "side": "Denver",
-      "game": "DEN vs PIT (Nov 27)",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-PIT4",
+      "yesNo": "Yes",
+      "side": "Pittsburgh wins by over 3.5 points",
+      "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
-      "bt": "Moneyline",
+      "bt": "Spread",
       "n": 1
     },
     {
-      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
-      "yesNo": "Yes",
-      "side": "Denver",
-      "game": "DEN vs PIT (Nov 27)",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-PIT15",
+      "yesNo": "No",
+      "side": "Pittsburgh wins by over 14.5 points",
+      "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
-      "bt": "Moneyline",
+      "bt": "Spread",
       "n": 1
     },
     {
@@ -28,6 +28,15 @@
       "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
       "bt": "Spread",
+      "n": 1
+    },
+    {
+      "ticker": "KXNHLGAME-26NOV27VGKSJ-VGK",
+      "yesNo": "Yes",
+      "side": "Vegas",
+      "game": "Vegas vs San Jose",
+      "startTs": 1795813200,
+      "bt": "Moneyline",
       "n": 1
     },
     {

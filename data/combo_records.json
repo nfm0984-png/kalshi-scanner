@@ -16,7 +16,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "uuqoo",
-      "ts": 1795764918,
+      "ts": 1795817299,
       "boost": false
     },
     "bama0037": {
@@ -25,7 +25,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bama0037",
-      "ts": 1795764918,
+      "ts": 1795817299,
       "boost": false
     },
     "jackivouce": {
@@ -388,7 +388,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "lebronthanos",
-      "ts": 1795760009,
+      "ts": 1795817299,
       "boost": false
     },
     "d.palombo": {
@@ -406,7 +406,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "drib",
-      "ts": 1795760009,
+      "ts": 1795817299,
       "boost": false
     },
     "watsons.burnerr": {
@@ -425,7 +425,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "milesdavis",
-      "ts": 1795760009,
+      "ts": 1795817299,
       "boost": false
     },
     "bullishkirby": {
@@ -434,7 +434,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bullishkirby",
-      "ts": 1795760009,
+      "ts": 1795817299,
       "boost": false
     },
     "bananastand21": {
@@ -443,7 +443,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bananastand21",
-      "ts": 1795760009,
+      "ts": 1795817299,
       "boost": false
     },
     "norrisfan": {
@@ -672,7 +672,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "empiremaker70",
-      "ts": 1795764918,
+      "ts": 1795817299,
       "boost": false
     },
     "confubae": {
@@ -710,7 +710,7 @@
       "l": 1,
       "pnl": 25.28,
       "name": "classic.toucan",
-      "ts": 1795764918,
+      "ts": 1795817299,
       "boost": false
     },
     "firm.tip": {
@@ -719,7 +719,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "firm.tip",
-      "ts": 1795764918,
+      "ts": 1795817299,
       "boost": false
     },
     "clintmyers": {
@@ -1094,9 +1094,27 @@
       "name": "chartered.maltese1755",
       "ts": 1795810225,
       "boost": false
+    },
+    "direct.cottontail0920": {
+      "n": 30,
+      "w": 12,
+      "l": 18,
+      "pnl": 5150.02,
+      "name": "direct.cottontail0920",
+      "ts": 1795817299,
+      "boost": true
+    },
+    "alphap": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "alphap",
+      "ts": 1795817299,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795813730,
+  "updatedTs": 1795817299,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

@@ -1,6 +1,27 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 1:08 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 2:08 PM PT",
   "scans": [
+    {
+      "ts": 1795817299,
+      "at": "Fri Nov 27 \u00b7 2:08 PM PT",
+      "names": 180,
+      "newFollows": [
+        "direct.cottontail0920",
+        "alphap"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNFLSPREAD-26NOV27DENPIT-PIT4|Yes",
+        "KXNFLSPREAD-26NOV27DENPIT-PIT15|No",
+        "KXNFLSPREAD-26NOV27DENPIT-DEN5|No",
+        "KXNHLGAME-26NOV27VGKSJ-VGK|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795813730,
       "at": "Fri Nov 27 \u00b7 1:08 PM PT",
@@ -1134,23 +1155,6 @@
         "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
         "KXNBAGAME-26NOV24DETORL-ORL|Yes",
         "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
-      ]
-    },
-    {
-      "ts": 1795543359,
-      "at": "Tue Nov 24 \u00b7 10:02 AM PT",
-      "names": 581,
-      "newFollows": [
-        "Rev.Z"
-      ],
-      "followed": 53,
-      "target": 100,
-      "openPicks": 4,
-      "ids": [
-        "KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
       ]
     }
