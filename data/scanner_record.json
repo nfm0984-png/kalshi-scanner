@@ -3266,10 +3266,11 @@
       "startTs": 1795753800,
       "firstTs": 1795730815,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "BAY vs GONZ (Nov 26)",
       "label": "Baylor",
-      "league": "NCAAB"
+      "league": "NCAAB",
+      "gradedTs": 1795764918
     },
     "FFun|KXITFWMATCH-26NOV26ROUALV-ROU|Yes": {
       "capper": "FFun",
@@ -3297,7 +3298,20 @@
       "game": "Los Angeles L vs San Antonio",
       "label": "Los Angeles L",
       "league": "NBA"
+    },
+    "falcon999|KXNFLGAME-26NOV27DENPIT-DEN|Yes": {
+      "capper": "falcon999",
+      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
+      "side": "Yes",
+      "price": 0.69,
+      "startTs": 1795809600,
+      "firstTs": 1795764918,
+      "combo": false,
+      "status": "open",
+      "game": "DEN vs PIT (Nov 27)",
+      "label": "Denver",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795760009
+  "updatedTs": 1795764918
 }

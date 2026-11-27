@@ -1,8 +1,17 @@
 {
   "source": "kalshi",
-  "ts": 1795761079,
-  "updatedAt": "Thu Nov 26 \u00b7 10:31 PM PT",
+  "ts": 1795765990,
+  "updatedAt": "Thu Nov 26 \u00b7 11:53 PM PT",
   "picks": [
+    {
+      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
+      "yesNo": "Yes",
+      "side": "Denver",
+      "game": "DEN vs PIT (Nov 27)",
+      "startTs": 1795809600,
+      "bt": "Moneyline",
+      "n": 1
+    },
     {
       "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
       "yesNo": "Yes",

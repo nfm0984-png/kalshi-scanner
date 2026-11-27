@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 10:13 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8714,9 +8714,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
       "recordedTs": 1795730815,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 11:35 PM PT"
     },
     {
       "id": "FFun|KXITFWMATCH-26NOV26ROUALV-ROU|Yes",
@@ -8864,6 +8864,27 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
+      "eventTicker": "KXNFLGAME-26NOV27DENPIT",
+      "game": "DEN vs PIT (Nov 27)",
+      "backing": "Denver",
+      "yesNo": "Yes",
+      "entry": 0.705,
+      "price": 0.69,
+      "cost": 4999.99,
+      "contracts": 7092.47,
+      "startTs": 1795809600,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
+      "recordedTs": 1795764918,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
