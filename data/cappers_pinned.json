@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 12:56 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -144,16 +144,16 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "door.whale",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-21"
-    },
-    {
       "nickname": "bernardHFT",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "door.whale",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-21"
     },
     {
       "nickname": "iluminado",
@@ -222,16 +222,16 @@
       "addedAt": "2026-11-26"
     },
     {
-      "nickname": "714Smith",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
       "nickname": "FRANKCASH",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-24"
+    },
+    {
+      "nickname": "714Smith",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
     },
     {
       "nickname": "gavguy",
@@ -258,28 +258,22 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "dear.bet",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "grooy",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
     },
     {
+      "nickname": "dear.bet",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
+    },
+    {
       "nickname": "successful.koi2475",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "ChopChopHTX",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-26"
     },
     {
       "nickname": "ChasingUnits",
@@ -396,12 +390,6 @@
       "addedAt": "2026-11-22"
     },
     {
-      "nickname": "kelab",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "gradysue",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -424,6 +412,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "kelab",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "firm.tip",
@@ -490,6 +484,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
+    },
+    {
+      "nickname": "jspana99",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-27"
     },
     {
       "nickname": "Dimesy",
@@ -663,8 +663,8 @@
     "absolute.turtle7508",
     "pogoburger",
     "reluctant.fox5394",
-    "door.whale",
     "bernardHFT",
+    "door.whale",
     "iluminado",
     "yunktrader",
     "AllHunnsNo20sR10s",
@@ -676,16 +676,15 @@
     "brope6",
     "governing.dinosaur",
     "HolmesWand",
-    "714Smith",
     "FRANKCASH",
+    "714Smith",
     "gavguy",
     "nshrd",
     "opposite.dolphin8700",
     "YoungGriff",
-    "dear.bet",
     "grooy",
+    "dear.bet",
     "successful.koi2475",
-    "ChopChopHTX",
     "ChasingUnits",
     "dant",
     "Bigbone69",
@@ -705,11 +704,11 @@
     "djcheecake",
     "don.tony",
     "ustrader",
-    "kelab",
     "gradysue",
     "coolness77",
     "tru3f0rmr",
     "parspectives",
+    "kelab",
     "firm.tip",
     "empiremaker70",
     "Bobbyoracle",
@@ -721,6 +720,7 @@
     "Confubae",
     "jeffpaulIA",
     "whig",
+    "jspana99",
     "Dimesy",
     "jakem12",
     "Onepunchpanda",

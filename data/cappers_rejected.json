@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 12:56 AM PT",
   "cappers": [
     {
       "nickname": "clis41",
@@ -14174,6 +14174,34 @@
       "reason": "hidden book",
       "date": "2026-11-26",
       "ts": 1795764918,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "hollow5273lantern",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795769811,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "gleaming.meteor7786",
+      "reason": "no sports activity",
+      "date": "2026-11-27",
+      "ts": 1795769811,
+      "detail": "open=0 trades=0"
+    },
+    {
+      "nickname": "misterfox",
+      "reason": "market-maker",
+      "date": "2026-11-27",
+      "ts": 1795769811,
+      "detail": "many fills in minutes, mostly maker fills; open=114 trades=8000"
+    },
+    {
+      "nickname": "persistent.termite3582",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795769811,
       "detail": "hidden"
     }
   ]
