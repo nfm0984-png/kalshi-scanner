@@ -254,21 +254,21 @@
       "boost": false
     },
     "snoz3berries": {
-      "n": 0,
+      "n": 1,
       "w": 0,
-      "l": 0,
-      "pnl": 0.0,
+      "l": 1,
+      "pnl": -100.0,
       "name": "Snoz3berries",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "parspectives": {
-      "n": 5,
+      "n": 7,
       "w": 1,
-      "l": 4,
-      "pnl": -1099.82,
+      "l": 6,
+      "pnl": -1624.6,
       "name": "parspectives",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "ustrader": {
@@ -278,7 +278,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ustrader",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "coolness77": {
@@ -287,7 +287,7 @@
       "l": 19,
       "pnl": 3.81,
       "name": "coolness77",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "muffat00": {
@@ -296,7 +296,7 @@
       "l": 0,
       "pnl": 1684.82,
       "name": "Muffat00",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "fattii": {
@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "eibriham": {
@@ -333,7 +333,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "kelab",
-      "ts": 1795685411,
+      "ts": 1795738026,
       "boost": false
     },
     "dimesy": {
@@ -998,6 +998,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795734582,
+  "updatedTs": 1795738026,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

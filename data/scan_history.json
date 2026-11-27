@@ -1,6 +1,23 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 3:09 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
   "scans": [
+    {
+      "ts": 1795738026,
+      "at": "Thu Nov 26 \u00b7 4:07 PM PT",
+      "names": 177,
+      "newFollows": [],
+      "followed": 98,
+      "target": 100,
+      "openPicks": 5,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT-VFSODX444|Yes",
+        "KXNCAAMBGAME-26NOV26TCUCREI-TCU|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795734582,
       "at": "Thu Nov 26 \u00b7 3:09 PM PT",
@@ -1160,23 +1177,6 @@
         "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
         "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
         "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
-        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
-      ]
-    },
-    {
-      "ts": 1795461262,
-      "at": "Mon Nov 23 \u00b7 11:14 AM PT",
-      "names": 434,
-      "newFollows": [
-        "kloutcap"
-      ],
-      "followed": 51,
-      "target": 100,
-      "openPicks": 4,
-      "ids": [
-        "KXMVECROSSCATEGORY-S20267UVKTRZT6KYONLKG-ZGXD4HWAU|Yes",
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
-        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
         "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
       ]
     }

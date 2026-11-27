@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795735689,
-  "updatedAt": "Thu Nov 26 \u00b7 3:28 PM PT",
+  "ts": 1795739206,
+  "updatedAt": "Thu Nov 26 \u00b7 4:26 PM PT",
   "picks": [
     {
       "ticker": "KXMVECROSSCATEGORY-S2026BTAJGJHZ3UVMSTIT-VFSODX444",
@@ -13,21 +13,21 @@
       "n": 1
     },
     {
+      "ticker": "KXNCAAMBGAME-26NOV26TCUCREI-TCU",
+      "yesNo": "Yes",
+      "side": "TCU",
+      "game": "TCU vs CREI (Nov 26)",
+      "startTs": 1795734000,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
       "ticker": "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1",
       "yesNo": "Yes",
       "side": "Josh Allen: 1+",
       "game": "Kansas City vs Buffalo: Touchdowns",
       "startTs": 1795742400,
       "bt": "Player props",
-      "n": 1
-    },
-    {
-      "ticker": "KXITFWMATCH-26NOV26ROUALV-ROU",
-      "yesNo": "Yes",
-      "side": "Ruth Roura Llaverias",
-      "game": "Roura Llaverias vs Alves",
-      "startTs": 1795748400,
-      "bt": "Moneyline",
       "n": 1
     },
     {

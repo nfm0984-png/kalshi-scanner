@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 3:09 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8735,6 +8735,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 3:09 PM PT",
       "recordedTs": 1795734582,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 4:07 PM PT"
+    },
+    {
+      "id": "falcon999|KXNCAAMBGAME-26NOV26TCUCREI-TCU|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNCAAMBGAME-26NOV26TCUCREI-TCU",
+      "eventTicker": "KXNCAAMBGAME-26NOV26TCUCREI",
+      "game": "TCU vs CREI (Nov 26)",
+      "backing": "TCU",
+      "yesNo": "Yes",
+      "entry": 0.5075,
+      "price": 0.22,
+      "cost": 1999.99,
+      "contracts": 3940.94,
+      "startTs": 1795734000,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
+      "recordedTs": 1795738026,
       "status": "open",
       "result": null,
       "settledAt": null

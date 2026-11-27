@@ -3249,10 +3249,11 @@
       "startTs": 1795727400,
       "firstTs": 1795724160,
       "combo": false,
-      "status": "open",
+      "status": "win",
       "game": "Nefve vs Willwerth",
       "label": "Axel Nefve",
-      "league": "Tennis"
+      "league": "Tennis",
+      "gradedTs": 1795738026
     },
     "falcon999|KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes": {
       "capper": "falcon999",
@@ -3281,5 +3282,5 @@
       "league": "Tennis"
     }
   },
-  "updatedTs": 1795734582
+  "updatedTs": 1795738026
 }
