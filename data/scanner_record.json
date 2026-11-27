@@ -3320,10 +3320,11 @@
       "startTs": 1795795200,
       "firstTs": 1795792218,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "Marcondes vs Justo",
       "label": "Guido Ivan Justo",
-      "league": "Tennis"
+      "league": "Tennis",
+      "gradedTs": 1795806696
     },
     "spot.ship|KXNFLSPREAD-26NOV27DENPIT-DEN4|Yes": {
       "capper": "spot.ship",
@@ -3350,7 +3351,20 @@
       "game": "Los Angeles L vs San Antonio",
       "label": "yes Stephon Castle: 2+,yes Jordan Poole: 2+",
       "league": "NBA"
+    },
+    "basquetipster|KXITFMATCH-26NOV27MALBIN-MAL|Yes": {
+      "capper": "basquetipster",
+      "ticker": "KXITFMATCH-26NOV27MALBIN-MAL",
+      "side": "Yes",
+      "price": 0.94,
+      "startTs": 1795820400,
+      "firstTs": 1795806696,
+      "combo": false,
+      "status": "open",
+      "game": "Malla vs Bini",
+      "label": "Bastian Malla",
+      "league": "Tennis"
     }
   },
-  "updatedTs": 1795800239
+  "updatedTs": 1795806696
 }

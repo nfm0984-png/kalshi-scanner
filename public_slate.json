@@ -1,8 +1,26 @@
 {
   "source": "kalshi",
-  "ts": 1795801264,
-  "updatedAt": "Fri Nov 27 \u00b7 9:41 AM PT",
+  "ts": 1795807762,
+  "updatedAt": "Fri Nov 27 \u00b7 11:29 AM PT",
   "picks": [
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026AJWCLMC6LI4KUSQ7-PVB6X3QV6",
+      "yesNo": "Yes",
+      "side": "no Mikel Brown Jr.: 6+,yes Ole Miss,yes Jacksonville,no Pittsburgh wins by over 4.5 points \u00b7 4-leg combo",
+      "game": "Brooklyn vs Toronto",
+      "startTs": 1795798800,
+      "bt": "Combo",
+      "n": 1
+    },
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026JKK3UUZKMRXBSAAO-4R4QM5ICA",
+      "yesNo": "Yes",
+      "side": "yes Jaden McDaniels: 4+,yes Ole Miss,yes UTSA \u00b7 3-leg combo",
+      "game": "Memphis vs Minnesota",
+      "startTs": 1795798800,
+      "bt": "Combo",
+      "n": 1
+    },
     {
       "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
       "yesNo": "Yes",
@@ -19,6 +37,15 @@
       "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
       "bt": "Spread",
+      "n": 1
+    },
+    {
+      "ticker": "KXITFMATCH-26NOV27MALBIN-MAL",
+      "yesNo": "Yes",
+      "side": "Bastian Malla",
+      "game": "Malla vs Bini",
+      "startTs": 1795820400,
+      "bt": "Moneyline",
       "n": 1
     },
     {
