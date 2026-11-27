@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 2:08 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 3:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8882,9 +8882,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
       "recordedTs": 1795764918,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "Muffat00|KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS|Yes",
@@ -8924,9 +8924,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
       "recordedTs": 1795796278,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "spot.ship|KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW|Yes",
@@ -8987,9 +8987,9 @@
       "bt": "Combo",
       "recordedAt": "Fri Nov 27 \u00b7 11:11 AM PT",
       "recordedTs": 1795806696,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026JKK3UUZKMRXBSAAO-4R4QM5ICA|Yes",
@@ -9050,9 +9050,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
       "recordedTs": 1795810225,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "lebronthanos|KXNFLGAME-26NOV27DENPIT-DEN|No",
@@ -9071,9 +9071,9 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 27 \u00b7 1:08 PM PT",
       "recordedTs": 1795813730,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNFLSPREAD-26NOV27DENPIT-PIT15|No",
@@ -9092,9 +9092,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 2:08 PM PT",
       "recordedTs": 1795817299,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
     },
     {
       "id": "pogoburger|KXNFLSPREAD-26NOV27DENPIT-PIT4|Yes",
@@ -9113,6 +9113,27 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 2:08 PM PT",
       "recordedTs": 1795817299,
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 3:08 PM PT"
+    },
+    {
+      "id": "due.clay|KXNCAAMBGAME-26NOV27CINBC-BC|Yes",
+      "nickname": "due.clay",
+      "ticker": "KXNCAAMBGAME-26NOV27CINBC-BC",
+      "eventTicker": "KXNCAAMBGAME-26NOV27CINBC",
+      "game": "Cincinnati vs Boston College",
+      "backing": "Boston College",
+      "yesNo": "Yes",
+      "entry": 0.35,
+      "price": 0.1,
+      "cost": 3347.4,
+      "contracts": 9564.0,
+      "startTs": 1795815000,
+      "league": "NCAAB",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 27 \u00b7 3:08 PM PT",
+      "recordedTs": 1795820910,
       "status": "open",
       "result": null,
       "settledAt": null

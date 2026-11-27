@@ -1,6 +1,24 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 2:08 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 3:08 PM PT",
   "scans": [
+    {
+      "ts": 1795820910,
+      "at": "Fri Nov 27 \u00b7 3:08 PM PT",
+      "names": 180,
+      "newFollows": [
+        "l3g1a",
+        "EZmoney713"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 3,
+      "ids": [
+        "KXNCAAMBGAME-26NOV27CINBC-BC|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795817299,
       "at": "Fri Nov 27 \u00b7 2:08 PM PT",
@@ -1128,25 +1146,6 @@
         "VAAAAAAA.11"
       ],
       "followed": 54,
-      "target": 100,
-      "openPicks": 6,
-      "ids": [
-        "KXNCAAMBTOTAL-26NOV24PITTOKLA-146|No",
-        "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
-        "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
-      ]
-    },
-    {
-      "ts": 1795547609,
-      "at": "Tue Nov 24 \u00b7 11:13 AM PT",
-      "names": 594,
-      "newFollows": [
-        "Contango"
-      ],
-      "followed": 53,
       "target": 100,
       "openPicks": 6,
       "ids": [

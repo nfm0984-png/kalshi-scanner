@@ -29,12 +29,12 @@
       "boost": false
     },
     "jackivouce": {
-      "n": 499,
-      "w": 488,
-      "l": 11,
-      "pnl": -4019.44,
+      "n": 3000,
+      "w": 2951,
+      "l": 49,
+      "pnl": -1841.26,
       "name": "jackivouce",
-      "ts": 1795769811,
+      "ts": 1795820910,
       "boost": false
     },
     "autofade": {
@@ -43,7 +43,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "autofade",
-      "ts": 1795769811,
+      "ts": 1795820910,
       "boost": false
     },
     "loyal.lion9691": {
@@ -52,7 +52,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "loyal.lion9691",
-      "ts": 1795769811,
+      "ts": 1795820910,
       "boost": false
     },
     "workertrader": {
@@ -61,7 +61,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795769811,
+      "ts": 1795820910,
       "boost": false
     },
     "profitprofet": {
@@ -471,7 +471,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "BWmarkets",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "rev.z": {
@@ -681,7 +681,7 @@
       "l": 15,
       "pnl": 112.8,
       "name": "Confubae",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "onepunchpanda": {
@@ -691,7 +691,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Onepunchpanda",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "ryqeux": {
@@ -737,7 +737,7 @@
       "l": 0,
       "pnl": 1.01,
       "name": "djm975",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "chasingunits": {
@@ -916,12 +916,12 @@
       "boost": true
     },
     "biscuitshooker": {
-      "n": 0,
-      "w": 0,
+      "n": 1,
+      "w": 1,
       "l": 0,
-      "pnl": 0.0,
+      "pnl": 19.02,
       "name": "biscuitshooker",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "caughtintheusa": {
@@ -1024,12 +1024,13 @@
       "boost": false
     },
     "captainamerica.": {
+      "hidden": true,
       "n": 0,
       "w": 0,
       "l": 0,
       "pnl": 0.0,
       "name": "captainamerica.",
-      "ts": 1795764918,
+      "ts": 1795820910,
       "boost": false
     },
     "jspana99": {
@@ -1112,9 +1113,27 @@
       "name": "alphap",
       "ts": 1795817299,
       "boost": false
+    },
+    "l3g1a": {
+      "n": 13,
+      "w": 6,
+      "l": 7,
+      "pnl": -924.58,
+      "name": "l3g1a",
+      "ts": 1795820910,
+      "boost": false
+    },
+    "ezmoney713": {
+      "n": 12,
+      "w": 5,
+      "l": 7,
+      "pnl": 32.01,
+      "name": "EZmoney713",
+      "ts": 1795820910,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795817299,
+  "updatedTs": 1795820910,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
