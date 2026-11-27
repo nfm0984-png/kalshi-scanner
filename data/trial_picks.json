@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 1:08 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -9050,6 +9050,27 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
       "recordedTs": 1795810225,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "lebronthanos|KXNFLGAME-26NOV27DENPIT-DEN|No",
+      "nickname": "lebronthanos",
+      "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
+      "eventTicker": "KXNFLGAME-26NOV27DENPIT",
+      "game": "DEN vs PIT (Nov 27)",
+      "backing": "Denver",
+      "yesNo": "No",
+      "entry": 0.3038,
+      "price": 0.67,
+      "cost": 21482.4,
+      "contracts": 70712.03,
+      "startTs": 1795809600,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 27 \u00b7 1:08 PM PT",
+      "recordedTs": 1795813730,
       "status": "open",
       "result": null,
       "settledAt": null

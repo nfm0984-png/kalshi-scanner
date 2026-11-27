@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 1:08 PM PT",
   "scans": [
+    {
+      "ts": 1795813730,
+      "at": "Fri Nov 27 \u00b7 1:08 PM PT",
+      "names": 180,
+      "newFollows": [
+        "TheRealJag"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 5,
+      "ids": [
+        "KXNFLGAME-26NOV27DENPIT-DEN|No",
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNFLSPREAD-26NOV27DENPIT-DEN5|No",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795810225,
       "at": "Fri Nov 27 \u00b7 12:10 PM PT",
@@ -1130,25 +1149,6 @@
       "openPicks": 4,
       "ids": [
         "KXATPCHALLENGERMATCH-26NOV24LADLF-LA|No",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
-      ]
-    },
-    {
-      "ts": 1795537548,
-      "at": "Tue Nov 24 \u00b7 8:25 AM PT",
-      "names": 573,
-      "newFollows": [
-        "doll.breast",
-        "kelab"
-      ],
-      "followed": 52,
-      "target": 100,
-      "openPicks": 5,
-      "ids": [
-        "KXT20MATCH-26NOV240930EMIGUL-GUL|Yes",
-        "KXATPCHALLENGERMATCH-26NOV24NIJFER-NIJ|Yes",
         "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
         "KXNBAGAME-26NOV24DETORL-ORL|Yes",
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"

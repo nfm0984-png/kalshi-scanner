@@ -324,7 +324,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "tru3f0rmr",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "kelab": {
@@ -342,7 +342,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Dimesy",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "whig": {
@@ -351,7 +351,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "whig",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "jakem12": {
@@ -360,16 +360,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "jakem12",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "bdadams": {
-      "n": 5,
+      "n": 3,
       "w": 2,
-      "l": 3,
-      "pnl": -5.56,
+      "l": 1,
+      "pnl": 13.4,
       "name": "bdadams",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "mild.fire": {
@@ -378,7 +378,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "mild.fire",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "lebronthanos": {
@@ -397,7 +397,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "d.palombo",
-      "ts": 1795760009,
+      "ts": 1795813730,
       "boost": false
     },
     "drib": {
@@ -663,7 +663,7 @@
       "l": 2,
       "pnl": 20.01,
       "name": "bird.pointer",
-      "ts": 1795760009,
+      "ts": 1795813730,
       "boost": false
     },
     "empiremaker70": {
@@ -747,7 +747,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ChasingUnits",
-      "ts": 1795760009,
+      "ts": 1795813730,
       "boost": false
     },
     "don.tony": {
@@ -876,7 +876,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "TheRealJag",
-      "ts": 1795753248,
+      "ts": 1795813730,
       "boost": false
     },
     "blond.class": {
@@ -903,7 +903,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "basquetipster",
-      "ts": 1795760009,
+      "ts": 1795813730,
       "boost": false
     },
     "chopchophtx": {
@@ -1020,7 +1020,7 @@
       "l": 1,
       "pnl": -5.47,
       "name": "conventional.dove4438",
-      "ts": 1795760009,
+      "ts": 1795813730,
       "boost": false
     },
     "captainamerica.": {
@@ -1097,6 +1097,6 @@
     }
   },
   "minN": 30,
-  "updatedTs": 1795810225,
+  "updatedTs": 1795813730,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
