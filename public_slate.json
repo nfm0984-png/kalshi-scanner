@@ -1,17 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795793347,
-  "updatedAt": "Fri Nov 27 \u00b7 7:29 AM PT",
+  "ts": 1795797422,
+  "updatedAt": "Fri Nov 27 \u00b7 8:37 AM PT",
   "picks": [
-    {
-      "ticker": "KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS",
-      "yesNo": "Yes",
-      "side": "Guido Ivan Justo",
-      "game": "Marcondes vs Justo",
-      "startTs": 1795795200,
-      "bt": "Moneyline",
-      "n": 1
-    },
     {
       "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
       "yesNo": "Yes",
@@ -19,6 +10,15 @@
       "game": "DEN vs PIT (Nov 27)",
       "startTs": 1795809600,
       "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN4",
+      "yesNo": "Yes",
+      "side": "Denver wins by over 3.5 points",
+      "game": "Denver vs Pittsburgh: Spread",
+      "startTs": 1795809600,
+      "bt": "Spread",
       "n": 1
     },
     {

@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8903,6 +8903,27 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
       "recordedTs": 1795792218,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 8:17 AM PT"
+    },
+    {
+      "id": "spot.ship|KXNFLSPREAD-26NOV27DENPIT-DEN4|Yes",
+      "nickname": "spot.ship",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN4",
+      "eventTicker": "KXNFLSPREAD-26NOV27DENPIT",
+      "game": "Denver vs Pittsburgh: Spread",
+      "backing": "Denver wins by over 3.5 points",
+      "yesNo": "Yes",
+      "entry": 0.56,
+      "price": 0.56,
+      "cost": 43655.36,
+      "contracts": 77956.0,
+      "startTs": 1795809600,
+      "league": "NFL",
+      "bt": "Spread",
+      "recordedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
+      "recordedTs": 1795796278,
       "status": "open",
       "result": null,
       "settledAt": null

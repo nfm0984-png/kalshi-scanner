@@ -97,7 +97,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "door.whale",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "reluctant.fox5394": {
@@ -106,7 +106,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "reluctant.fox5394",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "yunktrader": {
@@ -115,7 +115,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "yunktrader",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "iluminado": {
@@ -124,7 +124,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "iluminado",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "regine": {
@@ -133,7 +133,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "regine",
-      "ts": 1795730815,
+      "ts": 1795796278,
       "boost": false
     },
     "allhunnsno20sr10s": {
@@ -142,7 +142,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "AllHunnsNo20sR10s",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "714smith": {
@@ -828,7 +828,7 @@
       "l": 1,
       "pnl": 424.86,
       "name": "wet.ape",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "flying.hare7791": {
@@ -939,7 +939,7 @@
       "l": 3,
       "pnl": -41.33,
       "name": "gradysue",
-      "ts": 1795727154,
+      "ts": 1795796278,
       "boost": false
     },
     "holmeswand": {
@@ -948,7 +948,7 @@
       "l": 1,
       "pnl": -19.99,
       "name": "HolmesWand",
-      "ts": 1795730815,
+      "ts": 1795796278,
       "boost": false
     },
     "governing.dinosaur": {
@@ -957,7 +957,7 @@
       "l": 7,
       "pnl": 33.09,
       "name": "governing.dinosaur",
-      "ts": 1795730815,
+      "ts": 1795796278,
       "boost": false
     },
     "harsh.aid": {
@@ -1049,9 +1049,27 @@
       "name": "sej4974",
       "ts": 1795792218,
       "boost": false
+    },
+    "crucial.rooster5887": {
+      "n": 3,
+      "w": 0,
+      "l": 3,
+      "pnl": -126.0,
+      "name": "crucial.rooster5887",
+      "ts": 1795796278,
+      "boost": false
+    },
+    "fjuarez7": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -9.99,
+      "name": "Fjuarez7",
+      "ts": 1795796278,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795792218,
+  "updatedTs": 1795796278,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

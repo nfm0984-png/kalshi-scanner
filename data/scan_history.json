@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
   "scans": [
+    {
+      "ts": 1795796278,
+      "at": "Fri Nov 27 \u00b7 8:17 AM PT",
+      "names": 175,
+      "newFollows": [
+        "crucial.rooster5887",
+        "Fjuarez7"
+      ],
+      "followed": 99,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNFLSPREAD-26NOV27DENPIT-DEN4|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795792218,
       "at": "Fri Nov 27 \u00b7 7:10 AM PT",
@@ -1126,24 +1145,6 @@
         "KXNBATEAMTOTAL-26NOV23UTALAL-LAL112|Yes",
         "KXNBATEAMTOTAL-26NOV23UTALAL-LAL110|Yes",
         "KXT20MATCH-26NOV232230TNDELHI-DELHI|Yes"
-      ]
-    },
-    {
-      "ts": 1795493565,
-      "at": "Mon Nov 23 \u00b7 8:12 PM PT",
-      "names": 532,
-      "newFollows": [],
-      "followed": 53,
-      "target": 100,
-      "openPicks": 7,
-      "ids": [
-        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
-        "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
-        "KXNFLGAME-26NOV23CINWAS-WAS|Yes",
-        "KXNFLGAME-26NOV23CINWAS-CIN|Yes",
-        "KXNFLSPREAD-26NOV23CINWAS-CIN7|Yes",
-        "KXNBASPREAD-26NOV23SASSAC-SAS17|No",
-        "KXNBASPREAD-26NOV23UTALAL-LAL15|No"
       ]
     }
   ]

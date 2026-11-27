@@ -3324,7 +3324,20 @@
       "game": "Marcondes vs Justo",
       "label": "Guido Ivan Justo",
       "league": "Tennis"
+    },
+    "spot.ship|KXNFLSPREAD-26NOV27DENPIT-DEN4|Yes": {
+      "capper": "spot.ship",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN4",
+      "side": "Yes",
+      "price": 0.56,
+      "startTs": 1795809600,
+      "firstTs": 1795796278,
+      "combo": false,
+      "status": "open",
+      "game": "Denver vs Pittsburgh: Spread",
+      "label": "Denver wins by over 3.5 points",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795792218
+  "updatedTs": 1795796278
 }
