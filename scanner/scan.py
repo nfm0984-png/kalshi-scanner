@@ -1414,6 +1414,7 @@ LAST20_MIN_WINS = 6
 LAST20_MIN_N = 6
 SPORT_MIN_N = 5
 MIN_PAYOUT = 1.2
+MIN_PAYOUT_SHORT = 1.10  # 83-91¢ Best Capper favorites shown with a Short Price badge
 _LAST20_CACHE = None
 
 
@@ -1504,14 +1505,13 @@ def capper_shown_ok(cap, now, pick=None, stats=None, league=None):
     return True
 
 
-def pick_payout_ok(p):
-    """Hide picks priced as heavy favorites under 1.2x. Missing price: keep."""
+def _pick_payout_value(p):
     if not p:
-        return True
+        return None
     pay = p.get("payout")
     try:
         if pay is not None and float(pay) > 0:
-            return float(pay) >= MIN_PAYOUT
+            return float(pay)
     except (TypeError, ValueError):
         pass
     view = p.get("view") or {}
@@ -1519,8 +1519,65 @@ def pick_payout_ok(p):
     if px is None:
         px = p.get("price")
     if not isinstance(px, (int, float)) or not (0 < px < 1):
+        return None
+    return 1.0 / px
+
+
+def pick_payout_ok(p):
+    """Keep 1.10x+ (83-91¢ is Short Price). Hide heavier favorites under 1.10x. Missing price: keep."""
+    if not p:
         return True
-    return (1.0 / px) >= MIN_PAYOUT - 1e-12
+    pay = _pick_payout_value(p)
+    if pay is None:
+        return True
+    return pay >= MIN_PAYOUT_SHORT - 1e-12
+
+
+def is_short_price(p):
+    pay = _pick_payout_value(p)
+    return pay is not None and (MIN_PAYOUT_SHORT - 1e-12) <= pay < (MIN_PAYOUT - 1e-12)
+
+
+def tag_short_price(p):
+    if p is not None:
+        p["shortPrice"] = bool(is_short_price(p))
+    return p
+
+
+def classify_hidden_pick(c, p, now, stats=None):
+    """Return a dropReasons key or None if the pick should show."""
+    if not is_near_term_pick(p, now):
+        tk = (p.get("ticker") or "") + " " + (p.get("bt") or "") + " " + (p.get("league") or "")
+        if "NEXTTEAM" in tk.upper() or (p.get("bt") or "") == "Other":
+            return "futuresOrHorizon"
+        lg = (p.get("league") or "").lower()
+        if lg in ("esports", "cs2", "dota2", "lol", "val"):
+            return "nonsports"
+        return "futuresOrHorizon"
+    if not stake_ok(p):
+        return "sub1000"
+    slip = p.get("slip")
+    try:
+        if slip is not None and float(slip) > 6:
+            return "stale6c"
+    except (TypeError, ValueError):
+        pass
+    if not capper_shown_ok(c, now, p, stats):
+        return "qualityOrForm"
+    if not pick_payout_ok(p):
+        return "payoutUnder1.10"
+    return None
+
+
+DROP_COV = {}
+
+def bump_drop(cov, reason):
+    cov = cov or DROP_COV
+    if not cov:
+        return
+    reasons = cov.setdefault("dropReasons", {})
+    key = reason or "other"
+    reasons[key] = reasons.get(key, 0) + 1
 
 
 
@@ -2547,6 +2604,72 @@ def followed_slate_cappers(cappers, pinned, now=None):
     return rows
 
 
+
+def build_top_cappers_log(cappers, pinned, games, now, limit=100):
+    """Top 100 Sports Cappers Log: Best Cappers first, then other sports-board names with official profit."""
+    pinset = {nick_key(n).lower() for n in pinned_names(pinned)}
+    opens = {}
+    for g in games or []:
+        for p in g.get("picks") or []:
+            for b in p.get("backers") or []:
+                n = nick_key(b.get("name") or "")
+                if n:
+                    opens[n.lower()] = opens.get(n.lower(), 0) + 1
+    rows = []
+    seen = set()
+    def add(c, extra_tags=None):
+        nick = nick_key(c.get("nickname"))
+        if not nick or nick.lower() in seen:
+            return
+        seen.add(nick.lower())
+        g = c.get("graded") or {}
+        w, l = int(g.get("w") or 0), int(g.get("l") or 0)
+        n = int(g.get("n") or (w + l) or 0)
+        wr = (round(100.0 * w / n, 1) if n else None)
+        pnl = c.get("pnl")
+        roi = g.get("roi")
+        tags = []
+        if c.get("pinned") or nick.lower() in pinset or c.get("tier") == PINNED_TAG or c.get("tag") == PINNED_TAG:
+            tags.append("Best Capper")
+        tags.append("Top 100")
+        if extra_tags:
+            tags.extend(extra_tags)
+        rows.append({
+            "rank": 0,
+            "nickname": nick,
+            "tags": tags,
+            "best": "Best Capper" in tags,
+            "w": w, "l": l, "n": n,
+            "wr": wr,
+            "roi": None if roi is None else roi,
+            "pnl": None if pnl is None else round(float(pnl), 2),
+            "open": opens.get(nick.lower(), 0) or int(c.get("open") or c.get("openPositions") or 0),
+            "profile": c.get("profileUrl") or ("https://kalshi.com/ideas/profiles/" + nick),
+            "recordLine": c.get("recordLine") or "",
+            "sport": (c.get("bestAt") or ""),
+        })
+
+    # Best Cappers first (veterans with 20+ graded ahead of thin samples, then PnL).
+    best = [c for c in (cappers or []) if (c.get("pinned") or nick_key(c.get("nickname")).lower() in pinset or c.get("tier") == PINNED_TAG or c.get("tag") == PINNED_TAG)]
+    def score(c):
+        g = c.get("graded") or {}
+        n = int(g.get("n") or 0)
+        pnl = c.get("pnl") or 0
+        return (1 if n >= 20 else 0, float(pnl or 0), n)
+    for c in sorted(best, key=score, reverse=True):
+        add(c)
+    rest = [c for c in (cappers or []) if nick_key(c.get("nickname")).lower() not in seen]
+    rest = [c for c in rest if (c.get("pnl") or 0) > 0 and (c.get("tier") in ("Board", "Top 50", PINNED_TAG, "Best Cappers") or on_profit_leaderboard(c))]
+    for c in sorted(rest, key=score, reverse=True):
+        if len(rows) >= limit:
+            break
+        add(c)
+    rows = rows[:limit]
+    for i, r in enumerate(rows, 1):
+        r["rank"] = i
+    return {"updatedAt": pt(now), "count": len(rows), "cappers": rows}
+
+
 def group_games(cappers, now, log=print):
     by, order, dropped = {}, [], []
     qstats = {}
@@ -2555,8 +2678,11 @@ def group_games(cappers, now, log=print):
     for c in cappers:
         rec = c.get("graded")
         for p in c.get("picks") or []:
-            if not stake_ok(p) or not capper_shown_ok(c, now, p, qstats) or not pick_payout_ok(p):
+            why = classify_hidden_pick(c, p, now, qstats)
+            if why:
+                bump_drop(getattr(group_games, "_cov", None), why)
                 continue
+            tag_short_price(p)
             gid = p.get("eventTicker") or (p.get("game") + "|" + str(p.get("startTs") or 0))
             if gid not in by:
                 by[gid] = {
@@ -3093,6 +3219,15 @@ def build(now=None, log=print):
         "shown": 0,
         "picks": 0,
         "games": 0,
+        "dropReasons": {
+            "sub1000": 0,
+            "futuresOrHorizon": 0,
+            "nonsports": 0,
+            "payoutUnder1.10": 0,
+            "stale6c": 0,
+            "qualityOrForm": 0,
+            "other": 0,
+        },
         "finishedDropped": 0,
         "finishedNames": [],
         "calls": 0,
@@ -3103,6 +3238,8 @@ def build(now=None, log=print):
     }
     live_cappers = []
     pinned_hidden = set()
+    global DROP_COV
+    DROP_COV = cov
 
     # Hourly full scan (Noel, Nov 25 / t1071u): always refresh Best Cappers, then spend a
     # bounded candidate batch on NEW / unreviewed official-board + sports-tape names first,
@@ -3275,8 +3412,11 @@ def build(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_shown_ok(c, now, p) or not pick_payout_ok(p):
+            why = classify_hidden_pick(c, p, now)
+            if why:
+                bump_drop(None, why)
                 continue
+            tag_short_price(p)
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
     following = enrich_follow_cappers(following, cappers)
@@ -3316,6 +3456,7 @@ def build(now=None, log=print):
         "cappers": pub_cappers,
         "games": games,
         "following": following,
+        "topCappers": build_top_cappers_log(cappers, pinned, games, now),
         "scanHistory": record_scan_history(now, cov, games, following, prev),
         "scannerRecord": update_scanner_record(http, games, now, mcache, ecache, log),
         "comboRecords": safe_combo_records(http, games, pinned, now, 12, log),
@@ -3549,8 +3690,11 @@ def build_follow_check(now=None, log=print):
         if not (c.get("pinned") or is_pinned(c.get("nickname"), pinned)):
             continue
         for p in c.get("followingPicks") or []:
-            if not is_near_term_pick(p, now) or not stake_ok(p) or not capper_shown_ok(c, now, p) or not pick_payout_ok(p):
+            why = classify_hidden_pick(c, p, now)
+            if why:
+                bump_drop(None, why)
                 continue
+            tag_short_price(p)
             following_open.append(dict(p, nickname=c.get("nickname"), recordLine=c.get("recordLine") or c.get("nickname"), tier=c.get("tier") or PINNED_TAG, source=p.get("source")))
     following = update_trial_ledger(http, following_open, pinned, pinned_hidden, now, mcache, ecache, log)
     following = enrich_follow_cappers(following, live_cappers)

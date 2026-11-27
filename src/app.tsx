@@ -473,6 +473,7 @@ const LAST20_MIN_WINS = 6;
 const LAST20_MIN_N = 6;
 const SPORT_MIN_N = 5;
 const MIN_PAYOUT = 1.2;
+const MIN_PAYOUT_SHORT = 1.10;
 function capperFormOk(name?: string): boolean {
   const r = last20Of(name || "");
   if (!r || !r.n) return true;
@@ -495,12 +496,23 @@ function capperSportOk(name: string | undefined, league?: string | null): boolea
 function capperShownOk(name: string | undefined, now: number, lastMap?: Record<string, number>, league?: string | null): boolean {
   return capperQualityOk(name, now, lastMap) && capperFormOk(name) && capperSportOk(name, league);
 }
+function pickPayoutValue(p: { payout?: number | null; view?: { price?: number | null }; price?: number | null; shortPrice?: boolean } | null | undefined): number | null {
+  if (!p) return null;
+  if (p.payout != null && p.payout > 0) return p.payout;
+  const px = (p.view && p.view.price != null) ? p.view.price : (p.price != null ? p.price : null);
+  if (px == null || !(px > 0 && px < 1)) return null;
+  return 1 / px;
+}
 function pickPayoutOk(p: { payout?: number | null; view?: { price?: number | null }; price?: number | null } | null | undefined): boolean {
   if (!p) return true;
-  if (p.payout != null && p.payout > 0) return p.payout >= MIN_PAYOUT;
-  const px = (p.view && p.view.price != null) ? p.view.price : (p.price != null ? p.price : null);
-  if (px == null || !(px > 0 && px < 1)) return true;
-  return (1 / px) >= MIN_PAYOUT;
+  const pay = pickPayoutValue(p);
+  if (pay == null) return true;
+  return pay >= MIN_PAYOUT_SHORT - 1e-12;
+}
+function isShortPrice(p: { payout?: number | null; view?: { price?: number | null }; price?: number | null; shortPrice?: boolean } | null | undefined): boolean {
+  if (p && p.shortPrice) return true;
+  const pay = pickPayoutValue(p);
+  return pay != null && pay >= MIN_PAYOUT_SHORT - 1e-12 && pay < MIN_PAYOUT - 1e-12;
 }
 
 function gradedWL(c?: Capper | null): { w: number; l: number; n: number; roi: number | null; profit: number | null; sample?: string } | null {
@@ -1665,6 +1677,7 @@ function PickFlags(props: { p: Pick; startTs?: number | null; game?: Game }): Re
   useOtherSlate();
   const p = props.p;
   const out: React.ReactElement[] = [];
+  if (isShortPrice(p) || isShortPrice({ payout: p.payout, view: p.view, price: p.view && p.view.price, shortPrice: (p as any).shortPrice })) out.push(<span key="sp" data-short-price="1" title="Kalshi is 83–91¢ (1.10x–1.20x). Shown with a Short Price badge instead of being hidden." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"Short Price"}</span>);
   if (addedAfterStart(p, props.startTs)) out.push(<span key="la" data-live-added="1" title="This pick first showed up on the scanner after the game had started" style={flagChip("#FEE2E2", "#B91C1C", "#EF4444")}>{"LIVE · added after start"}</span>);
   const g = entryGapCents(p);
   if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the cappers paid, so the market is moving against them. Ranked below non-fading picks." style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
@@ -2053,8 +2066,48 @@ function CapperCard(props: { c: Capper; now: number; rank: number; filter?: stri
   );
 }
 function CappersTab(props: { now: number; query?: string; filter?: string }) {
-  const caps = sortCappers((DATA.cappers || []).slice());
+  const log = ((DATA as any).topCappers || {}) as { updatedAt?: string; count?: number; cappers?: { rank?: number; nickname?: string; tags?: string[]; best?: boolean; w?: number; l?: number; n?: number; wr?: number | null; roi?: number | null; pnl?: number | null; open?: number; profile?: string; recordLine?: string; sport?: string }[] };
   const q = (props.query || "").trim().toLowerCase();
+  if (log.cappers && log.cappers.length) {
+    let rows = log.cappers.slice();
+    if (q) rows = rows.filter((c) => (c.nickname || "").toLowerCase().includes(q));
+    if (props.filter === "wl") rows = rows.filter((c) => ((c.w || 0) + (c.l || 0)) > 0);
+    if (props.filter === "open") rows = rows.filter((c) => (c.open || 0) > 0);
+    if (!rows.length) {
+      return <EmptyState title="No cappers match that filter" body="Try another search or clear the filter." />;
+    }
+    return (
+      <div>
+        <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{"Cappers · " + rows.length + " of the Top 100 Sports Cappers Log"}</div>
+        <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", margin: "0 0 12px", lineHeight: "18px" }}>Best Cappers first, then other sports-board names with official profit. Veterans (20+ graded) rank above thin samples. Losing books are not added just to fill the list.</div>
+        {rows.map((c, i) => {
+          const rec = ((c.w || 0) + (c.l || 0)) ? ((c.w || 0) + "–" + (c.l || 0)) : "—";
+          const wr = c.wr != null ? (c.wr + "%") : "—";
+          const roi = c.roi != null ? (((c.roi >= 0 ? "+" : "") + Math.round(c.roi) + "%")) : "—";
+          const pnl = c.pnl == null ? "—" : ((c.pnl >= 0 ? "+" : "") + (Math.abs(c.pnl) >= 1000 ? ((c.pnl < 0 ? "−" : "+") + (Math.round(Math.abs(c.pnl) / 100) / 10) + "k") : String(Math.round(c.pnl))));
+          return (
+            <div key={c.nickname || String(i)} data-top-capper={c.nickname} style={{ background: "#fff", border: "1px solid #DDD6FE", borderRadius: 16, padding: "12px 14px", margin: "0 0 10px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+                <span style={{ display: "inline-flex", alignItems: "center", padding: "2px 8px", borderRadius: 999, background: NAVY, color: "#fff", fontWeight: 800, fontSize: 12 }}>{"#" + (c.rank || (i + 1))}</span>
+                <div style={{ fontSize: 17, fontWeight: 850, color: NAVY }}>{c.nickname}</div>
+                {(c.tags || []).map((tag) => <span key={tag} style={{ display: "inline-flex", padding: "2px 8px", borderRadius: 999, background: tag === "Best Capper" ? GREEN : "#1D4ED8", color: "#fff", fontWeight: 800, fontSize: 11 }}>{tag}</span>)}
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 8, fontSize: 13, fontWeight: 700, color: "#64748B" }}>
+                <span>{"Record " + rec}</span>
+                <span>{"Win rate " + wr}</span>
+                <span>{"ROI " + roi}</span>
+                <span>{"PnL " + pnl}</span>
+                {c.sport ? <span>{"Sport " + c.sport}</span> : null}
+                <span>{(c.open || 0) === 1 ? "1 open pick" : (c.open || 0) + " open picks"}</span>
+              </div>
+              {c.profile ? <div style={{ marginTop: 8 }}><a href={c.profile} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, fontWeight: 800, color: "#5B21B6" }}>Kalshi profile</a></div> : null}
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+  const caps = sortCappers((DATA.cappers || []).slice());
   let shown = caps.filter((c: Capper) => !q || (c.nickname || "").toLowerCase().includes(q));
   if (props.filter === "wl") shown = shown.filter((c: Capper) => { const g = gradedWL(c); return !!(g && (g.w + g.l) > 0); });
   if (props.filter === "open") shown = shown.filter((c: Capper) => openPicksFor(c.nickname, props.now).length > 0);
@@ -2063,8 +2116,7 @@ function CappersTab(props: { now: number; query?: string; filter?: string }) {
   }
   return (
     <div>
-      <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{"Best Cappers · " + shown.length + " of " + ((capperDatabase().target) || TARGET_FOLLOW)}</div>
-      <div style={{ fontSize: 13, fontWeight: 650, color: "#64748B", margin: "0 0 12px", lineHeight: "18px" }}>{shown.length < ((capperDatabase().target) || TARGET_FOLLOW) ? ("Persistent good-only database, rechecked every 5 minutes. " + shown.length + " currently qualify with a winning record and official profit — losing books are not added just to fill the list of " + ((capperDatabase().target) || TARGET_FOLLOW) + ".") : "Persistent good-only database, rechecked every 5 minutes. Ranked by closed-position grade, veterans first."}</div>
+      <div style={{ fontSize: 18, fontWeight: 850, color: NAVY, margin: "18px 0 4px" }}>{"Cappers · " + shown.length}</div>
       {shown.map((c: Capper, i: number) => <CapperCard key={c.nickname} c={c} now={props.now} rank={i + 1} />)}
     </div>
   );
@@ -2281,7 +2333,7 @@ export default function App() {
   const tabMeta: { value: "coming" | "following" | "ranked" | "cappers" | "scorecard"; label: string; count?: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$1,000+ singles and combos · best to worst · today in PT, after 7pm + tomorrow" },
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$1,000+ singles and combos, soonest first · live first" },
-    { value: "cappers", label: "Best Cappers", count: followedN, icon: <IconUsers />, title: "Best Cappers", caption: "Persistent good-only database (target 100) · rechecked every 5 minutes · official profit and closed record" },
+    { value: "cappers", label: "Cappers", count: (((DATA as any).topCappers && (DATA as any).topCappers.cappers) ? (DATA as any).topCappers.cappers.length : followedN), icon: <IconUsers />, title: "Cappers", caption: "Top 100 Sports Cappers Log · Best Cappers first · official profit and closed record" },
     { value: "scorecard", label: "Scorecard", icon: <IconChart />, title: "Scorecard", caption: "Yesterday’s scanner picks · W–L and flat $1" },
   ];
   const active = tabMeta.find((t) => t.value === tab) || tabMeta[0];
