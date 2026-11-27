@@ -1,6 +1,22 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 10:13 PM PT",
   "scans": [
+    {
+      "ts": 1795760009,
+      "at": "Thu Nov 26 \u00b7 10:13 PM PT",
+      "names": 175,
+      "newFollows": [
+        "conventional.dove4438"
+      ],
+      "followed": 95,
+      "target": 100,
+      "openPicks": 2,
+      "ids": [
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795753248,
       "at": "Thu Nov 26 \u00b7 8:20 PM PT",
@@ -1150,27 +1166,6 @@
         "KXATPCHALLENGERMATCH-26NOV23DELDEL2-DEL2|Yes",
         "KXNBAGAME-26NOV23PORPHI-POR|Yes",
         "KXNBAGAME-26NOV23PORPHI-PHI|Yes",
-        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
-        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
-        "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
-        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes",
-        "KXNBASPREAD-26NOV23SASSAC-SAS17|No"
-      ]
-    },
-    {
-      "ts": 1795475065,
-      "at": "Mon Nov 23 \u00b7 3:04 PM PT",
-      "names": 479,
-      "newFollows": [],
-      "followed": 52,
-      "target": 100,
-      "openPicks": 10,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
-        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
-        "KXMVECROSSCATEGORY-S20266Z4UUFVS6VK77KEY-MV54ON57S|Yes",
-        "KXMVECROSSCATEGORY-S2026A5R7AIKLWJUKWIXP-HIYRX24PA|Yes",
-        "KXNBAGAME-26NOV23PORPHI-POR|Yes",
         "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
         "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
         "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",

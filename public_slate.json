@@ -1,44 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795754331,
-  "updatedAt": "Thu Nov 26 \u00b7 8:38 PM PT",
+  "ts": 1795761079,
+  "updatedAt": "Thu Nov 26 \u00b7 10:31 PM PT",
   "picks": [
-    {
-      "ticker": "KXNFLGAME-26NOV26KCBUF-KC",
-      "yesNo": "Yes",
-      "side": "Kansas City",
-      "game": "Kansas City vs Buffalo",
-      "startTs": 1795742400,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNFLGAME-26NOV26KCBUF-BUF",
-      "yesNo": "Yes",
-      "side": "Buffalo",
-      "game": "Kansas City vs Buffalo",
-      "startTs": 1795742400,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1",
-      "yesNo": "Yes",
-      "side": "Josh Allen: 1+",
-      "game": "Kansas City vs Buffalo: Touchdowns",
-      "startTs": 1795742400,
-      "bt": "Player props",
-      "n": 1
-    },
-    {
-      "ticker": "KXNCAAMBGAME-26NOV26BAYGONZ-BAY",
-      "yesNo": "Yes",
-      "side": "Baylor",
-      "game": "BAY vs GONZ (Nov 26)",
-      "startTs": 1795753800,
-      "bt": "Moneyline",
-      "n": 1
-    },
     {
       "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
       "yesNo": "Yes",

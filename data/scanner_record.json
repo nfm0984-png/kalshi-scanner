@@ -1263,8 +1263,9 @@
       "startTs": 1795469400,
       "firstTs": 1795455910,
       "combo": true,
-      "status": "open",
-      "seeded": true
+      "status": "win",
+      "seeded": true,
+      "gradedTs": 1795760009
     },
     "WorkerTrader|KXAFCCLGAME-26NOV23QUWALG-TIE|Yes": {
       "capper": "WorkerTrader",
@@ -3223,10 +3224,11 @@
       "startTs": 1795742400,
       "firstTs": 1795709940,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "Kansas City vs Buffalo: Touchdowns",
       "label": "Josh Allen: 1+",
-      "league": "NFL"
+      "league": "NFL",
+      "gradedTs": 1795760009
     },
     "falcon999|KXNFLGAME-26NOV26CHIDET-CHI|Yes": {
       "capper": "falcon999",
@@ -3277,10 +3279,11 @@
       "startTs": 1795748400,
       "firstTs": 1795734582,
       "combo": false,
-      "status": "open",
+      "status": "win",
       "game": "Roura Llaverias vs Alves",
       "label": "Ruth Roura Llaverias",
-      "league": "Tennis"
+      "league": "Tennis",
+      "gradedTs": 1795760009
     },
     "djcheecake|KXNBAGAME-26NOV27LALSAS-LAL|Yes": {
       "capper": "djcheecake",
@@ -3296,5 +3299,5 @@
       "league": "NBA"
     }
   },
-  "updatedTs": 1795753248
+  "updatedTs": 1795760009
 }

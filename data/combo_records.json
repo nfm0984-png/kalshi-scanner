@@ -388,7 +388,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "lebronthanos",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "d.palombo": {
@@ -397,7 +397,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "d.palombo",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "drib": {
@@ -406,7 +406,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "drib",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "watsons.burnerr": {
@@ -425,7 +425,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "milesdavis",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "bullishkirby": {
@@ -434,7 +434,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bullishkirby",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "bananastand21": {
@@ -443,7 +443,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "bananastand21",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "norrisfan": {
@@ -452,7 +452,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "norrisfan",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "kevin702": {
@@ -663,7 +663,7 @@
       "l": 2,
       "pnl": 20.01,
       "name": "bird.pointer",
-      "ts": 1795709940,
+      "ts": 1795760009,
       "boost": false
     },
     "empiremaker70": {
@@ -747,7 +747,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ChasingUnits",
-      "ts": 1795713926,
+      "ts": 1795760009,
       "boost": false
     },
     "don.tony": {
@@ -903,16 +903,16 @@
       "l": 0,
       "pnl": 0.0,
       "name": "basquetipster",
-      "ts": 1795713926,
+      "ts": 1795760009,
       "boost": false
     },
     "chopchophtx": {
-      "n": 119,
-      "w": 47,
-      "l": 72,
-      "pnl": 483.57,
+      "n": 124,
+      "w": 49,
+      "l": 75,
+      "pnl": 431.23,
       "name": "ChopChopHTX",
-      "ts": 1795713926,
+      "ts": 1795760009,
       "boost": true
     },
     "biscuitshooker": {
@@ -1013,9 +1013,18 @@
       "name": "brope6",
       "ts": 1795749114,
       "boost": false
+    },
+    "conventional.dove4438": {
+      "n": 2,
+      "w": 1,
+      "l": 1,
+      "pnl": -5.47,
+      "name": "conventional.dove4438",
+      "ts": 1795760009,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795753248,
+  "updatedTs": 1795760009,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

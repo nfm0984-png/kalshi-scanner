@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 10:13 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -4976,9 +4976,9 @@
       "bt": "Combo",
       "recordedAt": "Mon Nov 23 \u00b7 9:43 AM PT",
       "recordedTs": 1795455817,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     },
     {
       "id": "WorkerTrader|KXAFCCLGAME-26NOV23QUWALG-TIE|Yes",
@@ -7580,9 +7580,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     },
     {
       "id": "Davmjxn|KXNFLTOTAL-26NOV26PHIDAL-49|Yes",
@@ -8525,9 +8525,9 @@
       "bt": "Player props",
       "recordedAt": "Thu Nov 26 \u00b7 8:19 AM PT",
       "recordedTs": 1795709940,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     },
     {
       "id": "dependent.snail8369|KXNCAAMBGAME-26NOV26UGACIN-CIN|Yes",
@@ -8798,9 +8798,9 @@
       "bt": "Combo",
       "recordedAt": "Thu Nov 26 \u00b7 7:11 PM PT",
       "recordedTs": 1795749114,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     },
     {
       "id": "djcheecake|KXNBAGAME-26NOV27LALSAS-LAL|Yes",
@@ -8840,9 +8840,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
       "recordedTs": 1795753248,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     },
     {
       "id": "pogoburger|KXNFLGAME-26NOV26KCBUF-KC|Yes",
@@ -8861,9 +8861,9 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
       "recordedTs": 1795753248,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 10:13 PM PT"
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
