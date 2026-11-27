@@ -1,6 +1,26 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 9:23 AM PT",
   "scans": [
+    {
+      "ts": 1795800239,
+      "at": "Fri Nov 27 \u00b7 9:23 AM PT",
+      "names": 179,
+      "newFollows": [
+        "CMasters3",
+        "julius.cld"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 5,
+      "ids": [
+        "KXNFLGAME-26NOV27DENPIT-DEN|Yes",
+        "KXNFLSPREAD-26NOV27DENPIT-DEN4|Yes",
+        "KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795796278,
       "at": "Fri Nov 27 \u00b7 8:17 AM PT",
@@ -1121,30 +1141,6 @@
         "KXATPCHALLENGERMATCH-26NOV23NOGJON-JON|Yes",
         "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
-      ]
-    },
-    {
-      "ts": 1795497626,
-      "at": "Mon Nov 23 \u00b7 9:20 PM PT",
-      "names": 545,
-      "newFollows": [
-        "AllHunnsNo20sR10s"
-      ],
-      "followed": 51,
-      "target": 100,
-      "openPicks": 11,
-      "ids": [
-        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
-        "KXMVECROSSCATEGORY-S202673OJNC4BLWCUNC5N-7Z633D6ER|Yes",
-        "KXNBAGAME-26NOV23UTALAL-UTA|Yes",
-        "KXNBAGAME-26NOV23UTALAL-LAL|Yes",
-        "KXNBAGAME-26NOV23UTALAL-UTA|No",
-        "KXNBAGAME-26NOV23UTALAL-LAL|No",
-        "KXNBASPREAD-26NOV23UTALAL-LAL15|No",
-        "KXNBASPREAD-26NOV23UTALAL-LAL7|Yes",
-        "KXNBATEAMTOTAL-26NOV23UTALAL-LAL112|Yes",
-        "KXNBATEAMTOTAL-26NOV23UTALAL-LAL110|Yes",
-        "KXT20MATCH-26NOV232230TNDELHI-DELHI|Yes"
       ]
     }
   ]

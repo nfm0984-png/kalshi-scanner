@@ -3337,7 +3337,20 @@
       "game": "Denver vs Pittsburgh: Spread",
       "label": "Denver wins by over 3.5 points",
       "league": "NFL"
+    },
+    "spot.ship|KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW|Yes": {
+      "capper": "spot.ship",
+      "ticker": "KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW",
+      "side": "Yes",
+      "price": 0.338,
+      "startTs": 1795833000,
+      "firstTs": 1795800239,
+      "combo": true,
+      "status": "open",
+      "game": "Los Angeles L vs San Antonio",
+      "label": "yes Stephon Castle: 2+,yes Jordan Poole: 2+",
+      "league": "NBA"
     }
   },
-  "updatedTs": 1795796278
+  "updatedTs": 1795800239
 }

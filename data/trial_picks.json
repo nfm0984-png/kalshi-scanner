@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 9:23 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8924,6 +8924,27 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 8:17 AM PT",
       "recordedTs": 1795796278,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "spot.ship|KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW|Yes",
+      "nickname": "spot.ship",
+      "ticker": "KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y",
+      "game": "Los Angeles L vs San Antonio",
+      "backing": "yes Stephon Castle: 2+,yes Jordan Poole: 2+",
+      "yesNo": "Yes",
+      "entry": 0.334,
+      "price": 0.338,
+      "cost": 28332.58,
+      "contracts": 84840.0,
+      "startTs": 1795833000,
+      "league": "NBA",
+      "bt": "Combo",
+      "recordedAt": "Fri Nov 27 \u00b7 9:23 AM PT",
+      "recordedTs": 1795800239,
       "status": "open",
       "result": null,
       "settledAt": null

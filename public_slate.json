@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795797422,
-  "updatedAt": "Fri Nov 27 \u00b7 8:37 AM PT",
+  "ts": 1795801264,
+  "updatedAt": "Fri Nov 27 \u00b7 9:41 AM PT",
   "picks": [
     {
       "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
@@ -19,6 +19,15 @@
       "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
       "bt": "Spread",
+      "n": 1
+    },
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026XY4MQ2DTRUOG774Y-HNTEP3MFW",
+      "yesNo": "Yes",
+      "side": "yes Stephon Castle: 2+,yes Jordan Poole: 2+ \u00b7 2-leg combo",
+      "game": "Los Angeles L vs San Antonio",
+      "startTs": 1795833000,
+      "bt": "Combo",
       "n": 1
     },
     {

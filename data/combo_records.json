@@ -146,21 +146,21 @@
       "boost": false
     },
     "714smith": {
-      "n": 387,
-      "w": 211,
-      "l": 176,
-      "pnl": 161.56,
+      "n": 392,
+      "w": 213,
+      "l": 179,
+      "pnl": 152.38,
       "name": "714Smith",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": true
     },
     "opposite.dolphin8700": {
       "n": 108,
-      "w": 24,
-      "l": 84,
-      "pnl": -2192.17,
+      "w": 25,
+      "l": 83,
+      "pnl": -2084.13,
       "name": "opposite.dolphin8700",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "nshrd": {
@@ -169,7 +169,7 @@
       "l": 1,
       "pnl": -5.0,
       "name": "nshrd",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "younggriff": {
@@ -178,7 +178,7 @@
       "l": 12,
       "pnl": 7009.56,
       "name": "YoungGriff",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "successful.koi2475": {
@@ -187,7 +187,7 @@
       "l": 5,
       "pnl": -17227.31,
       "name": "successful.koi2475",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "king.45": {
@@ -209,12 +209,12 @@
       "boost": false
     },
     "fen.dachi": {
-      "n": 16,
+      "n": 19,
       "w": 3,
-      "l": 13,
-      "pnl": 3269.71,
+      "l": 16,
+      "pnl": 3140.24,
       "name": "fen.dachi",
-      "ts": 1795734582,
+      "ts": 1795800239,
       "boost": false
     },
     "iknowballmorethanu": {
@@ -573,7 +573,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "FRANKCASH",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "djcheecake": {
@@ -838,7 +838,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "flying.hare7791",
-      "ts": 1795730815,
+      "ts": 1795800239,
       "boost": false
     },
     "dant": {
@@ -847,7 +847,7 @@
       "l": 0,
       "pnl": 19.2,
       "name": "dant",
-      "ts": 1795734582,
+      "ts": 1795800239,
       "boost": false
     },
     "powerful.terrier4093": {
@@ -975,7 +975,7 @@
       "l": 3,
       "pnl": -2646.81,
       "name": "bernardHFT",
-      "ts": 1795734582,
+      "ts": 1795800239,
       "boost": false
     },
     "dry.elk1499": {
@@ -1067,9 +1067,27 @@
       "name": "Fjuarez7",
       "ts": 1795796278,
       "boost": false
+    },
+    "cmasters3": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "CMasters3",
+      "ts": 1795800239,
+      "boost": false
+    },
+    "julius.cld": {
+      "n": 7,
+      "w": 3,
+      "l": 4,
+      "pnl": 341.41,
+      "name": "julius.cld",
+      "ts": 1795800239,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795796278,
+  "updatedTs": 1795800239,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
