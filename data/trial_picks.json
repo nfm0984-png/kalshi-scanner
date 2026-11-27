@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 7:11 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8777,9 +8777,9 @@
       "bt": "Totals",
       "recordedAt": "Thu Nov 26 \u00b7 5:33 PM PT",
       "recordedTs": 1795743206,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 8:20 PM PT"
     },
     {
       "id": "dependent.snail8369|KXMVECROSSCATEGORY-S2026TMV6HXAZ4LXHXSVM-52Z6RSMYN|Yes",
@@ -8819,6 +8819,48 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 7:11 PM PT",
       "recordedTs": 1795749114,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "falcon999|KXNFLGAME-26NOV26KCBUF-BUF|Yes",
+      "nickname": "falcon999",
+      "ticker": "KXNFLGAME-26NOV26KCBUF-BUF",
+      "eventTicker": "KXNFLGAME-26NOV26KCBUF",
+      "game": "KC vs BUF (Nov 26)",
+      "backing": "Buffalo",
+      "yesNo": "Yes",
+      "entry": 0.6659,
+      "price": 0.58,
+      "cost": 3499.99,
+      "contracts": 5255.84,
+      "startTs": 1795742400,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
+      "recordedTs": 1795753248,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "pogoburger|KXNFLGAME-26NOV26KCBUF-KC|Yes",
+      "nickname": "pogoburger",
+      "ticker": "KXNFLGAME-26NOV26KCBUF-KC",
+      "eventTicker": "KXNFLGAME-26NOV26KCBUF",
+      "game": "Kansas City vs Buffalo",
+      "backing": "Kansas City",
+      "yesNo": "Yes",
+      "entry": 0.5,
+      "price": 0.41,
+      "cost": 2180.0,
+      "contracts": 4360.0,
+      "startTs": 1795742400,
+      "league": "NFL",
+      "bt": "Moneyline",
+      "recordedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
+      "recordedTs": 1795753248,
       "status": "open",
       "result": null,
       "settledAt": null

@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Thu Nov 26 \u00b7 7:11 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 8:20 PM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -109,12 +109,6 @@
     },
     {
       "nickname": "WorkerTrader",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "dependent.snail8369",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -342,6 +336,12 @@
       "addedAt": "2026-11-23"
     },
     {
+      "nickname": "iknowballmorethanu",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-22"
+    },
+    {
       "nickname": "Davmjxn",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -349,12 +349,6 @@
     },
     {
       "nickname": "brand.breeze",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "iknowballmorethanu",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
@@ -658,7 +652,6 @@
     "getabrainclown",
     "loyal.lion9691",
     "WorkerTrader",
-    "dependent.snail8369",
     "her.king.091519",
     "basquetipster",
     "pogoburger",
@@ -696,9 +689,9 @@
     "caughtintheusa",
     "classic.toucan",
     "gap.sauce",
+    "iknowballmorethanu",
     "Davmjxn",
     "brand.breeze",
-    "iknowballmorethanu",
     "Muffat00",
     "888max",
     "Snoz3berries",

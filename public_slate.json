@@ -1,15 +1,24 @@
 {
   "source": "kalshi",
-  "ts": 1795750134,
-  "updatedAt": "Thu Nov 26 \u00b7 7:28 PM PT",
+  "ts": 1795754331,
+  "updatedAt": "Thu Nov 26 \u00b7 8:38 PM PT",
   "picks": [
     {
-      "ticker": "KXMVECROSSCATEGORY-S2026TMV6HXAZ4LXHXSVM-52Z6RSMYN",
+      "ticker": "KXNFLGAME-26NOV26KCBUF-KC",
       "yesNo": "Yes",
-      "side": "yes Texas Tech,yes Buffalo \u00b7 2-leg combo",
-      "game": "TCU vs Texas Tech",
-      "startTs": 1795741200,
-      "bt": "Combo",
+      "side": "Kansas City",
+      "game": "Kansas City vs Buffalo",
+      "startTs": 1795742400,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLGAME-26NOV26KCBUF-BUF",
+      "yesNo": "Yes",
+      "side": "Buffalo",
+      "game": "Kansas City vs Buffalo",
+      "startTs": 1795742400,
+      "bt": "Moneyline",
       "n": 1
     },
     {
@@ -19,15 +28,6 @@
       "game": "Kansas City vs Buffalo: Touchdowns",
       "startTs": 1795742400,
       "bt": "Player props",
-      "n": 1
-    },
-    {
-      "ticker": "KXNFLTOTAL-26NOV26KCBUF-42",
-      "yesNo": "No",
-      "side": "Over 41.5 points",
-      "game": "KC vs BUF (Nov 26)",
-      "startTs": 1795742400,
-      "bt": "Totals",
       "n": 1
     },
     {
