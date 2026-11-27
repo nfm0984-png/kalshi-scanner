@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 12:56 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8882,6 +8882,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 11:35 PM PT",
       "recordedTs": 1795764918,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "Muffat00|KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS|Yes",
+      "nickname": "Muffat00",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS",
+      "eventTicker": "KXATPCHALLENGERMATCH-26NOV27MARJUS",
+      "game": "Marcondes vs Justo",
+      "backing": "Guido Ivan Justo",
+      "yesNo": "Yes",
+      "entry": 0.69,
+      "price": 0.48,
+      "cost": 5065.29,
+      "contracts": 7341.0,
+      "startTs": 1795795200,
+      "league": "Tennis",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
+      "recordedTs": 1795792218,
       "status": "open",
       "result": null,
       "settledAt": null

@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Fri Nov 27 \u00b7 12:56 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 7:10 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -186,16 +186,16 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "FFun",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-24"
-    },
-    {
       "nickname": "fit.shirt",
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
+    },
+    {
+      "nickname": "FFun",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-24"
     },
     {
       "nickname": "regine",
@@ -384,6 +384,12 @@
       "addedAt": "2026-11-25"
     },
     {
+      "nickname": "sej4974",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-27"
+    },
+    {
       "nickname": "ustrader",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -498,6 +504,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "captainamerica.",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-26"
+    },
+    {
       "nickname": "jakem12",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -520,12 +532,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-21"
-    },
-    {
-      "nickname": "captainamerica.",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-26"
     },
     {
       "nickname": "d.palombo",
@@ -670,8 +676,8 @@
     "AllHunnsNo20sR10s",
     "Contango",
     "controlled.rook2872",
-    "FFun",
     "fit.shirt",
+    "FFun",
     "regine",
     "brope6",
     "governing.dinosaur",
@@ -703,6 +709,7 @@
     "Snoz3berries",
     "djcheecake",
     "don.tony",
+    "sej4974",
     "ustrader",
     "gradysue",
     "coolness77",
@@ -722,11 +729,11 @@
     "whig",
     "jspana99",
     "Dimesy",
+    "captainamerica.",
     "jakem12",
     "Onepunchpanda",
     "bdadams",
     "mild.fire",
-    "captainamerica.",
     "d.palombo",
     "Stiinzy",
     "lebronthanos",

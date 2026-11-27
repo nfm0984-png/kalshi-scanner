@@ -88,7 +88,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "pogoburger",
-      "ts": 1795727154,
+      "ts": 1795792218,
       "boost": false
     },
     "door.whale": {
@@ -500,7 +500,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "VAAAAAAA.11",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "ffun": {
@@ -519,7 +519,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Stiinzy",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "bigbone69": {
@@ -528,7 +528,7 @@
       "l": 2,
       "pnl": -100.92,
       "name": "Bigbone69",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "888max": {
@@ -537,7 +537,7 @@
       "l": 2,
       "pnl": -6.99,
       "name": "888max",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "deadpoet086": {
@@ -546,25 +546,25 @@
       "l": 0,
       "pnl": 0.0,
       "name": "deadpoet086",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "beaudane": {
-      "n": 62,
-      "w": 33,
-      "l": 29,
-      "pnl": 1.53,
+      "n": 64,
+      "w": 34,
+      "l": 30,
+      "pnl": 1.17,
       "name": "beaudane",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": true
     },
     "absolute.turtle7508": {
-      "n": 2,
-      "w": 0,
-      "l": 2,
-      "pnl": -19.99,
+      "n": 5,
+      "w": 1,
+      "l": 4,
+      "pnl": -1.18,
       "name": "absolute.turtle7508",
-      "ts": 1795727154,
+      "ts": 1795792218,
       "boost": false
     },
     "frankcash": {
@@ -810,7 +810,7 @@
       "l": 1,
       "pnl": 94647.08,
       "name": "spot.ship",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "getabrainclown": {
@@ -819,7 +819,7 @@
       "l": 53,
       "pnl": -1528.74,
       "name": "getabrainclown",
-      "ts": 1795727154,
+      "ts": 1795792218,
       "boost": false
     },
     "wet.ape": {
@@ -925,12 +925,12 @@
       "boost": false
     },
     "caughtintheusa": {
-      "n": 100,
+      "n": 97,
       "w": 48,
-      "l": 52,
-      "pnl": -804.37,
+      "l": 49,
+      "pnl": -725.32,
       "name": "caughtintheusa",
-      "ts": 1795724160,
+      "ts": 1795792218,
       "boost": false
     },
     "gradysue": {
@@ -1040,9 +1040,18 @@
       "name": "jspana99",
       "ts": 1795769811,
       "boost": false
+    },
+    "sej4974": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "sej4974",
+      "ts": 1795792218,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795769811,
+  "updatedTs": 1795792218,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

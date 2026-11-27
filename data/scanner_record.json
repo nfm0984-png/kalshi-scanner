@@ -3311,7 +3311,20 @@
       "game": "DEN vs PIT (Nov 27)",
       "label": "Denver",
       "league": "NFL"
+    },
+    "Muffat00|KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS|Yes": {
+      "capper": "Muffat00",
+      "ticker": "KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS",
+      "side": "Yes",
+      "price": 0.48,
+      "startTs": 1795795200,
+      "firstTs": 1795792218,
+      "combo": false,
+      "status": "open",
+      "game": "Marcondes vs Justo",
+      "label": "Guido Ivan Justo",
+      "league": "Tennis"
     }
   },
-  "updatedTs": 1795769811
+  "updatedTs": 1795792218
 }

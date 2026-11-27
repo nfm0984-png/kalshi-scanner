@@ -1,8 +1,17 @@
 {
   "source": "kalshi",
-  "ts": 1795770999,
-  "updatedAt": "Fri Nov 27 \u00b7 1:16 AM PT",
+  "ts": 1795793347,
+  "updatedAt": "Fri Nov 27 \u00b7 7:29 AM PT",
   "picks": [
+    {
+      "ticker": "KXATPCHALLENGERMATCH-26NOV27MARJUS-JUS",
+      "yesNo": "Yes",
+      "side": "Guido Ivan Justo",
+      "game": "Marcondes vs Justo",
+      "startTs": 1795795200,
+      "bt": "Moneyline",
+      "n": 1
+    },
     {
       "ticker": "KXNFLGAME-26NOV27DENPIT-DEN",
       "yesNo": "Yes",
