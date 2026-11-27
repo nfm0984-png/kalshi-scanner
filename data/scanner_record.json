@@ -3281,7 +3281,20 @@
       "game": "Roura Llaverias vs Alves",
       "label": "Ruth Roura Llaverias",
       "league": "Tennis"
+    },
+    "djcheecake|KXNBAGAME-26NOV27LALSAS-LAL|Yes": {
+      "capper": "djcheecake",
+      "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
+      "side": "Yes",
+      "price": 0.35,
+      "startTs": 1795833000,
+      "firstTs": 1795749114,
+      "combo": false,
+      "status": "open",
+      "game": "Los Angeles L vs San Antonio",
+      "label": "Los Angeles L",
+      "league": "NBA"
     }
   },
-  "updatedTs": 1795743206
+  "updatedTs": 1795749114
 }

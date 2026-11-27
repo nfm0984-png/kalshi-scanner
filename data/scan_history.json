@@ -1,6 +1,26 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 5:33 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 7:11 PM PT",
   "scans": [
+    {
+      "ts": 1795749114,
+      "at": "Thu Nov 26 \u00b7 7:11 PM PT",
+      "names": 177,
+      "newFollows": [
+        "brope6"
+      ],
+      "followed": 96,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXMVECROSSCATEGORY-S2026TMV6HXAZ4LXHXSVM-52Z6RSMYN|Yes",
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNFLTOTAL-26NOV26KCBUF-42|No",
+        "KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795743206,
       "at": "Thu Nov 26 \u00b7 5:33 PM PT",
@@ -1159,26 +1179,6 @@
         "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
         "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes",
         "KXNBASPREAD-26NOV23SASSAC-SAS17|No"
-      ]
-    },
-    {
-      "ts": 1795467715,
-      "at": "Mon Nov 23 \u00b7 1:01 PM PT",
-      "names": 456,
-      "newFollows": [],
-      "followed": 52,
-      "target": 100,
-      "openPicks": 9,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
-        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
-        "KXSERIEAGAME-26NOV23MONFIO-FIO|No",
-        "KXMVECROSSCATEGORY-S20266Z4UUFVS6VK77KEY-MV54ON57S|Yes",
-        "KXMVECROSSCATEGORY-S2026A5R7AIKLWJUKWIXP-HIYRX24PA|Yes",
-        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
-        "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
-        "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
-        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
       ]
     }
   ]

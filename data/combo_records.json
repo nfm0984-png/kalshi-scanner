@@ -1004,9 +1004,18 @@
       "name": "due.clay",
       "ts": 1795743206,
       "boost": false
+    },
+    "brope6": {
+      "n": 1,
+      "w": 0,
+      "l": 1,
+      "pnl": -10.0,
+      "name": "brope6",
+      "ts": 1795749114,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795743206,
+  "updatedTs": 1795749114,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

@@ -1,8 +1,17 @@
 {
   "source": "kalshi",
-  "ts": 1795744278,
-  "updatedAt": "Thu Nov 26 \u00b7 5:51 PM PT",
+  "ts": 1795750134,
+  "updatedAt": "Thu Nov 26 \u00b7 7:28 PM PT",
   "picks": [
+    {
+      "ticker": "KXMVECROSSCATEGORY-S2026TMV6HXAZ4LXHXSVM-52Z6RSMYN",
+      "yesNo": "Yes",
+      "side": "yes Texas Tech,yes Buffalo \u00b7 2-leg combo",
+      "game": "TCU vs Texas Tech",
+      "startTs": 1795741200,
+      "bt": "Combo",
+      "n": 1
+    },
     {
       "ticker": "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1",
       "yesNo": "Yes",
@@ -27,6 +36,15 @@
       "side": "Baylor",
       "game": "BAY vs GONZ (Nov 26)",
       "startTs": 1795753800,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
+      "yesNo": "Yes",
+      "side": "Los Angeles L",
+      "game": "Los Angeles L vs San Antonio",
+      "startTs": 1795833000,
       "bt": "Moneyline",
       "n": 1
     },
