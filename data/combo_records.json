@@ -263,12 +263,12 @@
       "boost": false
     },
     "parspectives": {
-      "n": 7,
+      "n": 8,
       "w": 1,
-      "l": 6,
-      "pnl": -1624.6,
+      "l": 7,
+      "pnl": -1872.2,
       "name": "parspectives",
-      "ts": 1795738026,
+      "ts": 1795810225,
       "boost": false
     },
     "ustrader": {
@@ -282,12 +282,12 @@
       "boost": false
     },
     "coolness77": {
-      "n": 28,
-      "w": 9,
-      "l": 19,
-      "pnl": 3.81,
+      "n": 26,
+      "w": 8,
+      "l": 18,
+      "pnl": -13.46,
       "name": "coolness77",
-      "ts": 1795738026,
+      "ts": 1795810225,
       "boost": false
     },
     "muffat00": {
@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795738026,
+      "ts": 1795810225,
       "boost": false
     },
     "eibriham": {
@@ -328,12 +328,12 @@
       "boost": false
     },
     "kelab": {
-      "n": 0,
+      "n": 1,
       "w": 0,
-      "l": 0,
-      "pnl": 0.0,
+      "l": 1,
+      "pnl": -10.0,
       "name": "kelab",
-      "ts": 1795738026,
+      "ts": 1795810225,
       "boost": false
     },
     "dimesy": {
@@ -613,12 +613,12 @@
       "boost": false
     },
     "dear.bet": {
-      "n": 5,
-      "w": 4,
+      "n": 6,
+      "w": 5,
       "l": 1,
-      "pnl": 169.98,
+      "pnl": 290.14,
       "name": "dear.bet",
-      "ts": 1795753248,
+      "ts": 1795810225,
       "boost": false
     },
     "ggmate111": {
@@ -645,7 +645,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "controlled.rook2872",
-      "ts": 1795753248,
+      "ts": 1795810225,
       "boost": false
     },
     "grooy": {
@@ -654,7 +654,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "grooy",
-      "ts": 1795753248,
+      "ts": 1795810225,
       "boost": false
     },
     "bird.pointer": {
@@ -866,7 +866,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "her.king.091519",
-      "ts": 1795753248,
+      "ts": 1795810225,
       "boost": false
     },
     "therealjag": {
@@ -894,7 +894,7 @@
       "l": 27,
       "pnl": 42.72,
       "name": "gavguy",
-      "ts": 1795753248,
+      "ts": 1795810225,
       "boost": false
     },
     "basquetipster": {
@@ -1002,7 +1002,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "due.clay",
-      "ts": 1795743206,
+      "ts": 1795810225,
       "boost": false
     },
     "brope6": {
@@ -1011,7 +1011,7 @@
       "l": 1,
       "pnl": -10.0,
       "name": "brope6",
-      "ts": 1795749114,
+      "ts": 1795810225,
       "boost": false
     },
     "conventional.dove4438": {
@@ -1085,9 +1085,18 @@
       "name": "julius.cld",
       "ts": 1795800239,
       "boost": false
+    },
+    "chartered.maltese1755": {
+      "n": 1,
+      "w": 1,
+      "l": 0,
+      "pnl": 10.6,
+      "name": "chartered.maltese1755",
+      "ts": 1795810225,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795806696,
+  "updatedTs": 1795810225,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

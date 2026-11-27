@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795807762,
-  "updatedAt": "Fri Nov 27 \u00b7 11:29 AM PT",
+  "ts": 1795811533,
+  "updatedAt": "Fri Nov 27 \u00b7 12:32 PM PT",
   "picks": [
     {
       "ticker": "KXMVECROSSCATEGORY-S2026AJWCLMC6LI4KUSQ7-PVB6X3QV6",
@@ -31,21 +31,21 @@
       "n": 1
     },
     {
-      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN4",
-      "yesNo": "Yes",
-      "side": "Denver wins by over 3.5 points",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN5",
+      "yesNo": "No",
+      "side": "Denver wins by over 4.5 points",
       "game": "Denver vs Pittsburgh: Spread",
       "startTs": 1795809600,
       "bt": "Spread",
       "n": 1
     },
     {
-      "ticker": "KXITFMATCH-26NOV27MALBIN-MAL",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN4",
       "yesNo": "Yes",
-      "side": "Bastian Malla",
-      "game": "Malla vs Bini",
-      "startTs": 1795820400,
-      "bt": "Moneyline",
+      "side": "Denver wins by over 3.5 points",
+      "game": "Denver vs Pittsburgh: Spread",
+      "startTs": 1795809600,
+      "bt": "Spread",
       "n": 1
     },
     {

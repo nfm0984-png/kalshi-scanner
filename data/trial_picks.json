@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 11:11 AM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8966,9 +8966,9 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 27 \u00b7 11:11 AM PT",
       "recordedTs": 1795806696,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 12:10 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026AJWCLMC6LI4KUSQ7-PVB6X3QV6|Yes",
@@ -9008,6 +9008,48 @@
       "bt": "Combo",
       "recordedAt": "Fri Nov 27 \u00b7 11:11 AM PT",
       "recordedTs": 1795806696,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026BQOJ754JXMSMX3LT-IPTAJQYY7|Yes",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXMVECROSSCATEGORY-S2026BQOJ754JXMSMX3LT-IPTAJQYY7",
+      "eventTicker": "KXMVECROSSCATEGORY-S2026BQOJ754JXMSMX3LT",
+      "game": "Los Angeles L vs San Antonio",
+      "backing": "no Victor Wembanyama: 4+,yes Ole Miss,yes UTSA,no Iowa St. wins by over 7.5 points",
+      "yesNo": "Yes",
+      "entry": 0.5,
+      "price": 0.5,
+      "cost": 1073.0,
+      "contracts": 2146.0,
+      "startTs": 1795798800,
+      "league": "Combo",
+      "bt": "Combo",
+      "recordedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
+      "recordedTs": 1795810225,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "jspana99|KXNFLSPREAD-26NOV27DENPIT-DEN5|No",
+      "nickname": "jspana99",
+      "ticker": "KXNFLSPREAD-26NOV27DENPIT-DEN5",
+      "eventTicker": "KXNFLSPREAD-26NOV27DENPIT",
+      "game": "Denver vs Pittsburgh: Spread",
+      "backing": "Denver wins by over 4.5 points",
+      "yesNo": "No",
+      "entry": 0.5,
+      "price": 0.56,
+      "cost": 5250.0,
+      "contracts": 10500.0,
+      "startTs": 1795809600,
+      "league": "NFL",
+      "bt": "Spread",
+      "recordedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
+      "recordedTs": 1795810225,
       "status": "open",
       "result": null,
       "settledAt": null
