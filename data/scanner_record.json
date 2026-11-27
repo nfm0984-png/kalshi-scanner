@@ -3209,10 +3209,11 @@
       "startTs": 1795716000,
       "firstTs": 1795685411,
       "combo": true,
-      "status": "open",
+      "status": "loss",
       "game": "MVE",
       "label": "yes Dallas,yes Detroit over 20.5 points,yes Dallas over 24.5 points",
-      "league": "NFL"
+      "league": "NFL",
+      "gradedTs": 1795743206
     },
     "spot.ship|KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes": {
       "capper": "spot.ship",
@@ -3282,5 +3283,5 @@
       "league": "Tennis"
     }
   },
-  "updatedTs": 1795738026
+  "updatedTs": 1795743206
 }

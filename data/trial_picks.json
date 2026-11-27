@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 5:33 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7601,9 +7601,9 @@
       "bt": "Totals",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Thu Nov 26 \u00b7 5:33 PM PT"
     },
     {
       "id": "Muffat00|KXATPCHALLENGERMATCH-26NOV24UCHLEO-UCH|Yes",
@@ -8693,9 +8693,9 @@
       "bt": "Combo",
       "recordedAt": "Thu Nov 26 \u00b7 2:06 PM PT",
       "recordedTs": 1795730815,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 5:33 PM PT"
     },
     {
       "id": "falcon999|KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes",
@@ -8756,6 +8756,27 @@
       "bt": "Moneyline",
       "recordedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
       "recordedTs": 1795738026,
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Thu Nov 26 \u00b7 5:33 PM PT"
+    },
+    {
+      "id": "falcon999|KXNFLTOTAL-26NOV26KCBUF-42|No",
+      "nickname": "falcon999",
+      "ticker": "KXNFLTOTAL-26NOV26KCBUF-42",
+      "eventTicker": "KXNFLTOTAL-26NOV26KCBUF",
+      "game": "KC vs BUF (Nov 26)",
+      "backing": "Over 41.5 points",
+      "yesNo": "No",
+      "entry": 0.575,
+      "price": 0.57,
+      "cost": 3898.51,
+      "contracts": 6779.78,
+      "startTs": 1795742400,
+      "league": "NFL",
+      "bt": "Totals",
+      "recordedAt": "Thu Nov 26 \u00b7 5:33 PM PT",
+      "recordedTs": 1795743206,
       "status": "open",
       "result": null,
       "settledAt": null

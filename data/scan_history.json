@@ -1,6 +1,24 @@
 {
-  "updatedAt": "Thu Nov 26 \u00b7 4:07 PM PT",
+  "updatedAt": "Thu Nov 26 \u00b7 5:33 PM PT",
   "scans": [
+    {
+      "ts": 1795743206,
+      "at": "Thu Nov 26 \u00b7 5:33 PM PT",
+      "names": 178,
+      "newFollows": [
+        "due.clay"
+      ],
+      "followed": 98,
+      "target": 100,
+      "openPicks": 4,
+      "ids": [
+        "KXNFLTD-26NOV26KCBUF-BUFJALLEN17-1|Yes",
+        "KXNFLTOTAL-26NOV26KCBUF-42|No",
+        "KXNCAAMBGAME-26NOV26BAYGONZ-BAY|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795738026,
       "at": "Thu Nov 26 \u00b7 4:07 PM PT",
@@ -1160,23 +1178,6 @@
         "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
         "KXMVECROSSCATEGORY-S20265EBCQGFGNCDK7KTK-GLZXOGY3K|Yes",
         "KXMVECROSSCATEGORY-S2026U6I5A6477LAUQKLU-P6UQJER4X|Yes",
-        "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
-      ]
-    },
-    {
-      "ts": 1795464775,
-      "at": "Mon Nov 23 \u00b7 12:12 PM PT",
-      "names": 448,
-      "newFollows": [
-        "Profitprofet"
-      ],
-      "followed": 52,
-      "target": 100,
-      "openPicks": 4,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026GCLIILINTNZSVTMX-KFWX74IWP|Yes",
-        "KXMVECROSSCATEGORY-S2026CF46N2RO5V7SGVYL-KRMCZSUVS|Yes",
-        "KXMVECROSSCATEGORY-S2026SPL6JASMWRJHUJA3-2PKEQBYCE|Yes",
         "KXMVECROSSCATEGORY-S2026TJHKRAPZ7Y4GSIKE-OGDBBLZI6|Yes"
       ]
     }
