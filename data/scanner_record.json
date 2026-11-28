@@ -3505,32 +3505,19 @@
       "label": "Army wins by over 4.5 points",
       "league": "NCAAF"
     },
-    "ascoges|KXLALIGA2GAME-26NOV28ALBTEN-ALB|Yes": {
+    "ascoges|KXLIGAPORTUGALGAME-26NOV28MORSCL-SCL|Yes": {
       "capper": "ascoges",
-      "ticker": "KXLALIGA2GAME-26NOV28ALBTEN-ALB",
+      "ticker": "KXLIGAPORTUGALGAME-26NOV28MORSCL-SCL",
       "side": "Yes",
-      "price": 0.9733,
-      "startTs": 1795889700,
-      "firstTs": 1795885188,
+      "price": 0.9813,
+      "startTs": 1795890600,
+      "firstTs": 1795886181,
       "combo": false,
       "status": "open",
-      "game": "Albacete vs Tenerife",
-      "label": "Albacete",
-      "league": "Soccer"
-    },
-    "ascoges|KXLALIGAGAME-26NOV28MCFATH-ATH|Yes": {
-      "capper": "ascoges",
-      "ticker": "KXLALIGAGAME-26NOV28MCFATH-ATH",
-      "side": "Yes",
-      "price": 0.86,
-      "startTs": 1795889700,
-      "firstTs": 1795885188,
-      "combo": false,
-      "status": "open",
-      "game": "Malaga vs Bilbao",
-      "label": "Bilbao",
+      "game": "Moreirense vs Santa Clara Azores",
+      "label": "Santa Clara Azores",
       "league": "Soccer"
     }
   },
-  "updatedTs": 1795885188
+  "updatedTs": 1795886181
 }

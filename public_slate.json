@@ -1,23 +1,23 @@
 {
   "source": "kalshi",
-  "ts": 1795886414,
-  "updatedAt": "Sat Nov 28 \u00b7 9:20 AM PT",
+  "ts": 1795887391,
+  "updatedAt": "Sat Nov 28 \u00b7 9:36 AM PT",
   "picks": [
     {
-      "ticker": "KXLALIGA2GAME-26NOV28ALBTEN-ALB",
+      "ticker": "KXNCAAFGAME-26NOV28LOUUK-UK",
       "yesNo": "Yes",
-      "side": "Albacete",
-      "game": "Albacete vs Tenerife",
-      "startTs": 1795889700,
+      "side": "Kentucky",
+      "game": "Louisville vs Kentucky",
+      "startTs": 1795885200,
       "bt": "Moneyline",
       "n": 1
     },
     {
-      "ticker": "KXLALIGAGAME-26NOV28MCFATH-ATH",
+      "ticker": "KXLIGAPORTUGALGAME-26NOV28MORSCL-SCL",
       "yesNo": "Yes",
-      "side": "Bilbao",
-      "game": "Malaga vs Bilbao",
-      "startTs": 1795889700,
+      "side": "Santa Clara Azores",
+      "game": "Moreirense vs Santa Clara Azores",
+      "startTs": 1795890600,
       "bt": "Moneyline",
       "n": 1
     },
