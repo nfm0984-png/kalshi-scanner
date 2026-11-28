@@ -1,8 +1,35 @@
 {
   "source": "kalshi",
-  "ts": 1795879175,
-  "updatedAt": "Sat Nov 28 \u00b7 7:19 AM PT",
+  "ts": 1795882671,
+  "updatedAt": "Sat Nov 28 \u00b7 8:17 AM PT",
   "picks": [
+    {
+      "ticker": "KXNCAAFTOTAL-26NOV28MICHOSU-38",
+      "yesNo": "No",
+      "side": "Over 37.5 points",
+      "game": "Michigan vs Ohio St.: Total Points",
+      "startTs": 1795885200,
+      "bt": "Totals",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAFTOTAL-26NOV28USMODU-49",
+      "yesNo": "No",
+      "side": "Over 48.5 points",
+      "game": "Southern Miss vs Old Dominion: Total Points",
+      "startTs": 1795888800,
+      "bt": "Totals",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAFSPREAD-26NOV28ARMYRICE-ARMY5",
+      "yesNo": "No",
+      "side": "Army wins by over 4.5 points",
+      "game": "Army vs Rice: Spread",
+      "startTs": 1795892400,
+      "bt": "Spread",
+      "n": 1
+    },
     {
       "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
       "yesNo": "Yes",

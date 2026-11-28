@@ -3465,7 +3465,46 @@
       "game": "Brian Thomas Jr. Next Team",
       "label": "Jacksonville",
       "league": "NFL"
+    },
+    "DTWD|KXNCAAFTOTAL-26NOV28MICHOSU-38|No": {
+      "capper": "DTWD",
+      "ticker": "KXNCAAFTOTAL-26NOV28MICHOSU-38",
+      "side": "No",
+      "price": 0.53,
+      "startTs": 1795885200,
+      "firstTs": 1795881492,
+      "combo": false,
+      "status": "open",
+      "game": "Michigan vs Ohio St.: Total Points",
+      "label": "Over 37.5 points",
+      "league": "NCAAF"
+    },
+    "DTWD|KXNCAAFTOTAL-26NOV28USMODU-49|No": {
+      "capper": "DTWD",
+      "ticker": "KXNCAAFTOTAL-26NOV28USMODU-49",
+      "side": "No",
+      "price": 0.5,
+      "startTs": 1795888800,
+      "firstTs": 1795881492,
+      "combo": false,
+      "status": "open",
+      "game": "Southern Miss vs Old Dominion: Total Points",
+      "label": "Over 48.5 points",
+      "league": "NCAAF"
+    },
+    "DTWD|KXNCAAFSPREAD-26NOV28ARMYRICE-ARMY5|No": {
+      "capper": "DTWD",
+      "ticker": "KXNCAAFSPREAD-26NOV28ARMYRICE-ARMY5",
+      "side": "No",
+      "price": 0.51,
+      "startTs": 1795892400,
+      "firstTs": 1795881492,
+      "combo": false,
+      "status": "open",
+      "game": "Army vs Rice: Spread",
+      "label": "Army wins by over 4.5 points",
+      "league": "NCAAF"
     }
   },
-  "updatedTs": 1795877962
+  "updatedTs": 1795881492
 }

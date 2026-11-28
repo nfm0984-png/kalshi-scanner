@@ -1,6 +1,26 @@
 {
-  "updatedAt": "Sat Nov 28 \u00b7 6:59 AM PT",
+  "updatedAt": "Sat Nov 28 \u00b7 7:58 AM PT",
   "scans": [
+    {
+      "ts": 1795881492,
+      "at": "Sat Nov 28 \u00b7 7:58 AM PT",
+      "names": 180,
+      "newFollows": [
+        "lay.pipe"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNCAAFTOTAL-26NOV28MICHOSU-38|No",
+        "KXNCAAFTOTAL-26NOV28USMODU-49|No",
+        "KXNCAAFSPREAD-26NOV28ARMYRICE-ARMY5|No",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG|Yes",
+        "KXNFLNEXTTEAM-26BTHOMAS7-JAC|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795877962,
       "at": "Sat Nov 28 \u00b7 6:59 AM PT",
@@ -963,36 +983,6 @@
         "KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
         "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
         "KXNCAAMBSPREAD-26NOV25CONNDUKE-DUKE2|No",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
-        "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
-        "KXNFLTOTAL-26NOV26PHIDAL-49|Yes",
-        "KXNFLTOTAL-26NOV26KCBUF-48|Yes",
-        "KXNCAAFSPREAD-26NOV27MINNWIS-WIS8|No",
-        "KXNCAAFGAME-26NOV28MICHOSU-MICH|Yes",
-        "KXNCAAFGAME-26NOV28MICHOSU-OSU|Yes",
-        "KXNCAAFTOTAL-26NOV28MICHOSU-38|Yes",
-        "KXNCAAFSPREAD-26NOV28CCARJMU-JMU18|No",
-        "KXNCAAFSPREAD-26NOV28KSUISU-ISU5|No",
-        "KXNCAAFSPREAD-26NOV28LIBMOSU-LIB18|No",
-        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
-        "KXNCAAFSPREAD-26NOV28ASUARIZ-ARIZ8|Yes",
-        "KXNFLGAME-26NOV29SEASF-SF|Yes"
-      ]
-    },
-    {
-      "ts": 1795592293,
-      "at": "Tue Nov 24 \u00b7 11:38 PM PT",
-      "names": 779,
-      "newFollows": [
-        "dear.bet",
-        "Gbaby50"
-      ],
-      "followed": 67,
-      "target": 100,
-      "openPicks": 16,
-      "ids": [
-        "KXUCLGAME-26NOV25SBHBAR-BAR|Yes",
-        "KXMVECROSSCATEGORY-S20264HOX6JL3HWJVL2V4-RX76GJSHJ|Yes",
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
         "KXNFLSPREAD-26NOV25GBLAR-LAR3|No",
         "KXNFLTOTAL-26NOV26PHIDAL-49|Yes",
