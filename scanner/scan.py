@@ -3924,7 +3924,7 @@ def main():
             import best_double as _bd
             data["bestDouble"] = _bd.build_from_kalshi_payload(data, now=data.get("ts")) or _bd.empty_state()
             try:
-                print("quality gate (Ranked/Coming Up):", json.dumps(_bd.gate_summary_kalshi(data, now=data.get("ts"))), flush=True)
+                print("double-grade count (display only, nothing hidden):", json.dumps(_bd.gate_summary_kalshi(data, now=data.get("ts"))), flush=True)
             except Exception as _e:
                 print("quality gate summary failed:", _e, flush=True)
         except Exception as _e:
