@@ -3504,7 +3504,33 @@
       "game": "Army vs Rice: Spread",
       "label": "Army wins by over 4.5 points",
       "league": "NCAAF"
+    },
+    "ascoges|KXLALIGA2GAME-26NOV28ALBTEN-ALB|Yes": {
+      "capper": "ascoges",
+      "ticker": "KXLALIGA2GAME-26NOV28ALBTEN-ALB",
+      "side": "Yes",
+      "price": 0.9733,
+      "startTs": 1795889700,
+      "firstTs": 1795885188,
+      "combo": false,
+      "status": "open",
+      "game": "Albacete vs Tenerife",
+      "label": "Albacete",
+      "league": "Soccer"
+    },
+    "ascoges|KXLALIGAGAME-26NOV28MCFATH-ATH|Yes": {
+      "capper": "ascoges",
+      "ticker": "KXLALIGAGAME-26NOV28MCFATH-ATH",
+      "side": "Yes",
+      "price": 0.86,
+      "startTs": 1795889700,
+      "firstTs": 1795885188,
+      "combo": false,
+      "status": "open",
+      "game": "Malaga vs Bilbao",
+      "label": "Bilbao",
+      "league": "Soccer"
     }
   },
-  "updatedTs": 1795881492
+  "updatedTs": 1795885188
 }

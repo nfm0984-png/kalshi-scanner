@@ -52,7 +52,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "loyal.lion9691",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "workertrader": {
@@ -61,7 +61,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "WorkerTrader",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "profitprofet": {
@@ -471,7 +471,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "BWmarkets",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "rev.z": {
@@ -490,7 +490,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Contango",
-      "ts": 1795824877,
+      "ts": 1795885188,
       "boost": false
     },
     "vaaaaaaa.11": {
@@ -681,7 +681,7 @@
       "l": 15,
       "pnl": 112.8,
       "name": "Confubae",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "onepunchpanda": {
@@ -691,7 +691,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Onepunchpanda",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "ryqeux": {
@@ -723,12 +723,12 @@
       "boost": false
     },
     "clintmyers": {
-      "n": 0,
+      "n": 1,
       "w": 0,
-      "l": 0,
-      "pnl": 0.0,
+      "l": 1,
+      "pnl": -99.96,
       "name": "clintmyers",
-      "ts": 1795730815,
+      "ts": 1795885188,
       "boost": false
     },
     "djm975": {
@@ -737,7 +737,7 @@
       "l": 0,
       "pnl": 1.01,
       "name": "djm975",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "chasingunits": {
@@ -916,12 +916,12 @@
       "boost": true
     },
     "biscuitshooker": {
-      "n": 1,
+      "n": 3,
       "w": 1,
-      "l": 0,
-      "pnl": 19.02,
+      "l": 2,
+      "pnl": -0.17,
       "name": "biscuitshooker",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "caughtintheusa": {
@@ -1030,7 +1030,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "captainamerica.",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "jspana99": {
@@ -1115,12 +1115,12 @@
       "boost": false
     },
     "l3g1a": {
-      "n": 13,
+      "n": 14,
       "w": 6,
-      "l": 7,
-      "pnl": -924.58,
+      "l": 8,
+      "pnl": -1169.55,
       "name": "l3g1a",
-      "ts": 1795820910,
+      "ts": 1795885188,
       "boost": false
     },
     "ezmoney713": {
@@ -1257,9 +1257,18 @@
       "name": "lay.pipe",
       "ts": 1795881492,
       "boost": false
+    },
+    "emji.emji": {
+      "n": 0,
+      "w": 0,
+      "l": 0,
+      "pnl": 0.0,
+      "name": "emji.emji",
+      "ts": 1795885188,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795881492,
+  "updatedTs": 1795885188,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

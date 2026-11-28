@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sat Nov 28 \u00b7 7:58 AM PT",
+  "updatedAt": "Sat Nov 28 \u00b7 8:59 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -498,6 +498,12 @@
       "addedAt": "2026-11-22"
     },
     {
+      "nickname": "bed.catch",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-27"
+    },
+    {
       "nickname": "kelab",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -510,10 +516,10 @@
       "addedAt": "2026-11-25"
     },
     {
-      "nickname": "bed.catch",
+      "nickname": "emji.emji",
       "tag": "Best Cappers",
       "source": "auto-winning",
-      "addedAt": "2026-11-27"
+      "addedAt": "2026-11-28"
     },
     {
       "nickname": "Bobbyoracle",
@@ -526,6 +532,12 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-26"
+    },
+    {
+      "nickname": "clintmyers",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-28"
     },
     {
       "nickname": "nskubic24",
@@ -648,18 +660,6 @@
       "addedAt": "2026-11-24"
     },
     {
-      "nickname": "lebronthanos",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "dry.elk1499",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-26"
-    },
-    {
       "nickname": "BWmarkets",
       "tag": "Best Cappers",
       "source": "manual",
@@ -746,11 +746,13 @@
     "coolness77",
     "firm.tip",
     "parspectives",
+    "bed.catch",
     "kelab",
     "empiremaker70",
-    "bed.catch",
+    "emji.emji",
     "Bobbyoracle",
     "biscuitshooker",
+    "clintmyers",
     "nskubic24",
     "fattii",
     "international.starling4828",
@@ -771,8 +773,6 @@
     "mild.fire",
     "d.palombo",
     "Stiinzy",
-    "lebronthanos",
-    "dry.elk1499",
     "BWmarkets",
     "falcon999"
   ]

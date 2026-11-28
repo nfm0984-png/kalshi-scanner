@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Sat Nov 28 \u00b7 7:58 AM PT",
+  "updatedAt": "Sat Nov 28 \u00b7 8:59 AM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -9368,6 +9368,48 @@
       "status": "loss",
       "result": "no",
       "settledAt": "Sat Nov 28 \u00b7 6:15 AM PT"
+    },
+    {
+      "id": "ascoges|KXLALIGA2GAME-26NOV28ALBTEN-ALB|Yes",
+      "nickname": "ascoges",
+      "ticker": "KXLALIGA2GAME-26NOV28ALBTEN-ALB",
+      "eventTicker": "KXLALIGA2GAME-26NOV28ALBTEN",
+      "game": "Albacete vs Tenerife",
+      "backing": "Albacete",
+      "yesNo": "Yes",
+      "entry": 0.9733,
+      "price": 1.0,
+      "cost": 1846.3,
+      "contracts": 1897.0,
+      "startTs": 1795889700,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 28 \u00b7 8:59 AM PT",
+      "recordedTs": 1795885188,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "ascoges|KXLALIGAGAME-26NOV28MCFATH-ATH|Yes",
+      "nickname": "ascoges",
+      "ticker": "KXLALIGAGAME-26NOV28MCFATH-ATH",
+      "eventTicker": "KXLALIGAGAME-26NOV28MCFATH",
+      "game": "Malaga vs Bilbao",
+      "backing": "Bilbao",
+      "yesNo": "Yes",
+      "entry": 0.9673,
+      "price": 0.86,
+      "cost": 1182.08,
+      "contracts": 1222.0,
+      "startTs": 1795889700,
+      "league": "Soccer",
+      "bt": "Moneyline",
+      "recordedAt": "Sat Nov 28 \u00b7 8:59 AM PT",
+      "recordedTs": 1795885188,
+      "status": "open",
+      "result": null,
+      "settledAt": null
     }
   ],
   "note": "Copy-trial ledger for My 40. Each followed pick is recorded once (nickname|ticker|Yes/No) and graded from Kalshi\u2019s official market result after settlement. Do not delete settled rows."
