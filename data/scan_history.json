@@ -1,6 +1,25 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 7:03 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
   "scans": [
+    {
+      "ts": 1795838943,
+      "at": "Fri Nov 27 \u00b7 8:09 PM PT",
+      "names": 180,
+      "newFollows": [
+        "bed.catch"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 5,
+      "ids": [
+        "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes",
+        "KXNCAAMBTOTAL-26NOV27WICHUK-139|No",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNBAGAME-26NOV27NOPLAC-NOP|No",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795835028,
       "at": "Fri Nov 27 \u00b7 7:03 PM PT",
@@ -1129,26 +1148,6 @@
         "KXNCAAMBSPREAD-26NOV24PROVARIZ-ARIZ21|Yes",
         "KXATPCHALLENGERMATCH-26NOV24WILALV-ALV|Yes",
         "KXNCAAMBGAME-26NOV24SDSUISU-ISU|Yes",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
-        "KXNBAREB-26NOV24DETORL-ORLWCARTER34-8|No",
-        "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
-        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes"
-      ]
-    },
-    {
-      "ts": 1795561822,
-      "at": "Tue Nov 24 \u00b7 3:10 PM PT",
-      "names": 633,
-      "newFollows": [
-        "Bigbone69"
-      ],
-      "followed": 57,
-      "target": 100,
-      "openPicks": 7,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
         "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
         "KXNBAGAME-26NOV24DETORL-ORL|Yes",
         "KXNBAREB-26NOV24DETORL-ORLWCARTER34-8|No",

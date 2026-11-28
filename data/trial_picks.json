@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 7:03 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -7433,9 +7433,9 @@
       "bt": "Spread",
       "recordedAt": "Tue Nov 24 \u00b7 8:43 PM PT",
       "recordedTs": 1795581788,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 8:09 PM PT"
     },
     {
       "id": "Davmjxn|KXNCAAFSPREAD-26NOV28ASUARIZ-ARIZ8|Yes",
@@ -9176,9 +9176,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
       "recordedTs": 1795824877,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 8:09 PM PT"
     },
     {
       "id": "jspana99|KXNCAAFTOTAL-26NOV27TEXTXAM-42|Yes",
@@ -9197,9 +9197,9 @@
       "bt": "Totals",
       "recordedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
       "recordedTs": 1795824877,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 8:09 PM PT"
     },
     {
       "id": "jspana99|KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes",
@@ -9218,6 +9218,48 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
       "recordedTs": 1795829309,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV27WICHUK-139|No",
+      "nickname": "iknowballmorethanu",
+      "ticker": "KXNCAAMBTOTAL-26NOV27WICHUK-139",
+      "eventTicker": "KXNCAAMBTOTAL-26NOV27WICHUK",
+      "game": "Wichita St. vs Kentucky: Point Total",
+      "backing": "Over 138.5 points",
+      "yesNo": "No",
+      "entry": 0.3998,
+      "price": 0.3,
+      "cost": 1608.24,
+      "contracts": 4023.0,
+      "startTs": 1795831200,
+      "league": "NCAAB",
+      "bt": "Totals",
+      "recordedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
+      "recordedTs": 1795838943,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "regine|KXNBAGAME-26NOV27NOPLAC-NOP|No",
+      "nickname": "regine",
+      "ticker": "KXNBAGAME-26NOV27NOPLAC-NOP",
+      "eventTicker": "KXNBAGAME-26NOV27NOPLAC",
+      "game": "New Orleans vs Los Angeles C",
+      "backing": "New Orleans",
+      "yesNo": "No",
+      "entry": 0.5753,
+      "price": 0.57,
+      "cost": 1990.45,
+      "contracts": 3460.0,
+      "startTs": 1795833000,
+      "league": "NBA",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
+      "recordedTs": 1795838943,
       "status": "open",
       "result": null,
       "settledAt": null

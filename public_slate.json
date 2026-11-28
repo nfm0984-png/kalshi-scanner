@@ -1,26 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795836189,
-  "updatedAt": "Fri Nov 27 \u00b7 7:23 PM PT",
+  "ts": 1795840076,
+  "updatedAt": "Fri Nov 27 \u00b7 8:27 PM PT",
   "picks": [
-    {
-      "ticker": "KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11",
-      "yesNo": "No",
-      "side": "Texas wins by over 10.5 points",
-      "game": "Texas vs Texas A&M: Spread",
-      "startTs": 1795825800,
-      "bt": "Spread",
-      "n": 1
-    },
-    {
-      "ticker": "KXNCAAFTOTAL-26NOV27TEXTXAM-42",
-      "yesNo": "Yes",
-      "side": "Over 41.5 points",
-      "game": "Texas vs Texas A&M: Total Points",
-      "startTs": 1795825800,
-      "bt": "Totals",
-      "n": 1
-    },
     {
       "ticker": "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25",
       "yesNo": "Yes",
@@ -31,10 +13,28 @@
       "n": 1
     },
     {
+      "ticker": "KXNCAAMBTOTAL-26NOV27WICHUK-139",
+      "yesNo": "No",
+      "side": "Over 138.5 points",
+      "game": "Wichita St. vs Kentucky: Point Total",
+      "startTs": 1795831200,
+      "bt": "Totals",
+      "n": 1
+    },
+    {
       "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
       "yesNo": "Yes",
       "side": "Los Angeles L",
       "game": "Los Angeles L vs San Antonio",
+      "startTs": 1795833000,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV27NOPLAC-NOP",
+      "yesNo": "No",
+      "side": "New Orleans",
+      "game": "New Orleans vs Los Angeles C",
       "startTs": 1795833000,
       "bt": "Moneyline",
       "n": 1
