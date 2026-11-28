@@ -1,17 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795847454,
-  "updatedAt": "Fri Nov 27 \u00b7 10:30 PM PT",
+  "ts": 1795852016,
+  "updatedAt": "Fri Nov 27 \u00b7 11:46 PM PT",
   "picks": [
-    {
-      "ticker": "KXATPCHALLENGERMATCH-26NOV27IMAUCH-IMA",
-      "yesNo": "Yes",
-      "side": "Masamichi Imamura",
-      "game": "Imamura vs Uchida",
-      "startTs": 1795842000,
-      "bt": "Moneyline",
-      "n": 1
-    },
     {
       "ticker": "KXITFMATCH-26NOV28JAVREJ-JAV",
       "yesNo": "Yes",
@@ -29,15 +20,6 @@
       "startTs": 1795897800,
       "bt": "Moneyline",
       "n": 2
-    },
-    {
-      "ticker": "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG",
-      "yesNo": "Yes",
-      "side": "Stays with New York G or Retires",
-      "game": "Kayvon Thibodeaux's Next Team",
-      "startTs": 1796137200,
-      "bt": "Other",
-      "n": 1
     },
     {
       "ticker": "KXNFLNEXTTEAM-26BTHOMAS7-JAC",

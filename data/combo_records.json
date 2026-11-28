@@ -196,7 +196,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "king.45",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "davmjxn": {
@@ -205,7 +205,7 @@
       "l": 1,
       "pnl": -9.96,
       "name": "Davmjxn",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "fen.dachi": {
@@ -218,12 +218,12 @@
       "boost": false
     },
     "iknowballmorethanu": {
-      "n": 51,
-      "w": 28,
-      "l": 23,
-      "pnl": 27398.67,
+      "n": 57,
+      "w": 31,
+      "l": 26,
+      "pnl": 27187.57,
       "name": "iknowballmorethanu",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": true
     },
     "gap.sauce": {
@@ -232,7 +232,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "gap.sauce",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "doll.breast": {
@@ -250,7 +250,7 @@
       "l": 1,
       "pnl": -19.99,
       "name": "brand.breeze",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "snoz3berries": {
@@ -259,7 +259,7 @@
       "l": 1,
       "pnl": -100.0,
       "name": "Snoz3berries",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "parspectives": {
@@ -278,7 +278,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ustrader",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "coolness77": {
@@ -296,7 +296,7 @@
       "l": 0,
       "pnl": 1684.82,
       "name": "Muffat00",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "fattii": {
@@ -582,7 +582,7 @@
       "l": 1,
       "pnl": -549.92,
       "name": "djcheecake",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "bobbyoracle": {
@@ -591,7 +591,7 @@
       "l": 1,
       "pnl": -10.0,
       "name": "Bobbyoracle",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "gbaby50": {
@@ -984,7 +984,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "dry.elk1499",
-      "ts": 1795806696,
+      "ts": 1795850921,
       "boost": false
     },
     "eatingworms": {
@@ -1194,9 +1194,18 @@
       "name": "nskubic24",
       "ts": 1795846317,
       "boost": false
+    },
+    "child.cop": {
+      "n": 2,
+      "w": 0,
+      "l": 2,
+      "pnl": -19.99,
+      "name": "child.cop",
+      "ts": 1795850921,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795846317,
+  "updatedTs": 1795850921,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
