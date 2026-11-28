@@ -3434,10 +3434,11 @@
       "startTs": 1795863600,
       "firstTs": 1795842826,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "Javia vs Rejchtman Vinciguerra",
       "label": "Dev Javia",
-      "league": "Tennis"
+      "league": "Tennis",
+      "gradedTs": 1795875311
     },
     "ippeiarbs|KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG|Yes": {
       "capper": "ippeiarbs",
@@ -3466,5 +3467,5 @@
       "league": "NFL"
     }
   },
-  "updatedTs": 1795850921
+  "updatedTs": 1795875311
 }

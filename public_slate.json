@@ -1,17 +1,8 @@
 {
   "source": "kalshi",
-  "ts": 1795852016,
-  "updatedAt": "Fri Nov 27 \u00b7 11:46 PM PT",
+  "ts": 1795876655,
+  "updatedAt": "Sat Nov 28 \u00b7 6:37 AM PT",
   "picks": [
-    {
-      "ticker": "KXITFMATCH-26NOV28JAVREJ-JAV",
-      "yesNo": "Yes",
-      "side": "Dev Javia",
-      "game": "Javia vs Rejchtman Vinciguerra",
-      "startTs": 1795863600,
-      "bt": "Moneyline",
-      "n": 1
-    },
     {
       "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
       "yesNo": "Yes",
@@ -19,7 +10,16 @@
       "game": "USC vs UCLA",
       "startTs": 1795897800,
       "bt": "Moneyline",
-      "n": 2
+      "n": 1
+    },
+    {
+      "ticker": "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG",
+      "yesNo": "Yes",
+      "side": "Stays with New York G or Retires",
+      "game": "Kayvon Thibodeaux's Next Team",
+      "startTs": 1796137200,
+      "bt": "Other",
+      "n": 1
     },
     {
       "ticker": "KXNFLNEXTTEAM-26BTHOMAS7-JAC",
