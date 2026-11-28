@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795887391,
-  "updatedAt": "Sat Nov 28 \u00b7 9:36 AM PT",
+  "ts": 1795888619,
+  "updatedAt": "Sat Nov 28 \u00b7 9:56 AM PT",
   "picks": [
     {
       "ticker": "KXNCAAFGAME-26NOV28LOUUK-UK",
@@ -9,15 +9,6 @@
       "side": "Kentucky",
       "game": "Louisville vs Kentucky",
       "startTs": 1795885200,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXLIGAPORTUGALGAME-26NOV28MORSCL-SCL",
-      "yesNo": "Yes",
-      "side": "Santa Clara Azores",
-      "game": "Moreirense vs Santa Clara Azores",
-      "startTs": 1795890600,
       "bt": "Moneyline",
       "n": 1
     },

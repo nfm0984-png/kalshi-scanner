@@ -1,6 +1,6 @@
 {
   "tag": "Best Cappers",
-  "updatedAt": "Sat Nov 28 \u00b7 9:16 AM PT",
+  "updatedAt": "Sat Nov 28 \u00b7 9:36 AM PT",
   "target": 100,
   "note": "Best Cappers is a rotating top 100 of good official Kalshi projected-PnL leaderboard cappers whose public trades can be tracked, official all-time profit is positive, and they have no losing reconstructed record. Each full scan reranks by performance (veteran Wilson record, recent form, then official PnL) and keeps the top of the list. Manual pins stay. If a board fetch fails, the last list is kept. Leaderboard earners with no public trades go to Watching. doNotPin still blocks current losers; names who later pass the good-only gate can re-enter.",
   "doNotPin": [
@@ -372,6 +372,12 @@
       "addedAt": "2026-11-25"
     },
     {
+      "nickname": "gap.sauce",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-23"
+    },
+    {
       "nickname": "king.45",
       "tag": "Best Cappers",
       "source": "auto-winning",
@@ -394,12 +400,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-22"
-    },
-    {
-      "nickname": "gap.sauce",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-23"
     },
     {
       "nickname": "classic.toucan",
@@ -490,12 +490,6 @@
       "tag": "Best Cappers",
       "source": "auto-winning",
       "addedAt": "2026-11-25"
-    },
-    {
-      "nickname": "bed.catch",
-      "tag": "Best Cappers",
-      "source": "auto-winning",
-      "addedAt": "2026-11-27"
     },
     {
       "nickname": "parspectives",
@@ -660,6 +654,12 @@
       "addedAt": "2026-11-24"
     },
     {
+      "nickname": "lebronthanos",
+      "tag": "Best Cappers",
+      "source": "auto-winning",
+      "addedAt": "2026-11-28"
+    },
+    {
       "nickname": "BWmarkets",
       "tag": "Best Cappers",
       "source": "manual",
@@ -725,11 +725,11 @@
     "fen.dachi",
     "conventional.dove4438",
     "wet.ape",
+    "gap.sauce",
     "king.45",
     "lay.pipe",
     "caughtintheusa",
     "iknowballmorethanu",
-    "gap.sauce",
     "classic.toucan",
     "Davmjxn",
     "brand.breeze",
@@ -745,7 +745,6 @@
     "gradysue",
     "coolness77",
     "firm.tip",
-    "bed.catch",
     "parspectives",
     "kelab",
     "empiremaker70",
@@ -773,6 +772,7 @@
     "mild.fire",
     "d.palombo",
     "Stiinzy",
+    "lebronthanos",
     "BWmarkets",
     "falcon999"
   ]
