@@ -3409,7 +3409,20 @@
       "game": "West Virginia vs Utah: Spread",
       "label": "Utah wins by over 24.5 points",
       "league": "NCAAF"
+    },
+    "sej4974|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes": {
+      "capper": "sej4974",
+      "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
+      "side": "Yes",
+      "price": 0.37,
+      "startTs": 1795897800,
+      "firstTs": 1795841621,
+      "combo": false,
+      "status": "open",
+      "game": "USC vs UCLA",
+      "label": "UCLA",
+      "league": "NCAAF"
     }
   },
-  "updatedTs": 1795838943
+  "updatedTs": 1795841621
 }

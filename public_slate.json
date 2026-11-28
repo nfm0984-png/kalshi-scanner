@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795840076,
-  "updatedAt": "Fri Nov 27 \u00b7 8:27 PM PT",
+  "ts": 1795842738,
+  "updatedAt": "Fri Nov 27 \u00b7 9:12 PM PT",
   "picks": [
     {
       "ticker": "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25",
@@ -13,40 +13,13 @@
       "n": 1
     },
     {
-      "ticker": "KXNCAAMBTOTAL-26NOV27WICHUK-139",
-      "yesNo": "No",
-      "side": "Over 138.5 points",
-      "game": "Wichita St. vs Kentucky: Point Total",
-      "startTs": 1795831200,
-      "bt": "Totals",
-      "n": 1
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV27LALSAS-LAL",
-      "yesNo": "Yes",
-      "side": "Los Angeles L",
-      "game": "Los Angeles L vs San Antonio",
-      "startTs": 1795833000,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV27NOPLAC-NOP",
-      "yesNo": "No",
-      "side": "New Orleans",
-      "game": "New Orleans vs Los Angeles C",
-      "startTs": 1795833000,
-      "bt": "Moneyline",
-      "n": 1
-    },
-    {
       "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
       "yesNo": "Yes",
       "side": "UCLA",
       "game": "USC vs UCLA",
       "startTs": 1795897800,
       "bt": "Moneyline",
-      "n": 1
+      "n": 2
     }
   ]
 }

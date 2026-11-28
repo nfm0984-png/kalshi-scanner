@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 8:53 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -8945,9 +8945,9 @@
       "bt": "Combo",
       "recordedAt": "Fri Nov 27 \u00b7 9:23 AM PT",
       "recordedTs": 1795800239,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 8:53 PM PT"
     },
     {
       "id": "basquetipster|KXITFMATCH-26NOV27MALBIN-MAL|Yes",
@@ -9008,9 +9008,9 @@
       "bt": "Combo",
       "recordedAt": "Fri Nov 27 \u00b7 11:11 AM PT",
       "recordedTs": 1795806696,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 8:53 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXMVECROSSCATEGORY-S2026BQOJ754JXMSMX3LT-IPTAJQYY7|Yes",
@@ -9239,9 +9239,9 @@
       "bt": "Totals",
       "recordedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
       "recordedTs": 1795838943,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 8:53 PM PT"
     },
     {
       "id": "regine|KXNBAGAME-26NOV27NOPLAC-NOP|No",
@@ -9260,6 +9260,27 @@
       "bt": "Moneyline",
       "recordedAt": "Fri Nov 27 \u00b7 8:09 PM PT",
       "recordedTs": 1795838943,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "sej4974|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+      "nickname": "sej4974",
+      "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
+      "eventTicker": "KXNCAAFGAME-26NOV28USCUCLA",
+      "game": "USC vs UCLA",
+      "backing": "UCLA",
+      "yesNo": "Yes",
+      "entry": 0.3676,
+      "price": 0.37,
+      "cost": 2105.07,
+      "contracts": 5727.0,
+      "startTs": 1795897800,
+      "league": "NCAAF",
+      "bt": "Moneyline",
+      "recordedAt": "Fri Nov 27 \u00b7 8:53 PM PT",
+      "recordedTs": 1795841621,
       "status": "open",
       "result": null,
       "settledAt": null
