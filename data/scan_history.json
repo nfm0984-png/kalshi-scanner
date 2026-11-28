@@ -1,6 +1,27 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
   "scans": [
+    {
+      "ts": 1795829309,
+      "at": "Fri Nov 27 \u00b7 5:28 PM PT",
+      "names": 180,
+      "newFollows": [
+        "bananastand21",
+        "flying.hare7791"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNBATOTAL-26NOV27MIANYK-230|Yes",
+        "KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11|No",
+        "KXNCAAFTOTAL-26NOV27TEXTXAM-42|Yes",
+        "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes",
+        "KXNBAGAME-26NOV27LALSAS-LAL|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795824877,
       "at": "Fri Nov 27 \u00b7 4:14 PM PT",
@@ -1132,28 +1153,6 @@
         "KXNBAGAME-26NOV24DETORL-ORL|Yes",
         "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
         "KXITFMATCH-26NOV24VILROC-ROC|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
-      ]
-    },
-    {
-      "ts": 1795554355,
-      "at": "Tue Nov 24 \u00b7 1:05 PM PT",
-      "names": 613,
-      "newFollows": [
-        "FFun"
-      ],
-      "followed": 55,
-      "target": 100,
-      "openPicks": 9,
-      "ids": [
-        "KXNCAAMBGAME-26NOV24MISSBYU-MISS|Yes",
-        "KXNCAAMBGAME-26NOV24TENNMD-TENN|Yes",
-        "KXATPCHALLENGERMATCH-26NOV24FUEVAL-FUE|Yes",
-        "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
-        "KXUCLGAME-26NOV24RMAPSV-RMA|Yes",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
-        "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
         "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes"
       ]
     }

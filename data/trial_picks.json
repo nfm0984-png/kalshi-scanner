@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -9197,6 +9197,27 @@
       "bt": "Totals",
       "recordedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
       "recordedTs": 1795824877,
+      "status": "open",
+      "result": null,
+      "settledAt": null
+    },
+    {
+      "id": "jspana99|KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes",
+      "nickname": "jspana99",
+      "ticker": "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25",
+      "eventTicker": "KXNCAAFSPREAD-26NOV27WVUUTAH",
+      "game": "West Virginia vs Utah: Spread",
+      "backing": "Utah wins by over 24.5 points",
+      "yesNo": "Yes",
+      "entry": 0.51,
+      "price": 0.51,
+      "cost": 2167.5,
+      "contracts": 4250.0,
+      "startTs": 1795831200,
+      "league": "NCAAF",
+      "bt": "Spread",
+      "recordedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
+      "recordedTs": 1795829309,
       "status": "open",
       "result": null,
       "settledAt": null

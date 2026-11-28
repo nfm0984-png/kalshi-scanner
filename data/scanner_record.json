@@ -3393,7 +3393,20 @@
       "game": "Texas vs Texas A&M: Total Points",
       "label": "Over 41.5 points",
       "league": "NCAAF"
+    },
+    "jspana99|KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes": {
+      "capper": "jspana99",
+      "ticker": "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25",
+      "side": "Yes",
+      "price": 0.51,
+      "startTs": 1795831200,
+      "firstTs": 1795829309,
+      "combo": false,
+      "status": "open",
+      "game": "West Virginia vs Utah: Spread",
+      "label": "Utah wins by over 24.5 points",
+      "league": "NCAAF"
     }
   },
-  "updatedTs": 1795824877
+  "updatedTs": 1795829309
 }
