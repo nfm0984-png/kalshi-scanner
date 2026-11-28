@@ -3372,15 +3372,28 @@
       "capper": "jspana99",
       "ticker": "KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11",
       "side": "No",
-      "price": 0.53,
+      "price": 0.54,
       "startTs": 1795825800,
-      "firstTs": 1795824025,
+      "firstTs": 1795824877,
       "combo": false,
       "status": "open",
       "game": "Texas vs Texas A&M: Spread",
       "label": "Texas wins by over 10.5 points",
       "league": "NCAAF"
+    },
+    "jspana99|KXNCAAFTOTAL-26NOV27TEXTXAM-42|Yes": {
+      "capper": "jspana99",
+      "ticker": "KXNCAAFTOTAL-26NOV27TEXTXAM-42",
+      "side": "Yes",
+      "price": 0.53,
+      "startTs": 1795825800,
+      "firstTs": 1795824877,
+      "combo": false,
+      "status": "open",
+      "game": "Texas vs Texas A&M: Total Points",
+      "label": "Over 41.5 points",
+      "league": "NCAAF"
     }
   },
-  "updatedTs": 1795824025
+  "updatedTs": 1795824877
 }

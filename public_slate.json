@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795825182,
-  "updatedAt": "Fri Nov 27 \u00b7 4:19 PM PT",
+  "ts": 1795826043,
+  "updatedAt": "Fri Nov 27 \u00b7 4:34 PM PT",
   "picks": [
     {
       "ticker": "KXNBATOTAL-26NOV27MIANYK-230",
@@ -19,6 +19,15 @@
       "game": "Texas vs Texas A&M: Spread",
       "startTs": 1795825800,
       "bt": "Spread",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAFTOTAL-26NOV27TEXTXAM-42",
+      "yesNo": "Yes",
+      "side": "Over 41.5 points",
+      "game": "Texas vs Texas A&M: Total Points",
+      "startTs": 1795825800,
+      "bt": "Totals",
       "n": 1
     },
     {
