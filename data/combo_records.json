@@ -305,7 +305,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "fattii",
-      "ts": 1795810225,
+      "ts": 1795877962,
       "boost": false
     },
     "eibriham": {
@@ -324,7 +324,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "tru3f0rmr",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "kelab": {
@@ -333,7 +333,7 @@
       "l": 1,
       "pnl": -10.0,
       "name": "kelab",
-      "ts": 1795810225,
+      "ts": 1795877962,
       "boost": false
     },
     "dimesy": {
@@ -342,7 +342,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "Dimesy",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "whig": {
@@ -351,7 +351,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "whig",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "jakem12": {
@@ -360,7 +360,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "jakem12",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "bdadams": {
@@ -369,7 +369,7 @@
       "l": 1,
       "pnl": 13.4,
       "name": "bdadams",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "mild.fire": {
@@ -747,7 +747,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "ChasingUnits",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "don.tony": {
@@ -903,7 +903,7 @@
       "l": 0,
       "pnl": 0.0,
       "name": "basquetipster",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "chopchophtx": {
@@ -1020,7 +1020,7 @@
       "l": 1,
       "pnl": -5.47,
       "name": "conventional.dove4438",
-      "ts": 1795813730,
+      "ts": 1795877962,
       "boost": false
     },
     "captainamerica.": {
@@ -1230,9 +1230,27 @@
       "name": "dazzling.seahorse1688",
       "ts": 1795875311,
       "boost": false
+    },
+    "arsenalcaddie": {
+      "n": 4,
+      "w": 0,
+      "l": 4,
+      "pnl": -2726.76,
+      "name": "ArsenalCaddie",
+      "ts": 1795877962,
+      "boost": false
+    },
+    "imperial.deer3359": {
+      "n": 14,
+      "w": 12,
+      "l": 2,
+      "pnl": 480.21,
+      "name": "imperial.deer3359",
+      "ts": 1795877962,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795875311,
+  "updatedTs": 1795877962,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }
