@@ -1,7 +1,7 @@
 {
   "source": "kalshi",
-  "ts": 1795842738,
-  "updatedAt": "Fri Nov 27 \u00b7 9:12 PM PT",
+  "ts": 1795843972,
+  "updatedAt": "Fri Nov 27 \u00b7 9:32 PM PT",
   "picks": [
     {
       "ticker": "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25",
@@ -13,6 +13,24 @@
       "n": 1
     },
     {
+      "ticker": "KXATPCHALLENGERMATCH-26NOV27IMAUCH-IMA",
+      "yesNo": "Yes",
+      "side": "Masamichi Imamura",
+      "game": "Imamura vs Uchida",
+      "startTs": 1795842000,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
+      "ticker": "KXITFMATCH-26NOV28JAVREJ-JAV",
+      "yesNo": "Yes",
+      "side": "Dev Javia",
+      "game": "Javia vs Rejchtman Vinciguerra",
+      "startTs": 1795863600,
+      "bt": "Moneyline",
+      "n": 1
+    },
+    {
       "ticker": "KXNCAAFGAME-26NOV28USCUCLA-UCLA",
       "yesNo": "Yes",
       "side": "UCLA",
@@ -20,6 +38,24 @@
       "startTs": 1795897800,
       "bt": "Moneyline",
       "n": 2
+    },
+    {
+      "ticker": "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG",
+      "yesNo": "Yes",
+      "side": "Stays with New York G or Retires",
+      "game": "Kayvon Thibodeaux's Next Team",
+      "startTs": 1796137200,
+      "bt": "Other",
+      "n": 1
+    },
+    {
+      "ticker": "KXNFLNEXTTEAM-26BTHOMAS7-JAC",
+      "yesNo": "Yes",
+      "side": "Jacksonville",
+      "game": "Brian Thomas Jr. Next Team",
+      "startTs": 1796137200,
+      "bt": "Other",
+      "n": 1
     }
   ]
 }

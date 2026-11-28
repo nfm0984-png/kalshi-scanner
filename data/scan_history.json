@@ -1,6 +1,26 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 8:53 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 9:13 PM PT",
   "scans": [
+    {
+      "ts": 1795842826,
+      "at": "Fri Nov 27 \u00b7 9:13 PM PT",
+      "names": 180,
+      "newFollows": [
+        "ippeiarbs"
+      ],
+      "followed": 100,
+      "target": 100,
+      "openPicks": 6,
+      "ids": [
+        "KXNCAAFSPREAD-26NOV27WVUUTAH-UTAH25|Yes",
+        "KXATPCHALLENGERMATCH-26NOV27IMAUCH-IMA|Yes",
+        "KXITFMATCH-26NOV28JAVREJ-JAV|Yes",
+        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
+        "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG|Yes",
+        "KXNFLNEXTTEAM-26BTHOMAS7-JAC|Yes",
+        "jackivouce|KXNEXTTEAMNFL-26ARODGERS8-PIT|No"
+      ]
+    },
     {
       "ts": 1795841621,
       "at": "Fri Nov 27 \u00b7 8:53 PM PT",
@@ -1126,29 +1146,6 @@
         "KXNHLGAME-26NOV25UTAMIN-MIN|Yes",
         "KXUCLGAME-26NOV25SHAFEN-FEN|No",
         "parspectives|KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB-KVECWHVHK|Yes"
-      ]
-    },
-    {
-      "ts": 1795568361,
-      "at": "Tue Nov 24 \u00b7 4:59 PM PT",
-      "names": 677,
-      "newFollows": [
-        "888max"
-      ],
-      "followed": 58,
-      "target": 100,
-      "openPicks": 8,
-      "ids": [
-        "KXMVECROSSCATEGORY-S2026ZDFIHXGN6LTE5DO4-QJU6YASEV|Yes",
-        "KXNCAAMBTOTAL-26NOV24DEPPUR-138|No",
-        "KXMVECROSSCATEGORY-S2026OX4KMEUFZU65BJWC-ETOTNTE5S|Yes",
-        "KXNBAGAME-26NOV24DETORL-ORL|Yes",
-        "KXNBASPREAD-26NOV24DETORL-ORL4|Yes",
-        "KXNCAAFGAME-26NOV24MOHWMU-MOH|Yes",
-        "KXMVECROSSCATEGORY-S2026C4QGZXXNFRL42WUR-OTECSUBXP|Yes",
-        "KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes",
-        "parspectives|KXMVECROSSCATEGORY-S20262KQF6NS6C4PYRPTB-KVECWHVHK|Yes",
-        "falcon999|KXMVECROSSCATEGORY-S2026WDD24CKDNKEJYVIC-AZTDUAZIJ|Yes"
       ]
     }
   ]

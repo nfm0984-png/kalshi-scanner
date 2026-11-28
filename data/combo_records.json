@@ -1066,7 +1066,7 @@
       "l": 1,
       "pnl": -9.99,
       "name": "Fjuarez7",
-      "ts": 1795796278,
+      "ts": 1795842826,
       "boost": false
     },
     "cmasters3": {
@@ -1167,9 +1167,18 @@
       "name": "ascoges",
       "ts": 1795841621,
       "boost": true
+    },
+    "ippeiarbs": {
+      "n": 2,
+      "w": 1,
+      "l": 1,
+      "pnl": 171.94,
+      "name": "ippeiarbs",
+      "ts": 1795842826,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795841621,
+  "updatedTs": 1795842826,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

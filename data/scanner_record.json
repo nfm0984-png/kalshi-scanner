@@ -3295,10 +3295,11 @@
       "startTs": 1795833000,
       "firstTs": 1795749114,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "Los Angeles L vs San Antonio",
       "label": "Los Angeles L",
-      "league": "NBA"
+      "league": "NBA",
+      "gradedTs": 1795842826
     },
     "falcon999|KXNFLGAME-26NOV27DENPIT-DEN|Yes": {
       "capper": "falcon999",
@@ -3350,10 +3351,11 @@
       "startTs": 1795833000,
       "firstTs": 1795800239,
       "combo": true,
-      "status": "open",
+      "status": "win",
       "game": "Los Angeles L vs San Antonio",
       "label": "yes Stephon Castle: 2+,yes Jordan Poole: 2+",
-      "league": "NBA"
+      "league": "NBA",
+      "gradedTs": 1795842826
     },
     "basquetipster|KXITFMATCH-26NOV27MALBIN-MAL|Yes": {
       "capper": "basquetipster",
@@ -3422,7 +3424,46 @@
       "game": "USC vs UCLA",
       "label": "UCLA",
       "league": "NCAAF"
+    },
+    "sej4974|KXITFMATCH-26NOV28JAVREJ-JAV|Yes": {
+      "capper": "sej4974",
+      "ticker": "KXITFMATCH-26NOV28JAVREJ-JAV",
+      "side": "Yes",
+      "price": 0.47,
+      "startTs": 1795863600,
+      "firstTs": 1795842826,
+      "combo": false,
+      "status": "open",
+      "game": "Javia vs Rejchtman Vinciguerra",
+      "label": "Dev Javia",
+      "league": "Tennis"
+    },
+    "ippeiarbs|KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG|Yes": {
+      "capper": "ippeiarbs",
+      "ticker": "KXNEXTTEAMNFL-26KTHIBODEAUX5-NYG",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1796137200,
+      "firstTs": 1795842826,
+      "combo": false,
+      "status": "open",
+      "game": "Kayvon Thibodeaux's Next Team",
+      "label": "Stays with New York G or Retires",
+      "league": "Sports"
+    },
+    "ippeiarbs|KXNFLNEXTTEAM-26BTHOMAS7-JAC|Yes": {
+      "capper": "ippeiarbs",
+      "ticker": "KXNFLNEXTTEAM-26BTHOMAS7-JAC",
+      "side": "Yes",
+      "price": 0.99,
+      "startTs": 1796137200,
+      "firstTs": 1795842826,
+      "combo": false,
+      "status": "open",
+      "game": "Brian Thomas Jr. Next Team",
+      "label": "Jacksonville",
+      "league": "NFL"
     }
   },
-  "updatedTs": 1795841621
+  "updatedTs": 1795842826
 }
