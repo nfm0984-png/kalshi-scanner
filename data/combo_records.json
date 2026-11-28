@@ -1131,9 +1131,27 @@
       "name": "EZmoney713",
       "ts": 1795820910,
       "boost": false
+    },
+    "kyle.ligthart": {
+      "n": 6,
+      "w": 1,
+      "l": 5,
+      "pnl": -4.37,
+      "name": "Kyle.Ligthart",
+      "ts": 1795835028,
+      "boost": false
+    },
+    "international.starling4828": {
+      "n": 5,
+      "w": 2,
+      "l": 3,
+      "pnl": -1.62,
+      "name": "international.starling4828",
+      "ts": 1795835028,
+      "boost": false
     }
   },
   "minN": 30,
-  "updatedTs": 1795829309,
+  "updatedTs": 1795835028,
   "note": "Each capper's settled Kalshi combo record from public closed holdings (W/L by realized P&L). Combo boost only when 30+ settled combos and combo P&L is positive."
 }

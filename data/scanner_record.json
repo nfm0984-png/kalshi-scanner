@@ -3363,10 +3363,11 @@
       "startTs": 1795820400,
       "firstTs": 1795806696,
       "combo": false,
-      "status": "open",
+      "status": "win",
       "game": "Malla vs Bini",
       "label": "Bastian Malla",
-      "league": "Tennis"
+      "league": "Tennis",
+      "gradedTs": 1795835028
     },
     "jspana99|KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11|No": {
       "capper": "jspana99",
@@ -3408,5 +3409,5 @@
       "league": "NCAAF"
     }
   },
-  "updatedTs": 1795829309
+  "updatedTs": 1795835028
 }

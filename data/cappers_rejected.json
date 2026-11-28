@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 7:03 PM PT",
   "cappers": [
     {
       "nickname": "clis41",
@@ -14448,6 +14448,41 @@
       "date": "2026-11-27",
       "ts": 1795829309,
       "detail": "open=0 trades=8000"
+    },
+    {
+      "nickname": "near.swordfish8625",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795835028,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "closed.foxhound2495",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795835028,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "perfect.bear4838",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795835028,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "xenogeneic.hamster8879",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795835028,
+      "detail": "hidden"
+    },
+    {
+      "nickname": "missing.cottontail8409",
+      "reason": "hidden book",
+      "date": "2026-11-27",
+      "ts": 1795835028,
+      "detail": "hidden"
     }
   ]
 }

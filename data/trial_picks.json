@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 7:03 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -9155,9 +9155,9 @@
       "bt": "Totals",
       "recordedAt": "Fri Nov 27 \u00b7 4:14 PM PT",
       "recordedTs": 1795824877,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 7:03 PM PT"
     },
     {
       "id": "jspana99|KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11|No",
