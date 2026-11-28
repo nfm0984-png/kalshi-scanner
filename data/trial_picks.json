@@ -1,7 +1,7 @@
 {
   "startedAt": "Fri Nov 20 \u00b7 7:26 PM PT",
   "startedTs": 1795231577,
-  "updatedAt": "Fri Nov 27 \u00b7 9:13 PM PT",
+  "updatedAt": "Fri Nov 27 \u00b7 10:11 PM PT",
   "picks": [
     {
       "id": "BWmarkets|KXNCAAFTOTAL-26NOV20UTEPAFA-50|Yes",
@@ -9029,9 +9029,9 @@
       "bt": "Combo",
       "recordedAt": "Fri Nov 27 \u00b7 12:10 PM PT",
       "recordedTs": 1795810225,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "win",
+      "result": "yes",
+      "settledAt": "Fri Nov 27 \u00b7 10:11 PM PT"
     },
     {
       "id": "jspana99|KXNFLSPREAD-26NOV27DENPIT-DEN5|No",
@@ -9218,9 +9218,9 @@
       "bt": "Spread",
       "recordedAt": "Fri Nov 27 \u00b7 5:28 PM PT",
       "recordedTs": 1795829309,
-      "status": "open",
-      "result": null,
-      "settledAt": null
+      "status": "loss",
+      "result": "no",
+      "settledAt": "Fri Nov 27 \u00b7 10:11 PM PT"
     },
     {
       "id": "iknowballmorethanu|KXNCAAMBTOTAL-26NOV27WICHUK-139|No",

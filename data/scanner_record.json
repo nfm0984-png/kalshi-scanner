@@ -3407,10 +3407,11 @@
       "startTs": 1795831200,
       "firstTs": 1795829309,
       "combo": false,
-      "status": "open",
+      "status": "loss",
       "game": "West Virginia vs Utah: Spread",
       "label": "Utah wins by over 24.5 points",
-      "league": "NCAAF"
+      "league": "NCAAF",
+      "gradedTs": 1795846317
     },
     "sej4974|KXNCAAFGAME-26NOV28USCUCLA-UCLA|Yes": {
       "capper": "sej4974",
@@ -3465,5 +3466,5 @@
       "league": "NFL"
     }
   },
-  "updatedTs": 1795842826
+  "updatedTs": 1795846317
 }
