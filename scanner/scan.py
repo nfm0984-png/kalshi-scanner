@@ -1730,6 +1730,33 @@ def clear_follow_flags(row, people=None):
     return row
 
 
+def consistent_slip(p):
+    """t1146: one slip rule for every pick (live or upcoming, positions or posts).
+
+    Slip = current price on the backed side minus the average entry of the
+    backers still on the pick, in cents. Matches the site's Double entry calc,
+    so the 6c stale gate applies the same way everywhere. Before, the pick took
+    the first backer's slip (posts had none), so multi-capper and live picks
+    were uneven.
+    """
+    px = (p.get("view") or {}).get("price")
+    avgs = []
+    for b in p.get("backers") or []:
+        try:
+            a = float(b.get("avg"))
+        except (TypeError, ValueError):
+            continue
+        if a > 0:
+            avgs.append(a)
+    try:
+        px = float(px)
+    except (TypeError, ValueError):
+        return p.get("slip")
+    if not avgs:
+        return p.get("slip")
+    return round((px - sum(avgs) / len(avgs)) * 100, 1)
+
+
 def tape_profit_since(trades, nick, now, days):
     """Realized sports-tape profit over a window, from settled public trades only. None if no cycles."""
     cycles = lib.closed_cycles(trades, nick)
@@ -2774,6 +2801,7 @@ def group_games(cappers, now, log=print):
                 continue
             p["backers"].sort(key=lambda b: -(b.get("cost") or 0))
             p["total"] = round(sum(b.get("cost") or 0 for b in p["backers"]), 2)
+            p["slip"] = consistent_slip(p)
             kept.append(p)
         if not kept:
             continue
@@ -3895,6 +3923,10 @@ def main():
         try:
             import best_double as _bd
             data["bestDouble"] = _bd.build_from_kalshi_payload(data, now=data.get("ts")) or _bd.empty_state()
+            try:
+                print("quality gate (Ranked/Coming Up):", json.dumps(_bd.gate_summary_kalshi(data, now=data.get("ts"))), flush=True)
+            except Exception as _e:
+                print("quality gate summary failed:", _e, flush=True)
         except Exception as _e:
             print("bestDouble failed:", _e, flush=True)
     except Exception as _e:

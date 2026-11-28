@@ -467,3 +467,75 @@ def build_from_kalshi_payload(payload, now=None):
         _apply_opp_scores(group)
         rows.extend(group)
     return select_double(rows) or empty_state()
+
+
+# ---------------------------------------------------------------------------
+# t1146: Double-grade gate summary for Ranked / Coming Up (log only).
+# The site applies the same gates client-side; this logs how many picks pass
+# so each scan's Actions log shows before/after counts and the top reasons.
+# Fallbacks (labeled on the site): monthly P&L -> 30d settled sports tape ->
+# all-time P&L; per-sport 5+ record -> all-sports graded record.
+def _kalshi_gate_backer(b, c, league, fam):
+    c = c or {}
+    month = c.get("monthlyPnl")
+    msrc = "monthly"
+    if month is None:
+        month, msrc = c.get("tape30d"), "30d tape"
+    if month is None:
+        month, msrc = c.get("pnl"), "all-time"
+    year = c.get("yearlyPnl") if c.get("yearlyPnl") is not None else c.get("pnl")
+    sport = _sport_lookup(c.get("sports") or {}, league, fam)
+    ssrc = "sport"
+    g = c.get("graded") or {}
+    if not sport and int(g.get("n") or 0) >= SPORT_MIN_N:
+        sport = {"name": "all sports", "n": g.get("n"), "w": g.get("w"), "l": g.get("l"), "roi": g.get("roi"), "profit": g.get("profit")}
+        ssrc = "all sports"
+    bb = dict(b)
+    bb.update({"monthPnl": month, "yearPnl": year, "sport": sport, "monthSrc": msrc, "sportSrc": ssrc if sport else None})
+    return bb
+
+
+def gate_summary_kalshi(payload, now=None):
+    try:
+        from lib_cappers import sport_family as _sf
+    except Exception:
+        def _sf(league):
+            return league or ""
+    cmap = {(c.get("nickname") or "").lower(): c for c in (payload.get("cappers") or []) if c.get("nickname")}
+    before = after = 0
+    reasons = {}
+    fallbacks = {"month_30d": 0, "month_alltime": 0, "sport_all": 0}
+    passed = []
+    for g in payload.get("games") or []:
+        league = g.get("league") or ""
+        fam = _sf(league)
+        group = []
+        for p in g.get("picks") or []:
+            view = p.get("view") or {}
+            px = view.get("price")
+            backers = [_kalshi_gate_backer(b, cmap.get((b.get("name") or "").lower()), league, fam) for b in p.get("backers") or []]
+            avgs = [float(b["avg"]) for b in p.get("backers") or [] if isinstance(b.get("avg"), (int, float)) and b["avg"] > 0]
+            entry = sum(avgs) / len(avgs) if avgs else None
+            group.append({"id": p.get("key"), "gameId": g.get("id"), "label": p.get("big"), "price": px, "entry": entry,
+                          "backers": backers, "combo": bool(p.get("isCombo") or p.get("legs")), "live": bool(g.get("live"))})
+        _apply_opp_scores(group)
+        for r in group:
+            before += 1
+            if r["combo"]:
+                sl = slip_cents(r["price"], r["entry"])
+                why = "stale" if (sl is not None and sl > STALE_CENTS) else ("fun_size" if is_fun_size(r) else ("opp_stronger" if r["oppScore"] > r["ownScore"] else (None if qualifying_backers(r) else "no_qualifying_capper")))
+            else:
+                why = why_skip(r)
+            if why:
+                reasons[why] = reasons.get(why, 0) + 1
+                continue
+            after += 1
+            for b in qualifying_backers(r):
+                if b.get("monthSrc") == "30d tape":
+                    fallbacks["month_30d"] += 1
+                elif b.get("monthSrc") == "all-time":
+                    fallbacks["month_alltime"] += 1
+                if b.get("sportSrc") == "all sports":
+                    fallbacks["sport_all"] += 1
+            passed.append("%s @%s%s" % (r["label"], int(round(float(r["price"] or 0) * 100)), " LIVE" if r["live"] else ""))
+    return {"before": before, "after": after, "reasons": reasons, "fallbacks": fallbacks, "passed": passed[:20]}

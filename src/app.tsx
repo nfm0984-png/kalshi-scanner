@@ -51,7 +51,7 @@ interface KalshiView { backing?: string; marketTitle?: string; outcome?: string;
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
 interface SizeInfo { tag: "high" | "normal" | "fun" | "thin"; mult: number | null; usual: number | null; n: number; pct: number | null; via: "similar" | "all" | null; label: string }
 interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null; size?: SizeInfo }
-interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null; sizeTag?: "big" | "fun" | null }
+interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null; sizeTag?: "big" | "fun" | null; gateNote?: string }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number; lastTs?: number | null }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
@@ -1413,6 +1413,7 @@ function UCard(props: { p: Pick; game: Game; now: number; stake: string; moreRow
           <ColdChip p={p} />
           <PickFlags p={p} startTs={props.game.startTs} game={props.game} />
         </div>
+        {p.gateNote ? <div data-gate-note="1" style={{ fontSize: 12, fontWeight: 700, color: "#B45309", margin: "0 0 6px" }}>{p.gateNote}</div> : null}
         {isComboPick(p) ? (
           <ComboBlock legs={p.legs} now={props.now} ticker={p.ticker} comboUrl={p.comboUrl || v.comboUrl} yesNo={v.yesNo} price={v.price} payout={p.payout} stake={p.total} backers={p.backers} copyPayload={comboLegsText({ backing: p.big, game: props.game.game, yesNo: v.yesNo || undefined, cost: p.total, price: v.price, comboUrl: p.comboUrl || v.comboUrl, ticker: p.ticker, legs: p.legs })} />
         ) : (
@@ -2001,6 +2002,82 @@ function bestDoubleOf(now: number): BestDouble {
   });
   return selectBestDouble(rows);
 }
+// t1146: Double-grade quality gate for Ranked / Coming Up. The Double tab itself is unchanged
+// (it still uses bestDoubleOf above with official monthly/yearly P&L and per-sport records only).
+// Here, when Kalshi has no official monthly P&L we use the capper's settled 30-day sports tape,
+// then all-time P&L; when no 5+ record exists in this sport we use their all-sports graded record.
+// Every fallback is labeled on the card.
+const GATE_LABEL: Record<string, string> = {
+  no_price: "no live price",
+  short_favorite: "priced 90¢ or more",
+  longshot: "priced under 40¢",
+  stale: "line moved more than 6¢ since the capper bet",
+  fun_size: "fun-size bet for the capper",
+  opp_stronger: "stronger cappers on the other side",
+  no_qualifying_capper: "no capper who is up this month and all-time, proven in the sport, and High confidence (or 2+ cappers on it)",
+};
+interface GateBacker extends DoubleBacker { monthSrc?: string | null; sportSrc?: string | null }
+function gateBackerOf(b: Backer, p: Pick, league: string): GateBacker {
+  const c = capperOf(b.name);
+  const m = c ? qualityNum(c.monthlyPnl) : null;
+  const t = c ? qualityNum(c.tape30d) : null;
+  const all = c ? qualityNum(c.pnl) : null;
+  const y = c ? qualityNum(c.yearlyPnl) : null;
+  const month = m != null ? m : (t != null ? t : all);
+  const monthSrc = m != null ? "monthly" : (t != null ? "30d tape" : (all != null ? "all-time" : null));
+  let sport: GateBacker["sport"] = kalshiSportFor(b.name, league);
+  let sportSrc: string | null = sport ? "sport" : null;
+  if (!sport && c && c.graded && c.graded.n >= DOUBLE_SPORT_N) {
+    sport = { name: "all sports", n: c.graded.n, w: c.graded.w, l: c.graded.l, roi: c.graded.roi != null ? c.graded.roi : null, profit: c.graded.profit != null ? c.graded.profit : null };
+    sportSrc = "all sports";
+  }
+  return { name: b.name, cost: b.cost, size: sizeOf(b.name, b.cost, b.avg, p.key, b.size), monthPnl: month, yearPnl: y != null ? y : all, sport, monthSrc, sportSrc };
+}
+function pickGate(p: Pick, g: Game): { why: string | null; note: string } {
+  const full = (DATA.games || []).find((x: Game) => x.id === g.id) || g;
+  const combo = !!(p.isCombo || (p.legs && p.legs.length >= 2));
+  const px = p.view && p.view.price != null ? p.view.price : null;
+  const n = netOf(p, full);
+  const backers = (p.backers || []).map((b: Backer) => gateBackerOf(b, p, g.league));
+  const row: DoubleRow = { id: p.key, gameId: g.id, label: p.big, game: p.sub || g.game, league: g.league, price: px == null ? (null as unknown as number) : px, entry: pickEntryPx(p), startTs: p.startTs || g.startTs, backers, ownScore: n.own, oppScore: n.opp };
+  let why: string | null;
+  if (!combo) why = doubleSkip(row);
+  else {
+    // Combos: price band does not apply (a parlay is priced low by design); every capper gate does.
+    const sl = doubleSlip(px, row.entry);
+    why = (sl != null && sl > DOUBLE_STALE) ? "stale" : doubleFunSize(row) ? "fun_size" : (row.oppScore > row.ownScore) ? "opp_stronger" : (!doubleQualifiers(row).length ? "no_qualifying_capper" : null);
+  }
+  const fb: string[] = [];
+  doubleQualifiers(row).forEach((b: GateBacker) => {
+    if (b.monthSrc && b.monthSrc !== "monthly") fb.push(b.name + " up via " + b.monthSrc + " P&L");
+    if (b.sportSrc === "all sports") fb.push(b.name + " proven via all-sports record (" + (b.sport ? b.sport.w + "–" + b.sport.l : "") + ")");
+  });
+  return { why, note: fb.length ? "Gate fallback: " + fb.join(" · ") : "" };
+}
+interface GateResult { games: Game[]; before: number; after: number; reasons: Record<string, number> }
+function gateGames(games: Game[]): GateResult {
+  const reasons: Record<string, number> = {};
+  let before = 0, after = 0;
+  const out = games.map((g: Game) => {
+    const picks = (g.picks || []).map((p: Pick) => {
+      before += 1;
+      const r = pickGate(p, g);
+      if (r.why) { reasons[r.why] = (reasons[r.why] || 0) + 1; return null; }
+      after += 1;
+      return r.note ? { ...p, gateNote: r.note } : p;
+    }).filter(Boolean) as Pick[];
+    return { ...g, picks };
+  }).filter((g: Game) => g.picks.length);
+  return { games: out, before, after, reasons };
+}
+let GATE_BEFORE: Game[] = [];
+function gateGamesBefore(): Game[] { return GATE_BEFORE; }
+function gateReasonsFor(games: Game[]): Record<string, number> { return gateGames(games).reasons; }
+function gateEmptyBody(r: GateResult | undefined, what: string): string {
+  if (!r || !r.before) return "No capper has a $1,000+ trackable sports pick " + what + " right now.";
+  const top = Object.keys(r.reasons).sort((a, b) => r.reasons[b] - r.reasons[a]).map((k: string) => r.reasons[k] + " " + (GATE_LABEL[k] || k));
+  return r.before + " $1,000+ pick" + (r.before === 1 ? "" : "s") + " " + what + ", but none pass the Double-grade quality gates. Filtered out: " + top.join(" · ") + ".";
+}
 function bestDoubleCount(now: number): number { const d = bestDoubleOf(now); return d.legs && d.legs.length === 2 ? 2 : 0; }
 function DoubleLegCard(props: { leg: DoubleLeg; now: number; full?: boolean }) {
   const leg = props.leg;
@@ -2066,7 +2143,7 @@ function BestDoublePanel(props: { now: number; variant: "banner" | "page" }) {
 function DoubleTab(props: { now: number }) { return <BestDoublePanel now={props.now} variant="page" />; }
 
 
-function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
+function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string; gate?: GateResult }) {
   const q = (props.query || "").trim().toLowerCase();
   const split = hideSplitsOnGames(props.games);
   const ranks = pickRankMap(split.games);
@@ -2081,7 +2158,7 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   return (
     <div>
       <BestDoublePanel now={props.now} variant="banner" />
-      {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? "None of the trackable cappers has a $1,000+ open sports position or profile post on the upcoming slate." : "Try another search or clear the filter."} /> : null}
+      {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? (props.gate && props.gate.before ? "Nothing passes the quality gates right now" : "No public Kalshi books right now") : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? gateEmptyBody(props.gate, "on the slate") : "Try another search or clear the filter."} /> : null}
       {splitNote ? <div data-splits-hidden="1" style={{ fontSize: 13, fontWeight: 700, color: "#B45309", margin: "0 2px 8px" }}>{splitNote}</div> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
       {live.map((g: Game) => <GameBlock key={g.id} g={g} now={props.now} stake="$2–4" showStart rankNo={rankOf(g)} />)}
@@ -2209,7 +2286,7 @@ function ScorecardTab(): React.ReactElement {
   return <ScorecardBlock />;
 }
 
-function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
+function RankedTab(props: { games: Game[]; now: number; query?: string; filter?: string; gate?: GateResult }) {
   const q = (props.query || "").trim().toLowerCase();
   const games = todayGames(props.games, props.now).filter((g: Game) => gameMatchesQuery(g, q)).filter((g: Game) => props.filter === "live" ? g.live : props.filter === "upcoming" ? !g.live : true);
   const list = rankedPicks(games);
@@ -2220,7 +2297,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
     <div>
       <BestDoublePanel now={props.now} variant="banner" />
       <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption={"Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included." + (splitNote ? " · " + splitNote : "")}>
-        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
+        {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? (props.gate ? gateEmptyBody({ ...props.gate, games: [], before: todayGames(gateGamesBefore(), props.now).reduce((n: number, g: Game) => n + g.picks.length, 0), reasons: gateReasonsFor(todayGames(gateGamesBefore(), props.now)) }, "today in PT (after 7pm PT, tomorrow too)") : "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included).") : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
           <UCard key={c.p.key} p={{ ...c.p, backers: sortBackersByLast20(c.p.backers || []) }} game={c.game} now={props.now} stake="$2–4" rankNo={i + 1} />
         ))}
@@ -2492,7 +2569,8 @@ export default function App() {
   const [keyText, setKeyText] = useState("");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
-  const games = useMemo(() => openGames(now), [now, tick]);
+  const gate = useMemo(() => { GATE_BEFORE = openGames(now); return gateGames(GATE_BEFORE); }, [now, tick]);
+  const games = gate.games;
   const comingN = hideSplitsOnGames(games).games.reduce((n: number, g: Game) => n + g.picks.length, 0);
   const cov = (DATA.source && DATA.source.coverage) || {};
   const followN = ((DATA.following && DATA.following.picks) || []).filter((fp: FollowPick) => !followPickIsFinished(fp, now) && stakeOk(fp.cost, fp) && capperShownOk(fp.nickname, now, undefined, fp.league) && pickPayoutOk(fp)).length;
@@ -2638,9 +2716,9 @@ export default function App() {
   const changeTab = (t: "coming" | "following" | "ranked" | "double" | "cappers" | "scorecard") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
   const tabMeta: { value: "coming" | "following" | "ranked" | "double" | "cappers" | "scorecard"; label: string; count?: number; icon: ReactNode; title: string; caption: string }[] = [
-    { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$1,000+ singles and combos · best to worst · today in PT, after 7pm + tomorrow" },
+    { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "Double-grade $1,000+ picks only · best to worst · today in PT, after 7pm + tomorrow" },
     { value: "double", label: "Double", count: bestDoubleCount(now) || undefined, icon: <IconTrophy />, title: "Best Double", caption: "Two strongest bets on two different games · both legs must win" },
-    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$1,000+ singles and combos, soonest first · live first" },
+    { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "Double-grade $1,000+ picks only, soonest first · live first" },
     { value: "cappers", label: "Cappers", count: (((DATA as any).topCappers && (DATA as any).topCappers.cappers) ? (DATA as any).topCappers.cappers.length : followedN), icon: <IconUsers />, title: "Cappers", caption: "Top 100 Sports Cappers Log · Best Cappers first · official profit and closed record" },
     { value: "scorecard", label: "Scorecard", icon: <IconChart />, title: "Scorecard", caption: "Yesterday’s scanner picks · W–L and flat $1" },
   ];
@@ -2780,9 +2858,9 @@ export default function App() {
                 <input type="search" value={query} onChange={(ev) => setQuery(ev.target.value)} placeholder="Search cappers or games" aria-label="Search cappers or games" />
               </label>
             </div> : null}
-            {tab === "coming" ? <ComingUpTab games={games} now={now} query={query} filter={filter} /> : null}
+            {tab === "coming" ? <ComingUpTab games={games} now={now} query={query} filter={filter} gate={gate} /> : null}
             {tab === "following" ? <FollowingTab now={now} query={query} filter={filter} /> : null}
-            {tab === "ranked" ? <RankedTab games={games} now={now} query={query} filter={filter} /> : null}
+            {tab === "ranked" ? <RankedTab games={games} now={now} query={query} filter={filter} gate={gate} /> : null}
             {tab === "double" ? <DoubleTab now={now} /> : null}
             {tab === "cappers" ? <CappersTab now={now} query={query} filter={filter} /> : null}
             {tab === "scorecard" ? <ScorecardTab /> : null}
