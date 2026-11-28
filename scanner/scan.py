@@ -2162,6 +2162,11 @@ def inspect_visible(http, nick, now, mcache, ecache, people, log, trades_pages=8
     if positions_hidden and posts_visible:
         row["rejectNote"] = None
         log("posts used for hidden book %s: %d posts, %d open $%d+ singles / $%d+ combos" % (nick, len(posts), len(follow), MIN_BET_SINGLE, MIN_BET_COMBO))
+    try:
+        import bet_size as _bsz
+        _bsz.remember(nick, _bsz.collect_rows(nick=nick, trades=trades, picks=(picks or []) + (follow or []), closed=closed_holdings, posts=posts))
+    except Exception:
+        pass
     return "active", row, ""
 
 
@@ -3883,6 +3888,17 @@ def main():
         lib.save_milestone_starts()
     except Exception as e:
         print("milestone cache save skipped: %s" % e)
+    try:
+        import bet_size as _bsz
+        _bsz.annotate_payload(data, now=data.get("ts"))
+
+        try:
+            import best_double as _bd
+            data["bestDouble"] = _bd.build_from_kalshi_payload(data, now=data.get("ts")) or _bd.empty_state()
+        except Exception as _e:
+            print("bestDouble failed:", _e, flush=True)
+    except Exception as _e:
+        print("bet size labels failed:", _e)
     out = os.path.join(ROOT, "data.json")
     json.dump(data, open(out, "w"), indent=2)
     open(out, "a").write(chr(10))

@@ -49,12 +49,13 @@ interface WL { w: number; l: number; n?: number }
 interface ComboLeg { ticker: string; eventTicker?: string; yesNo: string; backing?: string; game?: string; marketTitle?: string; contractTitle?: string; matchup?: string; startTs?: number; closeTs?: number; league?: string; url?: string }
 interface KalshiView { backing?: string; marketTitle?: string; outcome?: string; yesNo: "Yes" | "No" | null; price: number | null; ticker: string | null; comboUrl?: string | null }
 interface SportRec { n: number; w: number; l: number; roi?: number | null; profit?: number }
-interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null }
-interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
+interface SizeInfo { tag: "high" | "normal" | "fun" | "thin"; mult: number | null; usual: number | null; n: number; pct: number | null; via: "similar" | "all" | null; label: string }
+interface Backer { name: string; cost: number; avg?: number | null; line: string; rec?: WL | null; sportRec?: WL | null; bestAt?: string | null; pnl?: number | null; pinned?: boolean; lastTs?: number | null; lastSeen?: string; lastSeenTs?: number | null; tier?: string; addedTs?: number | null; addedLastTs?: number | null; size?: SizeInfo }
+interface Pick { key: string; ticker: string; eventTicker?: string; mid: string; bt: string; big: string; sub: string; view: KalshiView; backers: Backer[]; total: number; tags: string[]; slip?: number | null; startTs: number; state: string; status?: string; result?: string | null; closeTs?: number; yesAsk?: number | null; noAsk?: number | null; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null; sizeTag?: "big" | "fun" | null }
 interface Game { id: string; game: string; league: string; startTs: number; start: string; live: boolean; state: string; picks: Pick[]; closeTs?: number }
 interface Capper { nickname: string; profileUrl?: string; tier: string; pinned?: boolean; tag?: string; ranks?: Record<string, number>; profitRanks?: Record<string, any>; onProfitBoard?: boolean; pnl?: number | null; pnlSource?: string | null; weeklyPnl?: number | null; monthlyPnl?: number | null; yearlyPnl?: number | null; tape7d?: number | null; tape30d?: number | null; volumeUsd?: number | null; ageDays?: number | null; graded?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string; formW?: number; formL?: number } | null; gradedAll?: { n: number; w: number; l: number; roi: number | null; profit: number; sample?: string } | null; sports?: Record<string, SportRec>; bestAt?: string | null; recordLine: string; pickCount: number; followCount?: number; rejectNote?: string; positionsVisible?: boolean; postsVisible?: boolean; pickSource?: string; openPositions?: number; lastTs?: number | null }
 interface SideCmp { verdict: "this" | "other" | null; thisBest: WL; oppBest: WL; thisName: string; oppName: string }
-interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; addedTs?: number | null; addedLastTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null }
+interface FollowPick { ticker: string; eventTicker?: string; game: string; backing?: string; label?: string; yesNo: "Yes" | "No" | string; entry?: number | null; price?: number | null; yesAsk?: number | null; noAsk?: number | null; cost?: number | null; contracts?: number | null; startTs: number; closeTs?: number; state?: string; status?: string; result?: string | null; league?: string; bt?: string; nickname: string; recordLine?: string; tier?: string; marketTitle?: string; contractTitle?: string; lastTs?: number | null; slip?: number | null; lastSeen?: string; lastSeenTs?: number | null; addedTs?: number | null; addedLastTs?: number | null; source?: string; isCombo?: boolean; legs?: ComboLeg[]; comboUrl?: string | null; payout?: number | null; size?: SizeInfo }
 interface FollowCapper { nickname: string; w: number; l: number; p?: number; n: number; hitPct: number | null; open: number; hidden?: boolean; pnl?: number | null; roi?: number | null; pickSource?: string; positionsVisible?: boolean; postsVisible?: boolean; openPositions?: number; closedW?: number; closedL?: number; closedN?: number; formW?: number; formL?: number; recordLine?: string; profileUrl?: string; rank?: number; manual?: boolean }
 interface CapperDbRow { rank: number; nickname: string; w?: number; l?: number; n?: number; pnl?: number | null; recordLine?: string; manual?: boolean }
 interface CapperDatabase { target?: number; size?: number; updatedAt?: string; note?: string; cappers?: CapperDbRow[] }
@@ -63,6 +64,109 @@ interface ScanHist { ts: number; at: string; names?: number; newFollows?: string
 interface Data { scannedAt: string; ts: number; followCheckedAt?: string; source?: { note?: string; periodUsed?: string; coverage?: any; db?: { active?: number; queue?: number; rejected?: number; pinned?: number } }; cappers?: Capper[]; games?: Game[]; following?: Following; scanHistory?: ScanHist[]; scannerRecord?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; units: number; roi?: number | null; cold?: boolean; last20?: Last20 }> }; comboRecords?: { minN?: number; updatedTs?: number; cappers?: Record<string, { name?: string; n: number; w: number; l: number; pnl: number; boost?: boolean }> } }
 
 let DATA: Data = ((window as any).__DATA || { scannedAt: "", ts: 0, cappers: [], games: [] }) as Data;
+// Bet-size confidence (display only). Prefer scan-provided `size`; otherwise
+// compare the USD stake to that capper's median at similar odds from already-loaded history.
+const SIZE_MIN = 8, SIZE_HIGH = 3, SIZE_FUN = 0.5;
+function sizeBucket(avg: number | null | undefined): string | null {
+  if (avg == null || !(avg >= 0.01 && avg <= 1)) return null;
+  if (avg >= 1) return "heavy";
+  if (avg < 0.35) return "longshot";
+  if (avg < 0.65) return "mid";
+  if (avg < 0.85) return "favorite";
+  return "heavy";
+}
+function sizeMedian(xs: number[]): number | null {
+  if (!xs.length) return null;
+  const ys = xs.slice().sort((a, b) => a - b);
+  const mid = Math.floor(ys.length / 2);
+  return ys.length % 2 ? ys[mid] : (ys[mid - 1] + ys[mid]) / 2;
+}
+function sizeUsd(n: number): string {
+  const v = Math.round(n);
+  return (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US");
+}
+function sizeFormat(info: SizeInfo): string {
+  if (info.tag === "thin" || !info.tag) return "❔ Not enough history yet (" + info.n + " past bet" + (info.n === 1 ? "" : "s") + ")";
+  const head = info.tag === "high" ? "🔥 High confidence" : (info.tag === "fun" ? "🎈 Fun bet" : "👍 Normal size");
+  const bits: string[] = [head];
+  if (info.mult != null) {
+    let mid = info.mult.toFixed(1) + "x their usual bet";
+    if (info.usual != null) mid += " (" + sizeUsd(info.usual) + (info.via === "similar" ? " at similar odds" : " across all odds") + ")";
+    bits.push(mid);
+  }
+  if (info.pct != null && info.n) bits.push("bigger than " + info.pct + "% of " + info.n + " past bets");
+  return bits.join(" · ");
+}
+function sizeCompare(cost: number, avg: number | null | undefined, past: { id?: string | null; cost: number; avg?: number | null }[], excludeId?: string | null): SizeInfo {
+  const ex = excludeId ? String(excludeId) : "";
+  const rows = (past || []).filter((r) => r && r.cost > 0 && !(ex && r.id && String(r.id) === ex));
+  const bucket = sizeBucket(avg);
+  const similar = bucket ? rows.filter((r) => r.avg != null && sizeBucket(r.avg) === bucket) : [];
+  const used = similar.length >= SIZE_MIN ? similar : rows;
+  const via = similar.length >= SIZE_MIN ? "similar" as const : "all" as const;
+  const n = used.length;
+  const thin = (tagN: number): SizeInfo => { const info: SizeInfo = { tag: "thin", mult: null, usual: null, n: tagN, pct: null, via: null, label: "" }; info.label = sizeFormat(info); return info; };
+  if (n < SIZE_MIN || !(cost > 0)) return thin(n);
+  const usual = sizeMedian(used.map((r) => r.cost));
+  if (usual == null || !(usual > 0)) return thin(n);
+  const mult = Math.round((cost / usual) * 10) / 10;
+  const tag: SizeInfo["tag"] = cost >= SIZE_HIGH * usual - 1e-9 ? "high" : (cost <= SIZE_FUN * usual + 1e-9 ? "fun" : "normal");
+  const pct = Math.round(100 * used.filter((r) => r.cost < cost).length / n);
+  const info: SizeInfo = { tag, mult, usual, n, pct, via, label: "" };
+  info.label = sizeFormat(info);
+  return info;
+}
+type SizeHistRow = { id?: string; cost: number; avg?: number | null };
+let _sizeHistTs = 0;
+let _sizeHist: Record<string, SizeHistRow[]> = {};
+function sizeHist(): Record<string, SizeHistRow[]> {
+  const ts = DATA.ts || 1;
+  if (_sizeHistTs === ts && _sizeHistTs) return _sizeHist;
+  const hist: Record<string, SizeHistRow[]> = {};
+  const add = (key: string | undefined | null, row: SizeHistRow) => {
+    const k = (key || "").toLowerCase();
+    if (!k || !(row.cost > 0)) return;
+    if (!hist[k]) hist[k] = [];
+    if (row.id) {
+      const i = hist[k].findIndex((x) => x.id === row.id);
+      if (i >= 0) { if (row.cost > (hist[k][i].cost || 0)) hist[k][i] = row; return; }
+    }
+    hist[k].push(row);
+  };
+  (DATA.games || []).forEach((g: Game) => (g.picks || []).forEach((p: Pick) => {
+    const pid = (p.ticker || p.key || "") + "|" + ((p.view && p.view.yesNo) || "");
+    (p.backers || []).forEach((b: Backer) => add(b.name, { id: pid, cost: b.cost || 0, avg: b.avg != null ? b.avg : null }));
+  }));
+  ((DATA.following && DATA.following.picks) || []).forEach((fp: FollowPick) => {
+    add(fp.nickname, { id: (fp.ticker || "") + "|" + (fp.yesNo || ""), cost: fp.cost || 0, avg: fp.entry != null ? fp.entry : (fp as any).avg });
+  });
+  _sizeHist = hist;
+  _sizeHistTs = ts;
+  return hist;
+}
+function sizeOf(name: string | null | undefined, cost: number | null | undefined, avg?: number | null, pid?: string | null, stored?: SizeInfo | null): SizeInfo {
+  if (stored && stored.label) return stored;
+  return sizeCompare(cost || 0, avg, sizeHist()[(name || "").toLowerCase()] || [], pid);
+}
+function sizeTone(tag: string | null | undefined, fallback: string): string {
+  if (tag === "high") return "#15803D";
+  if (tag === "fun") return "#0369A1";
+  if (tag === "thin") return "#64748B";
+  return fallback;
+}
+function SizeLine(props: { size?: SizeInfo | null; name?: string | null; cost?: number | null; avg?: number | null; pid?: string | null }): React.ReactElement | null {
+  const info = sizeOf(props.name, props.cost, props.avg, props.pid, props.size);
+  if (!info || !info.label) return null;
+  return <div data-size-line={info.tag} style={{ fontSize: 12, lineHeight: "16px", fontWeight: 700, color: sizeTone(info.tag, "#64748B"), marginTop: 2 }}>{info.label}</div>;
+}
+function cardSizeTag(backers: { size?: SizeInfo | null; name?: string | null; cost?: number | null; avg?: number | null }[] | undefined, pid?: string | null): "big" | "fun" | null {
+  const rows = backers || [];
+  if (!rows.length) return null;
+  const tags = rows.map((b) => sizeOf(b.name, b.cost, b.avg, pid, b.size).tag);
+  if (tags.some((t) => t === "high")) return "big";
+  if (tags.length === rows.length && tags.every((t) => t === "fun")) return "fun";
+  return null;
+}
 const SCAN_WORKFLOW_URL = "https://github.com/nfm0984-png/kalshi-scanner/actions/workflows/scanner.yml";
 const CFG: any = (window as any).__CFG || {};
 const GH_OWNER = String(CFG.owner || "nfm0984-png");
@@ -658,6 +762,7 @@ function BackerRow(props: { b: Backer; now: number }) {
         <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 750, color: NAVY, marginTop: 3, overflowWrap: "anywhere" }}>
           {b.name + " · " + money(b.cost) + (b.avg != null ? " at " + cents(b.avg) : "") + (b.lastTs ? " · bought " + ago(b.lastTs, props.now) : "")}
         </div>
+        <SizeLine size={b.size} name={b.name} cost={b.cost} avg={b.avg} />
         <Last20Dots name={b.name} />
         {b.lastSeen ? <div data-last-seen="1" style={{ marginTop: 4 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + b.lastSeen}</Chip></div> : null}
       </div>
@@ -694,6 +799,7 @@ function CapperPickMini(props: { p: Pick; game: Game; now: number; backerName?: 
       <div style={{ fontSize: 16, lineHeight: "21px", fontWeight: 850, color: NAVY, marginTop: 6, overflowWrap: "anywhere" }}>{p.big}{p.view.yesNo ? " · " + p.view.yesNo : ""}</div>
       <MatchupLine matchup={matchupOf(p.view.marketTitle, game.game, p.sub)} startTs={p.startTs || game.startTs} now={now} />
       {mine ? <div style={{ marginTop: 4, display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}><span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{money(mine.cost)}</span><span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (mine.avg != null ? " · entry " + cents(mine.avg) : "")}</span></div> : null}
+      {mine ? <SizeLine size={mine.size} name={mine.name} cost={mine.cost} avg={mine.avg} pid={(p.ticker || p.key || "") + "|" + ((p.view && p.view.yesNo) || "")} /> : null}
       {mine && mine.lastSeen ? <div data-last-seen="1" style={{ marginTop: 6 }}><Chip bg="#FEF3C7" color={AMBER}>{"Last seen " + mine.lastSeen}</Chip></div> : null}
       <FreshPricePills p={p} now={now} />
       <div style={{ marginTop: 8 }}><KalshiBuyButton view={p.view} /></div>
@@ -731,6 +837,7 @@ function FollowPickMini(props: { p: FollowPick; now: number }) {
         {p.cost != null && p.cost > 0 ? <span style={{ fontSize: 20, lineHeight: "24px", fontWeight: 850, fontVariantNumeric: "tabular-nums" }}>{kMoney(p.cost)}</span> : null}
         <span style={{ fontSize: 13, fontWeight: 700, color: "#64748B" }}>{"on Kalshi" + (p.price != null ? " · pays " + cents(p.price) : "") + (p.entry != null ? " · entry " + cents(p.entry) : "")}</span>
       </div>
+      <SizeLine size={p.size} name={p.nickname} cost={p.cost} avg={p.entry} pid={(p.ticker || "") + "|" + (p.yesNo || "")} />
       {fresh === "fresh" || fresh === "hold" || p.lastSeen ? (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
           {fresh === "fresh" ? pill("#DCFCE7", "#15803D", "Fresh", p.lastTs ? "bought " + ago(p.lastTs as number, props.now) : null) : null}
@@ -1690,6 +1797,9 @@ function PickFlags(props: { p: Pick; startTs?: number | null; game?: Game }): Re
   if (split && split.stance === "majority") out.push(<span key="sp" data-split="1" title={"Lopsided split: " + split.ownN + " quality cappers on this side vs " + split.oppN + " on " + split.oppLabel + ". Showing the heavy majority."} style={flagChip("#FFFBEB", "#B45309", "#F59E0B")}>{"Split · " + split.ownN + "–" + split.oppN}</span>);
   const both = slateHitForPick(p);
   if (both) out.push(<span key="bo" data-both-scanners="1" title={"A top Polymarket whale is also on this same Kalshi contract" + (both.n ? " (" + both.n + " whale" + (both.n === 1 ? "" : "s") + ")" : "") + "."} style={flagChip("#ECFDF5", "#047857", "#34D399")}>{"Both scanners"}</span>);
+  const sizeTag = cardSizeTag(p.backers, (p.ticker || p.key || "") + "|" + ((p.view && p.view.yesNo) || ""));
+  if (sizeTag === "big") out.push(<span key="szb" data-size-tag="big" title="At least one capper bet 3x or more than their usual stake at similar odds. Label only; ranking unchanged." style={flagChip("#FFEDD5", "#C2410C", "#FB923C")}>{"🔥 Big bet for this capper"}</span>);
+  else if (sizeTag === "fun") out.push(<span key="szf" data-size-tag="fun" title="Every capper on this pick bet half or less than their usual stake at similar odds. Label only; ranking unchanged." style={flagChip("#F0F9FF", "#0369A1", "#7DD3FC")}>{"🎈 Fun-size bet"}</span>);
   return out.length ? <>{out}</> : null;
 }
 function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
@@ -1699,6 +1809,9 @@ function FollowFlags(props: { p: FollowPick }): React.ReactElement | null {
   const g = p.price != null && p.entry != null && p.price > 0 && p.entry > 0 && p.entry < 1 ? Math.round((p.price - p.entry) * 100) : null;
   if (g != null && g <= -FADE_CENTS) out.push(<span key="fd" data-fading="1" title="Price is 5c+ below what the capper paid" style={flagChip("#F1F5F9", "#475569", "#94A3B8")}>{"📉 Fading · " + Math.abs(g) + "¢ under entry"}</span>);
   else if (g != null && g >= FADE_CENTS) out.push(<span key="lt" data-late="1" title="Price is 5c+ above what the capper paid. Label only." style={flagChip("#FFF7ED", "#9A3412", "#FB923C")}>{"⏰ You're late · +" + g + "¢ over entry"}</span>);
+  const sz = sizeOf(p.nickname, p.cost, p.entry, (p.ticker || "") + "|" + (p.yesNo || ""), p.size);
+  if (sz.tag === "high") out.push(<span key="szb" data-size-tag="big" title="This capper bet 3x or more than their usual stake at similar odds. Label only." style={flagChip("#FFEDD5", "#C2410C", "#FB923C")}>{"🔥 Big bet for this capper"}</span>);
+  else if (sz.tag === "fun") out.push(<span key="szf" data-size-tag="fun" title="This capper bet half or less than their usual stake at similar odds. Label only." style={flagChip("#F0F9FF", "#0369A1", "#7DD3FC")}>{"🎈 Fun-size bet"}</span>);
   return out.length ? <>{out}</> : null;
 }
 function hideSplitsOnGames(games: Game[]): { games: Game[]; hidden: number } {
@@ -1762,6 +1875,197 @@ function gameMatchesQuery(g: Game, q: string): boolean {
   if ((g.game || "").toLowerCase().includes(q) || (g.league || "").toLowerCase().includes(q)) return true;
   return g.picks.some((p: Pick) => (p.big + " " + p.sub + " " + (p.view.backing || "")).toLowerCase().includes(q) || p.backers.some((b: Backer) => (b.name || "").toLowerCase().includes(q)));
 }
+// 🎯 Best Double (display only). Two strongest qualifying bets on two different games.
+const DOUBLE_MIN_PX = 0.40, DOUBLE_SHORT_PX = 0.90, DOUBLE_STALE = 6, DOUBLE_SPORT_N = 5, DOUBLE_STAKE = 10;
+interface DoubleBacker { name: string; cost?: number; size?: SizeInfo; monthPnl?: number | null; yearPnl?: number | null; sport?: { name: string; n: number; w: number; l: number; roi: number | null; profit?: number | null } | null }
+interface DoubleRow { id: string; gameId: string; label: string; game: string; league: string; price: number; entry: number | null; startTs: number; backers: DoubleBacker[]; ownScore: number; oppScore: number; ticker?: string | null; yesNo?: string | null; view?: KalshiView }
+interface DoubleLeg { id: string; gameId: string; label: string; game: string; league: string; price: number; payout: number | null; entry: number | null; startTs?: number; reasonsFor: string[]; reasonsAgainst: string[]; backers: DoubleBacker[]; ticker?: string | null; yesNo?: string | null; view?: KalshiView }
+interface BestDouble { legs: DoubleLeg[]; stake: number; payout: number | null; winChance: number | null; note: string; empty?: boolean; message?: string }
+function doubleSlip(price: number | null | undefined, entry: number | null | undefined): number | null {
+  if (price == null || entry == null) return null;
+  return Math.round((price - entry) * 1000) / 10;
+}
+function doubleUp(b: DoubleBacker): boolean { return b.monthPnl != null && b.yearPnl != null && b.monthPnl > 0 && b.yearPnl > 0; }
+function doubleDown(b: DoubleBacker): boolean { return (b.monthPnl != null && b.monthPnl < 0) || (b.yearPnl != null && b.yearPnl < 0); }
+function doubleProven(b: DoubleBacker): boolean {
+  const sr = b.sport;
+  if (!sr || sr.n < DOUBLE_SPORT_N) return false;
+  if (sr.roi != null) return sr.roi > 0;
+  if (sr.profit != null) return sr.profit > 0;
+  return sr.w > sr.l;
+}
+function doubleFunSize(row: DoubleRow): boolean {
+  const tags = (row.backers || []).map((b) => (b.size && b.size.tag) || "");
+  return !!tags.length && tags.every((t) => t === "fun");
+}
+function doubleQualifiers(row: DoubleRow): DoubleBacker[] {
+  const several = (row.backers || []).length >= 2;
+  return (row.backers || []).filter((b) => !doubleDown(b) && doubleUp(b) && doubleProven(b) && (b.size && b.size.tag) !== "fun" && ((b.size && b.size.tag) === "high" || several));
+}
+function doubleSkip(row: DoubleRow): string | null {
+  if (row.price == null) return "no_price";
+  if (row.price >= DOUBLE_SHORT_PX) return "short_favorite";
+  if (row.price < DOUBLE_MIN_PX) return "longshot";
+  const sl = doubleSlip(row.price, row.entry);
+  if (sl != null && sl > DOUBLE_STALE) return "stale";
+  if (doubleFunSize(row)) return "fun_size";
+  if ((row.oppScore || 0) > (row.ownScore || 0)) return "opp_stronger";
+  if (!doubleQualifiers(row).length) return "no_qualifying_capper";
+  return null;
+}
+function doubleScore(row: DoubleRow): number[] {
+  const band = (row.price >= 0.55 && row.price <= 0.80) ? 2 : ((row.price >= 0.50 && row.price <= 0.85) ? 1 : 0);
+  const high = (row.backers || []).some((b) => b.size && b.size.tag === "high") ? 1 : 0;
+  return [high, doubleQualifiers(row).length, (row.backers || []).length, (row.ownScore || 0) - (row.oppScore || 0), band, row.price];
+}
+function doubleCmp(a: DoubleRow, b: DoubleRow): number {
+  const sa = doubleScore(a), sb = doubleScore(b);
+  for (let i = 0; i < sa.length; i++) if (sb[i] !== sa[i]) return sb[i] - sa[i];
+  return 0;
+}
+function doubleReasonsFor(row: DoubleRow): string[] {
+  const bits: string[] = [];
+  doubleQualifiers(row).slice(0, 2).forEach((b) => {
+    bits.push(b.name + " is up this month and over the longer term, with a proven " + ((b.sport && b.sport.name) || row.league || "this sport") + " record");
+    if (b.size && b.size.tag === "high") bits.push(b.name + " is betting big vs their usual (" + (b.size.mult != null ? b.size.mult.toFixed(1) + "x" : "High confidence") + ")");
+  });
+  if ((row.backers || []).length >= 2) bits.push(row.backers.length + " cappers are on this pick");
+  const sl = doubleSlip(row.price, row.entry);
+  if (sl != null && Math.abs(sl) <= DOUBLE_STALE) bits.push(Math.abs(sl) <= 2 ? ("Price is still close to what the cappers paid (" + sl + "¢)") : ("Price has not moved much since they bought (" + sl + "¢)"));
+  bits.push("Current price is " + Math.round(row.price * 100) + "¢");
+  return bits;
+}
+function doubleReasonsAgainst(row: DoubleRow): string[] {
+  const bits: string[] = [];
+  if ((row.oppScore || 0) > 0) bits.push("The other side of this game also has capper money on it");
+  if (!(row.backers || []).some((b) => b.size && b.size.tag === "high")) bits.push("No High confidence (3x usual) capper on this leg");
+  const sl = doubleSlip(row.price, row.entry);
+  if (sl != null && sl >= 3) bits.push("Price has already moved +" + sl + "¢ since entry");
+  if (sl != null && sl <= -3) bits.push("Price has faded " + Math.abs(sl) + "¢ under entry");
+  if (row.price < 0.50) bits.push("This is still a dog at " + Math.round(row.price * 100) + "¢, not a favorite");
+  if (row.price >= 0.85 && row.price < DOUBLE_SHORT_PX) bits.push("Short favorite — not much juice left at " + Math.round(row.price * 100) + "¢");
+  if ((row.backers || []).length === 1) bits.push("Only one capper is on this pick");
+  return bits;
+}
+function toDoubleLeg(row: DoubleRow): DoubleLeg {
+  return { id: row.id, gameId: row.gameId, label: row.label, game: row.game, league: row.league, price: row.price, payout: row.price > 0 ? Math.round((1 / row.price) * 100) / 100 : null, entry: row.entry, startTs: row.startTs, reasonsFor: doubleReasonsFor(row), reasonsAgainst: doubleReasonsAgainst(row), backers: row.backers, ticker: row.ticker, yesNo: row.yesNo, view: row.view };
+}
+function selectBestDouble(rows: DoubleRow[]): BestDouble {
+  const ok = rows.filter((r) => !doubleSkip(r)).slice().sort(doubleCmp);
+  const empty: BestDouble = { legs: [], stake: DOUBLE_STAKE, payout: null, winChance: null, note: "Both legs must win. Two ~70% legs only hit about half the time.", empty: true, message: "No Best Double right now" };
+  if (!ok.length) return empty;
+  const first = ok[0];
+  const second = ok.slice(1).find((r) => r.gameId !== first.gameId);
+  if (!second) return empty;
+  const win = first.price * second.price;
+  const pct = Math.round(win * 1000) / 10;
+  const a = Math.round(first.price * 100), b = Math.round(second.price * 100);
+  return { legs: [toDoubleLeg(first), toDoubleLeg(second)], stake: DOUBLE_STAKE, payout: Math.round((DOUBLE_STAKE / win) * 100) / 100, winChance: pct, note: "Both legs must win. A " + a + "¢ leg and a " + b + "¢ leg only hit about " + pct + "% of the time — two ~70¢ legs only hit about half the time." };
+}
+function kalshiMonthYear(name: string): { month: number | null; year: number | null } {
+  const c = capperOf(name);
+  const month = c ? qualityNum(c.monthlyPnl) : null;
+  const year = c ? (qualityNum(c.yearlyPnl) != null ? qualityNum(c.yearlyPnl) : qualityNum(c.pnl)) : null;
+  return { month, year };
+}
+function kalshiSportFor(name: string, league?: string | null): DoubleBacker["sport"] {
+  const c = capperOf(name);
+  const sports = c && c.sports;
+  if (!sports) return null;
+  const fam = sportFamilyOf(league);
+  const rec = sports[fam] || sports[league || ""] || sports[(league || "").toUpperCase()] || (Object.keys(sports).map((k: string) => sports[k] && fam && k.toLowerCase() === fam.toLowerCase() ? sports[k] : null).find(Boolean) as SportRec | undefined);
+  if (!rec || !(rec.n >= DOUBLE_SPORT_N)) return null;
+  return { name: fam || league || "", n: rec.n, w: rec.w, l: rec.l, roi: rec.roi != null ? rec.roi : null, profit: rec.profit != null ? rec.profit : null };
+}
+function pickEntryPx(p: Pick): number | null {
+  const avgs = (p.backers || []).map((b) => b.avg).filter((x): x is number => x != null && isFinite(x) && x > 0);
+  if (avgs.length) return avgs.reduce((a, b) => a + b, 0) / avgs.length;
+  if (p.slip != null && p.view && p.view.price != null) return p.view.price - p.slip / 100;
+  return null;
+}
+function bestDoubleOf(now: number): BestDouble {
+  const games = (DATA.games || []).filter((g: Game) => !g.live && (g.startTs || 0) > now);
+  const rows: DoubleRow[] = [];
+  games.forEach((g: Game) => {
+    (g.picks || []).forEach((p: Pick) => {
+      if (p.isCombo || (p.legs && p.legs.length >= 2)) return;
+      const px = p.view && p.view.price != null ? p.view.price : null;
+      if (px == null) return;
+      const n = netOf(p, g);
+      const backers: DoubleBacker[] = (p.backers || []).map((b: Backer) => {
+        const per = kalshiMonthYear(b.name);
+        return { name: b.name, cost: b.cost, size: sizeOf(b.name, b.cost, b.avg, p.key, b.size), monthPnl: per.month, yearPnl: per.year, sport: kalshiSportFor(b.name, g.league) };
+      });
+      rows.push({ id: p.key, gameId: g.id, label: p.big, game: p.sub || g.game, league: g.league, price: px, entry: pickEntryPx(p), startTs: p.startTs || g.startTs, backers, ownScore: n.own, oppScore: n.opp, ticker: p.ticker || (p.view && p.view.ticker), yesNo: p.view && p.view.yesNo, view: p.view });
+    });
+  });
+  return selectBestDouble(rows);
+}
+function bestDoubleCount(now: number): number { const d = bestDoubleOf(now); return d.legs && d.legs.length === 2 ? 2 : 0; }
+function DoubleLegCard(props: { leg: DoubleLeg; now: number; full?: boolean }) {
+  const leg = props.leg;
+  return (
+    <div data-double-leg={leg.id} style={{ borderRadius: 16, border: "1.5px solid #DDD6FE", background: "#FFFFFF", padding: "12px 14px", marginTop: 10 }}>
+      <div style={{ fontSize: 12, fontWeight: 800, color: "#64748B" }}>{(leg.league || "") + (leg.startTs ? " · " + ptTime(leg.startTs) : "")}</div>
+      <div style={{ fontSize: 18, lineHeight: "24px", fontWeight: 850, marginTop: 2, overflowWrap: "anywhere", color: NAVY }}>{leg.label}</div>
+      {leg.game ? <div style={{ fontSize: 13, fontWeight: 650, color: "#475569", marginTop: 2 }}>{leg.game}</div> : null}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "baseline", marginTop: 6 }}>
+        <span style={{ fontSize: 20, fontWeight: 900, fontVariantNumeric: "tabular-nums", color: NAVY }}>{Math.round(leg.price * 100) + "¢"}</span>
+        {leg.payout ? <span style={{ fontSize: 14, fontWeight: 800, color: "#15803D" }}>{"pays " + leg.payout.toFixed(2) + "x"}</span> : null}
+      </div>
+      {leg.view ? <div style={{ marginTop: 8 }}><KalshiBuyButton view={leg.view} /></div> : null}
+      <div style={{ marginTop: 8 }}>
+        <div style={{ fontSize: 12, fontWeight: 850, color: "#15803D", marginBottom: 2 }}>Why it qualifies</div>
+        {(leg.reasonsFor || []).slice(0, props.full ? 6 : 3).map((r, i) => <div key={"f" + i} style={{ fontSize: 12, lineHeight: "17px", color: "#475569" }}>{"• " + r}</div>)}
+      </div>
+      {(leg.reasonsAgainst || []).length ? (
+        <div style={{ marginTop: 6 }}>
+          <div style={{ fontSize: 12, fontWeight: 850, color: "#B45309", marginBottom: 2 }}>Reasons for caution</div>
+          {(leg.reasonsAgainst || []).slice(0, props.full ? 6 : 2).map((r, i) => <div key={"a" + i} style={{ fontSize: 12, lineHeight: "17px", color: "#475569" }}>{"• " + r}</div>)}
+        </div>
+      ) : null}
+      {(leg.backers || []).slice(0, props.full ? 6 : 3).map((b, i) => (
+        <div key={i} style={{ marginTop: 6 }}>
+          <div style={{ fontSize: 13, fontWeight: 750, color: NAVY }}>{b.name + (b.cost ? " · " + money(b.cost) : "")}</div>
+          <SizeLine size={b.size} name={b.name} cost={b.cost} avg={null} pid={leg.id} />
+        </div>
+      ))}
+    </div>
+  );
+}
+function BestDoublePanel(props: { now: number; variant: "banner" | "page" }) {
+  const d = bestDoubleOf(props.now);
+  if (!d.legs || d.legs.length < 2) {
+    if (props.variant === "banner") return null;
+    return (
+      <Section heading="🎯 Best Double" caption="Two strongest bets on two different games · only when both legs qualify">
+        <div data-best-double="empty" style={{ borderRadius: 16, border: "1.5px dashed #C4B5FD", background: "#F5F3FF", padding: "18px 16px" }}>
+          <div style={{ fontSize: 18, fontWeight: 850, color: NAVY }}>No Best Double right now</div>
+          <div style={{ fontSize: 13, lineHeight: "19px", color: "#475569", marginTop: 6 }}>{"Nothing on the slate currently has two qualifying legs on different games. A leg needs a capper who is up this month and over the last year (or all-time, if no yearly board) with a proven record in that sport, who is betting big (3x usual) or sharing the pick with other cappers, a price that hasn't moved more than 6¢, and no stronger cappers on the other side. Short 90¢+ favorites, longshots under 40¢, down cappers, and fun-size bets are left off. We would rather show nothing than force a weaker parlay. Check back after the next scan."}</div>
+        </div>
+      </Section>
+    );
+  }
+  const body = (
+    <div data-best-double={props.variant} style={{ borderRadius: 18, border: "2px solid #6D28D9", background: "linear-gradient(180deg,#F5F3FF 0%,#FFFFFF 42%)", padding: "14px 14px 16px", boxShadow: "0 8px 20px rgba(109,40,217,0.10)", marginBottom: props.variant === "banner" ? 14 : 0 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "baseline" }}>
+        <div style={{ fontSize: 20, fontWeight: 900, color: "#4C1D95" }}>{"🎯 Best Double"}</div>
+        <div style={{ fontSize: 13, fontWeight: 750, color: "#6D28D9" }}>{"two different games"}</div>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8, alignItems: "baseline" }}>
+        <span style={{ fontSize: 22, fontWeight: 900, color: "#15803D", fontVariantNumeric: "tabular-nums" }}>{"$10 pays " + (d.payout != null ? "$" + d.payout.toFixed(2) : "—")}</span>
+        <span style={{ fontSize: 16, fontWeight: 850, color: "#4C1D95", fontVariantNumeric: "tabular-nums" }}>{(d.winChance != null ? d.winChance + "% combined win chance" : "")}</span>
+      </div>
+      <div style={{ fontSize: 13, lineHeight: "18px", fontWeight: 650, color: "#B45309", marginTop: 6 }}>{d.note}</div>
+      {d.legs.map((leg) => <DoubleLegCard key={leg.id} leg={leg} now={props.now} full={props.variant === "page"} />)}
+    </div>
+  );
+  if (props.variant === "banner") return body;
+  return <Section heading="🎯 Best Double" caption="Two strongest bets on two different games · both legs must win">{body}</Section>;
+}
+function DoubleTab(props: { now: number }) { return <BestDoublePanel now={props.now} variant="page" />; }
+
+
 function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter?: string }) {
   const q = (props.query || "").trim().toLowerCase();
   const split = hideSplitsOnGames(props.games);
@@ -1776,6 +2080,7 @@ function ComingUpTab(props: { games: Game[]; now: number; query?: string; filter
   };
   return (
     <div>
+      <BestDoublePanel now={props.now} variant="banner" />
       {games.length === 0 ? <EmptyState title={props.games.length === 0 && !split.hidden ? "No public Kalshi books right now" : "No picks match that filter"} body={props.games.length === 0 && !split.hidden ? "None of the trackable cappers has a $1,000+ open sports position or profile post on the upcoming slate." : "Try another search or clear the filter."} /> : null}
       {splitNote ? <div data-splits-hidden="1" style={{ fontSize: 13, fontWeight: 700, color: "#B45309", margin: "0 2px 8px" }}>{splitNote}</div> : null}
       {live.length ? <div data-live-head="1" style={{ fontSize: 18, fontWeight: 900, margin: "4px 2px 2px", color: NAVY }}>{"Already started (" + live.length + ")"}</div> : null}
@@ -1913,6 +2218,7 @@ function RankedTab(props: { games: Game[]; now: number; query?: string; filter?:
   const splitNote = splitHiddenNote(hiddenSplitGames(games));
   return (
     <div>
+      <BestDoublePanel now={props.now} variant="banner" />
       <Section heading={"Ranked Picks · " + list.length + " picks · " + singleN + (singleN === 1 ? " single" : " singles") + " · " + comboN + (comboN === 1 ? " combo" : " combos")} caption={"Every open $1,000+ single and combo, best first. Higher-ranked Best Cappers surface at the top. From public positions or profile posts. Today in PT; after 7pm PT, tomorrow is included." + (splitNote ? " · " + splitNote : "")}>
         {list.length === 0 ? <EmptyState title={todayGames(props.games, props.now).length === 0 ? "No Ranked Picks in this window" : "No picks match that filter"} body={todayGames(props.games, props.now).length === 0 ? "No capper has a $1,000+ trackable sports pick starting today in PT (after 7pm PT, tomorrow is included)." : "Try another search or clear the filter."} /> : null}
         {list.map((c: RankedCard, i: number) => (
@@ -1953,6 +2259,7 @@ function FollowingTab(props: { now: number; query?: string; filter?: string }) {
   if (props.filter === "open") shown = shown.filter((c: FollowCapper) => (byName[c.nickname] || []).length > 0);
   return (
     <div>
+      <BestDoublePanel now={props.now} variant="banner" />
       <div data-trial-box="1" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 12, background: "#FFFBEB", border: "1px solid #FDE68A", marginBottom: 12 }}>
         <span style={{ fontSize: 12, fontWeight: 850, letterSpacing: "0.06em", textTransform: "uppercase", color: "#92400E" }}>Copy trial</span>
         <RecordPill w={tw} l={tl} />
@@ -2162,10 +2469,10 @@ function StatusRow(props: { label: string; status: string; tone: "ok" | "public"
 }
 
 export default function App() {
-  const [tab, setTab] = useState<"coming" | "following" | "ranked" | "cappers" | "scorecard">(() => {
+  const [tab, setTab] = useState<"coming" | "following" | "ranked" | "double" | "cappers" | "scorecard">(() => {
     try {
       const t = new URLSearchParams(window.location.search).get("tab");
-      if (t === "coming" || t === "following" || t === "ranked" || t === "cappers" || t === "scorecard") return t;
+      if (t === "coming" || t === "following" || t === "ranked" || t === "double" || t === "cappers" || t === "scorecard") return t;
     } catch (e) {}
     return "ranked";
   });
@@ -2328,10 +2635,11 @@ export default function App() {
   const followedN = followCaps.length;
   const db = (DATA.source && DATA.source.db) || {};
   const dbActive = db.active != null ? db.active : (DATA.cappers || []).length;
-  const changeTab = (t: "coming" | "following" | "ranked" | "cappers" | "scorecard") => { setTab(t); setFilter("all"); };
+  const changeTab = (t: "coming" | "following" | "ranked" | "double" | "cappers" | "scorecard") => { setTab(t); setFilter("all"); };
   const rankedN = useMemo(() => rankedPicks(todayGames(games, now)).length, [games, now, tick]);
-  const tabMeta: { value: "coming" | "following" | "ranked" | "cappers" | "scorecard"; label: string; count?: number; icon: ReactNode; title: string; caption: string }[] = [
+  const tabMeta: { value: "coming" | "following" | "ranked" | "double" | "cappers" | "scorecard"; label: string; count?: number; icon: ReactNode; title: string; caption: string }[] = [
     { value: "ranked", label: "Ranked Picks", count: rankedN, icon: <IconTrophy />, title: "Ranked Picks", caption: "$1,000+ singles and combos · best to worst · today in PT, after 7pm + tomorrow" },
+    { value: "double", label: "Double", count: bestDoubleCount(now) || undefined, icon: <IconTrophy />, title: "Best Double", caption: "Two strongest bets on two different games · both legs must win" },
     { value: "coming", label: "Coming Up", count: comingN, icon: <IconList />, title: "Coming Up", caption: "$1,000+ singles and combos, soonest first · live first" },
     { value: "cappers", label: "Cappers", count: (((DATA as any).topCappers && (DATA as any).topCappers.cappers) ? (DATA as any).topCappers.cappers.length : followedN), icon: <IconUsers />, title: "Cappers", caption: "Top 100 Sports Cappers Log · Best Cappers first · official profit and closed record" },
     { value: "scorecard", label: "Scorecard", icon: <IconChart />, title: "Scorecard", caption: "Yesterday’s scanner picks · W–L and flat $1" },
@@ -2475,6 +2783,7 @@ export default function App() {
             {tab === "coming" ? <ComingUpTab games={games} now={now} query={query} filter={filter} /> : null}
             {tab === "following" ? <FollowingTab now={now} query={query} filter={filter} /> : null}
             {tab === "ranked" ? <RankedTab games={games} now={now} query={query} filter={filter} /> : null}
+            {tab === "double" ? <DoubleTab now={now} /> : null}
             {tab === "cappers" ? <CappersTab now={now} query={query} filter={filter} /> : null}
             {tab === "scorecard" ? <ScorecardTab /> : null}
             <p style={{ margin: "16px 0 0", fontSize: 13, fontWeight: 650, color: "#64748B" }}>Public Kalshi leaderboards, profiles, and the sports trade tape. Records are never invented.</p>
