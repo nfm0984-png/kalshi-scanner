@@ -3367,7 +3367,20 @@
       "game": "Malla vs Bini",
       "label": "Bastian Malla",
       "league": "Tennis"
+    },
+    "jspana99|KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11|No": {
+      "capper": "jspana99",
+      "ticker": "KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11",
+      "side": "No",
+      "price": 0.53,
+      "startTs": 1795825800,
+      "firstTs": 1795824025,
+      "combo": false,
+      "status": "open",
+      "game": "Texas vs Texas A&M: Spread",
+      "label": "Texas wins by over 10.5 points",
+      "league": "NCAAF"
     }
   },
-  "updatedTs": 1795820910
+  "updatedTs": 1795824025
 }

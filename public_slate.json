@@ -1,15 +1,24 @@
 {
   "source": "kalshi",
-  "ts": 1795822091,
-  "updatedAt": "Fri Nov 27 \u00b7 3:28 PM PT",
+  "ts": 1795825182,
+  "updatedAt": "Fri Nov 27 \u00b7 4:19 PM PT",
   "picks": [
     {
-      "ticker": "KXNCAAMBGAME-26NOV27CINBC-BC",
+      "ticker": "KXNBATOTAL-26NOV27MIANYK-230",
       "yesNo": "Yes",
-      "side": "Boston College",
-      "game": "Cincinnati vs Boston College",
-      "startTs": 1795815000,
-      "bt": "Moneyline",
+      "side": "Over 229.5 points",
+      "game": "Miami vs New York: Total Points",
+      "startTs": 1795824000,
+      "bt": "Totals",
+      "n": 1
+    },
+    {
+      "ticker": "KXNCAAFSPREAD-26NOV27TEXTXAM-TEX11",
+      "yesNo": "No",
+      "side": "Texas wins by over 10.5 points",
+      "game": "Texas vs Texas A&M: Spread",
+      "startTs": 1795825800,
+      "bt": "Spread",
       "n": 1
     },
     {
